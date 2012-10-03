@@ -1,0 +1,40 @@
+/* 
+ * DNet eBusiness Suite
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
+ */
+
+package net.nan21.dnet.module.sc.order.business.service;
+
+import java.util.List;
+import net.nan21.dnet.core.api.service.IEntityService;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
+import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
+import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
+import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem;
+import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItemTax;
+
+public interface IPurchaseOrderItemService extends IEntityService<PurchaseOrderItem> {
+	
+	public List<PurchaseOrderItem> findByPurchaseOrder(PurchaseOrder purchaseOrder);
+	
+	public List<PurchaseOrderItem> findByPurchaseOrderId(Long purchaseOrderId);
+	
+	public List<PurchaseOrderItem> findByProduct(Product product);
+	
+	public List<PurchaseOrderItem> findByProductId(Long productId);
+	
+	public List<PurchaseOrderItem> findByUom(Uom uom);
+	
+	public List<PurchaseOrderItem> findByUomId(Long uomId);
+	
+	public List<PurchaseOrderItem> findByTax(Tax tax);
+	
+	public List<PurchaseOrderItem> findByTaxId(Long taxId);
+	
+	public List<PurchaseOrderItem> findByItemTaxes(PurchaseOrderItemTax itemTaxes);
+	
+	public List<PurchaseOrderItem> findByItemTaxesId(Long itemTaxesId);
+	
+}

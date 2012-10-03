@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"	 
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">   
+	<bean id="ProjectCategoryService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.ProjectCategoryService"/>
+	<bean id="ProjectTypeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.ProjectTypeService"/>
+	<bean id="ProjectRoleService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.ProjectRoleService"/>
+	<bean id="ProjectStatusService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.ProjectStatusService"/>
+	<bean id="IssueCategoryService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueCategoryService"/>
+	<bean id="IssueTypeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueTypeService"/>
+	<bean id="IssueStatusService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueStatusService"/>
+	<bean id="IssuePriorityService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssuePriorityService"/>
+	<bean id="IssueSeverityService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueSeverityService"/>
+	<bean id="IssueResolutionService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueResolutionService"/>
+	<bean id="IssueTextTypeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueTextTypeService"/>
+	<bean id="IssueLinkTypeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueLinkTypeService"/>
+	<bean id="IssueTaskTypeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueTaskTypeService"/>
+	<bean id="IssueTaskStatusService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.pj.base.business.serviceimpl.IssueTaskStatusService"/>
+</beans>

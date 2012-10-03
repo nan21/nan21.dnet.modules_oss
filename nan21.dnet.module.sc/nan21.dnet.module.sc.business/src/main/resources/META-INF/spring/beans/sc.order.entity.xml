@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"	 
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">   
+	<bean id="PurchaseOrderService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sc.order.business.serviceimpl.PurchaseOrderService"/>
+	<bean id="PurchaseOrderItemService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sc.order.business.serviceext.PurchaseOrderItemService"/>
+	<bean id="PurchaseOrderTaxService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sc.order.business.serviceimpl.PurchaseOrderTaxService"/>
+	<bean id="PurchaseOrderItemTaxService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sc.order.business.serviceimpl.PurchaseOrderItemTaxService"/>
+	<bean id="PurchaseInventoryTransactionService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sc.order.business.serviceimpl.PurchaseInventoryTransactionService"/>
+</beans>

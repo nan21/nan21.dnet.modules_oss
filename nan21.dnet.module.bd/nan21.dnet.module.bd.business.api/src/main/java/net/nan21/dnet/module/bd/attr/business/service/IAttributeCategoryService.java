@@ -1,0 +1,16 @@
+/* 
+ * DNet eBusiness Suite
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
+ */
+
+package net.nan21.dnet.module.bd.attr.business.service;
+
+import net.nan21.dnet.core.api.service.IEntityService;
+import net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory;
+
+public interface IAttributeCategoryService extends IEntityService<AttributeCategory> {
+	
+	public AttributeCategory findByName(String name);
+	
+}

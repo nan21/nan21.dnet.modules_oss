@@ -1,0 +1,75 @@
+/*
+ * DNet eBusiness Suite
+ * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
+ */
+Ext.define("net.nan21.dnet.module.bd.geo.ds.model.LocationDs" ,{
+	extend: 'Ext.data.Model',
+	fields: [
+		{name:"active", type:"boolean"},
+		{name:"adress", type:"string"},
+		{name:"billing", type:"boolean"},
+		{name:"cityId", type:"int", useNull:true},
+		{name:"cityName", type:"string"},
+		{name:"clientId", type:"int", useNull:true},
+		{name:"countryCode", type:"string"},
+		{name:"countryId", type:"int", useNull:true},
+		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"createdBy", type:"string"},
+		{name:"entityFQN", type:"string"},
+		{name:"id", type:"int", useNull:true},
+		{name:"mailing", type:"boolean"},
+		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"modifiedBy", type:"string"},
+		{name:"notes", type:"string"},
+		{name:"regionCode", type:"string"},
+		{name:"regionId", type:"int", useNull:true},
+		{name:"regionName", type:"string"},
+		{name:"shipping", type:"boolean"},
+		{name:"targetType", type:"string"},
+		{name:"targetUuid", type:"string"},
+		{name:"uuid", type:"string"},
+		{name:"version", type:"int", useNull:true}
+	]});
+Ext.define("net.nan21.dnet.module.bd.geo.ds.model.LocationDsFilter" ,{
+	extend: 'Ext.data.Model',
+	fields: [
+		{name:"active", type:"boolean", useNull:true},
+		{name:"adress", type:"string"},
+		{name:"billing", type:"boolean", useNull:true},
+		{name:"cityId", type:"int", useNull:true},
+		{name:"cityId_From",type:"int", useNull:true},
+		{name:"cityId_To",type:"int", useNull:true},
+		{name:"cityName", type:"string"},
+		{name:"countryCode", type:"string"},
+		{name:"countryId", type:"int", useNull:true},
+		{name:"countryId_From",type:"int", useNull:true},
+		{name:"countryId_To",type:"int", useNull:true},
+		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"createdBy", type:"string"},
+		{name:"entityFQN", type:"string"},
+		{name:"id", type:"int", useNull:true},
+		{name:"mailing", type:"boolean", useNull:true},
+		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"modifiedAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"modifiedBy", type:"string"},
+		{name:"notes", type:"string"},
+		{name:"regionCode", type:"string"},
+		{name:"regionId", type:"int", useNull:true},
+		{name:"regionId_From",type:"int", useNull:true},
+		{name:"regionId_To",type:"int", useNull:true},
+		{name:"regionName", type:"string"},
+		{name:"shipping", type:"boolean", useNull:true},
+		{name:"targetType", type:"string"},
+		{name:"targetUuid", type:"string"},
+		{name:"uuid", type:"string"}
+	]
+});
+Ext.define("net.nan21.dnet.module.bd.geo.ds.param.LocationDsParam", {
+	extend: 'Ext.data.Model',
+	fields: [ 
+	]
+});

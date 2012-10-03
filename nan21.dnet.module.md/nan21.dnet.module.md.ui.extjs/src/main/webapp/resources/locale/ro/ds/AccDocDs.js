@@ -1,0 +1,26 @@
+Ext.define("net.nan21.dnet.module.md.tx.acc.ds.model.AccDocDs$Trl", {
+	
+	accSchemaId__lbl: "Schemă(ID)",
+	accSchema__lbl: "Schemă",
+	bpartnerId__lbl: "Terţ(ID)",
+	bpartner__lbl: "Terţ",
+	crAmount__lbl: "Total credit",
+	dbAmount__lbl: "Total debit",
+	difference__lbl: "Diferenţă",
+	docAmount__lbl: "Total doc",
+	docCurrencyId__lbl: "Monedă(ID)",
+	docCurrency__lbl: "Monedă",
+	docDate__lbl: "Data doc",
+	docNetAmount__lbl: "Total net",
+	docNo__lbl: "Nr doc",
+	docTaxAmount__lbl: "Total taxe",
+	docTypeId__lbl: "Tip doc(ID)",
+	docType__lbl: "Tip doc",
+	journalId__lbl: "Jurnal(ID)",
+	journal__lbl: "Jurnal",
+	orgId__lbl: "Unitate(ID)",
+	org__lbl: "Unitate",
+	periodId__lbl: "Perioadă(ID)",
+	period__lbl: "Perioadă",
+	posted__lbl: "Inregistrat"
+});

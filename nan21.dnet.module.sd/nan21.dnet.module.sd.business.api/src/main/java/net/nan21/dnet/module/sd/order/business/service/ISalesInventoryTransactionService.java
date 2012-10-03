@@ -1,0 +1,35 @@
+/* 
+ * DNet eBusiness Suite
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
+ */
+
+package net.nan21.dnet.module.sd.order.business.service;
+
+import java.util.List;
+import net.nan21.dnet.core.api.service.IEntityService;
+import net.nan21.dnet.module.bd.geo.domain.entity.Location;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.bp.domain.entity.Contact;
+import net.nan21.dnet.module.sd.order.domain.entity.SalesInventoryTransaction;
+import net.nan21.dnet.module.sd.order.domain.entity.SalesOrder;
+
+public interface ISalesInventoryTransactionService extends IEntityService<SalesInventoryTransaction> {
+	
+	public List<SalesInventoryTransaction> findByCustomer(BusinessPartner customer);
+	
+	public List<SalesInventoryTransaction> findByCustomerId(Long customerId);
+	
+	public List<SalesInventoryTransaction> findByDeliveryLocation(Location deliveryLocation);
+	
+	public List<SalesInventoryTransaction> findByDeliveryLocationId(Long deliveryLocationId);
+	
+	public List<SalesInventoryTransaction> findByDeliveryContact(Contact deliveryContact);
+	
+	public List<SalesInventoryTransaction> findByDeliveryContactId(Long deliveryContactId);
+	
+	public List<SalesInventoryTransaction> findBySalesOrder(SalesOrder salesOrder);
+	
+	public List<SalesInventoryTransaction> findBySalesOrderId(Long salesOrderId);
+	
+}

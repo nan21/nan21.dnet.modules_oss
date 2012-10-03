@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:osgi-compendium="http://www.springframework.org/schema/osgi-compendium"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/osgi-compendium
+    			http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
+    			
+	<context:annotation-config />
+	<bean id="initDataProviderFactory" class="net.nan21.dnet.core.api.setup.InitDataProviderFactory">
+		<property name="name" value="nan21.dnet.module.bd.data"></property>
+	</bean>
+	
+	
+	<bean id="initDataProvider" scope="prototype"
+		class="net.nan21.dnet.core.api.setup.InitDataProvider">
+		<property name="list">
+			<list>
+				<!-- SETUP DATA -->
+				
+				<!-- DEMO DATA -->
+				
+				<bean class="net.nan21.dnet.core.api.setup.InitData">
+					<property name="sequence" value="110" />
+					<property name="name" value="demo_bd" />
+					<property name="items">
+						<list>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="10" />
+								<property name="dsName" value="Currency" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Currency.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="20" />
+								<property name="dsName" value="CurrencyXRateProvider" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/CurrencyXRateProvider.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="30" />
+								<property name="dsName" value="UomType" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/UomType.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="40" />
+								<property name="dsName" value="Uom" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Uom.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="50" />
+								<property name="dsName" value="Country" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Country.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="60" />
+								<property name="dsName" value="Region" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Region.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="70" />
+								<property name="dsName" value="Location" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Location.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="80" />
+								<property name="dsName" value="CommunicationChannelType" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/CommunicationChannelType.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="90" />
+								<property name="dsName" value="OrganizationType" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/OrganizationType.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="100" />
+								<property name="dsName" value="Organization" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Organization.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="110" />
+								<property name="dsName" value="ClassificationSystem" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/ClassificationSystem.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="120" />
+								<property name="dsName" value="ClassificationItem" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/ClassificationItem.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="130" />
+								<property name="dsName" value="Engine" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Engine.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="140" />
+								<property name="dsName" value="ElementCategory" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/ElementCategory.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="150" />
+								<property name="dsName" value="ElementType" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/ElementType.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="160" />
+								<property name="dsName" value="AttributeCategory" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/AttributeCategory.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="170" />
+								<property name="dsName" value="Attribute" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Attribute.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="180" />
+								<property name="dsName" value="AttributeSet" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/AttributeSet.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="190" />
+								<property name="dsName" value="AttributeSetAttribute" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/AttributeSetAttribute.csv" />
+							</bean>
+						
+							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
+								<property name="sequence" value="200" />
+								<property name="dsName" value="Calendar" />
+								<property name="destPath" value="demo-data/bd" />
+								<property name="file"
+									value="classpath:net/nan21/dnet/module/bd/data/demo/Calendar.csv" />
+							</bean>
+						
+						</list>
+					</property>		
+				</bean>		
+				
+			</list>			
+		</property>
+	</bean>
+</beans>
+   

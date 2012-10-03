@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== Payment ==================== -->
+	
+	<bean id="PaymentDsService" scope="prototype"
+			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.Payment"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="Payment" />
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs" />
+	</bean>
+	
+	<!-- ==================== PaymentItem ==================== -->
+	
+	<bean id="PaymentItemDsService" scope="prototype"
+			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentItemDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
+		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemDsConv" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="PaymentItem" />
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs" />
+	</bean>
+	
+	<!-- ==================== PaymentItemProduct ==================== -->
+	
+	<bean id="PaymentItemProductDsService" scope="prototype"
+			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemProductDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentItemProductDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
+		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemProductDsConv" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="PaymentItemProduct" />
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemProductDs" />
+	</bean>
+	
+	<!-- ==================== PaymentItemAccItem ==================== -->
+	
+	<bean id="PaymentItemAccItemDsService" scope="prototype"
+			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentItemAccItemDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
+		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemAccItemDsConv" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="PaymentItemAccItem" />
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDs" />
+	</bean>
+	
+	<!-- ==================== TxBalance ==================== -->
+	
+	<bean id="TxBalanceDsService" scope="prototype"
+			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.TxBalanceDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.TxBalance"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="TxBalance" />
+		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDs" />
+	</bean>
+</beans>

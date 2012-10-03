@@ -1,0 +1,246 @@
+code;name;iso2;iso3;hasRegions;active
+AFGHANISTAN;Afghanistan;AF;;false;false
+AILAND_ISLANDS;Ailand Islands;AX;;false;false
+ALBANIA;Albania;AL;;false;false
+ALGERIA;Algeria;DZ;;false;false
+AMERICAN_SAMOA;American samoa;AS;;false;false
+ANDORRA;Andorra;AD;;false;false
+ANGOLA;Angola;AO;;false;false
+ANGUILLA;Anguilla;AI;;false;false
+ANTARCTICA;Antarctica;AQ;;false;false
+ANTIGUA_BARBUDA;Antigua and Barbuda;AG;;false;false
+ARAB_EMIRATES;United arab emirates;AE;;false;false
+ARGENTINA;Argentina;AR;;false;false
+ARMENIA;Armenia;AM;;false;false
+ARUBA;Aruba;AW;;false;false
+AUSTRALIA;Australia;AU;;false;false
+AUSTRIA;Austria;AT;;false;false
+AZERBAIJAN;Azerbaijan;AZ;;false;false
+BAHAMAS;Bahamas;BS;;false;false
+BAHRAIN;Bahrain;BH;;false;false
+BANGLADESH;Bangladesh;BD;;false;false
+BARBADOS;Barbados;BB;;false;false
+BELARUS;Belarus;BY;;false;false
+BELGIUM;Belgium;BE;;false;false
+BELIZE;Belize;BZ;;false;false
+BENIN;Benin;BJ;;false;false
+BERMUDA;Bermuda;BM;;false;false
+BHUTAN;Bhutan;BT;;false;false
+BOLIVIA;"Bolivia, plurinational state of";BO;;false;false
+BOSNIA-HERZEGOVINA;Bosnia and herzegovina;BA;;false;false
+BOTSWANA;Botswana;BW;;false;false
+BOUVET-ISLAND;Bouvet island;BV;;false;false
+BRAZIL;Brazil;BR;;false;false
+BRITISH-INDIAN-OCEAN;British indian ocean territory;IO;;false;false
+BRUNEI;Brunei darussalam;BN;;false;false
+BULGARIA;Bulgaria;BG;;false;false
+BURKINA;Burkina faso;BF;;false;false
+BURUNDI;Burundi;BI;;false;false
+CAMBODIA;Cambodia;KH;;false;false
+CAMEROON;Cameroon;CM;;false;false
+CANADA;Canada;CA;;false;false
+CAPE VERDE;Cape verde;CV;;false;false
+CAYMAN-ISLANDS;Cayman islands;KY;;false;false
+CENTRAL-AFRICA;Central african republic;CF;;false;false
+CHAD;Chad;TD;;false;false
+CHILE;Chile;CL;;false;false
+CHINA;China;CN;;false;false
+CHRISTMAS-ISLAND;Christmas island;CX;;false;false
+COCOS-ISLANDS;Cocos (keeling) islands;CC;;false;false
+COLOMBIA;Colombia;CO;;false;false
+COMOROS;Comoros;KM;;false;false
+CONGO;Congo;CG;;false;false
+CONGO-DR;"Congo, the democratic republic of the";CD;;false;false
+COOK-ISLANDS;Cook islands;CK;;false;false
+COSTARICA;Costa rica;CR;;false;false
+COTE-DIVOIRE;Cote d'ivoire;CI;;false;false
+CROATIA;Croatia;HR;;false;false
+CUBA;Cuba;CU;;false;false
+CYPRUS;Cyprus;CY;;false;false
+CZECH;Czech republic;CZ;;false;false
+DENMARK;Denmark;DK;;false;false
+DJIBOUTI;Djibouti;DJ;;false;false
+DOMINICA;Dominica;DM;;false;false
+DOMINICAN REPUBLIC;Dominican republic;DO;;false;false
+ECUADOR;Ecuador;EC;;false;false
+EGYPT;Egypt;EG;;false;false
+ELSALVADOR;El salvador;SV;;false;false
+EQUATORIAL-GUINEA;Equatorial guinea;GQ;;false;false
+ERITREA;Eritrea;ER;;false;false
+ESTONIA;Estonia;EE;;false;false
+ETHIOPIA;Ethiopia;ET;;false;false
+FALKLAND-ISLANDS;Falkland islands (malvinas);FK;;false;false
+FAROE-ISLANDS;Faroe islands;FO;;false;false
+FIJI;Fiji;FJ;;false;false
+FINLAND;Finland;FI;;false;false
+FRANCE;France;FR;;false;false
+FRENCH GUIANA;French guiana;GF;;false;false
+FRENCH POLYNESIA;French polynesia;PF;;false;false
+FRENCH SOUTHERN TERRITORIES;French southern territories;TF;;false;false
+GABON;Gabon;GA;;false;false
+GAMBIA;Gambia;GM;;false;false
+GEORGIA;Georgia;GE;;false;false
+GERMANY;Germany;DE;;false;false
+GHANA;Ghana;GH;;false;false
+GIBRALTAR;Gibraltar;GI;;false;false
+GREECE;Greece;GR;;false;false
+GREENLAND;Greenland;GL;;false;false
+GRENADA;Grenada;GD;;false;false
+GUADELOUPE;Guadeloupe;GP;;false;false
+GUAM;Guam;GU;;false;false
+GUATEMALA;Guatemala;GT;;false;false
+GUERNSEY;Guernsey;GG;;false;false
+GUINEA;Guinea;GN;;false;false
+GUINEA-BISSAU;Guinea-bissau;GW;;false;false
+GUYANA;Guyana;GY;;false;false
+HAITI;Haiti;HT;;false;false
+HEARD-ISLAND;Heard island and mcdonald islands;HM;;false;false
+HONDURAS;Honduras;HN;;false;false
+HONGKONG;Hong kong;HK;;false;false
+HUNGARY;Hungary;HU;;false;false
+ICELAND;Iceland;IS;;false;false
+INDIA;India;IN;;false;false
+INDONESIA;Indonesia;ID;;false;false
+IRAN;"Iran, islamic republic of";IR;;false;false
+IRAQ;Iraq;IQ;;false;false
+IRELAND;Ireland;IE;;false;false
+ISLE-MAN;Isle of man;IM;;false;false
+ISRAEL;Israel;IL;;false;false
+ITALY;Italy;IT;;false;false
+JAMAICA;Jamaica;JM;;false;false
+JAPAN;Japan;JP;;false;false
+JERSEY;Jersey;JE;;false;false
+JORDAN;Jordan;JO;;false;false
+KAZAKHSTAN;Kazakhstan;KZ;;false;false
+KENYA;Kenya;KE;;false;false
+KIRIBATI;Kiribati;KI;;false;false
+KUWAIT;Kuwait;KW;;false;false
+KYRGYZSTAN;Kyrgyzstan;KG;;false;false
+LAO;Lao people's democratic republic;LA;;false;false
+LATVIA;Latvia;LV;;false;false
+LEBANON;Lebanon;LB;;false;false
+LESOTHO;Lesotho;LS;;false;false
+LIBERIA;Liberia;LR;;false;false
+LIBYA;Libyan arab jamahiriya;LY;;false;false
+LIECHTENSTEIN;Liechtenstein;LI;;false;false
+LITHUANIA;Lithuania;LT;;false;false
+LUXEMBOURG;Luxembourg;LU;;false;false
+MACAO;Macao;MO;;false;false
+MACEDONIA;"Macedonia, the former yugoslav republic of";MK;;false;false
+MADAGASCAR;Madagascar;MG;;false;false
+MALAWI;Malawi;MW;;false;false
+MALAYSIA;Malaysia;MY;;false;false
+MALDIVES;Maldives;MV;;false;false
+MALI;Mali;ML;;false;false
+MALTA;Malta;MT;;false;false
+MARSHALL-ISLANDS;Marshall islands;MH;;false;false
+MARTINIQUE;Martinique;MQ;;false;false
+MAURITANIA;Mauritania;MR;;false;false
+MAURITIUS;Mauritius;MU;;false;false
+MAYOTTE;Mayotte;YT;;false;false
+MEXICO;Mexico;MX;;false;false
+MICRONESIA;"Micronesia, federated states of";FM;;false;false
+MOLDOVA;"Moldova, republic of";MD;;false;false
+MONACO;Monaco;MC;;false;false
+MONGOLIA;Mongolia;MN;;false;false
+MONTENEGRO;Montenegro;ME;;false;false
+MONTSERRAT;Montserrat;MS;;false;false
+MOROCCO;Morocco;MA;;false;false
+MOZAMBIQUE;Mozambique;MZ;;false;false
+MYANMAR;Myanmar;MM;;false;false
+NAMIBIA;Namibia;NA;;false;false
+NAURU;Nauru;NR;;false;false
+NEPAL;Nepal;NP;;false;false
+NETHERLANDS;Netherlands;NL;;false;false
+NETHERLANDS-ANTILLES;Netherlands antilles;AN;;false;false
+NEWCALEDONIA;New caledonia;NC;;false;false
+NEWZEALAND;New zealand;NZ;;false;false
+NICARAGUA;Nicaragua;NI;;false;false
+NIGER;Niger;NE;;false;false
+NIGERIA;Nigeria;NG;;false;false
+NIUE;Niue;NU;;false;false
+NORFOLK-ISLAND;Norfolk island;NF;;false;false
+NORTH-KOREA;"Korea, democratic people's republic of";KP;;false;false
+NORTHERNMARIANA-ISLANDS;Northern mariana islands;MP;;false;false
+NORWAY;Norway;NO;;false;false
+OMAN;Oman;OM;;false;false
+PAKISTAN;Pakistan;PK;;false;false
+PALAU;Palau;PW;;false;false
+PALESTINIA;"Palestinian territory, occupied";PS;;false;false
+PANAMA;Panama;PA;;false;false
+PAPUA NEW GUINEA;Papua new guinea;PG;;false;false
+PARAGUAY;Paraguay;PY;;false;false
+PERU;Peru;PE;;false;false
+PHILIPPINES;Philippines;PH;;false;false
+PITCAIRN;Pitcairn;PN;;false;false
+POLAND;Poland;PL;;false;false
+PORTUGAL;Portugal;PT;;false;false
+PUERTORICO;Puerto rico;PR;;false;false
+QATAR;Qatar;QA;;false;false
+REUNION;Reunion;RE;;false;false
+ROMANIA;Romania;RO;;true;true
+RUSSIA;Russian federation;RU;;false;false
+RWANDA;Rwanda;RW;;false;false
+SAINT-BARTHELEMY;Saint barthelemy;BL;;false;false
+SAINT-HELENA;"Saint helena, ascension and tristan da cunha";SH;;false;false
+SAINT-KITTS;Saint kitts and nevis;KN;;false;false
+SAINT-LUCIA;Saint lucia;LC;;false;false
+SAINT-MARTIN;Saint martin;MF;;false;false
+SAINT-PIERRE;Saint pierre and miquelon;PM;;false;false
+SAINT-VINCENT;Saint vincent and the grenadines;VC;;false;false
+SAMOA;Samoa;WS;;false;false
+SANMARINO;San marino;SM;;false;false
+SAOTOME;Sao tome and principe;ST;;false;false
+SAUDIARABIA;Saudi arabia;SA;;false;false
+SENEGAL;Senegal;SN;;false;false
+SERBIA;Serbia;RS;;false;false
+SEYCHELLES;Seychelles;SC;;false;false
+SIERRALEONE;Sierra leone;SL;;false;false
+SINGAPORE;Singapore;SG;;false;false
+SLOVAKIA;Slovakia;SK;;false;false
+SLOVENIA;Slovenia;SI;;false;false
+SOLOMON-ISLANDS;Solomon islands;SB;;false;false
+SOMALIA;Somalia;SO;;false;false
+SOUTH-KOREA;"Korea, republic of";KR;;false;false
+SOUTHAFRICA;South africa;ZA;;false;false
+SOUTHGEORGIA;South georgia and the south sandwich islands;GS;;false;false
+SPAIN;Spain;ES;;false;false
+SRILANKA;Sri lanka;LK;;false;false
+SUDAN;Sudan;SD;;false;false
+SURINAME;Suriname;SR;;false;false
+SVALBARD;Svalbard and jan mayen;SJ;;false;false
+SWAZILAND;Swaziland;SZ;;false;false
+SWEDEN;Sweden;SE;;false;false
+SWITZERLAND;Switzerland;CH;;false;false
+SYRIA;Syrian arab republic;SY;;false;false
+TAIWAN;"Taiwan, province of china";TW;;false;false
+TAJIKISTAN;Tajikistan;TJ;;false;false
+TANZANIA;"Tanzania, united republic of";TZ;;false;false
+THAILAND;Thailand;TH;;false;false
+TIMOR-LESTE;Timor-leste;TL;;false;false
+TOGO;Togo;TG;;false;false
+TOKELAU;Tokelau;TK;;false;false
+TONGA;Tonga;TO;;false;false
+TRINIDAD_TOBAGO;Trinidad and tobago;TT;;false;false
+TUNISIA;Tunisia;TN;;false;false
+TURKEY;Turkey;TR;;false;false
+TURKMENISTAN;Tturkmenistan;TM;;false;false
+TURKS_CAICOS_ISLANDS;Turks and caicos islands;TC;;false;false
+TUVALU;Tuvalu;TV;;false;false
+UGANDA;Uganda;UG;;false;false
+UK;United kingdom;GB;;false;false
+UKRAINE;Ukraine;UA;;false;false
+URUGUAY;Uruguay;UY;;false;false
+US;United states;US;;false;true
+UZBEKISTAN;Uzbekistan;UZ;;false;false
+VANUATU;Vanuatu;VU;;false;false
+VATICAN;Holy see (vatican city state);VA;;false;false
+VENEZUELA;"Venezuela, bolivarian republic of";VE;;false;false
+VIET NAM;Viet nam;VN;;false;false
+VIRGIN_ISLANDS_UK;"Virgin islands, british";VG;;false;false
+VIRGIN_ISLANDS_US;"Virgin islands, u.s.";VI;;false;false
+WALLIS_FUTUNA;Wallis and futuna;WF;;false;false
+WESTERN_SAHARA;Western sahara;EH;;false;false
+YEMEN;Yemen;YE;;false;false
+ZAMBIA;Zambia;ZM;;false;false
+ZIMBABWE;Zimbabwe;ZW;;false;false
