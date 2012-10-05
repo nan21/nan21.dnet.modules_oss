@@ -8,7 +8,7 @@
 		<version>1.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>nan21.dnet.module.pj.data</artifactId>
-	<name>DNet PJ - data</name>
+	<name>DNet PJ - Data</name>
 	<description>PJ module initial data provider.</description>
 	<packaging>jar</packaging>
 	

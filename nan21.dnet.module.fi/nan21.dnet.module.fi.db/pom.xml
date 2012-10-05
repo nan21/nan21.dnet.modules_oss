@@ -8,7 +8,7 @@
 		<version>1.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>nan21.dnet.module.fi.db</artifactId>
-	<name>DNet FI - db</name>
-	<description>DNet FI - DB objects</description>
+	<name>DNet FI - DB</name>
+	<description>FI module database objects definition.</description>
 	<packaging>jar</packaging>
 </project>

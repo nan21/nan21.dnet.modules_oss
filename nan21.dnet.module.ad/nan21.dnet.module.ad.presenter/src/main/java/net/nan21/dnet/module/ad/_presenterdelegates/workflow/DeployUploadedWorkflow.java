@@ -7,9 +7,9 @@ import java.util.zip.ZipInputStream;
 
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
-import org.springframework.web.multipart.MultipartFile;
 
 import net.nan21.dnet.core.api.action.IFileUploadResult;
+import net.nan21.dnet.core.api.model.IUploadedFileDescriptor;
 import net.nan21.dnet.core.api.service.IFileUploadService;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.presenter.service.AbstractFileUploadService;
@@ -21,24 +21,23 @@ public class DeployUploadedWorkflow extends AbstractFileUploadService implements
 		IFileUploadService {
 
 	@Override
-	public IFileUploadResult execute(String name, MultipartFile file,
-			String p1, String p2) throws Exception {
-		if (file.isEmpty()) {
-			throw new Exception("Upload was not succesful. Try again please.");
-		}
+	public IFileUploadResult execute(IUploadedFileDescriptor fileDescriptor,
+			InputStream inputStream, Map<String, String> uploadParams)
+			throws Exception {
+
+		String name = fileDescriptor.getNewName();
 		String deploymentName = (name != null && !name.equals("")) ? name
-				: file.getOriginalFilename();
-		// deploymentName = Session.user.get().getClientId() + ":"
-		// + deploymentName;
+				: fileDescriptor.getOriginalName();
+
 		InputStream stream = null;
 
 		try {
-			stream = file.getInputStream();
-			ZipInputStream inputStream = new ZipInputStream(stream);
+
+			ZipInputStream zipInputStream = new ZipInputStream(inputStream);
 
 			RepositoryService rs = getWorkflowEngine().getRepositoryService();
 			Deployment d = rs.createDeployment().name(deploymentName)
-					.addZipInputStream(inputStream).deploy();
+					.addZipInputStream(zipInputStream).deploy();
 
 			// update clientId
 

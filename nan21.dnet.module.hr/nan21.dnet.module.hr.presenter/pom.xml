@@ -20,25 +20,31 @@
 		
 		<dependency>
 			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.module.md.business.api</artifactId>
+			<artifactId>nan21.dnet.core.api</artifactId>
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.module.hr.domain</artifactId>
-			<version>1.0.3-SNAPSHOT</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.module.ad.domain</artifactId>
+			<artifactId>nan21.dnet.core.domain</artifactId>
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>net.nan21.dnet</groupId>
 			<artifactId>nan21.dnet.core.presenter</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>net.nan21.dnet</groupId>
+			<artifactId>nan21.dnet.module.ad.business.api</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>net.nan21.dnet</groupId>
+			<artifactId>nan21.dnet.module.ad.domain</artifactId>
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
@@ -56,13 +62,19 @@
 		</dependency>
 		<dependency>
 			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.core.domain</artifactId>
+			<artifactId>nan21.dnet.module.hr.business.api</artifactId>
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.module.hr.business.api</artifactId>
+			<artifactId>nan21.dnet.module.hr.domain</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>net.nan21.dnet</groupId>
+			<artifactId>nan21.dnet.module.md.business.api</artifactId>
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
@@ -72,27 +84,9 @@
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.core.api</artifactId>
-			<version>1.0.3-SNAPSHOT</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.module.ad.business.api</artifactId>
-			<version>1.0.3-SNAPSHOT</version>
-			<type>jar</type>
-		</dependency>
 	
 		<!-- External libraries -->
 		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.orm</artifactId>
-			<version>${spring.version}</version>
-			<type>jar</type>
-		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-engine</artifactId>
@@ -100,9 +94,21 @@
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.beans</artifactId>
-			<version>${spring.version}</version>
+			<groupId>javax.mail</groupId>
+			<artifactId>com.springsource.javax.mail</artifactId>
+			<version>1.4.0</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>com.springsource.org.apache.commons.lang</artifactId>
+			<version>2.5.0</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>com.springsource.org.codehaus.jackson</artifactId>
+			<version>1.4.3</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
@@ -113,38 +119,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>org.eclipse.persistence.jpa</artifactId>
-			<version>${eclipselink.version}</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>javax.persistence</artifactId>
 			<version>${jpa.version}</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>com.springsource.org.codehaus.jackson</artifactId>
-			<version>1.4.3</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.jdbc</artifactId>
-			<version>${spring.version}</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>org.eclipse.persistence.core</artifactId>
-			<version>${eclipselink.version}</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.6.2</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
@@ -154,15 +130,39 @@
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>com.springsource.org.apache.commons.lang</artifactId>
-			<version>2.5.0</version>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.core</artifactId>
+			<version>${eclipselink.version}</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>com.springsource.javax.mail</artifactId>
-			<version>1.4.0</version>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.jpa</artifactId>
+			<version>${eclipselink.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.beans</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.jdbc</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.orm</artifactId>
+			<version>${spring.version}</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
@@ -172,9 +172,9 @@
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
-			<version>${spring.version}</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.2</version>
 			<type>jar</type>
 		</dependency>
 	</dependencies>

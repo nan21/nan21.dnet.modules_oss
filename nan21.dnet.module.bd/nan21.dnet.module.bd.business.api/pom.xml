@@ -26,6 +26,12 @@
 		</dependency>
 		<dependency>
 			<groupId>net.nan21.dnet</groupId>
+			<artifactId>nan21.dnet.core.domain</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>net.nan21.dnet</groupId>
 			<artifactId>nan21.dnet.module.ad.domain</artifactId>
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
@@ -36,21 +42,9 @@
 			<version>1.0.3-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>net.nan21.dnet</groupId>
-			<artifactId>nan21.dnet.core.domain</artifactId>
-			<version>1.0.3-SNAPSHOT</version>
-			<type>jar</type>
-		</dependency>
 	
 		<!-- External libraries -->
 		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.orm</artifactId>
-			<version>${spring.version}</version>
-			<type>jar</type>
-		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>com.springsource.javax.validation</artifactId>
@@ -65,25 +59,31 @@
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>${jpa.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>org.eclipse.persistence.jpa</artifactId>
 			<version>${eclipselink.version}</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.transaction</artifactId>
+			<artifactId>org.springframework.context</artifactId>
 			<version>${spring.version}</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>javax.persistence</artifactId>
-			<version>${jpa.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.orm</artifactId>
+			<version>${spring.version}</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
+			<artifactId>org.springframework.transaction</artifactId>
 			<version>${spring.version}</version>
 			<type>jar</type>
 		</dependency>

@@ -1,10 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: DNet PJ - www
+Bundle-Name: DNet PJ - WWW
 Bundle-SymbolicName: nan21.dnet.module.pj.www
 Bundle-Vendor: Nan21 
 Bundle-Version: 1.0.3
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Snap-Host: nan21.dnet.core.www;version="[1.0,2.0)"
+Snap-ContextPath: /pj
 Import-Package: 
  javax.servlet.jsp.jstl.core;version="[1.2,2.0)",
  org.apache.commons.beanutils;version="[1.0,2.0)",

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: DNet PJ - data
+Bundle-Name: DNet PJ - Data
 Bundle-SymbolicName: nan21.dnet.module.pj.data
 Bundle-Vendor: Nan21 
 Bundle-Version: 1.0.3

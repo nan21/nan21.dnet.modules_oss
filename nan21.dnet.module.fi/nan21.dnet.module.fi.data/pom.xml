@@ -8,8 +8,8 @@
 		<version>1.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>nan21.dnet.module.fi.data</artifactId>
-	<name>DNet FI - data</name>
-	<description>DNet FI - initial data</description>
+	<name>DNet FI - Data</name>
+	<description>FI module initial data provider.</description>
 	<packaging>jar</packaging>
 	
 	<!-- ===================== Dependencies ===================== -->

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: DNet PJ - presenter
+Bundle-Name: DNet PJ - Presenter
 Bundle-SymbolicName: nan21.dnet.module.pj.presenter
 Bundle-Vendor: Nan21 
 Bundle-Version: 1.0.3

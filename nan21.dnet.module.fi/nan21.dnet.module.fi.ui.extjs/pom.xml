@@ -8,22 +8,7 @@
 		<version>1.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>nan21.dnet.module.fi.ui.extjs</artifactId>
-	<name>DNet FI - ui extjs</name>
-	<description>DNet FI - extjs user interface</description>
-	<packaging>war</packaging>
-	
-	<!-- ===================== Build ===================== -->
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.springsource.bundlor</groupId>
-				<artifactId>com.springsource.bundlor.maven</artifactId>
-				<version>1.0.0.RELEASE</version>
-				<configuration>
-								<enabled>false</enabled>
-							</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<name>DNet FI - Ui Extjs</name>
+	<description>FI module Extjs based user interface components.</description>
+	<packaging>jar</packaging>
 </project>

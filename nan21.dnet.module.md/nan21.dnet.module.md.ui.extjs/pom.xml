@@ -10,20 +10,5 @@
 	<artifactId>nan21.dnet.module.md.ui.extjs</artifactId>
 	<name>DNet MD - Ui Extjs</name>
 	<description>MD module Extjs based user interface components.</description>
-	<packaging>war</packaging>
-	
-	<!-- ===================== Build ===================== -->
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.springsource.bundlor</groupId>
-				<artifactId>com.springsource.bundlor.maven</artifactId>
-				<version>1.0.0.RELEASE</version>
-				<configuration>
-								<enabled>false</enabled>
-							</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<packaging>jar</packaging>
 </project>
