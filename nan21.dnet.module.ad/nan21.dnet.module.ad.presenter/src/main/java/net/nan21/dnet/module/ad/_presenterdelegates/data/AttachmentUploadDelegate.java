@@ -1,5 +1,6 @@
 package net.nan21.dnet.module.ad._presenterdelegates.data;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -44,6 +45,11 @@ public class AttachmentUploadDelegate extends AbstractFileUploadService
 				fileDescriptor.getOriginalName().lastIndexOf('.') + 1);
 		String newFileName = id + "." + extension;
 
+		File dir = new File (path);
+		if (!dir.exists() ) {
+			dir.mkdirs();
+		}
+		 
 		OutputStream outputStream = new FileOutputStream(path + "/"
 				+ newFileName);
 		IOUtils.copy(inputStream, outputStream);

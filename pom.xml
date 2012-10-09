@@ -33,7 +33,9 @@
 		<gemini_blueprint.version>1.0.0.RELEASE</gemini_blueprint.version>
 		<jpa.version>2.0.3</jpa.version>
 		<eclipselink.version>2.3.0</eclipselink.version>
+		<yui.version>2.4.7</yui.version>
 		<maven_repo_location>${user.home}/.m3/repository</maven_repo_location>
+		<yui.path>${maven_repo_location}/com/yahoo/platform/yui/yuicompressor/${yui.version}/yuicompressor-${yui.version}.jar</yui.path>
 	</properties>
 	
 	<dependencyManagement>

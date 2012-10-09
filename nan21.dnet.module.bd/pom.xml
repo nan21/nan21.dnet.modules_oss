@@ -15,12 +15,12 @@
 	<!-- ========================== Modules ========================== -->
 	
 	<modules>
-		<module>nan21.dnet.module.bd.business</module>
-		<module>nan21.dnet.module.bd.business.api</module>
-		<module>nan21.dnet.module.bd.data</module>
-		<module>nan21.dnet.module.bd.db</module>
 		<module>nan21.dnet.module.bd.domain</module>
+		<module>nan21.dnet.module.bd.business.api</module>
+		<module>nan21.dnet.module.bd.business</module>
 		<module>nan21.dnet.module.bd.presenter</module>
 		<module>nan21.dnet.module.bd.ui.extjs</module>
+		<module>nan21.dnet.module.bd.data</module>
+		<module>nan21.dnet.module.bd.db</module>
 	</modules>
 </project>

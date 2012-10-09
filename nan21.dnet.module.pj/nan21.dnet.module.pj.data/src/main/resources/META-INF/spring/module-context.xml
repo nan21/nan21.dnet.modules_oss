@@ -11,25 +11,27 @@
     			http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
     			
 	<context:annotation-config />
+
 	<bean id="initDataProviderFactory" class="net.nan21.dnet.core.api.setup.InitDataProviderFactory">
 		<property name="name" value="nan21.dnet.module.pj.data"></property>
 	</bean>
-	
-	
+
 	<bean id="initDataProvider" scope="prototype"
 		class="net.nan21.dnet.core.api.setup.InitDataProvider">
 		<property name="list">
 			<list>
+
 				<!-- SETUP DATA -->
-				
+
+
 				<!-- DEMO DATA -->
-				
+
 				<bean class="net.nan21.dnet.core.api.setup.InitData">
 					<property name="sequence" value="510" />
+					<property name="mandatory" value="true" />
 					<property name="name" value="demo_pj" />
 					<property name="items">
 						<list>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="10" />
 								<property name="dsName" value="IssueCategory" />
@@ -37,7 +39,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueCategory.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="20" />
 								<property name="dsName" value="IssueType" />
@@ -45,7 +46,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="30" />
 								<property name="dsName" value="IssueStatus" />
@@ -53,7 +53,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueStatus.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="40" />
 								<property name="dsName" value="IssuePriority" />
@@ -61,7 +60,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssuePriority.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="50" />
 								<property name="dsName" value="IssueSeverity" />
@@ -69,7 +67,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueSeverity.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="60" />
 								<property name="dsName" value="IssueResolution" />
@@ -77,7 +74,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueResolution.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="70" />
 								<property name="dsName" value="ProjectCategory" />
@@ -85,7 +81,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/ProjectCategory.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="80" />
 								<property name="dsName" value="ProjectType" />
@@ -93,7 +88,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/ProjectType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="90" />
 								<property name="dsName" value="ProjectRole" />
@@ -101,7 +95,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/ProjectRole.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="100" />
 								<property name="dsName" value="IssueLinkType" />
@@ -109,7 +102,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueLinkType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="110" />
 								<property name="dsName" value="IssueTaskType" />
@@ -117,7 +109,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueTaskType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="120" />
 								<property name="dsName" value="IssueTaskStatus" />
@@ -125,7 +116,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/IssueTaskStatus.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="130" />
 								<property name="dsName" value="Project" />
@@ -133,7 +123,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/Project.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="140" />
 								<property name="dsName" value="ProjectVersion" />
@@ -141,7 +130,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/ProjectVersion.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="150" />
 								<property name="dsName" value="ProjectComponent" />
@@ -149,7 +137,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/ProjectComponent.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="160" />
 								<property name="dsName" value="ProjectMember" />
@@ -157,13 +144,10 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/pj/data/demo/ProjectMember.csv" />
 							</bean>
-						
 						</list>
-					</property>		
-				</bean>		
-				
-			</list>			
+					</property>
+				</bean>
+			</list>
 		</property>
 	</bean>
 </beans>
-   

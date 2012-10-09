@@ -11,25 +11,27 @@
     			http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
     			
 	<context:annotation-config />
+
 	<bean id="initDataProviderFactory" class="net.nan21.dnet.core.api.setup.InitDataProviderFactory">
 		<property name="name" value="nan21.dnet.module.hr.data"></property>
 	</bean>
-	
-	
+
 	<bean id="initDataProvider" scope="prototype"
 		class="net.nan21.dnet.core.api.setup.InitDataProvider">
 		<property name="list">
 			<list>
+
 				<!-- SETUP DATA -->
-				
+
+
 				<!-- DEMO DATA -->
-				
+
 				<bean class="net.nan21.dnet.core.api.setup.InitData">
 					<property name="sequence" value="410" />
+					<property name="mandatory" value="true" />
 					<property name="name" value="demo_hr" />
 					<property name="items">
 						<list>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="10" />
 								<property name="dsName" value="AbsenceCategory" />
@@ -37,7 +39,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/AbsenceCategory.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="20" />
 								<property name="dsName" value="AbsenceType" />
@@ -45,7 +46,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/AbsenceType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="30" />
 								<property name="dsName" value="AbsenceReason" />
@@ -53,7 +53,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/AbsenceReason.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="40" />
 								<property name="dsName" value="RatingScale" />
@@ -61,7 +60,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/RatingScale.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="50" />
 								<property name="dsName" value="RatingLevel" />
@@ -69,7 +67,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/RatingLevel.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="60" />
 								<property name="dsName" value="SkillCategory" />
@@ -77,7 +74,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/SkillCategory.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="70" />
 								<property name="dsName" value="SkillType" />
@@ -85,7 +81,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/SkillType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="80" />
 								<property name="dsName" value="Skill" />
@@ -93,7 +88,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/Skill.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="90" />
 								<property name="dsName" value="CourseCategory" />
@@ -101,7 +95,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/CourseCategory.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="100" />
 								<property name="dsName" value="CourseType" />
@@ -109,7 +102,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/CourseType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="110" />
 								<property name="dsName" value="Course" />
@@ -117,7 +109,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/Course.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="120" />
 								<property name="dsName" value="EducationType" />
@@ -125,7 +116,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/EducationType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="130" />
 								<property name="dsName" value="EmploymentType" />
@@ -133,7 +123,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/EmploymentType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="140" />
 								<property name="dsName" value="EmployeeContactRelationship" />
@@ -141,7 +130,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/EmployeeContactRelationship.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="150" />
 								<property name="dsName" value="WorkRequirementType" />
@@ -149,7 +137,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/WorkRequirementType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="160" />
 								<property name="dsName" value="WorkRequirement" />
@@ -157,7 +144,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/WorkRequirement.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="170" />
 								<property name="dsName" value="JobType" />
@@ -165,7 +151,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/JobType.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="180" />
 								<property name="dsName" value="PayrollElement" />
@@ -173,7 +158,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/PayrollElement.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="190" />
 								<property name="dsName" value="ElementInput" />
@@ -181,7 +165,6 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/ElementInput.csv" />
 							</bean>
-						
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="200" />
 								<property name="dsName" value="ElementFormula" />
@@ -189,13 +172,10 @@
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/hr/data/demo/ElementFormula.csv" />
 							</bean>
-						
 						</list>
-					</property>		
-				</bean>		
-				
-			</list>			
+					</property>
+				</bean>
+			</list>
 		</property>
 	</bean>
 </beans>
-   

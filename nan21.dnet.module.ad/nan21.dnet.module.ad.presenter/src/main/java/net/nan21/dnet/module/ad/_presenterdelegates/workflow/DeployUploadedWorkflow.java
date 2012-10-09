@@ -28,12 +28,10 @@ public class DeployUploadedWorkflow extends AbstractFileUploadService implements
 		String name = fileDescriptor.getNewName();
 		String deploymentName = (name != null && !name.equals("")) ? name
 				: fileDescriptor.getOriginalName();
-
-		InputStream stream = null;
-
+		ZipInputStream zipInputStream = null;
 		try {
 
-			ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+			zipInputStream = new ZipInputStream(inputStream);
 
 			RepositoryService rs = getWorkflowEngine().getRepositoryService();
 			Deployment d = rs.createDeployment().name(deploymentName)
@@ -58,7 +56,8 @@ public class DeployUploadedWorkflow extends AbstractFileUploadService implements
 					params);
 
 		} finally {
-			stream.close();
+			zipInputStream.close();
+			inputStream.close();
 		}
 
 		return null;
