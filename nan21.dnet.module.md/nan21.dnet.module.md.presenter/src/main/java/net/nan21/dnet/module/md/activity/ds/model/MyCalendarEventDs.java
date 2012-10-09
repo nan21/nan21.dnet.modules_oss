@@ -98,7 +98,7 @@ public class MyCalendarEventDs extends AbstractAuditableDs<CalendarEvent> {
  	@DsField(noUpdate=true)
  	private Long id;
  	
- 	@DsField()
+ 	@DsField(noUpdate=true)
  	private Long clientId;
  	
  	@DsField()
