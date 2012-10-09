@@ -5,7 +5,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.lovs.ProductsWithUom", {
 	displayField:"code",
 	listConfig: {
 		getInnerTpl: function() {
-			return '<span>{code}, {uom}, {name}</span>';
+			return '<span>{uom}, {code}, {name}</span>';
 		},
 		width:250
 	},

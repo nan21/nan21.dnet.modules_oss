@@ -15,6 +15,7 @@
 
 		<!-- Dependencies -->
 
+		<class>net.nan21.dnet.module.ad.system.domain.entity.TempAsgnLine</class>
 		<class>net.nan21.dnet.module.bd.attr.domain.entity.Attribute</class>
 		<class>net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory</class>
 		<class>net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet</class>

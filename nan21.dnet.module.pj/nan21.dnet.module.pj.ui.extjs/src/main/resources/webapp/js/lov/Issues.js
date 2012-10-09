@@ -5,7 +5,7 @@ Ext.define("net.nan21.dnet.module.pj.md.lovs.Issues", {
 	displayField:"code",
 	listConfig: {
 		getInnerTpl: function() {
-			return '<span>{code}, {summary}</span>';
+			return '<span>{summary}, {code}</span>';
 		},
 		width:250
 	},

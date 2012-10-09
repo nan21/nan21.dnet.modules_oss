@@ -5,7 +5,7 @@ Ext.define("net.nan21.dnet.module.bd.org.lovs.LegalEntityOrganizations", {
 	displayField:"code",
 	listConfig: {
 		getInnerTpl: function() {
-			return '<span>{code}, {name}</span>';
+			return '<span>{name}, {code}</span>';
 		},
 		width:250
 	},

@@ -8,6 +8,7 @@ Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Export-Package: 
  net.nan21.dnet.module.sd.invoice.domain.entity;version="1.0.3",
  net.nan21.dnet.module.sd.invoice.domain.eventhandler;version="1.0.3",
+ net.nan21.dnet.module.sd.opportunity.domain.entity;version="1.0.3",
  net.nan21.dnet.module.sd.order.domain.entity;version="1.0.3",
  net.nan21.dnet.module.sd.order.domain.eventhandler;version="1.0.3"
 Import-Package: 

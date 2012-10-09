@@ -9,44 +9,42 @@
 				http://www.springframework.org/schema/context/spring-context.xsd
 			http://www.springframework.org/schema/osgi-compendium
     			http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
-	
+
 	<!-- general presenter specific -->
-	
-	<context:load-time-weaver aspectj-weaving="on" />
+
+	<context:load-time-weaver aspectj-weaving="on"/>
 	<context:annotation-config />
-	
+
 	<bean id="dsServiceFactory" 
 			class="net.nan21.dnet.core.presenter.service.DsServiceFactory">
 		<property name="entityServiceFactories" ref="osgiEntityServiceFactories"></property>
 	</bean>
-	
+
 	<bean id="asgnServiceFactory"
 			class="net.nan21.dnet.core.presenter.service.AsgnServiceFactory">
 		<property name="asgnTxServiceFactories" ref="osgiAsgnTxServiceFactories"></property>
 	</bean>
-	
+
 	<bean id="dsJobFactory" class="net.nan21.dnet.core.presenter.job.DsJobFactory">
 		<property name="entityServiceFactories" ref="osgiEntityServiceFactories"></property>
 	</bean>
-	
-	<bean id="dsDefinitions" class="net.nan21.dnet.core.presenter.model.DsDefinitions" />
-	
-	<bean id="serviceLocator" class="net.nan21.dnet.core.presenter.service.ServiceLocator" />
-	 
-	  
+
+	<bean id="dsDefinitions" class="net.nan21.dnet.core.presenter.model.DsDefinitions"/>
+
+	<bean id="serviceLocator" class="net.nan21.dnet.core.presenter.service.ServiceLocator"/>
+
 	 <!-- module presenter specific -->
-	
 	<bean id="menuProvider"
-		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderMainMenu" />
+		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderMainMenu"/>
 	
 	<bean id="reportProvider"
-		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderFrameReports" />
+		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderFrameReports"/>
 	
 	<bean id="scriptFormDbProvider"
-		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderFrameScriptFromDb" />
+		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderFrameScriptFromDb"/>
 	
 	<bean id="fileUploadServiceFactory"
-		class="net.nan21.dnet.core.presenter.service.FileUploadServiceFactory" />
+		class="net.nan21.dnet.core.presenter.service.FileUploadServiceFactory"/>
 	
 	<bean id="setupParticipant" class="net.nan21.dnet.module.ad._presenterdelegates.Setup_AD"
 		scope="singleton">
@@ -55,27 +53,22 @@
 	</bean>
 	
 	<bean id="dummyDsJob" scope="prototype"
-		class="net.nan21.dnet.module.ad._presenterjobs.DsDummyJobForTest" />
+		class="net.nan21.dnet.module.ad._presenterjobs.DsDummyJobForTest"/>
 		
 	<bean id="deployUploadedWorkflowService" scope="prototype"
-		class="net.nan21.dnet.module.ad._presenterdelegates.workflow.DeployUploadedWorkflow" />
+		class="net.nan21.dnet.module.ad._presenterdelegates.workflow.DeployUploadedWorkflow"/>
 	
 	<bean id="adDataAttachmentService" scope="prototype"
-		class="net.nan21.dnet.module.ad._presenterdelegates.data.AttachmentUploadDelegate" />
-		 
-	
-	 
+		class="net.nan21.dnet.module.ad._presenterdelegates.data.AttachmentUploadDelegate"/>
+
 	<!-- Presenter services -->  
-	
-	<import resource="beans/ad.client.ds.xml" />
-	<import resource="beans/ad.data.ds.xml" />
-	<import resource="beans/ad.impex.ds.xml" />
-	<import resource="beans/ad.report.ds.xml" />
-	<import resource="beans/ad.system.ds.xml" />
-	<import resource="beans/ad.usr.ds.xml" />
-	<import resource="beans/ad.workflow.ds.xml" />
-	<import resource="beans/ad.usr.asgn.xml" />
- 
-	
- 
-</beans> 
+
+	<import resource="beans/ad.client.ds.xml"/>
+	<import resource="beans/ad.data.ds.xml"/>
+	<import resource="beans/ad.impex.ds.xml"/>
+	<import resource="beans/ad.report.ds.xml"/>
+	<import resource="beans/ad.system.ds.xml"/>
+	<import resource="beans/ad.usr.ds.xml"/>
+	<import resource="beans/ad.workflow.ds.xml"/>
+	<import resource="beans/ad.usr.asgn.xml"/>
+</beans>

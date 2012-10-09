@@ -9,30 +9,30 @@
 			http://www.springframework.org/schema/context 
 				http://www.springframework.org/schema/context/spring-context.xsd
 			http://www.springframework.org/schema/aop 
-       			http://www.springframework.org/schema/aop/spring-aop.xsd	
+       			http://www.springframework.org/schema/aop/spring-aop.xsd
 			http://www.springframework.org/schema/osgi-compendium
     			http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
     		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-  
- 
+
 	<!-- JPA EntityManagerFactory -->
+
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="osgiDataSource" />
+		<property name="dataSource" ref="osgiDataSource"/>
 		<property name="jpaDialect" ref="jpaDialect"></property>
-		<property name="persistenceUnitName" value="${emf.persistenceUnitName}" />
+		<property name="persistenceUnitName" value="${emf.persistenceUnitName}"/>
 		<property name="jpaVendorAdapter">
 			<bean
 				class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
-				<property name="showSql" value="true" />
+				<property name="showSql" value="true"/>
 			</bean>
 		</property>
 		<property name="persistenceUnitPostProcessors">
 			<list>
 				<bean
 					class="net.nan21.dnet.core.business.persistenceunit.DnetPersistenceUnitPostProcessor">
-					<constructor-arg value="${emf.persistenceUnitName}" />
-					<constructor-arg ref="osgiDataSource" />
+					<constructor-arg value="${emf.persistenceUnitName}"/>
+					<constructor-arg ref="osgiDataSource"/>
 					<constructor-arg>
 						<props>
 							<prop key="eclipselink.ddl-generation">${eclipselink.ddl-generation}</prop>
@@ -55,14 +55,14 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="jpaDialect"
-		class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect" />
-	  
+		class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect"/>
+
 	<!-- Transaction manager -->
+
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
 		<property name="jpaDialect" ref="jpaDialect"></property>
-	</bean> 
-  
+	</bean>
 </beans>

@@ -46,6 +46,7 @@
 
 		<!-- Dependencies -->
 
+		<class>net.nan21.dnet.module.ad.system.domain.entity.TempAsgnLine</class>
 
 		<!-- Abstract -->
 

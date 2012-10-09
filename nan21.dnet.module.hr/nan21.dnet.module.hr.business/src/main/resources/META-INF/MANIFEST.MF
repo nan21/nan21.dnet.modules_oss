@@ -120,6 +120,7 @@ Import-Package:
  net.nan21.dnet.module.md.tx.inventory.domain.entity;version="1.0.3",
  net.nan21.dnet.module.md.tx.inventory.domain.eventhandler;version="1.0.3",
  org.aopalliance.aop;version="[1.0,2.0)",
+ org.aspectj.lang,
  org.eclipse.persistence.jpa;version="[2.1,2.5)",
  org.hibernate.validator;version="[4.0,5.0)",
  org.hibernate.validator.constraints;version="[4.0,5.0)",
@@ -131,6 +132,8 @@ Import-Bundle:
  activiti-spring,
  org.eclipse.persistence.core;version="[2.0,2.5)",
  org.springframework.aop;version="[3.1,3.2)",
+ org.springframework.beans;version="[3.1,3.2)",
  org.springframework.context;version="[3.1,3.2)",
+ org.springframework.core;version="[3.1,3.2)",
  org.springframework.orm;version="[3.1,3.2)",
  org.springframework.transaction;version="[3.1,3.2)"

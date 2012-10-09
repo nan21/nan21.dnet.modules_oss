@@ -5,7 +5,7 @@ Ext.define("net.nan21.dnet.module.md.org.lovs.FinancialAccounts", {
 	displayField:"name",
 	listConfig: {
 		getInnerTpl: function() {
-			return '<span>{currency}, {name}, {description}</span>';
+			return '<span>{name}, {description}, {currency}</span>';
 		},
 		width:250
 	},

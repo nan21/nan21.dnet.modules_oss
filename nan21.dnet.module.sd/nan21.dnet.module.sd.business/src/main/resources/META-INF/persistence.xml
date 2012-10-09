@@ -28,6 +28,7 @@
 
 		<!-- Dependencies -->
 
+		<class>net.nan21.dnet.module.ad.system.domain.entity.TempAsgnLine</class>
 		<class>net.nan21.dnet.module.ad.usr.domain.entity.Assignable</class>
 		<class>net.nan21.dnet.module.ad.usr.domain.entity.AssignableType</class>
 		<class>net.nan21.dnet.module.bd.attr.domain.entity.Attribute</class>
@@ -46,6 +47,9 @@
 		<class>net.nan21.dnet.module.bd.uom.domain.entity.UomType</class>
 		<class>net.nan21.dnet.module.md.acc.domain.entity.AccItem</class>
 		<class>net.nan21.dnet.module.md.acc.domain.entity.AccJournal</class>
+		<class>net.nan21.dnet.module.md.acc.domain.entity.AccSchema</class>
+		<class>net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod</class>
+		<class>net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear</class>
 		<class>net.nan21.dnet.module.md.base.tax.domain.entity.Tax</class>
 		<class>net.nan21.dnet.module.md.base.tax.domain.entity.TaxCategory</class>
 		<class>net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod</class>
@@ -65,6 +69,9 @@
 		<class>net.nan21.dnet.module.md.org.domain.entity.StockLocator</class>
 		<class>net.nan21.dnet.module.md.org.domain.entity.StockLocatorType</class>
 		<class>net.nan21.dnet.module.md.org.domain.entity.SubInventory</class>
+		<class>net.nan21.dnet.module.md.res.domain.entity.AssetBase</class>
+		<class>net.nan21.dnet.module.md.tx.acc.domain.entity.AccDoc</class>
+		<class>net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine</class>
 		<class>net.nan21.dnet.module.md.tx.fin.domain.entity.Payment</class>
 		<class>net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentAmount</class>
 		<class>net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem</class>
