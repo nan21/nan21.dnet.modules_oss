@@ -2,38 +2,40 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
-    <changeSet author="amathe" id="TBL">
+
+	<changeSet author="amathe" id="TBL">
         <createTable tableName="PJ_TASK_TYPE">
 		<column name="ACTIVE" type="int(1)">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="CLIENTID" type="bigint(3)">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="CREATEDAT" type="datetime">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="CREATEDBY" type="varchar(32)">
-			<constraints nullable="false" /></column>	 
-		<column name="DESCRIPTION" type="text">
-			<constraints  /></column>	 
+			<constraints nullable="false" /></column>
+		<column name="DESCRIPTION" type="text" />
 		<column name="ID" type="bigint(19)">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="MODIFIEDAT" type="datetime">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="MODIFIEDBY" type="varchar(32)">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="NAME" type="varchar(255)">
-			<constraints nullable="false" /></column>	 
-		<column name="UUID" type="varchar(36)">
-			<constraints  /></column>	 
+			<constraints nullable="false" /></column>
+		<column name="UUID" type="varchar(36)" />
 		<column name="VERSION" type="bigint(19)">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
         </createTable>
     </changeSet>
+
     <changeSet author="amathe" id="PK">
     	<addPrimaryKey tableName="PJ_TASK_TYPE" constraintName="PK_PJ_TASK_TYPE" columnNames="ID" />
     </changeSet>
+
 	<changeSet author="amathe" id="UK-1">
-		<addUniqueConstraint tableName="PJ_TASK_TYPE" constraintName="UK_PJ_TASK_TYPE1" columnNames="CLIENTID, NAME_ID" />
+		<addUniqueConstraint tableName="PJ_TASK_TYPE" constraintName="UK_PJ_TASK_TYPE1" columnNames="CLIENTID, NAME" />
 	</changeSet>
+
 	<changeSet author="amathe" id="SEQ">
 		<insert tableName="SEQUENCE">
 		    <column name="SEQ_NAME" value="PJ_TASK_TYPE_SEQ"/>

@@ -2,6 +2,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
 	<changeSet author="amathe" id="TBL">
 		<createTable tableName="MD_PROD_PRODCTG">
 			<column name="CATEGORIES_ID" type="number(19)" >
@@ -10,6 +11,7 @@
 				<constraints nullable="false"/></column>
 		</createTable>
 	</changeSet>
+
 	<changeSet author="amathe" id="PK">
 		<addPrimaryKey tableName="MD_PROD_PRODCTG" constraintName="PK_MD_PROD_PRODCTG" columnNames="CATEGORIES_ID, PRODUCTS_ID" />
 	</changeSet>

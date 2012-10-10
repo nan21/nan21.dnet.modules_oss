@@ -2,6 +2,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
 	<changeSet author="amathe" id="TBL">
 		<createTable tableName="AD_ROLE_ACLS">
 			<column name="ACCESSCONTROLS_ID" type="number(19)" >
@@ -10,6 +11,7 @@
 				<constraints nullable="false"/></column>
 		</createTable>
 	</changeSet>
+
 	<changeSet author="amathe" id="PK">
 		<addPrimaryKey tableName="AD_ROLE_ACLS" constraintName="PK_AD_ROLE_ACLS" columnNames="ACCESSCONTROLS_ID, ROLES_ID" />
 	</changeSet>

@@ -2,43 +2,32 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
-    <changeSet author="amathe" id="TBL">
+
+	<changeSet author="amathe" id="TBL">
         <createTable tableName="ACT_RU_JOB">
-		<column name="DUE_DATE_" type="date">
-			<constraints  /></column>	 
-		<column name="EXCEPTION_MSG_" type="varchar2(4000)">
-			<constraints  /></column>	 
-		<column name="EXCEPTION_STACK_ID_" type="varchar2(255)">
-			<constraints  /></column>	 
-		<column name="EXCLUSIVE_" type="number(1)">
-			<constraints  /></column>	 
-		<column name="EXECUTION_ID_" type="varchar2(255)">
-			<constraints  /></column>	 
-		<column name="HANDLER_CFG_" type="varchar2(255)">
-			<constraints  /></column>	 
-		<column name="HANDLER_TYPE_" type="varchar2(255)">
-			<constraints  /></column>	 
+		<column name="DUE_DATE_" type="date" />
+		<column name="EXCEPTION_MSG_" type="varchar2(4000)" />
+		<column name="EXCEPTION_STACK_ID_" type="varchar2(255)" />
+		<column name="EXCLUSIVE_" type="number(1)" />
+		<column name="EXECUTION_ID_" type="varchar2(255)" />
+		<column name="HANDLER_CFG_" type="varchar2(255)" />
+		<column name="HANDLER_TYPE_" type="varchar2(255)" />
 		<column name="ID_" type="varchar2(64)">
-			<constraints nullable="false" /></column>	 
-		<column name="LOCK_EXP_TIME_" type="date">
-			<constraints  /></column>	 
-		<column name="LOCK_OWNER_" type="varchar2(255)">
-			<constraints  /></column>	 
-		<column name="PROCESS_INSTANCE_ID_" type="varchar2(255)">
-			<constraints  /></column>	 
-		<column name="REPEAT_" type="varchar2(255)">
-			<constraints  /></column>	 
-		<column name="RETRIES_" type="number(4)">
-			<constraints  /></column>	 
-		<column name="REV_" type="number(8)">
-			<constraints  /></column>	 
-		<column name="TYPE_" type="varchar2(255)">
-			<constraints  /></column>	 
+			<constraints nullable="false" /></column>
+		<column name="LOCK_EXP_TIME_" type="date" />
+		<column name="LOCK_OWNER_" type="varchar2(255)" />
+		<column name="PROCESS_INSTANCE_ID_" type="varchar2(255)" />
+		<column name="REPEAT_" type="varchar2(255)" />
+		<column name="RETRIES_" type="number(4)" />
+		<column name="REV_" type="number(8)" />
+		<column name="TYPE_" type="varchar2(255)" />
         </createTable>
     </changeSet>
+
     <changeSet author="amathe" id="PK">
     	<addPrimaryKey tableName="ACT_RU_JOB" constraintName="PK_ACT_RU_JOB" columnNames="ID_" />
     </changeSet>
+
 	<changeSet author="amathe" id="SEQ">
 		<insert tableName="SEQUENCE">
 		    <column name="SEQ_NAME" value="ACT_RU_JOB_SEQ"/>

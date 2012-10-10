@@ -2,21 +2,23 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
-    <changeSet author="amathe" id="TBL">
+
+	<changeSet author="amathe" id="TBL">
         <createTable tableName="ACT_RE_DEPLOYMENT">
-		<column name="CLIENTID" type="number(3)">
-			<constraints  /></column>	 
+		<column name="CLIENTID" type="number(3)" />
 		<column name="DEPLOY_TIME_" type="date">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="ID_" type="varchar2(64)">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
 		<column name="NAME_" type="varchar2(255)">
-			<constraints nullable="false" /></column>	 
+			<constraints nullable="false" /></column>
         </createTable>
     </changeSet>
+
     <changeSet author="amathe" id="PK">
     	<addPrimaryKey tableName="ACT_RE_DEPLOYMENT" constraintName="PK_ACT_RE_DEPLOYMENT" columnNames="ID_" />
     </changeSet>
+
 	<changeSet author="amathe" id="SEQ">
 		<insert tableName="SEQUENCE">
 		    <column name="SEQ_NAME" value="ACT_RE_DEPLOYMENT_SEQ"/>

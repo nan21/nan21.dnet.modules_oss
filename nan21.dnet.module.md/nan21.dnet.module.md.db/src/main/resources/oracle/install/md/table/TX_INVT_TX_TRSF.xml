@@ -2,14 +2,17 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
-    <changeSet author="amathe" id="TBL">
+
+	<changeSet author="amathe" id="TBL">
         <createTable tableName="TX_INVT_TX_TRSF">
 		<column name="ID" type="number(19)" />
         </createTable>
     </changeSet>
+
     <changeSet author="amathe" id="PK">
     	<addPrimaryKey tableName="TX_INVT_TX_TRSF" constraintName="PK_TX_INVT_TX_TRSF" columnNames="ID" />
     </changeSet>
+
 	<changeSet author="amathe" id="SEQ">
 		<insert tableName="SEQUENCE">
 		    <column name="SEQ_NAME" value="TX_INVT_TX_TRSF_SEQ"/>
