@@ -285,7 +285,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$ViewDescription", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
 			.addPanel({ name:"r1", width:90, layout:"form", defaults:{labelAlign:"top"}})
@@ -330,7 +330,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$View", {
 			.addDisplayFieldNumber({ name:"businessValue", dataIndex:"businessValue", anchor:"-20" })
 			.addDisplayFieldNumber({ name:"estimatedEffort", dataIndex:"estimatedEffort", anchor:"-20" })
 			.addDisplayFieldNumber({ name:"clarity", dataIndex:"clarity", anchor:"-20" })
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
 			.addPanel({ name:"r2", width:90, layout:"form", defaults:{labelAlign:"top"}})

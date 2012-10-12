@@ -119,7 +119,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$CtxFormName", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
+			.addDisplayFieldText({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20", fieldCls:"displayfield important-field"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, width:90, layout:"form"})
 		;

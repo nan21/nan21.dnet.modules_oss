@@ -99,9 +99,9 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 			.addNumberField({name:"docLineNetAmount", dataIndex:"netAmount", anchor:"-20"})
 			.addNumberField({name:"docLineTaxAmount", dataIndex:"taxAmount", anchor:"-20"})
 			.addNumberField({name:"docLineAmount", dataIndex:"lineAmount", anchor:"-20"})
-			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20" })
-			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20" })
-			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20" })
+			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			.addLov({xtype:"md_base_tax_lovs_TaxApplicables", name:"tax", dataIndex:"tax", anchor:"-20",
 				retFieldMapping: [

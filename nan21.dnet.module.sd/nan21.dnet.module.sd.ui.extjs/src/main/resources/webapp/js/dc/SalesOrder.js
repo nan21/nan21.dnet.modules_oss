@@ -239,10 +239,10 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditMain", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "priceListId"} ,{lovField:"currencyId", dsField: "currencyId"} ,{lovField:"currency", dsField: "currency"} 
 				]})
-			.addDisplayFieldText({ name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32})
-			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20" })
+			.addDisplayFieldText({ name:"currency", dataIndex:"currency", anchor:"-20", fieldCls:"displayfield important-field", maxLength:32})
+			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addDisplayFieldNumber({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
 			.addDisplayFieldNumber({ name:"invoiced", dataIndex:"invoiced", anchor:"-20" })
 			.addDisplayFieldNumber({ name:"delivered", dataIndex:"delivered", anchor:"-20" })

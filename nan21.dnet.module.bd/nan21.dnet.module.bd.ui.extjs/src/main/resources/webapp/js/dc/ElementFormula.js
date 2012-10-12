@@ -173,7 +173,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$ViewExpression", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"expression", dataIndex:"expression", anchor:"-20"})
+			.addDisplayFieldText({ name:"expression", dataIndex:"expression", anchor:"-20", asText:true})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"top"}})
 		;

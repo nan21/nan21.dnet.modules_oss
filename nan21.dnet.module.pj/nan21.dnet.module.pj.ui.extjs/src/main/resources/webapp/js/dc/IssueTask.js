@@ -168,7 +168,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTask$ViewDescription", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
 			.addPanel({ name:"r1", width:90, layout:"form", defaults:{labelAlign:"top"}})

@@ -206,7 +206,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$ViewText", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"top"}})
 		;

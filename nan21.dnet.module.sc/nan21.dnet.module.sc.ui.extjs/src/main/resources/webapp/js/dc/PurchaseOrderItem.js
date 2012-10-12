@@ -134,9 +134,9 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$EditForm", {
 				change:{scope:this, fn:this.calcNetAmount}
 			}
 			})
-			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20" })
-			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20" })
-			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20" })
+			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})

@@ -249,8 +249,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine$CtxFormV
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"item", dataIndex:"item", anchor:"-20"})
-			.addDisplayFieldNumber({ name:"quantity", dataIndex:"quantity", anchor:"-20" })
+			.addDisplayFieldText({ name:"item", dataIndex:"item", anchor:"-20", fieldCls:"displayfield important-field"})
+			.addDisplayFieldNumber({ name:"quantity", dataIndex:"quantity", anchor:"-20", fieldCls:"displayfield important-field" })
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

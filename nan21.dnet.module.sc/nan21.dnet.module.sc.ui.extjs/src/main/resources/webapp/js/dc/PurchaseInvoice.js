@@ -151,9 +151,9 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditMain", {
 				filterFieldMapping: [
 					{lovField:"orgId",dsField: "customerId"} 
 				]})
-			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20" })
+			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addDisplayFieldNumber({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
 			.addDisplayFieldNumber({ name:"posted", dataIndex:"posted", anchor:"-20" })
 			/* containers */
