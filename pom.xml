@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>net.nan21.dnet</groupId>
 	<artifactId>nan21.dnet.modules_oss</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<name>DNet Modules OSS</name>
 	<description>DNet modules released under open-source license.</description>
 	<packaging>pom</packaging>
