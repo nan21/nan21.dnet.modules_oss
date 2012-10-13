@@ -99,18 +99,18 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccount$Edit", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
+			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
-			.addCombo({ xtype:"combo", name:"type", _sharedLabel_:true, dataIndex:"type", anchor:"-20",
+			.addCombo({ xtype:"combo", name:"type", _sharedLabel_:true, dataIndex:"type", allowBlank:false, anchor:"-20",
 				store:[ "bank", "cash"]
 			})
 			.addTextField({ name:"analiticSegment", dataIndex:"analiticSegment", anchor:"-20", maxLength:32})
-			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", anchor:"-20", maxLength:32,
+			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 
 				]})
-			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32,
+			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "currencyId"} 
 				]})
