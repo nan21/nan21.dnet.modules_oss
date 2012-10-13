@@ -171,7 +171,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$EditDeprec", {
 			.addNumberField({name:"periodPercenatge", dataIndex:"periodPercenatge", anchor:"-20"})
 			.addDateField({name:"purchaseDate", dataIndex:"purchaseDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addDateField({name:"deprecStartDate", dataIndex:"deprecStartDate", anchor:"-20", format:Ext.DATE_FORMAT})
-			.addDisplayFieldNumber({ name:"deprecEndDate", dataIndex:"deprecEndDate", anchor:"-20" })
+			.addDisplayFieldDate({ name:"deprecEndDate", dataIndex:"deprecEndDate", anchor:"-20" })
 			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "currencyId"} 

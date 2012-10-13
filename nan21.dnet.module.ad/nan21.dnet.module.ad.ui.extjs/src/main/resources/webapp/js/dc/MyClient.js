@@ -33,8 +33,8 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.MyClient$Edit", {
 			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
 			.addTextField({ name:"maintenanceLanguage", dataIndex:"maintenanceLanguage", anchor:"-20", maxLength:5, caseRestriction:"uppercase"})
 			.addTextField({ name:"adminRole", dataIndex:"adminRole", allowBlank:false, anchor:"-20", maxLength:32})
-			.addDisplayFieldNumber({ name:"createdAt", _sharedLabel_:true, dataIndex:"createdAt", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"modifiedAt", _sharedLabel_:true, dataIndex:"modifiedAt", anchor:"-20" })
+			.addDisplayFieldDate({ name:"createdAt", _sharedLabel_:true, dataIndex:"createdAt", anchor:"-20" })
+			.addDisplayFieldDate({ name:"modifiedAt", _sharedLabel_:true, dataIndex:"modifiedAt", anchor:"-20" })
 			.addDisplayFieldText({ name:"createdBy", _sharedLabel_:true, dataIndex:"createdBy", anchor:"-20", maxLength:32})
 			.addDisplayFieldText({ name:"modifiedBy", _sharedLabel_:true, dataIndex:"modifiedBy", anchor:"-20", maxLength:32})
 			/* containers */

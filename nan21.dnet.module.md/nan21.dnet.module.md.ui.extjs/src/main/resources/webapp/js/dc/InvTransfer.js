@@ -111,12 +111,12 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransfer$Edit", {
 			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", disabled:true , anchor:"-20", maxLength:32})
 			.addTextField({ name:"docNo", dataIndex:"docNo", anchor:"-20"})
 			.addDateField({name:"docDate", dataIndex:"docDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
-			.addDisplayFieldNumber({ name:"eventDate", dataIndex:"eventDate", anchor:"-20" })
-			.addLov({xtype:"bd_org_lovs_InventoryOrganizations", name:"fromInventory", dataIndex:"fromInventory", allowBlank:false, anchor:"-20", maxLength:32,
+			.addDisplayFieldDate({ name:"eventDate", dataIndex:"eventDate", anchor:"-20" })
+			.addLov({xtype:"bd_org_lovs_InventoryOrganizations", name:"fromInventory", dataIndex:"fromInventory", noUpdate:true, allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "fromInventoryId"} 
 				]})
-			.addLov({xtype:"bd_org_lovs_InventoryOrganizations", name:"toInventory", dataIndex:"toInventory", allowBlank:false, anchor:"-20", maxLength:32,
+			.addLov({xtype:"bd_org_lovs_InventoryOrganizations", name:"toInventory", dataIndex:"toInventory", noUpdate:true, allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "toInventoryId"} 
 				]})
@@ -124,8 +124,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransfer$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "transactionTypeId"} 
 				]})
-			.addDisplayFieldNumber({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"posted", dataIndex:"posted", anchor:"-20" })
+			.addDisplayFieldBoolean({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
+			.addDisplayFieldBoolean({ name:"posted", dataIndex:"posted", anchor:"-20" })
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

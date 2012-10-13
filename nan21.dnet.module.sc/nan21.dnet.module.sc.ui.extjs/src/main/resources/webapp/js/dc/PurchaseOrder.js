@@ -153,11 +153,11 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditMain", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "priceListId"} ,{lovField:"currencyId", dsField: "currencyId"} ,{lovField:"currency", dsField: "currency"} 
 				]})
-			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"customer", dataIndex:"customer", allowBlank:false, anchor:"-20", maxLength:32,
+			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"customer", dataIndex:"customer", noUpdate:true, allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "customerId"} 
 				]})
-			.addLov({xtype:"md_bp_lovs_VendorsName", name:"supplier", dataIndex:"supplier", allowBlank:false, anchor:"-20",
+			.addLov({xtype:"md_bp_lovs_VendorsName", name:"supplier", dataIndex:"supplier", noUpdate:true, allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"bpartnerId", dsField: "supplierId"} ,{lovField:"code", dsField: "supplierCode"} 
 				],
@@ -171,7 +171,7 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditMain", {
 			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
+			.addDisplayFieldBoolean({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
 			.addDateField({name:"plannedDeliveryDate", dataIndex:"plannedDeliveryDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20"})
 			/* containers */

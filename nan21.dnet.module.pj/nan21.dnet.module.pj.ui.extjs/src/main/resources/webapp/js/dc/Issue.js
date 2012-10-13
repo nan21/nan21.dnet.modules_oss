@@ -163,14 +163,14 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Edit", {
 		this._getBuilder_()
 			/* controls */
 			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
-			.addLov({xtype:"pj_md_lovs_Projects", name:"project", dataIndex:"project", allowBlank:false, anchor:"-20", maxLength:32,
+			.addLov({xtype:"pj_md_lovs_Projects", name:"project", dataIndex:"project", noUpdate:true, allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "projectId"} ,{lovField:"name", dsField: "projectName"} 
 				]})
 			.addDisplayFieldText({ name:"projectName", dataIndex:"projectName", anchor:"-20"})
 			.addTextField({ name:"summary", dataIndex:"summary", allowBlank:false, anchor:"-20"})
 			.addDateField({name:"dueDate", dataIndex:"dueDate", anchor:"-20", format:Ext.DATE_FORMAT})
-			.addDisplayFieldNumber({ name:"resolutionDate", dataIndex:"resolutionDate", anchor:"-20" })
+			.addDisplayFieldDate({ name:"resolutionDate", dataIndex:"resolutionDate", anchor:"-20" })
 			.addLov({xtype:"pj_base_lovs_IssueTypes", name:"type", _sharedLabel_:true, dataIndex:"type", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "typeId"} 
@@ -315,8 +315,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$View", {
 			.addDisplayFieldText({ name:"project", dataIndex:"project", anchor:"-20", maxLength:32})
 			.addDisplayFieldText({ name:"projectName", dataIndex:"projectName", disabled:true , anchor:"-20"})
 			.addDisplayFieldText({ name:"summary", dataIndex:"summary", allowBlank:false, anchor:"-20"})
-			.addDisplayFieldNumber({ name:"dueDate", dataIndex:"dueDate", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"resolutionDate", dataIndex:"resolutionDate", disabled:true , anchor:"-20" })
+			.addDisplayFieldDate({ name:"dueDate", dataIndex:"dueDate", anchor:"-20" })
+			.addDisplayFieldDate({ name:"resolutionDate", dataIndex:"resolutionDate", disabled:true , anchor:"-20" })
 			.addDisplayFieldText({ name:"type", _sharedLabel_:true, dataIndex:"type", anchor:"-20"})
 			.addDisplayFieldText({ name:"status", _sharedLabel_:true, dataIndex:"status", anchor:"-20"})
 			.addDisplayFieldText({ name:"priority", dataIndex:"priority", anchor:"-20"})

@@ -96,7 +96,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User$Edit", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", allowBlank:false, anchor:"-20", maxLength:32})
+			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", noUpdate:true, allowBlank:false, anchor:"-20", maxLength:32})
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
 			.addLov({xtype:"ad_usr_lovs_UserTypes", name:"accountType", dataIndex:"accountType", anchor:"-20",
 				retFieldMapping: [

@@ -215,16 +215,16 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditMain", {
 			/* controls */
 			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addTextField({ name:"docNo", dataIndex:"docNo", anchor:"-20"})
-			.addDateField({name:"docDate", dataIndex:"docDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
+			.addDateField({name:"docDate", dataIndex:"docDate", noUpdate:true, allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
 			.addLov({xtype:"md_base_tx_lovs_TxDocTypesSO", name:"docType", dataIndex:"docType", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "docTypeId"} 
 				]})
-			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"supplier", dataIndex:"supplier", allowBlank:false, anchor:"-20", maxLength:32,
+			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"supplier", dataIndex:"supplier", noUpdate:true, allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "supplierId"} 
 				]})
-			.addLov({xtype:"md_bp_lovs_CustomersName", name:"customer", dataIndex:"customer", allowBlank:false, anchor:"-20",
+			.addLov({xtype:"md_bp_lovs_CustomersName", name:"customer", dataIndex:"customer", noUpdate:true, allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"bpartnerId", dsField: "customerId"} ,{lovField:"bpartnerId", dsField: "billToId"} ,{lovField:"name", dsField: "billTo"} ,{lovField:"bpartnerId", dsField: "shipToId"} ,{lovField:"name", dsField: "shipTo"} 
 				],
@@ -243,9 +243,9 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditMain", {
 			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
 			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"invoiced", dataIndex:"invoiced", anchor:"-20" })
-			.addDisplayFieldNumber({ name:"delivered", dataIndex:"delivered", anchor:"-20" })
+			.addDisplayFieldBoolean({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
+			.addDisplayFieldBoolean({ name:"invoiced", dataIndex:"invoiced", anchor:"-20" })
+			.addDisplayFieldBoolean({ name:"delivered", dataIndex:"delivered", anchor:"-20" })
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
