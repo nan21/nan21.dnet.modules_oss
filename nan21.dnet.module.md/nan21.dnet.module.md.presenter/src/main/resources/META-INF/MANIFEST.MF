@@ -5,6 +5,35 @@ Bundle-SymbolicName: nan21.dnet.module.md.presenter
 Bundle-Vendor: Nan21
 Bundle-Version: 1.0.3
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Export-Package: 
+ net.nan21.dnet.module.md.acc.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.acc.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.activity.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.activity.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.base.period.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.base.period.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.base.tax.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.base.tax.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.base.tx.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.base.tx.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.bp.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.bp.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.mm.price.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.mm.price.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.mm.price.ds.param;version="1.0.3",
+ net.nan21.dnet.module.md.mm.prod.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.mm.prod.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.mm.prod.ds.param;version="1.0.3",
+ net.nan21.dnet.module.md.org.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.org.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.res.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.res.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.tx.acc.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.tx.acc.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.tx.fin.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.tx.fin.ds.model;version="1.0.3",
+ net.nan21.dnet.module.md.tx.inventory.ds.filter;version="1.0.3",
+ net.nan21.dnet.module.md.tx.inventory.ds.model;version="1.0.3"
 Import-Package: 
  com.sun.mail.handlers;version="[1.4.0,1.4.1]",
  com.sun.mail.smtp;version="[1.4.0,1.4.1]",
