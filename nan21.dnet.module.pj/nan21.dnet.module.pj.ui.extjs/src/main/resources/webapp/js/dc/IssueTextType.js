@@ -31,19 +31,13 @@ Ext.define("net.nan21.dnet.module.pj.base.dc.IssueTextType$Filter", {
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"hbox",
-				defaults:{
-					labelAlign:"right", labelWidth:80, width:210 
-				}
-			})
+			.addPanel({ name:"main", autoScroll:true, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			this._elems_.get("main")["items"] = [
-				{layout:"anchor", border:false, items:[this._elems_.get("name")]},{layout:"anchor", border:false, items:[this._elems_.get("active")]}
-			 ];
+			.addChildrenTo("main", ["name", "active"])
 			.addAuditFilter()
 		;
 	}});
