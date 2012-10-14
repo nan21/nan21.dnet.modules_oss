@@ -33,8 +33,6 @@ public class MyCalendarEventDs extends AbstractAuditableDs<CalendarEvent> {
  	public static final String fURL = "url";
  	public static final String fREMINDER = "reminder";
  	public static final String fALLDAY = "allDay";
- 	public static final String fID = "id";
- 	public static final String fCLIENTID = "clientId";
  	public static final String fTARGETID = "targetId";
  	public static final String fTARGETTYPE = "targetType";
  	
@@ -94,12 +92,6 @@ public class MyCalendarEventDs extends AbstractAuditableDs<CalendarEvent> {
  	
  	@DsField()
  	private Boolean allDay;
- 	
- 	@DsField()
- 	private Long id;
- 	
- 	@DsField()
- 	private Long clientId;
  	
  	@DsField()
  	private Long targetId;
@@ -265,22 +257,6 @@ public class MyCalendarEventDs extends AbstractAuditableDs<CalendarEvent> {
 	
 	public void setAllDay(Boolean allDay) {
 		this.allDay = allDay;
-	}
-	
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Object id) {
-		this.id = this._asLong_(id);
-	}
-	
-	public Long getClientId() {
-		return this.clientId;
-	}
-	
-	public void setClientId(Long clientId) {
-		this.clientId = clientId;
 	}
 	
 	public Long getTargetId() {
