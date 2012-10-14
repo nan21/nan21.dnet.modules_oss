@@ -13,7 +13,7 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.Attachments_UI", {
 
 	,_defineDcs_: function() {
 		this._getBuilder_()
-			.addDc("atch", new net.nan21.dnet.module.ad.data.dc.Attachment({multiEdit:true}))
+			.addDc("atch", new net.nan21.dnet.module.ad.data.dc.Attachment({}))
 	
 	}
 
@@ -21,7 +21,7 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.Attachments_UI", {
 		this._getBuilder_()
 			
 			.addDcFilterFormView("atch", {name:"atchFilter", xtype:"ad_data_dc_Attachment$Filter"})	
-			.addDcEditGridView("atch", {name:"atchList", xtype:"ad_data_dc_Attachment$List", frame:true})	
+			.addDcGridView("atch", {name:"atchList", xtype:"ad_data_dc_Attachment$List"})	
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

@@ -84,26 +84,20 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Attachment$CtxEditList", {
 	}});
 
 
-/* ================= E-GRID: List ================= */
+/* ================= GRID: List ================= */
 
 
 Ext.define("net.nan21.dnet.module.ad.data.dc.Attachment$List", {
-	extend: "dnet.core.dc.AbstractDcvEditableGrid",
+	extend: "dnet.core.dc.AbstractDcvGrid",
 	alias: "widget.ad_data_dc_Attachment$List",
-	
+
 	_defineColumns_: function() {
-		this._getBuilder_()	
-			.addTextColumn({name:"type", dataIndex:"type", width:120,
-					editor:{xtype:"textfield", selectOnFocus:true}})
-			.addTextColumn({name:"name", dataIndex:"name", width:200,
-					editor:{xtype:"textfield", selectOnFocus:true}})
-			.addTextColumn({name:"location", dataIndex:"location", width:200,
-					editor:{xtype:"textfield", selectOnFocus:true}})
-			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
-					editor:{xtype:"textfield", selectOnFocus:true}})
-			.addTextColumn({name:"targetType", dataIndex:"targetType", hidden:true, width:150,
-					editor:{xtype:"textfield", selectOnFocus:true}})
-			.addTextColumn({name:"targetUuid", dataIndex:"targetUuid", hidden:true, width:100,
-					editor:{xtype:"textfield", selectOnFocus:true}})
+		this._getBuilder_()
+			.addTextColumn({ name:"type", dataIndex:"type", width:120})
+			.addTextColumn({ name:"name", dataIndex:"name", width:200})
+			.addTextColumn({ name:"location", dataIndex:"location", width:200})
+			.addTextColumn({ name:"notes", dataIndex:"notes", width:200})
+			.addTextColumn({ name:"targetType", dataIndex:"targetType", hidden:true, width:150})
+			.addTextColumn({ name:"targetUuid", dataIndex:"targetUuid", hidden:true, width:100})
 			.addDefaults();
 	}});
