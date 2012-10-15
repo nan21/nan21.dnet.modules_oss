@@ -56,7 +56,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			
 			.addDcFilterFormView("issue", {name:"issueFilter", height:180, xtype:"pj_md_dc_Issue$Filter"})	
 			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_Issue$List"})	
-			.addDcFormView("issue", {name:"issueEdit", height:220, xtype:"pj_md_dc_Issue$Edit", 
+			.addDcFormView("issue", {name:"issueEdit", height:240, xtype:"pj_md_dc_Issue$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnAsgnAffectedVersions"), this._elems_.get("btnAsgnAffectedComps")]}]})	
 			.addDcFormView("issue", {name:"issueEditText", title:"Description", xtype:"pj_md_dc_Issue$EditText"})	
@@ -65,7 +65,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
+			.addDcGridView("note", {name:"noteList", width:600, xtype:"ad_data_dc_Note$List"})	
 			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
 			.addDcGridView("task", {name:"taskList", xtype:"pj_md_dc_IssueTaskCtx$List"})	
 			.addDcFormView("task", {name:"taskEdit", xtype:"pj_md_dc_IssueTaskCtx$Edit"})	

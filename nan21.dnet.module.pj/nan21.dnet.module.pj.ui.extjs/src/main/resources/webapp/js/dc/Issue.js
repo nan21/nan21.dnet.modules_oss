@@ -100,9 +100,9 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Filter", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1", width: 200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
-			.addPanel({ name:"col2", width: 200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
-			.addPanel({ name:"col4", width: 200, layout:"form"})
+			.addPanel({ name:"col1", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col2", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col4", width:200, layout:"form"})
 		;
 	},
 
@@ -224,25 +224,22 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Edit", {
 			.addNumberField({name:"estimatedEffort", dataIndex:"estimatedEffort", anchor:"-20"})
 			.addNumberField({name:"clarity", dataIndex:"clarity", anchor:"-20"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
-					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1", width: 260, layout:"form"})
-			.addPanel({ name:"col2"})
-			.addPanel({ name:"row1", width: 600, layout:"form"})
+			.addPanel({ name:"main", autoScroll:true})
+			.addPanel({ name:"row1", width:900, layout:"form"})
 			.addPanel({ name:"row2", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
-			.addPanel({ name:"col3", width: 250, layout:"form"})
-			.addPanel({ name:"col4",title:"Versions", width: 220, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col5", width: 200, layout:"form"})
+			.addPanel({ name:"col1", width:260, layout:"form"})
+			.addPanel({ name:"col3", width:250, layout:"form"})
+			.addPanel({ name:"col4", title:"Versions", width:220, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col5", width:200, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2"])
-			.addChildrenTo("col1", ["project", "projectName", "type", "status", "code"])
-			.addChildrenTo("col2", ["row1", "row2"])
+			.addChildrenTo("main", ["row1", "row2"])
 			.addChildrenTo("row1", ["summary"])
-			.addChildrenTo("row2", ["col3", "col4", "col5"])
+			.addChildrenTo("row2", ["col1", "col3", "col4", "col5"])
+			.addChildrenTo("col1", ["project", "projectName", "type", "status", "code"])
 			.addChildrenTo("col3", ["assignee", "priority", "severity", "resolution"])
 			.addChildrenTo("col4", ["reportedVersion", "targetVersion", "fixedInVersion"])
 			.addChildrenTo("col5", ["dueDate", "resolutionDate", "businessValue", "clarity", "estimatedEffort"])
@@ -283,7 +280,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$ViewDescription", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", autoScroll: true,anchor:"-20", asText:true})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
@@ -330,13 +327,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$View", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
 			.addPanel({ name:"r1", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
-			.addPanel({ name:"col1", width: 260, layout:"form"})
+			.addPanel({ name:"col1", width:260, layout:"form"})
 			.addPanel({ name:"col2"})
-			.addPanel({ name:"row1", width: 600, layout:"form"})
+			.addPanel({ name:"row1", width:600, layout:"form"})
 			.addPanel({ name:"row2", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
-			.addPanel({ name:"col3", width: 250, layout:"form"})
-			.addPanel({ name:"col4",title:"Versions", width: 250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col5", width: 250, layout:"form"})
+			.addPanel({ name:"col3", width:250, layout:"form"})
+			.addPanel({ name:"col4", title:"Versions", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col5", width:250, layout:"form"})
 		;
 	},
 

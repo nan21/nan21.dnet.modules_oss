@@ -72,9 +72,9 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTask$Filter", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1",title:"Task", width:220, layout:"form", xtype:"fieldset", border:true, collapsible:true, defaults:{labelAlign:"right",labelWidth:70}})
-			.addPanel({ name:"col2", width:220, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
-			.addPanel({ name:"col3",title:"Issue", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col1", title:"Task", width:220, layout:"form", xtype:"fieldset", border:true, collapsible:true, defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col2", width:220, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col3", title:"Issue", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
 		;
 	},
 
@@ -171,7 +171,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTask$ViewDescription", {
 			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
-			.addPanel({ name:"r1", width:90, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"r1", width:"90%", layout:"form", defaults:{labelAlign:"top"}})
 		;
 	},
 
@@ -206,9 +206,9 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTask$View", {
 			.addTextField({ name:"assignee", dataIndex:"assignee", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
-			.addPanel({ name:"col1",title:"Task info", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col2",title:"Task description", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col3",title:"Issue info", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col1", title:"Task info", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col2", title:"Task description", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col3", title:"Issue info", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
 		;
 	},
 

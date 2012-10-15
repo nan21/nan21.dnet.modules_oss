@@ -56,7 +56,9 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$List", {
 
 	_defineColumns_: function() {
 		this._getBuilder_()
-			.addTextColumn({ name:"note", dataIndex:"note", width:200})
+			.addTextColumn({ name:"note", dataIndex:"note", width:300})
+			.addTextColumn({ name:"createdBy", dataIndex:"createdBy", width:100})
+			.addTextColumn({ name:"createdAt", dataIndex:"createdAt"})
 			.addDefaults();
 	}});
 
@@ -71,9 +73,9 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$Edit", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextArea({ name:"note", dataIndex:"note", allowBlank:false, anchor:"-20"})
+			.addTextArea({ name:"note", dataIndex:"note", _enableFn_:this._note_enableFn_, allowBlank:false, anchor:"-20"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
 	},
 
@@ -81,4 +83,11 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$Edit", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["note"])
 		;
-	}});
+	},
+	
+	/* ==================== Business functions ==================== */
+	
+	_note_enableFn_: function(dc,record) {
+		return record.phantom || ( record.data.createdBy == getApplication().getSession().user.code );;
+	}
+});

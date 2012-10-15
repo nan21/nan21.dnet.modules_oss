@@ -97,8 +97,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$Filter", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1", width:200, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
-			.addPanel({ name:"col2", width:200, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
+			.addPanel({ name:"col1", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col2", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 			.addPanel({ name:"col4", width:200, layout:"form"})
 		;
 	},
@@ -206,9 +206,9 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$ViewText", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
 	},
 
@@ -231,7 +231,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$EditText", {
 			/* controls */
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
 	},
 

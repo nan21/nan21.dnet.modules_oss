@@ -51,9 +51,9 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueLink$Filter", {
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			this._elems_.get("main")["items"] = [
+			.addChildrenTo("main", [
 				{layout:"anchor", border:false, items:[this._elems_.get("linkType")]},{layout:"anchor", border:false, items:[this._elems_.get("sourceIssue")]},{layout:"anchor", border:false, items:[this._elems_.get("targetIssue")]}
-			 ];
+			 ])
 		;
 	}});
 
