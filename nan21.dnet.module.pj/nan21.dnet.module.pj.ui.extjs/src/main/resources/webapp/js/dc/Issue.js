@@ -100,9 +100,9 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Filter", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1", width:200, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
-			.addPanel({ name:"col2", width:200, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
-			.addPanel({ name:"col4", width:200, layout:"form"})
+			.addPanel({ name:"col1", width: 200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col2", width: 200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col4", width: 200, layout:"form"})
 		;
 	},
 
@@ -226,13 +226,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Edit", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1", width:260, layout:"form"})
+			.addPanel({ name:"col1", width: 260, layout:"form"})
 			.addPanel({ name:"col2"})
-			.addPanel({ name:"row1", width:600, layout:"form"})
+			.addPanel({ name:"row1", width: 600, layout:"form"})
 			.addPanel({ name:"row2", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
-			.addPanel({ name:"col3", width:250, layout:"form"})
-			.addPanel({ name:"col4",title:"Versions", width:220, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col5", width:200, layout:"form"})
+			.addPanel({ name:"col3", width: 250, layout:"form"})
+			.addPanel({ name:"col4",title:"Versions", width: 220, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col5", width: 200, layout:"form"})
 		;
 	},
 
@@ -262,15 +262,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$EditText", {
 			/* controls */
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true})
-			.addPanel({ name:"r1", width:90, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["r1"])
-			.addChildrenTo("r1", ["description"])
+			.addChildrenTo("main", ["description"])
 		;
 	}});
 
@@ -285,17 +283,15 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$ViewDescription", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", autoScroll: true,anchor:"-20", asText:true})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true})
-			.addPanel({ name:"r1", width:90, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["r1"])
-			.addChildrenTo("r1", ["description"])
+			.addChildrenTo("main", ["description"])
 		;
 	}});
 
@@ -330,25 +326,23 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$View", {
 			.addDisplayFieldNumber({ name:"businessValue", dataIndex:"businessValue", anchor:"-20" })
 			.addDisplayFieldNumber({ name:"estimatedEffort", dataIndex:"estimatedEffort", anchor:"-20" })
 			.addDisplayFieldNumber({ name:"clarity", dataIndex:"clarity", anchor:"-20" })
-			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true, fieldStyle:"height:auto;"})
+			.addDisplayFieldText({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", asText:true})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
-			.addPanel({ name:"r2", width:90, layout:"form", defaults:{labelAlign:"top"}})
 			.addPanel({ name:"r1", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
-			.addPanel({ name:"col1", width:260, layout:"form"})
+			.addPanel({ name:"col1", width: 260, layout:"form"})
 			.addPanel({ name:"col2"})
-			.addPanel({ name:"row1", width:600, layout:"form"})
+			.addPanel({ name:"row1", width: 600, layout:"form"})
 			.addPanel({ name:"row2", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
-			.addPanel({ name:"col3", width:250, layout:"form"})
-			.addPanel({ name:"col4",title:"Versions", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col5", width:250, layout:"form"})
+			.addPanel({ name:"col3", width: 250, layout:"form"})
+			.addPanel({ name:"col4",title:"Versions", width: 250, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col5", width: 250, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["r1", "r2"])
-			.addChildrenTo("r2", ["description"])
+			.addChildrenTo("main", ["r1"])
 			.addChildrenTo("r1", ["col1", "col2"])
 			.addChildrenTo("col1", ["project", "projectName", "type", "severity", "priority", "code"])
 			.addChildrenTo("col2", ["row1", "row2"])

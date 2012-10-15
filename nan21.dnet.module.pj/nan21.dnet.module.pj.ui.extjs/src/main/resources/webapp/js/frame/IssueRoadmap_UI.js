@@ -28,14 +28,17 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI", {
 			
 			.addDcFilterFormView("issue", {name:"issueFilter", height:80, xtype:"pj_md_dc_IssueRoadmap$Filter"})	
 			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueRoadmap$List"})	
-			.addDcFormView("issueInfo", {name:"infoView", height:200, xtype:"pj_md_dc_Issue$View"})	
+			.addPanel({name:"detailsTab", height:200, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
+			.addDcFormView("issueInfo", {name:"issueInfoView", title:"Issue Info", xtype:"pj_md_dc_Issue$View"})	
+			.addDcFormView("issueInfo", {name:"issueDescView", title:"Issue Description", xtype:"pj_md_dc_Issue$ViewDescription"})	
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["issueFilter", "issueList", "infoView"], ["north", "center", "south"])
+			.addChildrenTo("detailsTab", ["issueInfoView", "issueDescView"])
+			.addChildrenTo("main", ["issueFilter", "issueList", "detailsTab"], ["north", "center", "south"])
 			.addToolbarTo("main", "tlbIssueList")
 	}
 
