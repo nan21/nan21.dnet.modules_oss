@@ -21,6 +21,11 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs" ,{
 		{name:"sequenceNo", type:"int", useNull:true},
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
+	],
+	validations: [
+		{field: "frameFQN", type: 'presence'},
+		{field: "sequenceNo", type: 'presence'},
+		{field: "fileLocation", type: 'presence'}
 	]});
 Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDsFilter" ,{
 	extend: 'Ext.data.Model',
