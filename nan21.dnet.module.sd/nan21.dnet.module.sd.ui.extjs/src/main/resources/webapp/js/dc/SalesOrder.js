@@ -166,7 +166,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$FrmGenDelivery", {
 				]})
 			.addDateField({name:"delivEventDate", paramIndex:"delivEventData", anchor:"-20", format:Ext.DATE_FORMAT})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"right",labelWidth:140}})
+			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"right", labelWidth:140}})
 		;
 	},
 
@@ -192,7 +192,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$FrmGenInvoice", {
 					{lovField:"id", dsParam: "invDocTypeId"} 
 				]})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"right",labelWidth:140}})
+			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"right", labelWidth:140}})
 		;
 	},
 
@@ -356,9 +356,9 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditDetails", {
 			.addPanel({ name:"col1"})
 			.addPanel({ name:"col2"})
 			.addPanel({ name:"col3", width:400, layout:"form"})
-			.addPanel({ name:"panelBilling",title:"Invoice", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"panelShipping",title:"Delivery", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"panelPayment",title:"Payment", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"panelBilling", title:"Invoice", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"panelShipping", title:"Delivery", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"panelPayment", title:"Payment", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
 		;
 	},
 

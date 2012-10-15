@@ -127,7 +127,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$Edit", {
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
 			.addPanel({ name:"col2", width:300, layout:"form"})
-			.addPanel({ name:"col3", width:300, layout:"form", defaults:{labelAlign:"top",labelWidth:70}})
+			.addPanel({ name:"col3", width:300, layout:"form", defaults:{labelAlign:"top", labelWidth:70}})
 		;
 	},
 

@@ -58,7 +58,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPriceReport$Filter", {
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:250, layout:"form"})
 			.addPanel({ name:"col2", width:250, layout:"form"})
-			.addPanel({ name:"col3", width:180, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
+			.addPanel({ name:"col3", width:180, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 		;
 	},
 

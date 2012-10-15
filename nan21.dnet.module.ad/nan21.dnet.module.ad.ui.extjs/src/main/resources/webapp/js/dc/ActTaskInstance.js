@@ -39,7 +39,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstance$Filter", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1", width:80, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
+			.addPanel({ name:"col1", width:80, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 		;
 	},
 

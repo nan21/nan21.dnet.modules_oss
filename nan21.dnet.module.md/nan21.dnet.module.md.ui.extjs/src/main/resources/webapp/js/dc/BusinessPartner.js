@@ -54,8 +54,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Filter", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:220, layout:"form"})
-			.addPanel({ name:"col2",title:"Person", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col3",title:"Company", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col2", title:"Person", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col3", title:"Company", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
 		;
 	},
 
@@ -176,7 +176,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Edit", {
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col0", layout:"card"})
 			.addPanel({ name:"formCompany", width:600})
-			.addPanel({ name:"formCompanyCol1", width:500, height:40, layout:"form"})
+			.addPanel({ name:"formCompanyCol1", width:500, height: 40, layout:"form"})
 			.addPanel({ name:"formCompanyCol2", width:250, layout:"form"})
 			.addPanel({ name:"formPerson", width:600, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
 			.addPanel({ name:"formPersonCol1", width:300, layout:"form"})

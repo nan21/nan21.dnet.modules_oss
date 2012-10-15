@@ -52,8 +52,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$Filter", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:210, layout:"form"})
-			.addPanel({ name:"col2", width:150, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
-			.addPanel({ name:"col3", width:150, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
+			.addPanel({ name:"col2", width:150, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col3", width:150, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 			.addPanel({ name:"col4", width:250, layout:"form"})
 		;
 	},
@@ -121,7 +121,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$CtxFormName", {
 			/* controls */
 			.addDisplayFieldText({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20", fieldCls:"displayfield important-field"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, width:90, layout:"form"})
+			.addPanel({ name:"main", autoScroll:true, width:"90%", layout:"form"})
 		;
 	},
 
@@ -218,9 +218,9 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$EditInfo", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1",title:"Physical", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:false})
-			.addPanel({ name:"col2",title:"Dimensions", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:false})
-			.addPanel({ name:"col3",title:"Image", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:false, defaults:{labelAlign:"top"}})
+			.addPanel({ name:"col1", title:"Physical", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col2", title:"Dimensions", width:250, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col3", title:"Image", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:false, defaults:{labelAlign:"top"}})
 		;
 	},
 

@@ -230,7 +230,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditDetails", {
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1"})
 			.addPanel({ name:"col2", width:400, layout:"form"})
-			.addPanel({ name:"panelPayment",title:"Payment", width:350, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"panelPayment", title:"Payment", width:350, layout:"form", xtype:"fieldset", border:true, collapsible:true})
 		;
 	},
 

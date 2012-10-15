@@ -50,7 +50,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Filter", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:210, layout:"form"})
-			.addPanel({ name:"col2", width:150, layout:"form", defaults:{labelAlign:"right",labelWidth:70}})
+			.addPanel({ name:"col2", width:150, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 			.addPanel({ name:"col3", width:250, layout:"form"})
 		;
 	},

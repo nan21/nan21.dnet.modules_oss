@@ -244,8 +244,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditDetails", {
 			.addPanel({ name:"col1"})
 			.addPanel({ name:"col2"})
 			.addPanel({ name:"col3", width:400, layout:"form"})
-			.addPanel({ name:"panelShipping",title:"Delivery", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"panelPayment",title:"Payment", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"panelShipping", title:"Delivery", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"panelPayment", title:"Payment", width:400, layout:"form", xtype:"fieldset", border:true, collapsible:true})
 		;
 	},
 

@@ -45,7 +45,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MyUserSettings$Edit", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1",title:"Regional settings", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col1", title:"Regional settings", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
 		;
 	},
 

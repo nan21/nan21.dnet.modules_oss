@@ -156,8 +156,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
-			.addPanel({ name:"col2",title:"Customer", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
-			.addPanel({ name:"col3",title:"Vendor", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col2", title:"Customer", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col3", title:"Vendor", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
 		;
 	},
 
@@ -222,8 +222,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
-			.addPanel({ name:"col2",title:"Customer", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
-			.addPanel({ name:"col3",title:"Vendor", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col2", title:"Customer", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col3", title:"Vendor", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
 		;
 	},
 

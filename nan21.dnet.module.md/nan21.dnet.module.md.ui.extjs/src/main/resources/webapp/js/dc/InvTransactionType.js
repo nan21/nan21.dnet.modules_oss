@@ -40,7 +40,7 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionType$Filter",
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:250, layout:"form"})
-			.addPanel({ name:"col2", width:200, layout:"form", defaults:{labelAlign:"right",labelWidth:120}})
+			.addPanel({ name:"col2", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:120}})
 		;
 	},
 

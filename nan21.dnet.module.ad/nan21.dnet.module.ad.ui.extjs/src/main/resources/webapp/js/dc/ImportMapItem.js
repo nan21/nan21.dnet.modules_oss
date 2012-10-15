@@ -100,7 +100,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItem$ImportFileForm", {
 			.addTextField({ name:"importFileLocation", paramIndex:"importFileLocation", anchor:"-20"})
 			.addTextField({ name:"importUkFieldName", paramIndex:"importUkFieldName", anchor:"-20", maxLength:32})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, width:450, layout:"form", defaults:{labelAlign:"right",labelWidth:140}})
+			.addPanel({ name:"main", autoScroll:true, width:450, layout:"form", defaults:{labelAlign:"right", labelWidth:140}})
 		;
 	},
 
