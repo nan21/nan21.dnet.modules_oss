@@ -46,7 +46,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			
 			.addDcFilterFormView("project", {name:"projectFilter", height:80, xtype:"pj_md_dc_Project$Filter"})	
 			.addDcGridView("project", {name:"projectList", xtype:"pj_md_dc_Project$List"})	
-			.addDcFormView("project", {name:"projectEdit", height:180, xtype:"pj_md_dc_Project$Edit"})	
+			.addDcFormView("project", {name:"projectEdit", height:160, xtype:"pj_md_dc_Project$Edit"})	
 			.addDcFilterFormView("version", {name:"versionFilter", xtype:"pj_md_dc_ProjectVersion$Filter"})	
 			.addDcEditGridView("version", {name:"versionEditList", title:"Versions", xtype:"pj_md_dc_ProjectVersion$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

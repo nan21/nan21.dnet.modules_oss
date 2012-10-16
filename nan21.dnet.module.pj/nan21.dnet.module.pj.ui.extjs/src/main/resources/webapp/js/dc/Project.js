@@ -106,15 +106,17 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Project$Edit", {
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
-			.addPanel({ name:"col1", width:300, layout:"form"})
-			.addPanel({ name:"col2", width:400, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"col1", width:350, layout:"form"})
+			.addPanel({ name:"col2", width:150, layout:"form"})
+			.addPanel({ name:"col3", width:400, layout:"form", defaults:{labelAlign:"top"}})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2"])
-			.addChildrenTo("col1", ["name", "code", "type", "projectLead", "active", "isPublic"])
-			.addChildrenTo("col2", ["notes"])
+			.addChildrenTo("main", ["col1", "col2", "col3"])
+			.addChildrenTo("col1", ["name", "code", "type", "projectLead"])
+			.addChildrenTo("col2", ["active", "isPublic"])
+			.addChildrenTo("col3", ["notes"])
 		;
 	}});
