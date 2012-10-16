@@ -31,7 +31,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Filter", {
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addTextField({ name:"summary", dataIndex:"summary", anchor:"-20"})
 			.addTextField({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
-			.addLov({xtype:"pj_md_lovs_Projects", name:"project", dataIndex:"project", allowBlank:false, anchor:"-20", maxLength:32,
+			.addLov({xtype:"pj_md_lovs_Projects", name:"project", dataIndex:"project", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "projectId"} 
 				]})
