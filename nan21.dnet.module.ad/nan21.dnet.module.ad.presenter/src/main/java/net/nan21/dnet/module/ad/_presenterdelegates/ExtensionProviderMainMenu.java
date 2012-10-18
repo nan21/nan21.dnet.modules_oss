@@ -11,14 +11,14 @@ public class ExtensionProviderMainMenu extends AbstractDsDelegate implements
 		IExtensionContentProvider {
 
 	@Override
-	public String getContent() throws Exception {
+	public String getContent(String targetName) throws Exception {
 		StringBuffer sb = new StringBuffer();
 		this.addNavigationTreeMenus(sb);
 		return sb.toString();
 	}
 
 	protected void addNavigationTreeMenus(StringBuffer sb) throws Exception {
-		IDsService srv = this.findDsService("MenuRtLovDs");
+		IDsService<MenuRtLovDs, ?, ?> srv = this.findDsService("MenuRtLovDs");
 		List<MenuRtLovDs> menus = srv.find(null);
 		int i = 0;
 		sb.append("Dnet.navigationTreeMenus = [");

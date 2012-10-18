@@ -34,14 +34,15 @@
 	<bean id="serviceLocator" class="net.nan21.dnet.core.presenter.service.ServiceLocator"/>
 
 	 <!-- module presenter specific -->
+
 	<bean id="menuProvider"
 		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderMainMenu"/>
 	
 	<bean id="reportProvider"
-		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderFrameReports"/>
+		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderReports"/>
 	
-	<bean id="scriptFormDbProvider"
-		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderFrameScriptFromDb"/>
+	<bean id="scriptFromDbProvider"
+		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderScriptFromDb"/>
 	
 	<bean id="fileUploadServiceFactory"
 		class="net.nan21.dnet.core.presenter.service.FileUploadServiceFactory"/>
@@ -49,7 +50,6 @@
 	<bean id="setupParticipant" class="net.nan21.dnet.module.ad._presenterdelegates.Setup_AD"
 		scope="singleton">
 		<property name="ranking" value="99"></property>
-		<property name="systemConfig" ref="systemConfig"></property>
 	</bean>
 	
 	<bean id="dummyDsJob" scope="prototype"

@@ -59,10 +59,10 @@
 		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionContentProvider"/>
 			
 	<osgi:service ref="reportProvider" ranking="0"
-		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionContentProviderFrame"/>
+		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionContentProvider"/>
 	
-	<osgi:service ref="scriptFormDbProvider" ranking="0"
-		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionProviderFrame"/>
+	<osgi:service ref="scriptFromDbProvider" ranking="0"
+		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionProvider"/>
 		
 	<osgi:service ref="fileUploadServiceFactory" ranking="0"
 		interface="net.nan21.dnet.core.api.service.IFileUploadServiceFactory"/>
