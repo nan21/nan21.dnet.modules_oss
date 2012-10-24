@@ -9,8 +9,8 @@
 	
 	<!-- ==================== RatingScale ==================== -->
 	
-	<bean id="RatingScaleDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="RatingScaleDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingScaleDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.RatingScaleDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingScale"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== RatingScaleLov ==================== -->
 	
-	<bean id="RatingScaleLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="RatingScaleLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingScale"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== RatingLevel ==================== -->
 	
-	<bean id="RatingLevelDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="RatingLevelDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingLevelDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.RatingLevelDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== RatingLevelLov ==================== -->
 	
-	<bean id="RatingLevelLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="RatingLevelLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingLevelLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingLevelLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== SkillCategory ==================== -->
 	
-	<bean id="SkillCategoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SkillCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.SkillCategoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillCategory"/>
@@ -82,8 +82,8 @@
 	
 	<!-- ==================== SkillCategoryLov ==================== -->
 	
-	<bean id="SkillCategoryLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SkillCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillCategory"/>
@@ -97,8 +97,8 @@
 	
 	<!-- ==================== SkillType ==================== -->
 	
-	<bean id="SkillTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SkillTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.SkillTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillType"/>
@@ -112,8 +112,8 @@
 	
 	<!-- ==================== SkillTypeLov ==================== -->
 	
-	<bean id="SkillTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SkillTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillType"/>
@@ -127,8 +127,8 @@
 	
 	<!-- ==================== Skill ==================== -->
 	
-	<bean id="SkillDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.SkillDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Skill"/>
@@ -142,8 +142,8 @@
 	
 	<!-- ==================== SkillLov ==================== -->
 	
-	<bean id="SkillLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SkillLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Skill"/>
@@ -157,8 +157,8 @@
 	
 	<!-- ==================== Qualification ==================== -->
 	
-	<bean id="QualificationDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="QualificationDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.QualificationDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Qualification"/>
@@ -171,8 +171,8 @@
 	
 	<!-- ==================== QualificationLov ==================== -->
 	
-	<bean id="QualificationLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="QualificationLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Qualification"/>
@@ -186,8 +186,8 @@
 	
 	<!-- ==================== QualificationSkill ==================== -->
 	
-	<bean id="QualificationSkillDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="QualificationSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.QualificationSkillDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.QualificationSkill"/>
@@ -201,8 +201,8 @@
 	
 	<!-- ==================== JobSkill ==================== -->
 	
-	<bean id="JobSkillDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="JobSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.JobSkillDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.JobSkill"/>
@@ -216,8 +216,8 @@
 	
 	<!-- ==================== PositionSkill ==================== -->
 	
-	<bean id="PositionSkillDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PositionSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.PositionSkillDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.PositionSkill"/>
@@ -231,8 +231,8 @@
 	
 	<!-- ==================== EmployeeSkill ==================== -->
 	
-	<bean id="EmployeeSkillDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="EmployeeSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.EmployeeSkillDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.EmployeeSkillDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.EmployeeSkill"/>

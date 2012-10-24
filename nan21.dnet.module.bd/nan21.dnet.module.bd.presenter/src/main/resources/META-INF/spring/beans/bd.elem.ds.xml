@@ -9,8 +9,8 @@
 	
 	<!-- ==================== Engine ==================== -->
 	
-	<bean id="EngineDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="EngineDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.EngineDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.EngineDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Engine"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== EngineLov ==================== -->
 	
-	<bean id="EngineLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="EngineLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.EngineLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.EngineLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Engine"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== ElementCategory ==================== -->
 	
-	<bean id="ElementCategoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.ElementCategoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementCategory"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== ElementCategoryLov ==================== -->
 	
-	<bean id="ElementCategoryLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementCategory"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== ElementType ==================== -->
 	
-	<bean id="ElementTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.ElementTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementType"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== ElementTypeLov ==================== -->
 	
-	<bean id="ElementTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementType"/>
@@ -98,8 +98,8 @@
 	
 	<!-- ==================== Element ==================== -->
 	
-	<bean id="ElementDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.ElementDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Element"/>
@@ -113,8 +113,8 @@
 	
 	<!-- ==================== ElementLov ==================== -->
 	
-	<bean id="ElementLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Element"/>
@@ -128,8 +128,8 @@
 	
 	<!-- ==================== ElementInput ==================== -->
 	
-	<bean id="ElementInputDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementInputDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementInputDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.ElementInputDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementInput"/>
@@ -143,8 +143,8 @@
 	
 	<!-- ==================== ElementFormula ==================== -->
 	
-	<bean id="ElementFormulaDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementFormulaDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.ElementFormulaDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementFormula"/>
@@ -158,8 +158,8 @@
 	
 	<!-- ==================== ElementSet ==================== -->
 	
-	<bean id="ElementSetDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementSetDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.ElementSetDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementSet"/>
@@ -173,8 +173,8 @@
 	
 	<!-- ==================== ElementSetLov ==================== -->
 	
-	<bean id="ElementSetLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementSetLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementSet"/>
@@ -188,8 +188,8 @@
 	
 	<!-- ==================== ElementSetElement ==================== -->
 	
-	<bean id="ElementSetElementDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ElementSetElementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetElementDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.filter.ElementSetElementDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementSetElement"/>

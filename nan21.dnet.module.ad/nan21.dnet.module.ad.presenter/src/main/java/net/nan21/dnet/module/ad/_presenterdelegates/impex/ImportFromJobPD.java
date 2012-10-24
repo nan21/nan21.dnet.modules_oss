@@ -2,13 +2,13 @@ package net.nan21.dnet.module.ad._presenterdelegates.impex;
 
 import java.util.List;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.impex.business.service.IImportJobItemService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJobItem;
 import net.nan21.dnet.module.ad.impex.ds.model.ImportJobDs;
 import net.nan21.dnet.module.ad.impex.ds.model.ImportMapDs;
 
-public class ImportFromJobPD extends AbstractDsDelegate {
+public class ImportFromJobPD extends AbstractPresenterBaseService {
 
 	public void execute(ImportJobDs ds) throws Exception {
 		IImportJobItemService srv = (IImportJobItemService) this
@@ -22,7 +22,7 @@ public class ImportFromJobPD extends AbstractDsDelegate {
 				.getResultList();
 
 		ImportFromMapPD d = new ImportFromMapPD();
-		this.prepareDelegate(d);		 
+		this.prepareDelegate(d);
 		for (ImportJobItem item : items) {
 			ImportMapDs mapDs = new ImportMapDs();
 			mapDs.setId(item.getMap().getId());

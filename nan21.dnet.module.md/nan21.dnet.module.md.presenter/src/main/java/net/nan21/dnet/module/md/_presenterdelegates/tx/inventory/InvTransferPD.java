@@ -1,12 +1,11 @@
 package net.nan21.dnet.module.md._presenterdelegates.tx.inventory;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.md.tx.inventory.business.service.IInvTransactionService;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransaction;
 import net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDs;
 
-
-public class InvTransferPD extends AbstractDsDelegate {
+public class InvTransferPD extends AbstractPresenterBaseService {
 
 	public void confirm(InvTransferDs ds) throws Exception {
 		IInvTransactionService service = ((IInvTransactionService) this

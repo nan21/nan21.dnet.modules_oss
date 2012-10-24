@@ -1,5 +1,5 @@
 code;name;value;description;active
-APP_LOGO_URL;Application logo URL;http://nan21.net/logo.png;"Link to the client logo to be displayed in the application header
+APP_LOGO_URL;Application logo URL;http://dnet.nan21.net/static-demo-resources/client-logo.png;"Link to the client logo to be displayed in the application header
 ";true
 SESSION_CHECK_IP;Check request IP;false;"Check if the remote client IP of the request is the same as the one used at login time.
 Possible values: true, false";true

@@ -1,14 +1,15 @@
 package net.nan21.dnet.module.hr._presenterdelegates.payroll;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.hr.payroll.business.service.IPayrollPeriodService;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod;
 import net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs;
 
-public class PayrollPeriodProcessorPD extends AbstractDsDelegate {
+public class PayrollPeriodProcessorPD extends AbstractPresenterBaseService {
 
 	/**
 	 * Open period.
+	 * 
 	 * @param ds
 	 * @throws Exception
 	 */
@@ -21,6 +22,7 @@ public class PayrollPeriodProcessorPD extends AbstractDsDelegate {
 
 	/**
 	 * Close period
+	 * 
 	 * @param ds
 	 * @throws Exception
 	 */
@@ -33,6 +35,7 @@ public class PayrollPeriodProcessorPD extends AbstractDsDelegate {
 
 	/**
 	 * Process period
+	 * 
 	 * @param ds
 	 * @throws Exception
 	 */
@@ -43,9 +46,9 @@ public class PayrollPeriodProcessorPD extends AbstractDsDelegate {
 		service.doProcess(entity);
 	}
 
-	
 	/**
 	 * Clear period.
+	 * 
 	 * @param ds
 	 * @throws Exception
 	 */

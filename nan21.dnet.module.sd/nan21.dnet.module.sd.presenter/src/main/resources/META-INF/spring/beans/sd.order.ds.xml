@@ -9,8 +9,8 @@
 	
 	<!-- ==================== SalesOrder ==================== -->
 	
-	<bean id="SalesOrderDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SalesOrderDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrder"/>
@@ -65,8 +65,8 @@
 	
 	<!-- ==================== SalesOrderItem ==================== -->
 	
-	<bean id="SalesOrderItemDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SalesOrderItemDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderItemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
@@ -95,8 +95,8 @@
 	
 	<!-- ==================== SalesOrderItemTax ==================== -->
 	
-	<bean id="SalesOrderItemTaxDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SalesOrderItemTaxDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemTaxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderItemTaxDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItemTax"/>
@@ -110,8 +110,8 @@
 	
 	<!-- ==================== SalesOrderTax ==================== -->
 	
-	<bean id="SalesOrderTaxDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SalesOrderTaxDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderTaxDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderTax"/>
@@ -125,8 +125,8 @@
 	
 	<!-- ==================== SalesDelivery ==================== -->
 	
-	<bean id="SalesDeliveryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SalesDeliveryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesDeliveryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesInventoryTransaction"/>

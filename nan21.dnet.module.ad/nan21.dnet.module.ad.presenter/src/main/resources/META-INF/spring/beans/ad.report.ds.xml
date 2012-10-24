@@ -9,8 +9,8 @@
 	
 	<!-- ==================== ReportServer ==================== -->
 	
-	<bean id="ReportServerDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ReportServerDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.ReportServerDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportServer"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== ReportServerLov ==================== -->
 	
-	<bean id="ReportServerLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ReportServerLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportServer"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== Report ==================== -->
 	
-	<bean id="ReportDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ReportDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.ReportDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.Report"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== ReportLov ==================== -->
 	
-	<bean id="ReportLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ReportLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.Report"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== ReportParam ==================== -->
 	
-	<bean id="ReportParamDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ReportParamDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.ReportParamDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== ReportParamRt ==================== -->
 	
-	<bean id="ReportParamRtDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ReportParamRtDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamRtDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.ReportParamRtDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
@@ -98,8 +98,8 @@
 	
 	<!-- ==================== ReportParamLov ==================== -->
 	
-	<bean id="ReportParamLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ReportParamLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
@@ -113,8 +113,8 @@
 	
 	<!-- ==================== DsReport ==================== -->
 	
-	<bean id="DsReportDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="DsReportDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.DsReportDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReport"/>
@@ -128,8 +128,8 @@
 	
 	<!-- ==================== DsReportParam ==================== -->
 	
-	<bean id="DsReportParamDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="DsReportParamDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.DsReportParamDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportParam"/>
@@ -143,8 +143,8 @@
 	
 	<!-- ==================== DsReportUsage ==================== -->
 	
-	<bean id="DsReportUsageDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="DsReportUsageDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.DsReportUsageDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage"/>
@@ -158,8 +158,8 @@
 	
 	<!-- ==================== DsReportUsageRt ==================== -->
 	
-	<bean id="DsReportUsageRtDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="DsReportUsageRtDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageRtDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.DsReportUsageRtDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage"/>
@@ -173,8 +173,8 @@
 	
 	<!-- ==================== DsReportParamRt ==================== -->
 	
-	<bean id="DsReportParamRtDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="DsReportParamRtDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamRtDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.filter.DsReportParamRtDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportParam"/>

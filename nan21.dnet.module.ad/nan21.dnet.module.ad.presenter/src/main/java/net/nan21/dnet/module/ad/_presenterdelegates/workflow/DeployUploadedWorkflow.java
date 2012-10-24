@@ -12,7 +12,7 @@ import net.nan21.dnet.core.api.action.IFileUploadResult;
 import net.nan21.dnet.core.api.model.IUploadedFileDescriptor;
 import net.nan21.dnet.core.api.service.IFileUploadService;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.presenter.service.AbstractFileUploadService;
+import net.nan21.dnet.core.presenter.service.stream.AbstractFileUploadService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActDeploymentService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;

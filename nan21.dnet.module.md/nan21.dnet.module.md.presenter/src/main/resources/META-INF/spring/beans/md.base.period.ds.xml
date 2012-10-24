@@ -9,8 +9,8 @@
 	
 	<!-- ==================== FiscalYear ==================== -->
 	
-	<bean id="FiscalYearDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FiscalYearDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.filter.FiscalYearDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== FiscalYearLov ==================== -->
 	
-	<bean id="FiscalYearLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FiscalYearLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalYearLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalYearLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== FiscalPeriod ==================== -->
 	
-	<bean id="FiscalPeriodDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FiscalPeriodDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.filter.FiscalPeriodDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== FiscalPeriodLov ==================== -->
 	
-	<bean id="FiscalPeriodLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FiscalPeriodLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod"/>

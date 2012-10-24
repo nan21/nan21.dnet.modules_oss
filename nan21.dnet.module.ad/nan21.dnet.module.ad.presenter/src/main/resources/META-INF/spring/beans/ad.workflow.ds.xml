@@ -9,8 +9,8 @@
 	
 	<!-- ==================== ActDeployment ==================== -->
 	
-	<bean id="ActDeploymentDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActDeploymentDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActDeploymentDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment"/>
@@ -26,8 +26,8 @@
 	
 	<!-- ==================== ActDeploymentLov ==================== -->
 	
-	<bean id="ActDeploymentLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActDeploymentLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment"/>
@@ -42,8 +42,8 @@
 	
 	<!-- ==================== ActProcessDefinition ==================== -->
 	
-	<bean id="ActProcessDefinitionDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActProcessDefinitionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActProcessDefinitionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition"/>
@@ -88,8 +88,8 @@
 	
 	<!-- ==================== ActProcessDefinitionLov ==================== -->
 	
-	<bean id="ActProcessDefinitionLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActProcessDefinitionLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition"/>
@@ -104,8 +104,8 @@
 	
 	<!-- ==================== ActProcessInstance ==================== -->
 	
-	<bean id="ActProcessInstanceDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActProcessInstanceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActProcessInstanceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessInstanceHistory"/>
@@ -136,8 +136,8 @@
 	
 	<!-- ==================== ActProcessInstanceHistory ==================== -->
 	
-	<bean id="ActProcessInstanceHistoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActProcessInstanceHistoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActProcessInstanceHistoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessInstanceHistory"/>
@@ -153,8 +153,8 @@
 	
 	<!-- ==================== ActTaskInstance ==================== -->
 	
-	<bean id="ActTaskInstanceDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActTaskInstanceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActTaskInstanceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
@@ -192,8 +192,8 @@
 	
 	<!-- ==================== ActVariable ==================== -->
 	
-	<bean id="ActVariableDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActVariableDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActVariableDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActVariable"/>
@@ -207,8 +207,8 @@
 	
 	<!-- ==================== ActTaskInstanceHistory ==================== -->
 	
-	<bean id="ActTaskInstanceHistoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActTaskInstanceHistoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActTaskInstanceHistoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
@@ -223,8 +223,8 @@
 	
 	<!-- ==================== ActMyTask ==================== -->
 	
-	<bean id="ActMyTaskDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActMyTaskDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActMyTaskDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTask"/>
@@ -254,8 +254,8 @@
 	
 	<!-- ==================== ActMyTaskHistory ==================== -->
 	
-	<bean id="ActMyTaskHistoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActMyTaskHistoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActMyTaskHistoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
@@ -270,8 +270,8 @@
 	
 	<!-- ==================== ActAvailableTask ==================== -->
 	
-	<bean id="ActAvailableTaskDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ActAvailableTaskDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActAvailableTaskDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.ActAvailableTaskDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTask"/>
@@ -301,8 +301,8 @@
 	
 	<!-- ==================== WfDefProcess ==================== -->
 	
-	<bean id="WfDefProcessDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WfDefProcessDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefProcessDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.WfDefProcessDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefProcess"/>
@@ -337,8 +337,8 @@
 	
 	<!-- ==================== WfDefNode ==================== -->
 	
-	<bean id="WfDefNodeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WfDefNodeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.WfDefNodeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode"/>
@@ -352,8 +352,8 @@
 	
 	<!-- ==================== WfDefNodeField ==================== -->
 	
-	<bean id="WfDefNodeFieldDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WfDefNodeFieldDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeFieldDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.WfDefNodeFieldDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNodeField"/>
@@ -367,8 +367,8 @@
 	
 	<!-- ==================== WfDefTransition ==================== -->
 	
-	<bean id="WfDefTransitionDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WfDefTransitionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.filter.WfDefTransitionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefTransition"/>

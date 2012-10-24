@@ -9,7 +9,7 @@
 	
 	<!-- ==================== Client ==================== -->
 	
-	<bean id="ClientDsService" scope="prototype"
+	<bean id="ClientDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.module.ad.client.ds.serviceext.ClientDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.client.ds.model.ClientDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.client.ds.filter.ClientDsFilter"/>
@@ -24,8 +24,8 @@
 	
 	<!-- ==================== MyClient ==================== -->
 	
-	<bean id="MyClientDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="MyClientDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.client.ds.model.MyClientDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.client.ds.model.MyClientDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.client.domain.entity.Client"/>

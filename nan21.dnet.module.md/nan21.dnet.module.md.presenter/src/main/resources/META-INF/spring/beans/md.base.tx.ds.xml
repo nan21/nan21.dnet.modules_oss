@@ -9,8 +9,8 @@
 	
 	<!-- ==================== PaymentMethod ==================== -->
 	
-	<bean id="PaymentMethodDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentMethodDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.PaymentMethodDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod"/>
@@ -24,8 +24,8 @@
 	
 	<!-- ==================== PaymentMethodLov ==================== -->
 	
-	<bean id="PaymentMethodLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentMethodLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod"/>
@@ -39,8 +39,8 @@
 	
 	<!-- ==================== PaymentMethodInLov ==================== -->
 	
-	<bean id="PaymentMethodInLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentMethodInLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodInLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodInLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod"/>
@@ -54,8 +54,8 @@
 	
 	<!-- ==================== PaymentMethodOutLov ==================== -->
 	
-	<bean id="PaymentMethodOutLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentMethodOutLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod"/>
@@ -69,8 +69,8 @@
 	
 	<!-- ==================== PaymentTerm ==================== -->
 	
-	<bean id="PaymentTermDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentTermDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.PaymentTermDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== PaymentTermLov ==================== -->
 	
-	<bean id="PaymentTermLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentTermLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm"/>
@@ -98,8 +98,8 @@
 	
 	<!-- ==================== DeliveryMethod ==================== -->
 	
-	<bean id="DeliveryMethodDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="DeliveryMethodDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.DeliveryMethodDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod"/>
@@ -112,8 +112,8 @@
 	
 	<!-- ==================== DeliveryMethodLov ==================== -->
 	
-	<bean id="DeliveryMethodLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="DeliveryMethodLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod"/>
@@ -127,8 +127,8 @@
 	
 	<!-- ==================== TxDocType ==================== -->
 	
-	<bean id="TxDocTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.TxDocTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -142,8 +142,8 @@
 	
 	<!-- ==================== TxDocTypeLov ==================== -->
 	
-	<bean id="TxDocTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -157,8 +157,8 @@
 	
 	<!-- ==================== TxDocTypeSOLov ==================== -->
 	
-	<bean id="TxDocTypeSOLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypeSOLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSOLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSOLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -172,8 +172,8 @@
 	
 	<!-- ==================== TxDocTypeSOInvOutLov ==================== -->
 	
-	<bean id="TxDocTypeSOInvOutLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypeSOInvOutLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSOInvOutLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSOInvOutLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -187,8 +187,8 @@
 	
 	<!-- ==================== TxDocTypeSILov ==================== -->
 	
-	<bean id="TxDocTypeSILovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypeSILovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSILovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSILovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -202,8 +202,8 @@
 	
 	<!-- ==================== TxDocTypePOLov ==================== -->
 	
-	<bean id="TxDocTypePOLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypePOLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePOLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePOLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -217,8 +217,8 @@
 	
 	<!-- ==================== TxDocTypePOInvInLov ==================== -->
 	
-	<bean id="TxDocTypePOInvInLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypePOInvInLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePOInvInLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePOInvInLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -232,8 +232,8 @@
 	
 	<!-- ==================== TxDocTypePILov ==================== -->
 	
-	<bean id="TxDocTypePILovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypePILovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePILovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePILovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -247,8 +247,8 @@
 	
 	<!-- ==================== TxDocTypeInvInOutLov ==================== -->
 	
-	<bean id="TxDocTypeInvInOutLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypeInvInOutLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeInvInOutLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeInvInOutLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -262,8 +262,8 @@
 	
 	<!-- ==================== TxDocTypePayLov ==================== -->
 	
-	<bean id="TxDocTypePayLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocTypePayLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePayLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePayLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
@@ -277,8 +277,8 @@
 	
 	<!-- ==================== TxDocSequence ==================== -->
 	
-	<bean id="TxDocSequenceDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocSequenceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.TxDocSequenceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence"/>
@@ -291,8 +291,8 @@
 	
 	<!-- ==================== TxDocSequenceLov ==================== -->
 	
-	<bean id="TxDocSequenceLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxDocSequenceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence"/>

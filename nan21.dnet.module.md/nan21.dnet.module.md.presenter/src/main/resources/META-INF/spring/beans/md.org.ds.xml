@@ -9,8 +9,8 @@
 	
 	<!-- ==================== FinancialAccount ==================== -->
 	
-	<bean id="FinancialAccountDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FinancialAccountDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.filter.FinancialAccountDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccount"/>
@@ -24,8 +24,8 @@
 	
 	<!-- ==================== FinancialAccountLov ==================== -->
 	
-	<bean id="FinancialAccountLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FinancialAccountLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccount"/>
@@ -39,8 +39,8 @@
 	
 	<!-- ==================== FinancialAccountAcct ==================== -->
 	
-	<bean id="FinancialAccountAcctDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FinancialAccountAcctDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.filter.FinancialAccountAcctDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccountAcct"/>
@@ -54,8 +54,8 @@
 	
 	<!-- ==================== FinancialAccountMethod ==================== -->
 	
-	<bean id="FinancialAccountMethodDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="FinancialAccountMethodDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.filter.FinancialAccountMethodDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod"/>
@@ -69,8 +69,8 @@
 	
 	<!-- ==================== SubInventory ==================== -->
 	
-	<bean id="SubInventoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SubInventoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.SubInventoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.filter.SubInventoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.SubInventory"/>
@@ -84,8 +84,8 @@
 	
 	<!-- ==================== SubInventoryLov ==================== -->
 	
-	<bean id="SubInventoryLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="SubInventoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.SubInventoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.SubInventoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.SubInventory"/>
@@ -99,8 +99,8 @@
 	
 	<!-- ==================== StockLocatorType ==================== -->
 	
-	<bean id="StockLocatorTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="StockLocatorTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.filter.StockLocatorTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocatorType"/>
@@ -113,8 +113,8 @@
 	
 	<!-- ==================== StockLocatorTypeLov ==================== -->
 	
-	<bean id="StockLocatorTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="StockLocatorTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocatorType"/>
@@ -128,8 +128,8 @@
 	
 	<!-- ==================== StockLocator ==================== -->
 	
-	<bean id="StockLocatorDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="StockLocatorDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.filter.StockLocatorDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocator"/>
@@ -143,8 +143,8 @@
 	
 	<!-- ==================== StockLocatorLov ==================== -->
 	
-	<bean id="StockLocatorLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="StockLocatorLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocator"/>

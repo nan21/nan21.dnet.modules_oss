@@ -9,8 +9,8 @@
 	
 	<!-- ==================== Grade ==================== -->
 	
-	<bean id="GradeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="GradeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.filter.GradeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.Grade"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== GradeLov ==================== -->
 	
-	<bean id="GradeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="GradeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.Grade"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== GradeRate ==================== -->
 	
-	<bean id="GradeRateDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="GradeRateDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.filter.GradeRateDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.GradeRate"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== GradeRateLov ==================== -->
 	
-	<bean id="GradeRateLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="GradeRateLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.GradeRate"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== GradeRateValue ==================== -->
 	
-	<bean id="GradeRateValueDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="GradeRateValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateValueDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.filter.GradeRateValueDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.GradeRateValue"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== PayScale ==================== -->
 	
-	<bean id="PayScaleDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayScaleDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.filter.PayScaleDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScale"/>
@@ -97,8 +97,8 @@
 	
 	<!-- ==================== PayScaleLov ==================== -->
 	
-	<bean id="PayScaleLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayScaleLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScale"/>
@@ -112,8 +112,8 @@
 	
 	<!-- ==================== PayScalePoint ==================== -->
 	
-	<bean id="PayScalePointDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayScalePointDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.filter.PayScalePointDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint"/>
@@ -127,8 +127,8 @@
 	
 	<!-- ==================== PayScalePointLov ==================== -->
 	
-	<bean id="PayScalePointLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayScalePointLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScalePointLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScalePointLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint"/>
@@ -142,8 +142,8 @@
 	
 	<!-- ==================== PayScaleRate ==================== -->
 	
-	<bean id="PayScaleRateDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayScaleRateDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.filter.PayScaleRateDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRate"/>
@@ -157,8 +157,8 @@
 	
 	<!-- ==================== PayScaleRateValue ==================== -->
 	
-	<bean id="PayScaleRateValueDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayScaleRateValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateValueDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.filter.PayScaleRateValueDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRateValue"/>

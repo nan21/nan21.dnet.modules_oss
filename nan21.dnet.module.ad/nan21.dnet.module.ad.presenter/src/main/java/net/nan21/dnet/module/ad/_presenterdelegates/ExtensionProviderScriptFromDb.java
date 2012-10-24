@@ -6,12 +6,12 @@ import java.util.List;
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.api.ui.extjs.ExtensionFile;
 import net.nan21.dnet.core.api.ui.extjs.IExtensionProvider;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
 import net.nan21.dnet.module.ad.system.ds.filter.SysFrameExtensionDsFilter;
 import net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs;
 
-public class ExtensionProviderScriptFromDb extends AbstractDsDelegate
+public class ExtensionProviderScriptFromDb extends AbstractPresenterBaseService
 		implements IExtensionProvider {
 
 	@Override

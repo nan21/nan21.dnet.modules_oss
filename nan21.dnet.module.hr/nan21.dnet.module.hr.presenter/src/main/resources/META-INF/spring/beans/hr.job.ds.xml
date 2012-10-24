@@ -9,8 +9,8 @@
 	
 	<!-- ==================== WorkRequirementType ==================== -->
 	
-	<bean id="WorkRequirementTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WorkRequirementTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.filter.WorkRequirementTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== WorkRequirementTypeLov ==================== -->
 	
-	<bean id="WorkRequirementTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WorkRequirementTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== WorkRequirement ==================== -->
 	
-	<bean id="WorkRequirementDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WorkRequirementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.filter.WorkRequirementDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== WorkRequirementLov ==================== -->
 	
-	<bean id="WorkRequirementLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="WorkRequirementLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== JobType ==================== -->
 	
-	<bean id="JobTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="JobTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.filter.JobTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobType"/>
@@ -82,8 +82,8 @@
 	
 	<!-- ==================== JobTypeLov ==================== -->
 	
-	<bean id="JobTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="JobTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobType"/>
@@ -97,8 +97,8 @@
 	
 	<!-- ==================== Job ==================== -->
 	
-	<bean id="JobDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="JobDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.filter.JobDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Job"/>
@@ -112,8 +112,8 @@
 	
 	<!-- ==================== JobLov ==================== -->
 	
-	<bean id="JobLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="JobLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.JobLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Job"/>
@@ -127,8 +127,8 @@
 	
 	<!-- ==================== JobRequirement ==================== -->
 	
-	<bean id="JobRequirementDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="JobRequirementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobRequirementDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.filter.JobRequirementDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobRequirement"/>
@@ -142,8 +142,8 @@
 	
 	<!-- ==================== Position ==================== -->
 	
-	<bean id="PositionDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PositionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.filter.PositionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Position"/>
@@ -157,8 +157,8 @@
 	
 	<!-- ==================== PositionLov ==================== -->
 	
-	<bean id="PositionLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PositionLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Position"/>
@@ -172,8 +172,8 @@
 	
 	<!-- ==================== PositionRequirement ==================== -->
 	
-	<bean id="PositionRequirementDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PositionRequirementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.filter.PositionRequirementDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.PositionRequirement"/>

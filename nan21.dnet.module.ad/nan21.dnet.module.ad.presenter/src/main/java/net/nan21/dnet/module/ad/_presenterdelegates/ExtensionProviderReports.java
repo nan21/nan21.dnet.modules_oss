@@ -2,21 +2,18 @@ package net.nan21.dnet.module.ad._presenterdelegates;
 
 import java.util.List;
 
-import org.eclipse.persistence.sessions.Session;
-
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.core.api.ui.extjs.IExtensionContentProvider;
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
-import net.nan21.dnet.module.ad.report.domain.entity.Report;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportParam;
 import net.nan21.dnet.module.ad.report.ds.filter.DsReportParamRtDsFilter;
 import net.nan21.dnet.module.ad.report.ds.filter.DsReportUsageRtDsFilter;
 import net.nan21.dnet.module.ad.report.ds.model.DsReportParamRtDs;
 import net.nan21.dnet.module.ad.report.ds.model.DsReportUsageRtDs;
 
-public class ExtensionProviderReports extends AbstractDsDelegate implements
-		IExtensionContentProvider {
+public class ExtensionProviderReports extends AbstractPresenterBaseService
+		implements IExtensionContentProvider {
 
 	@Override
 	public String getContent(String targetFrame) throws Exception {
@@ -31,12 +28,14 @@ public class ExtensionProviderReports extends AbstractDsDelegate implements
 
 		// TODO: for production mode use a cache
 
-		IDsService srv = this.findDsService("DsReportUsageRtDs");
+		IDsService<DsReportUsageRtDs, DsReportUsageRtDsFilter, ?> srv = this
+				.findDsService("DsReportUsageRtDs");
 		DsReportUsageRtDsFilter filter = new DsReportUsageRtDsFilter();
 		filter.setFrameName(targetFrame);
 		List<DsReportUsageRtDs> reports = srv.find(filter);
 
-		IDsService srvParam = this.findDsService("DsReportParamRtDs");
+		IDsService<DsReportParamRtDs, DsReportParamRtDsFilter, ?> srvParam = this
+				.findDsService("DsReportParamRtDs");
 		DsReportParamRtDsFilter filterParam = new DsReportParamRtDsFilter();
 
 		IEntityService<ReportParam> rpsrv = this
@@ -105,7 +104,8 @@ public class ExtensionProviderReports extends AbstractDsDelegate implements
 									+ " e "
 									+ "where e.report.id = :reportId"
 									+ "  and e.active = true "
-									+ "  and e.id not in (select t.reportParam.id from DsReportParam t where t.dsReport.report.id = :reportId) ")
+									+ "  and e.id not in (select t.reportParam.id from DsReportParam t where t.dsReport.report.id = :reportId) ",
+							ReportParam.class)
 					.setParameter("reportId", report.getReportId())
 					.getResultList();
 			int k = 0;

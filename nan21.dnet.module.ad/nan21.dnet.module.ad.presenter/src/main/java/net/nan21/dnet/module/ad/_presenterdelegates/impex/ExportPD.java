@@ -6,11 +6,12 @@ import java.util.List;
 
 import net.nan21.dnet.core.api.action.IDsExport;
 import net.nan21.dnet.core.api.action.IQueryBuilder;
-import net.nan21.dnet.core.api.action.SortToken;
+import net.nan21.dnet.core.api.action.ISortToken;
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.presenter.action.DsCsvExport;
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.model.SortToken;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.impex.business.service.ICsvExportFieldService;
 import net.nan21.dnet.module.ad.impex.business.service.ICsvExportService;
 import net.nan21.dnet.module.ad.impex.business.service.IExportMapItemService;
@@ -26,7 +27,7 @@ import net.nan21.dnet.module.ad.impex.ds.model.ExportJobItemDs;
 import net.nan21.dnet.module.ad.impex.ds.model.ExportMapDs;
 import net.nan21.dnet.module.ad.impex.ds.model.ExportMapItemDs;
 
-public class ExportPD extends AbstractDsDelegate {
+public class ExportPD extends AbstractPresenterBaseService {
 
 	/**
 	 * Execute an export job export
@@ -37,10 +38,14 @@ public class ExportPD extends AbstractDsDelegate {
 	public void exportFromJob(ExportJobDs ds) throws Exception {
 		IExportMapService srv = (IExportMapService) this
 				.findEntityService(ExportMap.class);
-		List<Long> list = (List<Long>) srv.getEntityManager().createQuery(
-				"  select i.map.id from " + ExportJobItem.class.getSimpleName()
-						+ " i where i.active=true and i.job.id = :pJobId   ",
-				Long.class).setParameter("pJobId", ds.getId()).getResultList();
+		List<Long> list = (List<Long>) srv
+				.getEntityManager()
+				.createQuery(
+						"  select i.map.id from "
+								+ ExportJobItem.class.getSimpleName()
+								+ " i where i.active=true and i.job.id = :pJobId   ",
+						Long.class).setParameter("pJobId", ds.getId())
+				.getResultList();
 		for (Long id : list) {
 			this.exportByMapId(id);
 		}
@@ -93,9 +98,9 @@ public class ExportPD extends AbstractDsDelegate {
 				+ " e where e.active=true and e.exportMap.id = :pMapId"
 				+ " and e.csvExport.active = true ";
 
-		List<ExportMapItem> list = srv.getEntityManager().createQuery(
-				mapItemEql, ExportMapItem.class).setParameter("pMapId", mapId)
-				.getResultList();
+		List<ExportMapItem> list = srv.getEntityManager()
+				.createQuery(mapItemEql, ExportMapItem.class)
+				.setParameter("pMapId", mapId).getResultList();
 
 		for (ExportMapItem mapItem : list) {
 			this.doWork(mapItem);
@@ -161,28 +166,32 @@ public class ExportPD extends AbstractDsDelegate {
 			List<String> fieldNames = new ArrayList<String>();
 
 			List<CsvExportField> fields = csvExportFieldService
-					.getEntityManager().createQuery(
+					.getEntityManager()
+					.createQuery(
 							"select e from "
 									+ CsvExportField.class.getSimpleName()
 									+ " e " + "where e.active = true "
 									+ "  and e.csvExport.id = :csvExportId "
 									+ " order by e.sequenceNo  ",
-							CsvExportField.class).setParameter("csvExportId",
-							csvExport.getId()).getResultList();
+							CsvExportField.class)
+					.setParameter("csvExportId", csvExport.getId())
+					.getResultList();
 
 			for (CsvExportField f : fields) {
 				fieldNames.add(f.getDsField());
 			}
 			List<CsvExportSort> sorts = csvExportFieldService
-					.getEntityManager().createQuery(
+					.getEntityManager()
+					.createQuery(
 							"select e from "
 									+ CsvExportSort.class.getSimpleName()
 									+ " e "
 									+ "where e.csvExport.id = :csvExportId "
 									+ " order by e.sequenceNo  ",
-							CsvExportSort.class).setParameter("csvExportId",
-							csvExport.getId()).getResultList();
-			List<SortToken> sortTokens = new ArrayList<SortToken>();
+							CsvExportSort.class)
+					.setParameter("csvExportId", csvExport.getId())
+					.getResultList();
+			List<ISortToken> sortTokens = new ArrayList<ISortToken>();
 			for (CsvExportSort s : sorts) {
 				SortToken t = new SortToken();
 				t.setProperty(s.getDsField());

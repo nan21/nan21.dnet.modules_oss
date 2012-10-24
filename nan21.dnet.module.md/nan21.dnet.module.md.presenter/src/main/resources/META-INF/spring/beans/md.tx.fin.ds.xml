@@ -9,8 +9,8 @@
 	
 	<!-- ==================== Payment ==================== -->
 	
-	<bean id="PaymentDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.Payment"/>
@@ -24,8 +24,8 @@
 	
 	<!-- ==================== PaymentItem ==================== -->
 	
-	<bean id="PaymentItemDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentItemDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentItemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
@@ -39,8 +39,8 @@
 	
 	<!-- ==================== PaymentItemProduct ==================== -->
 	
-	<bean id="PaymentItemProductDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentItemProductDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemProductDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentItemProductDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
@@ -54,8 +54,8 @@
 	
 	<!-- ==================== PaymentItemAccItem ==================== -->
 	
-	<bean id="PaymentItemAccItemDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PaymentItemAccItemDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.PaymentItemAccItemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
@@ -69,8 +69,8 @@
 	
 	<!-- ==================== TxBalance ==================== -->
 	
-	<bean id="TxBalanceDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="TxBalanceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.filter.TxBalanceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.TxBalance"/>

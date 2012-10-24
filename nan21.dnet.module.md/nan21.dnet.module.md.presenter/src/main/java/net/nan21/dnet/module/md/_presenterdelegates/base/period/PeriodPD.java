@@ -1,11 +1,11 @@
 package net.nan21.dnet.module.md._presenterdelegates.base.period;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.md.base.period.business.service.IFiscalYearService;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
 import net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDs;
 
-public class PeriodPD extends AbstractDsDelegate {
+public class PeriodPD extends AbstractPresenterBaseService {
 
 	public void createMonths(FiscalYearDs ds) throws Exception {
 		if (!this.canCreatePeriod("month", ds.getId())) {

@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.List;
 
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.impex.business.service.IImportMapItemService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
 import net.nan21.dnet.module.ad.impex.ds.model.ImportMapDs;
 
-public class ImportFromMapPD extends AbstractDsDelegate {
+public class ImportFromMapPD extends AbstractPresenterBaseService {
 
 	public void execute(ImportMapDs ds) throws Exception {
 
@@ -21,8 +21,8 @@ public class ImportFromMapPD extends AbstractDsDelegate {
 						"select e from "
 								+ ImportMapItem.class.getSimpleName()
 								+ " e where e.active = true and e.importMap.id = :pImportMapId order by e.sequenceNo ",
-						ImportMapItem.class).setParameter("pImportMapId",
-						ds.getId()).getResultList();
+						ImportMapItem.class)
+				.setParameter("pImportMapId", ds.getId()).getResultList();
 
 		for (ImportMapItem item : items) {
 			String fileName = item.getFileName();

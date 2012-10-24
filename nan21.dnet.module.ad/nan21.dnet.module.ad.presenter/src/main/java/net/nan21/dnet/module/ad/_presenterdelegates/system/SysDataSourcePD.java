@@ -10,19 +10,19 @@ import java.util.Map;
 import net.nan21.dnet.core.api.descriptor.IDsDefinition;
 import net.nan21.dnet.core.api.descriptor.IDsDefinitions;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDataSourceService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsField;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsService;
 import net.nan21.dnet.module.ad.system.ds.filter.SysDataSourceDsFilter;
 
-public class SysDataSourcePD extends AbstractDsDelegate {
+public class SysDataSourcePD extends AbstractPresenterBaseService {
 
 	@SuppressWarnings("unchecked")
 	public void synchronizeCatalog(SysDataSourceDsFilter ds) throws Exception {
-		List<IDsDefinitions> list = (List<IDsDefinitions>) this.getApplicationContext()
-				.getBean("osgiDsDefinitions");
+		List<IDsDefinitions> list = (List<IDsDefinitions>) this
+				.getApplicationContext().getBean("osgiDsDefinitions");
 		ISysDataSourceService srv = (ISysDataSourceService) this
 				.findEntityService(SysDataSource.class);
 

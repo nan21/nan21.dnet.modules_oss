@@ -1,6 +1,6 @@
 package net.nan21.dnet.module.sd._presenterdelegates.order;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType;
 import net.nan21.dnet.module.sd.order.business.service.ISalesOrderService;
@@ -8,7 +8,7 @@ import net.nan21.dnet.module.sd.order.domain.entity.SalesOrder;
 import net.nan21.dnet.module.sd.order.ds.model.SalesOrderDs;
 import net.nan21.dnet.module.sd.order.ds.param.SalesOrderDsParam;
 
-public class SalesOrderPD extends AbstractDsDelegate {
+public class SalesOrderPD extends AbstractPresenterBaseService {
 
 	public void confirm(SalesOrderDs ds) throws Exception {
 		ISalesOrderService service = ((ISalesOrderService) this
@@ -46,8 +46,8 @@ public class SalesOrderPD extends AbstractDsDelegate {
 				InvTransactionType.class, params.getDelivTxTypeId());
 
 		SalesOrder e = service.findById(ds.getId());
-		service.doGenerateDelivery(e, docType, txType, params
-				.getDelivEventData());
+		service.doGenerateDelivery(e, docType, txType,
+				params.getDelivEventData());
 	}
 
 }

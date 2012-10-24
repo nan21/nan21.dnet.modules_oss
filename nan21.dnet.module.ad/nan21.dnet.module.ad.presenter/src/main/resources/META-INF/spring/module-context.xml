@@ -16,12 +16,12 @@
 	<context:annotation-config />
 
 	<bean id="dsServiceFactory" 
-			class="net.nan21.dnet.core.presenter.service.DsServiceFactory">
+			class="net.nan21.dnet.core.presenter.service.ds.DsServiceFactory">
 		<property name="entityServiceFactories" ref="osgiEntityServiceFactories"></property>
 	</bean>
 
 	<bean id="asgnServiceFactory"
-			class="net.nan21.dnet.core.presenter.service.AsgnServiceFactory">
+			class="net.nan21.dnet.core.presenter.service.asgn.AsgnServiceFactory">
 		<property name="asgnTxServiceFactories" ref="osgiAsgnTxServiceFactories"></property>
 	</bean>
 
@@ -45,7 +45,7 @@
 		class="net.nan21.dnet.module.ad._presenterdelegates.ExtensionProviderScriptFromDb"/>
 	
 	<bean id="fileUploadServiceFactory"
-		class="net.nan21.dnet.core.presenter.service.FileUploadServiceFactory"/>
+		class="net.nan21.dnet.core.presenter.service.stream.FileUploadServiceFactory"/>
 	
 	<bean id="setupParticipant" class="net.nan21.dnet.module.ad._presenterdelegates.Setup_AD"
 		scope="singleton">

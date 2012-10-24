@@ -9,8 +9,8 @@
 	
 	<!-- ==================== AssetCategory ==================== -->
 	
-	<bean id="AssetCategoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AssetCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.filter.AssetCategoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== AssetCategoryLov ==================== -->
 	
-	<bean id="AssetCategoryLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AssetCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== AssetCategoryAcct ==================== -->
 	
-	<bean id="AssetCategoryAcctDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AssetCategoryAcctDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.filter.AssetCategoryAcctDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategoryAcct"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== Asset ==================== -->
 	
-	<bean id="AssetDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AssetDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.filter.AssetDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.Asset"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== AssetAcct ==================== -->
 	
-	<bean id="AssetAcctDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AssetAcctDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.filter.AssetAcctDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetAcct"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== Amortization ==================== -->
 	
-	<bean id="AmortizationDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AmortizationDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.filter.AmortizationDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.Amortization"/>

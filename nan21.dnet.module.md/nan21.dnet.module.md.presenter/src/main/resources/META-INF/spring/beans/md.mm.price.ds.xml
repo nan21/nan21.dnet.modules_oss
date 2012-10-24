@@ -9,8 +9,8 @@
 	
 	<!-- ==================== PriceList ==================== -->
 	
-	<bean id="PriceListDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PriceListDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.PriceListDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
@@ -24,8 +24,8 @@
 	
 	<!-- ==================== PriceListLov ==================== -->
 	
-	<bean id="PriceListLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PriceListLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.PriceListLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
@@ -39,8 +39,8 @@
 	
 	<!-- ==================== PriceListSalesLov ==================== -->
 	
-	<bean id="PriceListSalesLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PriceListSalesLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.PriceListSalesLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
@@ -54,8 +54,8 @@
 	
 	<!-- ==================== PriceListPurchaseLov ==================== -->
 	
-	<bean id="PriceListPurchaseLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PriceListPurchaseLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListPurchaseLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.PriceListPurchaseLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
@@ -69,8 +69,8 @@
 	
 	<!-- ==================== PriceListVersion ==================== -->
 	
-	<bean id="PriceListVersionDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PriceListVersionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.PriceListVersionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion"/>
@@ -107,8 +107,8 @@
 	
 	<!-- ==================== PriceListVersionLov ==================== -->
 	
-	<bean id="PriceListVersionLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PriceListVersionLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.PriceListVersionLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion"/>
@@ -122,8 +122,8 @@
 	
 	<!-- ==================== ProductPrice ==================== -->
 	
-	<bean id="ProductPriceDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ProductPriceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.ProductPriceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice"/>
@@ -139,8 +139,8 @@
 	
 	<!-- ==================== ProductPriceReport ==================== -->
 	
-	<bean id="ProductPriceReportDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="ProductPriceReportDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceReportDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.filter.ProductPriceReportDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice"/>

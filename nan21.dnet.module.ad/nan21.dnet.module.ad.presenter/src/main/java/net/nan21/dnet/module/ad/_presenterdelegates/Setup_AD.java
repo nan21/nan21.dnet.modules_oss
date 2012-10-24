@@ -11,7 +11,7 @@ import net.nan21.dnet.core.api.setup.ISetupTask;
 import net.nan21.dnet.core.api.setup.ISetupTaskParam;
 import net.nan21.dnet.core.api.setup.SetupTask;
 import net.nan21.dnet.core.api.setup.SetupTaskParam;
-import net.nan21.dnet.core.presenter.service.AbstractPresenterSetupParticipant;
+import net.nan21.dnet.core.presenter.service.setup.AbstractPresenterSetupParticipant;
 import net.nan21.dnet.module.ad._presenterdelegates.impex.ImportFromJobPD;
 import net.nan21.dnet.module.ad.client.business.service.IClientService;
 import net.nan21.dnet.module.ad.client.domain.entity.Client;

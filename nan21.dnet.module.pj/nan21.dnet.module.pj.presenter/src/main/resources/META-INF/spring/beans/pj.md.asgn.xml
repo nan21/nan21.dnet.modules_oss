@@ -10,7 +10,7 @@
 	<!-- ==================== IssueAffectedVersions ==================== -->
 	
 	<bean id="IssueAffectedVersionsAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.asgn.IssueAffectedVersionsAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.asgn.IssueAffectedVersionsAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion"/>
@@ -29,7 +29,7 @@
 	<!-- ==================== IssueAffectedComponents ==================== -->
 	
 	<bean id="IssueAffectedComponentsAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.asgn.IssueAffectedComponentsAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.asgn.IssueAffectedComponentsAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectComponent"/>

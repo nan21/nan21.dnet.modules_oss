@@ -9,8 +9,8 @@
 	
 	<!-- ==================== AttributeCategory ==================== -->
 	
-	<bean id="AttributeCategoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AttributeCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeCategoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.filter.AttributeCategoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== AttributeCategoryLov ==================== -->
 	
-	<bean id="AttributeCategoryLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AttributeCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeCategoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== AttributeSet ==================== -->
 	
-	<bean id="AttributeSetDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AttributeSetDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.filter.AttributeSetDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet"/>
@@ -52,8 +52,8 @@
 	
 	<!-- ==================== AttributeSetLov ==================== -->
 	
-	<bean id="AttributeSetLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AttributeSetLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet"/>
@@ -67,8 +67,8 @@
 	
 	<!-- ==================== Attribute ==================== -->
 	
-	<bean id="AttributeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AttributeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.filter.AttributeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.Attribute"/>
@@ -82,8 +82,8 @@
 	
 	<!-- ==================== AttributeLov ==================== -->
 	
-	<bean id="AttributeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AttributeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.Attribute"/>
@@ -97,8 +97,8 @@
 	
 	<!-- ==================== AttributeSetAttribute ==================== -->
 	
-	<bean id="AttributeSetAttributeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AttributeSetAttributeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.filter.AttributeSetAttributeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeSetAttribute"/>

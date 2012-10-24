@@ -16,12 +16,12 @@
 	<context:annotation-config />
 
 	<bean id="dsServiceFactory" 
-			class="net.nan21.dnet.core.presenter.service.DsServiceFactory">
+			class="net.nan21.dnet.core.presenter.service.ds.DsServiceFactory">
 		<property name="entityServiceFactories" ref="osgiEntityServiceFactories"></property>
 	</bean>
 
 	<bean id="asgnServiceFactory"
-			class="net.nan21.dnet.core.presenter.service.AsgnServiceFactory">
+			class="net.nan21.dnet.core.presenter.service.asgn.AsgnServiceFactory">
 		<property name="asgnTxServiceFactories" ref="osgiAsgnTxServiceFactories"></property>
 	</bean>
 

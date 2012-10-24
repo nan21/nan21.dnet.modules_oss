@@ -9,8 +9,8 @@
 	
 	<!-- ==================== AbsenceCategory ==================== -->
 	
-	<bean id="AbsenceCategoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AbsenceCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceCategoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.time.ds.filter.AbsenceCategoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== AbsenceCategoryLov ==================== -->
 	
-	<bean id="AbsenceCategoryLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AbsenceCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceCategoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== AbsenceType ==================== -->
 	
-	<bean id="AbsenceTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AbsenceTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.time.ds.filter.AbsenceTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.time.domain.entity.AbsenceType"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== AbsenceTypeLov ==================== -->
 	
-	<bean id="AbsenceTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AbsenceTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.time.domain.entity.AbsenceType"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== AbsenceReason ==================== -->
 	
-	<bean id="AbsenceReasonDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AbsenceReasonDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceReasonDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.time.ds.filter.AbsenceReasonDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.time.domain.entity.AbsenceReason"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== AbsenceReasonLov ==================== -->
 	
-	<bean id="AbsenceReasonLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AbsenceReasonLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceReasonLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceReasonLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.time.domain.entity.AbsenceReason"/>
@@ -98,8 +98,8 @@
 	
 	<!-- ==================== Absence ==================== -->
 	
-	<bean id="AbsenceDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="AbsenceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.time.ds.model.AbsenceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.time.ds.filter.AbsenceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.time.domain.entity.Absence"/>

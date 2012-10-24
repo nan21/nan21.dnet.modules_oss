@@ -1,6 +1,6 @@
 package net.nan21.dnet.module.ad._presenterdelegates.impex;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.impex.business.service.ICsvExportService;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportField;
@@ -8,7 +8,7 @@ import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportSort;
 import net.nan21.dnet.module.ad.impex.ds.model.CsvExportDs;
 import net.nan21.dnet.module.ad.impex.ds.param.CsvExportDsParam;
 
-public class ImpexUtilPD extends AbstractDsDelegate {
+public class ImpexUtilPD extends AbstractPresenterBaseService {
 
 	public void cloneCsvExport(CsvExportDs ds, CsvExportDsParam params)
 			throws Exception {

@@ -9,8 +9,8 @@
 	
 	<!-- ==================== PayrollElement ==================== -->
 	
-	<bean id="PayrollElementDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollElementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.filter.PayrollElementDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
@@ -24,8 +24,8 @@
 	
 	<!-- ==================== PayrollElementLov ==================== -->
 	
-	<bean id="PayrollElementLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollElementLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
@@ -39,8 +39,8 @@
 	
 	<!-- ==================== PayrollElementSourceLov ==================== -->
 	
-	<bean id="PayrollElementSourceLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollElementSourceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementSourceLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementSourceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
@@ -54,8 +54,8 @@
 	
 	<!-- ==================== PayrollElementBalanceLov ==================== -->
 	
-	<bean id="PayrollElementBalanceLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollElementBalanceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementBalanceLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementBalanceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
@@ -69,8 +69,8 @@
 	
 	<!-- ==================== PayrollManualValue ==================== -->
 	
-	<bean id="PayrollManualValueDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollManualValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.filter.PayrollManualValueDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElementValue"/>
@@ -84,8 +84,8 @@
 	
 	<!-- ==================== PayrollElementValue ==================== -->
 	
-	<bean id="PayrollElementValueDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollElementValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementValueDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.filter.PayrollElementValueDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElementValue"/>
@@ -101,8 +101,8 @@
 	
 	<!-- ==================== PayrollBalanceValue ==================== -->
 	
-	<bean id="PayrollBalanceValueDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollBalanceValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollBalanceValueDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.filter.PayrollBalanceValueDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElementValue"/>
@@ -116,8 +116,8 @@
 	
 	<!-- ==================== Payroll ==================== -->
 	
-	<bean id="PayrollDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.filter.PayrollDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.Payroll"/>
@@ -131,8 +131,8 @@
 	
 	<!-- ==================== PayrollLov ==================== -->
 	
-	<bean id="PayrollLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.Payroll"/>
@@ -146,8 +146,8 @@
 	
 	<!-- ==================== PayrollPeriod ==================== -->
 	
-	<bean id="PayrollPeriodDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollPeriodDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.filter.PayrollPeriodDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod"/>
@@ -201,8 +201,8 @@
 	
 	<!-- ==================== PayrollPeriodLov ==================== -->
 	
-	<bean id="PayrollPeriodLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PayrollPeriodLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod"/>

@@ -21,11 +21,13 @@ public class Setup_HR extends AbstractBusinessSetupParticipant implements
 
 	private void createTasks() {
 		this.tasks = new ArrayList<ISetupTask>();
-		// there is nothing to setup here, this one is run to enforce that the
+
+		// There is nothing to setup here, this one is run to enforce that the
 		// database objects are created in the right order
-		// in case the object creation is managed by eclipselink
-		Long i = (Long) this.em.createQuery("select count(e) from Employee e")
-				.getResultList().get(0);
+		// in case the object creation is managed by Eclipselink
+
+		this.em.createQuery("select count(e) from Employee e").getResultList()
+				.get(0);
 
 	}
 

@@ -1,11 +1,11 @@
 package net.nan21.dnet.module.sd._presenterdelegates.invoice;
 
-import net.nan21.dnet.core.presenter.service.AbstractDsDelegate;
+import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.sd.invoice.business.service.IPaymentInService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentIn;
 import net.nan21.dnet.module.sd.invoice.ds.model.PaymentInDs;
 
-public class PaymentInPD extends AbstractDsDelegate {
+public class PaymentInPD extends AbstractPresenterBaseService {
 
 	public void confirm(PaymentInDs ds) throws Exception {
 		IPaymentInService srv = ((IPaymentInService) this

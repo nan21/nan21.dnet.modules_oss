@@ -13,8 +13,8 @@ import net.nan21.dnet.core.api.action.IFileUploadResult;
 import net.nan21.dnet.core.api.model.IUploadedFileDescriptor;
 import net.nan21.dnet.core.api.service.IEntityServiceFactory;
 import net.nan21.dnet.core.api.service.IFileUploadService;
-import net.nan21.dnet.core.presenter.service.AbstractFileUploadService;
 import net.nan21.dnet.core.presenter.service.ServiceLocator;
+import net.nan21.dnet.core.presenter.service.stream.AbstractFileUploadService;
 import net.nan21.dnet.module.ad.data.business.service.IAttachmentService;
 import net.nan21.dnet.module.ad.data.domain.entity.Attachment;
 

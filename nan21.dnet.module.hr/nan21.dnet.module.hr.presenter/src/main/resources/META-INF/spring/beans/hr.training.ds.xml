@@ -9,8 +9,8 @@
 	
 	<!-- ==================== CourseCategory ==================== -->
 	
-	<bean id="CourseCategoryDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="CourseCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.CourseCategoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseCategory"/>
@@ -23,8 +23,8 @@
 	
 	<!-- ==================== CourseCategoryLov ==================== -->
 	
-	<bean id="CourseCategoryLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="CourseCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseCategory"/>
@@ -38,8 +38,8 @@
 	
 	<!-- ==================== CourseType ==================== -->
 	
-	<bean id="CourseTypeDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="CourseTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.CourseTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseType"/>
@@ -53,8 +53,8 @@
 	
 	<!-- ==================== CourseTypeLov ==================== -->
 	
-	<bean id="CourseTypeLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="CourseTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseType"/>
@@ -68,8 +68,8 @@
 	
 	<!-- ==================== Course ==================== -->
 	
-	<bean id="CourseDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="CourseDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.CourseDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.Course"/>
@@ -83,8 +83,8 @@
 	
 	<!-- ==================== CourseLov ==================== -->
 	
-	<bean id="CourseLovDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="CourseLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.Course"/>
@@ -98,8 +98,8 @@
 	
 	<!-- ==================== JobCourse ==================== -->
 	
-	<bean id="JobCourseDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="JobCourseDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.JobCourseDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.JobCourseDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.JobCourse"/>
@@ -113,8 +113,8 @@
 	
 	<!-- ==================== PositionCourse ==================== -->
 	
-	<bean id="PositionCourseDsService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.BaseDsService">
+	<bean id="PositionCourseDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.PositionCourseDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.PositionCourse"/>
