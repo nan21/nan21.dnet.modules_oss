@@ -1,7 +1,7 @@
 code;name;value;description;active
 CORE_LOGO_URL_EXTJS;Application logo URL - Extjs;http://dnet.nan21.net/static-demo-resources/client-logo.png;"Link to the company logo to be displayed in the Extjs based application";true
 CORE_LOGO_URL_STOUCH;Application logo URL - STouch;http://dnet.nan21.net/static-demo-resources/client-logo.png;"Link to the company logo to be displayed in STouch based application";true
-CORE_LOGO_URL_REPORT;Report logo URL;http://dnet.nan21.net/static-demo-resources/client-logo.png;"Link to the company logo to be displayed in the reports.";true
+CORE_LOGO_URL_REPORT;Report logo URL;http://dnet.nan21.net/static-demo-resources/client-logo-report.png;"Link to the company logo to be displayed in the reports.";true
 CORE_SESSION_CHECK_IP;Check request IP;false;"Check if the remote client IP of the request is the same as the one used at login time.
 Possible values: true, false";true
 CORE_SESSION_CHECK_USER_AGENT;Check request user-agent;false;"Check if the remote client user-agent of the request is the same as the one used at login time. 

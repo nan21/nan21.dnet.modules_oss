@@ -107,7 +107,7 @@ public class ExportPD extends AbstractPresenterBaseService {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void doWork(ExportMapItem mapItem) throws Exception {
 
 		ExportMap map = mapItem.getExportMap();
@@ -206,7 +206,7 @@ public class ExportPD extends AbstractPresenterBaseService {
 			builder.addSortInfo(sortTokens);
 			writer.setFieldNames(fieldNames);
 			writer.setOutFile(file);
-			dsService.doExport(null, null, builder, writer);
+			dsService.doExport(builder, writer);
 
 		} catch (Exception e) {
 			throw new Exception("Cannot export csvExport `"
