@@ -60,26 +60,26 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			.addButton({name:"btnShowDelivery", text:"Show delivery", tooltip:"Show the delivery note linked to this sales order", disabled:true,
 					handler: this.onBtnShowDelivery, scope:this, stateManager:{name:"selected_one", dc:"order" , and: function(dc) {return (dc.record && dc.record.get("delivered"));}}})
 			
-			.addDcFilterFormView("order", {name:"orderFilter", height:170, xtype:"sd_order_dc_SalesOrder$Filter"})	
-			.addDcGridView("order", {name:"orderList", xtype:"sd_order_dc_SalesOrder$List"})	
+			.addDcFilterFormView("order", {name:"orderFilter", height:170, xtype:"sd_order_dc_SalesOrder$Filter"})
+			.addDcGridView("order", {name:"orderList", xtype:"sd_order_dc_SalesOrder$List"})
 			.addDcFormView("order", {name:"orderEditMain", height:200, xtype:"sd_order_dc_SalesOrder$EditMain", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirmOrder"), this._elems_.get("btnUnConfirmOrder"), this._elems_.get("btnCreateInvoice"), this._elems_.get("btnShowInvoice"), this._elems_.get("btnCreateDelivery"), this._elems_.get("btnShowDelivery")]}]})	
-			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sd_order_dc_SalesOrderTax$List"})	
-			.addDcFormView("order", {name:"orderGenDelivery", xtype:"sd_order_dc_SalesOrder$FrmGenDelivery"})	
-			.addDcFormView("order", {name:"orderGenInvoice", xtype:"sd_order_dc_SalesOrder$FrmGenInvoice"})	
-			.addDcFormView("order", {name:"orderEditDetails", title:"Details", xtype:"sd_order_dc_SalesOrder$EditDetails"})	
+						items:[ this._elems_.get("btnConfirmOrder"), this._elems_.get("btnUnConfirmOrder"), this._elems_.get("btnCreateInvoice"), this._elems_.get("btnShowInvoice"), this._elems_.get("btnCreateDelivery"), this._elems_.get("btnShowDelivery")]}]})
+			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sd_order_dc_SalesOrderTax$List"})
+			.addDcFormView("order", {name:"orderGenDelivery", xtype:"sd_order_dc_SalesOrder$FrmGenDelivery"})
+			.addDcFormView("order", {name:"orderGenInvoice", xtype:"sd_order_dc_SalesOrder$FrmGenInvoice"})
+			.addDcFormView("order", {name:"orderEditDetails", title:"Details", xtype:"sd_order_dc_SalesOrder$EditDetails"})
 			.addDcFilterFormView("item", {name:"itemFilter", title:"Filter", width:250, xtype:"sd_order_dc_SalesOrderItem$FilterCtx", collapsible:true, collapsed:true
-			})	
-			.addDcGridView("item", {name:"itemList", xtype:"sd_order_dc_SalesOrderItem$CtxList"})	
-			.addDcFormView("item", {name:"itemEdit", xtype:"sd_order_dc_SalesOrderItem$EditForm"})	
+			})
+			.addDcGridView("item", {name:"itemList", xtype:"sd_order_dc_SalesOrderItem$CtxList"})
+			.addDcFormView("item", {name:"itemEdit", xtype:"sd_order_dc_SalesOrderItem$EditForm"})
 			.addDcGridView("itemTax", {name:"itemTaxList", title:"Item taxes", width:400, xtype:"sd_order_dc_SalesOrderItemTax$CtxList", collapsible:true, collapsed:true
-			})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
+			})
+			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
 			.addWindow({name:"wdwGenDelivery", title:"Generate delivery", width:400, height:180, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("orderGenDelivery")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

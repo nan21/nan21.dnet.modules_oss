@@ -8,7 +8,7 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysPluginService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysPlugin;
 
@@ -26,7 +26,7 @@ public class SysPluginService extends AbstractEntityService<SysPlugin>
 	}
 
 	@Override
-	protected Class<SysPlugin> getEntityClass() {
+	public Class<SysPlugin> getEntityClass() {
 		return SysPlugin.class;
 	}
 	

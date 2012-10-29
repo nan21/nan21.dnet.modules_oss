@@ -28,12 +28,12 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElement_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("elem", {name:"elemFilter", height:120, xtype:"hr_payroll_dc_PayrollElement$Filter"})	
-			.addDcGridView("elem", {name:"elemList", xtype:"hr_payroll_dc_PayrollElement$List"})	
-			.addDcFormView("elem", {name:"elemEdit", height:170, xtype:"hr_payroll_dc_PayrollElement$Edit"})	
-			.addDcEditGridView("input", {name:"inputEditList", title:"Input values", xtype:"bd_elem_dc_ElementInput$CtxEditList", frame:true})	
-			.addDcEditGridView("formula", {name:"formulaList", width:300, xtype:"bd_elem_dc_ElementFormula$CtxEditList", frame:true})	
-			.addDcFormView("formula", {name:"formulaEdit", xtype:"bd_elem_dc_ElementFormula$EditExpression"})	
+			.addDcFilterFormView("elem", {name:"elemFilter", height:120, xtype:"hr_payroll_dc_PayrollElement$Filter"})
+			.addDcGridView("elem", {name:"elemList", xtype:"hr_payroll_dc_PayrollElement$List"})
+			.addDcFormView("elem", {name:"elemEdit", height:170, xtype:"hr_payroll_dc_PayrollElement$Edit"})
+			.addDcEditGridView("input", {name:"inputEditList", title:"Input values", xtype:"bd_elem_dc_ElementInput$CtxEditList", frame:true})
+			.addDcEditGridView("formula", {name:"formulaList", width:300, xtype:"bd_elem_dc_ElementFormula$CtxEditList", frame:true})
+			.addDcFormView("formula", {name:"formulaEdit", xtype:"bd_elem_dc_ElementFormula$EditExpression"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

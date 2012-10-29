@@ -24,11 +24,11 @@ Ext.define("net.nan21.dnet.module.md.org.frame.SubInventories_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("subinv", {name:"subinvFilter", height:80, xtype:"md_org_dc_SubInventory$Filter"})	
-			.addDcGridView("subinv", {name:"subinvList", xtype:"md_org_dc_SubInventory$List"})	
-			.addDcFormView("subinv", {name:"subinvEdit", height:150, xtype:"md_org_dc_SubInventory$Edit"})	
-			.addDcFilterFormView("sloc", {name:"slocFilter", xtype:"md_org_dc_StockLocator$Filter"})	
-			.addDcEditGridView("sloc", {name:"slocEditList", xtype:"md_org_dc_StockLocator$CtxEditList", frame:true})	
+			.addDcFilterFormView("subinv", {name:"subinvFilter", height:80, xtype:"md_org_dc_SubInventory$Filter"})
+			.addDcGridView("subinv", {name:"subinvList", xtype:"md_org_dc_SubInventory$List"})
+			.addDcFormView("subinv", {name:"subinvEdit", height:150, xtype:"md_org_dc_SubInventory$Edit"})
+			.addDcFilterFormView("sloc", {name:"slocFilter", xtype:"md_org_dc_StockLocator$Filter"})
+			.addDcEditGridView("sloc", {name:"slocEditList", xtype:"md_org_dc_StockLocator$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.sc.order.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.sc.order.business.service.IPurchaseOrderTaxService;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
@@ -29,7 +29,7 @@ public class PurchaseOrderTaxService extends AbstractEntityService<PurchaseOrder
 	}
 
 	@Override
-	protected Class<PurchaseOrderTax> getEntityClass() {
+	public Class<PurchaseOrderTax> getEntityClass() {
 		return PurchaseOrderTax.class;
 	}
 	

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.geo.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.geo.business.service.ICityService;
 import net.nan21.dnet.module.bd.geo.domain.entity.City;
 import net.nan21.dnet.module.bd.geo.domain.entity.Country;
@@ -29,7 +29,7 @@ public class CityService extends AbstractEntityService<City>
 	}
 
 	@Override
-	protected Class<City> getEntityClass() {
+	public Class<City> getEntityClass() {
 		return City.class;
 	}
 	

@@ -70,7 +70,6 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "account", "assignedTo", "status", "priority"])
 			.addChildrenTo("col2", ["salesStage", "leadSource", "resultReason"])
-			.addAuditFilter()
 		;
 	}});
 

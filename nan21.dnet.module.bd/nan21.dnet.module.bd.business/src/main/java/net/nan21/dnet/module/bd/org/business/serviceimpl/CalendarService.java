@@ -8,7 +8,7 @@ package net.nan21.dnet.module.bd.org.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.business.service.ICalendarService;
 import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 
@@ -26,7 +26,7 @@ public class CalendarService extends AbstractEntityService<Calendar>
 	}
 
 	@Override
-	protected Class<Calendar> getEntityClass() {
+	public Class<Calendar> getEntityClass() {
 		return Calendar.class;
 	}
 	

@@ -41,7 +41,6 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.CourseCategory$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
-			.addAuditFilter()
 		;
 	}});
 

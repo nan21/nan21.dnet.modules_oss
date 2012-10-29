@@ -21,10 +21,10 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.CourseType_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("ccateg", {name:"ccategFilter", height:80, xtype:"hr_training_dc_CourseCategory$Filter"})	
-			.addDcEditGridView("ccateg", {name:"ccategEditList", xtype:"hr_training_dc_CourseCategory$EditList", frame:true})	
-			.addDcFilterFormView("ctype", {name:"ctypeFilter", height:80, xtype:"hr_training_dc_CourseType$Filter"})	
-			.addDcEditGridView("ctype", {name:"ctypeEditList", xtype:"hr_training_dc_CourseType$EditList", frame:true})	
+			.addDcFilterFormView("ccateg", {name:"ccategFilter", height:80, xtype:"hr_training_dc_CourseCategory$Filter"})
+			.addDcEditGridView("ccateg", {name:"ccategEditList", xtype:"hr_training_dc_CourseCategory$EditList", frame:true})
+			.addDcFilterFormView("ctype", {name:"ctypeFilter", height:80, xtype:"hr_training_dc_CourseType$Filter"})
+			.addDcEditGridView("ctype", {name:"ctypeEditList", xtype:"hr_training_dc_CourseType$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCategory", title:"Course categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Course types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExport$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "dataSource"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

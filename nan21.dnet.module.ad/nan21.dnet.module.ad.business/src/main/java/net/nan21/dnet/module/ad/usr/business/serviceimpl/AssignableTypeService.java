@@ -8,7 +8,7 @@ package net.nan21.dnet.module.ad.usr.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.business.service.IAssignableTypeService;
 import net.nan21.dnet.module.ad.usr.domain.entity.AssignableType;
 
@@ -26,7 +26,7 @@ public class AssignableTypeService extends AbstractEntityService<AssignableType>
 	}
 
 	@Override
-	protected Class<AssignableType> getEntityClass() {
+	public Class<AssignableType> getEntityClass() {
 		return AssignableType.class;
 	}
 	

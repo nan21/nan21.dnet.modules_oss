@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.Qualification_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("qualif", {name:"qualifFilter", height:40, xtype:"hr_skill_dc_Qualification$Filter"})	
-			.addDcEditGridView("qualif", {name:"qualifEditList", xtype:"hr_skill_dc_Qualification$EditList", frame:true})	
-			.addDcEditGridView("skill", {name:"skillCtxEditList", xtype:"hr_skill_dc_QualificationSkill$CtxEditList", frame:true})	
+			.addDcFilterFormView("qualif", {name:"qualifFilter", height:40, xtype:"hr_skill_dc_Qualification$Filter"})
+			.addDcEditGridView("qualif", {name:"qualifEditList", xtype:"hr_skill_dc_Qualification$EditList", frame:true})
+			.addDcEditGridView("skill", {name:"skillCtxEditList", xtype:"hr_skill_dc_QualificationSkill$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"panelRequirements", width:500, layout:"accordion", activeItem:0})

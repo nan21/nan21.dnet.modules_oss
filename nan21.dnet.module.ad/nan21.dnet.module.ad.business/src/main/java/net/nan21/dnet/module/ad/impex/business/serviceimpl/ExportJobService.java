@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.impex.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.impex.business.service.IExportJobService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportJob;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportJobItem;
@@ -28,7 +28,7 @@ public class ExportJobService extends AbstractEntityService<ExportJob>
 	}
 
 	@Override
-	protected Class<ExportJob> getEntityClass() {
+	public Class<ExportJob> getEntityClass() {
 		return ExportJob.class;
 	}
 	

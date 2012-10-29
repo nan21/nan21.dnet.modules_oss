@@ -26,9 +26,9 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI", {
 			.addButton({name:"btnIssueUi", text:"Edit issue", tooltip:"Show current issue in editor frame", disabled:true,
 					handler: this.onBtnIssueUi, scope:this, stateManager:{name:"selected_one", dc:"issue" }})
 			
-			.addDcFilterFormView("issue", {name:"issueFilter", height:80, xtype:"pj_md_dc_IssueChangelog$Filter"})	
-			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueChangelog$List"})	
-			.addDcFormView("issueInfo", {name:"infoView", height:200, xtype:"pj_md_dc_Issue$View"})	
+			.addDcFilterFormView("issue", {name:"issueFilter", height:80, xtype:"pj_md_dc_IssueChangelog$Filter"})
+			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueChangelog$List"})
+			.addDcFormView("issueInfo", {name:"infoView", height:200, xtype:"pj_md_dc_Issue$View"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

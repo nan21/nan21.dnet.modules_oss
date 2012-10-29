@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.bd.org.frame.Calendars_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("calendar", {name:"calendarFilter", xtype:"bd_org_dc_Calendar$Filter"})	
-			.addDcEditGridView("calendar", {name:"calendarEditList", xtype:"bd_org_dc_Calendar$EditList", frame:true})	
+			.addDcFilterFormView("calendar", {name:"calendarFilter", xtype:"bd_org_dc_Calendar$Filter"})
+			.addDcEditGridView("calendar", {name:"calendarEditList", xtype:"bd_org_dc_Calendar$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -8,7 +8,7 @@ package net.nan21.dnet.module.md.mm.prod.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.mm.prod.business.service.IProductManufacturerService;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer;
 
@@ -26,7 +26,7 @@ public class ProductManufacturerService extends AbstractEntityService<ProductMan
 	}
 
 	@Override
-	protected Class<ProductManufacturer> getEntityClass() {
+	public Class<ProductManufacturer> getEntityClass() {
 		return ProductManufacturer.class;
 	}
 	

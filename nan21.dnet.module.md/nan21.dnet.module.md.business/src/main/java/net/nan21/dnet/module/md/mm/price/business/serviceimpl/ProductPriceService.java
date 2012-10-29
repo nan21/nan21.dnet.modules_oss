@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.mm.price.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 import net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice;
@@ -30,7 +30,7 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice>
 	}
 
 	@Override
-	protected Class<ProductPrice> getEntityClass() {
+	public Class<ProductPrice> getEntityClass() {
 		return ProductPrice.class;
 	}
 	

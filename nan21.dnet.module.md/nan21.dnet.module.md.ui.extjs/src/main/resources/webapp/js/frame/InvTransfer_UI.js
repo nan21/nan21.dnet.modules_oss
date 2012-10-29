@@ -30,13 +30,13 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTransfer_UI", {
 			.addButton({name:"btnPost", text:"Post", tooltip:"Post current transaction to create movement operations.", iconCls:"icon-gears", disabled:true,
 					handler: this.onBtnPost, scope:this, stateManager:{name:"record_is_clean", dc:"tx" , and: function(dc) {return (dc.record && dc.record.get("confirmed")&& !dc.record.get("posted") );}}})
 			
-			.addDcFilterFormView("tx", {name:"txFilter", height:120, xtype:"md_tx_inventory_dc_InvTransfer$Filter"})	
-			.addDcGridView("tx", {name:"txList", xtype:"md_tx_inventory_dc_InvTransfer$List"})	
+			.addDcFilterFormView("tx", {name:"txFilter", height:120, xtype:"md_tx_inventory_dc_InvTransfer$Filter"})
+			.addDcGridView("tx", {name:"txList", xtype:"md_tx_inventory_dc_InvTransfer$List"})
 			.addDcFormView("tx", {name:"txEdit", height:180, xtype:"md_tx_inventory_dc_InvTransfer$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm")]}]})	
-			.addDcEditGridView("txline", {name:"txlineList", xtype:"md_tx_inventory_dc_InvTransactionLine$EditList", frame:true})	
-			.addDcFormView("txline", {name:"txlineCtxFormView", height:40, xtype:"md_tx_inventory_dc_InvTransactionLine$CtxFormView"})	
+						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm")]}]})
+			.addDcEditGridView("txline", {name:"txlineList", xtype:"md_tx_inventory_dc_InvTransactionLine$EditList", frame:true})
+			.addDcFormView("txline", {name:"txlineCtxFormView", height:40, xtype:"md_tx_inventory_dc_InvTransactionLine$CtxFormView"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

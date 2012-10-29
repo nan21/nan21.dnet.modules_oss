@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.Grade_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"hr_grade_dc_Grade$Filter"})	
-			.addDcEditGridView("m", {name:"mEditList", xtype:"hr_grade_dc_Grade$EditList", frame:true})	
+			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"hr_grade_dc_Grade$Filter"})
+			.addDcEditGridView("m", {name:"mEditList", xtype:"hr_grade_dc_Grade$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -68,27 +68,27 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 			.addButton({name:"btnShowAccounts", text:"Accounting", tooltip:"Accounting", disabled:false,
 					handler: this.onBtnShowAccounts, scope:this})
 			
-			.addDcFilterFormView("bp", {name:"bpFilter", height:200, xtype:"md_bp_dc_BusinessPartner$Filter"})	
-			.addDcGridView("bp", {name:"bpList", xtype:"md_bp_dc_BusinessPartner$List"})	
-			.addDcFormView("bp", {name:"bpCreate", xtype:"md_bp_dc_BusinessPartner$Create"})	
-			.addDcFormView("bp", {name:"bpEdit", height:160, xtype:"md_bp_dc_BusinessPartner$Edit"})	
-			.addDcGridView("account", {name:"accountList", xtype:"md_bp_dc_BpAccount$List"})	
+			.addDcFilterFormView("bp", {name:"bpFilter", xtype:"md_bp_dc_BusinessPartner$Filter"})
+			.addDcGridView("bp", {name:"bpList", xtype:"md_bp_dc_BusinessPartner$List"})
+			.addDcFormView("bp", {name:"bpCreate", xtype:"md_bp_dc_BusinessPartner$Create"})
+			.addDcFormView("bp", {name:"bpEdit", height:160, xtype:"md_bp_dc_BusinessPartner$Edit"})
+			.addDcGridView("account", {name:"accountList", xtype:"md_bp_dc_BpAccount$List"})
 			.addDcFormView("account", {name:"accountEdit", xtype:"md_bp_dc_BpAccount$EditCtx", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnShowAccounts")]}]})	
-			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_bp_dc_BpAccountAcct$EditList", frame:true})	
-			.addDcGridView("balance", {name:"balanceList", title:"Balance", xtype:"md_tx_fin_dc_TxBalance$CtxList"})	
-			.addDcEditGridView("bpContact", {name:"bpContactEditList", title:"Contact", xtype:"md_bp_dc_Contact$CtxEditList", frame:true})	
-			.addDcGridView("address", {name:"addressList", xtype:"bd_geo_dc_Location$ListCtx"})	
-			.addDcFormView("address", {name:"addressEdit", xtype:"bd_geo_dc_Location$EditCtx"})	
-			.addDcEditGridView("bpBankAcct", {name:"bpBankAccountEditList", title:"Bank account", xtype:"md_bp_dc_BpBankAccount$CtxEditList", frame:true})	
-			.addDcEditGridView("bpPhone", {name:"bpPhoneEditList", title:"Communication", xtype:"bd_contact_dc_CommunicationChannel$EditList", frame:true})	
-			.addDcEditGridView("classific", {name:"classificEdit", title:"Classifications", xtype:"md_bp_dc_BpClassification$CtxEditList", frame:true})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
+						items:[ this._elems_.get("btnShowAccounts")]}]})
+			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_bp_dc_BpAccountAcct$EditList", frame:true})
+			.addDcGridView("balance", {name:"balanceList", title:"Balance", xtype:"md_tx_fin_dc_TxBalance$CtxList"})
+			.addDcEditGridView("bpContact", {name:"bpContactEditList", title:"Contact", xtype:"md_bp_dc_Contact$CtxEditList", frame:true})
+			.addDcGridView("address", {name:"addressList", xtype:"bd_geo_dc_Location$ListCtx"})
+			.addDcFormView("address", {name:"addressEdit", xtype:"bd_geo_dc_Location$EditCtx"})
+			.addDcEditGridView("bpBankAcct", {name:"bpBankAccountEditList", title:"Bank account", xtype:"md_bp_dc_BpBankAccount$CtxEditList", frame:true})
+			.addDcEditGridView("bpPhone", {name:"bpPhoneEditList", title:"Communication", xtype:"bd_contact_dc_CommunicationChannel$EditList", frame:true})
+			.addDcEditGridView("classific", {name:"classificEdit", title:"Classifications", xtype:"md_bp_dc_BpClassification$CtxEditList", frame:true})
+			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
 			.addWindow({name:"wdwBpCreate", title:"Select type", closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("bpCreate")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

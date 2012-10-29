@@ -31,6 +31,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefNodeField$CtxEditList", {
 		this._getBuilder_()	
 			.addTextColumn({name:"name", dataIndex:"name", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"type", dataIndex:"type", width:60,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, allowBlank:false, triggerAction:'all', forceSelection:true, store:[ "text", "number", "date"]}})
 			.addBooleanColumn({name:"required", dataIndex:"required"})
 			.addNumberColumn({name:"nodeId", dataIndex:"nodeId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();

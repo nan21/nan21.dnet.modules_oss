@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.sd.invoice.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.sd.invoice.business.service.IPaymentInService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentIn;
 
@@ -26,7 +26,7 @@ public class PaymentInService extends AbstractEntityService<PaymentIn>
 	}
 
 	@Override
-	protected Class<PaymentIn> getEntityClass() {
+	public Class<PaymentIn> getEntityClass() {
 		return PaymentIn.class;
 	}
 	

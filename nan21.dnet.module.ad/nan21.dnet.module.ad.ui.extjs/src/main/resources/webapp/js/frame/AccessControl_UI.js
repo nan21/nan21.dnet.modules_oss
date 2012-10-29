@@ -42,14 +42,14 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 			.addButton({name:"btnCopyRulesExec", text:"OK", tooltip:"Copy rules from selected privilege", disabled:false,
 					handler: this.onBtnCopyRulesExec, scope:this})
 			
-			.addDcFilterFormView("ctrl", {name:"privilegeFilter", height:80, xtype:"ad_usr_dc_AccessControl$Filter"})	
+			.addDcFilterFormView("ctrl", {name:"privilegeFilter", height:80, xtype:"ad_usr_dc_AccessControl$Filter"})
 			.addDcEditGridView("ctrl", {name:"privilegeEditList", xtype:"ad_usr_dc_AccessControl$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'right', weight:-1,
-						items:[ this._elems_.get("btnAsgnRoleToAccessCtrl"), this._elems_.get("btnCopyRules"), this._elems_.get("btnShowUiDsRules"), this._elems_.get("btnShowUiAsgnRules")]}]})	
-			.addDcFormView("ctrl", {name:"privilegeCopyRules", xtype:"ad_usr_dc_AccessControl$CopyRulesFromSource"})	
-			.addDcEditGridView("dsAccess", {name:"dsAccessCtxEditList", title:"Data-source", xtype:"ad_usr_dc_DsAccessControl$CtxEditList", frame:true})	
-			.addDcEditGridView("asgnAccess", {name:"asgnAccessCtxEditList", title:"Assignment", xtype:"ad_usr_dc_AsgnAccessControl$CtxEditList", frame:true})	
-			.addDcEditGridView("dsMtdAccess", {name:"dsMtdAccessCtxEditList", title:"Methods", xtype:"ad_usr_dc_DsMethodAccessControl$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnAsgnRoleToAccessCtrl"), this._elems_.get("btnCopyRules"), this._elems_.get("btnShowUiDsRules"), this._elems_.get("btnShowUiAsgnRules")]}]})
+			.addDcFormView("ctrl", {name:"privilegeCopyRules", xtype:"ad_usr_dc_AccessControl$CopyRulesFromSource"})
+			.addDcEditGridView("dsAccess", {name:"dsAccessCtxEditList", title:"Data-source", xtype:"ad_usr_dc_DsAccessControl$CtxEditList", frame:true})
+			.addDcEditGridView("asgnAccess", {name:"asgnAccessCtxEditList", title:"Assignment", xtype:"ad_usr_dc_AsgnAccessControl$CtxEditList", frame:true})
+			.addDcEditGridView("dsMtdAccess", {name:"dsMtdAccessCtxEditList", title:"Methods", xtype:"ad_usr_dc_DsMethodAccessControl$CtxEditList", frame:true})
 			.addWindow({name:"wdwCopyRules", title:"Select source", width:400, height:180, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("privilegeCopyRules")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.bd.contact.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.contact.business.service.IPersonService;
 import net.nan21.dnet.module.bd.contact.domain.entity.Person;
 
@@ -25,7 +25,7 @@ public class PersonService extends AbstractEntityService<Person>
 	}
 
 	@Override
-	protected Class<Person> getEntityClass() {
+	public Class<Person> getEntityClass() {
 		return Person.class;
 	}
 }

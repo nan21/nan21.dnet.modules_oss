@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.mm.prod.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
 import net.nan21.dnet.module.md.mm.prod.business.service.IProdClassificationService;
@@ -30,7 +30,7 @@ public class ProdClassificationService extends AbstractEntityService<ProdClassif
 	}
 
 	@Override
-	protected Class<ProdClassification> getEntityClass() {
+	public Class<ProdClassification> getEntityClass() {
 		return ProdClassification.class;
 	}
 	

@@ -64,7 +64,6 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["engine", "element"])
 			.addChildrenTo("col2", ["validFrom", "validTo", "sequenceNo"])
-			.addAuditFilter()
 		;
 	}});
 

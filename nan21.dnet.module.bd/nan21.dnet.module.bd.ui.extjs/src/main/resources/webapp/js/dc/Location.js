@@ -61,7 +61,6 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Location$Filter", {
 			.addChildrenTo("col1", ["countryCode", "regionCode", "cityName"])
 			.addChildrenTo("col2", ["billing", "mailing", "shipping", "active"])
 			.addChildrenTo("col3", ["targetType", "targetUuid"])
-			.addAuditFilter()
 		;
 	}});
 

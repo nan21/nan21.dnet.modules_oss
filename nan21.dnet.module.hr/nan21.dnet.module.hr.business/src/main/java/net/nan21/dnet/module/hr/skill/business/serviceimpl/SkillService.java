@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.skill.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.skill.business.service.ISkillService;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingScale;
 import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
@@ -29,7 +29,7 @@ public class SkillService extends AbstractEntityService<Skill>
 	}
 
 	@Override
-	protected Class<Skill> getEntityClass() {
+	public Class<Skill> getEntityClass() {
 		return Skill.class;
 	}
 	

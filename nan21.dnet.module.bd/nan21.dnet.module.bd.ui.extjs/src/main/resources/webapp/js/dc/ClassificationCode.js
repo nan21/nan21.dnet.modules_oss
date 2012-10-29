@@ -49,7 +49,6 @@ Ext.define("net.nan21.dnet.module.bd.standards.dc.ClassificationCode$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["classSystem", "active"])
-			.addAuditFilter()
 		;
 	}});
 

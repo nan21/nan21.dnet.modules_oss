@@ -20,9 +20,9 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElementFormulas_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("formula", {name:"formulaFilter", height:120, xtype:"bd_elem_dc_ElementFormula$Filter"})	
-			.addDcEditGridView("formula", {name:"formulaList", xtype:"bd_elem_dc_ElementFormula$EditList", frame:true})	
-			.addDcFormView("formula", {name:"formulaEdit", width:350, xtype:"bd_elem_dc_ElementFormula$EditExpression"})	
+			.addDcFilterFormView("formula", {name:"formulaFilter", height:120, xtype:"bd_elem_dc_ElementFormula$Filter"})
+			.addDcEditGridView("formula", {name:"formulaList", xtype:"bd_elem_dc_ElementFormula$EditList", frame:true})
+			.addDcFormView("formula", {name:"formulaEdit", width:350, xtype:"bd_elem_dc_ElementFormula$EditExpression"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

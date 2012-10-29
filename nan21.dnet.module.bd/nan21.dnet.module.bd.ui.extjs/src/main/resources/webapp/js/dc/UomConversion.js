@@ -50,7 +50,6 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomConversion$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["sourceCode", "targetCode"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

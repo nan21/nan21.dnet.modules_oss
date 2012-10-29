@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.contact.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.contact.business.service.ICommunicationChannelService;
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannel;
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType;
@@ -28,7 +28,7 @@ public class CommunicationChannelService extends AbstractEntityService<Communica
 	}
 
 	@Override
-	protected Class<CommunicationChannel> getEntityClass() {
+	public Class<CommunicationChannel> getEntityClass() {
 		return CommunicationChannel.class;
 	}
 	

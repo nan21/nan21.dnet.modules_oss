@@ -51,7 +51,6 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccount$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["org", "productCode"])
 			.addChildrenTo("col2", ["groupCode", "analiticSegment"])
-			.addAuditFilter()
 		;
 	}});
 

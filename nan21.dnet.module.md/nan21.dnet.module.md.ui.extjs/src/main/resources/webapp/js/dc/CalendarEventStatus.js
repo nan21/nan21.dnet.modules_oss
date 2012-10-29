@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.CalendarEventStatus$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "eventType", "active"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -60,6 +59,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.CalendarEventStatus$EditList", 
 		this._getBuilder_()	
 			.addTextColumn({name:"name", dataIndex:"name", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"eventType", dataIndex:"eventType", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "call", "meeting", "task"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
 	}});

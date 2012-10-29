@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.bp.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.md.bp.business.service.IBusinessPartnerService;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
@@ -33,7 +33,7 @@ public class BusinessPartnerService extends AbstractEntityService<BusinessPartne
 	}
 
 	@Override
-	protected Class<BusinessPartner> getEntityClass() {
+	public Class<BusinessPartner> getEntityClass() {
 		return BusinessPartner.class;
 	}
 	

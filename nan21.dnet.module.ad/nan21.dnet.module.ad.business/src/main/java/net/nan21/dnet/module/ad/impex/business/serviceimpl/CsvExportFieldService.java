@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.impex.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.impex.business.service.ICsvExportFieldService;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportField;
@@ -28,7 +28,7 @@ public class CsvExportFieldService extends AbstractEntityService<CsvExportField>
 	}
 
 	@Override
-	protected Class<CsvExportField> getEntityClass() {
+	public Class<CsvExportField> getEntityClass() {
 		return CsvExportField.class;
 	}
 	

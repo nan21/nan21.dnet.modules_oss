@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.data.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.data.business.service.INoteService;
 import net.nan21.dnet.module.ad.data.domain.entity.Note;
 
@@ -25,7 +25,7 @@ public class NoteService extends AbstractEntityService<Note>
 	}
 
 	@Override
-	protected Class<Note> getEntityClass() {
+	public Class<Note> getEntityClass() {
 		return Note.class;
 	}
 }

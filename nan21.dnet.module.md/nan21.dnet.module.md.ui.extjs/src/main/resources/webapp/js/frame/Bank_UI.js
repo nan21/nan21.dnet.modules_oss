@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Bank_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("bank", {name:"bankFilter", height:80, xtype:"md_bp_dc_Bank$Filter"})	
-			.addDcEditGridView("bank", {name:"bankEditList", xtype:"md_bp_dc_Bank$EditList", frame:true})	
+			.addDcFilterFormView("bank", {name:"bankFilter", height:80, xtype:"md_bp_dc_Bank$Filter"})
+			.addDcEditGridView("bank", {name:"bankEditList", xtype:"md_bp_dc_Bank$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

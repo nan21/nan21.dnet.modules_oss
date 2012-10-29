@@ -54,21 +54,21 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			.addButton({name:"btnChangelogUi", text:"Changelog", tooltip:"Open changelog frame", disabled:false,
 					handler: this.onBtnChangelogUi, scope:this})
 			
-			.addDcFilterFormView("issue", {name:"issueFilter", height:180, xtype:"pj_md_dc_Issue$Filter"})	
-			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_Issue$List"})	
+			.addDcFilterFormView("issue", {name:"issueFilter", height:180, xtype:"pj_md_dc_Issue$Filter"})
+			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_Issue$List"})
 			.addDcFormView("issue", {name:"issueEdit", height:240, xtype:"pj_md_dc_Issue$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAsgnAffectedVersions"), this._elems_.get("btnAsgnAffectedComps")]}]})	
-			.addDcFormView("issue", {name:"issueEditText", title:"Description", xtype:"pj_md_dc_Issue$EditText"})	
-			.addDcGridView("link", {name:"linkList", title:"Links", xtype:"pj_md_dc_IssueLink$CtxList"})	
-			.addDcFormView("link", {name:"linkCreate", xtype:"pj_md_dc_IssueLink$CtxCreate"})	
+						items:[ this._elems_.get("btnAsgnAffectedVersions"), this._elems_.get("btnAsgnAffectedComps")]}]})
+			.addDcFormView("issue", {name:"issueEditText", title:"Description", xtype:"pj_md_dc_Issue$EditText"})
+			.addDcGridView("link", {name:"linkList", title:"Links", xtype:"pj_md_dc_IssueLink$CtxList"})
+			.addDcFormView("link", {name:"linkCreate", xtype:"pj_md_dc_IssueLink$CtxCreate"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
-			.addDcGridView("note", {name:"noteList", width:600, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
-			.addDcGridView("task", {name:"taskList", xtype:"pj_md_dc_IssueTaskCtx$List"})	
-			.addDcFormView("task", {name:"taskEdit", xtype:"pj_md_dc_IssueTaskCtx$Edit"})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
+			.addDcGridView("note", {name:"noteList", width:600, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
+			.addDcGridView("task", {name:"taskList", xtype:"pj_md_dc_IssueTaskCtx$List"})
+			.addDcFormView("task", {name:"taskEdit", xtype:"pj_md_dc_IssueTaskCtx$Edit"})
 			.addWindow({name:"wdwIssueLinkCreate", title:"Create link", width:400, height:150, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("linkCreate")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

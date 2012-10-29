@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDsFieldService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsField;
@@ -28,7 +28,7 @@ public class SysDsFieldService extends AbstractEntityService<SysDsField>
 	}
 
 	@Override
-	protected Class<SysDsField> getEntityClass() {
+	public Class<SysDsField> getEntityClass() {
 		return SysDsField.class;
 	}
 	

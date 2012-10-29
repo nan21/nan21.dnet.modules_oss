@@ -57,7 +57,6 @@ Ext.define("net.nan21.dnet.module.bd.attr.dc.Attribute$Filter", {
 			.addChildrenTo("col1", ["name", "dataType"])
 			.addChildrenTo("col2", ["category", "uom"])
 			.addChildrenTo("col3", ["active"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -85,6 +84,8 @@ Ext.define("net.nan21.dnet.module.bd.attr.dc.Attribute$EditList", {
 						retFieldMapping: [
 							{lovField:"id", dsField: "categoryId"} 
 						]}})
+			.addComboColumn({name:"dataType", dataIndex:"dataType", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "string", "text", "integer", "decimal", "boolean", "date"]}})
 			.addLov({name:"uom", dataIndex:"uom", xtype:"gridcolumn", width:80,
 					editor:{xtype:"bd_uom_lovs_UnitsOfMeasureCode", selectOnFocus:true,
 						retFieldMapping: [

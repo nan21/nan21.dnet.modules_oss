@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Contact_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("c", {name:"cFilter", height:80, xtype:"md_bp_dc_Contact$Filter"})	
-			.addDcGridView("c", {name:"cList", xtype:"md_bp_dc_Contact$List"})	
-			.addDcFormView("c", {name:"cEdit", height:120, xtype:"md_bp_dc_Contact$Edit"})	
-			.addDcEditGridView("communic", {name:"communicEditList", title:"Communication", xtype:"bd_contact_dc_CommunicationChannel$EditList", frame:true})	
+			.addDcFilterFormView("c", {name:"cFilter", height:80, xtype:"md_bp_dc_Contact$Filter"})
+			.addDcGridView("c", {name:"cList", xtype:"md_bp_dc_Contact$List"})
+			.addDcFormView("c", {name:"cEdit", height:120, xtype:"md_bp_dc_Contact$Edit"})
+			.addDcEditGridView("communic", {name:"communicEditList", title:"Communication", xtype:"bd_contact_dc_CommunicationChannel$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

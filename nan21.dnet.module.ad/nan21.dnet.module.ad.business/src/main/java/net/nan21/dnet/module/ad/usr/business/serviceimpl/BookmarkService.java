@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.usr.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.business.service.IBookmarkService;
 import net.nan21.dnet.module.ad.usr.domain.entity.Bookmark;
 
@@ -27,7 +27,7 @@ public class BookmarkService extends AbstractEntityService<Bookmark>
 	}
 
 	@Override
-	protected Class<Bookmark> getEntityClass() {
+	public Class<Bookmark> getEntityClass() {
 		return Bookmark.class;
 	}
 	

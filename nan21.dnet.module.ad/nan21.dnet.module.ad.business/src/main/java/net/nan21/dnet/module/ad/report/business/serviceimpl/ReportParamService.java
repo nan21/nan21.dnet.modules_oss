@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.report.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.report.business.service.IReportParamService;
 import net.nan21.dnet.module.ad.report.domain.entity.Report;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportParam;
@@ -28,7 +28,7 @@ public class ReportParamService extends AbstractEntityService<ReportParam>
 	}
 
 	@Override
-	protected Class<ReportParam> getEntityClass() {
+	public Class<ReportParam> getEntityClass() {
 		return ReportParam.class;
 	}
 	

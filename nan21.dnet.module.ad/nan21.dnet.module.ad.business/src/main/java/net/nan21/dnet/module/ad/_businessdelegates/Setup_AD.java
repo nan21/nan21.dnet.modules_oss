@@ -17,7 +17,7 @@ import net.nan21.dnet.core.api.setup.InitData;
 import net.nan21.dnet.core.api.setup.InitDataItem;
 import net.nan21.dnet.core.api.setup.SetupTask;
 import net.nan21.dnet.core.api.setup.SetupTaskParam;
-import net.nan21.dnet.core.business.service.AbstractBusinessSetupParticipant;
+import net.nan21.dnet.core.business.service.setup.AbstractBusinessSetupParticipant;
 import net.nan21.dnet.module.ad._businessdelegates.client.ClientBD;
 import net.nan21.dnet.module.ad.client.domain.entity.Client;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJob;

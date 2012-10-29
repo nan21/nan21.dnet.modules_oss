@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.org.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.business.service.IOrganizationService;
 import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
@@ -29,7 +29,7 @@ public class OrganizationService extends AbstractEntityService<Organization>
 	}
 
 	@Override
-	protected Class<Organization> getEntityClass() {
+	public Class<Organization> getEntityClass() {
 		return Organization.class;
 	}
 	

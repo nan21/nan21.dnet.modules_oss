@@ -32,15 +32,15 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportMap_UI", {
 			.addButton({name:"btnRunExportItem", text:"Export selected", tooltip:"Export the selected item (one at a time).", iconCls:"icon-action-export", disabled:true,
 					handler: this.onBtnRunExportItem, scope:this, stateManager:{name:"selected_one", dc:"item" }})
 			
-			.addDcFilterFormView("map", {name:"mapFilter", height:80, xtype:"ad_impex_dc_ExportMap$Filter"})	
-			.addDcGridView("map", {name:"mapList", xtype:"ad_impex_dc_ExportMap$List"})	
-			.addDcFormView("map", {name:"mapEdit", height:120, xtype:"ad_impex_dc_ExportMap$Edit"})	
+			.addDcFilterFormView("map", {name:"mapFilter", height:80, xtype:"ad_impex_dc_ExportMap$Filter"})
+			.addDcGridView("map", {name:"mapList", xtype:"ad_impex_dc_ExportMap$List"})
+			.addDcFormView("map", {name:"mapEdit", height:120, xtype:"ad_impex_dc_ExportMap$Edit"})
 			.addDcFilterFormView("item", {name:"itemFilter", title:"Filter", width:300, xtype:"ad_impex_dc_ExportMapItem$FilterCtx", collapsible:true
-			})	
+			})
 			.addDcEditGridView("item", {name:"itemEditList", xtype:"ad_impex_dc_ExportMapItem$EditListCtxExpMap", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnRunExportMap"), this._elems_.get("btnRunExportItem")]}]})	
-			.addDcGridView("jobItem", {name:"jobItemList", title:"Used in jobs", xtype:"ad_impex_dc_ExportJobItem$ListCtxMap"})	
+						items:[ this._elems_.get("btnRunExportMap"), this._elems_.get("btnRunExportItem")]}]})
+			.addDcGridView("jobItem", {name:"jobItemList", title:"Used in jobs", xtype:"ad_impex_dc_ExportJobItem$ListCtxMap"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

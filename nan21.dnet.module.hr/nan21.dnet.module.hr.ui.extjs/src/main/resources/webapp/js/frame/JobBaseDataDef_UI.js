@@ -22,12 +22,12 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.JobBaseDataDef_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("jobType", {name:"jobTypeFilter", height:80, xtype:"hr_job_dc_JobType$Filter"})	
-			.addDcEditGridView("jobType", {name:"jobTypeEditList", xtype:"hr_job_dc_JobType$EditList", frame:true})	
-			.addDcFilterFormView("wrType", {name:"wrTypeFilter", height:80, xtype:"hr_job_dc_WorkRequirementType$Filter"})	
-			.addDcEditGridView("wrType", {name:"wrTypeEditList", xtype:"hr_job_dc_WorkRequirementType$EditList", frame:true})	
-			.addDcFilterFormView("wr", {name:"wrFilter", height:80, xtype:"hr_job_dc_WorkRequirement$Filter"})	
-			.addDcEditGridView("wr", {name:"wrEditList", xtype:"hr_job_dc_WorkRequirement$EditList", frame:true})	
+			.addDcFilterFormView("jobType", {name:"jobTypeFilter", height:80, xtype:"hr_job_dc_JobType$Filter"})
+			.addDcEditGridView("jobType", {name:"jobTypeEditList", xtype:"hr_job_dc_JobType$EditList", frame:true})
+			.addDcFilterFormView("wrType", {name:"wrTypeFilter", height:80, xtype:"hr_job_dc_WorkRequirementType$Filter"})
+			.addDcEditGridView("wrType", {name:"wrTypeEditList", xtype:"hr_job_dc_WorkRequirementType$EditList", frame:true})
+			.addDcFilterFormView("wr", {name:"wrFilter", height:80, xtype:"hr_job_dc_WorkRequirement$Filter"})
+			.addDcEditGridView("wr", {name:"wrEditList", xtype:"hr_job_dc_WorkRequirement$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasJobType", title:"Job types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasWrType", title:"Work requirement types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

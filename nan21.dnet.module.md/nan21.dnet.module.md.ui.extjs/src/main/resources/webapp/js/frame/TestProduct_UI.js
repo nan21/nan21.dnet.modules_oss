@@ -20,12 +20,12 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.TestProduct_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("prod", {name:"prodFilter", height:120, xtype:"md_mm_prod_dc_TestProduct$Filter"})	
-			.addDcFilterFormView("prod", {name:"prodFilterPG", width:300, xtype:"md_mm_prod_dc_TestProduct$FilterPG"})	
-			.addDcGridView("prod", {name:"prodList", title:"Grid", xtype:"md_mm_prod_dc_TestProduct$List"})	
-			.addDcEditGridView("prod", {name:"prodEditList", title:"Edit-Grid", xtype:"md_mm_prod_dc_TestProduct$EditList", frame:true})	
-			.addDcFormView("prod", {name:"prodEdit", height:120, xtype:"md_mm_prod_dc_TestProduct$Edit"})	
-			.addDcFormView("prod", {name:"prodEditPG", width:300, xtype:"md_mm_prod_dc_TestProduct$EditPG"})	
+			.addDcFilterFormView("prod", {name:"prodFilter", height:120, xtype:"md_mm_prod_dc_TestProduct$Filter"})
+			.addDcFilterFormView("prod", {name:"prodFilterPG", width:300, xtype:"md_mm_prod_dc_TestProduct$FilterPG"})
+			.addDcGridView("prod", {name:"prodList", title:"Grid", xtype:"md_mm_prod_dc_TestProduct$List"})
+			.addDcEditGridView("prod", {name:"prodEditList", title:"Edit-Grid", xtype:"md_mm_prod_dc_TestProduct$EditList", frame:true})
+			.addDcFormView("prod", {name:"prodEdit", height:120, xtype:"md_mm_prod_dc_TestProduct$Edit"})
+			.addDcFormView("prod", {name:"prodEditPG", width:300, xtype:"md_mm_prod_dc_TestProduct$EditPG"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"gridTabs", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})

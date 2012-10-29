@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.standards.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.standards.business.service.IClassificationItemService;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
@@ -28,7 +28,7 @@ public class ClassificationItemService extends AbstractEntityService<Classificat
 	}
 
 	@Override
-	protected Class<ClassificationItem> getEntityClass() {
+	public Class<ClassificationItem> getEntityClass() {
 		return ClassificationItem.class;
 	}
 	

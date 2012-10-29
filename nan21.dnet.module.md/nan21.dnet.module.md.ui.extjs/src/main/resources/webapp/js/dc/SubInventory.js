@@ -47,7 +47,6 @@ Ext.define("net.nan21.dnet.module.md.org.dc.SubInventory$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "inventory"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

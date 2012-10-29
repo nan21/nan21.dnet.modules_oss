@@ -8,7 +8,7 @@ package net.nan21.dnet.module.bd.standards.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.standards.business.service.IClassificationSystemService;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
 
@@ -26,7 +26,7 @@ public class ClassificationSystemService extends AbstractEntityService<Classific
 	}
 
 	@Override
-	protected Class<ClassificationSystem> getEntityClass() {
+	public Class<ClassificationSystem> getEntityClass() {
 		return ClassificationSystem.class;
 	}
 	

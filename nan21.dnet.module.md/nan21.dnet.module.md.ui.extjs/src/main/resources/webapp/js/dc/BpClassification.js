@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpClassification$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["businessPartner"])
 			.addChildrenTo("col2", ["classificationSystem", "classificationCode"])
-			.addAuditFilter()
 		;
 	}});
 

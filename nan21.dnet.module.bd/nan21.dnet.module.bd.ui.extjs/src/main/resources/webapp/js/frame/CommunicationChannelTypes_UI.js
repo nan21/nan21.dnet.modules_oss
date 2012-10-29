@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.bd.contact.frame.CommunicationChannelTypes_UI"
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("ctype", {name:"ctypeFilter", height:80, xtype:"bd_contact_dc_CommunicationChannelType$Filter"})	
-			.addDcEditGridView("ctype", {name:"ctypeEditList", xtype:"bd_contact_dc_CommunicationChannelType$EditList", frame:true})	
+			.addDcFilterFormView("ctype", {name:"ctypeFilter", height:80, xtype:"bd_contact_dc_CommunicationChannelType$Filter"})
+			.addDcEditGridView("ctype", {name:"ctypeEditList", xtype:"bd_contact_dc_CommunicationChannelType$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

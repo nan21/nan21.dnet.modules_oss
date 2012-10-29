@@ -34,6 +34,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeContact$CtxEditList", {
 			.addDateColumn({name:"birthDate", dataIndex:"birthDate", format: Dnet.DATE_FORMAT
 				,editor:{xtype:"datefield", format: Dnet.DATE_FORMAT }
 			})
+			.addComboColumn({name:"gender", dataIndex:"gender", width:60,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, allowBlank:false, triggerAction:'all', forceSelection:true, store:[ "male", "female"]}})
 			.addNumberColumn({name:"employeeId", dataIndex:"employeeId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"relationshipId", dataIndex:"relationshipId", hidden:true, align:"right", width:70, format:"0"})
 			.addLov({name:"relationship", dataIndex:"relationship", xtype:"gridcolumn", width:120,

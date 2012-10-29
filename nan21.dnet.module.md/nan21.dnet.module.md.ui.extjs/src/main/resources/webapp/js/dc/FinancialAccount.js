@@ -61,7 +61,6 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccount$Filter", {
 			.addChildrenTo("col1", ["name", "type"])
 			.addChildrenTo("col2", ["org", "journal"])
 			.addChildrenTo("col3", ["currency", "analiticSegment", "active"])
-			.addAuditFilter()
 		;
 	}});
 

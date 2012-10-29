@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccItem_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("item", {name:"itemFilter", xtype:"md_acc_dc_AccItem$Filter"})	
-			.addDcEditGridView("item", {name:"itemEditList", width:500, xtype:"md_acc_dc_AccItem$EditList", frame:true})	
-			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_acc_dc_AccItemAcct$CtxEditList", frame:true})	
+			.addDcFilterFormView("item", {name:"itemFilter", xtype:"md_acc_dc_AccItem$Filter"})
+			.addDcEditGridView("item", {name:"itemEditList", width:500, xtype:"md_acc_dc_AccItem$EditList", frame:true})
+			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_acc_dc_AccItemAcct$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

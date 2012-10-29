@@ -30,12 +30,12 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 			.addButton({name:"btnCreateAssignable", text:"Create assignable", tooltip:"Create assignable resource record", disabled:true,
 					handler: this.onBtnCreateAssignable, scope:this, stateManager:{name:"record_is_clean", dc:"usr" }})
 			
-			.addDcFilterFormView("usr", {name:"usrFilter", height:120, xtype:"ad_usr_dc_User$Filter"})	
-			.addDcGridView("usr", {name:"usrList", xtype:"ad_usr_dc_User$List"})	
+			.addDcFilterFormView("usr", {name:"usrFilter", height:120, xtype:"ad_usr_dc_User$Filter"})
+			.addDcGridView("usr", {name:"usrList", xtype:"ad_usr_dc_User$List"})
 			.addDcFormView("usr", {name:"usrEdit", xtype:"ad_usr_dc_User$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAsgnRoles"), this._elems_.get("btnAsgnGroups"), this._elems_.get("btnChangePassword"), this._elems_.get("btnCreateAssignable")]}]})	
-			.addDcFormView("usr", {name:"canvasPassword", preventHeader:true, isCanvas:true, xtype:"ad_usr_dc_User$ChangePasswordForm"})	
+						items:[ this._elems_.get("btnAsgnRoles"), this._elems_.get("btnAsgnGroups"), this._elems_.get("btnChangePassword"), this._elems_.get("btnCreateAssignable")]}]})
+			.addDcFormView("usr", {name:"canvasPassword", preventHeader:true, isCanvas:true, xtype:"ad_usr_dc_User$ChangePasswordForm"})
 			.addWindow({name:"wdwChangePassword", title:"Change password", closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("canvasPassword")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

@@ -54,7 +54,6 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroupAcct$Filter",
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["group", "accSchema"])
 			.addChildrenTo("col2", ["expenseAccount", "revenueAccount"])
-			.addAuditFilter()
 		;
 	}});
 

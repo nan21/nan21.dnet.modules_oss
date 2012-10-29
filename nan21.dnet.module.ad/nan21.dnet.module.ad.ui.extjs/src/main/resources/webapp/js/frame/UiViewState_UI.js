@@ -20,9 +20,9 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.UiViewState_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("viewstate", {name:"viewstateFilter", xtype:"ad_system_dc_UiViewState$Filter"})	
-			.addDcGridView("viewstate", {name:"viewstateList", xtype:"ad_system_dc_UiViewState$List"})	
-			.addDcFormView("viewstate", {name:"viewstateViewState", height:100, xtype:"ad_system_dc_UiViewState$ViewState"})	
+			.addDcFilterFormView("viewstate", {name:"viewstateFilter", xtype:"ad_system_dc_UiViewState$Filter"})
+			.addDcGridView("viewstate", {name:"viewstateList", xtype:"ad_system_dc_UiViewState$List"})
+			.addDcFormView("viewstate", {name:"viewstateViewState", height:100, xtype:"ad_system_dc_UiViewState$ViewState"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

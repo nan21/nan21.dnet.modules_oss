@@ -32,15 +32,15 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportMap_UI", {
 			.addButton({name:"btnRunImportItem", text:"Import selected", tooltip:"Import the selected file (one at a time).", iconCls:"icon-action-import", disabled:true,
 					handler: this.onBtnRunImportItem, scope:this, stateManager:{name:"selected_one", dc:"item" }})
 			
-			.addDcFilterFormView("map", {name:"mapFilter", height:80, xtype:"ad_impex_dc_ImportMap$Filter"})	
-			.addDcGridView("map", {name:"mapList", xtype:"ad_impex_dc_ImportMap$List"})	
-			.addDcFormView("map", {name:"mapEdit", height:120, xtype:"ad_impex_dc_ImportMap$Edit"})	
+			.addDcFilterFormView("map", {name:"mapFilter", height:80, xtype:"ad_impex_dc_ImportMap$Filter"})
+			.addDcGridView("map", {name:"mapList", xtype:"ad_impex_dc_ImportMap$List"})
+			.addDcFormView("map", {name:"mapEdit", height:120, xtype:"ad_impex_dc_ImportMap$Edit"})
 			.addDcFilterFormView("item", {name:"itemFilter", title:"Filter", width:300, xtype:"ad_impex_dc_ImportMapItemCtx$Filter", collapsible:true
-			})	
+			})
 			.addDcEditGridView("item", {name:"itemEditList", xtype:"ad_impex_dc_ImportMapItemCtx$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnRunImportMap"), this._elems_.get("btnRunImportItem")]}]})	
-			.addDcGridView("jobItem", {name:"jobItemList", title:"Used in jobs", xtype:"ad_impex_dc_ImportJobItem$ListCtxMap"})	
+						items:[ this._elems_.get("btnRunImportMap"), this._elems_.get("btnRunImportItem")]}]})
+			.addDcGridView("jobItem", {name:"jobItemList", title:"Used in jobs", xtype:"ad_impex_dc_ImportJobItem$ListCtxMap"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

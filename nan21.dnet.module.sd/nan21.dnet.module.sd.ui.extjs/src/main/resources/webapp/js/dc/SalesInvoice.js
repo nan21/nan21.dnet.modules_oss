@@ -90,7 +90,6 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$Filter", {
 			.addChildrenTo("col2", ["docNo", "code", "currency", "salesOrderCode"])
 			.addChildrenTo("col3", ["docDate", "totalAmount", "totalNetAmount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
-			.addAuditFilter()
 		;
 	}});
 

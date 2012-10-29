@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductAccountGroup_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("account", {name:"accountFilter", height:80, xtype:"md_mm_prod_dc_ProductAccountGroup$Filter"})	
-			.addDcEditGridView("account", {name:"accountEditList", xtype:"md_mm_prod_dc_ProductAccountGroup$EditList", frame:true})	
-			.addDcEditGridView("acct", {name:"acctEditList", height:240, xtype:"md_mm_prod_dc_ProductAccountGroupAcct$CtxEditList", frame:true})	
+			.addDcFilterFormView("account", {name:"accountFilter", height:80, xtype:"md_mm_prod_dc_ProductAccountGroup$Filter"})
+			.addDcEditGridView("account", {name:"accountEditList", xtype:"md_mm_prod_dc_ProductAccountGroup$EditList", frame:true})
+			.addDcEditGridView("acct", {name:"acctEditList", height:240, xtype:"md_mm_prod_dc_ProductAccountGroupAcct$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

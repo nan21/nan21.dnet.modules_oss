@@ -49,7 +49,6 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionType$Filter",
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "docType"])
 			.addChildrenTo("col2", ["active", "hasFromInventory", "hasToInventory"])
-			.addAuditFilter()
 		;
 	}});
 

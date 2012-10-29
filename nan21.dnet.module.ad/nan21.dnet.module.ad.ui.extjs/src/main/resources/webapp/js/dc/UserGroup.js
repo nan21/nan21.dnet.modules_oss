@@ -41,7 +41,6 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.UserGroup$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
-			.addAuditFilter()
 		;
 	}});
 

@@ -8,7 +8,7 @@ package net.nan21.dnet.module.pj.base.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IProjectCategoryService;
 import net.nan21.dnet.module.pj.base.domain.entity.ProjectCategory;
 
@@ -26,7 +26,7 @@ public class ProjectCategoryService extends AbstractEntityService<ProjectCategor
 	}
 
 	@Override
-	protected Class<ProjectCategory> getEntityClass() {
+	public Class<ProjectCategory> getEntityClass() {
 		return ProjectCategory.class;
 	}
 	

@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.client.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.client.business.service.IClientService;
 import net.nan21.dnet.module.ad.client.domain.entity.Client;
 
@@ -26,7 +26,7 @@ public class ClientService extends AbstractEntityService<Client>
 	}
 
 	@Override
-	protected Class<Client> getEntityClass() {
+	public Class<Client> getEntityClass() {
 		return Client.class;
 	}
 	

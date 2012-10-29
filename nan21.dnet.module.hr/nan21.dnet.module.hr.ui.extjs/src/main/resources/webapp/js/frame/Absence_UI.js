@@ -20,9 +20,9 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.Absence_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("absence", {name:"absenceFilter", height:120, xtype:"hr_time_dc_Absence$Filter"})	
-			.addDcGridView("absence", {name:"absenceList", xtype:"hr_time_dc_Absence$List"})	
-			.addDcFormView("absence", {name:"absenceEdit", xtype:"hr_time_dc_Absence$Edit"})	
+			.addDcFilterFormView("absence", {name:"absenceFilter", height:120, xtype:"hr_time_dc_Absence$Filter"})
+			.addDcGridView("absence", {name:"absenceList", xtype:"hr_time_dc_Absence$List"})
+			.addDcFormView("absence", {name:"absenceEdit", xtype:"hr_time_dc_Absence$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

@@ -8,7 +8,7 @@ package net.nan21.dnet.module.sd.opportunity.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.sd.opportunity.business.service.IOpportunityStageService;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage;
 
@@ -26,7 +26,7 @@ public class OpportunityStageService extends AbstractEntityService<OpportunitySt
 	}
 
 	@Override
-	protected Class<OpportunityStage> getEntityClass() {
+	public Class<OpportunityStage> getEntityClass() {
 		return OpportunityStage.class;
 	}
 	

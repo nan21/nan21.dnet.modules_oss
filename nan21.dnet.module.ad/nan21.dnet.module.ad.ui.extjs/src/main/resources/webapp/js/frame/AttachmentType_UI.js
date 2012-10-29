@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.AttachmentType_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("attchType", {name:"attchTypeFilter", height:80, xtype:"ad_data_dc_AttachmentType$Filter"})	
-			.addDcEditGridView("attchType", {name:"attchTypeEditList", xtype:"ad_data_dc_AttachmentType$EditList", frame:true})	
+			.addDcFilterFormView("attchType", {name:"attchTypeFilter", height:80, xtype:"ad_data_dc_AttachmentType$Filter"})
+			.addDcEditGridView("attchType", {name:"attchTypeEditList", xtype:"ad_data_dc_AttachmentType$EditList", frame:true})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

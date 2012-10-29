@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.tx.inventory.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.org.domain.entity.StockLocator;
@@ -31,7 +31,7 @@ public class InvBalanceService extends AbstractEntityService<InvBalance>
 	}
 
 	@Override
-	protected Class<InvBalance> getEntityClass() {
+	public Class<InvBalance> getEntityClass() {
 		return InvBalance.class;
 	}
 	

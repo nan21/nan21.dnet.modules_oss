@@ -30,13 +30,13 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			.addButton({name:"btnCreateHalfYears", text:"Create half-years", tooltip:"Create half-year periods for selected year.", disabled:true,
 					handler: this.onBtnCreateHalfYears, scope:this, stateManager:{name:"selected_one_clean", dc:"year" }})
 			
-			.addDcFilterFormView("year", {name:"yearFilter", xtype:"md_base_period_dc_FiscalYear$Filter"})	
+			.addDcFilterFormView("year", {name:"yearFilter", xtype:"md_base_period_dc_FiscalYear$Filter"})
 			.addDcEditGridView("year", {name:"yearEditList", xtype:"md_base_period_dc_FiscalYear$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'right', weight:-1,
-						items:[ this._elems_.get("btnCreateMonths"), this._elems_.get("btnCreateQuarters"), this._elems_.get("btnCreateHalfYears")]}]})	
+						items:[ this._elems_.get("btnCreateMonths"), this._elems_.get("btnCreateQuarters"), this._elems_.get("btnCreateHalfYears")]}]})
 			.addDcFilterFormView("period", {name:"periodFilter", title:"Filter", width:250, xtype:"md_base_period_dc_FiscalPeriod$FilterCtx", collapsible:true, collapsed:false
-			})	
-			.addDcEditGridView("period", {name:"periodEditList", xtype:"md_base_period_dc_FiscalPeriod$CtxEditList", frame:true})	
+			})
+			.addDcEditGridView("period", {name:"periodEditList", xtype:"md_base_period_dc_FiscalPeriod$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"periodPanel", height:240, layout:"border", defaults:{split:true}})

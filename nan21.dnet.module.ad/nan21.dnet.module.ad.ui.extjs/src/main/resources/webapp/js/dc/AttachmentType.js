@@ -47,7 +47,6 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.AttachmentType$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["category", "useInContext"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -68,6 +67,8 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.AttachmentType$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addTextColumn({name:"useInContext", dataIndex:"useInContext", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"category", dataIndex:"category", width:80,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "image", "document"]}})
 			.addTextColumn({name:"uploadPath", dataIndex:"uploadPath", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addTextColumn({name:"baseUrl", dataIndex:"baseUrl", width:100,

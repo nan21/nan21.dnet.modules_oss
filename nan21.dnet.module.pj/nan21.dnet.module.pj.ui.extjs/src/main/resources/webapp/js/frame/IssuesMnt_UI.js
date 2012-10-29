@@ -20,10 +20,10 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssuesMnt_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("issue", {name:"issueFilter", height:180, xtype:"pj_md_dc_IssueMnt$Filter"})	
-			.addDcEditGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueMnt$EditList", frame:true})	
+			.addDcFilterFormView("issue", {name:"issueFilter", height:180, xtype:"pj_md_dc_IssueMnt$Filter"})
+			.addDcEditGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueMnt$EditList", frame:true})
 			.addDcFormView("issue", {name:"issueViewText", title:"Description", height:120, xtype:"pj_md_dc_IssueMnt$EditText", collapsible:true, collapsed:true
-			})	
+			})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

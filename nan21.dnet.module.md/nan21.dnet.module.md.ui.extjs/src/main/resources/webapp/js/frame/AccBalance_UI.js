@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccBalance_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("balance", {name:"balanceFilter", xtype:"md_tx_acc_dc_AccBalance$Filter"})	
-			.addDcGridView("balance", {name:"balanceList", xtype:"md_tx_acc_dc_AccBalance$List"})	
+			.addDcFilterFormView("balance", {name:"balanceFilter", xtype:"md_tx_acc_dc_AccBalance$Filter"})
+			.addDcGridView("balance", {name:"balanceList", xtype:"md_tx_acc_dc_AccBalance$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.CountryMD_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("country", {name:"countryFilter", height:80, xtype:"bd_geo_dc_Country$Filter"})	
-			.addDcGridView("country", {name:"countryList", xtype:"bd_geo_dc_Country$List"})	
-			.addDcFormView("country", {name:"countryEdit", height:140, xtype:"bd_geo_dc_Country$Edit"})	
-			.addDcEditGridView("region", {name:"regionEditList", xtype:"bd_geo_dc_Region$EditListContext", frame:true})	
+			.addDcFilterFormView("country", {name:"countryFilter", height:80, xtype:"bd_geo_dc_Country$Filter"})
+			.addDcGridView("country", {name:"countryList", xtype:"bd_geo_dc_Country$List"})
+			.addDcFormView("country", {name:"countryEdit", height:140, xtype:"bd_geo_dc_Country$Edit"})
+			.addDcEditGridView("region", {name:"regionEditList", xtype:"bd_geo_dc_Region$EditListContext", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

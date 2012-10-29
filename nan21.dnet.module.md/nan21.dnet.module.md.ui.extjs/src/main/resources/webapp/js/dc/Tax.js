@@ -52,7 +52,6 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.Tax$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "category", "parentTax"])
 			.addChildrenTo("col2", ["summary", "active"])
-			.addAuditFilter()
 		;
 	}});
 

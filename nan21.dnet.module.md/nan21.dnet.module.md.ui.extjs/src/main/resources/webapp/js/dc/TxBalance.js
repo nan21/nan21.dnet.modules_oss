@@ -48,7 +48,6 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.TxBalance$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["businessPartner", "organization", "currency"])
 			.addChildrenTo("col2", ["amount"])
-			.addAuditFilter()
 		;
 	}});
 

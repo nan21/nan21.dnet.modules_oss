@@ -8,7 +8,7 @@ package net.nan21.dnet.module.pj.base.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssueTextTypeService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTextType;
 
@@ -26,7 +26,7 @@ public class IssueTextTypeService extends AbstractEntityService<IssueTextType>
 	}
 
 	@Override
-	protected Class<IssueTextType> getEntityClass() {
+	public Class<IssueTextType> getEntityClass() {
 		return IssueTextType.class;
 	}
 	

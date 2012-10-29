@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmount$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["paymentMethod"])
-			.addAuditFilter()
 		;
 	}});
 

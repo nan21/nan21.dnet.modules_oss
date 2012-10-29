@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.frame.Payment_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("payment", {name:"paymentFilter", xtype:"md_tx_fin_dc_Payment$Filter"})	
-			.addDcGridView("payment", {name:"paymentList", xtype:"md_tx_fin_dc_Payment$List"})	
+			.addDcFilterFormView("payment", {name:"paymentFilter", xtype:"md_tx_fin_dc_Payment$Filter"})
+			.addDcGridView("payment", {name:"paymentList", xtype:"md_tx_fin_dc_Payment$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

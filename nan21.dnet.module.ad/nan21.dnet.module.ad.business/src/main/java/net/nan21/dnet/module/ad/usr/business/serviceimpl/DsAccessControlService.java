@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.usr.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.business.service.IDsAccessControlService;
 import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 import net.nan21.dnet.module.ad.usr.domain.entity.DsAccessControl;
@@ -28,7 +28,7 @@ public class DsAccessControlService extends AbstractEntityService<DsAccessContro
 	}
 
 	@Override
-	protected Class<DsAccessControl> getEntityClass() {
+	public Class<DsAccessControl> getEntityClass() {
 		return DsAccessControl.class;
 	}
 	

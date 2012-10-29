@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.mm.prod.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
 import net.nan21.dnet.module.md.acc.domain.entity.Account;
 import net.nan21.dnet.module.md.mm.prod.business.service.IProductAccountGroupAcctService;
@@ -30,7 +30,7 @@ public class ProductAccountGroupAcctService extends AbstractEntityService<Produc
 	}
 
 	@Override
-	protected Class<ProductAccountGroupAcct> getEntityClass() {
+	public Class<ProductAccountGroupAcct> getEntityClass() {
 		return ProductAccountGroupAcct.class;
 	}
 	

@@ -8,7 +8,7 @@ package net.nan21.dnet.module.hr.skill.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.skill.business.service.IRatingScaleService;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingScale;
 
@@ -26,7 +26,7 @@ public class RatingScaleService extends AbstractEntityService<RatingScale>
 	}
 
 	@Override
-	protected Class<RatingScale> getEntityClass() {
+	public Class<RatingScale> getEntityClass() {
 		return RatingScale.class;
 	}
 	

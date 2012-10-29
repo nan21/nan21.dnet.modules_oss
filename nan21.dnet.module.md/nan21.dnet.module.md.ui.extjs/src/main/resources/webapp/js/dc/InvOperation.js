@@ -76,7 +76,6 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvOperation$Filter", {
 			.addChildrenTo("col1", ["itemCode", "eventDate"])
 			.addChildrenTo("col2", ["inventory", "subInventory", "locator"])
 			.addChildrenTo("col3", ["direction", "transactionId", "transactionLineId"])
-			.addAuditFilter()
 		;
 	}});
 

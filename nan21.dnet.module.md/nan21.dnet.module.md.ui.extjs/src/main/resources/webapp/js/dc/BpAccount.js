@@ -62,7 +62,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Filter", {
 			.addChildrenTo("col1", ["org", "businessPartner"])
 			.addChildrenTo("col2", ["customerGroup", "vendorGroup"])
 			.addChildrenTo("col3", ["analiticSegment", "custAnaliticSegment", "vendAnaliticSegment"])
-			.addAuditFilter()
 		;
 	}});
 

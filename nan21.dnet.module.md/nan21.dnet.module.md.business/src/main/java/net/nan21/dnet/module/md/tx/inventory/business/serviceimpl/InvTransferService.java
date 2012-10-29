@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.md.tx.inventory.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.tx.inventory.business.service.IInvTransferService;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransfer;
 
@@ -25,7 +25,7 @@ public class InvTransferService extends AbstractEntityService<InvTransfer>
 	}
 
 	@Override
-	protected Class<InvTransfer> getEntityClass() {
+	public Class<InvTransfer> getEntityClass() {
 		return InvTransfer.class;
 	}
 }

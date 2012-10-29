@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.time.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.time.business.service.IAbsenceTypeService;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceType;
@@ -28,7 +28,7 @@ public class AbsenceTypeService extends AbstractEntityService<AbsenceType>
 	}
 
 	@Override
-	protected Class<AbsenceType> getEntityClass() {
+	public Class<AbsenceType> getEntityClass() {
 		return AbsenceType.class;
 	}
 	

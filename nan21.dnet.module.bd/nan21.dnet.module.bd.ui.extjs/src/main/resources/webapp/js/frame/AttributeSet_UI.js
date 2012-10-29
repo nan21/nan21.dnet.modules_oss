@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeSet_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("set", {name:"setFilter", height:80, xtype:"bd_attr_dc_AttributeSet$Filter"})	
-			.addDcEditGridView("set", {name:"setEditList", xtype:"bd_attr_dc_AttributeSet$EditList", frame:true})	
-			.addDcEditGridView("setattr", {name:"setattrEditList", height:220, xtype:"bd_attr_dc_AttributeSetAttribute$CtxEditList", frame:true})	
+			.addDcFilterFormView("set", {name:"setFilter", height:80, xtype:"bd_attr_dc_AttributeSet$Filter"})
+			.addDcEditGridView("set", {name:"setEditList", xtype:"bd_attr_dc_AttributeSet$EditList", frame:true})
+			.addDcEditGridView("setattr", {name:"setattrEditList", height:220, xtype:"bd_attr_dc_AttributeSetAttribute$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasAttrSet", title:"Attribute sets", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -20,10 +20,10 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.Client_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("client", {name:"clientFilter", height:80, xtype:"ad_client_dc_Client$Filter"})	
-			.addDcGridView("client", {name:"clientList", xtype:"ad_client_dc_Client$List"})	
-			.addDcFormView("client", {name:"clientEdit", xtype:"ad_client_dc_Client$Edit"})	
-			.addDcFormView("client", {name:"clientCreate", xtype:"ad_client_dc_Client$Create"})	
+			.addDcFilterFormView("client", {name:"clientFilter", height:80, xtype:"ad_client_dc_Client$Filter"})
+			.addDcGridView("client", {name:"clientList", xtype:"ad_client_dc_Client$List"})
+			.addDcFormView("client", {name:"clientEdit", xtype:"ad_client_dc_Client$Edit"})
+			.addDcFormView("client", {name:"clientCreate", xtype:"ad_client_dc_Client$Create"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

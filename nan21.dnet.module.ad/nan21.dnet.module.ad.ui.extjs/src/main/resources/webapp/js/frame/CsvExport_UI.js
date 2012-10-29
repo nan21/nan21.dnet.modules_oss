@@ -36,14 +36,14 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 			.addButton({name:"btnDoClone", text:"OK", tooltip:"Create clone", disabled:false,
 					handler: this.onBtnDoClone, scope:this})
 			
-			.addDcFilterFormView("csv", {name:"csvFilter", height:80, xtype:"ad_impex_dc_CsvExport$Filter"})	
+			.addDcFilterFormView("csv", {name:"csvFilter", height:80, xtype:"ad_impex_dc_CsvExport$Filter"})
 			.addDcEditGridView("csv", {name:"csvEditList", xtype:"ad_impex_dc_CsvExport$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnShowCloneWdw")]}]})	
-			.addDcFormView("csv", {name:"csvClone", height:120, xtype:"ad_impex_dc_CsvExport$Clone"})	
-			.addDcEditGridView("field", {name:"fieldCtxEditList", title:"Fields", xtype:"ad_impex_dc_CsvExportField$CtxEditList", frame:true})	
-			.addDcEditGridView("sort", {name:"sortCtxEditList", title:"Sort", xtype:"ad_impex_dc_CsvExportSort$CtxEditList", frame:true})	
-			.addDcEditGridView("item", {name:"itemCtxEditList", title:"File-sets", xtype:"ad_impex_dc_ExportMapItem$EditListCtxCsvExp", frame:true})	
+						items:[ this._elems_.get("btnShowCloneWdw")]}]})
+			.addDcFormView("csv", {name:"csvClone", height:120, xtype:"ad_impex_dc_CsvExport$Clone"})
+			.addDcEditGridView("field", {name:"fieldCtxEditList", title:"Fields", xtype:"ad_impex_dc_CsvExportField$CtxEditList", frame:true})
+			.addDcEditGridView("sort", {name:"sortCtxEditList", title:"Sort", xtype:"ad_impex_dc_CsvExportSort$CtxEditList", frame:true})
+			.addDcEditGridView("item", {name:"itemCtxEditList", title:"File-sets", xtype:"ad_impex_dc_ExportMapItem$EditListCtxCsvExp", frame:true})
 			.addWindow({name:"wdwClone", title:"Create clone", width:400, height:120, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("csvClone")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

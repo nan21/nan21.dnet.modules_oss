@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.uom.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.uom.business.service.IUomService;
 import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
 import net.nan21.dnet.module.bd.uom.domain.entity.UomType;
@@ -28,7 +28,7 @@ public class UomService extends AbstractEntityService<Uom>
 	}
 
 	@Override
-	protected Class<Uom> getEntityClass() {
+	public Class<Uom> getEntityClass() {
 		return Uom.class;
 	}
 	

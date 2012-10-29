@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.employee.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.hr.employee.business.service.IEmployeeAssignmentService;
 import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
@@ -34,7 +34,7 @@ public class EmployeeAssignmentService extends AbstractEntityService<EmployeeAss
 	}
 
 	@Override
-	protected Class<EmployeeAssignment> getEntityClass() {
+	public Class<EmployeeAssignment> getEntityClass() {
 		return EmployeeAssignment.class;
 	}
 	

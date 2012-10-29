@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import net.nan21.dnet.core.api.setup.ISetupParticipant;
 import net.nan21.dnet.core.api.setup.ISetupTask;
-import net.nan21.dnet.core.business.service.AbstractBusinessSetupParticipant;
+import net.nan21.dnet.core.business.service.setup.AbstractBusinessSetupParticipant;
 
 public class Setup_HR extends AbstractBusinessSetupParticipant implements
 		ISetupParticipant {

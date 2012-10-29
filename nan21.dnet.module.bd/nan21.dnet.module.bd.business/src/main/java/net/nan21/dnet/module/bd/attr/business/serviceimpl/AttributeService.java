@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.attr.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.attr.business.service.IAttributeService;
 import net.nan21.dnet.module.bd.attr.domain.entity.Attribute;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory;
@@ -29,7 +29,7 @@ public class AttributeService extends AbstractEntityService<Attribute>
 	}
 
 	@Override
-	protected Class<Attribute> getEntityClass() {
+	public Class<Attribute> getEntityClass() {
 		return Attribute.class;
 	}
 	

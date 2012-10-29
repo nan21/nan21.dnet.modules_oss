@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItemProduct$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["product", "uom"])
-			.addAuditFilter()
 		;
 	}});
 

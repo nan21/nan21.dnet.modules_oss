@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.quartz.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.quartz.business.service.IQuartzSimpleTriggerService;
 import net.nan21.dnet.module.ad.quartz.domain.entity.QuartzSimpleTrigger;
 
@@ -25,7 +25,7 @@ public class QuartzSimpleTriggerService extends AbstractEntityService<QuartzSimp
 	}
 
 	@Override
-	protected Class<QuartzSimpleTrigger> getEntityClass() {
+	public Class<QuartzSimpleTrigger> getEntityClass() {
 		return QuartzSimpleTrigger.class;
 	}
 }

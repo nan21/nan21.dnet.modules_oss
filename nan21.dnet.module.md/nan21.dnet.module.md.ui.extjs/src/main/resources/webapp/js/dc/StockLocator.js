@@ -48,7 +48,6 @@ Ext.define("net.nan21.dnet.module.md.org.dc.StockLocator$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "subInventory", "locatorType"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

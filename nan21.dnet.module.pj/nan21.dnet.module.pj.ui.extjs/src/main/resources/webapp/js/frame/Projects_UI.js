@@ -44,19 +44,19 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			.addButton({name:"btnChangelogUi", text:"Changelog", tooltip:"Show Changelog for selected version", disabled:true,
 					handler: this.onBtnChangelogUi, scope:this, stateManager:{name:"selected_one", dc:"version" }})
 			
-			.addDcFilterFormView("project", {name:"projectFilter", height:80, xtype:"pj_md_dc_Project$Filter"})	
-			.addDcGridView("project", {name:"projectList", xtype:"pj_md_dc_Project$List"})	
-			.addDcFormView("project", {name:"projectEdit", height:160, xtype:"pj_md_dc_Project$Edit"})	
-			.addDcFilterFormView("version", {name:"versionFilter", xtype:"pj_md_dc_ProjectVersion$Filter"})	
+			.addDcFilterFormView("project", {name:"projectFilter", height:80, xtype:"pj_md_dc_Project$Filter"})
+			.addDcGridView("project", {name:"projectList", xtype:"pj_md_dc_Project$List"})
+			.addDcFormView("project", {name:"projectEdit", height:160, xtype:"pj_md_dc_Project$Edit"})
+			.addDcFilterFormView("version", {name:"versionFilter", xtype:"pj_md_dc_ProjectVersion$Filter"})
 			.addDcEditGridView("version", {name:"versionEditList", title:"Versions", xtype:"pj_md_dc_ProjectVersion$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnRoadmapUi"), this._elems_.get("btnChangelogUi")]}]})	
-			.addDcFilterFormView("component", {name:"componentFilter", xtype:"pj_md_dc_ProjectComponent$Filter"})	
-			.addDcEditGridView("component", {name:"componentEditList", title:"Components", xtype:"pj_md_dc_ProjectComponent$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnRoadmapUi"), this._elems_.get("btnChangelogUi")]}]})
+			.addDcFilterFormView("component", {name:"componentFilter", xtype:"pj_md_dc_ProjectComponent$Filter"})
+			.addDcEditGridView("component", {name:"componentEditList", title:"Components", xtype:"pj_md_dc_ProjectComponent$CtxEditList", frame:true})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
-			.addDcEditGridView("member", {name:"memberEditList", title:"Team", xtype:"pj_md_dc_ProjectMember$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
+			.addDcEditGridView("member", {name:"memberEditList", title:"Team", xtype:"pj_md_dc_ProjectMember$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

@@ -47,7 +47,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Contact$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["firstName", "lastName"])
 			.addChildrenTo("col2", ["bpartnerCode", "gender"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -89,6 +88,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Contact$CtxEditList", {
 			.addTextColumn({name:"lastName", dataIndex:"lastName", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true, allowBlank:false}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
+			.addComboColumn({name:"gender", dataIndex:"gender", width:60,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "male", "female"]}})
 			.addTextColumn({name:"position", dataIndex:"position", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDateColumn({name:"birthdate", dataIndex:"birthdate", format: Dnet.DATE_FORMAT

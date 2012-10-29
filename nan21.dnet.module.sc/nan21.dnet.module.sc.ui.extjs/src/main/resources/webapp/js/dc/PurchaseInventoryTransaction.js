@@ -55,7 +55,6 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseInventoryTransaction$Filte
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["supplier"])
 			.addChildrenTo("col2", ["transactionType", "fromInventory", "toInventory"])
-			.addAuditFilter()
 		;
 	}});
 

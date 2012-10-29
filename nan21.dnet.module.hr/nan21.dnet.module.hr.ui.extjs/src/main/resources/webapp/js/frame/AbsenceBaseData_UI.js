@@ -22,12 +22,12 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.AbsenceBaseData_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("abscateg", {name:"abscategFilter", height:80, xtype:"hr_time_dc_AbsenceCategory$Filter"})	
-			.addDcEditGridView("abscateg", {name:"abscategEditList", xtype:"hr_time_dc_AbsenceCategory$EditList", frame:true})	
-			.addDcFilterFormView("abstype", {name:"abstypeFilter", height:80, xtype:"hr_time_dc_AbsenceType$Filter"})	
-			.addDcEditGridView("abstype", {name:"abstypeEditList", xtype:"hr_time_dc_AbsenceType$EditList", frame:true})	
-			.addDcFilterFormView("absreason", {name:"absreasonFilter", height:80, xtype:"hr_time_dc_AbsenceReason$Filter"})	
-			.addDcEditGridView("absreason", {name:"absreasonEditList", xtype:"hr_time_dc_AbsenceReason$EditList", frame:true})	
+			.addDcFilterFormView("abscateg", {name:"abscategFilter", height:80, xtype:"hr_time_dc_AbsenceCategory$Filter"})
+			.addDcEditGridView("abscateg", {name:"abscategEditList", xtype:"hr_time_dc_AbsenceCategory$EditList", frame:true})
+			.addDcFilterFormView("abstype", {name:"abstypeFilter", height:80, xtype:"hr_time_dc_AbsenceType$Filter"})
+			.addDcEditGridView("abstype", {name:"abstypeEditList", xtype:"hr_time_dc_AbsenceType$EditList", frame:true})
+			.addDcFilterFormView("absreason", {name:"absreasonFilter", height:80, xtype:"hr_time_dc_AbsenceReason$Filter"})
+			.addDcEditGridView("absreason", {name:"absreasonEditList", xtype:"hr_time_dc_AbsenceReason$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCateg", title:"Absence categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Absence types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

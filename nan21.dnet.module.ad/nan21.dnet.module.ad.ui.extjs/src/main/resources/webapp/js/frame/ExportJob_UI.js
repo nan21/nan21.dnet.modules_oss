@@ -28,12 +28,12 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportJob_UI", {
 			.addButton({name:"btnRunExportItem", text:"Export selected", tooltip:"Export the selected set (one at a time).", iconCls:"icon-action-export", disabled:true,
 					handler: this.onBtnRunExportItem, scope:this, stateManager:{name:"selected_one", dc:"item" }})
 			
-			.addDcFilterFormView("job", {name:"jobFilter", height:80, xtype:"ad_impex_dc_ExportJob$Filter"})	
-			.addDcGridView("job", {name:"jobList", xtype:"ad_impex_dc_ExportJob$List"})	
+			.addDcFilterFormView("job", {name:"jobFilter", height:80, xtype:"ad_impex_dc_ExportJob$Filter"})
+			.addDcGridView("job", {name:"jobList", xtype:"ad_impex_dc_ExportJob$List"})
 			.addDcFormView("job", {name:"jobEdit", height:150, xtype:"ad_impex_dc_ExportJob$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnRunExport"), this._elems_.get("btnRunExportItem")]}]})	
-			.addDcEditGridView("item", {name:"itemEditList", xtype:"ad_impex_dc_ExportJobItem$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnRunExport"), this._elems_.get("btnRunExportItem")]}]})
+			.addDcEditGridView("item", {name:"itemEditList", xtype:"ad_impex_dc_ExportJobItem$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

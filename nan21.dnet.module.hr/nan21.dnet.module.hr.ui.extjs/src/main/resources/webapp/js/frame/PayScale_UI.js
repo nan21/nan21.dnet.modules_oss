@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.PayScale_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("scale", {name:"scaleFilter", height:80, xtype:"hr_grade_dc_PayScale$Filter"})	
-			.addDcGridView("scale", {name:"scaleList", xtype:"hr_grade_dc_PayScale$List"})	
-			.addDcFormView("scale", {name:"scaleEdit", height:120, xtype:"hr_grade_dc_PayScale$Edit"})	
-			.addDcEditGridView("point", {name:"pointEditList", xtype:"hr_grade_dc_PayScalePoint$CtxEditList", frame:true})	
+			.addDcFilterFormView("scale", {name:"scaleFilter", height:80, xtype:"hr_grade_dc_PayScale$Filter"})
+			.addDcGridView("scale", {name:"scaleList", xtype:"hr_grade_dc_PayScale$List"})
+			.addDcFormView("scale", {name:"scaleEdit", height:120, xtype:"hr_grade_dc_PayScale$Edit"})
+			.addDcEditGridView("point", {name:"pointEditList", xtype:"hr_grade_dc_PayScalePoint$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

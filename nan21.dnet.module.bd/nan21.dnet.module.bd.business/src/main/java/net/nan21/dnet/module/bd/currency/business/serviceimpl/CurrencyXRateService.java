@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.business.service.ICurrencyXRateService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRate;
@@ -30,7 +30,7 @@ public class CurrencyXRateService extends AbstractEntityService<CurrencyXRate>
 	}
 
 	@Override
-	protected Class<CurrencyXRate> getEntityClass() {
+	public Class<CurrencyXRate> getEntityClass() {
 		return CurrencyXRate.class;
 	}
 	

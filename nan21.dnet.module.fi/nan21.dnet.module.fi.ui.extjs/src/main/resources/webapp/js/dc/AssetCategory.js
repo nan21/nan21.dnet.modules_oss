@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.AssetCategory$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

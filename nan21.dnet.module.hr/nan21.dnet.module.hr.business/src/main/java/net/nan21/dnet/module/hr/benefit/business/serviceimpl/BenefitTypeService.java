@@ -8,7 +8,7 @@ package net.nan21.dnet.module.hr.benefit.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.benefit.business.service.IBenefitTypeService;
 import net.nan21.dnet.module.hr.benefit.domain.entity.BenefitType;
 
@@ -26,7 +26,7 @@ public class BenefitTypeService extends AbstractEntityService<BenefitType>
 	}
 
 	@Override
-	protected Class<BenefitType> getEntityClass() {
+	public Class<BenefitType> getEntityClass() {
 		return BenefitType.class;
 	}
 	

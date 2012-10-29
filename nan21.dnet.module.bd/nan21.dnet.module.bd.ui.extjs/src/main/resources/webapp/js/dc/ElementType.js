@@ -56,7 +56,6 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementType$Filter", {
 			.addChildrenTo("col1", ["name"])
 			.addChildrenTo("col2", ["engine", "category"])
 			.addChildrenTo("col3", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

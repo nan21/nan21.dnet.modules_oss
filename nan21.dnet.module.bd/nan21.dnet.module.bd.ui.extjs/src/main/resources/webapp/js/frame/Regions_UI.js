@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.Regions_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"bd_geo_dc_Region$Filter"})	
-			.addDcEditGridView("m", {name:"mEditList", xtype:"bd_geo_dc_Region$EditList", frame:true})	
+			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"bd_geo_dc_Region$Filter"})
+			.addDcEditGridView("m", {name:"mEditList", xtype:"bd_geo_dc_Region$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

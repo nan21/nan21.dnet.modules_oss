@@ -1,5 +1,9 @@
 package net.nan21.dnet.module.md.www.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.nan21.dnet.core.api.IProductInfo;
 import net.nan21.dnet.core.api.ISystemConfig;
 import net.nan21.dnet.core.api.session.Params;
 import net.nan21.dnet.core.api.session.Session;
@@ -7,24 +11,41 @@ import net.nan21.dnet.core.api.session.User;
 import net.nan21.dnet.core.api.session.UserPreferences;
 import net.nan21.dnet.core.presenter.service.ServiceLocator;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
-public class AbstractWebController {
+public class AbstractWebController implements ApplicationContextAware {
 
-	@Autowired
+	private ApplicationContext applicationContext;
+
+	/**
+	 * System configuration. May be null, use the getter.
+	 */
+	private ISystemConfig systemConfig;
+
+	/**
+	 * Product information to be displayed on client.
+	 */
+	protected IProductInfo productInfo;
+	/**
+	 * Presenter service locator. May be null, use the getter.
+	 */
 	private ServiceLocator serviceLocator;
 
-	@Autowired
-	protected ApplicationContext appContext;
+	final static Logger logger = LoggerFactory
+			.getLogger(AbstractWebController.class);
 
-	@Autowired
-	protected ISystemConfig systemConfig;
+	protected void prepareRequest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
-	protected void prepareRequest() throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
 		String username = "Guest";
 		String displayName = "Guest";
-		// char[] password;
+
 		UserPreferences preferences = null;
 
 		boolean accountExpired = false;
@@ -32,8 +53,8 @@ public class AbstractWebController {
 		boolean credentialsExpired = false;
 		boolean enabled = true;
 
-		String clientCode = this.systemConfig.getPortalClientCode();
-		Long clientId = Long.parseLong(this.systemConfig.getPortalClientId());
+		String clientCode = this.getSystemConfig().getPortalClientCode();
+		Long clientId = Long.parseLong(this.getSystemConfig().getPortalClientId());
 
 		String employeeCode = "xxx";
 		Long employeeId = 0L;
@@ -61,44 +82,78 @@ public class AbstractWebController {
 		Session.params.set(null);
 	}
 
+	/* ================= GETTERS - SETTERS ================== */
+
+	public ApplicationContext getApplicationContext() {
+		return applicationContext;
+	}
+
+	public void setApplicationContext(ApplicationContext applicationContext) {
+		this.applicationContext = applicationContext;
+	}
+
+	/**
+	 * Get system configuration object. If it is null attempts to retrieve it
+	 * from Spring context.
+	 * 
+	 * @return
+	 */
+	public ISystemConfig getSystemConfig() {
+		if (this.systemConfig == null) {
+			this.systemConfig = this.getApplicationContext().getBean(
+					ISystemConfig.class);
+		}
+		return systemConfig;
+	}
+
+	/**
+	 * Set system configuration object
+	 * 
+	 * @param systemConfig
+	 */
+	public void setSystemConfig(ISystemConfig systemConfig) {
+		this.systemConfig = systemConfig;
+	}
+
+	/**
+	 * Get product info object. If it is null attempts to retrieve it from
+	 * Spring context.
+	 * 
+	 * @return
+	 */
+	public IProductInfo getProductInfo() {
+		if (this.productInfo == null) {
+			this.productInfo = this.getApplicationContext().getBean(
+					IProductInfo.class);
+		}
+		return productInfo;
+	}
+
+	public void setProductInfo(IProductInfo productInfo) {
+		this.productInfo = productInfo;
+	}
+
+	/**
+	 * Get presenter service locator. If it is null attempts to retrieve it from
+	 * Spring context.
+	 * 
+	 * @return
+	 */
 	public ServiceLocator getServiceLocator() {
+		if (this.serviceLocator == null) {
+			this.serviceLocator = this.getApplicationContext().getBean(
+					ServiceLocator.class);
+		}
 		return serviceLocator;
 	}
 
+	/**
+	 * Set presenter service locator.
+	 * 
+	 * @param serviceLocator
+	 */
 	public void setServiceLocator(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator;
 	}
 
-	public ApplicationContext getAppContext() {
-		return appContext;
-	}
-
-	public void setAppContext(ApplicationContext appContext) {
-		this.appContext = appContext;
-	}
-
-	// public WebApplicationContext getWebAppContext() {
-	// return webAppContext;
-	// }
-	//
-	// public void setWebAppContext(WebApplicationContext webAppContext) {
-	// this.webAppContext = webAppContext;
-	// }
-
-	// public List<IDsServiceFactory> getServiceFactories() {
-	// return serviceFactories;
-	// }
-	//
-	// public void setServiceFactories(List<IDsServiceFactory> serviceFactories)
-	// {
-	// this.serviceFactories = serviceFactories;
-	// }
-
-	public ISystemConfig getSystemConfig() {
-		return systemConfig;
-	}
-
-	public void setSystemConfig(ISystemConfig systemConfig) {
-		this.systemConfig = systemConfig;
-	}
 }

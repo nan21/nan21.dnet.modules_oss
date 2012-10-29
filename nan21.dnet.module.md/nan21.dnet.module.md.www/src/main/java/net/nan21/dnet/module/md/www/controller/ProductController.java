@@ -3,6 +3,7 @@ package net.nan21.dnet.module.md.www.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.api.session.Session;
@@ -21,13 +22,11 @@ import net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs;
 import net.nan21.dnet.module.md.mm.prod.ds.param.ProductDsParam;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@Scope(value = "request")
 @RequestMapping("/product")
 public class ProductController extends AbstractWebController {
 
@@ -36,7 +35,6 @@ public class ProductController extends AbstractWebController {
 		IDsService<ProductCategoryDs, ProductCategoryDsFilter, ?> service = this
 				.getServiceLocator().findDsService(
 						ProductCategoryDs.class.getSimpleName());
-		service.setSystemConfig(this.systemConfig);
 
 		ProductCategoryDsFilter filter = new ProductCategoryDsFilter();
 		filter.setActive(true);
@@ -50,7 +48,6 @@ public class ProductController extends AbstractWebController {
 		IDsService<ProductManufacturerDs, ProductManufacturerDsFilter, ?> service = this
 				.getServiceLocator().findDsService(
 						ProductManufacturerDs.class.getSimpleName());
-		service.setSystemConfig(this.systemConfig);
 
 		ProductManufacturerDsFilter filter = new ProductManufacturerDsFilter();
 		filter.setActive(true);
@@ -60,10 +57,11 @@ public class ProductController extends AbstractWebController {
 	}
 
 	@RequestMapping("/home")
-	public ModelAndView home(HttpServletRequest request) throws Exception {
+	public ModelAndView home(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
 		try {
-			this.prepareRequest();
+			this.prepareRequest(request, response);
 
 			List<ProductCategoryDs> categories = this.getCategories();
 			List<ProductManufacturerDs> manufacturers = this.getManufacturers();
@@ -94,10 +92,11 @@ public class ProductController extends AbstractWebController {
 	}
 
 	@RequestMapping("/list")
-	public ModelAndView list(HttpServletRequest request) throws Exception {
+	public ModelAndView list(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
 		try {
-			this.prepareRequest();
+			this.prepareRequest(request, response);
 
 			IDsService<ProductDs, ProductDsFilter, ProductDsParam> service = this
 					.getServiceLocator().findDsService(ProductDs.class);
@@ -145,10 +144,11 @@ public class ProductController extends AbstractWebController {
 	}
 
 	@RequestMapping("/view")
-	public ModelAndView view(HttpServletRequest request) throws Exception {
+	public ModelAndView view(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
 		try {
-			this.prepareRequest();
+			this.prepareRequest(request, response);
 
 			IDsService<ProductDs, ProductDsFilter, ?> productService = this
 					.getServiceLocator().findDsService(ProductDs.class);

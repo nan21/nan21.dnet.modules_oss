@@ -64,7 +64,6 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccBalance$Filter", {
 			.addChildrenTo("col1", ["org", "accSchema", "period"])
 			.addChildrenTo("col2", ["account"])
 			.addChildrenTo("col3", ["initialAmount", "amount"])
-			.addAuditFilter()
 		;
 	}});
 

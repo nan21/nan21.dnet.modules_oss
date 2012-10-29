@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvOperations_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("invop", {name:"invopFilter", height:140, xtype:"md_tx_inventory_dc_InvOperation$Filter"})	
-			.addDcGridView("invop", {name:"invopList", xtype:"md_tx_inventory_dc_InvOperation$List"})	
+			.addDcFilterFormView("invop", {name:"invopFilter", height:140, xtype:"md_tx_inventory_dc_InvOperation$Filter"})
+			.addDcGridView("invop", {name:"invopList", xtype:"md_tx_inventory_dc_InvOperation$List"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

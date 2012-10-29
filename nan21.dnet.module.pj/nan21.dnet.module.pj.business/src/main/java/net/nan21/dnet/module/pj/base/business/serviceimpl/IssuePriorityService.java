@@ -8,7 +8,7 @@ package net.nan21.dnet.module.pj.base.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssuePriorityService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssuePriority;
 
@@ -26,7 +26,7 @@ public class IssuePriorityService extends AbstractEntityService<IssuePriority>
 	}
 
 	@Override
-	protected Class<IssuePriority> getEntityClass() {
+	public Class<IssuePriority> getEntityClass() {
 		return IssuePriority.class;
 	}
 	

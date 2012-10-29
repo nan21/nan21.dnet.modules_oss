@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementSet_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("set", {name:"setFilter", height:80, xtype:"bd_elem_dc_ElementSet$Filter"})	
-			.addDcEditGridView("set", {name:"setEditList", xtype:"bd_elem_dc_ElementSet$EditList", frame:true})	
-			.addDcEditGridView("elem", {name:"elemCtxEditList", height:220, xtype:"bd_elem_dc_ElementSetElement$CtxEditList", frame:true})	
+			.addDcFilterFormView("set", {name:"setFilter", height:80, xtype:"bd_elem_dc_ElementSet$Filter"})
+			.addDcEditGridView("set", {name:"setEditList", xtype:"bd_elem_dc_ElementSet$EditList", frame:true})
+			.addDcEditGridView("elem", {name:"elemCtxEditList", height:220, xtype:"bd_elem_dc_ElementSetElement$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

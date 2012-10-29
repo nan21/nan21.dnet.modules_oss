@@ -8,7 +8,7 @@ package net.nan21.dnet.module.hr.job.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.job.business.service.IPositionHierarchyService;
 import net.nan21.dnet.module.hr.job.domain.entity.PositionHierarchy;
 
@@ -26,7 +26,7 @@ public class PositionHierarchyService extends AbstractEntityService<PositionHier
 	}
 
 	@Override
-	protected Class<PositionHierarchy> getEntityClass() {
+	public Class<PositionHierarchy> getEntityClass() {
 		return PositionHierarchy.class;
 	}
 	

@@ -47,7 +47,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CompanyLegalForm$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "country"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

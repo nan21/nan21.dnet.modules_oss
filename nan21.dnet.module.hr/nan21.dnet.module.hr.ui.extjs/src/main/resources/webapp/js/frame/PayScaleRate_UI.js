@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.PayScaleRate_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("srate", {name:"srateFilter", height:80, xtype:"hr_grade_dc_PayScaleRate$Filter"})	
-			.addDcGridView("srate", {name:"srateList", xtype:"hr_grade_dc_PayScaleRate$List"})	
-			.addDcFormView("srate", {name:"srateEdit", height:120, xtype:"hr_grade_dc_PayScaleRate$Edit"})	
-			.addDcEditGridView("value", {name:"valueEditList", xtype:"hr_grade_dc_PayScaleRateValue$CtxEditList", frame:true})	
+			.addDcFilterFormView("srate", {name:"srateFilter", height:80, xtype:"hr_grade_dc_PayScaleRate$Filter"})
+			.addDcGridView("srate", {name:"srateList", xtype:"hr_grade_dc_PayScaleRate$List"})
+			.addDcFormView("srate", {name:"srateEdit", height:120, xtype:"hr_grade_dc_PayScaleRate$Edit"})
+			.addDcEditGridView("value", {name:"valueEditList", xtype:"hr_grade_dc_PayScaleRateValue$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

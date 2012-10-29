@@ -57,7 +57,6 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvBalance$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["subInventory", "locator"])
 			.addChildrenTo("col2", ["item", "uom"])
-			.addAuditFilter()
 		;
 	}});
 

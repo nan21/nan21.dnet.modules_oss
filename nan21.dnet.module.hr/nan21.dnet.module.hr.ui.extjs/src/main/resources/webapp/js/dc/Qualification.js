@@ -38,7 +38,6 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.Qualification$Filter", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["name", "active"])
-			.addAuditFilter()
 		;
 	}});
 

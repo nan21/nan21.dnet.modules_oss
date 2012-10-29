@@ -28,10 +28,10 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Role_UI", {
 			.addButton({name:"btnAsgnRoleToMenu", text:"Menus", tooltip:"Assign menus to the selected role", disabled:true,
 					handler: this.onBtnAsgnRoleToMenu, scope:this, stateManager:{name:"selected_one_clean", dc:"rol" }})
 			
-			.addDcFilterFormView("rol", {name:"rolFilter", height:80, xtype:"ad_usr_dc_Role$Filter"})	
+			.addDcFilterFormView("rol", {name:"rolFilter", height:80, xtype:"ad_usr_dc_Role$Filter"})
 			.addDcEditGridView("rol", {name:"rolList", xtype:"ad_usr_dc_Role$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAsgnRoleToUsers"), this._elems_.get("btnAsgnRoleToAccessCtrl"), this._elems_.get("btnAsgnRoleToMenu"), this._elems_.get("btnAsgnRoleToMenuItem")]}]})	
+						items:[ this._elems_.get("btnAsgnRoleToUsers"), this._elems_.get("btnAsgnRoleToAccessCtrl"), this._elems_.get("btnAsgnRoleToMenu"), this._elems_.get("btnAsgnRoleToMenuItem")]}]})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

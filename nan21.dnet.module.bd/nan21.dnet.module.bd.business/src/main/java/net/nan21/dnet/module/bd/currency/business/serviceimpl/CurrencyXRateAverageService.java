@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.currency.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.business.service.ICurrencyXRateAverageService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateAverage;
@@ -29,7 +29,7 @@ public class CurrencyXRateAverageService extends AbstractEntityService<CurrencyX
 	}
 
 	@Override
-	protected Class<CurrencyXRateAverage> getEntityClass() {
+	public Class<CurrencyXRateAverage> getEntityClass() {
 		return CurrencyXRateAverage.class;
 	}
 	

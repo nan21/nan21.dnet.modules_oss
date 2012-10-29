@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElementInputs_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("input", {name:"inputFilter", height:80, xtype:"bd_elem_dc_ElementInput$Filter"})	
-			.addDcEditGridView("input", {name:"inputList", xtype:"bd_elem_dc_ElementInput$EditList", frame:true})	
+			.addDcFilterFormView("input", {name:"inputFilter", height:80, xtype:"bd_elem_dc_ElementInput$Filter"})
+			.addDcEditGridView("input", {name:"inputList", xtype:"bd_elem_dc_ElementInput$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

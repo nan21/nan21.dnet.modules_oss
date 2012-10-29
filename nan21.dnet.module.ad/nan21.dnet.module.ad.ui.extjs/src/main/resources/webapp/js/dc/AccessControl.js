@@ -47,7 +47,6 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AccessControl$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "withRole"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

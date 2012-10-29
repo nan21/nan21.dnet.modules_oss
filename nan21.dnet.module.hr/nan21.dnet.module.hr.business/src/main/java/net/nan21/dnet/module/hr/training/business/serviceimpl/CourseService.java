@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.training.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.training.business.service.ICourseService;
 import net.nan21.dnet.module.hr.training.domain.entity.Course;
 import net.nan21.dnet.module.hr.training.domain.entity.CourseType;
@@ -28,7 +28,7 @@ public class CourseService extends AbstractEntityService<Course>
 	}
 
 	@Override
-	protected Class<Course> getEntityClass() {
+	public Class<Course> getEntityClass() {
 		return Course.class;
 	}
 	

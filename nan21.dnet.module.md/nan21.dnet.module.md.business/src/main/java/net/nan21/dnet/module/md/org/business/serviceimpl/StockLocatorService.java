@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.org.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.org.business.service.IStockLocatorService;
 import net.nan21.dnet.module.md.org.domain.entity.StockLocator;
 import net.nan21.dnet.module.md.org.domain.entity.StockLocatorType;
@@ -29,7 +29,7 @@ public class StockLocatorService extends AbstractEntityService<StockLocator>
 	}
 
 	@Override
-	protected Class<StockLocator> getEntityClass() {
+	public Class<StockLocator> getEntityClass() {
 		return StockLocator.class;
 	}
 	

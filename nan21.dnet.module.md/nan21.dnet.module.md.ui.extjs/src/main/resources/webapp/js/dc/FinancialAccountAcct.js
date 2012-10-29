@@ -54,7 +54,6 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["financialAccount", "accSchema"])
 			.addChildrenTo("col2", ["depositAccount", "withdrawalAccount"])
-			.addAuditFilter()
 		;
 	}});
 

@@ -59,7 +59,6 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["accountType", "withRole", "inGroup"])
 			.addChildrenTo("col3", ["active", "locked"])
-			.addAuditFilter()
 		;
 	}});
 

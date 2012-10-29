@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import net.nan21.dnet.core.api.setup.ISetupParticipant;
 import net.nan21.dnet.core.api.setup.ISetupTask;
-import net.nan21.dnet.core.business.service.AbstractBusinessSetupParticipant;
+import net.nan21.dnet.core.business.service.setup.AbstractBusinessSetupParticipant;
 import net.nan21.dnet.module.md.bp.domain.entity.Bank;
 
 public class Setup_MD extends AbstractBusinessSetupParticipant implements

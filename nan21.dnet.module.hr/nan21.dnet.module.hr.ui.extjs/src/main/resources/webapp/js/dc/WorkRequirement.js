@@ -47,7 +47,6 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.WorkRequirement$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "type"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

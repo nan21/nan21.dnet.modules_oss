@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.workflow.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActIdentityLinkService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActIdentityLink;
 
@@ -25,7 +25,7 @@ public class ActIdentityLinkService extends AbstractEntityService<ActIdentityLin
 	}
 
 	@Override
-	protected Class<ActIdentityLink> getEntityClass() {
+	public Class<ActIdentityLink> getEntityClass() {
 		return ActIdentityLink.class;
 	}
 }

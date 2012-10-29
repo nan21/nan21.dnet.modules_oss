@@ -49,7 +49,6 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementSetElement$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["elementSet"])
 			.addChildrenTo("col2", ["element"])
-			.addAuditFilter()
 		;
 	}});
 

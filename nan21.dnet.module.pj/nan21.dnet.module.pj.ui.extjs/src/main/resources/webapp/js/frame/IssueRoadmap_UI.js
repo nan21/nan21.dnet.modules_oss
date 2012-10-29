@@ -26,11 +26,11 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI", {
 			.addButton({name:"btnIssueUi", text:"Edit issue", tooltip:"Show current issue in editor frame", disabled:true,
 					handler: this.onBtnIssueUi, scope:this, stateManager:{name:"selected_one", dc:"issue" }})
 			
-			.addDcFilterFormView("issue", {name:"issueFilter", height:80, xtype:"pj_md_dc_IssueRoadmap$Filter"})	
-			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueRoadmap$List"})	
+			.addDcFilterFormView("issue", {name:"issueFilter", height:80, xtype:"pj_md_dc_IssueRoadmap$Filter"})
+			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueRoadmap$List"})
 			.addPanel({name:"detailsTab", height:200, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			.addDcFormView("issueInfo", {name:"issueInfoView", title:"Issue Info", xtype:"pj_md_dc_Issue$View"})	
-			.addDcFormView("issueInfo", {name:"issueDescView", title:"Issue Description", xtype:"pj_md_dc_Issue$ViewDescription"})	
+			.addDcFormView("issueInfo", {name:"issueInfoView", title:"Issue Info", xtype:"pj_md_dc_Issue$View"})
+			.addDcFormView("issueInfo", {name:"issueDescView", title:"Issue Description", xtype:"pj_md_dc_Issue$ViewDescription"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

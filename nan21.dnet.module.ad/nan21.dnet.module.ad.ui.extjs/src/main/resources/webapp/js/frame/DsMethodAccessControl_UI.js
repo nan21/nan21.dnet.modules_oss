@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.DsMethodAccessControl_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("dsAccess", {name:"dsAccessFilter", height:80, xtype:"ad_usr_dc_DsMethodAccessControl$Filter"})	
-			.addDcEditGridView("dsAccess", {name:"dsAccessEditList", xtype:"ad_usr_dc_DsMethodAccessControl$EditList", frame:true})	
+			.addDcFilterFormView("dsAccess", {name:"dsAccessFilter", height:80, xtype:"ad_usr_dc_DsMethodAccessControl$Filter"})
+			.addDcEditGridView("dsAccess", {name:"dsAccessEditList", xtype:"ad_usr_dc_DsMethodAccessControl$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

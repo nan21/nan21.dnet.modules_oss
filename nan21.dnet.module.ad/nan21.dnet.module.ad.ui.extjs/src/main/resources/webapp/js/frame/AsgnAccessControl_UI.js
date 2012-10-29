@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("asgnAccess", {name:"asgnAccessFilter", height:80, xtype:"ad_usr_dc_AsgnAccessControl$Filter"})	
-			.addDcEditGridView("asgnAccess", {name:"asgnAccessEditList", xtype:"ad_usr_dc_AsgnAccessControl$EditList", frame:true})	
+			.addDcFilterFormView("asgnAccess", {name:"asgnAccessFilter", height:80, xtype:"ad_usr_dc_AsgnAccessControl$Filter"})
+			.addDcEditGridView("asgnAccess", {name:"asgnAccessEditList", xtype:"ad_usr_dc_AsgnAccessControl$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

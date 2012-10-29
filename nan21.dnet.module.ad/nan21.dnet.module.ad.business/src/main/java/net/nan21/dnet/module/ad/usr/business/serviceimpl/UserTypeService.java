@@ -8,7 +8,7 @@ package net.nan21.dnet.module.ad.usr.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.business.service.IUserTypeService;
 import net.nan21.dnet.module.ad.usr.domain.entity.UserType;
 
@@ -26,7 +26,7 @@ public class UserTypeService extends AbstractEntityService<UserType>
 	}
 
 	@Override
-	protected Class<UserType> getEntityClass() {
+	public Class<UserType> getEntityClass() {
 		return UserType.class;
 	}
 	

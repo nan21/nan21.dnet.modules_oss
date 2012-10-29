@@ -68,7 +68,6 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPriceReport$Filter", {
 			.addChildrenTo("col1", ["priceList", "priceListVersion", "currency"])
 			.addChildrenTo("col2", ["product", "productCategory"])
 			.addChildrenTo("col3", ["validAt", "price"])
-			.addAuditFilter()
 		;
 	}});
 

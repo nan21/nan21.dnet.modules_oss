@@ -46,16 +46,16 @@ Ext.define("net.nan21.dnet.module.ad.report.frame.Reports_UI", {
 			.addButton({name:"btnCancelReport", text:"Cancel", tooltip:"Cancel", iconCls:"icon-action-reset", disabled:false,
 					handler: this.onBtnCancelReport, scope:this})
 			
-			.addDcFilterFormView("rep", {name:"repFilter", height:80, xtype:"ad_report_dc_Report$Filter"})	
-			.addDcGridView("rep", {name:"repList", xtype:"ad_report_dc_Report$List"})	
+			.addDcFilterFormView("rep", {name:"repFilter", height:80, xtype:"ad_report_dc_Report$Filter"})
+			.addDcGridView("rep", {name:"repList", xtype:"ad_report_dc_Report$List"})
 			.addDcFormView("rep", {name:"repEdit", height:200, xtype:"ad_report_dc_Report$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnTestReport")]}]})	
-			.addDcEditGridView("params", {name:"paramEditList", title:"Parameters", xtype:"ad_report_dc_ReportParam$CtxEditList", frame:true})	
-			.addDcEditGridView("paramsRt", {name:"paramTest", xtype:"ad_report_dc_ReportParamRt$TestRt", frame:true})	
-			.addDcEditGridView("dsrep", {name:"dsrepList", width:450, xtype:"ad_report_dc_DsReport$ReportCtxList", frame:true})	
-			.addDcEditGridView("dsparam", {name:"dsparamList", title:"Parameter mapping", xtype:"ad_report_dc_DsReportParam$CtxEditList", frame:true})	
-			.addDcEditGridView("usage", {name:"usageList", title:"Usage", xtype:"ad_report_dc_DsReportUsage$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnTestReport")]}]})
+			.addDcEditGridView("params", {name:"paramEditList", title:"Parameters", xtype:"ad_report_dc_ReportParam$CtxEditList", frame:true})
+			.addDcEditGridView("paramsRt", {name:"paramTest", xtype:"ad_report_dc_ReportParamRt$TestRt", frame:true})
+			.addDcEditGridView("dsrep", {name:"dsrepList", width:450, xtype:"ad_report_dc_DsReport$ReportCtxList", frame:true})
+			.addDcEditGridView("dsparam", {name:"dsparamList", title:"Parameter mapping", xtype:"ad_report_dc_DsReportParam$CtxEditList", frame:true})
+			.addDcEditGridView("usage", {name:"usageList", title:"Usage", xtype:"ad_report_dc_DsReportUsage$CtxEditList", frame:true})
 			.addWindow({name:"wdwTestReport", title:"Test report", width:450, height:350, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("paramTest")], closable:false
 				, 

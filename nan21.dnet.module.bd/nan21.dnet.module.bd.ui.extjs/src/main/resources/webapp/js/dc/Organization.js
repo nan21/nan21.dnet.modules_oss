@@ -54,7 +54,6 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Organization$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["type", "calendar"])
 			.addChildrenTo("col3", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

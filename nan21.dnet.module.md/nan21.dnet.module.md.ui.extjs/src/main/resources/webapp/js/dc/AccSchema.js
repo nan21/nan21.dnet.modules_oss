@@ -42,7 +42,6 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.AccSchema$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "code"])
-			.addAuditFilter()
 		;
 	}});
 

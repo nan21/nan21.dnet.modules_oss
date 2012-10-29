@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.ProjectVersions_UI", {
 			.addButton({name:"btnChangelogUi", text:"Changelog", tooltip:"Show Changelog for selected version", disabled:true,
 					handler: this.onBtnChangelogUi, scope:this, stateManager:{name:"selected_one", dc:"version" }})
 			
-			.addDcFilterFormView("version", {name:"versionFilter", xtype:"pj_md_dc_ProjectVersion$Filter"})	
+			.addDcFilterFormView("version", {name:"versionFilter", xtype:"pj_md_dc_ProjectVersion$Filter"})
 			.addDcEditGridView("version", {name:"versionEditList", xtype:"pj_md_dc_ProjectVersion$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnRoadmapUi"), this._elems_.get("btnChangelogUi")]}]})	
+						items:[ this._elems_.get("btnRoadmapUi"), this._elems_.get("btnChangelogUi")]}]})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

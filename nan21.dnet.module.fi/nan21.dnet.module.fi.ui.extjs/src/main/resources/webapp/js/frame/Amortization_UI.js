@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Amortization_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("amort", {name:"amortFilter", height:120, xtype:"fi_asset_dc_Amortization$Filter"})	
-			.addDcGridView("amort", {name:"amortList", xtype:"fi_asset_dc_Amortization$List"})	
+			.addDcFilterFormView("amort", {name:"amortFilter", height:120, xtype:"fi_asset_dc_Amortization$Filter"})
+			.addDcGridView("amort", {name:"amortList", xtype:"fi_asset_dc_Amortization$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

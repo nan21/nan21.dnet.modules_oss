@@ -57,7 +57,6 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxAcct$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["tax", "accSchema"])
 			.addChildrenTo("col2", ["salesAccount", "purchaseAccount"])
-			.addAuditFilter()
 		;
 	}});
 

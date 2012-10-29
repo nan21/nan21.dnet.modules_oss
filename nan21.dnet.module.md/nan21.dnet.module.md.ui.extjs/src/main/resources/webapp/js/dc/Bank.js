@@ -45,7 +45,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Bank$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["swiftCode", "active"])
-			.addAuditFilter()
 		;
 	}});
 

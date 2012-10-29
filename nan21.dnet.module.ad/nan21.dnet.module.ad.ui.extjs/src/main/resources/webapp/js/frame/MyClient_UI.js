@@ -20,7 +20,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.MyClient_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFormView("client", {name:"clientEdit", xtype:"ad_client_dc_MyClient$Edit"})	
+			.addDcFormView("client", {name:"clientEdit", xtype:"ad_client_dc_MyClient$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

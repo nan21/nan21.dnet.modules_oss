@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTransactions_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("tx", {name:"txFilter", height:110, xtype:"md_tx_inventory_dc_InvTransaction$Filter"})	
-			.addDcGridView("tx", {name:"txList", xtype:"md_tx_inventory_dc_InvTransaction$List"})	
-			.addDcGridView("txline", {name:"txlineList", height:200, xtype:"md_tx_inventory_dc_InvTransactionLine$List"})	
-			.addDcFormView("txline", {name:"txlineCtxFormView", height:40, xtype:"md_tx_inventory_dc_InvTransactionLine$CtxFormView"})	
+			.addDcFilterFormView("tx", {name:"txFilter", height:110, xtype:"md_tx_inventory_dc_InvTransaction$Filter"})
+			.addDcGridView("tx", {name:"txList", xtype:"md_tx_inventory_dc_InvTransaction$List"})
+			.addDcGridView("txline", {name:"txlineList", height:200, xtype:"md_tx_inventory_dc_InvTransactionLine$List"})
+			.addDcFormView("txline", {name:"txlineCtxFormView", height:40, xtype:"md_tx_inventory_dc_InvTransactionLine$CtxFormView"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -28,10 +28,10 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJobCtx_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("job", {name:"jobFilter", height:80, xtype:"ad_system_dc_SysJobCtx$Filter"})	
-			.addDcEditGridView("job", {name:"jobEditList", xtype:"ad_system_dc_SysJobCtx$EditList", frame:true})	
-			.addDcEditGridView("params", {name:"paramsEditList", title:"Parameter values", xtype:"ad_system_dc_SysJobCtxParam$CtxEditList", frame:true})	
-			.addDcGridView("schedule", {name:"scheduleEditList", title:"Execution schedule", xtype:"ad_system_dc_SysTimer$CtxListJob"})	
+			.addDcFilterFormView("job", {name:"jobFilter", height:80, xtype:"ad_system_dc_SysJobCtx$Filter"})
+			.addDcEditGridView("job", {name:"jobEditList", xtype:"ad_system_dc_SysJobCtx$EditList", frame:true})
+			.addDcEditGridView("params", {name:"paramsEditList", title:"Parameter values", xtype:"ad_system_dc_SysJobCtxParam$CtxEditList", frame:true})
+			.addDcGridView("schedule", {name:"scheduleEditList", title:"Execution schedule", xtype:"ad_system_dc_SysTimer$CtxListJob"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"theDetails", width:600, layout:"accordion", activeItem:0})

@@ -54,18 +54,19 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Filter", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:220, layout:"form"})
-			.addPanel({ name:"col2", title:"Person", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
-			.addPanel({ name:"col3", title:"Company", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col2", width:220, layout:"form"})
+			.addPanel({ name:"col3", title:"Person", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
+			.addPanel({ name:"col4", title:"Company", width:240, layout:"form", xtype:"fieldset", border:true, collapsible:true})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2", "col3"])
-			.addChildrenTo("col1", ["name", "code", "active", "type", "countryCode", "taxPayerNo"])
-			.addChildrenTo("col2", ["firstName", "lastName", "gender"])
-			.addChildrenTo("col3", ["companyName", "registrationNo", "legalForm"])
-			.addAuditFilter()
+			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
+			.addChildrenTo("col1", ["name", "code", "taxPayerNo"])
+			.addChildrenTo("col2", ["active", "type", "countryCode"])
+			.addChildrenTo("col3", ["firstName", "lastName", "gender"])
+			.addChildrenTo("col4", ["companyName", "registrationNo", "legalForm"])
 		;
 	}});
 

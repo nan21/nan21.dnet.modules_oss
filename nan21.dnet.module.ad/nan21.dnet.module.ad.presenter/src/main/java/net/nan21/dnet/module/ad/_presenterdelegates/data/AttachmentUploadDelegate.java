@@ -34,7 +34,7 @@ public class AttachmentUploadDelegate extends AbstractFileUploadService
 
 		IAttachmentService s = (IAttachmentService) sl.findEntityService(
 				Attachment.class, (List<IEntityServiceFactory>) sl
-						.getAppContext().getBean("osgiEntityServiceFactories"));
+						.getApplicationContext().getBean("osgiEntityServiceFactories"));
 
 		Long id = Long.decode(uploadParams.get("p1"));
 

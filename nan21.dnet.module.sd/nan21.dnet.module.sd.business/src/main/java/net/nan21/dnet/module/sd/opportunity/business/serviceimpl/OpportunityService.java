@@ -9,7 +9,7 @@ package net.nan21.dnet.module.sd.opportunity.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.domain.entity.Assignable;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
@@ -35,7 +35,7 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	}
 
 	@Override
-	protected Class<Opportunity> getEntityClass() {
+	public Class<Opportunity> getEntityClass() {
 		return Opportunity.class;
 	}
 	

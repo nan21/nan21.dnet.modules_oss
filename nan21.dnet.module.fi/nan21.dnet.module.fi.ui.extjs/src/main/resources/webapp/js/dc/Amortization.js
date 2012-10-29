@@ -60,7 +60,6 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Amortization$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["org", "currency", "periodType"])
 			.addChildrenTo("col2", ["assetCategory", "postingDate"])
-			.addAuditFilter()
 		;
 	}});
 

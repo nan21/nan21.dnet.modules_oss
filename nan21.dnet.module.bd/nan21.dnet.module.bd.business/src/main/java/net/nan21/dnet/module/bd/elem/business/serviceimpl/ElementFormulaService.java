@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.elem.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.elem.business.service.IElementFormulaService;
 import net.nan21.dnet.module.bd.elem.domain.entity.Element;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementFormula;
@@ -28,7 +28,7 @@ public class ElementFormulaService extends AbstractEntityService<ElementFormula>
 	}
 
 	@Override
-	protected Class<ElementFormula> getEntityClass() {
+	public Class<ElementFormula> getEntityClass() {
 		return ElementFormula.class;
 	}
 	

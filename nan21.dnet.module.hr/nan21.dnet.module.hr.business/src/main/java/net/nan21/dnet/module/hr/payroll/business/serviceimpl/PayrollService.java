@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.payroll.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 import net.nan21.dnet.module.hr.payroll.business.service.IPayrollService;
 import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
@@ -28,7 +28,7 @@ public class PayrollService extends AbstractEntityService<Payroll>
 	}
 
 	@Override
-	protected Class<Payroll> getEntityClass() {
+	public Class<Payroll> getEntityClass() {
 		return Payroll.class;
 	}
 	

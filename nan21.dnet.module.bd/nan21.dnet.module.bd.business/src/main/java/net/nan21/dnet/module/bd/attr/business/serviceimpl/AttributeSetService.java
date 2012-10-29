@@ -8,7 +8,7 @@ package net.nan21.dnet.module.bd.attr.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.attr.business.service.IAttributeSetService;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet;
 
@@ -26,7 +26,7 @@ public class AttributeSetService extends AbstractEntityService<AttributeSet>
 	}
 
 	@Override
-	protected Class<AttributeSet> getEntityClass() {
+	public Class<AttributeSet> getEntityClass() {
 		return AttributeSet.class;
 	}
 	

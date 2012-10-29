@@ -8,7 +8,7 @@ package net.nan21.dnet.module.bd.currency.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.business.service.ICurrencyXRateProviderService;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateProvider;
 
@@ -26,7 +26,7 @@ public class CurrencyXRateProviderService extends AbstractEntityService<Currency
 	}
 
 	@Override
-	protected Class<CurrencyXRateProvider> getEntityClass() {
+	public Class<CurrencyXRateProvider> getEntityClass() {
 		return CurrencyXRateProvider.class;
 	}
 	

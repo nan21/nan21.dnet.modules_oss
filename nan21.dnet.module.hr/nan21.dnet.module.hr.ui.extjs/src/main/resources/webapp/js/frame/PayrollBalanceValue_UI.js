@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollBalanceValue_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("elemval", {name:"elemvalFilter", height:110, xtype:"hr_payroll_dc_PayrollBalanceValue$Filter"})	
-			.addDcGridView("elemval", {name:"elemvalList", xtype:"hr_payroll_dc_PayrollBalanceValue$List"})	
-			.addDcGridView("details", {name:"detailsList", height:200, xtype:"hr_payroll_dc_PayrollElementValue$CtxListBalance"})	
+			.addDcFilterFormView("elemval", {name:"elemvalFilter", height:110, xtype:"hr_payroll_dc_PayrollBalanceValue$Filter"})
+			.addDcGridView("elemval", {name:"elemvalList", xtype:"hr_payroll_dc_PayrollBalanceValue$List"})
+			.addDcGridView("details", {name:"detailsList", height:200, xtype:"hr_payroll_dc_PayrollElementValue$CtxListBalance"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

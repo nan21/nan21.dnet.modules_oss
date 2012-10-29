@@ -77,7 +77,6 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$Filter", {
 			.addChildrenTo("col2", ["docNo", "code", "currency"])
 			.addChildrenTo("col3", ["docDate", "amount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
-			.addAuditFilter()
 		;
 	}});
 

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.usr.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.business.service.IMenuItemService;
 import net.nan21.dnet.module.ad.usr.domain.entity.Menu;
 import net.nan21.dnet.module.ad.usr.domain.entity.MenuItem;
@@ -29,7 +29,7 @@ public class MenuItemService extends AbstractEntityService<MenuItem>
 	}
 
 	@Override
-	protected Class<MenuItem> getEntityClass() {
+	public Class<MenuItem> getEntityClass() {
 		return MenuItem.class;
 	}
 	

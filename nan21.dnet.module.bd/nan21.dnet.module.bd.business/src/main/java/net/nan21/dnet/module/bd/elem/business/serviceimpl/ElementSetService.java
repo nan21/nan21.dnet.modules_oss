@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.elem.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.elem.business.service.IElementSetService;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementSet;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
@@ -28,7 +28,7 @@ public class ElementSetService extends AbstractEntityService<ElementSet>
 	}
 
 	@Override
-	protected Class<ElementSet> getEntityClass() {
+	public Class<ElementSet> getEntityClass() {
 		return ElementSet.class;
 	}
 	

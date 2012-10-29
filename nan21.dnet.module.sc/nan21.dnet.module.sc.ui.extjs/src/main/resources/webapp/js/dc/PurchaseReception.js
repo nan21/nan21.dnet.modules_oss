@@ -73,7 +73,6 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseReception$Filter", {
 			.addChildrenTo("col2", ["code", "docNo"])
 			.addChildrenTo("col3", ["docDate", "eventDate"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
-			.addAuditFilter()
 		;
 	}});
 

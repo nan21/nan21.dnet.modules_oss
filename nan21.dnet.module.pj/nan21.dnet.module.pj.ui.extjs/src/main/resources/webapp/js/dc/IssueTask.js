@@ -84,7 +84,6 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTask$Filter", {
 			.addChildrenTo("col1", ["type", "status", "assignee", "code"])
 			.addChildrenTo("col2", ["project", "issue"])
 			.addChildrenTo("col3", ["issueType", "issuePriority", "issueSeverity", "issueStatus"])
-			.addAuditFilter()
 		;
 	}});
 

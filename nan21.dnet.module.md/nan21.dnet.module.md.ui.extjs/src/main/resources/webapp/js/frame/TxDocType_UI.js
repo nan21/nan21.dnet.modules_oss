@@ -21,10 +21,10 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxDocType_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("docType", {name:"docTypeFilter", height:80, xtype:"md_base_tx_dc_TxDocType$Filter"})	
-			.addDcEditGridView("docType", {name:"docTypeEditList", xtype:"md_base_tx_dc_TxDocType$EditList", frame:true})	
-			.addDcFilterFormView("seq", {name:"seqFilter", xtype:"md_base_tx_dc_TxDocSequence$Filter"})	
-			.addDcEditGridView("seq", {name:"seqEditList", xtype:"md_base_tx_dc_TxDocSequence$EditList", frame:true})	
+			.addDcFilterFormView("docType", {name:"docTypeFilter", height:80, xtype:"md_base_tx_dc_TxDocType$Filter"})
+			.addDcEditGridView("docType", {name:"docTypeEditList", xtype:"md_base_tx_dc_TxDocType$EditList", frame:true})
+			.addDcFilterFormView("seq", {name:"seqFilter", xtype:"md_base_tx_dc_TxDocSequence$Filter"})
+			.addDcEditGridView("seq", {name:"seqEditList", xtype:"md_base_tx_dc_TxDocSequence$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasDocType", title:"Document types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasDocSeq", title:"Document sequences", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

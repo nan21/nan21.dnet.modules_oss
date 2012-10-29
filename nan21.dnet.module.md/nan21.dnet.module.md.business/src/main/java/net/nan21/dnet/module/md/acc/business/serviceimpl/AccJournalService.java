@@ -8,7 +8,7 @@ package net.nan21.dnet.module.md.acc.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.acc.business.service.IAccJournalService;
 import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 
@@ -26,7 +26,7 @@ public class AccJournalService extends AbstractEntityService<AccJournal>
 	}
 
 	@Override
-	protected Class<AccJournal> getEntityClass() {
+	public Class<AccJournal> getEntityClass() {
 		return AccJournal.class;
 	}
 	

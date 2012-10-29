@@ -28,11 +28,11 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.Element_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("elem", {name:"elemFilter", height:80, xtype:"bd_elem_dc_Element$Filter"})	
-			.addDcGridView("elem", {name:"elemList", xtype:"bd_elem_dc_Element$List"})	
-			.addDcGridView("input", {name:"inputList", title:"Input values", xtype:"bd_elem_dc_ElementInput$CtxList"})	
-			.addDcGridView("formula", {name:"formulaList", width:300, xtype:"bd_elem_dc_ElementFormula$CtxList"})	
-			.addDcFormView("formula", {name:"formulaEdit", xtype:"bd_elem_dc_ElementFormula$ViewExpression"})	
+			.addDcFilterFormView("elem", {name:"elemFilter", height:80, xtype:"bd_elem_dc_Element$Filter"})
+			.addDcGridView("elem", {name:"elemList", xtype:"bd_elem_dc_Element$List"})
+			.addDcGridView("input", {name:"inputList", title:"Input values", xtype:"bd_elem_dc_ElementInput$CtxList"})
+			.addDcGridView("formula", {name:"formulaList", width:300, xtype:"bd_elem_dc_ElementFormula$CtxList"})
+			.addDcFormView("formula", {name:"formulaEdit", xtype:"bd_elem_dc_ElementFormula$ViewExpression"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsTab", height:220, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})

@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccOperation_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("op", {name:"opFilter", xtype:"md_tx_acc_dc_AccOperation$Filter"})	
-			.addDcGridView("op", {name:"opList", xtype:"md_tx_acc_dc_AccOperation$List"})	
+			.addDcFilterFormView("op", {name:"opFilter", xtype:"md_tx_acc_dc_AccOperation$Filter"})
+			.addDcGridView("op", {name:"opList", xtype:"md_tx_acc_dc_AccOperation$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.sd.invoice.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.sd.invoice.business.service.IPaymentInAmountService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentInAmount;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount;
@@ -28,7 +28,7 @@ public class PaymentInAmountService extends AbstractEntityService<PaymentInAmoun
 	}
 
 	@Override
-	protected Class<PaymentInAmount> getEntityClass() {
+	public Class<PaymentInAmount> getEntityClass() {
 		return PaymentInAmount.class;
 	}
 	

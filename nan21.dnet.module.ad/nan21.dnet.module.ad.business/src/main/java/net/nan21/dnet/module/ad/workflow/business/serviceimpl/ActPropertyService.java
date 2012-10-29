@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.workflow.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActPropertyService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProperty;
 
@@ -25,7 +25,7 @@ public class ActPropertyService extends AbstractEntityService<ActProperty>
 	}
 
 	@Override
-	protected Class<ActProperty> getEntityClass() {
+	public Class<ActProperty> getEntityClass() {
 		return ActProperty.class;
 	}
 }

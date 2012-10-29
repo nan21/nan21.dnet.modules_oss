@@ -8,7 +8,7 @@ package net.nan21.dnet.module.bd.elem.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.elem.business.service.IEngineService;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
@@ -26,7 +26,7 @@ public class EngineService extends AbstractEntityService<Engine>
 	}
 
 	@Override
-	protected Class<Engine> getEntityClass() {
+	public Class<Engine> getEntityClass() {
 		return Engine.class;
 	}
 	

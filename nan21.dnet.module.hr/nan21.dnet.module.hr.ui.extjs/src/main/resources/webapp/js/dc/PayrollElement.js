@@ -67,7 +67,6 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["engine", "type", "dataType"])
 			.addChildrenTo("col3", ["balance", "active"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -128,6 +127,12 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$EditList", {
 			.addBooleanColumn({name:"balance", dataIndex:"balance", width:70})
 			.addNumberColumn({name:"sequenceNo", dataIndex:"sequenceNo", align:"right", width:70,
 					editor:{xtype:"numberfield" , decimalPrecision:2}})
+			.addComboColumn({name:"dataType", dataIndex:"dataType", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, allowBlank:false, triggerAction:'all', forceSelection:true, store:[ "string", "number", "boolean", "date"]}})
+			.addComboColumn({name:"calculation", dataIndex:"calculation", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "manual", "formula"]}})
+			.addComboColumn({name:"balanceFunction", dataIndex:"balanceFunction", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "sum", "count", "avg"]}})
 			.addLov({name:"sourceElement", dataIndex:"sourceElement", xtype:"gridcolumn", width:100,
 					editor:{xtype:"hr_payroll_lovs_PayrollElementsSource", selectOnFocus:true,
 						retFieldMapping: [

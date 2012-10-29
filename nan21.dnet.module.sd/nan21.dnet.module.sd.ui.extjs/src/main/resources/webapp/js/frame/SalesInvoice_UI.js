@@ -62,28 +62,28 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 			.addButton({name:"btnShowOrder", text:"Show Order", tooltip:"Show the sales order linked to this invoice", disabled:true,
 					handler: this.onBtnShowOrder, scope:this, stateManager:{name:"selected_one", dc:"inv" , and: function(dc) {return (dc.record && dc.record.get("salesOrderId"));}}})
 			
-			.addDcFilterFormView("inv", {name:"invFilter", height:150, xtype:"sd_invoice_dc_SalesInvoice$Filter"})	
-			.addDcGridView("inv", {name:"invList", xtype:"sd_invoice_dc_SalesInvoice$List"})	
+			.addDcFilterFormView("inv", {name:"invFilter", height:150, xtype:"sd_invoice_dc_SalesInvoice$Filter"})
+			.addDcGridView("inv", {name:"invList", xtype:"sd_invoice_dc_SalesInvoice$List"})
 			.addDcFormView("inv", {name:"invEditMain", height:200, xtype:"sd_invoice_dc_SalesInvoice$EditMain", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirmInvoice"), this._elems_.get("btnUnConfirmInvoice"), this._elems_.get("btnPostInvoice"), this._elems_.get("btnUnPostInvoice"), this._elems_.get("btnShowOrder")]}]})	
-			.addDcFormView("inv", {name:"invEditDetails", title:"Details", xtype:"sd_invoice_dc_SalesInvoice$EditDetails"})	
-			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sd_invoice_dc_SalesInvoiceTax$List"})	
-			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})	
+						items:[ this._elems_.get("btnConfirmInvoice"), this._elems_.get("btnUnConfirmInvoice"), this._elems_.get("btnPostInvoice"), this._elems_.get("btnUnPostInvoice"), this._elems_.get("btnShowOrder")]}]})
+			.addDcFormView("inv", {name:"invEditDetails", title:"Details", xtype:"sd_invoice_dc_SalesInvoice$EditDetails"})
+			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sd_invoice_dc_SalesInvoiceTax$List"})
+			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})
 			.addDcFilterFormView("accDocLine", {name:"accDocLineFilter", title:"Filter", width:250, xtype:"md_tx_acc_dc_AccDocLineCtx$Filter", collapsible:true, collapsed:true
-			})	
+			})
 			.addDcFilterFormView("item", {name:"itemFilter", title:"Filter", width:250, xtype:"sd_invoice_dc_SalesInvoiceItem$FilterCtx", collapsible:true, collapsed:true
-			})	
-			.addDcGridView("item", {name:"itemList", xtype:"sd_invoice_dc_SalesInvoiceItem$CtxList"})	
-			.addDcFormView("item", {name:"itemEdit", xtype:"sd_invoice_dc_SalesInvoiceItem$EditForm"})	
+			})
+			.addDcGridView("item", {name:"itemList", xtype:"sd_invoice_dc_SalesInvoiceItem$CtxList"})
+			.addDcFormView("item", {name:"itemEdit", xtype:"sd_invoice_dc_SalesInvoiceItem$EditForm"})
 			.addDcGridView("itemTax", {name:"itemTaxList", title:"Item taxes", width:400, xtype:"sd_invoice_dc_SalesInvoiceItemTax$CtxList", collapsible:true, collapsed:true
-			})	
-			.addDcEditGridView("amount", {name:"amountList", title:"Payment schedule", xtype:"sd_invoice_dc_SalesTxAmount$EditList", frame:true})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
+			})
+			.addDcEditGridView("amount", {name:"amountList", title:"Payment schedule", xtype:"sd_invoice_dc_SalesTxAmount$EditList", frame:true})
+			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

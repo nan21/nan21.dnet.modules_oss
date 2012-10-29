@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.Locations_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("location", {name:"locationFilter", xtype:"bd_geo_dc_Location$Filter"})	
-			.addDcGridView("location", {name:"locationListCtx", xtype:"bd_geo_dc_Location$ListCtx"})	
+			.addDcFilterFormView("location", {name:"locationFilter", xtype:"bd_geo_dc_Location$Filter"})
+			.addDcGridView("location", {name:"locationListCtx", xtype:"bd_geo_dc_Location$ListCtx"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

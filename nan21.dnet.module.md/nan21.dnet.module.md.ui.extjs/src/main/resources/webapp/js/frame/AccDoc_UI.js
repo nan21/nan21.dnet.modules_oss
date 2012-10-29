@@ -28,12 +28,12 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccDoc_UI", {
 			.addButton({name:"btnUnPost", text:"Un-Post", tooltip:"Un-Post document from G/L.", iconCls:"icon-action-rollback", disabled:true,
 					handler: this.onBtnUnPost, scope:this, stateManager:{name:"selected_one_clean", dc:"doc" , and: function(dc) {return (dc.record && dc.record.get("posted") );}}})
 			
-			.addDcFilterFormView("doc", {name:"docFilter", height:130, xtype:"md_tx_acc_dc_AccDoc$Filter"})	
+			.addDcFilterFormView("doc", {name:"docFilter", height:130, xtype:"md_tx_acc_dc_AccDoc$Filter"})
 			.addDcGridView("doc", {name:"docList", xtype:"md_tx_acc_dc_AccDoc$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnPost"), this._elems_.get("btnUnPost")]}]})	
+						items:[ this._elems_.get("btnPost"), this._elems_.get("btnUnPost")]}]})
 			.addDcGridView("line", {name:"lineList", title:"Lines", width:380, xtype:"md_tx_acc_dc_AccDocLine$List", collapsible:true
-			})	
+			})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

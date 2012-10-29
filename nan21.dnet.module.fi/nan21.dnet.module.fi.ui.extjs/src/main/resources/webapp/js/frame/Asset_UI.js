@@ -30,14 +30,14 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Asset_UI", {
 			.addButton({name:"btnCreateAmortization", text:"Create amortization", tooltip:"Create amortization plan for current asset.", iconCls:"icon-action-commit", disabled:true,
 					handler: this.onBtnCreateAmortization, scope:this, stateManager:{name:"selected_one_clean", dc:"asset" }})
 			
-			.addDcFilterFormView("asset", {name:"assetFilter", height:120, xtype:"fi_asset_dc_Asset$Filter"})	
-			.addDcGridView("asset", {name:"assetList", xtype:"fi_asset_dc_Asset$List"})	
+			.addDcFilterFormView("asset", {name:"assetFilter", height:120, xtype:"fi_asset_dc_Asset$Filter"})
+			.addDcGridView("asset", {name:"assetList", xtype:"fi_asset_dc_Asset$List"})
 			.addDcFormView("asset", {name:"assetEdit", height:150, xtype:"fi_asset_dc_Asset$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnCreateAmortization")]}]})	
-			.addDcFormView("asset", {name:"assetEditDeprec", title:"Details", xtype:"fi_asset_dc_Asset$EditDeprec"})	
-			.addDcEditGridView("amort", {name:"amortEditList", title:"Amortizations", xtype:"fi_asset_dc_Amortization$EditListCtxAsset", frame:true})	
-			.addDcEditGridView("acct", {name:"acctEditList", title:"Accounting", xtype:"fi_asset_dc_AssetAcct$EditListCtx", frame:true})	
+						items:[ this._elems_.get("btnCreateAmortization")]}]})
+			.addDcFormView("asset", {name:"assetEditDeprec", title:"Details", xtype:"fi_asset_dc_Asset$EditDeprec"})
+			.addDcEditGridView("amort", {name:"amortEditList", title:"Amortizations", xtype:"fi_asset_dc_Amortization$EditListCtxAsset", frame:true})
+			.addDcEditGridView("acct", {name:"acctEditList", title:"Accounting", xtype:"fi_asset_dc_AssetAcct$EditListCtx", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

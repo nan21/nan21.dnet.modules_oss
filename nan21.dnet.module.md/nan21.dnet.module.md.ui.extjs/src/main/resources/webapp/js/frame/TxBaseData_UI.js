@@ -22,12 +22,12 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxBaseData_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("payMtd", {name:"payMtdFilter", height:90, xtype:"md_base_tx_dc_PaymentMethod$Filter"})	
-			.addDcEditGridView("payMtd", {name:"payMtdEditList", xtype:"md_base_tx_dc_PaymentMethod$EditList", frame:true})	
-			.addDcFilterFormView("payTerm", {name:"payTermFilter", height:90, xtype:"md_base_tx_dc_PaymentTerm$Filter"})	
-			.addDcEditGridView("payTerm", {name:"payTermEditList", xtype:"md_base_tx_dc_PaymentTerm$EditList", frame:true})	
-			.addDcFilterFormView("delivMtd", {name:"delivMtdFilter", height:90, xtype:"md_base_tx_dc_DeliveryMethod$Filter"})	
-			.addDcEditGridView("delivMtd", {name:"delivMtdEditList", xtype:"md_base_tx_dc_DeliveryMethod$EditList", frame:true})	
+			.addDcFilterFormView("payMtd", {name:"payMtdFilter", height:90, xtype:"md_base_tx_dc_PaymentMethod$Filter"})
+			.addDcEditGridView("payMtd", {name:"payMtdEditList", xtype:"md_base_tx_dc_PaymentMethod$EditList", frame:true})
+			.addDcFilterFormView("payTerm", {name:"payTermFilter", height:90, xtype:"md_base_tx_dc_PaymentTerm$Filter"})
+			.addDcEditGridView("payTerm", {name:"payTermEditList", xtype:"md_base_tx_dc_PaymentTerm$EditList", frame:true})
+			.addDcFilterFormView("delivMtd", {name:"delivMtdFilter", height:90, xtype:"md_base_tx_dc_DeliveryMethod$Filter"})
+			.addDcEditGridView("delivMtd", {name:"delivMtdEditList", xtype:"md_base_tx_dc_DeliveryMethod$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasPayMtd", title:"Payment methods", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasPayTerm", title:"Payment terms", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

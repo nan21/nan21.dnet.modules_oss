@@ -63,7 +63,6 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysTimer$Filter", {
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["type", "repeatIntervalType"])
 			.addChildrenTo("col3", ["startTime", "endTime", "jobCtx"])
-			.addAuditFilter()
 		;
 	}});
 

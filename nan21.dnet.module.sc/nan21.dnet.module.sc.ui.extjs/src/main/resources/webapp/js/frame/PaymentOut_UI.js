@@ -44,17 +44,17 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PaymentOut_UI", {
 			.addButton({name:"btnUnPost", text:"Un-Post", tooltip:"Un-Post payment from accounting.", iconCls:"icon-action-rollback", disabled:true,
 					handler: this.onBtnUnPost, scope:this, stateManager:{name:"selected_one_clean", dc:"payment" , and: function(dc) {return (dc.record && dc.record.get("confirmed") &&  dc.record.get("confirmed") && dc.record.get("posted") );}}})
 			
-			.addDcFilterFormView("payment", {name:"paymentFilter", height:130, xtype:"sc_invoice_dc_PaymentOut$Filter"})	
-			.addDcGridView("payment", {name:"paymentList", xtype:"sc_invoice_dc_PaymentOut$List"})	
+			.addDcFilterFormView("payment", {name:"paymentFilter", height:130, xtype:"sc_invoice_dc_PaymentOut$Filter"})
+			.addDcGridView("payment", {name:"paymentList", xtype:"sc_invoice_dc_PaymentOut$List"})
 			.addDcFormView("payment", {name:"paymentEdit", height:180, xtype:"sc_invoice_dc_PaymentOut$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm"), this._elems_.get("btnPost"), this._elems_.get("btnUnPost")]}]})	
-			.addDcEditGridView("item", {name:"itemList", title:"G/L Items", xtype:"md_tx_fin_dc_PaymentItemAccItem$CtxEditListAccItem", frame:true})	
-			.addDcEditGridView("itemp", {name:"prodList", title:"Items", xtype:"md_tx_fin_dc_PaymentItemProduct$CtxEditListProduct", frame:true})	
-			.addDcEditGridView("amount", {name:"amountList", title:"Amounts", xtype:"sc_invoice_dc_PaymentOutAmount$CtxEditList", frame:true})	
-			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})	
+						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm"), this._elems_.get("btnPost"), this._elems_.get("btnUnPost")]}]})
+			.addDcEditGridView("item", {name:"itemList", title:"G/L Items", xtype:"md_tx_fin_dc_PaymentItemAccItem$CtxEditListAccItem", frame:true})
+			.addDcEditGridView("itemp", {name:"prodList", title:"Items", xtype:"md_tx_fin_dc_PaymentItemProduct$CtxEditListProduct", frame:true})
+			.addDcEditGridView("amount", {name:"amountList", title:"Amounts", xtype:"sc_invoice_dc_PaymentOutAmount$CtxEditList", frame:true})
+			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})
 			.addDcFilterFormView("accDocLine", {name:"accDocLineFilter", title:"Filter", width:250, xtype:"md_tx_acc_dc_AccDocLineCtx$Filter", collapsible:true, collapsed:true
-			})	
+			})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

@@ -20,10 +20,10 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysTimer_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("timer", {name:"timerFilter", height:120, xtype:"ad_system_dc_SysTimer$Filter"})	
-			.addDcGridView("timer", {name:"timerList", xtype:"ad_system_dc_SysTimer$List"})	
+			.addDcFilterFormView("timer", {name:"timerFilter", height:120, xtype:"ad_system_dc_SysTimer$Filter"})
+			.addDcGridView("timer", {name:"timerList", xtype:"ad_system_dc_SysTimer$List"})
 			.addDcFormView("timer", {name:"timerEdit", title:"Timer", width:500, xtype:"ad_system_dc_SysTimer$Edit", collapsible:true
-			})	
+			})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

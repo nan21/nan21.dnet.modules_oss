@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccJournal_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("journal", {name:"journalFilter", xtype:"md_acc_dc_AccJournal$Filter"})	
-			.addDcEditGridView("journal", {name:"journalEditList", xtype:"md_acc_dc_AccJournal$EditList", frame:true})	
+			.addDcFilterFormView("journal", {name:"journalFilter", xtype:"md_acc_dc_AccJournal$Filter"})
+			.addDcEditGridView("journal", {name:"journalEditList", xtype:"md_acc_dc_AccJournal$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

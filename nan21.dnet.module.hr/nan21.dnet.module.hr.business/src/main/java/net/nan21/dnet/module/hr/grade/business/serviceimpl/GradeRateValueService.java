@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.grade.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.grade.business.service.IGradeRateValueService;
 import net.nan21.dnet.module.hr.grade.domain.entity.Grade;
 import net.nan21.dnet.module.hr.grade.domain.entity.GradeRate;
@@ -29,7 +29,7 @@ public class GradeRateValueService extends AbstractEntityService<GradeRateValue>
 	}
 
 	@Override
-	protected Class<GradeRateValue> getEntityClass() {
+	public Class<GradeRateValue> getEntityClass() {
 		return GradeRateValue.class;
 	}
 	

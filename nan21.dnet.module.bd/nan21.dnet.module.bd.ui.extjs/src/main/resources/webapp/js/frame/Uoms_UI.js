@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.bd.uom.frame.Uoms_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"bd_uom_dc_Uom$Filter"})	
-			.addDcEditGridView("m", {name:"mEditList", xtype:"bd_uom_dc_Uom$EditList", frame:true})	
+			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"bd_uom_dc_Uom$Filter"})
+			.addDcEditGridView("m", {name:"mEditList", xtype:"bd_uom_dc_Uom$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

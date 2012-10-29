@@ -25,15 +25,15 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Menu_UI", {
 			.addButton({name:"btnAsgnMenuRoles", text:"Roles", tooltip:"Assign roles to the selected menu", disabled:true,
 					handler: this.onBtnAsgnMenuRoles, scope:this, stateManager:{name:"selected_one_clean", dc:"menu" }})
 			
-			.addDcFilterFormView("menu", {name:"menuFilter", xtype:"ad_usr_dc_Menu$Filter"})	
+			.addDcFilterFormView("menu", {name:"menuFilter", xtype:"ad_usr_dc_Menu$Filter"})
 			.addDcEditGridView("menu", {name:"menuEditList", xtype:"ad_usr_dc_Menu$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAsgnMenuRoles")]}]})	
-			.addDcFilterFormView("menuitem", {name:"menuitemFilter", xtype:"ad_usr_dc_MenuItem$Filter"})	
+						items:[ this._elems_.get("btnAsgnMenuRoles")]}]})
+			.addDcFilterFormView("menuitem", {name:"menuitemFilter", xtype:"ad_usr_dc_MenuItem$Filter"})
 			.addDcEditGridView("menuitem", {name:"menuitemList", xtype:"ad_usr_dc_MenuItem$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAsgnItemRoles")]}]})	
-			.addDcFormView("menuitem", {name:"menuitemEdit", xtype:"ad_usr_dc_MenuItem$Edit"})	
+						items:[ this._elems_.get("btnAsgnItemRoles")]}]})
+			.addDcFormView("menuitem", {name:"menuitemEdit", xtype:"ad_usr_dc_MenuItem$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasMenu", title:"Menus", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasItem", title:"Menu items", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

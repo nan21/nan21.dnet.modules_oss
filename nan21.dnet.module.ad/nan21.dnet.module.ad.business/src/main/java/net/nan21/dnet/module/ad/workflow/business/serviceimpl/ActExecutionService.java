@@ -8,7 +8,7 @@ package net.nan21.dnet.module.ad.workflow.business.serviceimpl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActExecutionService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActExecution;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;
@@ -27,7 +27,7 @@ public class ActExecutionService extends AbstractEntityService<ActExecution>
 	}
 
 	@Override
-	protected Class<ActExecution> getEntityClass() {
+	public Class<ActExecution> getEntityClass() {
 		return ActExecution.class;
 	}
 	

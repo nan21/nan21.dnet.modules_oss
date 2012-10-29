@@ -22,11 +22,11 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysParam_UI", {
 			.addButton({name:"btnSynchronize", text:"Update cache", tooltip:"Propagate changes to the cached configuration parameters", iconCls:"icon-action-synchronize", disabled:false,
 					handler: this.onBtnSynchronize, scope:this})
 			
-			.addDcFilterFormView("sysparam", {name:"sysparamFilter", height:80, xtype:"ad_system_dc_SysParam$Filter"})	
+			.addDcFilterFormView("sysparam", {name:"sysparamFilter", height:80, xtype:"ad_system_dc_SysParam$Filter"})
 			.addDcGridView("sysparam", {name:"sysparamList", xtype:"ad_system_dc_SysParam$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnSynchronize")]}]})	
-			.addDcFormView("sysparam", {name:"sysparamEdit", xtype:"ad_system_dc_SysParam$Edit"})	
+						items:[ this._elems_.get("btnSynchronize")]}]})
+			.addDcFormView("sysparam", {name:"sysparamEdit", xtype:"ad_system_dc_SysParam$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

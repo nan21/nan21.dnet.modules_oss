@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.payroll.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.payroll.business.service.IPayrollPeriodService;
 import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod;
@@ -29,7 +29,7 @@ public class PayrollPeriodService extends AbstractEntityService<PayrollPeriod>
 	}
 
 	@Override
-	protected Class<PayrollPeriod> getEntityClass() {
+	public Class<PayrollPeriod> getEntityClass() {
 		return PayrollPeriod.class;
 	}
 	

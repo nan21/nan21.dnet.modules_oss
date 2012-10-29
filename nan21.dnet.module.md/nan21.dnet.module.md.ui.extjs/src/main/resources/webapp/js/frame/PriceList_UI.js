@@ -34,18 +34,18 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 			.addButton({name:"btnAddProdByCategExec", text:"OK", tooltip:"Add products from the selected product category", disabled:false,
 					handler: this.onBtnAddProdByCategExec, scope:this})
 			
-			.addDcFilterFormView("pricelist", {name:"pricelistFilter", height:80, xtype:"md_mm_price_dc_PriceList$FilterH"})	
-			.addDcEditGridView("pricelist", {name:"pricelistEditList", xtype:"md_mm_price_dc_PriceList$EditList", frame:true})	
+			.addDcFilterFormView("pricelist", {name:"pricelistFilter", height:80, xtype:"md_mm_price_dc_PriceList$FilterH"})
+			.addDcEditGridView("pricelist", {name:"pricelistEditList", xtype:"md_mm_price_dc_PriceList$EditList", frame:true})
 			.addDcEditGridView("version", {name:"versionEditList", height:250, xtype:"md_mm_price_dc_PriceListVersion$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnShowCanvas2")]}]})	
+						items:[ this._elems_.get("btnShowCanvas2")]}]})
 			.addDcFormView("version", {name:"versionView", height:120, xtype:"md_mm_price_dc_PriceListVersion$CtxView", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAddProdByCateg")]}]})	
-			.addDcFormView("version", {name:"versionCopyProdFromCateg", height:120, xtype:"md_mm_price_dc_PriceListVersion$CopyProductsFromCategory"})	
+						items:[ this._elems_.get("btnAddProdByCateg")]}]})
+			.addDcFormView("version", {name:"versionCopyProdFromCateg", height:120, xtype:"md_mm_price_dc_PriceListVersion$CopyProductsFromCategory"})
 			.addDcFilterFormView("price", {name:"priceFilter", title:"Filter", width:280, xtype:"md_mm_price_dc_ProductPrice$FilterCtx", collapsible:true
-			})	
-			.addDcEditGridView("price", {name:"priceEditList", xtype:"md_mm_price_dc_ProductPrice$EditList", frame:true})	
+			})
+			.addDcEditGridView("price", {name:"priceEditList", xtype:"md_mm_price_dc_ProductPrice$EditList", frame:true})
 			.addWindow({name:"wdwVersionCopyProdFromCateg", title:"Select product category", width:400, height:120, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("versionCopyProdFromCateg")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

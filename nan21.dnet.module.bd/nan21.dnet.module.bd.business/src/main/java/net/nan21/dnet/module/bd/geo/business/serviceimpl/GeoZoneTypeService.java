@@ -8,7 +8,7 @@ package net.nan21.dnet.module.bd.geo.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.geo.business.service.IGeoZoneTypeService;
 import net.nan21.dnet.module.bd.geo.domain.entity.GeoZoneType;
 
@@ -26,7 +26,7 @@ public class GeoZoneTypeService extends AbstractEntityService<GeoZoneType>
 	}
 
 	@Override
-	protected Class<GeoZoneType> getEntityClass() {
+	public Class<GeoZoneType> getEntityClass() {
 		return GeoZoneType.class;
 	}
 	

@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductManufacturer$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

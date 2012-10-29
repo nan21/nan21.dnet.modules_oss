@@ -8,7 +8,7 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDateFormatService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat;
 
@@ -26,7 +26,7 @@ public class SysDateFormatService extends AbstractEntityService<SysDateFormat>
 	}
 
 	@Override
-	protected Class<SysDateFormat> getEntityClass() {
+	public Class<SysDateFormat> getEntityClass() {
 		return SysDateFormat.class;
 	}
 	

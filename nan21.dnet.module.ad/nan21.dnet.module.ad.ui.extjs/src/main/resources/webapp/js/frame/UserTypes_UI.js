@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.UserTypes_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("userType", {name:"filterUserType", height:80, xtype:"ad_usr_dc_UserType$Filter"})	
-			.addDcEditGridView("userType", {name:"listUserType", xtype:"ad_usr_dc_UserType$EditList", frame:true})	
+			.addDcFilterFormView("userType", {name:"filterUserType", height:80, xtype:"ad_usr_dc_UserType$Filter"})
+			.addDcEditGridView("userType", {name:"listUserType", xtype:"ad_usr_dc_UserType$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

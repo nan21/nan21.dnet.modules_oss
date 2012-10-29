@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceListVersions_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("version", {name:"versionFilter", height:80, xtype:"md_mm_price_dc_PriceListVersion$Filter"})	
-			.addDcEditGridView("version", {name:"versionEditList", xtype:"md_mm_price_dc_PriceListVersion$EditList", frame:true})	
+			.addDcFilterFormView("version", {name:"versionFilter", height:80, xtype:"md_mm_price_dc_PriceListVersion$Filter"})
+			.addDcEditGridView("version", {name:"versionEditList", xtype:"md_mm_price_dc_PriceListVersion$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.tx.fin.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.Payment;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentAmount;
 
@@ -27,7 +27,7 @@ public class PaymentAmountService extends AbstractEntityService<PaymentAmount>
 	}
 
 	@Override
-	protected Class<PaymentAmount> getEntityClass() {
+	public Class<PaymentAmount> getEntityClass() {
 		return PaymentAmount.class;
 	}
 	

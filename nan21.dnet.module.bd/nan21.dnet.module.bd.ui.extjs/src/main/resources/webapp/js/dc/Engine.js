@@ -46,7 +46,6 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Engine$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "type"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -64,6 +63,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Engine$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true, allowBlank:false}})
 			.addTextColumn({name:"description", dataIndex:"description", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"type", dataIndex:"type", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, allowBlank:false, triggerAction:'all', forceSelection:true, store:[ "payroll", "accounting"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
 	}});

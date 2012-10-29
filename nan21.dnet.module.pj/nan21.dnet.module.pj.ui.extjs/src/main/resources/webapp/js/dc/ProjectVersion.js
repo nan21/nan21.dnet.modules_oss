@@ -55,7 +55,6 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectVersion$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["project", "name", "active"])
 			.addChildrenTo("col2", ["planDate", "releaseDate"])
-			.addAuditFilter()
 		;
 	}});
 

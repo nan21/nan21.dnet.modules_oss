@@ -58,7 +58,6 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["subject", "eventType", "statusName", "priorityName", "bpartnerCode", "createdBy", "notes", "location", "url", "reminder"])
 			.addChildrenTo("col2", ["subject", "eventType", "statusName", "priorityName", "bpartnerCode", "createdBy", "notes", "location", "url", "reminder"])
-			.addAuditFilter()
 		;
 	}});
 

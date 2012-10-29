@@ -61,7 +61,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccountAcct$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["accSchema"])
 			.addChildrenTo("col2", ["custSalesAccount", "custPrepayAccount", "vendorPurchaseAccount", "vendorPrepayAccount"])
-			.addAuditFilter()
 		;
 	}});
 

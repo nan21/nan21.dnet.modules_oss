@@ -40,7 +40,6 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["modifiedBy"])
-			.addAuditFilter()
 		;
 	}});
 

@@ -52,7 +52,6 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.Account$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["accSchema", "type"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -97,6 +96,8 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.Account$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addTextColumn({name:"code", dataIndex:"code", width:100,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"type", dataIndex:"type", width:60,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "D", "C", "N"]}})
 			.addBooleanColumn({name:"summary", dataIndex:"summary"})
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})

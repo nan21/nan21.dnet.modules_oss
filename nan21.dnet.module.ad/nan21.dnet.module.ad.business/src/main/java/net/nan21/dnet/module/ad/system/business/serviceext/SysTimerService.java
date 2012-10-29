@@ -32,8 +32,9 @@ public class SysTimerService extends
 	protected void postInsert(SysTimer e) throws Exception {
 		try {
 			Scheduler s = this.getQuartzScheduler();
-			JobDetail jobDetail = s.getJobDetail(JobKey.jobKey(e.getJobCtx()
-					.getId().toString(), e.getJobCtx().getClientId().toString()));
+			JobDetail jobDetail = s.getJobDetail(JobKey
+					.jobKey(e.getJobCtx().getId().toString(), e.getJobCtx()
+							.getClientId().toString()));
 
 			Trigger newTrigger = this.createQuartzTrigger(e, jobDetail);
 
@@ -50,10 +51,11 @@ public class SysTimerService extends
 	protected void postUpdate(SysTimer e) throws Exception {
 		try {
 			Scheduler s = this.getQuartzScheduler();
-			Trigger oldTrigger = s.getTrigger(TriggerKey.triggerKey(
-					e.getId().toString(), e.getClientId().toString()));
-			JobDetail jobDetail = s.getJobDetail(JobKey.jobKey(e.getJobCtx()
-					.getId().toString(), e.getJobCtx().getClientId().toString()));
+			Trigger oldTrigger = s.getTrigger(TriggerKey.triggerKey(e.getId()
+					.toString(), e.getClientId().toString()));
+			JobDetail jobDetail = s.getJobDetail(JobKey
+					.jobKey(e.getJobCtx().getId().toString(), e.getJobCtx()
+							.getClientId().toString()));
 
 			Trigger newTrigger = this.createQuartzTrigger(e, jobDetail);
 
@@ -61,8 +63,8 @@ public class SysTimerService extends
 				getQuartzScheduler().scheduleJob(newTrigger);
 			} else {
 				getQuartzScheduler().rescheduleJob(
-						TriggerKey.triggerKey(e.getId().toString(), e.getClientId()
-								.toString()), newTrigger);
+						TriggerKey.triggerKey(e.getId().toString(), e
+								.getClientId().toString()), newTrigger);
 			}
 
 		} catch (Exception ex) {
@@ -89,24 +91,26 @@ public class SysTimerService extends
 				sb = sb.withIntervalInHours(e.getRepeatInterval());
 			}
 
-			newTrigger = (SimpleTrigger) newTrigger().withIdentity(e.getId().toString(),
-					e.getClientId().toString()).startAt(e.getStartTime())
-					.endAt(e.getEndTime()).withSchedule(sb).forJob(jobDetail)
-					.build();
+			newTrigger = (SimpleTrigger) newTrigger()
+					.withIdentity(e.getId().toString(),
+							e.getClientId().toString())
+					.startAt(e.getStartTime()).endAt(e.getEndTime())
+					.withSchedule(sb).forJob(jobDetail).build();
 
 		} else if (e.getType().equals("cron")) {
-			newTrigger = (CronTrigger) newTrigger().withIdentity(e.getId().toString(),
-					e.getClientId().toString()).startAt(e.getStartTime())
-					.endAt(e.getEndTime()).withSchedule(
-							cronSchedule(e.getCronExpression())).forJob(
-							jobDetail).build();
+			newTrigger = (CronTrigger) newTrigger()
+					.withIdentity(e.getId().toString(),
+							e.getClientId().toString())
+					.startAt(e.getStartTime()).endAt(e.getEndTime())
+					.withSchedule(cronSchedule(e.getCronExpression()))
+					.forJob(jobDetail).build();
 		}
 		return newTrigger;
 	}
 
 	protected Scheduler getQuartzScheduler() throws Exception {
 		if (this.scheduler == null) {
-			this.scheduler = (IScheduler) this.getAppContext().getBean(
+			this.scheduler = (IScheduler) this.getApplicationContext().getBean(
 					"osgiJobScheduler");
 		}
 		return (Scheduler) this.scheduler.getDelegate();

@@ -21,10 +21,10 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Assignables_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("assignableType", {name:"assignableTypeFilter", height:80, xtype:"ad_usr_dc_AssignableType$Filter"})	
-			.addDcEditGridView("assignableType", {name:"assignableTypeEditList", xtype:"ad_usr_dc_AssignableType$EditList", frame:true})	
-			.addDcFilterFormView("assignable", {name:"assignableFilter", height:80, xtype:"ad_usr_dc_Assignable$Filter"})	
-			.addDcEditGridView("assignable", {name:"assignableEditList", xtype:"ad_usr_dc_Assignable$EditList", frame:true})	
+			.addDcFilterFormView("assignableType", {name:"assignableTypeFilter", height:80, xtype:"ad_usr_dc_AssignableType$Filter"})
+			.addDcEditGridView("assignableType", {name:"assignableTypeEditList", xtype:"ad_usr_dc_AssignableType$EditList", frame:true})
+			.addDcFilterFormView("assignable", {name:"assignableFilter", height:80, xtype:"ad_usr_dc_Assignable$Filter"})
+			.addDcEditGridView("assignable", {name:"assignableEditList", xtype:"ad_usr_dc_Assignable$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasType", title:"Assignable types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasResource", title:"Assignable resources", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

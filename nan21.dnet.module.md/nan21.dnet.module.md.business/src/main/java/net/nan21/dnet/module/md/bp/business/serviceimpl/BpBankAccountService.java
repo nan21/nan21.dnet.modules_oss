@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.bp.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.md.bp.business.service.IBpBankAccountService;
 import net.nan21.dnet.module.md.bp.domain.entity.Bank;
@@ -30,7 +30,7 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 	}
 
 	@Override
-	protected Class<BpBankAccount> getEntityClass() {
+	public Class<BpBankAccount> getEntityClass() {
 		return BpBankAccount.class;
 	}
 	

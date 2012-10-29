@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.AuditFieldRep_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("audit", {name:"auditFilter", xtype:"ad_system_dc_AuditFieldRep$Filter"})	
-			.addDcGridView("audit", {name:"auditList", xtype:"ad_system_dc_AuditFieldRep$List"})	
+			.addDcFilterFormView("audit", {name:"auditFilter", xtype:"ad_system_dc_AuditFieldRep$Filter"})
+			.addDcGridView("audit", {name:"auditList", xtype:"ad_system_dc_AuditFieldRep$List"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

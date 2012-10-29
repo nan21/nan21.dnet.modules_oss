@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElements_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("elem", {name:"elemFilter", height:120, xtype:"hr_payroll_dc_PayrollElement$Filter"})	
-			.addDcEditGridView("elem", {name:"elemList", xtype:"hr_payroll_dc_PayrollElement$EditList", frame:true})	
+			.addDcFilterFormView("elem", {name:"elemFilter", height:120, xtype:"hr_payroll_dc_PayrollElement$Filter"})
+			.addDcEditGridView("elem", {name:"elemList", xtype:"hr_payroll_dc_PayrollElement$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

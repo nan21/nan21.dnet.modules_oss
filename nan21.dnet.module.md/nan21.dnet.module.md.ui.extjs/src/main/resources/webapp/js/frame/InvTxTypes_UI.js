@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTxTypes_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("txtype", {name:"txtypeFilter", height:120, xtype:"md_tx_inventory_dc_InvTransactionType$Filter"})	
-			.addDcEditGridView("txtype", {name:"txtypeEditList", xtype:"md_tx_inventory_dc_InvTransactionType$EditList", frame:true})	
+			.addDcFilterFormView("txtype", {name:"txtypeFilter", height:120, xtype:"md_tx_inventory_dc_InvTransactionType$Filter"})
+			.addDcEditGridView("txtype", {name:"txtypeEditList", xtype:"md_tx_inventory_dc_InvTransactionType$EditList", frame:true})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
 			
 	}

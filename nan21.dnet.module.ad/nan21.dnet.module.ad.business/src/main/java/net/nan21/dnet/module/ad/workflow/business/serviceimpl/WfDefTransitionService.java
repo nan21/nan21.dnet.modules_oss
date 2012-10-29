@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.workflow.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IWfDefTransitionService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode;
 import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefProcess;
@@ -29,7 +29,7 @@ public class WfDefTransitionService extends AbstractEntityService<WfDefTransitio
 	}
 
 	@Override
-	protected Class<WfDefTransition> getEntityClass() {
+	public Class<WfDefTransition> getEntityClass() {
 		return WfDefTransition.class;
 	}
 	

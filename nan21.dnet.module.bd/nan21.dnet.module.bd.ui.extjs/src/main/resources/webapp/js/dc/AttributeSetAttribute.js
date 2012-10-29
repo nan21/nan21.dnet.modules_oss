@@ -50,7 +50,6 @@ Ext.define("net.nan21.dnet.module.bd.attr.dc.AttributeSetAttribute$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["set", "attribute"])
 			.addChildrenTo("col2", ["inDescription"])
-			.addAuditFilter()
 		;
 	}});
 

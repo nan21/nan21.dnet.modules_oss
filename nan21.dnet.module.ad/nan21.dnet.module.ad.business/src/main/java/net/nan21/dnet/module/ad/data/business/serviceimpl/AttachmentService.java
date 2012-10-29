@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.data.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.data.business.service.IAttachmentService;
 import net.nan21.dnet.module.ad.data.domain.entity.Attachment;
 import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
@@ -28,7 +28,7 @@ public class AttachmentService extends AbstractEntityService<Attachment>
 	}
 
 	@Override
-	protected Class<Attachment> getEntityClass() {
+	public Class<Attachment> getEntityClass() {
 		return Attachment.class;
 	}
 	

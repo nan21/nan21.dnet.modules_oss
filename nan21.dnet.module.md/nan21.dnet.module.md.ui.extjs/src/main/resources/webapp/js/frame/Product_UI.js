@@ -54,27 +54,27 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.Product_UI", {
 			.addButton({name:"btnAsgnCategories", text:"Assign categories", tooltip:"Add product to categories", disabled:true,
 					handler: this.onBtnAsgnCategories, scope:this, stateManager:{name:"record_is_clean", dc:"prod" }})
 			
-			.addDcFilterFormView("prod", {name:"prodFilter", height:140, xtype:"md_mm_prod_dc_Product$Filter"})	
-			.addDcGridView("prod", {name:"prodList", xtype:"md_mm_prod_dc_Product$List"})	
+			.addDcFilterFormView("prod", {name:"prodFilter", xtype:"md_mm_prod_dc_Product$Filter"})
+			.addDcGridView("prod", {name:"prodList", xtype:"md_mm_prod_dc_Product$List"})
 			.addDcFormView("prod", {name:"prodEdit", height:180, xtype:"md_mm_prod_dc_Product$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAsgnCategories")]}]})	
-			.addDcFormView("prod", {name:"prodEditInfo", title:"Details", xtype:"md_mm_prod_dc_Product$EditInfo"})	
-			.addDcFormView("prod", {name:"prodCtxFormName", height:50, xtype:"md_mm_prod_dc_Product$CtxFormName"})	
-			.addDcEditGridView("account", {name:"accountEditList", width:600, xtype:"md_mm_prod_dc_ProductAccount$CtxEditList", frame:true})	
-			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_mm_prod_dc_ProductAccountAcct$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnAsgnCategories")]}]})
+			.addDcFormView("prod", {name:"prodEditInfo", title:"Details", xtype:"md_mm_prod_dc_Product$EditInfo"})
+			.addDcFormView("prod", {name:"prodCtxFormName", height:50, xtype:"md_mm_prod_dc_Product$CtxFormName"})
+			.addDcEditGridView("account", {name:"accountEditList", width:600, xtype:"md_mm_prod_dc_ProductAccount$CtxEditList", frame:true})
+			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_mm_prod_dc_ProductAccountAcct$CtxEditList", frame:true})
 			.addDcFilterFormView("attr", {name:"attrFilter", title:"Filter", width:250, xtype:"md_mm_prod_dc_ProductAttributeValue$FilterCtx", collapsible:true
-			})	
-			.addDcEditGridView("attr", {name:"attrEditList", xtype:"md_mm_prod_dc_ProductAttributeValue$CtxEditList", frame:true})	
-			.addDcGridView("stock", {name:"stockList", xtype:"md_tx_inventory_dc_InvBalance$CtxListProduct"})	
+			})
+			.addDcEditGridView("attr", {name:"attrEditList", xtype:"md_mm_prod_dc_ProductAttributeValue$CtxEditList", frame:true})
+			.addDcGridView("stock", {name:"stockList", xtype:"md_tx_inventory_dc_InvBalance$CtxListProduct"})
 			.addDcFilterFormView("stock", {name:"stockFilter", title:"Filter", width:250, xtype:"md_tx_inventory_dc_InvBalance$CtxFilterProduct", collapsible:true
-			})	
+			})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
-			.addDcEditGridView("classific", {name:"classificEdit", title:"Classifications", xtype:"md_mm_prod_dc_ProdClassification$CtxEditList", frame:true})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
+			.addDcEditGridView("classific", {name:"classificEdit", title:"Classifications", xtype:"md_mm_prod_dc_ProdClassification$CtxEditList", frame:true})
+			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}, onActivateDoLayoutFor:["prodDetailsTab"]})

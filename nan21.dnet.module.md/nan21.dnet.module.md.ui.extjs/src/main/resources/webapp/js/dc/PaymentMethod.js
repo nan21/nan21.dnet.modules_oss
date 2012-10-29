@@ -50,7 +50,6 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentMethod$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["docType", "type"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -73,6 +72,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentMethod$EditList", {
 						retFieldMapping: [
 							{lovField:"id", dsField: "docTypeId"} 
 						]}})
+			.addComboColumn({name:"type", dataIndex:"type", width:60,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "bank", "cash"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
 	}});

@@ -38,19 +38,19 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 			.addButton({name:"btnUploadAttachment", text:"Upload...", tooltip:"Upload attachment file.", disabled:true,
 					handler: this.onBtnUploadAttachment, scope:this, stateManager:{name:"selected_one_clean", dc:"atch" }})
 			
-			.addDcFilterFormView("opportunity", {name:"opportunityFilter", height:150, xtype:"sd_opportunity_dc_Opportunity$Filter"})	
-			.addDcGridView("opportunity", {name:"opportunityList", xtype:"sd_opportunity_dc_Opportunity$List"})	
-			.addDcFormView("opportunity", {name:"opportunityEdit", height:220, xtype:"sd_opportunity_dc_Opportunity$Edit"})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
+			.addDcFilterFormView("opportunity", {name:"opportunityFilter", height:150, xtype:"sd_opportunity_dc_Opportunity$Filter"})
+			.addDcGridView("opportunity", {name:"opportunityList", xtype:"sd_opportunity_dc_Opportunity$List"})
+			.addDcFormView("opportunity", {name:"opportunityEdit", height:220, xtype:"sd_opportunity_dc_Opportunity$Edit"})
+			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
-			.addDcGridView("event", {name:"eventList", xtype:"md_activity_dc_MyCalendarEvent$List"})	
-			.addDcFormView("event", {name:"eventEditCall", title:"Call", xtype:"md_activity_dc_MyCalendarEvent$EditCall"})	
-			.addDcFormView("event", {name:"eventEditMeeting", title:"Meeting", xtype:"md_activity_dc_MyCalendarEvent$EditMeeting"})	
-			.addDcFormView("event", {name:"eventEditTask", title:"Task", xtype:"md_activity_dc_MyCalendarEvent$EditTask"})	
-			.addDcFormView("event", {name:"eventCreate", xtype:"md_activity_dc_MyCalendarEvent$Create"})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
+			.addDcGridView("event", {name:"eventList", xtype:"md_activity_dc_MyCalendarEvent$List"})
+			.addDcFormView("event", {name:"eventEditCall", title:"Call", xtype:"md_activity_dc_MyCalendarEvent$EditCall"})
+			.addDcFormView("event", {name:"eventEditMeeting", title:"Meeting", xtype:"md_activity_dc_MyCalendarEvent$EditMeeting"})
+			.addDcFormView("event", {name:"eventEditTask", title:"Task", xtype:"md_activity_dc_MyCalendarEvent$EditTask"})
+			.addDcFormView("event", {name:"eventCreate", xtype:"md_activity_dc_MyCalendarEvent$Create"})
 			.addWindow({name:"wdwEventCreate", title:"Select type", closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("eventCreate")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

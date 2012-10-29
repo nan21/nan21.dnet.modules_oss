@@ -22,12 +22,12 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementBaseData_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("engine", {name:"engineFilter", height:80, xtype:"bd_elem_dc_Engine$Filter"})	
-			.addDcEditGridView("engine", {name:"engineEditList", xtype:"bd_elem_dc_Engine$EditList", frame:true})	
-			.addDcFilterFormView("ecateg", {name:"ecategFilter", height:80, xtype:"bd_elem_dc_ElementCategory$Filter"})	
-			.addDcEditGridView("ecateg", {name:"ecategEditList", xtype:"bd_elem_dc_ElementCategory$EditList", frame:true})	
-			.addDcFilterFormView("etype", {name:"etypeFilter", height:80, xtype:"bd_elem_dc_ElementType$Filter"})	
-			.addDcEditGridView("etype", {name:"etypeEditList", xtype:"bd_elem_dc_ElementType$EditList", frame:true})	
+			.addDcFilterFormView("engine", {name:"engineFilter", height:80, xtype:"bd_elem_dc_Engine$Filter"})
+			.addDcEditGridView("engine", {name:"engineEditList", xtype:"bd_elem_dc_Engine$EditList", frame:true})
+			.addDcFilterFormView("ecateg", {name:"ecategFilter", height:80, xtype:"bd_elem_dc_ElementCategory$Filter"})
+			.addDcEditGridView("ecateg", {name:"ecategEditList", xtype:"bd_elem_dc_ElementCategory$EditList", frame:true})
+			.addDcFilterFormView("etype", {name:"etypeFilter", height:80, xtype:"bd_elem_dc_ElementType$Filter"})
+			.addDcEditGridView("etype", {name:"etypeEditList", xtype:"bd_elem_dc_ElementType$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasEngine", title:"Engines", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasCateg", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

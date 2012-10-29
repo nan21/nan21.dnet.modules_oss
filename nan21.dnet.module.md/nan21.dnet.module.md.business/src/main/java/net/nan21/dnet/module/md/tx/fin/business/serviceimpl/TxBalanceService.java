@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.tx.fin.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
@@ -30,7 +30,7 @@ public class TxBalanceService extends AbstractEntityService<TxBalance>
 	}
 
 	@Override
-	protected Class<TxBalance> getEntityClass() {
+	public Class<TxBalance> getEntityClass() {
 		return TxBalance.class;
 	}
 	

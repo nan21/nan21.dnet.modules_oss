@@ -44,7 +44,6 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobCtx$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "jobAlias"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

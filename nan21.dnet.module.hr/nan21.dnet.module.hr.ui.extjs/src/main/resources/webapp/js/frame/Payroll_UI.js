@@ -32,12 +32,12 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			.addButton({name:"btnClearPeriod", text:"Clear", tooltip:"Delete processed values", iconCls:"icon-action-rollback", disabled:true,
 					handler: this.onBtnClearPeriod, scope:this, stateManager:{name:"selected_one_clean", dc:"period" , and: function(dc) {return (dc.record && dc.record.get("active") && dc.record.get("processed")  );}}})
 			
-			.addDcFilterFormView("payroll", {name:"payrollFilter", height:80, xtype:"hr_payroll_dc_Payroll$Filter"})	
-			.addDcGridView("payroll", {name:"payrollList", xtype:"hr_payroll_dc_Payroll$List"})	
+			.addDcFilterFormView("payroll", {name:"payrollFilter", height:80, xtype:"hr_payroll_dc_Payroll$Filter"})
+			.addDcGridView("payroll", {name:"payrollList", xtype:"hr_payroll_dc_Payroll$List"})
 			.addDcFormView("payroll", {name:"payrollEdit", height:160, xtype:"hr_payroll_dc_Payroll$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnOpenPeriod"), this._elems_.get("btnProcessPeriod"), this._elems_.get("btnClearPeriod"), this._elems_.get("btnClosePeriod")]}]})	
-			.addDcEditGridView("period", {name:"periodCtxEditList", xtype:"hr_payroll_dc_PayrollPeriod$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnOpenPeriod"), this._elems_.get("btnProcessPeriod"), this._elems_.get("btnClearPeriod"), this._elems_.get("btnClosePeriod")]}]})
+			.addDcEditGridView("period", {name:"periodCtxEditList", xtype:"hr_payroll_dc_PayrollPeriod$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

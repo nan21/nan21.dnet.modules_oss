@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.base.tax.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.base.tax.business.service.ITaxService;
 import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.md.base.tax.domain.entity.TaxCategory;
@@ -28,7 +28,7 @@ public class TaxService extends AbstractEntityService<Tax>
 	}
 
 	@Override
-	protected Class<Tax> getEntityClass() {
+	public Class<Tax> getEntityClass() {
 		return Tax.class;
 	}
 	

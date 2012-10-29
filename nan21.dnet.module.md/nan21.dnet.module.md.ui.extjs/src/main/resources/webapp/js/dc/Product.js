@@ -55,17 +55,18 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$Filter", {
 			.addPanel({ name:"col2", width:150, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 			.addPanel({ name:"col3", width:150, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 			.addPanel({ name:"col4", width:250, layout:"form"})
+			.addPanel({ name:"col5", width:210, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
-			.addChildrenTo("col1", ["name", "code", "manufacturerCode", "manufacturerProductNo"])
+			.addChildrenTo("main", ["col1", "col2", "col3", "col4", "col5"])
+			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["storable", "active", "showInCatalog"])
 			.addChildrenTo("col3", ["sale", "purchase"])
 			.addChildrenTo("col4", ["attributeSet", "productCategory"])
-			.addAuditFilter()
+			.addChildrenTo("col5", ["manufacturerCode", "manufacturerProductNo"])
 		;
 	}});
 

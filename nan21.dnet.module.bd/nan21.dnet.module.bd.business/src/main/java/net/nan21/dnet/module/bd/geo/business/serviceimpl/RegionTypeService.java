@@ -8,7 +8,7 @@ package net.nan21.dnet.module.bd.geo.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.geo.business.service.IRegionTypeService;
 import net.nan21.dnet.module.bd.geo.domain.entity.RegionType;
 
@@ -26,7 +26,7 @@ public class RegionTypeService extends AbstractEntityService<RegionType>
 	}
 
 	@Override
-	protected Class<RegionType> getEntityClass() {
+	public Class<RegionType> getEntityClass() {
 		return RegionType.class;
 	}
 	

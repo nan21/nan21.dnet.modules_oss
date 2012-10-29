@@ -23,25 +23,25 @@ public class SysJobCtxService extends
 
 	@Override
 	protected void postUpdate(SysJobCtx e) throws Exception {
-		JobDetail jobDetail = newJob(JobDetailBase.class).withIdentity(
-				e.getId().toString(), e.getClientId().toString()).storeDurably().build();
-		jobDetail.getJobDataMap().put("__JOB_NAME__",
-				e.getJobAlias());
+		JobDetail jobDetail = newJob(JobDetailBase.class)
+				.withIdentity(e.getId().toString(), e.getClientId().toString())
+				.storeDurably().build();
+		jobDetail.getJobDataMap().put("__JOB_NAME__", e.getJobAlias());
 		getQuartzScheduler().addJob(jobDetail, true);
 	}
 
 	@Override
 	protected void postInsert(SysJobCtx e) throws Exception {
-		JobDetail jobDetail = newJob(JobDetailBase.class).withIdentity(
-				e.getId().toString(), e.getClientId().toString()).storeDurably().build();
-		jobDetail.getJobDataMap().put("__JOB_NAME__",
-				e.getJobAlias());
+		JobDetail jobDetail = newJob(JobDetailBase.class)
+				.withIdentity(e.getId().toString(), e.getClientId().toString())
+				.storeDurably().build();
+		jobDetail.getJobDataMap().put("__JOB_NAME__", e.getJobAlias());
 		getQuartzScheduler().addJob(jobDetail, false);
 	}
 
 	protected Scheduler getQuartzScheduler() throws Exception {
 		if (this.scheduler == null) {
-			this.scheduler = (IScheduler) this.getAppContext().getBean(
+			this.scheduler = (IScheduler) this.getApplicationContext().getBean(
 					"osgiJobScheduler");
 		}
 		return (Scheduler) this.scheduler.getDelegate();

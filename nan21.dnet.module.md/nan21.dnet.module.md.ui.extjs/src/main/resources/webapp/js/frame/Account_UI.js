@@ -20,10 +20,10 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.Account_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("account", {name:"accountFilter", height:80, xtype:"md_acc_dc_Account$Filter"})	
-			.addDcGridView("account", {name:"accountList", xtype:"md_acc_dc_Account$List"})	
-			.addDcEditGridView("account", {name:"accountEditList", xtype:"md_acc_dc_Account$EditList", frame:true})	
-			.addDcFormView("account", {name:"accountEdit", xtype:"md_acc_dc_Account$Edit"})	
+			.addDcFilterFormView("account", {name:"accountFilter", height:80, xtype:"md_acc_dc_Account$Filter"})
+			.addDcGridView("account", {name:"accountList", xtype:"md_acc_dc_Account$List"})
+			.addDcEditGridView("account", {name:"accountEditList", xtype:"md_acc_dc_Account$EditList", frame:true})
+			.addDcFormView("account", {name:"accountEdit", xtype:"md_acc_dc_Account$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.impex.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.impex.business.service.IImportJobItemService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJob;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJobItem;
@@ -29,7 +29,7 @@ public class ImportJobItemService extends AbstractEntityService<ImportJobItem>
 	}
 
 	@Override
-	protected Class<ImportJobItem> getEntityClass() {
+	public Class<ImportJobItem> getEntityClass() {
 		return ImportJobItem.class;
 	}
 	

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.uom.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.uom.business.service.IUomConversionService;
 import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
 import net.nan21.dnet.module.bd.uom.domain.entity.UomConversion;
@@ -28,7 +28,7 @@ public class UomConversionService extends AbstractEntityService<UomConversion>
 	}
 
 	@Override
-	protected Class<UomConversion> getEntityClass() {
+	public Class<UomConversion> getEntityClass() {
 		return UomConversion.class;
 	}
 	

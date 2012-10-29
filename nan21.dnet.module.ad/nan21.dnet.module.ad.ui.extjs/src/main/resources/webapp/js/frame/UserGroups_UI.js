@@ -22,10 +22,10 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.UserGroups_UI", {
 			.addButton({name:"btnAsgnUsers", text:"Users in group", tooltip:"Add users to selected group", disabled:true,
 					handler: this.onBtnAsgnUsers, scope:this, stateManager:{name:"selected_one_clean", dc:"dcGroup" }})
 			
-			.addDcFilterFormView("dcGroup", {name:"filterGroup", height:80, xtype:"ad_usr_dc_UserGroup$Filter"})	
+			.addDcFilterFormView("dcGroup", {name:"filterGroup", height:80, xtype:"ad_usr_dc_UserGroup$Filter"})
 			.addDcEditGridView("dcGroup", {name:"elistGroup", xtype:"ad_usr_dc_UserGroup$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnAsgnUsers")]}]})	
+						items:[ this._elems_.get("btnAsgnUsers")]}]})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

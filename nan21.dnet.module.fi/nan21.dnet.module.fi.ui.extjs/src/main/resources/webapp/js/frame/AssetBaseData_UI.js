@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.AssetBaseData_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("categ", {name:"categFilter", height:80, xtype:"fi_asset_dc_AssetCategory$Filter"})	
-			.addDcEditGridView("categ", {name:"categEditList", xtype:"fi_asset_dc_AssetCategory$EditList", frame:true})	
-			.addDcEditGridView("acct", {name:"acctEditList", height:220, xtype:"fi_asset_dc_AssetCategoryAcct$EditListCtx", frame:true})	
+			.addDcFilterFormView("categ", {name:"categFilter", height:80, xtype:"fi_asset_dc_AssetCategory$Filter"})
+			.addDcEditGridView("categ", {name:"categEditList", xtype:"fi_asset_dc_AssetCategory$EditList", frame:true})
+			.addDcEditGridView("acct", {name:"acctEditList", height:220, xtype:"fi_asset_dc_AssetCategoryAcct$EditListCtx", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCateg", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

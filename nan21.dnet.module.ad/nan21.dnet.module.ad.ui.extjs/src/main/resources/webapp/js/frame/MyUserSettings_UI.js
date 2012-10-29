@@ -20,7 +20,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.MyUserSettings_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFormView("usr", {name:"usrEdit", xtype:"ad_usr_dc_MyUserSettings$Edit"})	
+			.addDcFormView("usr", {name:"usrEdit", xtype:"ad_usr_dc_MyUserSettings$Edit"})
 			.addPanel({name:"main", layout:"fit"})
 			
 	}

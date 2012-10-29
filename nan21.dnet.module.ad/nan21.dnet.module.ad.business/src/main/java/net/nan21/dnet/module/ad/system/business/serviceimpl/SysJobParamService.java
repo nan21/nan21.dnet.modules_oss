@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysJobParamService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJob;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobParam;
@@ -28,7 +28,7 @@ public class SysJobParamService extends AbstractEntityService<SysJobParam>
 	}
 
 	@Override
-	protected Class<SysJobParam> getEntityClass() {
+	public Class<SysJobParam> getEntityClass() {
 		return SysJobParam.class;
 	}
 	

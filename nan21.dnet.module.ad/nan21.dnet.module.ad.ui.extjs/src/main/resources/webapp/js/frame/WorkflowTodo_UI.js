@@ -26,16 +26,16 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 			.addButton({name:"btnClaimTask", text:"Claim task", tooltip:"Claim the selected task.", disabled:true,
 					handler: this.onBtnClaimTask, scope:this, stateManager:{name:"selected_one", dc:"dcAvailabletask" }})
 			
-			.addDcFilterFormView("dcMytask", {name:"filterMytask", height:40, xtype:"ad_workflow_dc_ActMyTask$Filter"})	
+			.addDcFilterFormView("dcMytask", {name:"filterMytask", height:40, xtype:"ad_workflow_dc_ActMyTask$Filter"})
 			.addDcGridView("dcMytask", {name:"listMytask", xtype:"ad_workflow_dc_ActMyTask$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnCompleteTask")]}]})	
-			.addDcFilterFormView("dcAvailabletask", {name:"filterAvailabletask", height:40, xtype:"ad_workflow_dc_ActAvailableTask$Filter"})	
+						items:[ this._elems_.get("btnCompleteTask")]}]})
+			.addDcFilterFormView("dcAvailabletask", {name:"filterAvailabletask", height:40, xtype:"ad_workflow_dc_ActAvailableTask$Filter"})
 			.addDcGridView("dcAvailabletask", {name:"listAvailabletask", xtype:"ad_workflow_dc_ActAvailableTask$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnClaimTask")]}]})	
-			.addDcFilterFormView("dcMyhistory", {name:"filterMyhistory", height:40, xtype:"ad_workflow_dc_ActMyTaskHistory$Filter"})	
-			.addDcGridView("dcMyhistory", {name:"listMyhistory", xtype:"ad_workflow_dc_ActMyTaskHistory$List"})	
+						items:[ this._elems_.get("btnClaimTask")]}]})
+			.addDcFilterFormView("dcMyhistory", {name:"filterMyhistory", height:40, xtype:"ad_workflow_dc_ActMyTaskHistory$Filter"})
+			.addDcGridView("dcMyhistory", {name:"listMyhistory", xtype:"ad_workflow_dc_ActMyTaskHistory$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", title:"Current tasks", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", title:"Available tasks", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

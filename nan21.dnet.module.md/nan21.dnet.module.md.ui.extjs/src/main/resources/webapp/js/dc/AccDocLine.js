@@ -43,7 +43,6 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDocLine$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["dbAccount", "crAccount"])
-			.addAuditFilter()
 		;
 	}});
 

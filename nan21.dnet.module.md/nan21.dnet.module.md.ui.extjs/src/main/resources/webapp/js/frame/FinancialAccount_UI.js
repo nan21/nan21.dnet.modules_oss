@@ -28,11 +28,11 @@ Ext.define("net.nan21.dnet.module.md.org.frame.FinancialAccount_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("account", {name:"accountFilter", height:120, xtype:"md_org_dc_FinancialAccount$Filter"})	
-			.addDcGridView("account", {name:"accountList", xtype:"md_org_dc_FinancialAccount$List"})	
-			.addDcFormView("account", {name:"accountEdit", height:140, xtype:"md_org_dc_FinancialAccount$Edit"})	
-			.addDcEditGridView("acct", {name:"acctEditList", title:"Accounting", xtype:"md_org_dc_FinancialAccountAcct$CtxEditList", frame:true})	
-			.addDcEditGridView("paymethod", {name:"paymethodEditList", title:"Payment methods", xtype:"md_org_dc_FinancialAccountMethod$CtxEditList", frame:true})	
+			.addDcFilterFormView("account", {name:"accountFilter", height:120, xtype:"md_org_dc_FinancialAccount$Filter"})
+			.addDcGridView("account", {name:"accountList", xtype:"md_org_dc_FinancialAccount$List"})
+			.addDcFormView("account", {name:"accountEdit", height:140, xtype:"md_org_dc_FinancialAccount$Edit"})
+			.addDcEditGridView("acct", {name:"acctEditList", title:"Accounting", xtype:"md_org_dc_FinancialAccountAcct$CtxEditList", frame:true})
+			.addDcEditGridView("paymethod", {name:"paymethodEditList", title:"Payment methods", xtype:"md_org_dc_FinancialAccountMethod$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

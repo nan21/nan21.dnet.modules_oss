@@ -20,12 +20,12 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.TestCountry_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("country", {name:"countryFilter", height:120, xtype:"bd_geo_dc_Country$Filter"})	
-			.addDcFilterFormView("country", {name:"countryFilterPG", width:300, xtype:"bd_geo_dc_Country$FilterPG"})	
-			.addDcGridView("country", {name:"countryList", title:"Grid", xtype:"bd_geo_dc_Country$List"})	
-			.addDcEditGridView("country", {name:"countryEditList", title:"Edit-Grid", xtype:"bd_geo_dc_Country$EditList", frame:true})	
-			.addDcFormView("country", {name:"countryEdit", height:120, xtype:"bd_geo_dc_Country$Edit"})	
-			.addDcFormView("country", {name:"countryEditPG", width:300, xtype:"bd_geo_dc_Country$EditPG"})	
+			.addDcFilterFormView("country", {name:"countryFilter", height:120, xtype:"bd_geo_dc_Country$Filter"})
+			.addDcFilterFormView("country", {name:"countryFilterPG", width:300, xtype:"bd_geo_dc_Country$FilterPG"})
+			.addDcGridView("country", {name:"countryList", title:"Grid", xtype:"bd_geo_dc_Country$List"})
+			.addDcEditGridView("country", {name:"countryEditList", title:"Edit-Grid", xtype:"bd_geo_dc_Country$EditList", frame:true})
+			.addDcFormView("country", {name:"countryEdit", height:120, xtype:"bd_geo_dc_Country$Edit"})
+			.addDcFormView("country", {name:"countryEditPG", width:300, xtype:"bd_geo_dc_Country$EditPG"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"gridTabs", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})

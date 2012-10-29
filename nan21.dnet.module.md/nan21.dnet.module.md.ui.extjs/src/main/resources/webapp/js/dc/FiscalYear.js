@@ -48,7 +48,6 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalYear$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["code", "name"])
 			.addChildrenTo("col2", ["calendar", "active"])
-			.addAuditFilter()
 		;
 	}});
 

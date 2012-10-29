@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysFrameExtension_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("extensions", {name:"extensionsFilter", xtype:"ad_system_dc_SysFrameExtension$Filter"})	
-			.addDcEditGridView("extensions", {name:"extensionsEditList", xtype:"ad_system_dc_SysFrameExtension$EditList", frame:true})	
+			.addDcFilterFormView("extensions", {name:"extensionsFilter", xtype:"ad_system_dc_SysFrameExtension$Filter"})
+			.addDcEditGridView("extensions", {name:"extensionsEditList", xtype:"ad_system_dc_SysFrameExtension$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

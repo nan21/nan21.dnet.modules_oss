@@ -85,7 +85,6 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.Payment$Filter", {
 			.addChildrenTo("col2", ["fromAccount", "toAccount", "businessPartner", "paymentMethod"])
 			.addChildrenTo("col3", ["currency", "confirmed", "posted"])
 			.addChildrenTo("col4", ["docDate", "amount"])
-			.addAuditFilter()
 		;
 	}});
 

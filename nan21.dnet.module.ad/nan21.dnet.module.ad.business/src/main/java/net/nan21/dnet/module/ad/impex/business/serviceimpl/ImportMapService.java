@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.impex.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.impex.business.service.IImportMapService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMap;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
@@ -28,7 +28,7 @@ public class ImportMapService extends AbstractEntityService<ImportMap>
 	}
 
 	@Override
-	protected Class<ImportMap> getEntityClass() {
+	public Class<ImportMap> getEntityClass() {
 		return ImportMap.class;
 	}
 	

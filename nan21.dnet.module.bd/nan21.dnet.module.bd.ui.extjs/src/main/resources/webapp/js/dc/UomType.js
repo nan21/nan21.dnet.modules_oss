@@ -46,7 +46,6 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomType$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "category"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -64,6 +63,8 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomType$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addTextColumn({name:"description", dataIndex:"description", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"category", dataIndex:"category", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "length", "mass", "volume", "other"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
 	}});

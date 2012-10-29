@@ -8,7 +8,7 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysParamService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 
@@ -26,7 +26,7 @@ public class SysParamService extends AbstractEntityService<SysParam>
 	}
 
 	@Override
-	protected Class<SysParam> getEntityClass() {
+	public Class<SysParam> getEntityClass() {
 		return SysParam.class;
 	}
 	

@@ -44,23 +44,23 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 			.addButton({name:"btnUnConfirm", text:"Un-Confirm", tooltip:"Un-Confirm order.", iconCls:"icon-action-rollback", disabled:true,
 					handler: this.onBtnUnConfirm, scope:this, stateManager:{name:"selected_one_clean", dc:"order" , and: function(dc) {return (dc.record && dc.record.get("confirmed") );}}})
 			
-			.addDcFilterFormView("order", {name:"orderFilter", height:160, xtype:"sc_order_dc_PurchaseOrder$Filter"})	
-			.addDcGridView("order", {name:"orderList", xtype:"sc_order_dc_PurchaseOrder$List"})	
+			.addDcFilterFormView("order", {name:"orderFilter", height:160, xtype:"sc_order_dc_PurchaseOrder$Filter"})
+			.addDcGridView("order", {name:"orderList", xtype:"sc_order_dc_PurchaseOrder$List"})
 			.addDcFormView("order", {name:"orderEdit", height:200, xtype:"sc_order_dc_PurchaseOrder$EditMain", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm")]}]})	
-			.addDcFormView("order", {name:"orderEditDetails", title:"Details", xtype:"sc_order_dc_PurchaseOrder$EditDetails"})	
+						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm")]}]})
+			.addDcFormView("order", {name:"orderEditDetails", title:"Details", xtype:"sc_order_dc_PurchaseOrder$EditDetails"})
 			.addDcFilterFormView("item", {name:"itemFilter", title:"Filter", width:250, xtype:"sc_order_dc_PurchaseOrderItem$FilterCtx", collapsible:true, collapsed:true
-			})	
-			.addDcGridView("item", {name:"itemList", xtype:"sc_order_dc_PurchaseOrderItem$CtxList"})	
-			.addDcFormView("item", {name:"itemEdit", xtype:"sc_order_dc_PurchaseOrderItem$EditForm"})	
+			})
+			.addDcGridView("item", {name:"itemList", xtype:"sc_order_dc_PurchaseOrderItem$CtxList"})
+			.addDcFormView("item", {name:"itemEdit", xtype:"sc_order_dc_PurchaseOrderItem$EditForm"})
 			.addDcGridView("itemTax", {name:"itemTaxList", title:"Item taxes", width:400, xtype:"sc_order_dc_PurchaseOrderItemTax$CtxList", collapsible:true, collapsed:true
-			})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
+			})
+			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})	
+						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

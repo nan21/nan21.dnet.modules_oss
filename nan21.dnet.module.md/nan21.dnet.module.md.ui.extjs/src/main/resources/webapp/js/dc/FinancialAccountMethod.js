@@ -48,7 +48,6 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountMethod$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["financialAccount", "payMethod"])
 			.addChildrenTo("col2", ["allowPayIn", "allowPayOut"])
-			.addAuditFilter()
 		;
 	}});
 

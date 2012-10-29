@@ -37,7 +37,6 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.PositionCourse$Filter", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["courseName"])
-			.addAuditFilter()
 		;
 	}});
 

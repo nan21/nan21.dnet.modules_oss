@@ -48,7 +48,6 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocSequence$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["prefix", "suffix"])
-			.addAuditFilter()
 		;
 	}});
 

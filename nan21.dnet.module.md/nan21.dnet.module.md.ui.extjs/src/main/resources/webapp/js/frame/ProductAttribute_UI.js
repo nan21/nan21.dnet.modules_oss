@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductAttribute_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("attr", {name:"attrFilter", height:120, xtype:"md_mm_prod_dc_ProductAttributeValue$Filter"})	
-			.addDcEditGridView("attr", {name:"attrEditList", xtype:"md_mm_prod_dc_ProductAttributeValue$EditList", frame:true})	
+			.addDcFilterFormView("attr", {name:"attrFilter", height:120, xtype:"md_mm_prod_dc_ProductAttributeValue$Filter"})
+			.addDcEditGridView("attr", {name:"attrEditList", xtype:"md_mm_prod_dc_ProductAttributeValue$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

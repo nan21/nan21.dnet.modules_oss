@@ -74,7 +74,6 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesDelivery$Filter", {
 			.addChildrenTo("col2", ["code", "docNo", "salesOrder"])
 			.addChildrenTo("col3", ["docDate", "eventDate"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
-			.addAuditFilter()
 		;
 	}});
 

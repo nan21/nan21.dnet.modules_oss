@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.skill.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.job.domain.entity.Job;
 import net.nan21.dnet.module.hr.skill.business.service.IJobSkillService;
 import net.nan21.dnet.module.hr.skill.domain.entity.JobSkill;
@@ -30,7 +30,7 @@ public class JobSkillService extends AbstractEntityService<JobSkill>
 	}
 
 	@Override
-	protected Class<JobSkill> getEntityClass() {
+	public Class<JobSkill> getEntityClass() {
 		return JobSkill.class;
 	}
 	

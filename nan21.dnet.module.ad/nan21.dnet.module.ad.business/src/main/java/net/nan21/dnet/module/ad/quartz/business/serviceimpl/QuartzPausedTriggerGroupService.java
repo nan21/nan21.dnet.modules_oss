@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.quartz.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.quartz.business.service.IQuartzPausedTriggerGroupService;
 import net.nan21.dnet.module.ad.quartz.domain.entity.QuartzPausedTriggerGroup;
 
@@ -25,7 +25,7 @@ public class QuartzPausedTriggerGroupService extends AbstractEntityService<Quart
 	}
 
 	@Override
-	protected Class<QuartzPausedTriggerGroup> getEntityClass() {
+	public Class<QuartzPausedTriggerGroup> getEntityClass() {
 		return QuartzPausedTriggerGroup.class;
 	}
 }

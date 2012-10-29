@@ -8,7 +8,7 @@ package net.nan21.dnet.module.hr.skill.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.skill.business.service.IQualificationService;
 import net.nan21.dnet.module.hr.skill.domain.entity.Qualification;
 
@@ -26,7 +26,7 @@ public class QualificationService extends AbstractEntityService<Qualification>
 	}
 
 	@Override
-	protected Class<Qualification> getEntityClass() {
+	public Class<Qualification> getEntityClass() {
 		return Qualification.class;
 	}
 	

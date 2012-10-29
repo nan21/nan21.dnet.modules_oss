@@ -30,12 +30,12 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysDataSources_UI", {
 			.addButton({name:"btnSynchronize", text:"Synchronize", tooltip:"Scan classpath and synchronize catalog with deployed instances.", iconCls:"icon-action-synchronize", disabled:false,
 					handler: this.onBtnSynchronize, scope:this})
 			
-			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"ad_system_dc_SysDataSource$Filter"})	
+			.addDcFilterFormView("m", {name:"mFilter", height:80, xtype:"ad_system_dc_SysDataSource$Filter"})
 			.addDcGridView("m", {name:"mList", xtype:"ad_system_dc_SysDataSource$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnSynchronize")]}]})	
-			.addDcGridView("fields", {name:"listFields", title:"Fields", xtype:"ad_system_dc_SysDsField$CtxList"})	
-			.addDcGridView("services", {name:"listServices", title:"Services", xtype:"ad_system_dc_SysDsService$CtxList"})	
+						items:[ this._elems_.get("btnSynchronize")]}]})
+			.addDcGridView("fields", {name:"listFields", title:"Fields", xtype:"ad_system_dc_SysDsField$CtxList"})
+			.addDcGridView("services", {name:"listServices", title:"Services", xtype:"ad_system_dc_SysDsService$CtxList"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"panelDetails", width:400, layout:"accordion", activeItem:0})

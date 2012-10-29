@@ -8,7 +8,7 @@ package net.nan21.dnet.module.md.activity.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.activity.business.service.ICalendarEventStatusService;
 import net.nan21.dnet.module.md.activity.domain.entity.CalendarEventStatus;
 
@@ -26,7 +26,7 @@ public class CalendarEventStatusService extends AbstractEntityService<CalendarEv
 	}
 
 	@Override
-	protected Class<CalendarEventStatus> getEntityClass() {
+	public Class<CalendarEventStatus> getEntityClass() {
 		return CalendarEventStatus.class;
 	}
 	

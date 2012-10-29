@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.quartz.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.quartz.business.service.IQuartzJobDetailService;
 import net.nan21.dnet.module.ad.quartz.domain.entity.QuartzJobDetail;
 
@@ -25,7 +25,7 @@ public class QuartzJobDetailService extends AbstractEntityService<QuartzJobDetai
 	}
 
 	@Override
-	protected Class<QuartzJobDetail> getEntityClass() {
+	public Class<QuartzJobDetail> getEntityClass() {
 		return QuartzJobDetail.class;
 	}
 }

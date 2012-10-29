@@ -38,7 +38,6 @@ Ext.define("net.nan21.dnet.module.pj.base.dc.IssueTextType$Filter", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["name", "active"])
-			.addAuditFilter()
 		;
 	}});
 

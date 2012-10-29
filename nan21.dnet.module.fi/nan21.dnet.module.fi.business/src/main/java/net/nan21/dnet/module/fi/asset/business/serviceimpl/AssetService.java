@@ -9,7 +9,7 @@ package net.nan21.dnet.module.fi.asset.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.fi.asset.business.service.IAssetService;
 import net.nan21.dnet.module.fi.asset.domain.entity.Asset;
@@ -29,7 +29,7 @@ public class AssetService extends AbstractEntityService<Asset>
 	}
 
 	@Override
-	protected Class<Asset> getEntityClass() {
+	public Class<Asset> getEntityClass() {
 		return Asset.class;
 	}
 	

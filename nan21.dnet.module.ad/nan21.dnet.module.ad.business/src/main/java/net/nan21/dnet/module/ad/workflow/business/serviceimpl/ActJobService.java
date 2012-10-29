@@ -7,7 +7,7 @@
 package net.nan21.dnet.module.ad.workflow.business.serviceimpl;
 
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActJobService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActJob;
 
@@ -25,7 +25,7 @@ public class ActJobService extends AbstractEntityService<ActJob>
 	}
 
 	@Override
-	protected Class<ActJob> getEntityClass() {
+	public Class<ActJob> getEntityClass() {
 		return ActJob.class;
 	}
 }

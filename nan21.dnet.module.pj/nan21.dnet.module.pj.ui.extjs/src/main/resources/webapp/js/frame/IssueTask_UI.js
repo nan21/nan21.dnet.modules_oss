@@ -42,17 +42,17 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueTask_UI", {
 			.addButton({name:"btnIssueUi", text:"Edit issue", tooltip:"Show current issue in editor frame", disabled:true,
 					handler: this.onBtnIssueUi, scope:this, stateManager:{name:"selected_one", dc:"issue" }})
 			
-			.addDcFilterFormView("task", {name:"taskFilter", height:180, xtype:"pj_md_dc_IssueTask$Filter"})	
-			.addDcGridView("task", {name:"taskList", xtype:"pj_md_dc_IssueTask$List"})	
-			.addDcFormView("task", {name:"taskEdit", height:180, xtype:"pj_md_dc_IssueTask$Edit"})	
-			.addDcFormView("issue", {name:"issueView", xtype:"pj_md_dc_Issue$View"})	
+			.addDcFilterFormView("task", {name:"taskFilter", height:180, xtype:"pj_md_dc_IssueTask$Filter"})
+			.addDcGridView("task", {name:"taskList", xtype:"pj_md_dc_IssueTask$List"})
+			.addDcFormView("task", {name:"taskEdit", height:180, xtype:"pj_md_dc_IssueTask$Edit"})
+			.addDcFormView("issue", {name:"issueView", xtype:"pj_md_dc_Issue$View"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Issue attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnViewAttachment")]}]})	
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})	
-			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})	
-			.addDcFilterFormView("link", {name:"linkFilter", xtype:"pj_md_dc_IssueLink$Filter"})	
-			.addDcGridView("link", {name:"linkEditList", title:"Issue links", xtype:"pj_md_dc_IssueLink$CtxList"})	
+						items:[ this._elems_.get("btnViewAttachment")]}]})
+			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
+			.addDcFilterFormView("link", {name:"linkFilter", xtype:"pj_md_dc_IssueLink$Filter"})
+			.addDcGridView("link", {name:"linkEditList", title:"Issue links", xtype:"pj_md_dc_IssueLink$CtxList"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

@@ -9,7 +9,7 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx;
 import net.nan21.dnet.module.ad.system.domain.entity.SysTimer;
 
@@ -27,7 +27,7 @@ public class SysTimerService extends AbstractEntityService<SysTimer>
 	}
 
 	@Override
-	protected Class<SysTimer> getEntityClass() {
+	public Class<SysTimer> getEntityClass() {
 		return SysTimer.class;
 	}
 	

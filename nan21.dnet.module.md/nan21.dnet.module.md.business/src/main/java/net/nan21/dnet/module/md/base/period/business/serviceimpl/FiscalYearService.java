@@ -9,7 +9,7 @@ package net.nan21.dnet.module.md.base.period.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 import net.nan21.dnet.module.md.base.period.business.service.IFiscalYearService;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
@@ -29,7 +29,7 @@ public class FiscalYearService extends AbstractEntityService<FiscalYear>
 	}
 
 	@Override
-	protected Class<FiscalYear> getEntityClass() {
+	public Class<FiscalYear> getEntityClass() {
 		return FiscalYear.class;
 	}
 	

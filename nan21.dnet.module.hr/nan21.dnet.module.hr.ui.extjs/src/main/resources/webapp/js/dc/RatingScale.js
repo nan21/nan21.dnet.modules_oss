@@ -43,7 +43,6 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingScale$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

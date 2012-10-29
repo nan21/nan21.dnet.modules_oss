@@ -54,7 +54,6 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$Filter", {
 			.addChildrenTo("col1", ["code", "name"])
 			.addChildrenTo("col2", ["year", "type"])
 			.addChildrenTo("col3", ["posting", "active"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -123,6 +122,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$EditList", {
 			.addDateColumn({name:"endDate", dataIndex:"endDate", format: Dnet.DATE_FORMAT
 				,editor:{xtype:"datefield", format: Dnet.DATE_FORMAT }
 			})
+			.addComboColumn({name:"type", dataIndex:"type", width:80,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "month", "quarter", "half-year", "other"]}})
 			.addLov({name:"year", dataIndex:"year", xtype:"gridcolumn", width:100,
 					editor:{xtype:"md_base_period_lovs_FiscalYears", selectOnFocus:true,
 						retFieldMapping: [
@@ -156,6 +157,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$CtxEditList", {
 			.addDateColumn({name:"endDate", dataIndex:"endDate", format: Dnet.DATE_FORMAT
 				,editor:{xtype:"datefield", format: Dnet.DATE_FORMAT }
 			})
+			.addComboColumn({name:"type", dataIndex:"type", width:80,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "month", "quarter", "half-year", "other"]}})
 			.addBooleanColumn({name:"posting", dataIndex:"posting"})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();

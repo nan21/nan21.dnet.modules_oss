@@ -21,10 +21,10 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.SkillType_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("scateg", {name:"scategFilter", height:80, xtype:"hr_skill_dc_SkillCategory$Filter"})	
-			.addDcEditGridView("scateg", {name:"scategEditList", xtype:"hr_skill_dc_SkillCategory$EditList", frame:true})	
-			.addDcFilterFormView("stype", {name:"stypeFilter", height:80, xtype:"hr_skill_dc_SkillType$Filter"})	
-			.addDcEditGridView("stype", {name:"stypeEditList", xtype:"hr_skill_dc_SkillType$EditList", frame:true})	
+			.addDcFilterFormView("scateg", {name:"scategFilter", height:80, xtype:"hr_skill_dc_SkillCategory$Filter"})
+			.addDcEditGridView("scateg", {name:"scategEditList", xtype:"hr_skill_dc_SkillCategory$EditList", frame:true})
+			.addDcFilterFormView("stype", {name:"stypeFilter", height:80, xtype:"hr_skill_dc_SkillType$Filter"})
+			.addDcEditGridView("stype", {name:"stypeEditList", xtype:"hr_skill_dc_SkillType$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCateg", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

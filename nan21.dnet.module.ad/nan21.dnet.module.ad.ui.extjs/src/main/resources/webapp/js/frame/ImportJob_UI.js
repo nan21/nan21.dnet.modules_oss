@@ -28,12 +28,12 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportJob_UI", {
 			.addButton({name:"btnRunImportItem", text:"Import selected", tooltip:"Import the selected set (one at a time).", iconCls:"icon-action-import", disabled:true,
 					handler: this.onBtnRunImportItem, scope:this, stateManager:{name:"selected_one", dc:"item" }})
 			
-			.addDcFilterFormView("job", {name:"jobFilter", height:80, xtype:"ad_impex_dc_ImportJob$Filter"})	
-			.addDcGridView("job", {name:"jobList", xtype:"ad_impex_dc_ImportJob$List"})	
+			.addDcFilterFormView("job", {name:"jobFilter", height:80, xtype:"ad_impex_dc_ImportJob$Filter"})
+			.addDcGridView("job", {name:"jobList", xtype:"ad_impex_dc_ImportJob$List"})
 			.addDcFormView("job", {name:"jobEdit", height:140, xtype:"ad_impex_dc_ImportJob$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnRunImport"), this._elems_.get("btnRunImportItem")]}]})	
-			.addDcEditGridView("item", {name:"itemEditList", xtype:"ad_impex_dc_ImportJobItem$CtxEditList", frame:true})	
+						items:[ this._elems_.get("btnRunImport"), this._elems_.get("btnRunImportItem")]}]})
+			.addDcEditGridView("item", {name:"itemEditList", xtype:"ad_impex_dc_ImportJobItem$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

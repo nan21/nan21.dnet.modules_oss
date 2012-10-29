@@ -26,11 +26,11 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportMapItem_UI", {
 			.addButton({name:"btnImportFileRun", text:"Execute", tooltip:"Execute", disabled:false,
 					handler: this.onBtnImportFileRun, scope:this})
 			
-			.addDcFilterFormView("mapItem", {name:"mapItemFilter", height:80, xtype:"ad_impex_dc_ImportMapItem$Filter"})	
+			.addDcFilterFormView("mapItem", {name:"mapItemFilter", height:80, xtype:"ad_impex_dc_ImportMapItem$Filter"})
 			.addDcEditGridView("mapItem", {name:"mapItemEditList", xtype:"ad_impex_dc_ImportMapItem$EditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnRunImport"), this._elems_.get("btnImportFileShow")]}]})	
-			.addDcFilterFormView("mapItem", {name:"importFileForm", xtype:"ad_impex_dc_ImportMapItem$ImportFileForm"})	
+						items:[ this._elems_.get("btnRunImport"), this._elems_.get("btnImportFileShow")]}]})
+			.addDcFilterFormView("mapItem", {name:"importFileForm", xtype:"ad_impex_dc_ImportMapItem$ImportFileForm"})
 			.addWindow({name:"wdwImportFile", title:"Import file from server", width:500, height:170, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("importFileForm")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

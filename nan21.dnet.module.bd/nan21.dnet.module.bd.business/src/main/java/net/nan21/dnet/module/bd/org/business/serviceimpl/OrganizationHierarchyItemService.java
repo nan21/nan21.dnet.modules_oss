@@ -9,7 +9,7 @@ package net.nan21.dnet.module.bd.org.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.business.service.IOrganizationHierarchyItemService;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchy;
@@ -29,7 +29,7 @@ public class OrganizationHierarchyItemService extends AbstractEntityService<Orga
 	}
 
 	@Override
-	protected Class<OrganizationHierarchyItem> getEntityClass() {
+	public Class<OrganizationHierarchyItem> getEntityClass() {
 		return OrganizationHierarchyItem.class;
 	}
 	

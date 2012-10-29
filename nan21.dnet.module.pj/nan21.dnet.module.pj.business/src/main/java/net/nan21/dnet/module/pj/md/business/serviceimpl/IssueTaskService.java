@@ -9,7 +9,7 @@ package net.nan21.dnet.module.pj.md.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskStatus;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskType;
 import net.nan21.dnet.module.pj.md.business.service.IIssueTaskService;
@@ -31,7 +31,7 @@ public class IssueTaskService extends AbstractEntityService<IssueTask>
 	}
 
 	@Override
-	protected Class<IssueTask> getEntityClass() {
+	public Class<IssueTask> getEntityClass() {
 		return IssueTask.class;
 	}
 	

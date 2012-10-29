@@ -20,11 +20,11 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeAssignment_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("asgn", {name:"asgnFilter", xtype:"hr_employee_dc_EmployeeAssignment$Filter"})	
-			.addDcGridView("asgn", {name:"asgnList", xtype:"hr_employee_dc_EmployeeAssignment$List"})	
-			.addDcGridView("asgn", {name:"asgnCtxList", xtype:"hr_employee_dc_EmployeeAssignment$CtxList"})	
-			.addDcFormView("asgn", {name:"asgnEdit", xtype:"hr_employee_dc_EmployeeAssignment$Edit"})	
-			.addDcFormView("asgn", {name:"asgnEditEmployee", height:50, xtype:"hr_employee_dc_EmployeeAssignment$EditEmployee"})	
+			.addDcFilterFormView("asgn", {name:"asgnFilter", xtype:"hr_employee_dc_EmployeeAssignment$Filter"})
+			.addDcGridView("asgn", {name:"asgnList", xtype:"hr_employee_dc_EmployeeAssignment$List"})
+			.addDcGridView("asgn", {name:"asgnCtxList", xtype:"hr_employee_dc_EmployeeAssignment$CtxList"})
+			.addDcFormView("asgn", {name:"asgnEdit", xtype:"hr_employee_dc_EmployeeAssignment$Edit"})
+			.addDcFormView("asgn", {name:"asgnEditEmployee", height:50, xtype:"hr_employee_dc_EmployeeAssignment$EditEmployee"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

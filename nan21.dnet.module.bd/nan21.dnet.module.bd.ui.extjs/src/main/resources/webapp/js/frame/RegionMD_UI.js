@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.RegionMD_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("region", {name:"regionFilter", height:80, xtype:"bd_geo_dc_Region$Filter"})	
-			.addDcGridView("region", {name:"regionList", xtype:"bd_geo_dc_Region$List"})	
-			.addDcFormView("region", {name:"regionEdit", height:120, xtype:"bd_geo_dc_Region$Edit"})	
-			.addDcEditGridView("city", {name:"cityEditList", xtype:"bd_geo_dc_City$CtxEditList", frame:true})	
+			.addDcFilterFormView("region", {name:"regionFilter", height:80, xtype:"bd_geo_dc_Region$Filter"})
+			.addDcGridView("region", {name:"regionList", xtype:"bd_geo_dc_Region$List"})
+			.addDcFormView("region", {name:"regionEdit", height:120, xtype:"bd_geo_dc_Region$Edit"})
+			.addDcEditGridView("city", {name:"cityEditList", xtype:"bd_geo_dc_City$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

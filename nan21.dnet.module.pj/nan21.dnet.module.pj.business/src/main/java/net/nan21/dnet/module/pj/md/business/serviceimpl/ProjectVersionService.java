@@ -9,7 +9,7 @@ package net.nan21.dnet.module.pj.md.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.md.business.service.IProjectVersionService;
 import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 import net.nan21.dnet.module.pj.md.domain.entity.Project;
@@ -29,7 +29,7 @@ public class ProjectVersionService extends AbstractEntityService<ProjectVersion>
 	}
 
 	@Override
-	protected Class<ProjectVersion> getEntityClass() {
+	public Class<ProjectVersion> getEntityClass() {
 		return ProjectVersion.class;
 	}
 	

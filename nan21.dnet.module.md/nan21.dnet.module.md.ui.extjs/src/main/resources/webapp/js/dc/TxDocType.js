@@ -50,7 +50,6 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocType$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["category", "journal"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -68,6 +67,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocType$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addTextColumn({name:"description", dataIndex:"description", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"category", dataIndex:"category", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "sales-order", "sales-invoice", "sales-inventory-in", "sales-inventory-out", "purchase-order", "purchase-invoice", "purchase-inventory-in", "purchase-inventory-out", "inventory-transfer", "payment-in", "payment-out"]}})
 			.addLov({name:"journal", dataIndex:"journal", xtype:"gridcolumn", width:120,
 					editor:{xtype:"md_acc_lovs_AccJournals", selectOnFocus:true,
 						retFieldMapping: [

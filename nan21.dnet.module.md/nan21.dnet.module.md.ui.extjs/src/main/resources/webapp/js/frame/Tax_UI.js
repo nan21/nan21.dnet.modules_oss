@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.Tax_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("tax", {name:"taxFilter", height:120, xtype:"md_base_tax_dc_Tax$Filter"})	
-			.addDcGridView("tax", {name:"taxList", xtype:"md_base_tax_dc_Tax$List"})	
-			.addDcFormView("tax", {name:"taxEdit", height:140, xtype:"md_base_tax_dc_Tax$Edit"})	
-			.addDcEditGridView("acct", {name:"acctList", xtype:"md_base_tax_dc_TaxAcct$CtxEditList", frame:true})	
+			.addDcFilterFormView("tax", {name:"taxFilter", height:120, xtype:"md_base_tax_dc_Tax$Filter"})
+			.addDcGridView("tax", {name:"taxList", xtype:"md_base_tax_dc_Tax$List"})
+			.addDcFormView("tax", {name:"taxEdit", height:140, xtype:"md_base_tax_dc_Tax$Edit"})
+			.addDcEditGridView("acct", {name:"acctList", xtype:"md_base_tax_dc_TaxAcct$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

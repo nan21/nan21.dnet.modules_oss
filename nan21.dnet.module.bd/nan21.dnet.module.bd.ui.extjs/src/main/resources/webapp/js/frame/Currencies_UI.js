@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.bd.currency.frame.Currencies_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("currency", {name:"currencyFilter", height:80, xtype:"bd_currency_dc_Currency$Filter"})	
-			.addDcEditGridView("currency", {name:"currencyList", xtype:"bd_currency_dc_Currency$EditList", frame:true})	
+			.addDcFilterFormView("currency", {name:"currencyFilter", height:80, xtype:"bd_currency_dc_Currency$Filter"})
+			.addDcEditGridView("currency", {name:"currencyList", xtype:"bd_currency_dc_Currency$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

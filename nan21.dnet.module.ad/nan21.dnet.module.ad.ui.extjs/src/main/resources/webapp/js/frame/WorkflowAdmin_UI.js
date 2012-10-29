@@ -59,27 +59,27 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			.addButton({name:"btnDeleteCascadeDeployment", text:"Delete cascade", tooltip:"Delete selected deployments with dependecies.", disabled:true,
 					handler: this.onBtnDeleteCascadeDeployment, scope:this, stateManager:{name:"selected_not_zero", dc:"dcDeployment" }})
 			
-			.addDcFilterFormView("dcDeployment", {name:"filterDeployment", height:80, xtype:"ad_workflow_dc_ActDeployment$Filter"})	
+			.addDcFilterFormView("dcDeployment", {name:"filterDeployment", height:80, xtype:"ad_workflow_dc_ActDeployment$Filter"})
 			.addDcGridView("dcDeployment", {name:"listDeployment", xtype:"ad_workflow_dc_ActDeployment$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnUploadForDeployment"), this._elems_.get("btnDeleteDeployment"), this._elems_.get("btnDeleteCascadeDeployment")]}]})	
-			.addDcFilterFormView("dcProcess", {name:"filterProcess", height:80, xtype:"ad_workflow_dc_ActProcessDefinition$Filter"})	
+						items:[ this._elems_.get("btnUploadForDeployment"), this._elems_.get("btnDeleteDeployment"), this._elems_.get("btnDeleteCascadeDeployment")]}]})
+			.addDcFilterFormView("dcProcess", {name:"filterProcess", height:80, xtype:"ad_workflow_dc_ActProcessDefinition$Filter"})
 			.addDcGridView("dcProcess", {name:"listProcess", xtype:"ad_workflow_dc_ActProcessDefinition$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnStartProcess"), this._elems_.get("btnGetProcessDefinitionDiagram"), this._elems_.get("btnGetProcessDefinitionXml")]}]})	
-			.addDcFilterFormView("dcRunningInstance", {name:"filterRunningInstance", height:80, xtype:"ad_workflow_dc_ActProcessInstance$Filter"})	
+						items:[ this._elems_.get("btnStartProcess"), this._elems_.get("btnGetProcessDefinitionDiagram"), this._elems_.get("btnGetProcessDefinitionXml")]}]})
+			.addDcFilterFormView("dcRunningInstance", {name:"filterRunningInstance", height:80, xtype:"ad_workflow_dc_ActProcessInstance$Filter"})
 			.addDcGridView("dcRunningInstance", {name:"listRunningInstance", xtype:"ad_workflow_dc_ActProcessInstance$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'right', weight:-1,
-						items:[ this._elems_.get("btnKillProcessInstance"), this._elems_.get("btnGetProcessInstanceDiagram"), this._elems_.get("btnGetProcessInstanceXml")]}]})	
-			.addDcGridView("dcVar", {name:"listVars", title:"Variables", xtype:"ad_workflow_dc_ActVariable$List"})	
+						items:[ this._elems_.get("btnKillProcessInstance"), this._elems_.get("btnGetProcessInstanceDiagram"), this._elems_.get("btnGetProcessInstanceXml")]}]})
+			.addDcGridView("dcVar", {name:"listVars", title:"Variables", xtype:"ad_workflow_dc_ActVariable$List"})
 			.addDcFilterFormView("dcRunningTask", {name:"filterRunningTask", xtype:"ad_workflow_dc_ActTaskInstance$Filter", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'right', weight:-1,
-						items:[ this._elems_.get("btnOpenAsignTaskWindow"), this._elems_.get("btnCompleteTask")]}]})	
-			.addDcGridView("dcRunningTask", {name:"listRunningTask", xtype:"ad_workflow_dc_ActTaskInstance$List"})	
-			.addDcFormView("dcRunningTask", {name:"formRunningTaskAsgn", xtype:"ad_workflow_dc_ActTaskInstance$AssignForm"})	
-			.addDcFilterFormView("dcFinishedInstance", {name:"filterFinishedInstance", height:80, xtype:"ad_workflow_dc_ActProcessInstanceHistory$Filter"})	
-			.addDcGridView("dcFinishedInstance", {name:"listFinishedInstance", xtype:"ad_workflow_dc_ActProcessInstanceHistory$List"})	
-			.addDcGridView("dcFinishedTask", {name:"listFinishedTask", height:180, xtype:"ad_workflow_dc_ActTaskInstanceHistory$List"})	
+						items:[ this._elems_.get("btnOpenAsignTaskWindow"), this._elems_.get("btnCompleteTask")]}]})
+			.addDcGridView("dcRunningTask", {name:"listRunningTask", xtype:"ad_workflow_dc_ActTaskInstance$List"})
+			.addDcFormView("dcRunningTask", {name:"formRunningTaskAsgn", xtype:"ad_workflow_dc_ActTaskInstance$AssignForm"})
+			.addDcFilterFormView("dcFinishedInstance", {name:"filterFinishedInstance", height:80, xtype:"ad_workflow_dc_ActProcessInstanceHistory$Filter"})
+			.addDcGridView("dcFinishedInstance", {name:"listFinishedInstance", xtype:"ad_workflow_dc_ActProcessInstanceHistory$List"})
+			.addDcGridView("dcFinishedTask", {name:"listFinishedTask", height:180, xtype:"ad_workflow_dc_ActTaskInstanceHistory$List"})
 			.addWindow({name:"wdwAssignTask", title:"Assign task", width:300, height:100, closeAction:'hide', resizable:true, layout:"fit", modal:true,
 				items:[this._elems_.get("formRunningTaskAsgn")], 
 						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

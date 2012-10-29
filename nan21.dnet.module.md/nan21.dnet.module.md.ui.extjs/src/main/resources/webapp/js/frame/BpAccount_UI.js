@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BpAccount_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("account", {name:"accountFilter", height:120, xtype:"md_bp_dc_BpAccount$Filter"})	
-			.addDcGridView("account", {name:"accountList", xtype:"md_bp_dc_BpAccount$List"})	
-			.addDcFormView("account", {name:"accountEdit", height:240, xtype:"md_bp_dc_BpAccount$Edit"})	
-			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_bp_dc_BpAccountAcct$EditList", frame:true})	
+			.addDcFilterFormView("account", {name:"accountFilter", height:120, xtype:"md_bp_dc_BpAccount$Filter"})
+			.addDcGridView("account", {name:"accountList", xtype:"md_bp_dc_BpAccount$List"})
+			.addDcFormView("account", {name:"accountEdit", height:240, xtype:"md_bp_dc_BpAccount$Edit"})
+			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_bp_dc_BpAccountAcct$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

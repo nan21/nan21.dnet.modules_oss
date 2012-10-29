@@ -8,7 +8,7 @@ package net.nan21.dnet.module.ad.workflow.business.serviceimpl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActActivityInstanceHistoryService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActActivityInstanceHistory;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;
@@ -27,7 +27,7 @@ public class ActActivityInstanceHistoryService extends AbstractEntityService<Act
 	}
 
 	@Override
-	protected Class<ActActivityInstanceHistory> getEntityClass() {
+	public Class<ActActivityInstanceHistory> getEntityClass() {
 		return ActActivityInstanceHistory.class;
 	}
 	

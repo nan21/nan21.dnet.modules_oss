@@ -9,7 +9,7 @@ package net.nan21.dnet.module.hr.job.business.serviceimpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.job.business.service.IJobService;
 import net.nan21.dnet.module.hr.job.domain.entity.Job;
 import net.nan21.dnet.module.hr.job.domain.entity.JobType;
@@ -28,7 +28,7 @@ public class JobService extends AbstractEntityService<Job>
 	}
 
 	@Override
-	protected Class<Job> getEntityClass() {
+	public Class<Job> getEntityClass() {
 		return Job.class;
 	}
 	

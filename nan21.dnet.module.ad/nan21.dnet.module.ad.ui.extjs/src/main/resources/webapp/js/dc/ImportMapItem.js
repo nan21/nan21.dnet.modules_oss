@@ -51,7 +51,6 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItem$Filter", {
 			.addChildrenTo("col1", ["importMapName", "dataSource"])
 			.addChildrenTo("col2", ["path", "fileName"])
 			.addChildrenTo("col3", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

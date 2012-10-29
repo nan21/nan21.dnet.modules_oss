@@ -24,10 +24,10 @@ Ext.define("net.nan21.dnet.module.bd.uom.frame.UomMD_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("uom", {name:"uomFilter", height:80, xtype:"bd_uom_dc_Uom$Filter"})	
-			.addDcGridView("uom", {name:"uomList", xtype:"bd_uom_dc_Uom$List"})	
-			.addDcFormView("uom", {name:"uomEdit", height:125, xtype:"bd_uom_dc_Uom$Edit"})	
-			.addDcEditGridView("cnv", {name:"cnvEditList", xtype:"bd_uom_dc_UomConversion$CtxEditList", frame:true})	
+			.addDcFilterFormView("uom", {name:"uomFilter", height:80, xtype:"bd_uom_dc_Uom$Filter"})
+			.addDcGridView("uom", {name:"uomList", xtype:"bd_uom_dc_Uom$List"})
+			.addDcFormView("uom", {name:"uomEdit", height:125, xtype:"bd_uom_dc_Uom$Edit"})
+			.addDcEditGridView("cnv", {name:"cnvEditList", xtype:"bd_uom_dc_UomConversion$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

@@ -51,7 +51,6 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.Report$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["reportServer", "contextPath"])
 			.addChildrenTo("col3", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

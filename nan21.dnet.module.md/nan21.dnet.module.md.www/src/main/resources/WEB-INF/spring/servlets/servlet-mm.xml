@@ -18,18 +18,10 @@
 		persistent-id="net.nan21.dnet">
 	</osgi-compendium:cm-properties>
 
-	<context:annotation-config />
-
-	<!-- <context:component-scan annotation-config="true" base-package="net.nan21.dnet.module.md.www.controller" 
-		> </context:component-scan> -->
-
 	<bean id="serviceLocator" class="net.nan21.dnet.core.presenter.service.ServiceLocator" />
 
-
-	<bean name="productController"
-		class="net.nan21.dnet.module.md.www.controller.ProductController"
-		scope="request" />
-
+	<bean name="productController"  lazy-init="true"
+		class="net.nan21.dnet.module.md.www.controller.ProductController" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

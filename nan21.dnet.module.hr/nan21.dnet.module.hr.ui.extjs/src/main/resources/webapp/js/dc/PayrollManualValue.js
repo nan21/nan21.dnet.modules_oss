@@ -71,7 +71,6 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollManualValue$Filter", {
 			.addChildrenTo("col1", ["employer", "period", "element"])
 			.addChildrenTo("col2", ["type", "employeeName"])
 			.addChildrenTo("col3", ["periodStart", "periodEnd"])
-			.addAuditFilter()
 		;
 	}});
 

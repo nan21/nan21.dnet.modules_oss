@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.TaxCategories_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			
-			.addDcFilterFormView("taxcateg", {name:"taxcategFilter", xtype:"md_base_tax_dc_TaxCategory$Filter"})	
-			.addDcEditGridView("taxcateg", {name:"taxcategEditList", xtype:"md_base_tax_dc_TaxCategory$EditList", frame:true})	
+			.addDcFilterFormView("taxcateg", {name:"taxcategFilter", xtype:"md_base_tax_dc_TaxCategory$Filter"})
+			.addDcEditGridView("taxcateg", {name:"taxcategEditList", xtype:"md_base_tax_dc_TaxCategory$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

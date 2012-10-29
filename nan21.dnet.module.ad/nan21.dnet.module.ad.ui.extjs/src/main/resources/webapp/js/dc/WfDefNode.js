@@ -31,6 +31,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefNode$CtxEditList", {
 		this._getBuilder_()	
 			.addTextColumn({name:"name", dataIndex:"name", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"type", dataIndex:"taskType", width:60,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, allowBlank:false, triggerAction:'all', forceSelection:true, store:[ "userTask"]}})
 			.addTextColumn({name:"assignToUser", dataIndex:"assignToUser", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addTextColumn({name:"assignToGroup", dataIndex:"assignToGroup", width:200,

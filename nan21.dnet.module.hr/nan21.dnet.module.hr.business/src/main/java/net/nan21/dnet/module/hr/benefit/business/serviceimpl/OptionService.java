@@ -8,7 +8,7 @@ package net.nan21.dnet.module.hr.benefit.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
-import net.nan21.dnet.core.business.service.AbstractEntityService;
+import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.benefit.business.service.IOptionService;
 import net.nan21.dnet.module.hr.benefit.domain.entity.Option;
 
@@ -26,7 +26,7 @@ public class OptionService extends AbstractEntityService<Option>
 	}
 
 	@Override
-	protected Class<Option> getEntityClass() {
+	public Class<Option> getEntityClass() {
 		return Option.class;
 	}
 	

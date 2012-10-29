@@ -46,7 +46,6 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.Payroll$Filter", {
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "periodType"])
 			.addChildrenTo("col2", ["active"])
-			.addAuditFilter()
 		;
 	}});
 

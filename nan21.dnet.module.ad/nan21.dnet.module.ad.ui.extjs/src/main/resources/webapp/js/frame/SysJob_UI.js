@@ -26,11 +26,11 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJob_UI", {
 			.addButton({name:"btnSynchronize", text:"Synchronize", tooltip:"Scan classpath and synchronize catalog with deployed instances.", iconCls:"icon-action-synchronize", disabled:false,
 					handler: this.onBtnSynchronize, scope:this})
 			
-			.addDcFilterFormView("job", {name:"jobFilter", xtype:"ad_system_dc_SysJob$Filter"})	
+			.addDcFilterFormView("job", {name:"jobFilter", xtype:"ad_system_dc_SysJob$Filter"})
 			.addDcEditGridView("job", {name:"jobList", xtype:"ad_system_dc_SysJob$List", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnSynchronize")]}]})	
-			.addDcEditGridView("params", {name:"paramsCtxList", width:300, xtype:"ad_system_dc_SysJobParam$CtxList", frame:true})	
+						items:[ this._elems_.get("btnSynchronize")]}]})
+			.addDcEditGridView("params", {name:"paramsCtxList", width:300, xtype:"ad_system_dc_SysJobParam$CtxList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			

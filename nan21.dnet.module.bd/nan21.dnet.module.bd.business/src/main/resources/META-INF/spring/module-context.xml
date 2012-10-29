@@ -47,12 +47,12 @@
   		class="net.nan21.dnet.core.business.service.ServiceLocatorBusiness"/>
 
 	<bean id="baseAsgnTxService" scope="prototype"
-	  	class="net.nan21.dnet.core.business.service.BaseAsgnTxService"  />
+	  	class="net.nan21.dnet.core.business.service.asgn.DefaultAsgnTxService"  />
 
 	<bean id="entityServiceFactory" 
-		class="net.nan21.dnet.core.business.service.EntityServiceFactory"/>
+		class="net.nan21.dnet.core.business.service.entity.EntityServiceFactory"/>
 
-	<bean id="asgnTxServiceFactory" class="net.nan21.dnet.core.business.service.AsgnTxServiceFactory">
+	<bean id="asgnTxServiceFactory" class="net.nan21.dnet.core.business.service.asgn.AsgnTxServiceFactory">
 		<property name="name" value="nan21.dnet.module.bd.business"/>
 	</bean> 
 

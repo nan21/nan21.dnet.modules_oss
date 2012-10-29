@@ -48,7 +48,6 @@ Ext.define("net.nan21.dnet.module.bd.standards.dc.ClassificationSystem$Filter", 
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["code", "name", "useInContext"])
 			.addChildrenTo("col2", ["active", "internal"])
-			.addAuditFilter()
 		;
 	}});
 
@@ -68,6 +67,8 @@ Ext.define("net.nan21.dnet.module.bd.standards.dc.ClassificationSystem$EditList"
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
+			.addComboColumn({name:"useInContext", dataIndex:"useInContext", width:100,
+					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "BusinessPartner.company", "BusinessPartner.person", "Product"]}})
 			.addBooleanColumn({name:"internal", dataIndex:"internal"})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
