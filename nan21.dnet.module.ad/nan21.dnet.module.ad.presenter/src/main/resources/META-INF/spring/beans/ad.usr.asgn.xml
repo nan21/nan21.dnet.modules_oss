@@ -10,7 +10,7 @@
 	<!-- ==================== UserRoles ==================== -->
 	
 	<bean id="UserRolesAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.UserRolesAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.UserRolesAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
@@ -29,7 +29,7 @@
 	<!-- ==================== RolesOfUser ==================== -->
 	
 	<bean id="RolesOfUserAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RolesOfUserAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.RolesOfUserAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.User"/>
@@ -48,7 +48,7 @@
 	<!-- ==================== UserUserGroups ==================== -->
 	
 	<bean id="UserUserGroupsAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.UserUserGroupsAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.UserUserGroupsAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.UserGroup"/>
@@ -67,7 +67,7 @@
 	<!-- ==================== UserGroupUsers ==================== -->
 	
 	<bean id="UserGroupUsersAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.UserGroupUsersAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.UserGroupUsersAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.User"/>
@@ -86,7 +86,7 @@
 	<!-- ==================== AccessControlRoles ==================== -->
 	
 	<bean id="AccessControlRolesAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.AccessControlRolesAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.AccessControlRolesAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
@@ -105,7 +105,7 @@
 	<!-- ==================== RolesOfAccessControl ==================== -->
 	
 	<bean id="RolesOfAccessControlAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RolesOfAccessControlAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.RolesOfAccessControlAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AccessControl"/>
@@ -124,7 +124,7 @@
 	<!-- ==================== MenuItemRoles ==================== -->
 	
 	<bean id="MenuItemRolesAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.MenuItemRolesAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.MenuItemRolesAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
@@ -143,7 +143,7 @@
 	<!-- ==================== RoleMenuItems ==================== -->
 	
 	<bean id="RoleMenuItemsAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RoleMenuItemsAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.RoleMenuItemsAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.MenuItem"/>
@@ -162,7 +162,7 @@
 	<!-- ==================== MenuRoles ==================== -->
 	
 	<bean id="MenuRolesAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.MenuRolesAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.MenuRolesAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
@@ -181,7 +181,7 @@
 	<!-- ==================== RoleMenus ==================== -->
 	
 	<bean id="RoleMenusAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RoleMenusAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.asgn.RoleMenusAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Menu"/>

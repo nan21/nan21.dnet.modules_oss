@@ -10,7 +10,7 @@
 	<!-- ==================== CategoriesOfProduct ==================== -->
 	
 	<bean id="CategoriesOfProductAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.asgn.CategoriesOfProductAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.asgn.CategoriesOfProductAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductCategory"/>
@@ -29,7 +29,7 @@
 	<!-- ==================== ProductsOfCategory ==================== -->
 	
 	<bean id="ProductsOfCategoryAsgnService" scope="prototype"
-			class="net.nan21.dnet.core.presenter.service.asgn.BaseAsgnService">
+			class="net.nan21.dnet.core.presenter.service.asgn.DefaultAsgnService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.asgn.ProductsOfCategoryAsgn"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.asgn.ProductsOfCategoryAsgn"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.Product"/>

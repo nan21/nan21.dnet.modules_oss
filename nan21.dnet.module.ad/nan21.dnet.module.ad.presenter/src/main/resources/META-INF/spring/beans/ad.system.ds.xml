@@ -10,7 +10,7 @@
 	<!-- ==================== SysParam ==================== -->
 	
 	<bean id="SysParamDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysParamDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysParamDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysParam"/>
@@ -39,7 +39,7 @@
 	<!-- ==================== SysJob ==================== -->
 	
 	<bean id="SysJobDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysJobDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJob"/>
@@ -68,7 +68,7 @@
 	<!-- ==================== SysJobLov ==================== -->
 	
 	<bean id="SysJobLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJob"/>
@@ -83,7 +83,7 @@
 	<!-- ==================== SysJobParam ==================== -->
 	
 	<bean id="SysJobParamDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobParamDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysJobParamDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobParam"/>
@@ -98,7 +98,7 @@
 	<!-- ==================== SysJobParamLov ==================== -->
 	
 	<bean id="SysJobParamLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobParamLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobParamLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobParam"/>
@@ -113,7 +113,7 @@
 	<!-- ==================== SysJobCtx ==================== -->
 	
 	<bean id="SysJobCtxDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysJobCtxDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx"/>
@@ -127,7 +127,7 @@
 	<!-- ==================== SysJobCtxLov ==================== -->
 	
 	<bean id="SysJobCtxLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx"/>
@@ -142,7 +142,7 @@
 	<!-- ==================== SysJobCtxParam ==================== -->
 	
 	<bean id="SysJobCtxParamDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxParamDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysJobCtxParamDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtxParam"/>
@@ -157,7 +157,7 @@
 	<!-- ==================== SysTimer ==================== -->
 	
 	<bean id="SysTimerDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysTimerDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysTimer"/>
@@ -172,7 +172,7 @@
 	<!-- ==================== SysTimerLov ==================== -->
 	
 	<bean id="SysTimerLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysTimer"/>
@@ -187,7 +187,7 @@
 	<!-- ==================== SysDataSource ==================== -->
 	
 	<bean id="SysDataSourceDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysDataSourceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
@@ -216,7 +216,7 @@
 	<!-- ==================== SysDataSourceLov ==================== -->
 	
 	<bean id="SysDataSourceLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
@@ -231,7 +231,7 @@
 	<!-- ==================== SysDataSourceDsLov ==================== -->
 	
 	<bean id="SysDataSourceDsLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDsLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDsLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
@@ -246,7 +246,7 @@
 	<!-- ==================== SysDataSourceAsgnLov ==================== -->
 	
 	<bean id="SysDataSourceAsgnLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceAsgnLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceAsgnLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
@@ -261,7 +261,7 @@
 	<!-- ==================== SysDsField ==================== -->
 	
 	<bean id="SysDsFieldDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysDsFieldDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsField"/>
@@ -276,7 +276,7 @@
 	<!-- ==================== SysDsFieldLov ==================== -->
 	
 	<bean id="SysDsFieldLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsField"/>
@@ -291,7 +291,7 @@
 	<!-- ==================== SysDsService ==================== -->
 	
 	<bean id="SysDsServiceDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysDsServiceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsService"/>
@@ -306,7 +306,7 @@
 	<!-- ==================== SysDsServiceLov ==================== -->
 	
 	<bean id="SysDsServiceLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsService"/>
@@ -321,7 +321,7 @@
 	<!-- ==================== SysDsEvent ==================== -->
 	
 	<bean id="SysDsEventDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysDsEventDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent"/>
@@ -336,7 +336,7 @@
 	<!-- ==================== SysDsEventLov ==================== -->
 	
 	<bean id="SysDsEventLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent"/>
@@ -351,7 +351,7 @@
 	<!-- ==================== SysFrameExtension ==================== -->
 	
 	<bean id="SysFrameExtensionDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysFrameExtensionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysFrameExtension"/>
@@ -365,7 +365,7 @@
 	<!-- ==================== SysDateFormat ==================== -->
 	
 	<bean id="SysDateFormatDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.SysDateFormatDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat"/>
@@ -379,7 +379,7 @@
 	<!-- ==================== SysDateFormatLov ==================== -->
 	
 	<bean id="SysDateFormatLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat"/>
@@ -394,7 +394,7 @@
 	<!-- ==================== UiViewState ==================== -->
 	
 	<bean id="UiViewStateDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.UiViewStateDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.UiViewState"/>
@@ -408,7 +408,7 @@
 	<!-- ==================== UiViewStateRTLov ==================== -->
 	
 	<bean id="UiViewStateRTLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateRTLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.UiViewStateRTLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.UiViewState"/>
@@ -424,7 +424,7 @@
 	<!-- ==================== AuditFieldRep ==================== -->
 	
 	<bean id="AuditFieldRepDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.filter.AuditFieldRepDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.AuditField"/>

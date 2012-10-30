@@ -10,7 +10,7 @@
 	<!-- ==================== AccSchema ==================== -->
 	
 	<bean id="AccSchemaDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccSchemaDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccSchema"/>
@@ -24,7 +24,7 @@
 	<!-- ==================== AccSchemaLov ==================== -->
 	
 	<bean id="AccSchemaLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccSchema"/>
@@ -39,7 +39,7 @@
 	<!-- ==================== Account ==================== -->
 	
 	<bean id="AccountDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccountDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccountDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.Account"/>
@@ -54,7 +54,7 @@
 	<!-- ==================== AccountLov ==================== -->
 	
 	<bean id="AccountLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccountLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccountLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.Account"/>
@@ -69,7 +69,7 @@
 	<!-- ==================== AccItem ==================== -->
 	
 	<bean id="AccItemDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccItemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccItem"/>
@@ -83,7 +83,7 @@
 	<!-- ==================== AccItemLov ==================== -->
 	
 	<bean id="AccItemLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccItem"/>
@@ -98,7 +98,7 @@
 	<!-- ==================== AccItemAcct ==================== -->
 	
 	<bean id="AccItemAcctDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemAcctDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccItemAcctDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccItemAcct"/>
@@ -113,7 +113,7 @@
 	<!-- ==================== AccJournal ==================== -->
 	
 	<bean id="AccJournalDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccJournalDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccJournal"/>
@@ -127,7 +127,7 @@
 	<!-- ==================== AccJournalLov ==================== -->
 	
 	<bean id="AccJournalLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccJournal"/>

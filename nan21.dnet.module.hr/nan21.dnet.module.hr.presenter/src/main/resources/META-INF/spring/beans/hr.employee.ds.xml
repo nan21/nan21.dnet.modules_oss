@@ -10,7 +10,7 @@
 	<!-- ==================== Employee ==================== -->
 	
 	<bean id="EmployeeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmployeeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.Employee"/>
@@ -25,7 +25,7 @@
 	<!-- ==================== EmployeeLov ==================== -->
 	
 	<bean id="EmployeeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.Employee"/>
@@ -40,7 +40,7 @@
 	<!-- ==================== EmployeeAssignment ==================== -->
 	
 	<bean id="EmployeeAssignmentDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeAssignmentDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmployeeAssignmentDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeAssignment"/>
@@ -57,7 +57,7 @@
 	<!-- ==================== EmployeeContact ==================== -->
 	
 	<bean id="EmployeeContactDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmployeeContactDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContact"/>
@@ -72,7 +72,7 @@
 	<!-- ==================== EmployeeEducation ==================== -->
 	
 	<bean id="EmployeeEducationDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeEducationDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmployeeEducationDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeEducation"/>
@@ -87,7 +87,7 @@
 	<!-- ==================== EmployeeWorkExperience ==================== -->
 	
 	<bean id="EmployeeWorkExperienceDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmployeeWorkExperienceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeWorkExperience"/>
@@ -102,7 +102,7 @@
 	<!-- ==================== EmployeeLicense ==================== -->
 	
 	<bean id="EmployeeLicenseDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmployeeLicenseDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeLicense"/>
@@ -117,7 +117,7 @@
 	<!-- ==================== EducationType ==================== -->
 	
 	<bean id="EducationTypeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EducationTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EducationType"/>
@@ -131,7 +131,7 @@
 	<!-- ==================== EducationTypeLov ==================== -->
 	
 	<bean id="EducationTypeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EducationType"/>
@@ -146,7 +146,7 @@
 	<!-- ==================== LicenseType ==================== -->
 	
 	<bean id="LicenseTypeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.LicenseTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.LicenseType"/>
@@ -160,7 +160,7 @@
 	<!-- ==================== LicenseTypeLov ==================== -->
 	
 	<bean id="LicenseTypeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.LicenseType"/>
@@ -175,7 +175,7 @@
 	<!-- ==================== EmployeeContactRelationship ==================== -->
 	
 	<bean id="EmployeeContactRelationshipDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmployeeContactRelationshipDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactRelationship"/>
@@ -189,7 +189,7 @@
 	<!-- ==================== EmployeeContactRelationshipLov ==================== -->
 	
 	<bean id="EmployeeContactRelationshipLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactRelationship"/>
@@ -204,7 +204,7 @@
 	<!-- ==================== EmploymentType ==================== -->
 	
 	<bean id="EmploymentTypeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.filter.EmploymentTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType"/>
@@ -218,7 +218,7 @@
 	<!-- ==================== EmploymentTypeLov ==================== -->
 	
 	<bean id="EmploymentTypeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType"/>

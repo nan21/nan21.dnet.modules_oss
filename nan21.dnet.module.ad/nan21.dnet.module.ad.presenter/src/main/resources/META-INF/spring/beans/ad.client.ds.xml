@@ -25,7 +25,7 @@
 	<!-- ==================== MyClient ==================== -->
 	
 	<bean id="MyClientDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.client.ds.model.MyClientDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.client.ds.model.MyClientDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.client.domain.entity.Client"/>

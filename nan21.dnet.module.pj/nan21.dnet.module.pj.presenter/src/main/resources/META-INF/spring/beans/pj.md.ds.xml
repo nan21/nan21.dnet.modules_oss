@@ -10,7 +10,7 @@
 	<!-- ==================== Project ==================== -->
 	
 	<bean id="ProjectDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.ProjectDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.Project"/>
@@ -25,7 +25,7 @@
 	<!-- ==================== ProjectLov ==================== -->
 	
 	<bean id="ProjectLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.Project"/>
@@ -40,7 +40,7 @@
 	<!-- ==================== ProjectVersion ==================== -->
 	
 	<bean id="ProjectVersionDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectVersionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.ProjectVersionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion"/>
@@ -57,7 +57,7 @@
 	<!-- ==================== ProjectVersionLov ==================== -->
 	
 	<bean id="ProjectVersionLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectVersionLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectVersionLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion"/>
@@ -72,7 +72,7 @@
 	<!-- ==================== ProjectVersionPlannedLov ==================== -->
 	
 	<bean id="ProjectVersionPlannedLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion"/>
@@ -87,7 +87,7 @@
 	<!-- ==================== ProjectVersionReleasedLov ==================== -->
 	
 	<bean id="ProjectVersionReleasedLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectVersionReleasedLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectVersionReleasedLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion"/>
@@ -102,7 +102,7 @@
 	<!-- ==================== ProjectComponent ==================== -->
 	
 	<bean id="ProjectComponentDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectComponentDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.ProjectComponentDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectComponent"/>
@@ -117,7 +117,7 @@
 	<!-- ==================== ProjectComponentLov ==================== -->
 	
 	<bean id="ProjectComponentLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectComponentLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectComponentLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectComponent"/>
@@ -132,7 +132,7 @@
 	<!-- ==================== ProjectMember ==================== -->
 	
 	<bean id="ProjectMemberDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectMemberDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.ProjectMemberDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectMember"/>
@@ -147,7 +147,7 @@
 	<!-- ==================== ProjectMemberLov ==================== -->
 	
 	<bean id="ProjectMemberLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectMemberLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.model.ProjectMemberLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.ProjectMember"/>
@@ -162,7 +162,7 @@
 	<!-- ==================== IssueChangelog ==================== -->
 	
 	<bean id="IssueChangelogDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueChangelogDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.IssueChangelogDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.Issue"/>
@@ -177,7 +177,7 @@
 	<!-- ==================== IssueRoadmap ==================== -->
 	
 	<bean id="IssueRoadmapDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueRoadmapDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.IssueRoadmapDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.Issue"/>
@@ -192,7 +192,7 @@
 	<!-- ==================== Issue ==================== -->
 	
 	<bean id="IssueDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.IssueDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.Issue"/>
@@ -209,7 +209,7 @@
 	<!-- ==================== IssueLov ==================== -->
 	
 	<bean id="IssueLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.Issue"/>
@@ -224,7 +224,7 @@
 	<!-- ==================== IssueTask ==================== -->
 	
 	<bean id="IssueTaskDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueTaskDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.IssueTaskDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.IssueTask"/>
@@ -239,7 +239,7 @@
 	<!-- ==================== IssueText ==================== -->
 	
 	<bean id="IssueTextDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueTextDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.IssueTextDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.IssueText"/>
@@ -254,7 +254,7 @@
 	<!-- ==================== IssueLink ==================== -->
 	
 	<bean id="IssueLinkDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.md.ds.model.IssueLinkDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.pj.md.ds.filter.IssueLinkDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.md.domain.entity.IssueLink"/>

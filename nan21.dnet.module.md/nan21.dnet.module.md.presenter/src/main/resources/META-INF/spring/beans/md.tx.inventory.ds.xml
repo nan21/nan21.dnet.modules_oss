@@ -10,7 +10,7 @@
 	<!-- ==================== InvTransactionType ==================== -->
 	
 	<bean id="InvTransactionTypeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.inventory.ds.filter.InvTransactionTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType"/>
@@ -25,7 +25,7 @@
 	<!-- ==================== InvTransactionTypeLov ==================== -->
 	
 	<bean id="InvTransactionTypeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType"/>
@@ -40,7 +40,7 @@
 	<!-- ==================== InvTransaction ==================== -->
 	
 	<bean id="InvTransactionDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.inventory.ds.filter.InvTransactionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransaction"/>
@@ -55,7 +55,7 @@
 	<!-- ==================== InvTransactionLine ==================== -->
 	
 	<bean id="InvTransactionLineDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionLineDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.inventory.ds.filter.InvTransactionLineDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionLine"/>
@@ -70,7 +70,7 @@
 	<!-- ==================== InvTransfer ==================== -->
 	
 	<bean id="InvTransferDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.inventory.ds.filter.InvTransferDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransfer"/>
@@ -117,7 +117,7 @@
 	<!-- ==================== InvOperation ==================== -->
 	
 	<bean id="InvOperationDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvOperationDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.inventory.ds.filter.InvOperationDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.inventory.domain.entity.InvOperation"/>
@@ -132,7 +132,7 @@
 	<!-- ==================== InvBalance ==================== -->
 	
 	<bean id="InvBalanceDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.inventory.ds.filter.InvBalanceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.inventory.domain.entity.InvBalance"/>

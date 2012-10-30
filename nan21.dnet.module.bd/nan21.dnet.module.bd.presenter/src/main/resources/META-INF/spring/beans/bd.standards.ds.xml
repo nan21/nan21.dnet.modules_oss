@@ -10,7 +10,7 @@
 	<!-- ==================== ClassificationSystem ==================== -->
 	
 	<bean id="ClassificationSystemDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.filter.ClassificationSystemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem"/>
@@ -24,7 +24,7 @@
 	<!-- ==================== ClassificationSystemLov ==================== -->
 	
 	<bean id="ClassificationSystemLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem"/>
@@ -39,7 +39,7 @@
 	<!-- ==================== ClassificationItem ==================== -->
 	
 	<bean id="ClassificationItemDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.filter.ClassificationItemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem"/>
@@ -54,7 +54,7 @@
 	<!-- ==================== ClassificationItemLov ==================== -->
 	
 	<bean id="ClassificationItemLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem"/>

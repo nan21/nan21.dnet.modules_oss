@@ -10,7 +10,7 @@
 	<!-- ==================== SalesInvoice ==================== -->
 	
 	<bean id="SalesInvoiceDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesInvoiceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoice"/>
@@ -65,7 +65,7 @@
 	<!-- ==================== SalesInvoiceItem ==================== -->
 	
 	<bean id="SalesInvoiceItemDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesInvoiceItemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoiceItem"/>
@@ -95,7 +95,7 @@
 	<!-- ==================== SalesInvoiceItemTax ==================== -->
 	
 	<bean id="SalesInvoiceItemTaxDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceItemTaxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesInvoiceItemTaxDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoiceItemTax"/>
@@ -110,7 +110,7 @@
 	<!-- ==================== SalesInvoiceTax ==================== -->
 	
 	<bean id="SalesInvoiceTaxDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceTaxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesInvoiceTaxDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoiceTax"/>
@@ -125,7 +125,7 @@
 	<!-- ==================== PaymentIn ==================== -->
 	
 	<bean id="PaymentInDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.PaymentInDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.PaymentInDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.PaymentIn"/>
@@ -180,7 +180,7 @@
 	<!-- ==================== PaymentInAmount ==================== -->
 	
 	<bean id="PaymentInAmountDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.PaymentInAmountDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.PaymentInAmount"/>
@@ -195,7 +195,7 @@
 	<!-- ==================== SalesTxAmount ==================== -->
 	
 	<bean id="SalesTxAmountDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesTxAmountDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount"/>

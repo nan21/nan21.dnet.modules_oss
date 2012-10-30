@@ -10,7 +10,7 @@
 	<!-- ==================== User ==================== -->
 	
 	<bean id="UserDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.UserDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.User"/>
@@ -49,7 +49,7 @@
 	<!-- ==================== MyUserSettings ==================== -->
 	
 	<bean id="MyUserSettingsDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.User"/>
@@ -65,7 +65,7 @@
 	<!-- ==================== UserLov ==================== -->
 	
 	<bean id="UserLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.User"/>
@@ -80,7 +80,7 @@
 	<!-- ==================== UserType ==================== -->
 	
 	<bean id="UserTypeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.UserTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.UserType"/>
@@ -94,7 +94,7 @@
 	<!-- ==================== UserTypeLov ==================== -->
 	
 	<bean id="UserTypeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.UserType"/>
@@ -109,7 +109,7 @@
 	<!-- ==================== UserGroup ==================== -->
 	
 	<bean id="UserGroupDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserGroupDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.UserGroupDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.UserGroup"/>
@@ -123,7 +123,7 @@
 	<!-- ==================== UserGroupLov ==================== -->
 	
 	<bean id="UserGroupLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserGroupLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserGroupLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.UserGroup"/>
@@ -138,7 +138,7 @@
 	<!-- ==================== Role ==================== -->
 	
 	<bean id="RoleDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.RoleDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.RoleDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
@@ -152,7 +152,7 @@
 	<!-- ==================== RoleLov ==================== -->
 	
 	<bean id="RoleLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.RoleLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.RoleLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
@@ -167,7 +167,7 @@
 	<!-- ==================== RolesOfUserLov ==================== -->
 	
 	<bean id="RolesOfUserLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.RolesOfUserLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.RolesOfUserLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
@@ -182,7 +182,7 @@
 	<!-- ==================== AccessControl ==================== -->
 	
 	<bean id="AccessControlDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AccessControlDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.AccessControlDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AccessControl"/>
@@ -213,7 +213,7 @@
 	<!-- ==================== AccessControlLov ==================== -->
 	
 	<bean id="AccessControlLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AccessControlLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.AccessControlLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AccessControl"/>
@@ -228,7 +228,7 @@
 	<!-- ==================== DsMethodAccessControl ==================== -->
 	
 	<bean id="DsMethodAccessControlDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.DsMethodAccessControlDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.DsMethodAccessControlDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.DsMethodAccessControl"/>
@@ -243,7 +243,7 @@
 	<!-- ==================== DsAccessControl ==================== -->
 	
 	<bean id="DsAccessControlDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.DsAccessControlDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.DsAccessControl"/>
@@ -258,7 +258,7 @@
 	<!-- ==================== AsgnAccessControl ==================== -->
 	
 	<bean id="AsgnAccessControlDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AsgnAccessControlDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.AsgnAccessControlDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AsgnAccessControl"/>
@@ -273,7 +273,7 @@
 	<!-- ==================== Menu ==================== -->
 	
 	<bean id="MenuDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.MenuDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Menu"/>
@@ -287,7 +287,7 @@
 	<!-- ==================== MenuRtLov ==================== -->
 	
 	<bean id="MenuRtLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuRtLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.MenuRtLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Menu"/>
@@ -302,7 +302,7 @@
 	<!-- ==================== MenuLov ==================== -->
 	
 	<bean id="MenuLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.MenuLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Menu"/>
@@ -316,7 +316,7 @@
 	<!-- ==================== MenuItem ==================== -->
 	
 	<bean id="MenuItemDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.MenuItemDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.MenuItem"/>
@@ -331,7 +331,7 @@
 	<!-- ==================== MenuItemRtLov ==================== -->
 	
 	<bean id="MenuItemRtLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemRtLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.MenuItemRtLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.MenuItem"/>
@@ -347,7 +347,7 @@
 	<!-- ==================== MenuItemLov ==================== -->
 	
 	<bean id="MenuItemLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.MenuItemLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.MenuItem"/>
@@ -361,7 +361,7 @@
 	<!-- ==================== Bookmark ==================== -->
 	
 	<bean id="BookmarkDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.BookmarkDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.BookmarkDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Bookmark"/>
@@ -376,7 +376,7 @@
 	<!-- ==================== BookmarkRtLov ==================== -->
 	
 	<bean id="BookmarkRtLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.BookmarkRtLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.BookmarkRtLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Bookmark"/>
@@ -391,7 +391,7 @@
 	<!-- ==================== AssignableType ==================== -->
 	
 	<bean id="AssignableTypeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.AssignableTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AssignableType"/>
@@ -405,7 +405,7 @@
 	<!-- ==================== AssignableTypeLov ==================== -->
 	
 	<bean id="AssignableTypeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AssignableType"/>
@@ -420,7 +420,7 @@
 	<!-- ==================== Assignable ==================== -->
 	
 	<bean id="AssignableDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.filter.AssignableDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Assignable"/>
@@ -435,7 +435,7 @@
 	<!-- ==================== AssignableLov ==================== -->
 	
 	<bean id="AssignableLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Assignable"/>

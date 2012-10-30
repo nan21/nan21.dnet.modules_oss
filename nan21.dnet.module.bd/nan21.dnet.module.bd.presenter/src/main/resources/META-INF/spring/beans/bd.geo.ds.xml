@@ -10,7 +10,7 @@
 	<!-- ==================== Country ==================== -->
 	
 	<bean id="CountryDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.CountryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Country"/>
@@ -24,7 +24,7 @@
 	<!-- ==================== CountryLov ==================== -->
 	
 	<bean id="CountryLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Country"/>
@@ -39,7 +39,7 @@
 	<!-- ==================== Region ==================== -->
 	
 	<bean id="RegionDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.RegionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Region"/>
@@ -54,7 +54,7 @@
 	<!-- ==================== RegionLov ==================== -->
 	
 	<bean id="RegionLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Region"/>
@@ -69,7 +69,7 @@
 	<!-- ==================== City ==================== -->
 	
 	<bean id="CityDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CityDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.CityDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.City"/>
@@ -84,7 +84,7 @@
 	<!-- ==================== Location ==================== -->
 	
 	<bean id="LocationDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.LocationDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Location"/>
@@ -99,7 +99,7 @@
 	<!-- ==================== LocationLov ==================== -->
 	
 	<bean id="LocationLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Location"/>
@@ -114,7 +114,7 @@
 	<!-- ==================== LocationToBillLov ==================== -->
 	
 	<bean id="LocationToBillLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationToBillLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationToBillLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Location"/>
@@ -129,7 +129,7 @@
 	<!-- ==================== LocationToShipLov ==================== -->
 	
 	<bean id="LocationToShipLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationToShipLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationToShipLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Location"/>

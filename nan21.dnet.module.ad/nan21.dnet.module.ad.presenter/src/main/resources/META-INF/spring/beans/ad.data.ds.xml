@@ -10,7 +10,7 @@
 	<!-- ==================== Note ==================== -->
 	
 	<bean id="NoteDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.NoteDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.filter.NoteDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.Note"/>
@@ -24,7 +24,7 @@
 	<!-- ==================== AttachmentType ==================== -->
 	
 	<bean id="AttachmentTypeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.filter.AttachmentTypeDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.AttachmentType"/>
@@ -38,7 +38,7 @@
 	<!-- ==================== AttachmentTypeLov ==================== -->
 	
 	<bean id="AttachmentTypeLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.AttachmentType"/>
@@ -53,7 +53,7 @@
 	<!-- ==================== Attachment ==================== -->
 	
 	<bean id="AttachmentDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.filter.AttachmentDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.Attachment"/>

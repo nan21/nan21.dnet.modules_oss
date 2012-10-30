@@ -10,7 +10,7 @@
 	<!-- ==================== Opportunity ==================== -->
 	
 	<bean id="OpportunityDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.filter.OpportunityDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.Opportunity"/>
@@ -25,7 +25,7 @@
 	<!-- ==================== OpportunityStatus ==================== -->
 	
 	<bean id="OpportunityStatusDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityStatusDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.filter.OpportunityStatusDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStatus"/>
@@ -39,7 +39,7 @@
 	<!-- ==================== OpportunityStatusLov ==================== -->
 	
 	<bean id="OpportunityStatusLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityStatusLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityStatusLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStatus"/>
@@ -54,7 +54,7 @@
 	<!-- ==================== OpportunityPriority ==================== -->
 	
 	<bean id="OpportunityPriorityDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityPriorityDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.filter.OpportunityPriorityDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityPriority"/>
@@ -68,7 +68,7 @@
 	<!-- ==================== OpportunityPriorityLov ==================== -->
 	
 	<bean id="OpportunityPriorityLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityPriorityLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityPriorityLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityPriority"/>
@@ -83,7 +83,7 @@
 	<!-- ==================== OpportunitySource ==================== -->
 	
 	<bean id="OpportunitySourceDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunitySourceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.filter.OpportunitySourceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunitySource"/>
@@ -97,7 +97,7 @@
 	<!-- ==================== OpportunitySourceLov ==================== -->
 	
 	<bean id="OpportunitySourceLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunitySourceLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunitySourceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunitySource"/>
@@ -112,7 +112,7 @@
 	<!-- ==================== OpportunityStage ==================== -->
 	
 	<bean id="OpportunityStageDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityStageDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.filter.OpportunityStageDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage"/>
@@ -126,7 +126,7 @@
 	<!-- ==================== OpportunityStageLov ==================== -->
 	
 	<bean id="OpportunityStageLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityStageLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityStageLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage"/>
@@ -141,7 +141,7 @@
 	<!-- ==================== OpportunityResultReason ==================== -->
 	
 	<bean id="OpportunityResultReasonDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityResultReasonDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.filter.OpportunityResultReasonDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityResultReason"/>
@@ -155,7 +155,7 @@
 	<!-- ==================== OpportunityResultReasonLov ==================== -->
 	
 	<bean id="OpportunityResultReasonLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityResultReasonLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityResultReasonLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityResultReason"/>

@@ -102,16 +102,20 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Filter", {
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 			.addPanel({ name:"col2", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
+			.addPanel({ name:"col3", width:200, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
 			.addPanel({ name:"col4", width:200, layout:"form"})
+			.addPanel({ name:"col5", width:200, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2", "col4"])
-			.addChildrenTo("col1", ["project", "type", "code", "summary", "description"])
-			.addChildrenTo("col2", ["status", "severity", "priority", "resolution", "assignee"])
-			.addChildrenTo("col4", ["reportedVersion", "targetVersion", "fixedInVersion", "affectedComponent", "affectedVersion"])
+			.addChildrenTo("main", ["col1", "col2", "col3", "col4", "col5"])
+			.addChildrenTo("col1", ["project", "type", "code"])
+			.addChildrenTo("col2", ["summary", "description", "assignee"])
+			.addChildrenTo("col3", ["status", "severity", "priority"])
+			.addChildrenTo("col4", ["affectedComponent", "affectedVersion", "resolution"])
+			.addChildrenTo("col5", ["reportedVersion", "targetVersion", "fixedInVersion"])
 		;
 	}});
 

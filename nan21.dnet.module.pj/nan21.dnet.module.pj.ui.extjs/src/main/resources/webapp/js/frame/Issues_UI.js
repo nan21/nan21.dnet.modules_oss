@@ -54,7 +54,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			.addButton({name:"btnChangelogUi", text:"Changelog", tooltip:"Open changelog frame", disabled:false,
 					handler: this.onBtnChangelogUi, scope:this})
 			
-			.addDcFilterFormView("issue", {name:"issueFilter", height:180, xtype:"pj_md_dc_Issue$Filter"})
+			.addDcFilterFormView("issue", {name:"issueFilter", xtype:"pj_md_dc_Issue$Filter"})
 			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_Issue$List"})
 			.addDcFormView("issue", {name:"issueEdit", height:240, xtype:"pj_md_dc_Issue$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

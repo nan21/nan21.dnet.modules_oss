@@ -10,7 +10,7 @@
 	<!-- ==================== TaxCategory ==================== -->
 	
 	<bean id="TaxCategoryDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tax.ds.model.TaxCategoryDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tax.ds.filter.TaxCategoryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tax.domain.entity.TaxCategory"/>
@@ -24,7 +24,7 @@
 	<!-- ==================== TaxCategoryLov ==================== -->
 	
 	<bean id="TaxCategoryLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tax.ds.model.TaxCategoryLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tax.ds.filter.TaxCategoryLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tax.domain.entity.TaxCategory"/>
@@ -39,7 +39,7 @@
 	<!-- ==================== Tax ==================== -->
 	
 	<bean id="TaxDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tax.ds.model.TaxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tax.ds.filter.TaxDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tax.domain.entity.Tax"/>
@@ -54,7 +54,7 @@
 	<!-- ==================== TaxLov ==================== -->
 	
 	<bean id="TaxLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tax.ds.model.TaxLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tax.ds.filter.TaxLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tax.domain.entity.Tax"/>
@@ -69,7 +69,7 @@
 	<!-- ==================== TaxApplicableLov ==================== -->
 	
 	<bean id="TaxApplicableLovDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tax.ds.model.TaxApplicableLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tax.ds.filter.TaxApplicableLovDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tax.domain.entity.Tax"/>
@@ -84,7 +84,7 @@
 	<!-- ==================== TaxAcct ==================== -->
 	
 	<bean id="TaxAcctDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tax.ds.filter.TaxAcctDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tax.domain.entity.TaxAcct"/>

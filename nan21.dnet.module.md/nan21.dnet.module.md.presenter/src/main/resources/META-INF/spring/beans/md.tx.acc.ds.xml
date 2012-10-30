@@ -10,7 +10,7 @@
 	<!-- ==================== AccDoc ==================== -->
 	
 	<bean id="AccDocDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.filter.AccDocDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccDoc"/>
@@ -49,7 +49,7 @@
 	<!-- ==================== AccDocLine ==================== -->
 	
 	<bean id="AccDocLineDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.filter.AccDocLineDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine"/>
@@ -64,7 +64,7 @@
 	<!-- ==================== AccDocLineCtx ==================== -->
 	
 	<bean id="AccDocLineCtxDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineCtxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.filter.AccDocLineCtxDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine"/>
@@ -79,7 +79,7 @@
 	<!-- ==================== AccOperation ==================== -->
 	
 	<bean id="AccOperationDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccOperationDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.filter.AccOperationDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccOperation"/>
@@ -94,7 +94,7 @@
 	<!-- ==================== AccBalance ==================== -->
 	
 	<bean id="AccBalanceDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.BaseEntityDsService">
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.filter.AccBalanceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccBalance"/>

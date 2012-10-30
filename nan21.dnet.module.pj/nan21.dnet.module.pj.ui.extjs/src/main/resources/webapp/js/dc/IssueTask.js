@@ -49,7 +49,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTask$Filter", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "issuePriorityId"} 
 				]})
-			.addLov({xtype:"pj_md_lovs_Projects", name:"project", dataIndex:"project", allowBlank:false, anchor:"-20", maxLength:32,
+			.addLov({xtype:"pj_md_lovs_Projects", name:"project", dataIndex:"project", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "projectId"} 
 				]})
