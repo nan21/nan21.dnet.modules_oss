@@ -151,7 +151,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$EditExpression", {
 			/* controls */
 			.addTextArea({ name:"expression", dataIndex:"expression", anchor:"-20"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
 	},
 
@@ -174,7 +174,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$ViewExpression", {
 			/* controls */
 			.addDisplayFieldText({ name:"expression", dataIndex:"expression", anchor:"-20", asText:true})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true, layout:"form", defaults:{labelAlign:"top"}})
+			.addPanel({ name:"main", autoScroll:true, layout:"fit", defaults:{labelAlign:"right"}})
 		;
 	},
 
