@@ -39,15 +39,14 @@
 	</osgi-compendium:cm-properties> 
 
 	<context:annotation-config />
-	<context:load-time-weaver aspectj-weaving="on"/>
 
-    <import resource="emf/mc-emf-${dnet.emf.type}.xml"/> 
+    <import resource="emf/mc-emf-${dnet.emf.type}.xml"/>
 
   	<bean id="serviceLocator" 
   		class="net.nan21.dnet.core.business.service.ServiceLocatorBusiness"/>
 
 	<bean id="baseAsgnTxService" scope="prototype"
-	  	class="net.nan21.dnet.core.business.service.asgn.DefaultAsgnTxService"  />
+	  	class="net.nan21.dnet.core.business.service.asgn.DefaultAsgnTxService"/>
 
 	<bean id="entityServiceFactory" 
 		class="net.nan21.dnet.core.business.service.entity.EntityServiceFactory"/>
@@ -92,8 +91,8 @@
 		<aop:advisor advice-ref="txAdviceSetupParticipant" pointcut-ref="setupParticipantRun"/>
 	</aop:config>
 
-	<bean id="setupParticipant" class="net.nan21.dnet.module.sd._businessdelegates.Setup_SD" scope="singleton" >		
-		<property name="ranking" value="30"></property>		
+	<bean id="setupParticipant" class="net.nan21.dnet.module.sd._businessdelegates.Setup_SD" scope="singleton">
+		<property name="ranking" value="30"></property>
 	</bean>
 
 	<!-- module business specific -->
