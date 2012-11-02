@@ -62,7 +62,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 			.addButton({name:"btnShowOrder", text:"Show Order", tooltip:"Show the sales order linked to this invoice", disabled:true,
 					handler: this.onBtnShowOrder, scope:this, stateManager:{name:"selected_one", dc:"inv" , and: function(dc) {return (dc.record && dc.record.get("salesOrderId"));}}})
 			
-			.addDcFilterFormView("inv", {name:"invFilter", height:150, xtype:"sd_invoice_dc_SalesInvoice$Filter"})
+			.addDcFilterFormView("inv", {name:"invFilter", xtype:"sd_invoice_dc_SalesInvoice$Filter"})
 			.addDcGridView("inv", {name:"invList", xtype:"sd_invoice_dc_SalesInvoice$List"})
 			.addDcFormView("inv", {name:"invEditMain", height:200, xtype:"sd_invoice_dc_SalesInvoice$EditMain", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

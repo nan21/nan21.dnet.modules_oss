@@ -78,18 +78,20 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$Filter", {
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:250, layout:"form"})
 			.addPanel({ name:"col2", width:220, layout:"form"})
-			.addPanel({ name:"col3", width:300, layout:"form"})
-			.addPanel({ name:"col4", width:170, layout:"form"})
+			.addPanel({ name:"col3", width:220, layout:"form"})
+			.addPanel({ name:"col4", width:300, layout:"form"})
+			.addPanel({ name:"col5", width:170, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
-			.addChildrenTo("col1", ["supplier", "customer", "docType", "priceList", "paymentTerm"])
-			.addChildrenTo("col2", ["docNo", "code", "currency", "salesOrderCode"])
-			.addChildrenTo("col3", ["docDate", "totalAmount", "totalNetAmount"])
-			.addChildrenTo("col4", ["confirmed", "posted"])
+			.addChildrenTo("main", ["col1", "col2", "col3", "col4", "col5"])
+			.addChildrenTo("col1", ["supplier", "customer", "docType"])
+			.addChildrenTo("col2", ["priceList", "paymentTerm", "salesOrderCode"])
+			.addChildrenTo("col3", ["docNo", "code", "currency"])
+			.addChildrenTo("col4", ["docDate", "totalAmount", "totalNetAmount"])
+			.addChildrenTo("col5", ["confirmed", "posted"])
 		;
 	}});
 
@@ -107,7 +109,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$List", {
 			.addTextColumn({ name:"docNo", dataIndex:"docNo", width:80})
 			.addDateColumn({ name:"docDate", dataIndex:"docDate", format: Dnet.DATE_FORMAT})
 			.addTextColumn({ name:"supplierCode", dataIndex:"supplier", width:100})
-			.addTextColumn({ name:"customerCode", dataIndex:"customerCode", width:100})
+			.addTextColumn({ name:"customerCode", dataIndex:"customerCode", hidden:true, width:100})
+			.addTextColumn({ name:"customer", dataIndex:"customer", width:200})
 			.addTextColumn({ name:"currency", dataIndex:"currency", width:100})
 			.addTextColumn({ name:"docType", dataIndex:"docType", width:120})
 			.addNumberColumn({ name:"totalNetAmount", dataIndex:"totalNetAmount", decimals:2})
