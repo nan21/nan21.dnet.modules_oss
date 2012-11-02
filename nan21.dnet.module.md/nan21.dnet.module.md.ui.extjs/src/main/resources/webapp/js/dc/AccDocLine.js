@@ -30,8 +30,8 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDocLine$Filter", {
 			/* controls */
 			.addTextField({ name:"dbAccount", dataIndex:"dbAccount", anchor:"-20"})
 			.addTextField({ name:"crAccount", dataIndex:"crAccount", anchor:"-20"})
-			.addNumberField({name:"dbAmount", dataIndex:"dbAmount", anchor:"-20"})
-			.addNumberField({name:"crAmount", dataIndex:"crAmount", anchor:"-20"})
+			.addNumberField({name:"dbAmount", dataIndex:"dbAmount", anchor:"-20", decimals:2})
+			.addNumberField({name:"crAmount", dataIndex:"crAmount", anchor:"-20", decimals:2})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

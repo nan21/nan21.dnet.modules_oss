@@ -146,7 +146,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "paymentMethodId"} ,{lovField:"type", dsField: "paymentMethodType"} 
 				]})
-			.addNumberField({name:"amount", dataIndex:"amount", allowBlank:false, anchor:"-20"})
+			.addNumberField({name:"amount", dataIndex:"amount", allowBlank:false, anchor:"-20", decimals:2})
 			.addDisplayFieldBoolean({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
 			.addDisplayFieldBoolean({ name:"posted", dataIndex:"posted", anchor:"-20" })
 			/* containers */

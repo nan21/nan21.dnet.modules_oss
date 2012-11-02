@@ -118,7 +118,7 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$EditForm", {
 					{lovField:"id", dsField: "productId"} ,{lovField:"name", dsField: "productName"} ,{lovField:"uom", dsField: "uomCode"} ,{lovField:"uomId", dsField: "uomId"} 
 				]})
 			.addDisplayFieldText({ name:"productName", dataIndex:"productName", anchor:"-20"})
-			.addNumberField({name:"quantity", dataIndex:"quantity", allowBlank:false, anchor:"-20",listeners:{
+			.addNumberField({name:"quantity", dataIndex:"quantity", allowBlank:false, anchor:"-20", decimals:2,listeners:{
 				change:{scope:this, fn:this.calcNetAmount}
 			}
 			})
@@ -130,13 +130,13 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$EditForm", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "taxId"} 
 				]})
-			.addNumberField({name:"unitPrice", dataIndex:"unitPrice", allowBlank:false, anchor:"-20",listeners:{
+			.addNumberField({name:"unitPrice", dataIndex:"unitPrice", allowBlank:false, anchor:"-20", decimals:2,listeners:{
 				change:{scope:this, fn:this.calcNetAmount}
 			}
 			})
-			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})

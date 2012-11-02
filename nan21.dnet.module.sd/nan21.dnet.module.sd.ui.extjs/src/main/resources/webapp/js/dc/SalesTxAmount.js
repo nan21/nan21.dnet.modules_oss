@@ -29,9 +29,9 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmount$Filter", {
 		this._getBuilder_()
 			/* controls */
 			.addDateField({name:"dueDate", dataIndex:"dueDate", anchor:"-20", format:Ext.DATE_FORMAT})
-			.addNumberField({name:"amount", dataIndex:"amount", anchor:"-20"})
-			.addNumberField({name:"payedAmount", dataIndex:"payedAmount", anchor:"-20"})
-			.addNumberField({name:"dueAmount", dataIndex:"dueAmount", anchor:"-20"})
+			.addNumberField({name:"amount", dataIndex:"amount", anchor:"-20", decimals:2})
+			.addNumberField({name:"payedAmount", dataIndex:"payedAmount", anchor:"-20", decimals:2})
+			.addNumberField({name:"dueAmount", dataIndex:"dueAmount", anchor:"-20", decimals:2})
 			.addTextField({ name:"paymentMethod", dataIndex:"paymentMethod", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},

@@ -229,20 +229,20 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Edit", {
 					{lovField:"id", dsField: "defaultUomId"} 
 				]})
 			.addBooleanField({ name:"storable", dataIndex:"storable", anchor:"-20"})
-			.addNumberField({name:"weight", dataIndex:"weight", anchor:"-20"})
+			.addNumberField({name:"weight", dataIndex:"weight", anchor:"-20", decimals:2})
 			.addLov({xtype:"bd_uom_lovs_UomMass", name:"weightUomCode", dataIndex:"weightUomCode", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "weightUomId"} 
 				]})
-			.addNumberField({name:"volume", dataIndex:"volume", anchor:"-20"})
+			.addNumberField({name:"volume", dataIndex:"volume", anchor:"-20", decimals:2})
 			.addNumberField({name:"volumeUomId", dataIndex:"volumeUomId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"bd_uom_lovs_UomVolume", name:"volumeUomCode", dataIndex:"volumeUomCode", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "volumeUomId"} 
 				]})
-			.addNumberField({name:"dimWidth", dataIndex:"dimWidth", anchor:"-20"})
-			.addNumberField({name:"dimHeight", dataIndex:"dimHeight", anchor:"-20"})
-			.addNumberField({name:"dimDepth", dataIndex:"dimDepth", anchor:"-20"})
+			.addNumberField({name:"dimWidth", dataIndex:"dimWidth", anchor:"-20", decimals:2})
+			.addNumberField({name:"dimHeight", dataIndex:"dimHeight", anchor:"-20", decimals:2})
+			.addNumberField({name:"dimDepth", dataIndex:"dimDepth", anchor:"-20", decimals:2})
 			.addNumberField({name:"dimUomId", dataIndex:"dimUomId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"bd_uom_lovs_UomLength", name:"dimUomCode", dataIndex:"dimUomCode", anchor:"-20", maxLength:32,
 				retFieldMapping: [
@@ -301,22 +301,22 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$EditPG", {
 						{lovField:"id", dsField: "defaultUomId"} 
 					]}})
 			.addBooleanField({ name:"storable", dataIndex:"storable", anchor:"-20"})
-			.addNumberField({name:"weight", dataIndex:"weight", anchor:"-20"})
+			.addNumberField({name:"weight", dataIndex:"weight", anchor:"-20", decimals:2})
 			.addLov({xtype:"bd_uom_lovs_UomMass", name:"weightUomCode", dataIndex:"weightUomCode", anchor:"-20", maxLength:32,
 				editor:{_fqn_:"net.nan21.dnet.module.bd.uom.lovs.UomMass", selectOnFocus:true,
 					retFieldMapping: [
 						{lovField:"id", dsField: "weightUomId"} 
 					]}})
-			.addNumberField({name:"volume", dataIndex:"volume", anchor:"-20"})
+			.addNumberField({name:"volume", dataIndex:"volume", anchor:"-20", decimals:2})
 			.addNumberField({name:"volumeUomId", dataIndex:"volumeUomId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"bd_uom_lovs_UomVolume", name:"volumeUomCode", dataIndex:"volumeUomCode", anchor:"-20", maxLength:32,
 				editor:{_fqn_:"net.nan21.dnet.module.bd.uom.lovs.UomVolume", selectOnFocus:true,
 					retFieldMapping: [
 						{lovField:"id", dsField: "volumeUomId"} 
 					]}})
-			.addNumberField({name:"dimWidth", dataIndex:"dimWidth", anchor:"-20"})
-			.addNumberField({name:"dimHeight", dataIndex:"dimHeight", anchor:"-20"})
-			.addNumberField({name:"dimDepth", dataIndex:"dimDepth", anchor:"-20"})
+			.addNumberField({name:"dimWidth", dataIndex:"dimWidth", anchor:"-20", decimals:2})
+			.addNumberField({name:"dimHeight", dataIndex:"dimHeight", anchor:"-20", decimals:2})
+			.addNumberField({name:"dimDepth", dataIndex:"dimDepth", anchor:"-20", decimals:2})
 			.addNumberField({name:"dimUomId", dataIndex:"dimUomId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"bd_uom_lovs_UomLength", name:"dimUomCode", dataIndex:"dimUomCode", anchor:"-20", maxLength:32,
 				editor:{_fqn_:"net.nan21.dnet.module.bd.uom.lovs.UomLength", selectOnFocus:true,

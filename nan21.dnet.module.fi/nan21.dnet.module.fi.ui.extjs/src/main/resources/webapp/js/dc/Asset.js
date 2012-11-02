@@ -108,11 +108,11 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$Edit", {
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
-			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", anchor:"-20", maxLength:32,
+			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 
 				]})
-			.addLov({xtype:"fi_asset_lovs_AssetCategories", name:"category", dataIndex:"category", anchor:"-20", maxLength:32,
+			.addLov({xtype:"fi_asset_lovs_AssetCategories", name:"category", dataIndex:"category", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "categoryId"} 
 				]})
@@ -175,10 +175,10 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$EditDeprec", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "currencyId"} 
 				]})
-			.addNumberField({name:"initialValue", dataIndex:"initialValue", anchor:"-20"})
-			.addNumberField({name:"residualValue", dataIndex:"residualValue", anchor:"-20"})
-			.addDisplayFieldNumber({ name:"depreciationAmount", dataIndex:"depreciationAmount", anchor:"-20" })
-			.addNumberField({name:"initialDeprecAmount", dataIndex:"initialDeprecAmount", anchor:"-20"})
+			.addNumberField({name:"initialValue", dataIndex:"initialValue", anchor:"-20", decimals:2})
+			.addNumberField({name:"residualValue", dataIndex:"residualValue", anchor:"-20", decimals:2})
+			.addDisplayFieldNumber({ name:"depreciationAmount", dataIndex:"depreciationAmount", anchor:"-20", decimals:2 })
+			.addNumberField({name:"initialDeprecAmount", dataIndex:"initialDeprecAmount", anchor:"-20", decimals:2})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

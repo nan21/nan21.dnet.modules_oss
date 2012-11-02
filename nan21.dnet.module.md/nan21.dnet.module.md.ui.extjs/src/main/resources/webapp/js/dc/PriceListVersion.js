@@ -110,10 +110,10 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion$CtxView", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", disabled:true , anchor:"-20"})
-			.addTextField({ name:"priceList", dataIndex:"priceList", disabled:true , anchor:"-20"})
-			.addDateField({name:"validFrom", dataIndex:"validFrom", disabled:true , anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextField({ name:"currency", dataIndex:"currency", disabled:true , anchor:"-20", maxLength:32})
+			.addDisplayFieldText({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
+			.addDisplayFieldText({ name:"priceList", dataIndex:"priceList", anchor:"-20"})
+			.addDisplayFieldDate({ name:"validFrom", dataIndex:"validFrom", anchor:"-20" })
+			.addDisplayFieldText({ name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

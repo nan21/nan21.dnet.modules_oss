@@ -142,8 +142,8 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity$Edit", {
 				]})
 			.addTextArea({ name:"resultNote", dataIndex:"resultNote", anchor:"-20"})
 			.addDateField({name:"closeDate", dataIndex:"closeDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
-			.addNumberField({name:"probability", dataIndex:"probability", anchor:"-20"})
-			.addNumberField({name:"amount", dataIndex:"amount", allowBlank:false, anchor:"-20"})
+			.addNumberField({name:"probability", dataIndex:"probability", anchor:"-20", decimals:2})
+			.addNumberField({name:"amount", dataIndex:"amount", allowBlank:false, anchor:"-20", decimals:2})
 			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "currencyId"} 

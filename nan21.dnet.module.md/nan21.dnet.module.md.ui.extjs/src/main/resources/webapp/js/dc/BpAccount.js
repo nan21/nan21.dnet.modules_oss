@@ -129,7 +129,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "customerPaymentMethodId"} 
 				]})
-			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20"})
+			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "customerPaymentTerm"} 
@@ -143,7 +143,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorPaymentMethodId"} 
 				]})
-			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20"})
+			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorPaymentTerm"} 
@@ -197,7 +197,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "customerPaymentMethodId"} 
 				]})
-			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20"})
+			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "customerPaymentTerm"} 
@@ -210,7 +210,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorPaymentMethodId"} 
 				]})
-			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20"})
+			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorPaymentTerm"} 

@@ -197,12 +197,12 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$EditInfo", {
 			.addTextField({ name:"iconUrl", dataIndex:"iconUrl", anchor:"-20"})
 			.addTextField({ name:"imageUrl", dataIndex:"imageUrl", anchor:"-20"})
 			.addBooleanField({ name:"storable", dataIndex:"storable", anchor:"-20"})
-			.addNumberField({name:"weight", dataIndex:"weight", anchor:"-20"})
-			.addNumberField({name:"volume", dataIndex:"volume", anchor:"-20"})
+			.addNumberField({name:"weight", dataIndex:"weight", anchor:"-20", decimals:2})
+			.addNumberField({name:"volume", dataIndex:"volume", anchor:"-20", decimals:2})
 			.addNumberField({name:"volumeUomId", dataIndex:"volumeUomId", disabled:true , anchor:"-20"})
-			.addNumberField({name:"dimWidth", dataIndex:"dimWidth", anchor:"-20"})
-			.addNumberField({name:"dimHeight", dataIndex:"dimHeight", anchor:"-20"})
-			.addNumberField({name:"dimDepth", dataIndex:"dimDepth", anchor:"-20"})
+			.addNumberField({name:"dimWidth", dataIndex:"dimWidth", anchor:"-20", decimals:2})
+			.addNumberField({name:"dimHeight", dataIndex:"dimHeight", anchor:"-20", decimals:2})
+			.addNumberField({name:"dimDepth", dataIndex:"dimDepth", anchor:"-20", decimals:2})
 			.addNumberField({name:"dimUomId", dataIndex:"dimUomId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"bd_uom_lovs_UomVolume", name:"volumeUomCode", dataIndex:"volumeUomCode", anchor:"-20", maxLength:32,
 				retFieldMapping: [

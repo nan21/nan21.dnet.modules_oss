@@ -32,7 +32,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPrice$Filter", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "productId"} 
 				]})
-			.addNumberField({name:"price", dataIndex:"price", anchor:"-20"})
+			.addNumberField({name:"price", dataIndex:"price", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_mm_prod_lovs_ProductCategories", name:"productCategory", paramIndex:"productCategory", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsParam: "productCategoryId"} 
@@ -73,7 +73,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPrice$FilterCtx", {
 					retFieldMapping: [
 						{lovField:"id", dsField: "productId"} 
 					]}})
-			.addNumberField({name:"price", dataIndex:"price", anchor:"-20"})
+			.addNumberField({name:"price", dataIndex:"price", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_mm_prod_lovs_ProductCategories", name:"productCategory", paramIndex:"productCategory", anchor:"-20",
 				editor:{_fqn_:"net.nan21.dnet.module.md.mm.prod.lovs.ProductCategories", selectOnFocus:true,
 					retFieldMapping: [

@@ -81,7 +81,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 					{lovField:"id", dsField: "productId"} ,{lovField:"name", dsField: "productName"} ,{lovField:"uom", dsField: "uomCode"} ,{lovField:"uomId", dsField: "uomId"} 
 				]})
 			.addDisplayFieldText({ name:"productName", dataIndex:"productName", anchor:"-20"})
-			.addNumberField({name:"quantity", dataIndex:"quantity", allowBlank:false, anchor:"-20"})
+			.addNumberField({name:"quantity", dataIndex:"quantity", allowBlank:false, anchor:"-20", decimals:2})
 			.addLov({xtype:"bd_uom_lovs_UnitsOfMeasure", name:"uomCode", dataIndex:"uomCode", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "uomId"} 
@@ -92,16 +92,16 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 				change:{scope:this, fn:this._onEntryModeChange_}
 			}
 			})
-			.addNumberField({name:"unitPrice", dataIndex:"unitPrice", anchor:"-20",listeners:{
+			.addNumberField({name:"unitPrice", dataIndex:"unitPrice", anchor:"-20", decimals:2,listeners:{
 				change:{scope:this, fn:this.calcNetAmount}
 			}
 			})
-			.addNumberField({name:"docLineNetAmount", dataIndex:"netAmount", anchor:"-20"})
-			.addNumberField({name:"docLineTaxAmount", dataIndex:"taxAmount", anchor:"-20"})
-			.addNumberField({name:"docLineAmount", dataIndex:"lineAmount", anchor:"-20"})
-			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addNumberField({name:"docLineNetAmount", dataIndex:"netAmount", anchor:"-20", decimals:2})
+			.addNumberField({name:"docLineTaxAmount", dataIndex:"taxAmount", anchor:"-20", decimals:2})
+			.addNumberField({name:"docLineAmount", dataIndex:"lineAmount", anchor:"-20", decimals:2})
+			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			.addLov({xtype:"md_base_tax_lovs_TaxApplicables", name:"tax", dataIndex:"tax", anchor:"-20",
 				retFieldMapping: [

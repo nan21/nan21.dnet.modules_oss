@@ -246,7 +246,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 
 				]})
-			.addNumberField({name:"baseSalary", dataIndex:"baseSalary", anchor:"-20"})
+			.addNumberField({name:"baseSalary", dataIndex:"baseSalary", anchor:"-20", decimals:2})
 			.addLov({xtype:"hr_payroll_lovs_Payrolls", name:"payroll", dataIndex:"payroll", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "payrollId"} 

@@ -122,7 +122,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$Edit", {
 			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addTextField({ name:"docNo", dataIndex:"docNo", anchor:"-20"})
 			.addDateField({name:"docDate", dataIndex:"docDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
-			.addNumberField({name:"amount", dataIndex:"amount", allowBlank:false, anchor:"-20"})
+			.addNumberField({name:"amount", dataIndex:"amount", allowBlank:false, anchor:"-20", decimals:2})
 			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 

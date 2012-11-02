@@ -167,9 +167,9 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditMain", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "inventoryId"} 
 				]})
-			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
-			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field" })
+			.addDisplayFieldNumber({ name:"totalNetAmount", dataIndex:"totalNetAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addDisplayFieldBoolean({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
 			.addDateField({name:"plannedDeliveryDate", dataIndex:"plannedDeliveryDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20"})
