@@ -57,7 +57,7 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$List", {
 		this._getBuilder_()
 			.addTextColumn({ name:"note", dataIndex:"note", width:300})
 			.addTextColumn({ name:"createdBy", dataIndex:"createdBy", width:100})
-			.addTextColumn({ name:"createdAt", dataIndex:"createdAt"})
+			.addDateColumn({ name:"createdAt", dataIndex:"createdAt", format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
 	}});
 

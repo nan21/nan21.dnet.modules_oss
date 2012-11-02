@@ -73,7 +73,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.Product_UI", {
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnViewAttachment"), this._elems_.get("btnUploadAttachment")]}]})
 			.addDcEditGridView("classific", {name:"classificEdit", title:"Classifications", xtype:"md_mm_prod_dc_ProdClassification$CtxEditList", frame:true})
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcGridView("note", {name:"noteList", width:550, xtype:"ad_data_dc_Note$List"})
 			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})

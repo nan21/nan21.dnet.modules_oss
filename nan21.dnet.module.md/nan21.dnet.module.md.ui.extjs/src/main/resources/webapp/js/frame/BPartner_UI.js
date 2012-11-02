@@ -84,7 +84,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 			.addDcEditGridView("bpBankAcct", {name:"bpBankAccountEditList", title:"Bank account", xtype:"md_bp_dc_BpBankAccount$CtxEditList", frame:true})
 			.addDcEditGridView("bpPhone", {name:"bpPhoneEditList", title:"Communication", xtype:"bd_contact_dc_CommunicationChannel$EditList", frame:true})
 			.addDcEditGridView("classific", {name:"classificEdit", title:"Classifications", xtype:"md_bp_dc_BpClassification$CtxEditList", frame:true})
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcGridView("note", {name:"noteList", width:550, xtype:"ad_data_dc_Note$List"})
 			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

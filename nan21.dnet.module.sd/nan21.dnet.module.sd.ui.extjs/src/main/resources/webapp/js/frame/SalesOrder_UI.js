@@ -75,7 +75,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			.addDcFormView("item", {name:"itemEdit", xtype:"sd_order_dc_SalesOrderItem$EditForm"})
 			.addDcGridView("itemTax", {name:"itemTaxList", title:"Item taxes", width:400, xtype:"sd_order_dc_SalesOrderItemTax$CtxList", collapsible:true, collapsed:true
 			})
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcGridView("note", {name:"noteList", width:550, xtype:"ad_data_dc_Note$List"})
 			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,

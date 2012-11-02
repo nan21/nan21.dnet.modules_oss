@@ -79,7 +79,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 			.addDcGridView("itemTax", {name:"itemTaxList", title:"Item taxes", width:400, xtype:"sd_invoice_dc_SalesInvoiceItemTax$CtxList", collapsible:true, collapsed:true
 			})
 			.addDcEditGridView("amount", {name:"amountList", title:"Payment schedule", xtype:"sd_invoice_dc_SalesTxAmount$EditList", frame:true})
-			.addDcGridView("note", {name:"noteList", width:300, xtype:"ad_data_dc_Note$List"})
+			.addDcGridView("note", {name:"noteList", width:550, xtype:"ad_data_dc_Note$List"})
 			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
