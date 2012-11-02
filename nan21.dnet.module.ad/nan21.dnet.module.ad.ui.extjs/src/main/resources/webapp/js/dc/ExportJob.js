@@ -74,8 +74,6 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportJob$Edit", {
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
-			.addDateField({name:"modifiedAt", _sharedLabel_:true, dataIndex:"modifiedAt", disabled:true , anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextField({ name:"modifiedBy", _sharedLabel_:true, dataIndex:"modifiedBy", disabled:true , anchor:"-20", maxLength:32})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

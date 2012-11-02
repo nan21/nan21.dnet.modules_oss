@@ -130,12 +130,10 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Call$Edit", {
 			/* controls */
 			.addTextField({ name:"subject", dataIndex:"subject", allowBlank:false, anchor:"-20"})
 			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
-			.addNumberField({name:"statusId", _sharedLabel_:true, dataIndex:"statusId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"md_activity_lovs_CalendarEventStatusCall", name:"statusName", _sharedLabel_:true, dataIndex:"statusName", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "statusId"} 
 				]})
-			.addNumberField({name:"priorityId", dataIndex:"priorityId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"md_activity_lovs_CalendarEventPrioritiesCall", name:"priorityName", dataIndex:"priorityName", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "priorityId"} 
@@ -151,7 +149,6 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Call$Edit", {
 				filterFieldMapping: [
 					{lovField:"bpartnerId",dsField: "bpartnerId"} 
 				]})
-			.addNumberField({name:"id", _sharedLabel_:true, dataIndex:"id", disabled:true , anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
 			.addPanel({ name:"row1", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})

@@ -116,7 +116,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesDelivery$Edit", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", disabled:true , anchor:"-20", maxLength:32})
+			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addTextField({ name:"docNo", dataIndex:"docNo", anchor:"-20"})
 			.addDateField({name:"docDate", dataIndex:"docDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
 			.addDisplayFieldDate({ name:"eventDate", dataIndex:"eventDate", anchor:"-20" })

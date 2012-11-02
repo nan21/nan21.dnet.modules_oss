@@ -141,11 +141,6 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Meeting$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "bpartnerId"} 
 				]})
-			.addNumberField({name:"id", _sharedLabel_:true, dataIndex:"id", disabled:true , anchor:"-20"})
-			.addDateField({name:"createdAt", _sharedLabel_:true, dataIndex:"createdAt", disabled:true , anchor:"-20", format:Ext.DATE_FORMAT})
-			.addDateField({name:"modifiedAt", _sharedLabel_:true, dataIndex:"modifiedAt", disabled:true , anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextField({ name:"createdBy", _sharedLabel_:true, dataIndex:"createdBy", disabled:true , anchor:"-20", maxLength:32})
-			.addTextField({ name:"modifiedBy", _sharedLabel_:true, dataIndex:"modifiedBy", disabled:true , anchor:"-20", maxLength:32})
 			.addTextField({ name:"location", dataIndex:"location", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})

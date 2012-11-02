@@ -175,7 +175,6 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$EditMeeting", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "statusId"} 
 				]})
-			.addNumberField({name:"priorityId", dataIndex:"priorityId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"md_activity_lovs_CalendarEventPrioritiesMeeting", name:"priorityName", dataIndex:"priorityName", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "priorityId"} 

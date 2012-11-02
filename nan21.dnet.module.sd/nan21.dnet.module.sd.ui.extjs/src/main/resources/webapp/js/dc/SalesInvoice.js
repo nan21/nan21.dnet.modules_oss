@@ -214,7 +214,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$EditDetails", {
 		this._getBuilder_()
 			/* controls */
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
-			.addTextField({ name:"salesOrderCode", dataIndex:"salesOrderCode", disabled:true , width:170, maxLength:32})
+			.addDisplayFieldText({ name:"salesOrderCode", dataIndex:"salesOrderCode", width:170, maxLength:32})
 			.addLov({xtype:"md_base_tx_lovs_PaymentMethodIn", name:"paymentMethod", dataIndex:"paymentMethod", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "paymentMethodId"} 

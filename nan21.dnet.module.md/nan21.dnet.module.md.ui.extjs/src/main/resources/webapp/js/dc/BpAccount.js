@@ -149,8 +149,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 					{lovField:"id", dsField: "vendorPaymentTerm"} 
 				]})
 			.addTextField({ name:"vendAnaliticSegment", dataIndex:"vendAnaliticSegment", anchor:"-20", maxLength:32})
-			.addDateField({name:"modifiedAt", _sharedLabel_:true, dataIndex:"modifiedAt", disabled:true , anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextField({ name:"modifiedBy", _sharedLabel_:true, dataIndex:"modifiedBy", disabled:true , anchor:"-20", maxLength:32})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
@@ -215,8 +213,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorPaymentTerm"} 
 				]})
-			.addDateField({name:"modifiedAt", _sharedLabel_:true, dataIndex:"modifiedAt", disabled:true , anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextField({ name:"modifiedBy", _sharedLabel_:true, dataIndex:"modifiedBy", disabled:true , anchor:"-20", maxLength:32})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

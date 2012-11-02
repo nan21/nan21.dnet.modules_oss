@@ -135,9 +135,9 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$EditForm", {
 				change:{scope:this, fn:this.calcNetAmount}
 			}
 			})
-			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
-			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
-			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", disabled:true , anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
+			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addLov({xtype:"md_base_tax_lovs_TaxApplicables", name:"tax", dataIndex:"tax", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "taxId"} 
