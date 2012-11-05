@@ -7,6 +7,9 @@ Possible values: true, false";true
 CORE_SESSION_CHECK_USER_AGENT;Check request user-agent;false;"Check if the remote client user-agent of the request is the same as the one used at login time. 
 Possible values: true, false";true
 CORE_EXP_HTML_CSS;Css file location for HTML export;http://localhost:8081/dnet-ebs/extjs.themes/webapp/resources/css/export-html.css;Css used to style the HTML exports from grid;true
+CORE_DEFAULT_LANGUAGE;Default language;en;Default language to be used if no language preference set by user.;true
+CORE_DEFAULT_THEME_EXTJS;Default theme Extjs;gray;Default theme to be used in Extjs based user interface if no theme preference set by user;true
+CORE_DEFAULT_THEME_STOUCH;Default theme STouch;gray;Default theme to be used in Sencha Toucha based user interface if no theme preference set by user;true
 MM_MANUFACT_ICON_BASEURL;Manufacturer icon base url;http://dnet.nan21.net/static-demo-resources/MM/product-manufacturers;;true
 MM_MANUFACT_ICON_EXT;Manufacturer icon default extension;jpg;;true
 MM_PRODCATEG_ICON_BASEURL;Product category icon base url;http://dnet.nan21.net/static-demo-resources/MM/product-categories;;true
