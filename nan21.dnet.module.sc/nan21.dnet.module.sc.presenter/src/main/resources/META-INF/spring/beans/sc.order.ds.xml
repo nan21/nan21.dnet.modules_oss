@@ -76,6 +76,21 @@
 		</property>
 	</bean>
 	
+	<!-- ==================== PurchaseOrderItemOverview ==================== -->
+	
+	<bean id="PurchaseOrderItemOverviewDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseOrderItemOverviewDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="PurchaseOrderItemOverview" />
+		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs" />
+	</bean>
+	
 	<!-- ==================== PurchaseOrderItemTax ==================== -->
 	
 	<bean id="PurchaseOrderItemTaxDsService" scope="singleton" lazy-init="true"

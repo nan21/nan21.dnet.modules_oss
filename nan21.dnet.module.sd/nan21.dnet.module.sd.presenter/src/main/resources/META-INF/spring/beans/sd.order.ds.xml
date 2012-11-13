@@ -93,6 +93,21 @@
 		</property>
 	</bean>
 	
+	<!-- ==================== SalesOrderItemOverview ==================== -->
+	
+	<bean id="SalesOrderItemOverviewDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderItemOverviewDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="SalesOrderItemOverview" />
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDs" />
+	</bean>
+	
 	<!-- ==================== SalesOrderItemTax ==================== -->
 	
 	<bean id="SalesOrderItemTaxDsService" scope="singleton" lazy-init="true"

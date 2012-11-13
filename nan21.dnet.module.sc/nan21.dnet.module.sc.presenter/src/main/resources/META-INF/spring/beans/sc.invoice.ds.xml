@@ -92,6 +92,21 @@
 		</property>
 	</bean>
 	
+	<!-- ==================== PurchaseInvoiceItemOverview ==================== -->
+	
+	<bean id="PurchaseInvoiceItemOverviewDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceItemOverviewDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.filter.PurchaseInvoiceItemOverviewDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceItem"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="PurchaseInvoiceItemOverview" />
+		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceItemOverviewDs" />
+	</bean>
+	
 	<!-- ==================== PurchaseInvoiceItemTax ==================== -->
 	
 	<bean id="PurchaseInvoiceItemTaxDsService" scope="singleton" lazy-init="true"
