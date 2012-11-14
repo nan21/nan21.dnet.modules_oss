@@ -12,22 +12,24 @@ import net.nan21.dnet.module.hr.time.ds.param.AbsenceDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class AbsenceDsQueryBuilder extends QueryBuilderWithJpql<AbsenceDs,AbsenceDsFilter, AbsenceDsParam> {
-	
+public class AbsenceDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<AbsenceDs, AbsenceDsFilter, AbsenceDsParam> {
+
 	@Override
 	public void setFilter(AbsenceDsFilter filter) {
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getFrom() != null) {
- 			addFilterCondition("  e.eventDate >= :from ");	
- 			addCustomFilterItem("from",this.params.getFrom());	
- 		}	
- 		if (this.params != null && this.params.getTo() != null) {
- 			addFilterCondition("  e.eventDate <= :to ");	
- 			addCustomFilterItem("to",this.params.getTo());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getFrom() != null) {
+			addFilterCondition("  e.eventDate >= :from ");
+			addCustomFilterItem("from", this.params.getFrom());
+		}
+		if (this.params != null && this.params.getTo() != null) {
+			addFilterCondition("  e.eventDate <= :to ");
+			addCustomFilterItem("to", this.params.getTo());
+		}
+	}
 }

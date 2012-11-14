@@ -30,142 +30,122 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 /** Attribute definition. 
-	 An attribute is a reusable descriptor identified by a data-type and an optional list of possible values.
-	 Attributes are grouped in sets which further can be attached to business objects. */
+ An attribute is a reusable descriptor identified by a data-type and an optional list of possible values.
+ Attributes are grouped in sets which further can be attached to business objects. */
 @NamedQueries({
-	@NamedQuery(
-		name=Attribute.NQ_FIND_BY_ID,
-		query="SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Attribute.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Attribute.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Attribute.NQ_FIND_BY_ID, query = "SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Attribute.NQ_FIND_BY_IDS, query = "SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Attribute.NQ_FIND_BY_NAME, query = "SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Attribute.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Attribute.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Attribute.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Attribute.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Attribute extends AbstractType  {
-	
+public class Attribute extends AbstractType {
+
 	public static final String TABLE_NAME = "BD_ATTR";
 	public static final String SEQUENCE_NAME = "BD_ATTR_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Attribute.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Attribute.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Attribute.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="TITLE", nullable=false, length=255)
+
+	@Column(name = "TITLE", nullable = false, length = 255)
 	@NotBlank
 	private String title;
-	
-	@Column(name="DATATYPE", nullable=false, length=32)
+
+	@Column(name = "DATATYPE", nullable = false, length = 32)
 	@NotBlank
 	private String dataType;
-	
-	@Column(name="LISTOFVALUES", length=400)
+
+	@Column(name = "LISTOFVALUES", length = 400)
 	private String listOfvalues;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AttributeCategory.class)
-	@JoinColumn(name="CATEGORY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AttributeCategory.class)
+	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
 	private AttributeCategory category;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Uom.class)
-	@JoinColumn(name="UOM_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Uom.class)
+	@JoinColumn(name = "UOM_ID", referencedColumnName = "ID")
 	private Uom uom;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getTitle() {
 		return this.title;
 	}
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	public String getDataType() {
 		return this.dataType;
 	}
-	
+
 	public void setDataType(String dataType) {
 		this.dataType = dataType;
 	}
-	
+
 	public String getListOfvalues() {
 		return this.listOfvalues;
 	}
-	
+
 	public void setListOfvalues(String listOfvalues) {
 		this.listOfvalues = listOfvalues;
 	}
-	
+
 	public AttributeCategory getCategory() {
 		return this.category;
 	}
-	
+
 	public void setCategory(AttributeCategory category) {
-		if (category != null ) {
+		if (category != null) {
 			this.__validate_client_context__(category.getClientId());
 		}
 		this.category = category;
 	}
-	
+
 	public Uom getUom() {
 		return this.uom;
 	}
-	
+
 	public void setUom(Uom uom) {
-		if (uom != null ) {
+		if (uom != null) {
 			this.__validate_client_context__(uom.getClientId());
 		}
 		this.uom = uom;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

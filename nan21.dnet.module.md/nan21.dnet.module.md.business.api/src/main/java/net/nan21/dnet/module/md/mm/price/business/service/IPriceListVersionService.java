@@ -11,12 +11,26 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 
-public interface IPriceListVersionService extends IEntityService<PriceListVersion> {
-	
+/**
+ * Interface to expose business functions specific for {@link PriceListVersion} domain
+ * entity.
+ */
+public interface IPriceListVersionService
+		extends
+			IEntityService<PriceListVersion> {
+
+	/**
+	 * Find by unique key
+	 */
 	public PriceListVersion findByName(String name);
-	
+
+	/**
+	 * Find by reference: priceList
+	 */
 	public List<PriceListVersion> findByPriceList(PriceList priceList);
-	
+
+	/**
+	 * Find by ID of reference: priceList.id
+	 */
 	public List<PriceListVersion> findByPriceListId(Long priceListId);
-	
 }

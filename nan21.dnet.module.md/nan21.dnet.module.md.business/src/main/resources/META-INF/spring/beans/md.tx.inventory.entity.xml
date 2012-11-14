@@ -9,7 +9,7 @@
 	<bean id="InvTransactionTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.tx.inventory.business.serviceimpl.InvTransactionTypeService"/>
 	<bean id="InvTransactionService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.md.tx.inventory.business.serviceimpl.InvTransactionService"/>
+		class="net.nan21.dnet.module.md.tx.inventory.business.serviceext.InvTransactionService"/>
 	<bean id="InvTransactionLineService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.tx.inventory.business.serviceimpl.InvTransactionLineService"/>
 	<bean id="InvTransferService" scope="singleton" lazy-init="true"

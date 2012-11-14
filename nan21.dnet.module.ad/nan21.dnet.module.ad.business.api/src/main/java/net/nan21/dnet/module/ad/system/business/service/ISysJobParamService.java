@@ -11,14 +11,29 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJob;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobParam;
 
+/**
+ * Interface to expose business functions specific for {@link SysJobParam} domain
+ * entity.
+ */
 public interface ISysJobParamService extends IEntityService<SysJobParam> {
-	
-	public SysJobParam findByName(SysJob job,String name);
-	
-	public SysJobParam findByName( Long jobId,String name);
-	
+
+	/**
+	 * Find by unique key
+	 */
+	public SysJobParam findByName(SysJob job, String name);
+
+	/**
+	 * Find by unique key
+	 */
+	public SysJobParam findByName(Long jobId, String name);
+
+	/**
+	 * Find by reference: job
+	 */
 	public List<SysJobParam> findByJob(SysJob job);
-	
+
+	/**
+	 * Find by ID of reference: job.id
+	 */
 	public List<SysJobParam> findByJobId(Long jobId);
-	
 }

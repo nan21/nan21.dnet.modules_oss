@@ -13,37 +13,48 @@ import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtxParam;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobParam;
 import net.nan21.dnet.module.ad.system.ds.model.SysJobCtxParamDs;
 
-public class SysJobCtxParamDsConv extends AbstractDsConverter<SysJobCtxParamDs, SysJobCtxParam> 
-		implements IDsConverter<SysJobCtxParamDs, SysJobCtxParam> {
-    
-    @Override
-    protected void modelToEntityReferences(SysJobCtxParamDs ds, SysJobCtxParam e, boolean isInsert) throws Exception {
-    	if( ds.getJobCtxId() != null  ) {
-    		if (e.getJobCtx() == null || !e.getJobCtx().getId().equals(ds.getJobCtxId()) ) {
-    			e.setJobCtx( (SysJobCtx) this.em.find(SysJobCtx.class, ds.getJobCtxId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_jobCtx_SysJobCtx(ds, e);
-    	}
-    	if( ds.getJobParamId() != null  ) {
-    		if (e.getJobParam() == null || !e.getJobParam().getId().equals(ds.getJobParamId()) ) {
-    			e.setJobParam( (SysJobParam) this.em.find(SysJobParam.class, ds.getJobParamId() ) );
-    		}
-    	}
-    }
-    
-    protected void lookup_jobCtx_SysJobCtx(SysJobCtxParamDs ds, SysJobCtxParam e ) throws Exception {
-    	if (ds.getJobCtx() != null && !ds.getJobCtx().equals("") ) {
-    		SysJobCtx x = null;
-    		try { 
-    			x = ((ISysJobCtxService)findEntityService(SysJobCtx.class)).findByName( ds.getJobCtx() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `SysJobCtx` reference: `jobCtx` = " + ds.getJobCtx() + "" );
-    		}
-    		e.setJobCtx(x); 
-    	} else {
-    		e.setJobCtx(null);
-    	}
-    }
+public class SysJobCtxParamDsConv
+		extends
+			AbstractDsConverter<SysJobCtxParamDs, SysJobCtxParam>
+		implements
+			IDsConverter<SysJobCtxParamDs, SysJobCtxParam> {
+
+	@Override
+	protected void modelToEntityReferences(SysJobCtxParamDs ds,
+			SysJobCtxParam e, boolean isInsert) throws Exception {
+		if (ds.getJobCtxId() != null) {
+			if (e.getJobCtx() == null
+					|| !e.getJobCtx().getId().equals(ds.getJobCtxId())) {
+				e.setJobCtx((SysJobCtx) this.em.find(SysJobCtx.class,
+						ds.getJobCtxId()));
+			}
+		} else {
+			this.lookup_jobCtx_SysJobCtx(ds, e);
+		}
+		if (ds.getJobParamId() != null) {
+			if (e.getJobParam() == null
+					|| !e.getJobParam().getId().equals(ds.getJobParamId())) {
+				e.setJobParam((SysJobParam) this.em.find(SysJobParam.class,
+						ds.getJobParamId()));
+			}
+		}
+	}
+
+	protected void lookup_jobCtx_SysJobCtx(SysJobCtxParamDs ds, SysJobCtxParam e)
+			throws Exception {
+		if (ds.getJobCtx() != null && !ds.getJobCtx().equals("")) {
+			SysJobCtx x = null;
+			try {
+				x = ((ISysJobCtxService) findEntityService(SysJobCtx.class))
+						.findByName(ds.getJobCtx());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `SysJobCtx` reference: `jobCtx` = "
+								+ ds.getJobCtx() + "");
+			}
+			e.setJobCtx(x);
+		} else {
+			e.setJobCtx(null);
+		}
+	}
 }

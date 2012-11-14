@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowDef_UI", {
 			.linkDc("dcField", "dcNode",{fields:[
 				{childField:"nodeId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -43,7 +44,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowDef_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"panelDetails", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -56,6 +57,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowDef_UI", {
 			.addToolbarTo("canvas2", "tlbProcessEdit")
 			.addToolbarTo("elistNode", "tlbNodeCtxEditList")
 			.addToolbarTo("elistField", "tlbTransitionEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -72,6 +74,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowDef_UI", {
 			.beginToolbar("tlbTransitionEditList", {dc: "dcField"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports()
 			.end()
+			;
 	}
 
 	,onBtnDeploy: function() {

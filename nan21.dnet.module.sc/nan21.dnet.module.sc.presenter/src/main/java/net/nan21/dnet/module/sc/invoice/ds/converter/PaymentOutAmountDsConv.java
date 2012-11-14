@@ -11,15 +11,21 @@ import net.nan21.dnet.module.md.tx.fin.domain.entity.Payment;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOutAmount;
 import net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutAmountDs;
 
-public class PaymentOutAmountDsConv extends AbstractDsConverter<PaymentOutAmountDs, PaymentOutAmount> 
-		implements IDsConverter<PaymentOutAmountDs, PaymentOutAmount> {
-    
-    @Override
-    protected void modelToEntityReferences(PaymentOutAmountDs ds, PaymentOutAmount e, boolean isInsert) throws Exception {
-    	if( ds.getPaymentId() != null  ) {
-    		if (e.getPayment() == null || !e.getPayment().getId().equals(ds.getPaymentId()) ) {
-    			e.setPayment( (Payment) this.em.find(Payment.class, ds.getPaymentId() ) );
-    		}
-    	}
-    }
+public class PaymentOutAmountDsConv
+		extends
+			AbstractDsConverter<PaymentOutAmountDs, PaymentOutAmount>
+		implements
+			IDsConverter<PaymentOutAmountDs, PaymentOutAmount> {
+
+	@Override
+	protected void modelToEntityReferences(PaymentOutAmountDs ds,
+			PaymentOutAmount e, boolean isInsert) throws Exception {
+		if (ds.getPaymentId() != null) {
+			if (e.getPayment() == null
+					|| !e.getPayment().getId().equals(ds.getPaymentId())) {
+				e.setPayment((Payment) this.em.find(Payment.class,
+						ds.getPaymentId()));
+			}
+		}
+	}
 }

@@ -12,14 +12,31 @@ import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoice;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoiceTax;
 
-public interface ISalesInvoiceTaxService extends IEntityService<SalesInvoiceTax> {
-	
+/**
+ * Interface to expose business functions specific for {@link SalesInvoiceTax} domain
+ * entity.
+ */
+public interface ISalesInvoiceTaxService
+		extends
+			IEntityService<SalesInvoiceTax> {
+
+	/**
+	 * Find by reference: salesInvoice
+	 */
 	public List<SalesInvoiceTax> findBySalesInvoice(SalesInvoice salesInvoice);
-	
+
+	/**
+	 * Find by ID of reference: salesInvoice.id
+	 */
 	public List<SalesInvoiceTax> findBySalesInvoiceId(Long salesInvoiceId);
-	
+
+	/**
+	 * Find by reference: tax
+	 */
 	public List<SalesInvoiceTax> findByTax(Tax tax);
-	
+
+	/**
+	 * Find by ID of reference: tax.id
+	 */
 	public List<SalesInvoiceTax> findByTaxId(Long taxId);
-	
 }

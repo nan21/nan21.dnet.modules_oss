@@ -11,62 +11,62 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment;
 
-@Ds(entity=ActDeployment.class, sort={@SortField(field=ActDeploymentLovDs.fNAME)})
+@Ds(entity = ActDeployment.class, sort = {@SortField(field = ActDeploymentLovDs.fNAME)})
 public class ActDeploymentLovDs extends AbstractBaseDs<ActDeployment> {
 
- 	public static final String fID = "id";
- 	public static final String fCLIENTID = "clientId";
- 	public static final String fNAME = "name";
- 	public static final String fFULLNAME = "fullName";
- 	
- 	@DsField()
- 	private String id;
- 	
- 	@DsField()
- 	private Long clientId;
- 	
- 	@DsField()
- 	private String name;
- 	
- 	@DsField(fetch=false, jpqlFilter=" e.name like :fullName ")
- 	private String fullName;
+	public static final String fID = "id";
+	public static final String fCLIENTID = "clientId";
+	public static final String fNAME = "name";
+	public static final String fFULLNAME = "fullName";
+
+	@DsField()
+	private String id;
+
+	@DsField()
+	private Long clientId;
+
+	@DsField()
+	private String name;
+
+	@DsField(fetch = false, jpqlFilter = " e.name like :fullName ")
+	private String fullName;
 
 	public ActDeploymentLovDs() {
 		super();
 	}
 
- 	public ActDeploymentLovDs(ActDeployment e) {
+	public ActDeploymentLovDs(ActDeployment e) {
 		super(e);
 	}
-	
+
 	public String getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Object id) {
-		this.id = (String)id;
+		this.id = (String) id;
 	}
-	
+
 	public Long getClientId() {
 		return this.clientId;
 	}
-	
+
 	public void setClientId(Long clientId) {
 		this.clientId = clientId;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getFullName() {
 		return this.fullName;
 	}
-	
+
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}

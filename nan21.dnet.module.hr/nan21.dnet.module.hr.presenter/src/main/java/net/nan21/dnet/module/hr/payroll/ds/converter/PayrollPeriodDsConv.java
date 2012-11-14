@@ -12,32 +12,41 @@ import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod;
 import net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs;
 
-public class PayrollPeriodDsConv extends AbstractDsConverter<PayrollPeriodDs, PayrollPeriod> 
-		implements IDsConverter<PayrollPeriodDs, PayrollPeriod> {
-    
-    @Override
-    protected void modelToEntityReferences(PayrollPeriodDs ds, PayrollPeriod e, boolean isInsert) throws Exception {
-    	if( ds.getPayrollId() != null  ) {
-    		if (e.getPayroll() == null || !e.getPayroll().getId().equals(ds.getPayrollId()) ) {
-    			e.setPayroll( (Payroll) this.em.find(Payroll.class, ds.getPayrollId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_payroll_Payroll(ds, e);
-    	}
-    }
-    
-    protected void lookup_payroll_Payroll(PayrollPeriodDs ds, PayrollPeriod e ) throws Exception {
-    	if (ds.getPayrollName() != null && !ds.getPayrollName().equals("") ) {
-    		Payroll x = null;
-    		try { 
-    			x = ((IPayrollService)findEntityService(Payroll.class)).findByName( ds.getPayrollName() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Payroll` reference: `payrollName` = " + ds.getPayrollName() + "" );
-    		}
-    		e.setPayroll(x); 
-    	} else {
-    		e.setPayroll(null);
-    	}
-    }
+public class PayrollPeriodDsConv
+		extends
+			AbstractDsConverter<PayrollPeriodDs, PayrollPeriod>
+		implements
+			IDsConverter<PayrollPeriodDs, PayrollPeriod> {
+
+	@Override
+	protected void modelToEntityReferences(PayrollPeriodDs ds, PayrollPeriod e,
+			boolean isInsert) throws Exception {
+		if (ds.getPayrollId() != null) {
+			if (e.getPayroll() == null
+					|| !e.getPayroll().getId().equals(ds.getPayrollId())) {
+				e.setPayroll((Payroll) this.em.find(Payroll.class,
+						ds.getPayrollId()));
+			}
+		} else {
+			this.lookup_payroll_Payroll(ds, e);
+		}
+	}
+
+	protected void lookup_payroll_Payroll(PayrollPeriodDs ds, PayrollPeriod e)
+			throws Exception {
+		if (ds.getPayrollName() != null && !ds.getPayrollName().equals("")) {
+			Payroll x = null;
+			try {
+				x = ((IPayrollService) findEntityService(Payroll.class))
+						.findByName(ds.getPayrollName());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Payroll` reference: `payrollName` = "
+								+ ds.getPayrollName() + "");
+			}
+			e.setPayroll(x);
+		} else {
+			e.setPayroll(null);
+		}
+	}
 }

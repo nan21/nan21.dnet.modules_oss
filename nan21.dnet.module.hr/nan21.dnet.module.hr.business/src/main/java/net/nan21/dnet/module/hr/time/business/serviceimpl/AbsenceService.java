@@ -16,10 +16,15 @@ import net.nan21.dnet.module.hr.time.domain.entity.Absence;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceReason;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceType;
 
-
+/**
+ * Repository functionality for {@link Absence} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AbsenceService extends AbstractEntityService<Absence>
-		implements IAbsenceService {
- 
+		implements
+			IAbsenceService {
+
 	public AbsenceService() {
 		super();
 	}
@@ -33,40 +38,61 @@ public class AbsenceService extends AbstractEntityService<Absence>
 	public Class<Absence> getEntityClass() {
 		return Absence.class;
 	}
-	
+
+	/**
+	 * Find by reference: employee
+	 */
 	public List<Absence> findByEmployee(Employee employee) {
-		return this.findByEmployeeId(employee.getId()); 
+		return this.findByEmployeeId(employee.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: employee.id
+	 */
 	public List<Absence> findByEmployeeId(Long employeeId) {
 		return (List<Absence>) this.em
-			.createQuery("select e from Absence e where e.clientId = :pClientId and e.employee.id = :pEmployeeId", Absence.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEmployeeId", employeeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Absence e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
+						Absence.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEmployeeId", employeeId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: type
+	 */
 	public List<Absence> findByType(AbsenceType type) {
-		return this.findByTypeId(type.getId()); 
+		return this.findByTypeId(type.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: type.id
+	 */
 	public List<Absence> findByTypeId(Long typeId) {
 		return (List<Absence>) this.em
-			.createQuery("select e from Absence e where e.clientId = :pClientId and e.type.id = :pTypeId", Absence.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTypeId", typeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Absence e where e.clientId = :pClientId and e.type.id = :pTypeId",
+						Absence.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTypeId", typeId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: reason
+	 */
 	public List<Absence> findByReason(AbsenceReason reason) {
-		return this.findByReasonId(reason.getId()); 
+		return this.findByReasonId(reason.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: reason.id
+	 */
 	public List<Absence> findByReasonId(Long reasonId) {
 		return (List<Absence>) this.em
-			.createQuery("select e from Absence e where e.clientId = :pClientId and e.reason.id = :pReasonId", Absence.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pReasonId", reasonId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Absence e where e.clientId = :pClientId and e.reason.id = :pReasonId",
+						Absence.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pReasonId", reasonId).getResultList();
 	}
 }

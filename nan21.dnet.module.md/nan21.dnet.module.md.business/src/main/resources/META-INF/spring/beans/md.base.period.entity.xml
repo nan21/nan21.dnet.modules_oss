@@ -7,9 +7,9 @@
 			http://www.springframework.org/schema/context 
 				http://www.springframework.org/schema/context/spring-context.xsd">   
 	<bean id="FiscalYearService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.md.base.period.business.serviceimpl.FiscalYearService"/>
+		class="net.nan21.dnet.module.md.base.period.business.serviceext.FiscalYearService"/>
 	<bean id="FiscalPeriodService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.md.base.period.business.serviceimpl.FiscalPeriodService"/>
+		class="net.nan21.dnet.module.md.base.period.business.serviceext.FiscalPeriodService"/>
 	<bean id="FiscalPeriodStatusService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.base.period.business.serviceimpl.FiscalPeriodStatusService"/>
 </beans>

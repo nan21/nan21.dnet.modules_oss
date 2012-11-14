@@ -31,6 +31,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueTask_UI", {
 			.linkDc("note", "task",{fields:[
 				{childField:"targetUuid", parentField:"issueUuId"}, {childField:"targetType", parentField:"issueClassName"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -59,7 +60,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueTask_UI", {
 			.addPanel({name:"taskDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			.addPanel({name:"issueInfoPanel", title:"Issue info", layout:"fit"})
 			.addPanel({name:"notesPanel", title:"Comments", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -76,6 +77,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueTask_UI", {
 			.addToolbarTo("atchEditList", "tlbAtchList")
 			.addToolbarTo("noteList", "tlbNoteList")
 			.addToolbarTo("noteEdit", "tlbNoteEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -98,6 +100,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueTask_UI", {
 			.beginToolbar("tlbNoteEdit", {dc: "note"}).addSave().addNew().addCancel()
 			.addSeparator().addAutoLoad().addReports()
 			.end()
+			;
 	}
 
 	,onBtnIssueUi: function() {

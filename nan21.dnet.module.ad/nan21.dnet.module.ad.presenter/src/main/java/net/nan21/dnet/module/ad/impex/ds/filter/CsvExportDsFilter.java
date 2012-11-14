@@ -8,13 +8,13 @@ package net.nan21.dnet.module.ad.impex.ds.filter;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDsFilter;
 
 public class CsvExportDsFilter extends AbstractTypeDsFilter {
-	
-	private String  dataSource;
-	
+
+	private String dataSource;
+
 	public String getDataSource() {
 		return this.dataSource;
 	}
-	
+
 	public void setDataSource(String dataSource) {
 		this.dataSource = dataSource;
 	}

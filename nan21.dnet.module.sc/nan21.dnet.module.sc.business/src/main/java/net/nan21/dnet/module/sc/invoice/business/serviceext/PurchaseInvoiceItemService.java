@@ -8,6 +8,7 @@ package net.nan21.dnet.module.sc.invoice.business.serviceext;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.sc._businessdelegates.order.PurchaseTaxBD;
 import net.nan21.dnet.module.sc.invoice.business.service.IPurchaseInvoiceItemService;
@@ -92,22 +93,22 @@ public class PurchaseInvoiceItemService
 	}
 
 	@Override
-	protected void preInsert(PurchaseInvoiceItem e) throws Exception {
+	protected void preInsert(PurchaseInvoiceItem e) throws BusinessException {
 		this.applyEntryModePreSave(e);
 	}
 
 	@Override
-	protected void preUpdate(PurchaseInvoiceItem e) throws Exception {
+	protected void preUpdate(PurchaseInvoiceItem e) throws BusinessException {
 		this.applyEntryModePreSave(e);
 	}
 
 	@Override
-	protected void postUpdate(PurchaseInvoiceItem e) throws Exception {
+	protected void postUpdate(PurchaseInvoiceItem e) throws BusinessException {
 		this.calculateTaxes(e);
 	}
 
 	@Override
-	protected void postInsert(PurchaseInvoiceItem e) throws Exception {
+	protected void postInsert(PurchaseInvoiceItem e) throws BusinessException {
 		this.calculateTaxes(e);
 	}
 
@@ -136,7 +137,7 @@ public class PurchaseInvoiceItemService
 	}
 
 	@Override
-	protected void preDeleteByIds(List<Object> ids) throws Exception {
+	protected void preDeleteByIds(List<Object> ids) throws BusinessException {
 		this.invoiceIds = new ArrayList<Long>();
 		List<PurchaseInvoiceItem> items = this.findByIds(ids);
 		for (PurchaseInvoiceItem item : items) {
@@ -167,9 +168,10 @@ public class PurchaseInvoiceItemService
 
 	private void updateAmount(Long invoiceId) {
 		this.em.flush();
-		Object[] x = (Object[]) this.em.createQuery(
-				"select sum(i.netAmount), sum(i.taxAmount) from PurchaseInvoiceItem i "
-						+ "where i.purchaseInvoice.id = :invoiceId")
+		Object[] x = (Object[]) this.em
+				.createQuery(
+						"select sum(i.netAmount), sum(i.taxAmount) from PurchaseInvoiceItem i "
+								+ "where i.purchaseInvoice.id = :invoiceId")
 				.setParameter("invoiceId", invoiceId).getSingleResult();
 		PurchaseInvoice invoice = this.em
 				.find(PurchaseInvoice.class, invoiceId);
@@ -195,12 +197,13 @@ public class PurchaseInvoiceItemService
 
 		// create new
 
+		@SuppressWarnings("unchecked")
 		List<Object[]> taxes = (List<Object[]>) this.em
 				.createQuery(
 						"select i.tax,  sum(i.baseAmount), sum(i.taxAmount) from PurchaseInvoiceItemTax i "
 								+ " where i.purchaseInvoiceItem.purchaseInvoice.id = :invoiceId "
-								+ " group by i.tax ").setParameter("invoiceId",
-						invoiceId).getResultList();
+								+ " group by i.tax ")
+				.setParameter("invoiceId", invoiceId).getResultList();
 		for (Object[] tax : taxes) {
 			Tax t = (Tax) tax[0];
 			Double baseval = (Double) tax[1];
@@ -223,7 +226,8 @@ public class PurchaseInvoiceItemService
 		this.em.merge(invoice);
 	}
 
-	protected void calculateTaxes(PurchaseInvoiceItem item) throws Exception {
+	protected void calculateTaxes(PurchaseInvoiceItem item)
+			throws BusinessException {
 
 		if (item.getTax() != null) {
 			PurchaseTaxBD delegate = this

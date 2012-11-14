@@ -28,99 +28,75 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=SysDsService.NQ_FIND_BY_ID,
-		query="SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysDsService.NQ_FIND_BY_IDS,
-		query="SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysDsService.NQ_FIND_BY_NAME,
-		query="SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.dataSource = :pDataSource and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysDsService.NQ_FIND_BY_NAME_PRIMITIVE,
-		query="SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.dataSource.id = :pDataSourceId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = SysDsService.NQ_FIND_BY_ID, query = "SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDsService.NQ_FIND_BY_IDS, query = "SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDsService.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.dataSource = :pDataSource and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDsService.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.dataSource.id = :pDataSourceId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=SysDsService.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=SysDsService.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","DATASOURCE_ID","NAME"}
-		)
-	}
-)
+@Table(name = SysDsService.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SysDsService.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "DATASOURCE_ID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class SysDsService extends AbstractType  {
-	
+public class SysDsService extends AbstractType {
+
 	public static final String TABLE_NAME = "AD_SYS_DS_SRV";
 	public static final String SEQUENCE_NAME = "AD_SYS_DS_SRV_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "SysDsService.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "SysDsService.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "SysDsService.findByName";
-	
+
 	/**
 	 * Named query find by unique key: Name using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_NAME_PRIMITIVE = "SysDsService.findByName_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=SysDataSource.class)
-	@JoinColumn(name="DATASOURCE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = SysDataSource.class)
+	@JoinColumn(name = "DATASOURCE_ID", referencedColumnName = "ID")
 	private SysDataSource dataSource;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public SysDataSource getDataSource() {
 		return this.dataSource;
 	}
-	
+
 	public void setDataSource(SysDataSource dataSource) {
-		if (dataSource != null ) {
+		if (dataSource != null) {
 			this.__validate_client_context__(dataSource.getClientId());
 		}
 		this.dataSource = dataSource;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

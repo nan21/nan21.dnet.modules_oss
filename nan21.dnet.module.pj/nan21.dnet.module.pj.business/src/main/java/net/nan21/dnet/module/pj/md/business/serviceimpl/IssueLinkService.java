@@ -15,10 +15,15 @@ import net.nan21.dnet.module.pj.md.business.service.IIssueLinkService;
 import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 import net.nan21.dnet.module.pj.md.domain.entity.IssueLink;
 
-
+/**
+ * Repository functionality for {@link IssueLink} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class IssueLinkService extends AbstractEntityService<IssueLink>
-		implements IIssueLinkService {
- 
+		implements
+			IIssueLinkService {
+
 	public IssueLinkService() {
 		super();
 	}
@@ -32,40 +37,61 @@ public class IssueLinkService extends AbstractEntityService<IssueLink>
 	public Class<IssueLink> getEntityClass() {
 		return IssueLink.class;
 	}
-	
+
+	/**
+	 * Find by reference: sourceIssue
+	 */
 	public List<IssueLink> findBySourceIssue(Issue sourceIssue) {
-		return this.findBySourceIssueId(sourceIssue.getId()); 
+		return this.findBySourceIssueId(sourceIssue.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: sourceIssue.id
+	 */
 	public List<IssueLink> findBySourceIssueId(Long sourceIssueId) {
 		return (List<IssueLink>) this.em
-			.createQuery("select e from IssueLink e where e.clientId = :pClientId and e.sourceIssue.id = :pSourceIssueId", IssueLink.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pSourceIssueId", sourceIssueId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from IssueLink e where e.clientId = :pClientId and e.sourceIssue.id = :pSourceIssueId",
+						IssueLink.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pSourceIssueId", sourceIssueId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: targetIssue
+	 */
 	public List<IssueLink> findByTargetIssue(Issue targetIssue) {
-		return this.findByTargetIssueId(targetIssue.getId()); 
+		return this.findByTargetIssueId(targetIssue.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: targetIssue.id
+	 */
 	public List<IssueLink> findByTargetIssueId(Long targetIssueId) {
 		return (List<IssueLink>) this.em
-			.createQuery("select e from IssueLink e where e.clientId = :pClientId and e.targetIssue.id = :pTargetIssueId", IssueLink.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTargetIssueId", targetIssueId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from IssueLink e where e.clientId = :pClientId and e.targetIssue.id = :pTargetIssueId",
+						IssueLink.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTargetIssueId", targetIssueId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: linkType
+	 */
 	public List<IssueLink> findByLinkType(IssueLinkType linkType) {
-		return this.findByLinkTypeId(linkType.getId()); 
+		return this.findByLinkTypeId(linkType.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: linkType.id
+	 */
 	public List<IssueLink> findByLinkTypeId(Long linkTypeId) {
 		return (List<IssueLink>) this.em
-			.createQuery("select e from IssueLink e where e.clientId = :pClientId and e.linkType.id = :pLinkTypeId", IssueLink.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pLinkTypeId", linkTypeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from IssueLink e where e.clientId = :pClientId and e.linkType.id = :pLinkTypeId",
+						IssueLink.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pLinkTypeId", linkTypeId).getResultList();
 	}
 }

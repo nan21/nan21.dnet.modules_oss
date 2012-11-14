@@ -15,10 +15,15 @@ import net.nan21.dnet.module.hr.training.business.service.IJobCourseService;
 import net.nan21.dnet.module.hr.training.domain.entity.Course;
 import net.nan21.dnet.module.hr.training.domain.entity.JobCourse;
 
-
+/**
+ * Repository functionality for {@link JobCourse} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class JobCourseService extends AbstractEntityService<JobCourse>
-		implements IJobCourseService {
- 
+		implements
+			IJobCourseService {
+
 	public JobCourseService() {
 		super();
 	}
@@ -32,28 +37,42 @@ public class JobCourseService extends AbstractEntityService<JobCourse>
 	public Class<JobCourse> getEntityClass() {
 		return JobCourse.class;
 	}
-	
+
+	/**
+	 * Find by reference: job
+	 */
 	public List<JobCourse> findByJob(Job job) {
-		return this.findByJobId(job.getId()); 
+		return this.findByJobId(job.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: job.id
+	 */
 	public List<JobCourse> findByJobId(Long jobId) {
 		return (List<JobCourse>) this.em
-			.createQuery("select e from JobCourse e where e.clientId = :pClientId and e.job.id = :pJobId", JobCourse.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobId", jobId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from JobCourse e where e.clientId = :pClientId and e.job.id = :pJobId",
+						JobCourse.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobId", jobId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: course
+	 */
 	public List<JobCourse> findByCourse(Course course) {
-		return this.findByCourseId(course.getId()); 
+		return this.findByCourseId(course.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: course.id
+	 */
 	public List<JobCourse> findByCourseId(Long courseId) {
 		return (List<JobCourse>) this.em
-			.createQuery("select e from JobCourse e where e.clientId = :pClientId and e.course.id = :pCourseId", JobCourse.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCourseId", courseId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from JobCourse e where e.clientId = :pClientId and e.course.id = :pCourseId",
+						JobCourse.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCourseId", courseId).getResultList();
 	}
 }

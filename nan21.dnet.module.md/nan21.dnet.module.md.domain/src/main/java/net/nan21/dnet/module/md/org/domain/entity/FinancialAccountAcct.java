@@ -30,144 +30,121 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=FinancialAccountAcct.NQ_FIND_BY_ID,
-		query="SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccountAcct.NQ_FIND_BY_IDS,
-		query="SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA,
-		query="SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.financialAccount = :pFinancialAccount and e.accSchema = :pAccSchema",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE,
-		query="SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.financialAccount.id = :pFinancialAccountId and e.accSchema.id = :pAccSchemaId",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_ID, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_IDS, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.financialAccount = :pFinancialAccount and e.accSchema = :pAccSchema", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.financialAccount.id = :pFinancialAccountId and e.accSchema.id = :pAccSchemaId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=FinancialAccountAcct.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=FinancialAccountAcct.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","FINANCIALACCOUNT_ID","ACCSCHEMA_ID"}
-		)
-	}
-)
+@Table(name = FinancialAccountAcct.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = FinancialAccountAcct.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "FINANCIALACCOUNT_ID",
+		"ACCSCHEMA_ID"})})
 @Customizer(DefaultEventHandler.class)
-public class FinancialAccountAcct extends AbstractAuditable  {
-	
+public class FinancialAccountAcct extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "MD_FINACNT_ACCT";
 	public static final String SEQUENCE_NAME = "MD_FINACNT_ACCT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "FinancialAccountAcct.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "FinancialAccountAcct.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Account_schema.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT_SCHEMA = "FinancialAccountAcct.findByAccount_schema";
-	
+
 	/**
 	 * Named query find by unique key: Account_schema using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE = "FinancialAccountAcct.findByAccount_schema_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=FinancialAccount.class)
-	@JoinColumn(name="FINANCIALACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = FinancialAccount.class)
+	@JoinColumn(name = "FINANCIALACCOUNT_ID", referencedColumnName = "ID")
 	private FinancialAccount financialAccount;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccSchema.class)
-	@JoinColumn(name="ACCSCHEMA_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccSchema.class)
+	@JoinColumn(name = "ACCSCHEMA_ID", referencedColumnName = "ID")
 	private AccSchema accSchema;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Account.class)
-	@JoinColumn(name="DEPOSITACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Account.class)
+	@JoinColumn(name = "DEPOSITACCOUNT_ID", referencedColumnName = "ID")
 	private Account depositAccount;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Account.class)
-	@JoinColumn(name="WITHDRAWALACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Account.class)
+	@JoinColumn(name = "WITHDRAWALACCOUNT_ID", referencedColumnName = "ID")
 	private Account withdrawalAccount;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public FinancialAccount getFinancialAccount() {
 		return this.financialAccount;
 	}
-	
+
 	public void setFinancialAccount(FinancialAccount financialAccount) {
-		if (financialAccount != null ) {
+		if (financialAccount != null) {
 			this.__validate_client_context__(financialAccount.getClientId());
 		}
 		this.financialAccount = financialAccount;
 	}
-	
+
 	public AccSchema getAccSchema() {
 		return this.accSchema;
 	}
-	
+
 	public void setAccSchema(AccSchema accSchema) {
-		if (accSchema != null ) {
+		if (accSchema != null) {
 			this.__validate_client_context__(accSchema.getClientId());
 		}
 		this.accSchema = accSchema;
 	}
-	
+
 	public Account getDepositAccount() {
 		return this.depositAccount;
 	}
-	
+
 	public void setDepositAccount(Account depositAccount) {
-		if (depositAccount != null ) {
+		if (depositAccount != null) {
 			this.__validate_client_context__(depositAccount.getClientId());
 		}
 		this.depositAccount = depositAccount;
 	}
-	
+
 	public Account getWithdrawalAccount() {
 		return this.withdrawalAccount;
 	}
-	
+
 	public void setWithdrawalAccount(Account withdrawalAccount) {
-		if (withdrawalAccount != null ) {
+		if (withdrawalAccount != null) {
 			this.__validate_client_context__(withdrawalAccount.getClientId());
 		}
 		this.withdrawalAccount = withdrawalAccount;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

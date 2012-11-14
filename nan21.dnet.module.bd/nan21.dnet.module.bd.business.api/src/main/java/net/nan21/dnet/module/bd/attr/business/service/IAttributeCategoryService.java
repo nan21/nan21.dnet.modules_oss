@@ -9,8 +9,16 @@ package net.nan21.dnet.module.bd.attr.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory;
 
-public interface IAttributeCategoryService extends IEntityService<AttributeCategory> {
-	
+/**
+ * Interface to expose business functions specific for {@link AttributeCategory} domain
+ * entity.
+ */
+public interface IAttributeCategoryService
+		extends
+			IEntityService<AttributeCategory> {
+
+	/**
+	 * Find by unique key
+	 */
 	public AttributeCategory findByName(String name);
-	
 }

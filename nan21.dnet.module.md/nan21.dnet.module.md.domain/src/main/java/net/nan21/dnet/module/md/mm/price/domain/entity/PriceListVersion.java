@@ -31,102 +31,82 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=PriceListVersion.NQ_FIND_BY_ID,
-		query="SELECT e FROM PriceListVersion e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PriceListVersion.NQ_FIND_BY_IDS,
-		query="SELECT e FROM PriceListVersion e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PriceListVersion.NQ_FIND_BY_NAME,
-		query="SELECT e FROM PriceListVersion e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = PriceListVersion.NQ_FIND_BY_ID, query = "SELECT e FROM PriceListVersion e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PriceListVersion.NQ_FIND_BY_IDS, query = "SELECT e FROM PriceListVersion e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PriceListVersion.NQ_FIND_BY_NAME, query = "SELECT e FROM PriceListVersion e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=PriceListVersion.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=PriceListVersion.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = PriceListVersion.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = PriceListVersion.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class PriceListVersion extends AbstractType  {
-	
+public class PriceListVersion extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_PRICE_LIST_VER";
 	public static final String SEQUENCE_NAME = "MD_PRICE_LIST_VER_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "PriceListVersion.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "PriceListVersion.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "PriceListVersion.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDFROM", nullable=false )
+	@Column(name = "VALIDFROM", nullable = false)
 	@NotNull
 	private Date validFrom;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PriceList.class)
-	@JoinColumn(name="PRICELIST_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PriceList.class)
+	@JoinColumn(name = "PRICELIST_ID", referencedColumnName = "ID")
 	private PriceList priceList;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getValidFrom() {
 		return this.validFrom;
 	}
-	
+
 	public void setValidFrom(Date validFrom) {
 		this.validFrom = validFrom;
 	}
-	
+
 	public PriceList getPriceList() {
 		return this.priceList;
 	}
-	
+
 	public void setPriceList(PriceList priceList) {
-		if (priceList != null ) {
+		if (priceList != null) {
 			this.__validate_client_context__(priceList.getClientId());
 		}
 		this.priceList = priceList;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

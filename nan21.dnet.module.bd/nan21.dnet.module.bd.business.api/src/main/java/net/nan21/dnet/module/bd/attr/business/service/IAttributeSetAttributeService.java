@@ -12,18 +12,44 @@ import net.nan21.dnet.module.bd.attr.domain.entity.Attribute;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSetAttribute;
 
-public interface IAttributeSetAttributeService extends IEntityService<AttributeSetAttribute> {
-	
-	public AttributeSetAttribute findByName(AttributeSet attributeSet,Attribute attribute);
-	
-	public AttributeSetAttribute findByName( Long attributeSetId, Long attributeId);
-	
-	public List<AttributeSetAttribute> findByAttributeSet(AttributeSet attributeSet);
-	
+/**
+ * Interface to expose business functions specific for {@link AttributeSetAttribute} domain
+ * entity.
+ */
+public interface IAttributeSetAttributeService
+		extends
+			IEntityService<AttributeSetAttribute> {
+
+	/**
+	 * Find by unique key
+	 */
+	public AttributeSetAttribute findByName(AttributeSet attributeSet,
+			Attribute attribute);
+
+	/**
+	 * Find by unique key
+	 */
+	public AttributeSetAttribute findByName(Long attributeSetId,
+			Long attributeId);
+
+	/**
+	 * Find by reference: attributeSet
+	 */
+	public List<AttributeSetAttribute> findByAttributeSet(
+			AttributeSet attributeSet);
+
+	/**
+	 * Find by ID of reference: attributeSet.id
+	 */
 	public List<AttributeSetAttribute> findByAttributeSetId(Long attributeSetId);
-	
+
+	/**
+	 * Find by reference: attribute
+	 */
 	public List<AttributeSetAttribute> findByAttribute(Attribute attribute);
-	
+
+	/**
+	 * Find by ID of reference: attribute.id
+	 */
 	public List<AttributeSetAttribute> findByAttributeId(Long attributeId);
-	
 }

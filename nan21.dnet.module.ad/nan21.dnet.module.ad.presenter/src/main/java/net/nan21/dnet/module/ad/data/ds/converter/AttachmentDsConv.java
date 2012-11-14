@@ -12,32 +12,41 @@ import net.nan21.dnet.module.ad.data.domain.entity.Attachment;
 import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
 import net.nan21.dnet.module.ad.data.ds.model.AttachmentDs;
 
-public class AttachmentDsConv extends AbstractDsConverter<AttachmentDs, Attachment> 
-		implements IDsConverter<AttachmentDs, Attachment> {
-    
-    @Override
-    protected void modelToEntityReferences(AttachmentDs ds, Attachment e, boolean isInsert) throws Exception {
-    	if( ds.getTypeId() != null  ) {
-    		if (e.getType() == null || !e.getType().getId().equals(ds.getTypeId()) ) {
-    			e.setType( (AttachmentType) this.em.find(AttachmentType.class, ds.getTypeId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_type_AttachmentType(ds, e);
-    	}
-    }
-    
-    protected void lookup_type_AttachmentType(AttachmentDs ds, Attachment e ) throws Exception {
-    	if (ds.getType() != null && !ds.getType().equals("") ) {
-    		AttachmentType x = null;
-    		try { 
-    			x = ((IAttachmentTypeService)findEntityService(AttachmentType.class)).findByName( ds.getType() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `AttachmentType` reference: `type` = " + ds.getType() + "" );
-    		}
-    		e.setType(x); 
-    	} else {
-    		e.setType(null);
-    	}
-    }
+public class AttachmentDsConv
+		extends
+			AbstractDsConverter<AttachmentDs, Attachment>
+		implements
+			IDsConverter<AttachmentDs, Attachment> {
+
+	@Override
+	protected void modelToEntityReferences(AttachmentDs ds, Attachment e,
+			boolean isInsert) throws Exception {
+		if (ds.getTypeId() != null) {
+			if (e.getType() == null
+					|| !e.getType().getId().equals(ds.getTypeId())) {
+				e.setType((AttachmentType) this.em.find(AttachmentType.class,
+						ds.getTypeId()));
+			}
+		} else {
+			this.lookup_type_AttachmentType(ds, e);
+		}
+	}
+
+	protected void lookup_type_AttachmentType(AttachmentDs ds, Attachment e)
+			throws Exception {
+		if (ds.getType() != null && !ds.getType().equals("")) {
+			AttachmentType x = null;
+			try {
+				x = ((IAttachmentTypeService) findEntityService(AttachmentType.class))
+						.findByName(ds.getType());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `AttachmentType` reference: `type` = "
+								+ ds.getType() + "");
+			}
+			e.setType(x);
+		} else {
+			e.setType(null);
+		}
+	}
 }

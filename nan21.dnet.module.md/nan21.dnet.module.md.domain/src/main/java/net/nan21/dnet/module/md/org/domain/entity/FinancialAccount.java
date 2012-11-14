@@ -31,145 +31,125 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
-	 * Payment account. Can be a bank account or cash account for a legal entity organization  
-	 */
+ * Payment account. Can be a bank account or cash account for a legal entity organization  
+ */
 @NamedQueries({
-	@NamedQuery(
-		name=FinancialAccount.NQ_FIND_BY_ID,
-		query="SELECT e FROM FinancialAccount e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccount.NQ_FIND_BY_IDS,
-		query="SELECT e FROM FinancialAccount e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccount.NQ_FIND_BY_NAME,
-		query="SELECT e FROM FinancialAccount e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = FinancialAccount.NQ_FIND_BY_ID, query = "SELECT e FROM FinancialAccount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccount.NQ_FIND_BY_IDS, query = "SELECT e FROM FinancialAccount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccount.NQ_FIND_BY_NAME, query = "SELECT e FROM FinancialAccount e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=FinancialAccount.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=FinancialAccount.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = FinancialAccount.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = FinancialAccount.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class FinancialAccount extends AbstractType  {
-	
+public class FinancialAccount extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_FINACNT";
 	public static final String SEQUENCE_NAME = "MD_FINACNT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "FinancialAccount.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "FinancialAccount.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "FinancialAccount.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="TYPE", nullable=false, length=8)
+
+	@Column(name = "TYPE", nullable = false, length = 8)
 	@NotBlank
 	private String type;
-	
-	@Column(name="ANALITICSEGMENT", length=32)
+
+	@Column(name = "ANALITICSEGMENT", length = 32)
 	private String analiticSegment;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="ORG_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "ORG_ID", referencedColumnName = "ID")
 	private Organization org;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Currency.class)
-	@JoinColumn(name="CURRENCY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Currency.class)
+	@JoinColumn(name = "CURRENCY_ID", referencedColumnName = "ID")
 	private Currency currency;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccJournal.class)
-	@JoinColumn(name="JOURNAL_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccJournal.class)
+	@JoinColumn(name = "JOURNAL_ID", referencedColumnName = "ID")
 	private AccJournal journal;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getType() {
 		return this.type;
 	}
-	
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	public String getAnaliticSegment() {
 		return this.analiticSegment;
 	}
-	
+
 	public void setAnaliticSegment(String analiticSegment) {
 		this.analiticSegment = analiticSegment;
 	}
-	
+
 	public Organization getOrg() {
 		return this.org;
 	}
-	
+
 	public void setOrg(Organization org) {
-		if (org != null ) {
+		if (org != null) {
 			this.__validate_client_context__(org.getClientId());
 		}
 		this.org = org;
 	}
-	
+
 	public Currency getCurrency() {
 		return this.currency;
 	}
-	
+
 	public void setCurrency(Currency currency) {
-		if (currency != null ) {
+		if (currency != null) {
 			this.__validate_client_context__(currency.getClientId());
 		}
 		this.currency = currency;
 	}
-	
+
 	public AccJournal getJournal() {
 		return this.journal;
 	}
-	
+
 	public void setJournal(AccJournal journal) {
-		if (journal != null ) {
+		if (journal != null) {
 			this.__validate_client_context__(journal.getClientId());
 		}
 		this.journal = journal;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

@@ -29,133 +29,108 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Project.NQ_FIND_BY_ID,
-		query="SELECT e FROM Project e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Project.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Project e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Project.NQ_FIND_BY_CODE,
-		query="SELECT e FROM Project e WHERE e.clientId = :pClientId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Project.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Project e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Project.NQ_FIND_BY_ID, query = "SELECT e FROM Project e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Project.NQ_FIND_BY_IDS, query = "SELECT e FROM Project e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Project.NQ_FIND_BY_CODE, query = "SELECT e FROM Project e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Project.NQ_FIND_BY_NAME, query = "SELECT e FROM Project e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Project.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Project.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","CODE"}
-		),
-		@UniqueConstraint( 
-			name=Project.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Project.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = Project.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "CODE"}),
+		@UniqueConstraint(name = Project.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Project extends AbstractTypeWithCode  {
-	
+public class Project extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "PJ_PRJ";
 	public static final String SEQUENCE_NAME = "PJ_PRJ_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Project.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Project.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Code.
 	 */
 	public static final String NQ_FIND_BY_CODE = "Project.findByCode";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Project.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ISPUBLIC", nullable=false)
+
+	@Column(name = "ISPUBLIC", nullable = false)
 	@NotNull
 	private Boolean isPublic;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ProjectType.class)
-	@JoinColumn(name="TYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ProjectType.class)
+	@JoinColumn(name = "TYPE_ID", referencedColumnName = "ID")
 	private ProjectType type;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ProjectMember.class)
-	@JoinColumn(name="PROJECTLEAD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ProjectMember.class)
+	@JoinColumn(name = "PROJECTLEAD_ID", referencedColumnName = "ID")
 	private ProjectMember projectLead;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Boolean getIsPublic() {
 		return this.isPublic;
 	}
-	
+
 	public void setIsPublic(Boolean isPublic) {
 		this.isPublic = isPublic;
 	}
-	
+
 	public ProjectType getType() {
 		return this.type;
 	}
-	
+
 	public void setType(ProjectType type) {
-		if (type != null ) {
+		if (type != null) {
 			this.__validate_client_context__(type.getClientId());
 		}
 		this.type = type;
 	}
-	
+
 	public ProjectMember getProjectLead() {
 		return this.projectLead;
 	}
-	
+
 	public void setProjectLead(ProjectMember projectLead) {
-		if (projectLead != null ) {
+		if (projectLead != null) {
 			this.__validate_client_context__(projectLead.getClientId());
 		}
 		this.projectLead = projectLead;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getIsPublic() == null ) {
-			event.updateAttributeWithObject("isPublic",false);
+
+		if (this.getIsPublic() == null) {
+			event.updateAttributeWithObject("isPublic", false);
 		}
 	}
 }

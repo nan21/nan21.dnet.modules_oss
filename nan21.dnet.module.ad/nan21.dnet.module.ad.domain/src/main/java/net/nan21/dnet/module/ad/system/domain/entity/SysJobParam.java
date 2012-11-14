@@ -29,111 +29,87 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=SysJobParam.NQ_FIND_BY_ID,
-		query="SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysJobParam.NQ_FIND_BY_IDS,
-		query="SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysJobParam.NQ_FIND_BY_NAME,
-		query="SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.job = :pJob and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysJobParam.NQ_FIND_BY_NAME_PRIMITIVE,
-		query="SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.job.id = :pJobId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = SysJobParam.NQ_FIND_BY_ID, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysJobParam.NQ_FIND_BY_IDS, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysJobParam.NQ_FIND_BY_NAME, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.job = :pJob and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysJobParam.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.job.id = :pJobId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=SysJobParam.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=SysJobParam.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","JOB_ID","NAME"}
-		)
-	}
-)
+@Table(name = SysJobParam.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SysJobParam.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "JOB_ID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class SysJobParam extends AbstractType  {
-	
+public class SysJobParam extends AbstractType {
+
 	public static final String TABLE_NAME = "AD_SYS_JOB_PARAM";
 	public static final String SEQUENCE_NAME = "AD_SYS_JOB_PARAM_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "SysJobParam.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "SysJobParam.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "SysJobParam.findByName";
-	
+
 	/**
 	 * Named query find by unique key: Name using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_NAME_PRIMITIVE = "SysJobParam.findByName_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="DATATYPE", nullable=false, length=255)
+
+	@Column(name = "DATATYPE", nullable = false, length = 255)
 	@NotBlank
 	private String dataType;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=SysJob.class)
-	@JoinColumn(name="JOB_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = SysJob.class)
+	@JoinColumn(name = "JOB_ID", referencedColumnName = "ID")
 	private SysJob job;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getDataType() {
 		return this.dataType;
 	}
-	
+
 	public void setDataType(String dataType) {
 		this.dataType = dataType;
 	}
-	
+
 	public SysJob getJob() {
 		return this.job;
 	}
-	
+
 	public void setJob(SysJob job) {
-		if (job != null ) {
+		if (job != null) {
 			this.__validate_client_context__(job.getClientId());
 		}
 		this.job = job;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

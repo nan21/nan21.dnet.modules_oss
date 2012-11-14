@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.Course_UI", {
 			.linkDc("position", "course",{fields:[
 				{childField:"courseId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -37,7 +38,7 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.Course_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"details", width:450, layout:"accordion", activeItem:0})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -50,6 +51,7 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.Course_UI", {
 			.addToolbarTo("canvas2", "tlbCourseEdit")
 			.addToolbarTo("jobList", "tlbJobList")
 			.addToolbarTo("positionList", "tlbPositionList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -66,6 +68,7 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.Course_UI", {
 			.beginToolbar("tlbPositionList", {dc: "position"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Positions"})
 			.end()
+			;
 	}
 
 });

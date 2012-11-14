@@ -31,116 +31,96 @@ import org.hibernate.validator.constraints.NotBlank;
 
 /** Financiar document types.  */
 @NamedQueries({
-	@NamedQuery(
-		name=TxDocType.NQ_FIND_BY_ID,
-		query="SELECT e FROM TxDocType e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=TxDocType.NQ_FIND_BY_IDS,
-		query="SELECT e FROM TxDocType e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=TxDocType.NQ_FIND_BY_NAME,
-		query="SELECT e FROM TxDocType e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = TxDocType.NQ_FIND_BY_ID, query = "SELECT e FROM TxDocType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = TxDocType.NQ_FIND_BY_IDS, query = "SELECT e FROM TxDocType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = TxDocType.NQ_FIND_BY_NAME, query = "SELECT e FROM TxDocType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=TxDocType.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=TxDocType.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = TxDocType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = TxDocType.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class TxDocType extends AbstractType  {
-	
+public class TxDocType extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_TXDOC_TYPE";
 	public static final String SEQUENCE_NAME = "MD_TXDOC_TYPE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "TxDocType.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "TxDocType.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "TxDocType.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="CATEGORY", nullable=false, length=32)
+
+	@Column(name = "CATEGORY", nullable = false, length = 32)
 	@NotBlank
 	private String category;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=TxDocSequence.class)
-	@JoinColumn(name="DOCSEQUENCE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = TxDocSequence.class)
+	@JoinColumn(name = "DOCSEQUENCE_ID", referencedColumnName = "ID")
 	private TxDocSequence docSequence;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccJournal.class)
-	@JoinColumn(name="JOURNAL_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccJournal.class)
+	@JoinColumn(name = "JOURNAL_ID", referencedColumnName = "ID")
 	private AccJournal journal;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getCategory() {
 		return this.category;
 	}
-	
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+
 	public TxDocSequence getDocSequence() {
 		return this.docSequence;
 	}
-	
+
 	public void setDocSequence(TxDocSequence docSequence) {
-		if (docSequence != null ) {
+		if (docSequence != null) {
 			this.__validate_client_context__(docSequence.getClientId());
 		}
 		this.docSequence = docSequence;
 	}
-	
+
 	public AccJournal getJournal() {
 		return this.journal;
 	}
-	
+
 	public void setJournal(AccJournal journal) {
-		if (journal != null ) {
+		if (journal != null) {
 			this.__validate_client_context__(journal.getClientId());
 		}
 		this.journal = journal;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.NoResultException;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.md.acc.business.service.IAccSchemaService;
 import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
@@ -40,12 +41,10 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	 * @param invoice
 	 * @throws Exception
 	 */
-	public void unPost(PurchaseInvoice invoice) throws Exception {
+	public void unPost(PurchaseInvoice invoice) throws BusinessException {
 		try {
-			this.em
-					.createQuery(
-							"delete from AccDoc t "
-									+ " where t.docUuid = :invoiceUuid")
+			this.em.createQuery(
+					"delete from AccDoc t " + " where t.docUuid = :invoiceUuid")
 					.setParameter("invoiceUuid", invoice.getUuid())
 					.executeUpdate();
 			invoice.setPosted(false);
@@ -58,7 +57,8 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 								+ invoice.getCode()
 								+ "`. The corresponding accounting document is already posted to great ledger.");
 			} else {
-				throw e;
+				throw new BusinessException("Cannot unpost document "
+						+ invoice.getCode(), e);
 			}
 		}
 	}
@@ -70,7 +70,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<AccDoc> post(PurchaseInvoice invoice) throws Exception {
+	public List<AccDoc> post(PurchaseInvoice invoice) throws BusinessException {
 		List<AccDoc> result = new ArrayList<AccDoc>();
 		// get org schemas , for each schema generate an acc-doc
 		IAccSchemaService srv = (IAccSchemaService) this
@@ -86,7 +86,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	}
 
 	protected AccDoc generateAccDoc(PurchaseInvoice invoice, AccSchema schema)
-			throws Exception {
+			throws BusinessException {
 		AccDoc doc = this.generateAccDocPurchase(invoice, schema);
 		this.em.persist(doc);
 		if (invoice.getSelfPayed()) {
@@ -105,7 +105,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	 * @throws Exception
 	 */
 	protected AccDoc createHeader(PurchaseInvoice invoice, AccSchema schema)
-			throws Exception {
+			throws BusinessException {
 		AccDoc accDoc = new AccDoc();
 		accDoc.setPeriod(getPeriodService().getPostingPeriod(
 				invoice.getDocDate(), invoice.getCustomer()));
@@ -137,7 +137,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	 * @throws Exception
 	 */
 	protected AccDoc generateAccDocPurchase(PurchaseInvoice invoice,
-			AccSchema schema) throws Exception {
+			AccSchema schema) throws BusinessException {
 
 		AccDoc accDoc = this.createHeader(invoice, schema);
 
@@ -219,7 +219,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	 * @throws Exception
 	 */
 	protected AccDoc generateAccDocPayment(PurchaseInvoice invoice,
-			AccSchema schema) throws Exception {
+			AccSchema schema) throws BusinessException {
 
 		AccDoc accDoc = this.createHeader(invoice, schema);
 
@@ -270,7 +270,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	}
 
 	private Account getTaxAccount(Long taxId, Long organizationId,
-			Long accSchemaId) throws Exception {
+			Long accSchemaId) throws BusinessException {
 
 		ITaxAcctService acctService = (ITaxAcctService) this
 				.findEntityService(TaxAcct.class);
@@ -279,7 +279,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		return acct.getPurchaseAccount();
 	}
 
-	protected IBusinessPartnerService getBpService() throws Exception {
+	protected IBusinessPartnerService getBpService() throws BusinessException {
 		if (this.bpService == null) {
 			this.bpService = (IBusinessPartnerService) this
 					.findEntityService(BusinessPartner.class);
@@ -287,7 +287,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		return this.bpService;
 	}
 
-	public IFiscalPeriodService getPeriodService() throws Exception {
+	public IFiscalPeriodService getPeriodService() throws BusinessException {
 		if (this.periodService == null) {
 			this.periodService = (IFiscalPeriodService) this
 					.findEntityService(FiscalPeriod.class);
@@ -295,7 +295,7 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		return this.periodService;
 	}
 
-	public IProductService getProdService() throws Exception {
+	public IProductService getProdService() throws BusinessException {
 		if (this.prodService == null) {
 			this.prodService = (IProductService) this
 					.findEntityService(Product.class);
@@ -303,7 +303,8 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		return this.prodService;
 	}
 
-	public IFinancialAccountAcctService getPayAcctService() throws Exception {
+	public IFinancialAccountAcctService getPayAcctService()
+			throws BusinessException {
 		if (this.payAcctService == null) {
 			this.payAcctService = (IFinancialAccountAcctService) this
 					.findEntityService(FinancialAccountAcct.class);

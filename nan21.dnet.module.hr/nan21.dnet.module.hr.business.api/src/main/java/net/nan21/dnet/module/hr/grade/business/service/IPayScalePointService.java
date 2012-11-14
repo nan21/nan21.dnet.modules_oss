@@ -11,14 +11,29 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScale;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint;
 
+/**
+ * Interface to expose business functions specific for {@link PayScalePoint} domain
+ * entity.
+ */
 public interface IPayScalePointService extends IEntityService<PayScalePoint> {
-	
-	public PayScalePoint findByScale_code(PayScale payScale,String code);
-	
-	public PayScalePoint findByScale_code( Long payScaleId,String code);
-	
+
+	/**
+	 * Find by unique key
+	 */
+	public PayScalePoint findByScale_code(PayScale payScale, String code);
+
+	/**
+	 * Find by unique key
+	 */
+	public PayScalePoint findByScale_code(Long payScaleId, String code);
+
+	/**
+	 * Find by reference: payScale
+	 */
 	public List<PayScalePoint> findByPayScale(PayScale payScale);
-	
+
+	/**
+	 * Find by ID of reference: payScale.id
+	 */
 	public List<PayScalePoint> findByPayScaleId(Long payScaleId);
-	
 }

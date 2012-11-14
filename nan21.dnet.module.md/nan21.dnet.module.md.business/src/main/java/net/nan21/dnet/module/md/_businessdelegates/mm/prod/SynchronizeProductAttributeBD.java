@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.bd.attr.business.service.IAttributeSetAttributeService;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSetAttribute;
@@ -19,7 +20,8 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 	 * @param product
 	 * @throws Exception
 	 */
-	public void addAttributesToProduct(Product product) throws Exception {
+	public void addAttributesToProduct(Product product)
+			throws BusinessException {
 		if (product.getAttributeSet() == null) {
 			return;
 		}
@@ -46,7 +48,8 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 	 * @param product
 	 * @throws Exception
 	 */
-	public void deleteAttributesFromProduct(Product product) throws Exception {
+	public void deleteAttributesFromProduct(Product product)
+			throws BusinessException {
 		String jql = "delete from "
 				+ ProductAttributeValue.class.getSimpleName()
 				+ " e where e.product.id = :productId ";
@@ -62,7 +65,8 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 	 * @param product
 	 * @throws Exception
 	 */
-	public void synchronizeProductAttributes(Product product) throws Exception {
+	public void synchronizeProductAttributes(Product product)
+			throws BusinessException {
 		if (product.getAttributeSet() == null) {
 			this.deleteAttributesFromProduct(product);
 			return;
@@ -92,9 +96,10 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 				+ ProductAttributeValue.class.getSimpleName()
 				+ " v where v.product.id = :productId ) ";
 
-		List<AttributeSetAttribute> groupAttributes = this.em.createQuery(
-				addJpl, AttributeSetAttribute.class).setParameter("productId",
-				productId).setParameter("setId", setId).getResultList();
+		List<AttributeSetAttribute> groupAttributes = this.em
+				.createQuery(addJpl, AttributeSetAttribute.class)
+				.setParameter("productId", productId)
+				.setParameter("setId", setId).getResultList();
 
 		for (AttributeSetAttribute groupAttribute : groupAttributes) {
 

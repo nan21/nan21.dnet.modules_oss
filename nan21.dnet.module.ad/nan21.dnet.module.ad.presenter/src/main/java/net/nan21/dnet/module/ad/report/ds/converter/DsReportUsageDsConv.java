@@ -11,15 +11,21 @@ import net.nan21.dnet.module.ad.report.domain.entity.DsReport;
 import net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage;
 import net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs;
 
-public class DsReportUsageDsConv extends AbstractDsConverter<DsReportUsageDs, DsReportUsage> 
-		implements IDsConverter<DsReportUsageDs, DsReportUsage> {
-    
-    @Override
-    protected void modelToEntityReferences(DsReportUsageDs ds, DsReportUsage e, boolean isInsert) throws Exception {
-    	if( ds.getDsReportId() != null  ) {
-    		if (e.getDsReport() == null || !e.getDsReport().getId().equals(ds.getDsReportId()) ) {
-    			e.setDsReport( (DsReport) this.em.find(DsReport.class, ds.getDsReportId() ) );
-    		}
-    	}
-    }
+public class DsReportUsageDsConv
+		extends
+			AbstractDsConverter<DsReportUsageDs, DsReportUsage>
+		implements
+			IDsConverter<DsReportUsageDs, DsReportUsage> {
+
+	@Override
+	protected void modelToEntityReferences(DsReportUsageDs ds, DsReportUsage e,
+			boolean isInsert) throws Exception {
+		if (ds.getDsReportId() != null) {
+			if (e.getDsReport() == null
+					|| !e.getDsReport().getId().equals(ds.getDsReportId())) {
+				e.setDsReport((DsReport) this.em.find(DsReport.class,
+						ds.getDsReportId()));
+			}
+		}
+	}
 }

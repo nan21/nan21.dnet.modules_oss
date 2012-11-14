@@ -13,10 +13,17 @@ import net.nan21.dnet.module.ad.workflow.business.service.IActProcessInstanceHis
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessInstanceHistory;
 
+/**
+ * Repository functionality for {@link ActProcessInstanceHistory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ActProcessInstanceHistoryService
+		extends
+			AbstractEntityService<ActProcessInstanceHistory>
+		implements
+			IActProcessInstanceHistoryService {
 
-public class ActProcessInstanceHistoryService extends AbstractEntityService<ActProcessInstanceHistory>
-		implements IActProcessInstanceHistoryService {
- 
 	public ActProcessInstanceHistoryService() {
 		super();
 	}
@@ -30,15 +37,25 @@ public class ActProcessInstanceHistoryService extends AbstractEntityService<ActP
 	public Class<ActProcessInstanceHistory> getEntityClass() {
 		return ActProcessInstanceHistory.class;
 	}
-	
-	public List<ActProcessInstanceHistory> findByProcessDefinition(ActProcessDefinition processDefinition) {
-		return this.findByProcessDefinitionId(processDefinition.getId()); 
+
+	/**
+	 * Find by reference: processDefinition
+	 */
+	public List<ActProcessInstanceHistory> findByProcessDefinition(
+			ActProcessDefinition processDefinition) {
+		return this.findByProcessDefinitionId(processDefinition.getId());
 	}
-	
-	public List<ActProcessInstanceHistory> findByProcessDefinitionId(String processDefinitionId) {
+
+	/**
+	 * Find by ID of reference: processDefinition.id
+	 */
+	public List<ActProcessInstanceHistory> findByProcessDefinitionId(
+			String processDefinitionId) {
 		return (List<ActProcessInstanceHistory>) this.em
-			.createQuery("select e from ActProcessInstanceHistory e where  e.processDefinition.id = :pProcessDefinitionId", ActProcessInstanceHistory.class)
-					.setParameter("pProcessDefinitionId", processDefinitionId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ActProcessInstanceHistory e where  e.processDefinition.id = :pProcessDefinitionId",
+						ActProcessInstanceHistory.class)
+				.setParameter("pProcessDefinitionId", processDefinitionId)
+				.getResultList();
 	}
 }

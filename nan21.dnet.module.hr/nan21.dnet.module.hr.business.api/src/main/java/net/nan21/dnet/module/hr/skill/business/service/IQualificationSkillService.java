@@ -13,18 +13,43 @@ import net.nan21.dnet.module.hr.skill.domain.entity.QualificationSkill;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel;
 import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
 
-public interface IQualificationSkillService extends IEntityService<QualificationSkill> {
-	
-	public List<QualificationSkill> findByQualification(Qualification qualification);
-	
+/**
+ * Interface to expose business functions specific for {@link QualificationSkill} domain
+ * entity.
+ */
+public interface IQualificationSkillService
+		extends
+			IEntityService<QualificationSkill> {
+
+	/**
+	 * Find by reference: qualification
+	 */
+	public List<QualificationSkill> findByQualification(
+			Qualification qualification);
+
+	/**
+	 * Find by ID of reference: qualification.id
+	 */
 	public List<QualificationSkill> findByQualificationId(Long qualificationId);
-	
+
+	/**
+	 * Find by reference: skill
+	 */
 	public List<QualificationSkill> findBySkill(Skill skill);
-	
+
+	/**
+	 * Find by ID of reference: skill.id
+	 */
 	public List<QualificationSkill> findBySkillId(Long skillId);
-	
-	public List<QualificationSkill> findByRequiredLevel(RatingLevel requiredLevel);
-	
+
+	/**
+	 * Find by reference: requiredLevel
+	 */
+	public List<QualificationSkill> findByRequiredLevel(
+			RatingLevel requiredLevel);
+
+	/**
+	 * Find by ID of reference: requiredLevel.id
+	 */
 	public List<QualificationSkill> findByRequiredLevelId(Long requiredLevelId);
-	
 }

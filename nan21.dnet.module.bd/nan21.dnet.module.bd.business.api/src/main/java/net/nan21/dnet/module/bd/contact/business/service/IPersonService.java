@@ -9,6 +9,9 @@ package net.nan21.dnet.module.bd.contact.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.bd.contact.domain.entity.Person;
 
+/**
+ * Interface to expose business functions specific for {@link Person} domain
+ * entity.
+ */
 public interface IPersonService extends IEntityService<Person> {
-	
 }

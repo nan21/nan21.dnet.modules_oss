@@ -11,26 +11,28 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 
-@Ds(entity=Organization.class,jpqlWhere=" e.type.legalEntity = true ", sort={@SortField(field=LegalEntityOrganizationLovDs.fCODE)})
-public class LegalEntityOrganizationLovDs extends AbstractTypeWithCodeLov<Organization> {
+@Ds(entity = Organization.class, jpqlWhere = " e.type.legalEntity = true ", sort = {@SortField(field = LegalEntityOrganizationLovDs.fCODE)})
+public class LegalEntityOrganizationLovDs
+		extends
+			AbstractTypeWithCodeLov<Organization> {
 
- 	public static final String fLEGALENTITY = "legalEntity";
- 	
- 	@DsField(join="left", path="type.legalEntity")
- 	private Boolean legalEntity;
+	public static final String fLEGALENTITY = "legalEntity";
+
+	@DsField(join = "left", path = "type.legalEntity")
+	private Boolean legalEntity;
 
 	public LegalEntityOrganizationLovDs() {
 		super();
 	}
 
- 	public LegalEntityOrganizationLovDs(Organization e) {
+	public LegalEntityOrganizationLovDs(Organization e) {
 		super(e);
 	}
-	
+
 	public Boolean getLegalEntity() {
 		return this.legalEntity;
 	}
-	
+
 	public void setLegalEntity(Boolean legalEntity) {
 		this.legalEntity = legalEntity;
 	}

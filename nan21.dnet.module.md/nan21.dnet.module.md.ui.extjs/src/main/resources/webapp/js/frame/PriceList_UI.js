@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 			.linkDc("price", "version",{fields:[
 				{childField:"priceListVersionId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -54,7 +55,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"pricePanel", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -67,6 +68,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 			.addToolbarTo("versionEditList", "tlbVersionEditList")
 			.addToolbarTo("canvas2", "tlbVersionView")
 			.addToolbarTo("pricePanel", "tlbPriceEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -83,6 +85,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 			.beginToolbar("tlbPriceEditList", {dc: "price"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Product price"})
 			.end()
+			;
 	}
 
 	,onBtnAddProdByCateg: function() {

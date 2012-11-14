@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.OpportunityBaseData_UI", 
 			.addDc("stage", new net.nan21.dnet.module.sd.opportunity.dc.OpportunityStage({multiEdit:true}))
 			.addDc("result", new net.nan21.dnet.module.sd.opportunity.dc.OpportunityResultReason({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -40,7 +41,6 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.OpportunityBaseData_UI", 
 			.addPanel({name:"canvasSource", title:"Lead source", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasStage", title:"Sales stage", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasResult", title:"Result reason", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -62,6 +62,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.OpportunityBaseData_UI", 
 			.addToolbarTo("canvasSource", "tlbSourceEditList")
 			.addToolbarTo("canvasStage", "tlbStageEditList")
 			.addToolbarTo("canvasResult", "tlbResultEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -81,6 +82,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.OpportunityBaseData_UI", 
 			.beginToolbar("tlbResultEditList", {dc: "result"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Result reason"})
 			.end()
+			;
 	}
 
 });

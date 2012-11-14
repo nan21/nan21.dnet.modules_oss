@@ -6,22 +6,40 @@
 
 package net.nan21.dnet.module.md.base.period.business.service;
 
+import java.util.Date;
 import java.util.List;
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.api.service.IEntityService;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
 
-import net.nan21.dnet.module.bd.org.domain.entity.Organization;
-import java.util.Date;
+/**
+ * Interface to expose business functions specific for {@link FiscalPeriod} domain
+ * entity.
+ */
 public interface IFiscalPeriodService extends IEntityService<FiscalPeriod> {
-	
+
+	public FiscalPeriod getPostingPeriod(Date date, Organization org)
+			throws BusinessException;
+
+	/**
+	 * Find by unique key
+	 */
 	public FiscalPeriod findByCode(String code);
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public FiscalPeriod findByName(String name);
-	
+
+	/**
+	 * Find by reference: year
+	 */
 	public List<FiscalPeriod> findByYear(FiscalYear year);
-	
+
+	/**
+	 * Find by ID of reference: year.id
+	 */
 	public List<FiscalPeriod> findByYearId(Long yearId);
-	
-	public FiscalPeriod getPostingPeriod(Date date, Organization org);
 }

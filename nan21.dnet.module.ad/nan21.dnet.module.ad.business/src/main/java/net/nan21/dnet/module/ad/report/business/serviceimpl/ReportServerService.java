@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.report.business.service.IReportServerService;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportServer;
 
-
+/**
+ * Repository functionality for {@link ReportServer} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ReportServerService extends AbstractEntityService<ReportServer>
-		implements IReportServerService {
- 
+		implements
+			IReportServerService {
+
 	public ReportServerService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class ReportServerService extends AbstractEntityService<ReportServer>
 	public Class<ReportServer> getEntityClass() {
 		return ReportServer.class;
 	}
-	
-	public ReportServer findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ReportServer findByName(String name) {
 		return (ReportServer) this.em
-			.createNamedQuery(ReportServer.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ReportServer.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

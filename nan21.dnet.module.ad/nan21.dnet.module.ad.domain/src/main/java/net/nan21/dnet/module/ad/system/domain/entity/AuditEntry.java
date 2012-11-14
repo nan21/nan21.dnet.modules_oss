@@ -32,128 +32,116 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=AuditEntry.NQ_FIND_BY_ID,
-		query="SELECT e FROM AuditEntry e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AuditEntry.NQ_FIND_BY_IDS,
-		query="SELECT e FROM AuditEntry e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = AuditEntry.NQ_FIND_BY_ID, query = "SELECT e FROM AuditEntry e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AuditEntry.NQ_FIND_BY_IDS, query = "SELECT e FROM AuditEntry e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=AuditEntry.TABLE_NAME
-)
+@Table(name = AuditEntry.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class AuditEntry extends AbstractSimpleEntity  {
-	
+public class AuditEntry extends AbstractSimpleEntity {
+
 	public static final String TABLE_NAME = "AD_AUDIT";
 	public static final String SEQUENCE_NAME = "AD_AUDIT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "AuditEntry.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "AuditEntry.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="OPERATION", nullable=false, length=16)
+
+	@Column(name = "OPERATION", nullable = false, length = 16)
 	@NotBlank
 	private String operation;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="CREATEDAT", nullable=false )
+	@Column(name = "CREATEDAT", nullable = false)
 	@NotNull
 	private Date createdAt;
-	
-	@Column(name="CREATEDBY", nullable=false, length=32)
+
+	@Column(name = "CREATEDBY", nullable = false, length = 32)
 	@NotBlank
 	private String createdBy;
-	
-	@Column(name="SOURCEFQN", nullable=false, length=255)
+
+	@Column(name = "SOURCEFQN", nullable = false, length = 255)
 	@NotBlank
 	private String sourceFQN;
-	
-	@Column(name="SOURCEID", length=255)
+
+	@Column(name = "SOURCEID", length = 255)
 	private String sourceId;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=AuditField.class, mappedBy="auditEntry"
-	,cascade=CascadeType.PERSIST)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = AuditField.class, mappedBy = "auditEntry", cascade = CascadeType.PERSIST)
 	private Collection<AuditField> auditFields;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getOperation() {
 		return this.operation;
 	}
-	
+
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
-	
+
 	public Date getCreatedAt() {
 		return this.createdAt;
 	}
-	
+
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	
+
 	public String getCreatedBy() {
 		return this.createdBy;
 	}
-	
+
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
-	
+
 	public String getSourceFQN() {
 		return this.sourceFQN;
 	}
-	
+
 	public void setSourceFQN(String sourceFQN) {
 		this.sourceFQN = sourceFQN;
 	}
-	
+
 	public String getSourceId() {
 		return this.sourceId;
 	}
-	
+
 	public void setSourceId(String sourceId) {
 		this.sourceId = sourceId;
 	}
-	
+
 	public Collection<AuditField> getAuditFields() {
 		return this.auditFields;
 	}
-	
+
 	public void setAuditFields(Collection<AuditField> auditFields) {
 		this.auditFields = auditFields;
 	}
-	
+
 	public void addToAuditFields(AuditField e) {
 		if (this.auditFields == null) {
 			this.auditFields = new ArrayList<AuditField>();
@@ -161,9 +149,9 @@ public class AuditEntry extends AbstractSimpleEntity  {
 		e.setAuditEntry(this);
 		this.auditFields.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

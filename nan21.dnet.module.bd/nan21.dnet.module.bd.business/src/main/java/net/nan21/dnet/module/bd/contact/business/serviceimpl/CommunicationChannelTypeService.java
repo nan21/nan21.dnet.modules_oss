@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.contact.business.service.ICommunicationChannelTypeService;
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType;
 
+/**
+ * Repository functionality for {@link CommunicationChannelType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class CommunicationChannelTypeService
+		extends
+			AbstractEntityService<CommunicationChannelType>
+		implements
+			ICommunicationChannelTypeService {
 
-public class CommunicationChannelTypeService extends AbstractEntityService<CommunicationChannelType>
-		implements ICommunicationChannelTypeService {
- 
 	public CommunicationChannelTypeService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class CommunicationChannelTypeService extends AbstractEntityService<Commu
 	public Class<CommunicationChannelType> getEntityClass() {
 		return CommunicationChannelType.class;
 	}
-	
-	public CommunicationChannelType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public CommunicationChannelType findByName(String name) {
 		return (CommunicationChannelType) this.em
-			.createNamedQuery(CommunicationChannelType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(CommunicationChannelType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

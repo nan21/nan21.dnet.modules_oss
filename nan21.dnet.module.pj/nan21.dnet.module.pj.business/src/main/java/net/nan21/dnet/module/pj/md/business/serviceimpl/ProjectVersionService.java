@@ -15,10 +15,17 @@ import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 import net.nan21.dnet.module.pj.md.domain.entity.Project;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion;
 
+/**
+ * Repository functionality for {@link ProjectVersion} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProjectVersionService
+		extends
+			AbstractEntityService<ProjectVersion>
+		implements
+			IProjectVersionService {
 
-public class ProjectVersionService extends AbstractEntityService<ProjectVersion>
-		implements IProjectVersionService {
- 
 	public ProjectVersionService() {
 		super();
 	}
@@ -32,46 +39,65 @@ public class ProjectVersionService extends AbstractEntityService<ProjectVersion>
 	public Class<ProjectVersion> getEntityClass() {
 		return ProjectVersion.class;
 	}
-	
-	public ProjectVersion findByName(Project project,String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectVersion findByName(Project project, String name) {
 		return (ProjectVersion) this.em
-			.createNamedQuery(ProjectVersion.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProject", project)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProjectVersion.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProject", project).setParameter("pName", name)
+				.getSingleResult();
 	}
-	
-	public ProjectVersion findByName( Long projectId,String name) {
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectVersion findByName(Long projectId, String name) {
 		return (ProjectVersion) this.em
-			.createNamedQuery(ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectId", projectId)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectId", projectId)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: project
+	 */
 	public List<ProjectVersion> findByProject(Project project) {
-		return this.findByProjectId(project.getId()); 
+		return this.findByProjectId(project.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: project.id
+	 */
 	public List<ProjectVersion> findByProjectId(Long projectId) {
 		return (List<ProjectVersion>) this.em
-			.createQuery("select e from ProjectVersion e where e.clientId = :pClientId and e.project.id = :pProjectId", ProjectVersion.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectId", projectId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProjectVersion e where e.clientId = :pClientId and e.project.id = :pProjectId",
+						ProjectVersion.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectId", projectId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: affectingIssues
+	 */
 	public List<ProjectVersion> findByAffectingIssues(Issue affectingIssues) {
-		return this.findByAffectingIssuesId(affectingIssues.getId()); 
+		return this.findByAffectingIssuesId(affectingIssues.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: affectingIssues.id
+	 */
 	public List<ProjectVersion> findByAffectingIssuesId(Long affectingIssuesId) {
 		return (List<ProjectVersion>) this.em
-			.createQuery("select distinct e from ProjectVersion e, IN (e.affectingIssues) c where e.clientId = :pClientId and c.id = :pAffectingIssuesId", ProjectVersion.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAffectingIssuesId", affectingIssuesId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from ProjectVersion e, IN (e.affectingIssues) c where e.clientId = :pClientId and c.id = :pAffectingIssuesId",
+						ProjectVersion.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAffectingIssuesId", affectingIssuesId)
+				.getResultList();
 	}
 }

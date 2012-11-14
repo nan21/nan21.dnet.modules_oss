@@ -7,16 +7,16 @@ package net.nan21.dnet.module.ad.impex.ds.param;
 
 import net.nan21.dnet.core.presenter.model.EmptyParam;
 
-public class CsvExportDsParam extends EmptyParam {		
-	
+public class CsvExportDsParam extends EmptyParam {
+
 	public static final String fCLONENAME = "cloneName";
-	
-	private String  cloneName;
-	
+
+	private String cloneName;
+
 	public String getCloneName() {
 		return this.cloneName;
 	}
-	
+
 	public void setCloneName(String cloneName) {
 		this.cloneName = cloneName;
 	}

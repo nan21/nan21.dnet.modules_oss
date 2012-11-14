@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccDoc_UI", {
 			.linkDc("line", "doc",{fields:[
 				{childField:"accDocId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -36,7 +37,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccDoc_UI", {
 			})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -45,6 +46,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccDoc_UI", {
 			.addChildrenTo("canvas1", ["docFilter", "docList", "lineList"], ["north", "center", "east"])
 			.addToolbarTo("canvas1", "tlbDocList")
 			.addToolbarTo("lineList", "tlbLineList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -55,6 +57,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccDoc_UI", {
 			.beginToolbar("tlbLineList", {dc: "line"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Lines"})
 			.end()
+			;
 	}
 
 	,onBtnPost: function() {

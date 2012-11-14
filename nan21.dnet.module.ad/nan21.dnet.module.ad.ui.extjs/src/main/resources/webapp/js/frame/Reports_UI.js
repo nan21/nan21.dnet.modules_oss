@@ -35,6 +35,7 @@ Ext.define("net.nan21.dnet.module.ad.report.frame.Reports_UI", {
 			.linkDc("usage", "dsrep",{fields:[
 				{childField:"dsReportId", parentField:"id"}, {childField:"reportId", parentField:"reportId"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -67,7 +68,7 @@ Ext.define("net.nan21.dnet.module.ad.report.frame.Reports_UI", {
 			.addPanel({name:"repDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			.addPanel({name:"dsRep", title:"DS links", layout:"border", defaults:{split:true}})
 			.addPanel({name:"dsrepDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -84,6 +85,7 @@ Ext.define("net.nan21.dnet.module.ad.report.frame.Reports_UI", {
 			.addToolbarTo("dsrepList", "tlbDsRepList")
 			.addToolbarTo("dsparamList", "tlbDsParamList")
 			.addToolbarTo("usageList", "tlbUsageList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -106,6 +108,7 @@ Ext.define("net.nan21.dnet.module.ad.report.frame.Reports_UI", {
 			.beginToolbar("tlbUsageList", {dc: "usage"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Usage"})
 			.end()
+			;
 	}
 
 	,onBtnTestReport: function() {

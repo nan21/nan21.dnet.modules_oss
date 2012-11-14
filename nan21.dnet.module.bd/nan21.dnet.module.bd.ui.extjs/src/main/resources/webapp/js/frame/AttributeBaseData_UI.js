@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeBaseData_UI", {
 		this._getBuilder_()
 			.addDc("categ", new net.nan21.dnet.module.bd.attr.dc.AttributeCategory({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,6 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeBaseData_UI", {
 			.addDcEditGridView("categ", {name:"categEditList", xtype:"bd_attr_dc_AttributeCategory$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCateg", title:"Attribute categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -38,6 +38,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeBaseData_UI", {
 			.addChildrenTo("canvasCateg", ["categFilter", "categEditList"], ["north", "center"])
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasCateg", "tlbCategEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -45,6 +46,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeBaseData_UI", {
 			.beginToolbar("tlbCategEditList", {dc: "categ"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Attribute categories"})
 			.end()
+			;
 	}
 
 });

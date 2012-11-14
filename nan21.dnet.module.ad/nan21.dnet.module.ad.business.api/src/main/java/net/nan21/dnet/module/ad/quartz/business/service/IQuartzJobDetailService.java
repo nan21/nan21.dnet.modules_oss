@@ -9,6 +9,11 @@ package net.nan21.dnet.module.ad.quartz.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.quartz.domain.entity.QuartzJobDetail;
 
-public interface IQuartzJobDetailService extends IEntityService<QuartzJobDetail> {
-	
+/**
+ * Interface to expose business functions specific for {@link QuartzJobDetail} domain
+ * entity.
+ */
+public interface IQuartzJobDetailService
+		extends
+			IEntityService<QuartzJobDetail> {
 }

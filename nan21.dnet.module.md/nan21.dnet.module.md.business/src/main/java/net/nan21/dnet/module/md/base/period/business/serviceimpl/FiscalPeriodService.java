@@ -10,17 +10,16 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
-import net.nan21.dnet.module.md.base.period.business.service.IFiscalPeriodService;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
 
-import net.nan21.dnet.module.bd.org.domain.entity.Organization;
-import java.util.Date;
-import javax.persistence.NoResultException;
+/**
+ * Repository functionality for {@link FiscalPeriod} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class FiscalPeriodService extends AbstractEntityService<FiscalPeriod> {
 
-public class FiscalPeriodService extends AbstractEntityService<FiscalPeriod>
-		implements IFiscalPeriodService {
- 
 	public FiscalPeriodService() {
 		super();
 	}
@@ -34,53 +33,43 @@ public class FiscalPeriodService extends AbstractEntityService<FiscalPeriod>
 	public Class<FiscalPeriod> getEntityClass() {
 		return FiscalPeriod.class;
 	}
-	
-	public FiscalPeriod findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public FiscalPeriod findByCode(String code) {
 		return (FiscalPeriod) this.em
-			.createNamedQuery(FiscalPeriod.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(FiscalPeriod.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public FiscalPeriod findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public FiscalPeriod findByName(String name) {
 		return (FiscalPeriod) this.em
-			.createNamedQuery(FiscalPeriod.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(FiscalPeriod.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: year
+	 */
 	public List<FiscalPeriod> findByYear(FiscalYear year) {
-		return this.findByYearId(year.getId()); 
+		return this.findByYearId(year.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: year.id
+	 */
 	public List<FiscalPeriod> findByYearId(Long yearId) {
 		return (List<FiscalPeriod>) this.em
-			.createQuery("select e from FiscalPeriod e where e.clientId = :pClientId and e.year.id = :pYearId", FiscalPeriod.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pYearId", yearId)			 	
-			.getResultList(); 
-	}
-	
-	public FiscalPeriod getPostingPeriod(Date date, Organization org) {
-		
-				try {
-					FiscalPeriod period = (FiscalPeriod) this.em
-							.createQuery(
-									"select e from FiscalPeriod e "
-											+ "	where e.clientId = :pClientId "
-											+ "	  and :pDate between e.startDate and e.endDate "
-											+ "	and e.active = true "
-											+ "	and e.posting = true ",
-									FiscalPeriod.class).setParameter("pClientId",
-									Session.user.get().getClientId()).setParameter(
-									"pDate", date).getSingleResult();
-					return period;
-				} catch (NoResultException e) {
-					throw new RuntimeException("No open posting period found for `"
-							+ date.toString() + "`");
-				}
-		
+				.createQuery(
+						"select e from FiscalPeriod e where e.clientId = :pClientId and e.year.id = :pYearId",
+						FiscalPeriod.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pYearId", yearId).getResultList();
 	}
 }

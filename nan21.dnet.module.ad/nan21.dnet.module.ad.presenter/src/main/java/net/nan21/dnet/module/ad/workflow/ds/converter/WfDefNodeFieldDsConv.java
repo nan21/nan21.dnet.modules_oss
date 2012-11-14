@@ -11,15 +11,21 @@ import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode;
 import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNodeField;
 import net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeFieldDs;
 
-public class WfDefNodeFieldDsConv extends AbstractDsConverter<WfDefNodeFieldDs, WfDefNodeField> 
-		implements IDsConverter<WfDefNodeFieldDs, WfDefNodeField> {
-    
-    @Override
-    protected void modelToEntityReferences(WfDefNodeFieldDs ds, WfDefNodeField e, boolean isInsert) throws Exception {
-    	if( ds.getNodeId() != null  ) {
-    		if (e.getNode() == null || !e.getNode().getId().equals(ds.getNodeId()) ) {
-    			e.setNode( (WfDefNode) this.em.find(WfDefNode.class, ds.getNodeId() ) );
-    		}
-    	}
-    }
+public class WfDefNodeFieldDsConv
+		extends
+			AbstractDsConverter<WfDefNodeFieldDs, WfDefNodeField>
+		implements
+			IDsConverter<WfDefNodeFieldDs, WfDefNodeField> {
+
+	@Override
+	protected void modelToEntityReferences(WfDefNodeFieldDs ds,
+			WfDefNodeField e, boolean isInsert) throws Exception {
+		if (ds.getNodeId() != null) {
+			if (e.getNode() == null
+					|| !e.getNode().getId().equals(ds.getNodeId())) {
+				e.setNode((WfDefNode) this.em.find(WfDefNode.class,
+						ds.getNodeId()));
+			}
+		}
+	}
 }

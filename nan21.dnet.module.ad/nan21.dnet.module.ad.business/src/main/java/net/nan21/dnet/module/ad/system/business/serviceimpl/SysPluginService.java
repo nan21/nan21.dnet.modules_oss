@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysPluginService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysPlugin;
 
-
+/**
+ * Repository functionality for {@link SysPlugin} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class SysPluginService extends AbstractEntityService<SysPlugin>
-		implements ISysPluginService {
- 
+		implements
+			ISysPluginService {
+
 	public SysPluginService() {
 		super();
 	}
@@ -29,12 +34,13 @@ public class SysPluginService extends AbstractEntityService<SysPlugin>
 	public Class<SysPlugin> getEntityClass() {
 		return SysPlugin.class;
 	}
-	
-	public SysPlugin findByName(String name) {		 
-		return (SysPlugin) this.em
-			.createNamedQuery(SysPlugin.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysPlugin findByName(String name) {
+		return (SysPlugin) this.em.createNamedQuery(SysPlugin.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

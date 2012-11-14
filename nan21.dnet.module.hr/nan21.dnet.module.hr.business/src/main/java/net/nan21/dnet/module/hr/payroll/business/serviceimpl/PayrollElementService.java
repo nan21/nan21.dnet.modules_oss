@@ -15,10 +15,17 @@ import net.nan21.dnet.module.hr.payroll.business.service.IPayrollElementService;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement;
 import net.nan21.dnet.module.md.acc.domain.entity.AccItem;
 
+/**
+ * Repository functionality for {@link PayrollElement} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PayrollElementService
+		extends
+			AbstractEntityService<PayrollElement>
+		implements
+			IPayrollElementService {
 
-public class PayrollElementService extends AbstractEntityService<PayrollElement>
-		implements IPayrollElementService {
- 
 	public PayrollElementService() {
 		super();
 	}
@@ -32,46 +39,66 @@ public class PayrollElementService extends AbstractEntityService<PayrollElement>
 	public Class<PayrollElement> getEntityClass() {
 		return PayrollElement.class;
 	}
-	
-	public PayrollElement findByEngine_code(Engine engine,String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public PayrollElement findByEngine_code(Engine engine, String code) {
 		return (PayrollElement) this.em
-			.createNamedQuery(PayrollElement.NQ_FIND_BY_ENGINE_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngine", engine)
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(PayrollElement.NQ_FIND_BY_ENGINE_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngine", engine).setParameter("pCode", code)
+				.getSingleResult();
 	}
-	
-	public PayrollElement findByEngine_code( Long engineId,String code) {
+
+	/**
+	 * Find by unique key
+	 */
+	public PayrollElement findByEngine_code(Long engineId, String code) {
 		return (PayrollElement) this.em
-			.createNamedQuery(PayrollElement.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngineId", engineId)
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(
+						PayrollElement.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngineId", engineId)
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: accItem
+	 */
 	public List<PayrollElement> findByAccItem(AccItem accItem) {
-		return this.findByAccItemId(accItem.getId()); 
+		return this.findByAccItemId(accItem.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: accItem.id
+	 */
 	public List<PayrollElement> findByAccItemId(Long accItemId) {
 		return (List<PayrollElement>) this.em
-			.createQuery("select e from PayrollElement e where e.clientId = :pClientId and e.accItem.id = :pAccItemId", PayrollElement.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAccItemId", accItemId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PayrollElement e where e.clientId = :pClientId and e.accItem.id = :pAccItemId",
+						PayrollElement.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAccItemId", accItemId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: sourceElement
+	 */
 	public List<PayrollElement> findBySourceElement(PayrollElement sourceElement) {
-		return this.findBySourceElementId(sourceElement.getId()); 
+		return this.findBySourceElementId(sourceElement.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: sourceElement.id
+	 */
 	public List<PayrollElement> findBySourceElementId(Long sourceElementId) {
 		return (List<PayrollElement>) this.em
-			.createQuery("select e from PayrollElement e where e.clientId = :pClientId and e.sourceElement.id = :pSourceElementId", PayrollElement.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pSourceElementId", sourceElementId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PayrollElement e where e.clientId = :pClientId and e.sourceElement.id = :pSourceElementId",
+						PayrollElement.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pSourceElementId", sourceElementId)
+				.getResultList();
 	}
 }

@@ -6,11 +6,16 @@
 
 package net.nan21.dnet.module.ad.client.business.service;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.client.domain.entity.Client;
 
+/**
+ * Interface to expose business functions specific for {@link Client} domain
+ * entity.
+ */
 public interface IClientService extends IEntityService<Client> {
-	
-	public void doInsertWithUserAccounts(Client client, String userCode, String userName, String password)
-				throws Exception;
+
+	public void doInsertWithUserAccounts(Client client, String userCode,
+			String userName, String password) throws BusinessException;
 }

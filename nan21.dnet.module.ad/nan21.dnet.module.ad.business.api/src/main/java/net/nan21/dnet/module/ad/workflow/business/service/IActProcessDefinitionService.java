@@ -11,10 +11,21 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;
 
-public interface IActProcessDefinitionService extends IEntityService<ActProcessDefinition> {
-	
+/**
+ * Interface to expose business functions specific for {@link ActProcessDefinition} domain
+ * entity.
+ */
+public interface IActProcessDefinitionService
+		extends
+			IEntityService<ActProcessDefinition> {
+
+	/**
+	 * Find by reference: deployment
+	 */
 	public List<ActProcessDefinition> findByDeployment(ActDeployment deployment);
-	
+
+	/**
+	 * Find by ID of reference: deployment.id
+	 */
 	public List<ActProcessDefinition> findByDeploymentId(String deploymentId);
-	
 }

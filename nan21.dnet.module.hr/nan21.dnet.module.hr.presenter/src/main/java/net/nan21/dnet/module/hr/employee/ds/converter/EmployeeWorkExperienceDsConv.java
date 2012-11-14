@@ -11,15 +11,21 @@ import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeWorkExperience;
 import net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs;
 
-public class EmployeeWorkExperienceDsConv extends AbstractDsConverter<EmployeeWorkExperienceDs, EmployeeWorkExperience> 
-		implements IDsConverter<EmployeeWorkExperienceDs, EmployeeWorkExperience> {
-    
-    @Override
-    protected void modelToEntityReferences(EmployeeWorkExperienceDs ds, EmployeeWorkExperience e, boolean isInsert) throws Exception {
-    	if( ds.getEmployeeId() != null  ) {
-    		if (e.getEmployee() == null || !e.getEmployee().getId().equals(ds.getEmployeeId()) ) {
-    			e.setEmployee( (Employee) this.em.find(Employee.class, ds.getEmployeeId() ) );
-    		}
-    	}
-    }
+public class EmployeeWorkExperienceDsConv
+		extends
+			AbstractDsConverter<EmployeeWorkExperienceDs, EmployeeWorkExperience>
+		implements
+			IDsConverter<EmployeeWorkExperienceDs, EmployeeWorkExperience> {
+
+	@Override
+	protected void modelToEntityReferences(EmployeeWorkExperienceDs ds,
+			EmployeeWorkExperience e, boolean isInsert) throws Exception {
+		if (ds.getEmployeeId() != null) {
+			if (e.getEmployee() == null
+					|| !e.getEmployee().getId().equals(ds.getEmployeeId())) {
+				e.setEmployee((Employee) this.em.find(Employee.class,
+						ds.getEmployeeId()));
+			}
+		}
+	}
 }

@@ -161,6 +161,6 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysTimer$Edit", {
 	
 	onTypeChange: function() {
 		var r = this._getController_().getRecord();		 
-				this._setFieldsVisibleState_(["cronExpression","repeatCount","repeatInterval","repeatIntervalType"], r);;
+				this._setFieldsVisibleState_(["cronExpression","repeatCount","repeatInterval","repeatIntervalType"], r);
 	}
 });

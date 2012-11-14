@@ -9,7 +9,7 @@
 	<bean id="UserTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.UserTypeService"/>
 	<bean id="UserService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.UserService"/>
+		class="net.nan21.dnet.module.ad.usr.business.serviceext.UserService"/>
 	<bean id="UserGroupService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.UserGroupService"/>
 	<bean id="RoleService" scope="singleton" lazy-init="true"

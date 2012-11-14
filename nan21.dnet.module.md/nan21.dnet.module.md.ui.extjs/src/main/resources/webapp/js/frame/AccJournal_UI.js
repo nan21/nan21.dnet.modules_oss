@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccJournal_UI", {
 		this._getBuilder_()
 			.addDc("journal", new net.nan21.dnet.module.md.acc.dc.AccJournal({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccJournal_UI", {
 			.addDcEditGridView("journal", {name:"journalEditList", xtype:"md_acc_dc_AccJournal$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccJournal_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["journalFilter", "journalEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbItemList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccJournal_UI", {
 			.beginToolbar("tlbItemList", {dc: "journal"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports()
 			.end()
+			;
 	}
 
 });

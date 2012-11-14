@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.AssetBaseData_UI", {
 			.linkDc("acct", "categ",{fields:[
 				{childField:"assetCategoryId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,7 +30,6 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.AssetBaseData_UI", {
 			.addDcEditGridView("acct", {name:"acctEditList", height:220, xtype:"fi_asset_dc_AssetCategoryAcct$EditListCtx", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCateg", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -44,6 +44,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.AssetBaseData_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasCateg", "tlbCategList")
 			.addToolbarTo("acctEditList", "tlbAcctList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.AssetBaseData_UI", {
 			.beginToolbar("tlbAcctList", {dc: "acct"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Accounting"})
 			.end()
+			;
 	}
 
 });

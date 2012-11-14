@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.skill.business.service.IQualificationService;
 import net.nan21.dnet.module.hr.skill.domain.entity.Qualification;
 
-
+/**
+ * Repository functionality for {@link Qualification} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class QualificationService extends AbstractEntityService<Qualification>
-		implements IQualificationService {
- 
+		implements
+			IQualificationService {
+
 	public QualificationService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class QualificationService extends AbstractEntityService<Qualification>
 	public Class<Qualification> getEntityClass() {
 		return Qualification.class;
 	}
-	
-	public Qualification findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public Qualification findByName(String name) {
 		return (Qualification) this.em
-			.createNamedQuery(Qualification.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(Qualification.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

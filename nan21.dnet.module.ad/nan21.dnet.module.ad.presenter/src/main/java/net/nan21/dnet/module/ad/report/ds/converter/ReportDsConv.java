@@ -12,32 +12,40 @@ import net.nan21.dnet.module.ad.report.domain.entity.Report;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportServer;
 import net.nan21.dnet.module.ad.report.ds.model.ReportDs;
 
-public class ReportDsConv extends AbstractDsConverter<ReportDs, Report> 
-		implements IDsConverter<ReportDs, Report> {
-    
-    @Override
-    protected void modelToEntityReferences(ReportDs ds, Report e, boolean isInsert) throws Exception {
-    	if( ds.getReportServerId() != null  ) {
-    		if (e.getReportServer() == null || !e.getReportServer().getId().equals(ds.getReportServerId()) ) {
-    			e.setReportServer( (ReportServer) this.em.find(ReportServer.class, ds.getReportServerId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_reportServer_ReportServer(ds, e);
-    	}
-    }
-    
-    protected void lookup_reportServer_ReportServer(ReportDs ds, Report e ) throws Exception {
-    	if (ds.getReportServer() != null && !ds.getReportServer().equals("") ) {
-    		ReportServer x = null;
-    		try { 
-    			x = ((IReportServerService)findEntityService(ReportServer.class)).findByName( ds.getReportServer() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `ReportServer` reference: `reportServer` = " + ds.getReportServer() + "" );
-    		}
-    		e.setReportServer(x); 
-    	} else {
-    		e.setReportServer(null);
-    	}
-    }
+public class ReportDsConv extends AbstractDsConverter<ReportDs, Report>
+		implements
+			IDsConverter<ReportDs, Report> {
+
+	@Override
+	protected void modelToEntityReferences(ReportDs ds, Report e,
+			boolean isInsert) throws Exception {
+		if (ds.getReportServerId() != null) {
+			if (e.getReportServer() == null
+					|| !e.getReportServer().getId()
+							.equals(ds.getReportServerId())) {
+				e.setReportServer((ReportServer) this.em.find(
+						ReportServer.class, ds.getReportServerId()));
+			}
+		} else {
+			this.lookup_reportServer_ReportServer(ds, e);
+		}
+	}
+
+	protected void lookup_reportServer_ReportServer(ReportDs ds, Report e)
+			throws Exception {
+		if (ds.getReportServer() != null && !ds.getReportServer().equals("")) {
+			ReportServer x = null;
+			try {
+				x = ((IReportServerService) findEntityService(ReportServer.class))
+						.findByName(ds.getReportServer());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `ReportServer` reference: `reportServer` = "
+								+ ds.getReportServer() + "");
+			}
+			e.setReportServer(x);
+		} else {
+			e.setReportServer(null);
+		}
+	}
 }

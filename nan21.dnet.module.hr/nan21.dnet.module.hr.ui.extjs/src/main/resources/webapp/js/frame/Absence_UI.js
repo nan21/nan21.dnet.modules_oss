@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.Absence_UI", {
 		this._getBuilder_()
 			.addDc("absence", new net.nan21.dnet.module.hr.time.dc.Absence({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -26,7 +27,7 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.Absence_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -36,6 +37,7 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.Absence_UI", {
 			.addChildrenTo("canvas2", ["absenceEdit"], ["center"])
 			.addToolbarTo("canvas1", "tlbAbsenceList")
 			.addToolbarTo("canvas2", "tlbAbsenceEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -46,6 +48,7 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.Absence_UI", {
 			.beginToolbar("tlbAbsenceEdit", {dc: "absence"}).addBack().addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Absence"})
 			.end()
+			;
 	}
 
 });

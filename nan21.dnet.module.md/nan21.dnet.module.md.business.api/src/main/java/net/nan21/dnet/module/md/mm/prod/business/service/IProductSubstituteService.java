@@ -11,14 +11,31 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductSubstitute;
 
-public interface IProductSubstituteService extends IEntityService<ProductSubstitute> {
-	
+/**
+ * Interface to expose business functions specific for {@link ProductSubstitute} domain
+ * entity.
+ */
+public interface IProductSubstituteService
+		extends
+			IEntityService<ProductSubstitute> {
+
+	/**
+	 * Find by reference: refProduct
+	 */
 	public List<ProductSubstitute> findByRefProduct(Product refProduct);
-	
+
+	/**
+	 * Find by ID of reference: refProduct.id
+	 */
 	public List<ProductSubstitute> findByRefProductId(Long refProductId);
-	
+
+	/**
+	 * Find by reference: equivalence
+	 */
 	public List<ProductSubstitute> findByEquivalence(Product equivalence);
-	
+
+	/**
+	 * Find by ID of reference: equivalence.id
+	 */
 	public List<ProductSubstitute> findByEquivalenceId(Long equivalenceId);
-	
 }

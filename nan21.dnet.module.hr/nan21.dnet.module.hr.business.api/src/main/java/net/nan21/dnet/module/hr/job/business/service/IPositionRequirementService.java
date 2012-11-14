@@ -12,14 +12,32 @@ import net.nan21.dnet.module.hr.job.domain.entity.Position;
 import net.nan21.dnet.module.hr.job.domain.entity.PositionRequirement;
 import net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement;
 
-public interface IPositionRequirementService extends IEntityService<PositionRequirement> {
-	
+/**
+ * Interface to expose business functions specific for {@link PositionRequirement} domain
+ * entity.
+ */
+public interface IPositionRequirementService
+		extends
+			IEntityService<PositionRequirement> {
+
+	/**
+	 * Find by reference: position
+	 */
 	public List<PositionRequirement> findByPosition(Position position);
-	
+
+	/**
+	 * Find by ID of reference: position.id
+	 */
 	public List<PositionRequirement> findByPositionId(Long positionId);
-	
-	public List<PositionRequirement> findByRequirement(WorkRequirement requirement);
-	
+
+	/**
+	 * Find by reference: requirement
+	 */
+	public List<PositionRequirement> findByRequirement(
+			WorkRequirement requirement);
+
+	/**
+	 * Find by ID of reference: requirement.id
+	 */
 	public List<PositionRequirement> findByRequirementId(Long requirementId);
-	
 }

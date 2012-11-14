@@ -8,13 +8,13 @@ package net.nan21.dnet.module.ad.report.ds.filter;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDsFilter;
 
 public class ReportServerDsFilter extends AbstractTypeDsFilter {
-	
-	private String  url;
-	
+
+	private String url;
+
 	public String getUrl() {
 		return this.url;
 	}
-	
+
 	public void setUrl(String url) {
 		this.url = url;
 	}

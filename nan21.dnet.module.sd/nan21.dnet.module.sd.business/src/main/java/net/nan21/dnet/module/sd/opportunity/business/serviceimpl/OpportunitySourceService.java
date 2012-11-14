@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.sd.opportunity.business.service.IOpportunitySourceService;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunitySource;
 
+/**
+ * Repository functionality for {@link OpportunitySource} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class OpportunitySourceService
+		extends
+			AbstractEntityService<OpportunitySource>
+		implements
+			IOpportunitySourceService {
 
-public class OpportunitySourceService extends AbstractEntityService<OpportunitySource>
-		implements IOpportunitySourceService {
- 
 	public OpportunitySourceService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class OpportunitySourceService extends AbstractEntityService<OpportunityS
 	public Class<OpportunitySource> getEntityClass() {
 		return OpportunitySource.class;
 	}
-	
-	public OpportunitySource findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public OpportunitySource findByName(String name) {
 		return (OpportunitySource) this.em
-			.createNamedQuery(OpportunitySource.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(OpportunitySource.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

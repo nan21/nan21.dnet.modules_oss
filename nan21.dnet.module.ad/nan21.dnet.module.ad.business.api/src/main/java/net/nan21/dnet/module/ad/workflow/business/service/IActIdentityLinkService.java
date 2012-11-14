@@ -9,6 +9,11 @@ package net.nan21.dnet.module.ad.workflow.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActIdentityLink;
 
-public interface IActIdentityLinkService extends IEntityService<ActIdentityLink> {
-	
+/**
+ * Interface to expose business functions specific for {@link ActIdentityLink} domain
+ * entity.
+ */
+public interface IActIdentityLinkService
+		extends
+			IEntityService<ActIdentityLink> {
 }

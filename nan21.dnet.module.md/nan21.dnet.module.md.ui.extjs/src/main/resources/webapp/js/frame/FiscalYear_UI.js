@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			.linkDc("period", "year",{fields:[
 				{childField:"yearId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -40,7 +41,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"periodPanel", height:240, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -50,6 +51,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			.addChildrenTo("periodPanel", ["periodFilter", "periodEditList"], ["west", "center"])
 			.addToolbarTo("canvas1", "tlbYearList")
 			.addToolbarTo("periodPanel", "tlbPeriodList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -60,6 +62,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			.beginToolbar("tlbPeriodList", {dc: "period"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Periods"})
 			.end()
+			;
 	}
 
 	,onBtnCreateMonths: function() {

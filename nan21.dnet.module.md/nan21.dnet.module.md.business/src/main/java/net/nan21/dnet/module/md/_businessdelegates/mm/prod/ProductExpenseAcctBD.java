@@ -2,6 +2,7 @@ package net.nan21.dnet.module.md._businessdelegates.mm.prod;
 
 import javax.persistence.NoResultException;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
@@ -18,7 +19,7 @@ import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroupAcct;
 public class ProductExpenseAcctBD extends AbstractBusinessDelegate {
 
 	public String getPostingAcct(Product product, Organization organization,
-			AccSchema schema) throws Exception {
+			AccSchema schema) throws BusinessException {
 		IProductAccountService accountService = (IProductAccountService) this
 				.findEntityService(ProductAccount.class);
 		ProductAccount account = null;
@@ -63,7 +64,7 @@ public class ProductExpenseAcctBD extends AbstractBusinessDelegate {
 	}
 
 	protected Account findByAccount(Long accountId, Long schemaId)
-			throws Exception {
+			throws BusinessException {
 		IProductAccountAcctService acctService = (IProductAccountAcctService) this
 				.findEntityService(ProductAccountAcct.class);
 
@@ -76,7 +77,8 @@ public class ProductExpenseAcctBD extends AbstractBusinessDelegate {
 		return null;
 	}
 
-	protected Account findByGroup(Long groupId, Long schemaId) throws Exception {
+	protected Account findByGroup(Long groupId, Long schemaId)
+			throws BusinessException {
 		IProductAccountGroupAcctService groupAcctService = (IProductAccountGroupAcctService) this
 				.findEntityService(ProductAccountGroupAcct.class);
 		ProductAccountGroupAcct groupAcct = groupAcctService

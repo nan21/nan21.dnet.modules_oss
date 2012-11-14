@@ -14,10 +14,17 @@ import net.nan21.dnet.module.bd.elem.business.service.IElementCategoryService;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementCategory;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
+/**
+ * Repository functionality for {@link ElementCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ElementCategoryService
+		extends
+			AbstractEntityService<ElementCategory>
+		implements
+			IElementCategoryService {
 
-public class ElementCategoryService extends AbstractEntityService<ElementCategory>
-		implements IElementCategoryService {
- 
 	public ElementCategoryService() {
 		super();
 	}
@@ -31,34 +38,46 @@ public class ElementCategoryService extends AbstractEntityService<ElementCategor
 	public Class<ElementCategory> getEntityClass() {
 		return ElementCategory.class;
 	}
-	
-	public ElementCategory findByEngine_name(Engine engine,String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ElementCategory findByEngine_name(Engine engine, String name) {
 		return (ElementCategory) this.em
-			.createNamedQuery(ElementCategory.NQ_FIND_BY_ENGINE_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngine", engine)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ElementCategory.NQ_FIND_BY_ENGINE_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngine", engine).setParameter("pName", name)
+				.getSingleResult();
 	}
-	
-	public ElementCategory findByEngine_name( Long engineId,String name) {
+
+	/**
+	 * Find by unique key
+	 */
+	public ElementCategory findByEngine_name(Long engineId, String name) {
 		return (ElementCategory) this.em
-			.createNamedQuery(ElementCategory.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngineId", engineId)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(
+						ElementCategory.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngineId", engineId)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: engine
+	 */
 	public List<ElementCategory> findByEngine(Engine engine) {
-		return this.findByEngineId(engine.getId()); 
+		return this.findByEngineId(engine.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: engine.id
+	 */
 	public List<ElementCategory> findByEngineId(Long engineId) {
 		return (List<ElementCategory>) this.em
-			.createQuery("select e from ElementCategory e where e.clientId = :pClientId and e.engine.id = :pEngineId", ElementCategory.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngineId", engineId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ElementCategory e where e.clientId = :pClientId and e.engine.id = :pEngineId",
+						ElementCategory.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngineId", engineId).getResultList();
 	}
 }

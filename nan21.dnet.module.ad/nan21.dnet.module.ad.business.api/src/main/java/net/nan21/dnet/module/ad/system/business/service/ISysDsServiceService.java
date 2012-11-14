@@ -11,14 +11,29 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsService;
 
+/**
+ * Interface to expose business functions specific for {@link SysDsService} domain
+ * entity.
+ */
 public interface ISysDsServiceService extends IEntityService<SysDsService> {
-	
-	public SysDsService findByName(SysDataSource dataSource,String name);
-	
-	public SysDsService findByName( Long dataSourceId,String name);
-	
+
+	/**
+	 * Find by unique key
+	 */
+	public SysDsService findByName(SysDataSource dataSource, String name);
+
+	/**
+	 * Find by unique key
+	 */
+	public SysDsService findByName(Long dataSourceId, String name);
+
+	/**
+	 * Find by reference: dataSource
+	 */
 	public List<SysDsService> findByDataSource(SysDataSource dataSource);
-	
+
+	/**
+	 * Find by ID of reference: dataSource.id
+	 */
 	public List<SysDsService> findByDataSourceId(Long dataSourceId);
-	
 }

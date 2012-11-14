@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.activity.business.service.ICalendarEventPriorityService;
 import net.nan21.dnet.module.md.activity.domain.entity.CalendarEventPriority;
 
+/**
+ * Repository functionality for {@link CalendarEventPriority} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class CalendarEventPriorityService
+		extends
+			AbstractEntityService<CalendarEventPriority>
+		implements
+			ICalendarEventPriorityService {
 
-public class CalendarEventPriorityService extends AbstractEntityService<CalendarEventPriority>
-		implements ICalendarEventPriorityService {
- 
 	public CalendarEventPriorityService() {
 		super();
 	}
@@ -29,13 +36,17 @@ public class CalendarEventPriorityService extends AbstractEntityService<Calendar
 	public Class<CalendarEventPriority> getEntityClass() {
 		return CalendarEventPriority.class;
 	}
-	
-	public CalendarEventPriority findByType_and_name(String eventType,String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public CalendarEventPriority findByType_and_name(String eventType,
+			String name) {
 		return (CalendarEventPriority) this.em
-			.createNamedQuery(CalendarEventPriority.NQ_FIND_BY_TYPE_AND_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEventType", eventType)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(
+						CalendarEventPriority.NQ_FIND_BY_TYPE_AND_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEventType", eventType)
+				.setParameter("pName", name).getSingleResult();
 	}
 }

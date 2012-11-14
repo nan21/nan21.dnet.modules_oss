@@ -9,74 +9,74 @@ import java.util.Date;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDsFilter;
 
 public class ActDeploymentDsFilter extends AbstractBaseDsFilter {
-	
-	private String  id;
-	
-	private Long  clientId;
-	
-	private String  name;
-	
-	private Date  deployTime;
-	
-	private Date  deployTime_From;
-	
-	private Date  deployTime_To;
-	
-	private String  fullName;
-	
+
+	private String id;
+
+	private Long clientId;
+
+	private String name;
+
+	private Date deployTime;
+
+	private Date deployTime_From;
+
+	private Date deployTime_To;
+
+	private String fullName;
+
 	public String getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Object id) {
-		this.id = (String)id;
-		
+		this.id = (String) id;
+
 	}
-	
+
 	public Long getClientId() {
 		return this.clientId;
 	}
-	
+
 	public void setClientId(Long clientId) {
 		this.clientId = clientId;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public Date getDeployTime() {
 		return this.deployTime;
 	}
-	
+
 	public Date getDeployTime_From() {
 		return this.deployTime_From;
 	}
-	
+
 	public Date getDeployTime_To() {
 		return this.deployTime_To;
 	}
-	
+
 	public void setDeployTime(Date deployTime) {
 		this.deployTime = deployTime;
 	}
-	
+
 	public void setDeployTime_From(Date deployTime_From) {
 		this.deployTime_From = deployTime_From;
 	}
-	
+
 	public void setDeployTime_To(Date deployTime_To) {
 		this.deployTime_To = deployTime_To;
 	}
-	
+
 	public String getFullName() {
 		return this.fullName;
 	}
-	
+
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}

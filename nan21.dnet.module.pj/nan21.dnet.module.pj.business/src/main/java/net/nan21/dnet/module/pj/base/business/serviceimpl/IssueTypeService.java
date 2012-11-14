@@ -15,10 +15,15 @@ import net.nan21.dnet.module.pj.base.domain.entity.IssueCategory;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueType;
 import net.nan21.dnet.module.pj.base.domain.entity.ProjectType;
 
-
+/**
+ * Repository functionality for {@link IssueType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class IssueTypeService extends AbstractEntityService<IssueType>
-		implements IIssueTypeService {
- 
+		implements
+			IIssueTypeService {
+
 	public IssueTypeService() {
 		super();
 	}
@@ -32,36 +37,52 @@ public class IssueTypeService extends AbstractEntityService<IssueType>
 	public Class<IssueType> getEntityClass() {
 		return IssueType.class;
 	}
-	
-	public IssueType findByName(String name) {		 
-		return (IssueType) this.em
-			.createNamedQuery(IssueType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public IssueType findByName(String name) {
+		return (IssueType) this.em.createNamedQuery(IssueType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: category
+	 */
 	public List<IssueType> findByCategory(IssueCategory category) {
-		return this.findByCategoryId(category.getId()); 
+		return this.findByCategoryId(category.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: category.id
+	 */
 	public List<IssueType> findByCategoryId(Long categoryId) {
 		return (List<IssueType>) this.em
-			.createQuery("select e from IssueType e where e.clientId = :pClientId and e.category.id = :pCategoryId", IssueType.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCategoryId", categoryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from IssueType e where e.clientId = :pClientId and e.category.id = :pCategoryId",
+						IssueType.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCategoryId", categoryId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: projectTypes
+	 */
 	public List<IssueType> findByProjectTypes(ProjectType projectTypes) {
-		return this.findByProjectTypesId(projectTypes.getId()); 
+		return this.findByProjectTypesId(projectTypes.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: projectTypes.id
+	 */
 	public List<IssueType> findByProjectTypesId(Long projectTypesId) {
 		return (List<IssueType>) this.em
-			.createQuery("select distinct e from IssueType e, IN (e.projectTypes) c where e.clientId = :pClientId and c.id = :pProjectTypesId", IssueType.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectTypesId", projectTypesId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from IssueType e, IN (e.projectTypes) c where e.clientId = :pClientId and c.id = :pProjectTypesId",
+						IssueType.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectTypesId", projectTypesId)
+				.getResultList();
 	}
 }

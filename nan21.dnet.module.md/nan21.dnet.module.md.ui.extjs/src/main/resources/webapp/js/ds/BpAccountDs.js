@@ -7,8 +7,9 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountDs" ,{
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"analiticSegment", type:"string"},
-		{name:"businessPartner", type:"string"},
+		{name:"businessPartnerCode", type:"string"},
 		{name:"businessPartnerId", type:"int", useNull:true},
+		{name:"businessPartnerName", type:"string"},
 		{name:"clientId", type:"int", useNull:true},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdBy", type:"string"},
@@ -43,10 +44,11 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountDsFilter" ,{
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"analiticSegment", type:"string"},
-		{name:"businessPartner", type:"string"},
+		{name:"businessPartnerCode", type:"string"},
 		{name:"businessPartnerId", type:"int", useNull:true},
 		{name:"businessPartnerId_From",type:"int", useNull:true},
 		{name:"businessPartnerId_To",type:"int", useNull:true},
+		{name:"businessPartnerName", type:"string"},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},

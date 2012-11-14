@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.hr.employee.domain.entity.EducationType;
 
-@Ds(entity=EducationType.class, sort={@SortField(field=EducationTypeDs.fNAME)})
+@Ds(entity = EducationType.class, sort = {@SortField(field = EducationTypeDs.fNAME)})
 public class EducationTypeDs extends AbstractTypeDs<EducationType> {
-
 
 	public EducationTypeDs() {
 		super();
 	}
 
- 	public EducationTypeDs(EducationType e) {
+	public EducationTypeDs(EducationType e) {
 		super(e);
 	}
 }

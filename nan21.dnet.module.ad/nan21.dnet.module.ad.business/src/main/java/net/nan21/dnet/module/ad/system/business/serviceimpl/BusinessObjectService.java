@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.IBusinessObjectService;
 import net.nan21.dnet.module.ad.system.domain.entity.BusinessObject;
 
+/**
+ * Repository functionality for {@link BusinessObject} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class BusinessObjectService
+		extends
+			AbstractEntityService<BusinessObject>
+		implements
+			IBusinessObjectService {
 
-public class BusinessObjectService extends AbstractEntityService<BusinessObject>
-		implements IBusinessObjectService {
- 
 	public BusinessObjectService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class BusinessObjectService extends AbstractEntityService<BusinessObject>
 	public Class<BusinessObject> getEntityClass() {
 		return BusinessObject.class;
 	}
-	
-	public BusinessObject findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public BusinessObject findByName(String name) {
 		return (BusinessObject) this.em
-			.createNamedQuery(BusinessObject.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(BusinessObject.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

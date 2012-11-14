@@ -208,7 +208,6 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$EditDeprec", {
 						this._enableAllFields_();
 						this._setFieldsEnabledState_(["periodPercenatge","periodValue" ], r);
 					}
-				;
 	},
 	
 	_beforeApplyStates_: function(r) {
@@ -217,11 +216,11 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$EditDeprec", {
 						this._disableAllFields_();
 						this._getElement_("withDepreciation").enable();
 						return false;
-					};
+					}
 	},
 	
 	onCalculationChange: function() {
 		var r = this._getController_().getRecord();		 
-				this._setFieldsEnabledState_(["periodPercenatge","periodValue" ], r);;
+				this._setFieldsEnabledState_(["periodPercenatge","periodValue" ], r);
 	}
 });

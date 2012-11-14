@@ -13,22 +13,50 @@ import net.nan21.dnet.module.md.bp.domain.entity.Bank;
 import net.nan21.dnet.module.md.bp.domain.entity.BpBankAccount;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
+/**
+ * Interface to expose business functions specific for {@link BpBankAccount} domain
+ * entity.
+ */
 public interface IBpBankAccountService extends IEntityService<BpBankAccount> {
-	
-	public BpBankAccount findByAccount(BusinessPartner bpartner,String accountNo);
-	
-	public BpBankAccount findByAccount( Long bpartnerId,String accountNo);
-	
+
+	/**
+	 * Find by unique key
+	 */
+	public BpBankAccount findByAccount(BusinessPartner bpartner,
+			String accountNo);
+
+	/**
+	 * Find by unique key
+	 */
+	public BpBankAccount findByAccount(Long bpartnerId, String accountNo);
+
+	/**
+	 * Find by reference: bpartner
+	 */
 	public List<BpBankAccount> findByBpartner(BusinessPartner bpartner);
-	
+
+	/**
+	 * Find by ID of reference: bpartner.id
+	 */
 	public List<BpBankAccount> findByBpartnerId(Long bpartnerId);
-	
+
+	/**
+	 * Find by reference: bank
+	 */
 	public List<BpBankAccount> findByBank(Bank bank);
-	
+
+	/**
+	 * Find by ID of reference: bank.id
+	 */
 	public List<BpBankAccount> findByBankId(Long bankId);
-	
+
+	/**
+	 * Find by reference: currency
+	 */
 	public List<BpBankAccount> findByCurrency(Currency currency);
-	
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
 	public List<BpBankAccount> findByCurrencyId(Long currencyId);
-	
 }

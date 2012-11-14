@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.geo.business.service.IRegionTypeService;
 import net.nan21.dnet.module.bd.geo.domain.entity.RegionType;
 
-
+/**
+ * Repository functionality for {@link RegionType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class RegionTypeService extends AbstractEntityService<RegionType>
-		implements IRegionTypeService {
- 
+		implements
+			IRegionTypeService {
+
 	public RegionTypeService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class RegionTypeService extends AbstractEntityService<RegionType>
 	public Class<RegionType> getEntityClass() {
 		return RegionType.class;
 	}
-	
-	public RegionType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public RegionType findByName(String name) {
 		return (RegionType) this.em
-			.createNamedQuery(RegionType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(RegionType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

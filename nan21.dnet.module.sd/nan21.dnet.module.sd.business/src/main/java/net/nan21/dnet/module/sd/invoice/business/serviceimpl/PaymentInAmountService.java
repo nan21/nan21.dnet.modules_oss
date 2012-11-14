@@ -14,10 +14,17 @@ import net.nan21.dnet.module.sd.invoice.business.service.IPaymentInAmountService
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentInAmount;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount;
 
+/**
+ * Repository functionality for {@link PaymentInAmount} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PaymentInAmountService
+		extends
+			AbstractEntityService<PaymentInAmount>
+		implements
+			IPaymentInAmountService {
 
-public class PaymentInAmountService extends AbstractEntityService<PaymentInAmount>
-		implements IPaymentInAmountService {
- 
 	public PaymentInAmountService() {
 		super();
 	}
@@ -31,16 +38,23 @@ public class PaymentInAmountService extends AbstractEntityService<PaymentInAmoun
 	public Class<PaymentInAmount> getEntityClass() {
 		return PaymentInAmount.class;
 	}
-	
+
+	/**
+	 * Find by reference: txAmount
+	 */
 	public List<PaymentInAmount> findByTxAmount(SalesTxAmount txAmount) {
-		return this.findByTxAmountId(txAmount.getId()); 
+		return this.findByTxAmountId(txAmount.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: txAmount.id
+	 */
 	public List<PaymentInAmount> findByTxAmountId(Long txAmountId) {
 		return (List<PaymentInAmount>) this.em
-			.createQuery("select e from PaymentInAmount e where e.clientId = :pClientId and e.txAmount.id = :pTxAmountId", PaymentInAmount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTxAmountId", txAmountId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PaymentInAmount e where e.clientId = :pClientId and e.txAmount.id = :pTxAmountId",
+						PaymentInAmount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTxAmountId", txAmountId).getResultList();
 	}
 }

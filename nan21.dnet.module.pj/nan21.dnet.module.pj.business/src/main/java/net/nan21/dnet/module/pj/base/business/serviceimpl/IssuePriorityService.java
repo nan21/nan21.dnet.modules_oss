@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssuePriorityService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssuePriority;
 
-
+/**
+ * Repository functionality for {@link IssuePriority} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class IssuePriorityService extends AbstractEntityService<IssuePriority>
-		implements IIssuePriorityService {
- 
+		implements
+			IIssuePriorityService {
+
 	public IssuePriorityService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class IssuePriorityService extends AbstractEntityService<IssuePriority>
 	public Class<IssuePriority> getEntityClass() {
 		return IssuePriority.class;
 	}
-	
-	public IssuePriority findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public IssuePriority findByName(String name) {
 		return (IssuePriority) this.em
-			.createNamedQuery(IssuePriority.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(IssuePriority.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

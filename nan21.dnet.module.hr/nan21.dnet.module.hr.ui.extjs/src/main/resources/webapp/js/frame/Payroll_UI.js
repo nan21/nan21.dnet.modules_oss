@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			.linkDc("period", "payroll",{fields:[
 				{childField:"payrollId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -41,7 +42,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -52,6 +53,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			.addToolbarTo("canvas1", "tlbPayrollList")
 			.addToolbarTo("canvas2", "tlbPayrollEdit")
 			.addToolbarTo("periodCtxEditList", "tlbPeriodCtxEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -65,6 +67,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			.beginToolbar("tlbPeriodCtxEditList", {dc: "period"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Periods"})
 			.end()
+			;
 	}
 
 	,onBtnOpenPeriod: function() {

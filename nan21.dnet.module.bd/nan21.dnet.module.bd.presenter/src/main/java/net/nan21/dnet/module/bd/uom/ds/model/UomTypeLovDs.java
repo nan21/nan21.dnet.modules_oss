@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.bd.uom.domain.entity.UomType;
 
-@Ds(entity=UomType.class,jpqlWhere=" e.active = true ", sort={@SortField(field=UomTypeLovDs.fNAME)})
+@Ds(entity = UomType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = UomTypeLovDs.fNAME)})
 public class UomTypeLovDs extends AbstractTypeLov<UomType> {
-
 
 	public UomTypeLovDs() {
 		super();
 	}
 
- 	public UomTypeLovDs(UomType e) {
+	public UomTypeLovDs(UomType e) {
 		super(e);
 	}
 }

@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.GradeRate_UI", {
 			.linkDc("value", "rate",{fields:[
 				{childField:"gradeRateId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -31,7 +32,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.GradeRate_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -42,6 +43,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.GradeRate_UI", {
 			.addToolbarTo("canvas1", "tlbRateList")
 			.addToolbarTo("canvas2", "tlbRateEdit")
 			.addToolbarTo("valueEditList", "tlbValueEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -55,6 +57,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.GradeRate_UI", {
 			.beginToolbar("tlbValueEditList", {dc: "value"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Values"})
 			.end()
+			;
 	}
 
 });

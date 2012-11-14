@@ -16,10 +16,17 @@ import net.nan21.dnet.module.md.mm.prod.business.service.IProdClassificationServ
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProdClassification;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 
+/**
+ * Repository functionality for {@link ProdClassification} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProdClassificationService
+		extends
+			AbstractEntityService<ProdClassification>
+		implements
+			IProdClassificationService {
 
-public class ProdClassificationService extends AbstractEntityService<ProdClassification>
-		implements IProdClassificationService {
- 
 	public ProdClassificationService() {
 		super();
 	}
@@ -33,40 +40,62 @@ public class ProdClassificationService extends AbstractEntityService<ProdClassif
 	public Class<ProdClassification> getEntityClass() {
 		return ProdClassification.class;
 	}
-	
+
+	/**
+	 * Find by reference: product
+	 */
 	public List<ProdClassification> findByProduct(Product product) {
-		return this.findByProductId(product.getId()); 
+		return this.findByProductId(product.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: product.id
+	 */
 	public List<ProdClassification> findByProductId(Long productId) {
 		return (List<ProdClassification>) this.em
-			.createQuery("select e from ProdClassification e where e.clientId = :pClientId and e.product.id = :pProductId", ProdClassification.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProductId", productId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProdClassification e where e.clientId = :pClientId and e.product.id = :pProductId",
+						ProdClassification.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProductId", productId).getResultList();
 	}
-	
-	public List<ProdClassification> findByClassSystem(ClassificationSystem classSystem) {
-		return this.findByClassSystemId(classSystem.getId()); 
+
+	/**
+	 * Find by reference: classSystem
+	 */
+	public List<ProdClassification> findByClassSystem(
+			ClassificationSystem classSystem) {
+		return this.findByClassSystemId(classSystem.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: classSystem.id
+	 */
 	public List<ProdClassification> findByClassSystemId(Long classSystemId) {
 		return (List<ProdClassification>) this.em
-			.createQuery("select e from ProdClassification e where e.clientId = :pClientId and e.classSystem.id = :pClassSystemId", ProdClassification.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pClassSystemId", classSystemId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProdClassification e where e.clientId = :pClientId and e.classSystem.id = :pClassSystemId",
+						ProdClassification.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pClassSystemId", classSystemId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: classCode
+	 */
 	public List<ProdClassification> findByClassCode(ClassificationItem classCode) {
-		return this.findByClassCodeId(classCode.getId()); 
+		return this.findByClassCodeId(classCode.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: classCode.id
+	 */
 	public List<ProdClassification> findByClassCodeId(Long classCodeId) {
 		return (List<ProdClassification>) this.em
-			.createQuery("select e from ProdClassification e where e.clientId = :pClientId and e.classCode.id = :pClassCodeId", ProdClassification.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pClassCodeId", classCodeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProdClassification e where e.clientId = :pClientId and e.classCode.id = :pClassCodeId",
+						ProdClassification.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pClassCodeId", classCodeId).getResultList();
 	}
 }

@@ -16,10 +16,15 @@ import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 import net.nan21.dnet.module.md.tx.fin.business.service.ITxAmountService;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.TxAmount;
 
-
+/**
+ * Repository functionality for {@link TxAmount} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class TxAmountService extends AbstractEntityService<TxAmount>
-		implements ITxAmountService {
- 
+		implements
+			ITxAmountService {
+
 	public TxAmountService() {
 		super();
 	}
@@ -33,40 +38,62 @@ public class TxAmountService extends AbstractEntityService<TxAmount>
 	public Class<TxAmount> getEntityClass() {
 		return TxAmount.class;
 	}
-	
+
+	/**
+	 * Find by reference: bpartner
+	 */
 	public List<TxAmount> findByBpartner(BusinessPartner bpartner) {
-		return this.findByBpartnerId(bpartner.getId()); 
+		return this.findByBpartnerId(bpartner.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: bpartner.id
+	 */
 	public List<TxAmount> findByBpartnerId(Long bpartnerId) {
 		return (List<TxAmount>) this.em
-			.createQuery("select e from TxAmount e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId", TxAmount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pBpartnerId", bpartnerId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxAmount e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
+						TxAmount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pBpartnerId", bpartnerId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: org
+	 */
 	public List<TxAmount> findByOrg(Organization org) {
-		return this.findByOrgId(org.getId()); 
+		return this.findByOrgId(org.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: org.id
+	 */
 	public List<TxAmount> findByOrgId(Long orgId) {
 		return (List<TxAmount>) this.em
-			.createQuery("select e from TxAmount e where e.clientId = :pClientId and e.org.id = :pOrgId", TxAmount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pOrgId", orgId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxAmount e where e.clientId = :pClientId and e.org.id = :pOrgId",
+						TxAmount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pOrgId", orgId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: paymentMethod
+	 */
 	public List<TxAmount> findByPaymentMethod(PaymentMethod paymentMethod) {
-		return this.findByPaymentMethodId(paymentMethod.getId()); 
+		return this.findByPaymentMethodId(paymentMethod.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: paymentMethod.id
+	 */
 	public List<TxAmount> findByPaymentMethodId(Long paymentMethodId) {
 		return (List<TxAmount>) this.em
-			.createQuery("select e from TxAmount e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId", TxAmount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPaymentMethodId", paymentMethodId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxAmount e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId",
+						TxAmount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPaymentMethodId", paymentMethodId)
+				.getResultList();
 	}
 }

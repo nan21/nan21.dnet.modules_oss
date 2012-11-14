@@ -14,10 +14,15 @@ import net.nan21.dnet.module.hr.time.business.service.IAbsenceReasonService;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceReason;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceType;
 
-
+/**
+ * Repository functionality for {@link AbsenceReason} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AbsenceReasonService extends AbstractEntityService<AbsenceReason>
-		implements IAbsenceReasonService {
- 
+		implements
+			IAbsenceReasonService {
+
 	public AbsenceReasonService() {
 		super();
 	}
@@ -31,24 +36,33 @@ public class AbsenceReasonService extends AbstractEntityService<AbsenceReason>
 	public Class<AbsenceReason> getEntityClass() {
 		return AbsenceReason.class;
 	}
-	
-	public AbsenceReason findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AbsenceReason findByName(String name) {
 		return (AbsenceReason) this.em
-			.createNamedQuery(AbsenceReason.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AbsenceReason.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: type
+	 */
 	public List<AbsenceReason> findByType(AbsenceType type) {
-		return this.findByTypeId(type.getId()); 
+		return this.findByTypeId(type.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: type.id
+	 */
 	public List<AbsenceReason> findByTypeId(Long typeId) {
 		return (List<AbsenceReason>) this.em
-			.createQuery("select e from AbsenceReason e where e.clientId = :pClientId and e.type.id = :pTypeId", AbsenceReason.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTypeId", typeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from AbsenceReason e where e.clientId = :pClientId and e.type.id = :pTypeId",
+						AbsenceReason.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTypeId", typeId).getResultList();
 	}
 }

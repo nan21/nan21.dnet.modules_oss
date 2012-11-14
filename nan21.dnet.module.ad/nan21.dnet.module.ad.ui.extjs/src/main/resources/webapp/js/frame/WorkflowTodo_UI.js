@@ -17,6 +17,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 			.addDc("dcAvailabletask", new net.nan21.dnet.module.ad.workflow.dc.ActAvailableTask({}))
 			.addDc("dcMyhistory", new net.nan21.dnet.module.ad.workflow.dc.ActMyTaskHistory({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -40,7 +41,6 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 			.addPanel({name:"canvas1", title:"Current tasks", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", title:"Available tasks", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas3", title:"History", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -58,6 +58,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 			.addToolbarTo("canvas1", "tlbMytaskList")
 			.addToolbarTo("canvas2", "tlbAvailabletaskList")
 			.addToolbarTo("canvas3", "tlbMyhistoryList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -71,6 +72,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 			.beginToolbar("tlbMyhistoryList", {dc: "dcMyhistory"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "History"})
 			.end()
+			;
 	}
 
 	,onBtnClaimTask: function() {

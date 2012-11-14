@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.impex.business.service.IExportMapService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportMap;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportMapItem;
 
-
+/**
+ * Repository functionality for {@link ExportMap} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ExportMapService extends AbstractEntityService<ExportMap>
-		implements IExportMapService {
- 
+		implements
+			IExportMapService {
+
 	public ExportMapService() {
 		super();
 	}
@@ -31,24 +36,32 @@ public class ExportMapService extends AbstractEntityService<ExportMap>
 	public Class<ExportMap> getEntityClass() {
 		return ExportMap.class;
 	}
-	
-	public ExportMap findByName(String name) {		 
-		return (ExportMap) this.em
-			.createNamedQuery(ExportMap.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public ExportMap findByName(String name) {
+		return (ExportMap) this.em.createNamedQuery(ExportMap.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: items
+	 */
 	public List<ExportMap> findByItems(ExportMapItem items) {
-		return this.findByItemsId(items.getId()); 
+		return this.findByItemsId(items.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: items.id
+	 */
 	public List<ExportMap> findByItemsId(Long itemsId) {
 		return (List<ExportMap>) this.em
-			.createQuery("select distinct e from ExportMap e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId", ExportMap.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pItemsId", itemsId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from ExportMap e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId",
+						ExportMap.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pItemsId", itemsId).getResultList();
 	}
 }

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElements_UI", {
 		this._getBuilder_()
 			.addDc("elem", new net.nan21.dnet.module.hr.payroll.dc.PayrollElement({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElements_UI", {
 			.addDcEditGridView("elem", {name:"elemList", xtype:"hr_payroll_dc_PayrollElement$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElements_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["elemFilter", "elemList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbElemList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElements_UI", {
 			.beginToolbar("tlbElemList", {dc: "elem"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Elements"})
 			.end()
+			;
 	}
 
 });

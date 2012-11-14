@@ -16,10 +16,15 @@ import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 import net.nan21.dnet.module.md.tx.fin.business.service.ITxBalanceService;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.TxBalance;
 
-
+/**
+ * Repository functionality for {@link TxBalance} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class TxBalanceService extends AbstractEntityService<TxBalance>
-		implements ITxBalanceService {
- 
+		implements
+			ITxBalanceService {
+
 	public TxBalanceService() {
 		super();
 	}
@@ -33,40 +38,61 @@ public class TxBalanceService extends AbstractEntityService<TxBalance>
 	public Class<TxBalance> getEntityClass() {
 		return TxBalance.class;
 	}
-	
+
+	/**
+	 * Find by reference: bpartner
+	 */
 	public List<TxBalance> findByBpartner(BusinessPartner bpartner) {
-		return this.findByBpartnerId(bpartner.getId()); 
+		return this.findByBpartnerId(bpartner.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: bpartner.id
+	 */
 	public List<TxBalance> findByBpartnerId(Long bpartnerId) {
 		return (List<TxBalance>) this.em
-			.createQuery("select e from TxBalance e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId", TxBalance.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pBpartnerId", bpartnerId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxBalance e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
+						TxBalance.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pBpartnerId", bpartnerId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: org
+	 */
 	public List<TxBalance> findByOrg(Organization org) {
-		return this.findByOrgId(org.getId()); 
+		return this.findByOrgId(org.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: org.id
+	 */
 	public List<TxBalance> findByOrgId(Long orgId) {
 		return (List<TxBalance>) this.em
-			.createQuery("select e from TxBalance e where e.clientId = :pClientId and e.org.id = :pOrgId", TxBalance.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pOrgId", orgId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxBalance e where e.clientId = :pClientId and e.org.id = :pOrgId",
+						TxBalance.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pOrgId", orgId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: currency
+	 */
 	public List<TxBalance> findByCurrency(Currency currency) {
-		return this.findByCurrencyId(currency.getId()); 
+		return this.findByCurrencyId(currency.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
 	public List<TxBalance> findByCurrencyId(Long currencyId) {
 		return (List<TxBalance>) this.em
-			.createQuery("select e from TxBalance e where e.clientId = :pClientId and e.currency.id = :pCurrencyId", TxBalance.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCurrencyId", currencyId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxBalance e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
+						TxBalance.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCurrencyId", currencyId).getResultList();
 	}
 }

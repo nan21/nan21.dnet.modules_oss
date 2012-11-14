@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage;
 
-@Ds(entity=OpportunityStage.class,jpqlWhere=" e.active = true ", sort={@SortField(field=OpportunityStageLovDs.fNAME)})
+@Ds(entity = OpportunityStage.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = OpportunityStageLovDs.fNAME)})
 public class OpportunityStageLovDs extends AbstractTypeLov<OpportunityStage> {
-
 
 	public OpportunityStageLovDs() {
 		super();
 	}
 
- 	public OpportunityStageLovDs(OpportunityStage e) {
+	public OpportunityStageLovDs(OpportunityStage e) {
 		super(e);
 	}
 }

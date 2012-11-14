@@ -8,13 +8,13 @@ package net.nan21.dnet.module.ad.system.ds.filter;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDsFilter;
 
 public class SysJobDsFilter extends AbstractTypeDsFilter {
-	
-	private String  javaClass;
-	
+
+	private String javaClass;
+
 	public String getJavaClass() {
 		return this.javaClass;
 	}
-	
+
 	public void setJavaClass(String javaClass) {
 		this.javaClass = javaClass;
 	}

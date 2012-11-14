@@ -12,18 +12,20 @@ import net.nan21.dnet.module.hr.payroll.ds.param.PayrollElementValueDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class PayrollElementValueDsQueryBuilder extends QueryBuilderWithJpql<PayrollElementValueDs,PayrollElementValueDsFilter, PayrollElementValueDsParam> {
-	
+public class PayrollElementValueDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<PayrollElementValueDs, PayrollElementValueDsFilter, PayrollElementValueDsParam> {
+
 	@Override
 	public void setFilter(PayrollElementValueDsFilter filter) {
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getElementSetId() != null) {
- 			addFilterCondition("  e.element.id in ( select ese.element.id from  ElementSetElement ese where ese.elementSet.id = :elementSetId )  ");	
- 			addCustomFilterItem("elementSetId",this.params.getElementSetId());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getElementSetId() != null) {
+			addFilterCondition("  e.element.id in ( select ese.element.id from  ElementSetElement ese where ese.elementSet.id = :elementSetId )  ");
+			addCustomFilterItem("elementSetId", this.params.getElementSetId());
+		}
+	}
 }

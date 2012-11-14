@@ -11,10 +11,19 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportSort;
 
+/**
+ * Interface to expose business functions specific for {@link CsvExportSort} domain
+ * entity.
+ */
 public interface ICsvExportSortService extends IEntityService<CsvExportSort> {
-	
+
+	/**
+	 * Find by reference: csvExport
+	 */
 	public List<CsvExportSort> findByCsvExport(CsvExport csvExport);
-	
+
+	/**
+	 * Find by ID of reference: csvExport.id
+	 */
 	public List<CsvExportSort> findByCsvExportId(Long csvExportId);
-	
 }

@@ -8,13 +8,13 @@ package net.nan21.dnet.module.md.bp.ds.filter;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDsFilter;
 
 public class BankDsFilter extends AbstractTypeWithCodeDsFilter {
-	
-	private String  swiftCode;
-	
+
+	private String swiftCode;
+
 	public String getSwiftCode() {
 		return this.swiftCode;
 	}
-	
+
 	public void setSwiftCode(String swiftCode) {
 		this.swiftCode = swiftCode;
 	}

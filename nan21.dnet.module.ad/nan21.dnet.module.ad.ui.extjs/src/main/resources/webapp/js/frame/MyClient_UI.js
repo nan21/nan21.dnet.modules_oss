@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.MyClient_UI", {
 		this._getBuilder_()
 			.addDc("client", new net.nan21.dnet.module.ad.client.dc.MyClient({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -23,7 +24,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.MyClient_UI", {
 			.addDcFormView("client", {name:"clientEdit", xtype:"ad_client_dc_MyClient$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -31,6 +32,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.MyClient_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["clientEdit"], ["center"])
 			.addToolbarTo("canvas1", "clientEditTlb")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -38,6 +40,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.MyClient_UI", {
 			.beginToolbar("clientEditTlb", {dc: "client"}).addSave().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Client info"})
 			.end()
+			;
 	}
 
 	,loadCurrentClient: function() {	

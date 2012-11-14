@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.system.business.service.ISysDsServiceService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsService;
 
-
+/**
+ * Repository functionality for {@link SysDsService} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class SysDsServiceService extends AbstractEntityService<SysDsService>
-		implements ISysDsServiceService {
- 
+		implements
+			ISysDsServiceService {
+
 	public SysDsServiceService() {
 		super();
 	}
@@ -31,34 +36,45 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 	public Class<SysDsService> getEntityClass() {
 		return SysDsService.class;
 	}
-	
-	public SysDsService findByName(SysDataSource dataSource,String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysDsService findByName(SysDataSource dataSource, String name) {
 		return (SysDsService) this.em
-			.createNamedQuery(SysDsService.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pDataSource", dataSource)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(SysDsService.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pDataSource", dataSource)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
-	public SysDsService findByName( Long dataSourceId,String name) {
+
+	/**
+	 * Find by unique key
+	 */
+	public SysDsService findByName(Long dataSourceId, String name) {
 		return (SysDsService) this.em
-			.createNamedQuery(SysDsService.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pDataSourceId", dataSourceId)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(SysDsService.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pDataSourceId", dataSourceId)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: dataSource
+	 */
 	public List<SysDsService> findByDataSource(SysDataSource dataSource) {
-		return this.findByDataSourceId(dataSource.getId()); 
+		return this.findByDataSourceId(dataSource.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: dataSource.id
+	 */
 	public List<SysDsService> findByDataSourceId(Long dataSourceId) {
 		return (List<SysDsService>) this.em
-			.createQuery("select e from SysDsService e where e.clientId = :pClientId and e.dataSource.id = :pDataSourceId", SysDsService.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pDataSourceId", dataSourceId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SysDsService e where e.clientId = :pClientId and e.dataSource.id = :pDataSourceId",
+						SysDsService.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pDataSourceId", dataSourceId).getResultList();
 	}
 }

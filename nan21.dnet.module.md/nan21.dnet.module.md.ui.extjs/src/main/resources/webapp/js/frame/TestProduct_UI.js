@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/ProductDs", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductCategories", "nan21.dnet.module.bd.ui.extjs/lov/UomLength", "nan21.dnet.module.bd.ui.extjs/ds/UomMassLovDs", "nan21.dnet.module.md.ui.extjs/dc/TestProduct", "nan21.dnet.module.bd.ui.extjs/ds/UomVolumeLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductManufacturers", "nan21.dnet.module.bd.ui.extjs/lov/UomVolume", "nan21.dnet.module.md.ui.extjs/ds/ProductCategoryLovDs", "nan21.dnet.module.bd.ui.extjs/lov/AttributeSet", "nan21.dnet.module.md.ui.extjs/ds/ProductManufacturerLovDs", "nan21.dnet.module.bd.ui.extjs/ds/UomLengthLovDs", "nan21.dnet.module.bd.ui.extjs/lov/UomMass", "nan21.dnet.module.bd.ui.extjs/ds/AttributeSetLovDs"]);
+Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/ProductDs", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductCategories", "nan21.dnet.module.bd.ui.extjs/lov/UomLength", "nan21.dnet.module.bd.ui.extjs/ds/UomMassLovDs", "nan21.dnet.module.md.ui.extjs/dc/TestProduct", "nan21.dnet.module.bd.ui.extjs/ds/UomVolumeLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductManufacturers", "nan21.dnet.module.bd.ui.extjs/lov/UomVolume", "nan21.dnet.module.md.ui.extjs/ds/ProductCategoryLovDs", "nan21.dnet.module.bd.ui.extjs/lov/AttributeSet", "nan21.dnet.module.md.ui.extjs/ds/ProductManufacturerLovDs", "nan21.dnet.module.bd.ui.extjs/lov/UomMass", "nan21.dnet.module.bd.ui.extjs/ds/UomLengthLovDs", "nan21.dnet.module.bd.ui.extjs/ds/AttributeSetLovDs"]);
 
 Ext.define("net.nan21.dnet.module.md.mm.prod.frame.TestProduct_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.TestProduct_UI", {
 		this._getBuilder_()
 			.addDc("prod", new net.nan21.dnet.module.md.mm.prod.dc.TestProduct({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,7 +30,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.TestProduct_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"gridTabs", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -39,6 +40,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.TestProduct_UI", {
 			.addChildrenTo("gridTabs", ["prodList", "prodEditList"])
 			.addToolbarTo("canvas1", "tlbList")
 			.addToolbarTo("prodEdit", "tlbEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -49,6 +51,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.TestProduct_UI", {
 			.beginToolbar("tlbEdit", {dc: "prod"}).addBack().addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Product"})
 			.end()
+			;
 	}
 
 });

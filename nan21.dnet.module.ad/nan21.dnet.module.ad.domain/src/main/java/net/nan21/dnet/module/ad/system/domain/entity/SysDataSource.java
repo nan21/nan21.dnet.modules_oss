@@ -31,128 +31,101 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=SysDataSource.NQ_FIND_BY_ID,
-		query="SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysDataSource.NQ_FIND_BY_IDS,
-		query="SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysDataSource.NQ_FIND_BY_NAME,
-		query="SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysDataSource.NQ_FIND_BY_MODEL,
-		query="SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.model = :pModel",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = SysDataSource.NQ_FIND_BY_ID, query = "SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDataSource.NQ_FIND_BY_IDS, query = "SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDataSource.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDataSource.NQ_FIND_BY_MODEL, query = "SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.model = :pModel", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=SysDataSource.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=SysDataSource.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		),
-		@UniqueConstraint( 
-			name=SysDataSource.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","MODEL"}
-		)
-	}
-)
+@Table(name = SysDataSource.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = SysDataSource.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "NAME"}),
+		@UniqueConstraint(name = SysDataSource.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "MODEL"})})
 @Customizer(DefaultEventHandler.class)
-public class SysDataSource extends AbstractType  {
-	
+public class SysDataSource extends AbstractType {
+
 	public static final String TABLE_NAME = "AD_SYS_DS";
 	public static final String SEQUENCE_NAME = "AD_SYS_DS_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "SysDataSource.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "SysDataSource.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "SysDataSource.findByName";
-	
+
 	/**
 	 * Named query find by unique key: Model.
 	 */
 	public static final String NQ_FIND_BY_MODEL = "SysDataSource.findByModel";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="MODEL", nullable=false, length=255)
+
+	@Column(name = "MODEL", nullable = false, length = 255)
 	@NotBlank
 	private String model;
-	
-	@Column(name="ISASGN", nullable=false)
+
+	@Column(name = "ISASGN", nullable = false)
 	@NotNull
 	private Boolean isAsgn;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=SysDsField.class, mappedBy="dataSource"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = SysDsField.class, mappedBy = "dataSource", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<SysDsField> fields;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=SysDsService.class, mappedBy="dataSource"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = SysDsService.class, mappedBy = "dataSource", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<SysDsService> serviceMethods;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getModel() {
 		return this.model;
 	}
-	
+
 	public void setModel(String model) {
 		this.model = model;
 	}
-	
+
 	public Boolean getIsAsgn() {
 		return this.isAsgn;
 	}
-	
+
 	public void setIsAsgn(Boolean isAsgn) {
 		this.isAsgn = isAsgn;
 	}
-	
+
 	public Collection<SysDsField> getFields() {
 		return this.fields;
 	}
-	
+
 	public void setFields(Collection<SysDsField> fields) {
 		this.fields = fields;
 	}
-	
+
 	public void addToFields(SysDsField e) {
 		if (this.fields == null) {
 			this.fields = new ArrayList<SysDsField>();
@@ -160,15 +133,15 @@ public class SysDataSource extends AbstractType  {
 		e.setDataSource(this);
 		this.fields.add(e);
 	}
-	
+
 	public Collection<SysDsService> getServiceMethods() {
 		return this.serviceMethods;
 	}
-	
+
 	public void setServiceMethods(Collection<SysDsService> serviceMethods) {
 		this.serviceMethods = serviceMethods;
 	}
-	
+
 	public void addToServiceMethods(SysDsService e) {
 		if (this.serviceMethods == null) {
 			this.serviceMethods = new ArrayList<SysDsService>();
@@ -176,12 +149,12 @@ public class SysDataSource extends AbstractType  {
 		e.setDataSource(this);
 		this.serviceMethods.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getIsAsgn() == null ) {
-			event.updateAttributeWithObject("isAsgn",false);
+
+		if (this.getIsAsgn() == null) {
+			event.updateAttributeWithObject("isAsgn", false);
 		}
 	}
 }

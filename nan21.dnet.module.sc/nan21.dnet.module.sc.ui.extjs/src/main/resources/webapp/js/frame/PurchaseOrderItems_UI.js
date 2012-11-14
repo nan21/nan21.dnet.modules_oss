@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrderItems_UI", {
 		this._getBuilder_()
 			.addDc("items", new net.nan21.dnet.module.sc.order.dc.PurchaseOrderItemOverview({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -26,7 +27,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrderItems_UI", {
 			})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -34,6 +35,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrderItems_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["filter", "list", "docView"], ["north", "center", "south"])
 			.addToolbarTo("canvas1", "tlbInvList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -41,6 +43,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrderItems_UI", {
 			.beginToolbar("tlbInvList", {dc: "items"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Ordered items"})
 			.end()
+			;
 	}
 
 });

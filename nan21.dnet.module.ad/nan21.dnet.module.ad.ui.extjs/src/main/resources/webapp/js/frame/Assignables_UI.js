@@ -16,6 +16,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Assignables_UI", {
 			.addDc("assignableType", new net.nan21.dnet.module.ad.usr.dc.AssignableType({multiEdit:true}))
 			.addDc("assignable", new net.nan21.dnet.module.ad.usr.dc.Assignable({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,6 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Assignables_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasType", title:"Assignable types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasResource", title:"Assignable resources", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -44,6 +44,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Assignables_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasType", "tlbAssignableTypeEditList")
 			.addToolbarTo("canvasResource", "tlbAssignableEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Assignables_UI", {
 			.beginToolbar("tlbAssignableEditList", {dc: "assignable"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Assignable resources"})
 			.end()
+			;
 	}
 
 });

@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.attr.business.service.IAttributeSetService;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet;
 
-
+/**
+ * Repository functionality for {@link AttributeSet} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AttributeSetService extends AbstractEntityService<AttributeSet>
-		implements IAttributeSetService {
- 
+		implements
+			IAttributeSetService {
+
 	public AttributeSetService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class AttributeSetService extends AbstractEntityService<AttributeSet>
 	public Class<AttributeSet> getEntityClass() {
 		return AttributeSet.class;
 	}
-	
-	public AttributeSet findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AttributeSet findByName(String name) {
 		return (AttributeSet) this.em
-			.createNamedQuery(AttributeSet.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AttributeSet.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

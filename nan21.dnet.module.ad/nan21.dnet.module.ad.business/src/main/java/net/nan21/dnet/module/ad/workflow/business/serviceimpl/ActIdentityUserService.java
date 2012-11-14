@@ -13,10 +13,17 @@ import net.nan21.dnet.module.ad.workflow.business.service.IActIdentityUserServic
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActIdentityGroup;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActIdentityUser;
 
+/**
+ * Repository functionality for {@link ActIdentityUser} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ActIdentityUserService
+		extends
+			AbstractEntityService<ActIdentityUser>
+		implements
+			IActIdentityUserService {
 
-public class ActIdentityUserService extends AbstractEntityService<ActIdentityUser>
-		implements IActIdentityUserService {
- 
 	public ActIdentityUserService() {
 		super();
 	}
@@ -30,15 +37,22 @@ public class ActIdentityUserService extends AbstractEntityService<ActIdentityUse
 	public Class<ActIdentityUser> getEntityClass() {
 		return ActIdentityUser.class;
 	}
-	
+
+	/**
+	 * Find by reference: groups
+	 */
 	public List<ActIdentityUser> findByGroups(ActIdentityGroup groups) {
-		return this.findByGroupsId(groups.getId()); 
+		return this.findByGroupsId(groups.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: groups.id
+	 */
 	public List<ActIdentityUser> findByGroupsId(String groupsId) {
 		return (List<ActIdentityUser>) this.em
-			.createQuery("select distinct e from ActIdentityUser e, IN (e.groups) c where  c.id = :pGroupsId", ActIdentityUser.class)
-					.setParameter("pGroupsId", groupsId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from ActIdentityUser e, IN (e.groups) c where  c.id = :pGroupsId",
+						ActIdentityUser.class)
+				.setParameter("pGroupsId", groupsId).getResultList();
 	}
 }

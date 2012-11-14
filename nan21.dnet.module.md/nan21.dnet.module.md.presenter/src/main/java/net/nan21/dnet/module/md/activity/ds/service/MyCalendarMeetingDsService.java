@@ -12,11 +12,12 @@ import net.nan21.dnet.module.md.activity.domain.entity.CalendarEvent;
 import net.nan21.dnet.module.md.activity.ds.filter.MyCalendarMeetingDsFilter;
 import net.nan21.dnet.module.md.activity.ds.model.MyCalendarMeetingDs;
 
+public class MyCalendarMeetingDsService
+		extends
+			AbstractEntityDsService<MyCalendarMeetingDs, MyCalendarMeetingDsFilter, EmptyParam, CalendarEvent>
+		implements
+			IDsService<MyCalendarMeetingDs, MyCalendarMeetingDsFilter, EmptyParam> {
 
-public class MyCalendarMeetingDsService 
-	extends AbstractEntityDsService<MyCalendarMeetingDs,MyCalendarMeetingDsFilter, EmptyParam, CalendarEvent> 
-	implements IDsService<MyCalendarMeetingDs,MyCalendarMeetingDsFilter, EmptyParam> {
-	
 	@Override
 	public void preInsert(MyCalendarMeetingDs ds, EmptyParam params) {
 		ds.setEventType("meeting");

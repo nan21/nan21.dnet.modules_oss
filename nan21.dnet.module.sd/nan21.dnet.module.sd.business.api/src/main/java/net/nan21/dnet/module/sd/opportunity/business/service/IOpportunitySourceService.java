@@ -9,8 +9,16 @@ package net.nan21.dnet.module.sd.opportunity.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunitySource;
 
-public interface IOpportunitySourceService extends IEntityService<OpportunitySource> {
-	
+/**
+ * Interface to expose business functions specific for {@link OpportunitySource} domain
+ * entity.
+ */
+public interface IOpportunitySourceService
+		extends
+			IEntityService<OpportunitySource> {
+
+	/**
+	 * Find by unique key
+	 */
 	public OpportunitySource findByName(String name);
-	
 }

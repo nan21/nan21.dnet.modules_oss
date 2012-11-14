@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccBalance_UI", {
 		this._getBuilder_()
 			.addDc("balance", new net.nan21.dnet.module.md.tx.acc.dc.AccBalance({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccBalance_UI", {
 			.addDcGridView("balance", {name:"balanceList", xtype:"md_tx_acc_dc_AccBalance$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccBalance_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["balanceFilter", "balanceList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbBalanceList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccBalance_UI", {
 			.beginToolbar("tlbBalanceList", {dc: "balance"}).addQuery()
 			.addReports()
 			.end()
+			;
 	}
 
 });

@@ -31,135 +31,111 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Amortization.NQ_FIND_BY_ID,
-		query="SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Amortization.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Amortization.NQ_FIND_BY_AMORT,
-		query="SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.asset = :pAsset and e.postingDate = :pPostingDate",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Amortization.NQ_FIND_BY_AMORT_PRIMITIVE,
-		query="SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.asset.id = :pAssetId and e.postingDate = :pPostingDate",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Amortization.NQ_FIND_BY_ID, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Amortization.NQ_FIND_BY_IDS, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Amortization.NQ_FIND_BY_AMORT, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.asset = :pAsset and e.postingDate = :pPostingDate", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Amortization.NQ_FIND_BY_AMORT_PRIMITIVE, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.asset.id = :pAssetId and e.postingDate = :pPostingDate", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Amortization.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Amortization.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","ASSET_ID","POSTINGDATE"}
-		)
-	}
-)
+@Table(name = Amortization.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Amortization.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "ASSET_ID", "POSTINGDATE"})})
 @Customizer(DefaultEventHandler.class)
-public class Amortization extends AbstractAuditable  {
-	
+public class Amortization extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "FI_AMORT";
 	public static final String SEQUENCE_NAME = "FI_AMORT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Amortization.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Amortization.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Amort.
 	 */
 	public static final String NQ_FIND_BY_AMORT = "Amortization.findByAmort";
-	
+
 	/**
 	 * Named query find by unique key: Amort using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_AMORT_PRIMITIVE = "Amortization.findByAmort_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="POSTINGDATE" )
+	@Column(name = "POSTINGDATE")
 	private Date postingDate;
-	
-	@Column(name="AMOUNT", nullable=false, scale=2)
+
+	@Column(name = "AMOUNT", nullable = false, scale = 2)
 	@NotNull
 	private Float amount;
-	
-	@Column(name="PERCENTAGE", nullable=false, scale=2)
+
+	@Column(name = "PERCENTAGE", nullable = false, scale = 2)
 	@NotNull
 	private Float percentage;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Asset.class)
-	@JoinColumn(name="ASSET_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Asset.class)
+	@JoinColumn(name = "ASSET_ID", referencedColumnName = "ID")
 	private Asset asset;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getPostingDate() {
 		return this.postingDate;
 	}
-	
+
 	public void setPostingDate(Date postingDate) {
 		this.postingDate = postingDate;
 	}
-	
+
 	public Float getAmount() {
 		return this.amount;
 	}
-	
+
 	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
-	
+
 	public Float getPercentage() {
 		return this.percentage;
 	}
-	
+
 	public void setPercentage(Float percentage) {
 		this.percentage = percentage;
 	}
-	
+
 	public Asset getAsset() {
 		return this.asset;
 	}
-	
+
 	public void setAsset(Asset asset) {
-		if (asset != null ) {
+		if (asset != null) {
 			this.__validate_client_context__(asset.getClientId());
 		}
 		this.asset = asset;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

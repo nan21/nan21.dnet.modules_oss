@@ -33,138 +33,117 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Tax definition.  */
 @NamedQueries({
-	@NamedQuery(
-		name=Tax.NQ_FIND_BY_ID,
-		query="SELECT e FROM Tax e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Tax.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Tax e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Tax.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Tax e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Tax.NQ_FIND_BY_ID, query = "SELECT e FROM Tax e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Tax.NQ_FIND_BY_IDS, query = "SELECT e FROM Tax e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Tax.NQ_FIND_BY_NAME, query = "SELECT e FROM Tax e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Tax.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Tax.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Tax.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Tax.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Tax extends AbstractType  {
-	
+public class Tax extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_TAX";
 	public static final String SEQUENCE_NAME = "MD_TAX_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Tax.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Tax.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Tax.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="RATE", nullable=false, scale=2)
+
+	@Column(name = "RATE", nullable = false, scale = 2)
 	@NotNull
 	private Float rate;
-	
-	@Column(name="SUMMARY", nullable=false)
+
+	@Column(name = "SUMMARY", nullable = false)
 	@NotNull
 	private Boolean summary;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=TaxCategory.class)
-	@JoinColumn(name="CATEGORY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = TaxCategory.class)
+	@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
 	private TaxCategory category;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Tax.class)
-	@JoinColumn(name="PARENTTAX_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Tax.class)
+	@JoinColumn(name = "PARENTTAX_ID", referencedColumnName = "ID")
 	private Tax parentTax;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=Tax.class, mappedBy="parentTax"
-	)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = Tax.class, mappedBy = "parentTax")
 	private Collection<Tax> children;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Float getRate() {
 		return this.rate;
 	}
-	
+
 	public void setRate(Float rate) {
 		this.rate = rate;
 	}
-	
+
 	public Boolean getSummary() {
 		return this.summary;
 	}
-	
+
 	public void setSummary(Boolean summary) {
 		this.summary = summary;
 	}
-	
+
 	public TaxCategory getCategory() {
 		return this.category;
 	}
-	
+
 	public void setCategory(TaxCategory category) {
-		if (category != null ) {
+		if (category != null) {
 			this.__validate_client_context__(category.getClientId());
 		}
 		this.category = category;
 	}
-	
+
 	public Tax getParentTax() {
 		return this.parentTax;
 	}
-	
+
 	public void setParentTax(Tax parentTax) {
-		if (parentTax != null ) {
+		if (parentTax != null) {
 			this.__validate_client_context__(parentTax.getClientId());
 		}
 		this.parentTax = parentTax;
 	}
-	
+
 	public Collection<Tax> getChildren() {
 		return this.children;
 	}
-	
+
 	public void setChildren(Collection<Tax> children) {
 		this.children = children;
 	}
-	
+
 	public void addToChildren(Tax e) {
 		if (this.children == null) {
 			this.children = new ArrayList<Tax>();
@@ -172,12 +151,12 @@ public class Tax extends AbstractType  {
 		e.setParentTax(this);
 		this.children.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getSummary() == null ) {
-			event.updateAttributeWithObject("summary",false);
+
+		if (this.getSummary() == null) {
+			event.updateAttributeWithObject("summary", false);
 		}
 	}
 }

@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssueTaskStatusService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskStatus;
 
+/**
+ * Repository functionality for {@link IssueTaskStatus} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class IssueTaskStatusService
+		extends
+			AbstractEntityService<IssueTaskStatus>
+		implements
+			IIssueTaskStatusService {
 
-public class IssueTaskStatusService extends AbstractEntityService<IssueTaskStatus>
-		implements IIssueTaskStatusService {
- 
 	public IssueTaskStatusService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class IssueTaskStatusService extends AbstractEntityService<IssueTaskStatu
 	public Class<IssueTaskStatus> getEntityClass() {
 		return IssueTaskStatus.class;
 	}
-	
-	public IssueTaskStatus findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public IssueTaskStatus findByName(String name) {
 		return (IssueTaskStatus) this.em
-			.createNamedQuery(IssueTaskStatus.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(IssueTaskStatus.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

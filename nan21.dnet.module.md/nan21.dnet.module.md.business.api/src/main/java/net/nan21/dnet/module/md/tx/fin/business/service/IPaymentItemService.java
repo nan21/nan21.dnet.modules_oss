@@ -14,22 +14,49 @@ import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.Payment;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem;
 
+/**
+ * Interface to expose business functions specific for {@link PaymentItem} domain
+ * entity.
+ */
 public interface IPaymentItemService extends IEntityService<PaymentItem> {
-	
+
+	/**
+	 * Find by reference: payment
+	 */
 	public List<PaymentItem> findByPayment(Payment payment);
-	
+
+	/**
+	 * Find by ID of reference: payment.id
+	 */
 	public List<PaymentItem> findByPaymentId(Long paymentId);
-	
+
+	/**
+	 * Find by reference: accItem
+	 */
 	public List<PaymentItem> findByAccItem(AccItem accItem);
-	
+
+	/**
+	 * Find by ID of reference: accItem.id
+	 */
 	public List<PaymentItem> findByAccItemId(Long accItemId);
-	
+
+	/**
+	 * Find by reference: product
+	 */
 	public List<PaymentItem> findByProduct(Product product);
-	
+
+	/**
+	 * Find by ID of reference: product.id
+	 */
 	public List<PaymentItem> findByProductId(Long productId);
-	
+
+	/**
+	 * Find by reference: uom
+	 */
 	public List<PaymentItem> findByUom(Uom uom);
-	
+
+	/**
+	 * Find by ID of reference: uom.id
+	 */
 	public List<PaymentItem> findByUomId(Long uomId);
-	
 }

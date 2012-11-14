@@ -61,6 +61,5 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportParamRt$TestRt", {
 			    }
 		
 			    return ed;
-			    ;
 	}
 });

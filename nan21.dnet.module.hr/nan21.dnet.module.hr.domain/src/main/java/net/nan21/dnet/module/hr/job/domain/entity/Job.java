@@ -31,130 +31,105 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Job.NQ_FIND_BY_ID,
-		query="SELECT e FROM Job e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Job.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Job e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Job.NQ_FIND_BY_CODE,
-		query="SELECT e FROM Job e WHERE e.clientId = :pClientId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Job.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Job e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Job.NQ_FIND_BY_ID, query = "SELECT e FROM Job e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Job.NQ_FIND_BY_IDS, query = "SELECT e FROM Job e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Job.NQ_FIND_BY_CODE, query = "SELECT e FROM Job e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Job.NQ_FIND_BY_NAME, query = "SELECT e FROM Job e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Job.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Job.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","CODE"}
-		),
-		@UniqueConstraint( 
-			name=Job.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Job.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = Job.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "CODE"}),
+		@UniqueConstraint(name = Job.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Job extends AbstractTypeWithCode  {
-	
+public class Job extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "HR_JOB";
 	public static final String SEQUENCE_NAME = "HR_JOB_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Job.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Job.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Code.
 	 */
 	public static final String NQ_FIND_BY_CODE = "Job.findByCode";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Job.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDFROM" )
+	@Column(name = "VALIDFROM")
 	private Date validFrom;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDTO" )
+	@Column(name = "VALIDTO")
 	private Date validTo;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=JobType.class)
-	@JoinColumn(name="JOBTYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = JobType.class)
+	@JoinColumn(name = "JOBTYPE_ID", referencedColumnName = "ID")
 	private JobType jobType;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getValidFrom() {
 		return this.validFrom;
 	}
-	
+
 	public void setValidFrom(Date validFrom) {
 		this.validFrom = validFrom;
 	}
-	
+
 	public Date getValidTo() {
 		return this.validTo;
 	}
-	
+
 	public void setValidTo(Date validTo) {
 		this.validTo = validTo;
 	}
-	
+
 	public JobType getJobType() {
 		return this.jobType;
 	}
-	
+
 	public void setJobType(JobType jobType) {
-		if (jobType != null ) {
+		if (jobType != null) {
 			this.__validate_client_context__(jobType.getClientId());
 		}
 		this.jobType = jobType;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getCode() == null || this.getCode().equals("") ) {
-			event.updateAttributeWithObject("code","JOB-"+this.getId());
+
+		if (this.getCode() == null || this.getCode().equals("")) {
+			event.updateAttributeWithObject("code", "JOB-" + this.getId());
 		}
 	}
 }

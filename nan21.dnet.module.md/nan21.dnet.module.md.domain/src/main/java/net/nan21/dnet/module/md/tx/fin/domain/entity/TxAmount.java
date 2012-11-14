@@ -36,207 +36,196 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=TxAmount.NQ_FIND_BY_ID,
-		query="SELECT e FROM TxAmount e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=TxAmount.NQ_FIND_BY_IDS,
-		query="SELECT e FROM TxAmount e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = TxAmount.NQ_FIND_BY_ID, query = "SELECT e FROM TxAmount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = TxAmount.NQ_FIND_BY_IDS, query = "SELECT e FROM TxAmount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="ENTITYTYPE", discriminatorType=DiscriminatorType.STRING, length=32)
-@Table(
-	name=TxAmount.TABLE_NAME
-)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ENTITYTYPE", discriminatorType = DiscriminatorType.STRING, length = 32)
+@Table(name = TxAmount.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class TxAmount extends AbstractAuditable  {
-	
+public class TxAmount extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "TX_AMNT";
 	public static final String SEQUENCE_NAME = "TX_AMNT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "TxAmount.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "TxAmount.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ENTITYTYPE", length=32)
+
+	@Column(name = "ENTITYTYPE", length = 32)
 	private String entityType;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="DUEDATE", nullable=false )
+	@Column(name = "DUEDATE", nullable = false)
 	@NotNull
 	private Date dueDate;
-	
-	@Column(name="AMOUNT", scale=2)
+
+	@Column(name = "AMOUNT", scale = 2)
 	private Float amount;
-	
-	@Column(name="PAYEDAMOUNT", scale=2)
+
+	@Column(name = "PAYEDAMOUNT", scale = 2)
 	private Float payedAmount;
-	
-	@Column(name="DUEAMOUNT", scale=2)
+
+	@Column(name = "DUEAMOUNT", scale = 2)
 	private Float dueAmount;
-	
-	@Column(name="SALES", nullable=false)
+
+	@Column(name = "SALES", nullable = false)
 	@NotNull
 	private Boolean sales;
-	
-	@Column(name="CREDIT", nullable=false)
+
+	@Column(name = "CREDIT", nullable = false)
 	@NotNull
 	private Boolean credit;
-	
-	@Column(name="FROMORDER", nullable=false)
+
+	@Column(name = "FROMORDER", nullable = false)
 	@NotNull
 	private Boolean fromOrder;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=BusinessPartner.class)
-	@JoinColumn(name="BPARTNER_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = BusinessPartner.class)
+	@JoinColumn(name = "BPARTNER_ID", referencedColumnName = "ID")
 	private BusinessPartner bpartner;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="ORG_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "ORG_ID", referencedColumnName = "ID")
 	private Organization org;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PaymentMethod.class)
-	@JoinColumn(name="PAYMENTMETHOD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PaymentMethod.class)
+	@JoinColumn(name = "PAYMENTMETHOD_ID", referencedColumnName = "ID")
 	private PaymentMethod paymentMethod;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getEntityType() {
 		return this.entityType;
 	}
-	
+
 	public void setEntityType(String entityType) {
 		this.entityType = entityType;
 	}
-	
+
 	public Date getDueDate() {
 		return this.dueDate;
 	}
-	
+
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-	
+
 	public Float getAmount() {
 		return this.amount;
 	}
-	
+
 	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
-	
+
 	public Float getPayedAmount() {
 		return this.payedAmount;
 	}
-	
+
 	public void setPayedAmount(Float payedAmount) {
 		this.payedAmount = payedAmount;
 	}
-	
+
 	public Float getDueAmount() {
 		return this.dueAmount;
 	}
-	
+
 	public void setDueAmount(Float dueAmount) {
 		this.dueAmount = dueAmount;
 	}
-	
+
 	public Boolean getSales() {
 		return this.sales;
 	}
-	
+
 	public void setSales(Boolean sales) {
 		this.sales = sales;
 	}
-	
+
 	public Boolean getCredit() {
 		return this.credit;
 	}
-	
+
 	public void setCredit(Boolean credit) {
 		this.credit = credit;
 	}
-	
+
 	public Boolean getFromOrder() {
 		return this.fromOrder;
 	}
-	
+
 	public void setFromOrder(Boolean fromOrder) {
 		this.fromOrder = fromOrder;
 	}
-	
+
 	public BusinessPartner getBpartner() {
 		return this.bpartner;
 	}
-	
+
 	public void setBpartner(BusinessPartner bpartner) {
-		if (bpartner != null ) {
+		if (bpartner != null) {
 			this.__validate_client_context__(bpartner.getClientId());
 		}
 		this.bpartner = bpartner;
 	}
-	
+
 	public Organization getOrg() {
 		return this.org;
 	}
-	
+
 	public void setOrg(Organization org) {
-		if (org != null ) {
+		if (org != null) {
 			this.__validate_client_context__(org.getClientId());
 		}
 		this.org = org;
 	}
-	
+
 	public PaymentMethod getPaymentMethod() {
 		return this.paymentMethod;
 	}
-	
+
 	public void setPaymentMethod(PaymentMethod paymentMethod) {
-		if (paymentMethod != null ) {
+		if (paymentMethod != null) {
 			this.__validate_client_context__(paymentMethod.getClientId());
 		}
 		this.paymentMethod = paymentMethod;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getSales() == null ) {
-			event.updateAttributeWithObject("sales",false);
+
+		if (this.getSales() == null) {
+			event.updateAttributeWithObject("sales", false);
 		}
-		if (this.getCredit() == null ) {
-			event.updateAttributeWithObject("credit",false);
+		if (this.getCredit() == null) {
+			event.updateAttributeWithObject("credit", false);
 		}
-		if (this.getFromOrder() == null ) {
-			event.updateAttributeWithObject("fromOrder",false);
+		if (this.getFromOrder() == null) {
+			event.updateAttributeWithObject("fromOrder", false);
 		}
 	}
 }

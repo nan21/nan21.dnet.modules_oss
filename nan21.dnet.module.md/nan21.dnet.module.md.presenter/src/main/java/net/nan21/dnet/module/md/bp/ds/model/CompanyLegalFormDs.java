@@ -11,38 +11,38 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.bp.domain.entity.CompanyLegalForm;
 
-@Ds(entity=CompanyLegalForm.class, sort={@SortField(field=CompanyLegalFormDs.fNAME)})
+@Ds(entity = CompanyLegalForm.class, sort = {@SortField(field = CompanyLegalFormDs.fNAME)})
 public class CompanyLegalFormDs extends AbstractTypeDs<CompanyLegalForm> {
 
- 	public static final String fCOUNTRYID = "countryId";
- 	public static final String fCOUNTRY = "country";
- 	
- 	@DsField(join="left", path="country.id")
- 	private Long countryId;
- 	
- 	@DsField(join="left", path="country.code")
- 	private String country;
+	public static final String fCOUNTRYID = "countryId";
+	public static final String fCOUNTRY = "country";
+
+	@DsField(join = "left", path = "country.id")
+	private Long countryId;
+
+	@DsField(join = "left", path = "country.code")
+	private String country;
 
 	public CompanyLegalFormDs() {
 		super();
 	}
 
- 	public CompanyLegalFormDs(CompanyLegalForm e) {
+	public CompanyLegalFormDs(CompanyLegalForm e) {
 		super(e);
 	}
-	
+
 	public Long getCountryId() {
 		return this.countryId;
 	}
-	
+
 	public void setCountryId(Long countryId) {
 		this.countryId = countryId;
 	}
-	
+
 	public String getCountry() {
 		return this.country;
 	}
-	
+
 	public void setCountry(String country) {
 		this.country = country;
 	}

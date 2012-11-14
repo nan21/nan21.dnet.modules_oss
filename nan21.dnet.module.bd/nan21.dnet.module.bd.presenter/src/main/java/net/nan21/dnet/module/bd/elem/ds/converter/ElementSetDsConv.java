@@ -12,32 +12,41 @@ import net.nan21.dnet.module.bd.elem.domain.entity.ElementSet;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 import net.nan21.dnet.module.bd.elem.ds.model.ElementSetDs;
 
-public class ElementSetDsConv extends AbstractDsConverter<ElementSetDs, ElementSet> 
-		implements IDsConverter<ElementSetDs, ElementSet> {
-    
-    @Override
-    protected void modelToEntityReferences(ElementSetDs ds, ElementSet e, boolean isInsert) throws Exception {
-    	if( ds.getEngineId() != null  ) {
-    		if (e.getEngine() == null || !e.getEngine().getId().equals(ds.getEngineId()) ) {
-    			e.setEngine( (Engine) this.em.find(Engine.class, ds.getEngineId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_engine_Engine(ds, e);
-    	}
-    }
-    
-    protected void lookup_engine_Engine(ElementSetDs ds, ElementSet e ) throws Exception {
-    	if (ds.getEngine() != null && !ds.getEngine().equals("") ) {
-    		Engine x = null;
-    		try { 
-    			x = ((IEngineService)findEntityService(Engine.class)).findByName( ds.getEngine() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Engine` reference: `engine` = " + ds.getEngine() + "" );
-    		}
-    		e.setEngine(x); 
-    	} else {
-    		e.setEngine(null);
-    	}
-    }
+public class ElementSetDsConv
+		extends
+			AbstractDsConverter<ElementSetDs, ElementSet>
+		implements
+			IDsConverter<ElementSetDs, ElementSet> {
+
+	@Override
+	protected void modelToEntityReferences(ElementSetDs ds, ElementSet e,
+			boolean isInsert) throws Exception {
+		if (ds.getEngineId() != null) {
+			if (e.getEngine() == null
+					|| !e.getEngine().getId().equals(ds.getEngineId())) {
+				e.setEngine((Engine) this.em.find(Engine.class,
+						ds.getEngineId()));
+			}
+		} else {
+			this.lookup_engine_Engine(ds, e);
+		}
+	}
+
+	protected void lookup_engine_Engine(ElementSetDs ds, ElementSet e)
+			throws Exception {
+		if (ds.getEngine() != null && !ds.getEngine().equals("")) {
+			Engine x = null;
+			try {
+				x = ((IEngineService) findEntityService(Engine.class))
+						.findByName(ds.getEngine());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Engine` reference: `engine` = "
+								+ ds.getEngine() + "");
+			}
+			e.setEngine(x);
+		} else {
+			e.setEngine(null);
+		}
+	}
 }

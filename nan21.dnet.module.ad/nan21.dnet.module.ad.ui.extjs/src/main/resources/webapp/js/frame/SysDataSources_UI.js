@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysDataSources_UI", {
 			.linkDc("services", "m",{fetchMode:"auto",fields:[
 				{childField:"dataSourceId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -39,7 +40,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysDataSources_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"panelDetails", width:400, layout:"accordion", activeItem:0})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -48,6 +49,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysDataSources_UI", {
 			.addChildrenTo("canvas1", ["mFilter", "mList", "panelDetails"], ["north", "center", "east"])
 			.addChildrenTo("panelDetails", ["listFields", "listServices"])
 			.addToolbarTo("canvas1", "tlbMList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -55,6 +57,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysDataSources_UI", {
 			.beginToolbar("tlbMList", {dc: "m"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Data-sources"})
 			.end()
+			;
 	}
 
 	,onBtnSynchronize: function() {

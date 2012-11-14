@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollManualValue_UI", {
 		this._getBuilder_()
 			.addDc("elemval", new net.nan21.dnet.module.hr.payroll.dc.PayrollManualValue({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollManualValue_UI", {
 			.addDcEditGridView("elemval", {name:"elemvalList", xtype:"hr_payroll_dc_PayrollManualValue$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollManualValue_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["elemvalFilter", "elemvalList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbElemvalList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollManualValue_UI", {
 			.beginToolbar("tlbElemvalList", {dc: "elemval"}).addQuery().addSave().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Payroll manual entries"})
 			.end()
+			;
 	}
 
 });

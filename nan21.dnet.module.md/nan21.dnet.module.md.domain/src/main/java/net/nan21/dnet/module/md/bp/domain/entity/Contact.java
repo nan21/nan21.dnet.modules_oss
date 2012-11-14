@@ -9,8 +9,6 @@ package net.nan21.dnet.module.md.bp.domain.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -29,99 +27,71 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Business partner contacts. */
 @NamedQueries({
-	@NamedQuery(
-		name=Contact.NQ_FIND_BY_ID,
-		query="SELECT e FROM Contact e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Contact.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Contact e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Contact.NQ_FIND_BY_ID, query = "SELECT e FROM Contact e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Contact.NQ_FIND_BY_IDS, query = "SELECT e FROM Contact e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @CascadeOnDelete
-@Table(
-	name=Contact.TABLE_NAME
-)
+@Table(name = Contact.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class Contact extends Person  {
-	
+public class Contact extends Person {
+
 	public static final String TABLE_NAME = "MD_BP_CNTC";
 	public static final String SEQUENCE_NAME = "MD_BP_CNTC_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Contact.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Contact.findByIds";
-	
-	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
-	@NotNull
-	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
-	private Long id;
-	
-	@Column(name="ACTIVE", nullable=false)
+
+	@Column(name = "ACTIVE", nullable = false)
 	@NotNull
 	private Boolean active;
-	
-	@Column(name="POSITION", length=255)
+
+	@Column(name = "POSITION", length = 255)
 	private String position;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=BusinessPartner.class)
-	@JoinColumn(name="BPARTNER_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = BusinessPartner.class)
+	@JoinColumn(name = "BPARTNER_ID", referencedColumnName = "ID")
 	private BusinessPartner bpartner;
-	
-	public Long getId() {
-		return this.id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
+
 	public Boolean getActive() {
 		return this.active;
 	}
-	
+
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	
+
 	public String getPosition() {
 		return this.position;
 	}
-	
+
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	
+
 	public BusinessPartner getBpartner() {
 		return this.bpartner;
 	}
-	
+
 	public void setBpartner(BusinessPartner bpartner) {
-		if (bpartner != null ) {
+		if (bpartner != null) {
 			this.__validate_client_context__(bpartner.getClientId());
 		}
 		this.bpartner = bpartner;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getActive() == null ) {
+
+		if (this.getActive() == null) {
 		}
 	}
 }

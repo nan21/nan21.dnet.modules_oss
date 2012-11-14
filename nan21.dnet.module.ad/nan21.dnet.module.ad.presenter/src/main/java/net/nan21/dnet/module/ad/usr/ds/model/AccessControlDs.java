@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 
-@Ds(entity=AccessControl.class, sort={@SortField(field=AccessControlDs.fNAME)})
+@Ds(entity = AccessControl.class, sort = {@SortField(field = AccessControlDs.fNAME)})
 public class AccessControlDs extends AbstractTypeDs<AccessControl> {
-
 
 	public AccessControlDs() {
 		super();
 	}
 
- 	public AccessControlDs(AccessControl e) {
+	public AccessControlDs(AccessControl e) {
 		super(e);
 	}
 }

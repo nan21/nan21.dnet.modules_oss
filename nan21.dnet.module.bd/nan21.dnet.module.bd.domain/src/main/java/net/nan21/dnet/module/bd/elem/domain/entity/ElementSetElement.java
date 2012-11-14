@@ -29,137 +29,113 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ElementSetElement.NQ_FIND_BY_ID,
-		query="SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ElementSetElement.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ElementSetElement.NQ_FIND_BY_SET_ELEM,
-		query="SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.elementSet = :pElementSet and e.element = :pElement",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ElementSetElement.NQ_FIND_BY_SET_ELEM_PRIMITIVE,
-		query="SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.elementSet.id = :pElementSetId and e.element.id = :pElementId",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ElementSetElement.NQ_FIND_BY_ID, query = "SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ElementSetElement.NQ_FIND_BY_IDS, query = "SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ElementSetElement.NQ_FIND_BY_SET_ELEM, query = "SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.elementSet = :pElementSet and e.element = :pElement", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ElementSetElement.NQ_FIND_BY_SET_ELEM_PRIMITIVE, query = "SELECT e FROM ElementSetElement e WHERE e.clientId = :pClientId and e.elementSet.id = :pElementSetId and e.element.id = :pElementId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ElementSetElement.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=ElementSetElement.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","ELEMENTSET_ID","ELEMENT_ID"}
-		)
-	}
-)
+@Table(name = ElementSetElement.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = ElementSetElement.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "ELEMENTSET_ID", "ELEMENT_ID"})})
 @Customizer(DefaultEventHandler.class)
-public class ElementSetElement extends AbstractAuditable  {
-	
+public class ElementSetElement extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "BD_ELEM_SET_ELEM";
 	public static final String SEQUENCE_NAME = "BD_ELEM_SET_ELEM_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ElementSetElement.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ElementSetElement.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Set_elem.
 	 */
 	public static final String NQ_FIND_BY_SET_ELEM = "ElementSetElement.findBySet_elem";
-	
+
 	/**
 	 * Named query find by unique key: Set_elem using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_SET_ELEM_PRIMITIVE = "ElementSetElement.findBySet_elem_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="SEQUENCENO", nullable=false)
+
+	@Column(name = "SEQUENCENO", nullable = false)
 	@NotNull
 	private Integer sequenceNo;
-	
-	@Column(name="PRINTLABEL", length=255)
+
+	@Column(name = "PRINTLABEL", length = 255)
 	private String printLabel;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ElementSet.class)
-	@JoinColumn(name="ELEMENTSET_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ElementSet.class)
+	@JoinColumn(name = "ELEMENTSET_ID", referencedColumnName = "ID")
 	private ElementSet elementSet;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Element.class)
-	@JoinColumn(name="ELEMENT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Element.class)
+	@JoinColumn(name = "ELEMENT_ID", referencedColumnName = "ID")
 	private Element element;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Integer getSequenceNo() {
 		return this.sequenceNo;
 	}
-	
+
 	public void setSequenceNo(Integer sequenceNo) {
 		this.sequenceNo = sequenceNo;
 	}
-	
+
 	public String getPrintLabel() {
 		return this.printLabel;
 	}
-	
+
 	public void setPrintLabel(String printLabel) {
 		this.printLabel = printLabel;
 	}
-	
+
 	public ElementSet getElementSet() {
 		return this.elementSet;
 	}
-	
+
 	public void setElementSet(ElementSet elementSet) {
-		if (elementSet != null ) {
+		if (elementSet != null) {
 			this.__validate_client_context__(elementSet.getClientId());
 		}
 		this.elementSet = elementSet;
 	}
-	
+
 	public Element getElement() {
 		return this.element;
 	}
-	
+
 	public void setElement(Element element) {
-		if (element != null ) {
+		if (element != null) {
 			this.__validate_client_context__(element.getClientId());
 		}
 		this.element = element;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

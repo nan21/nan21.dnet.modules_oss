@@ -78,7 +78,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$Filter", {
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:250, layout:"form"})
 			.addPanel({ name:"col2", width:220, layout:"form"})
-			.addPanel({ name:"col3", width:220, layout:"form"})
+			.addPanel({ name:"col3", width:200, layout:"form"})
 			.addPanel({ name:"col4", width:300, layout:"form"})
 			.addPanel({ name:"col5", width:170, layout:"form"})
 		;
@@ -89,7 +89,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$Filter", {
 			.addChildrenTo("main", ["col1", "col2", "col3", "col4", "col5"])
 			.addChildrenTo("col1", ["supplier", "customer", "docType"])
 			.addChildrenTo("col2", ["priceList", "paymentTerm", "salesOrderCode"])
-			.addChildrenTo("col3", ["docNo", "code", "currency"])
+			.addChildrenTo("col3", ["code", "docNo", "currency"])
 			.addChildrenTo("col4", ["docDate", "totalAmount", "totalNetAmount"])
 			.addChildrenTo("col5", ["confirmed", "posted"])
 		;
@@ -111,11 +111,11 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$List", {
 			.addTextColumn({ name:"supplierCode", dataIndex:"supplier", width:100})
 			.addTextColumn({ name:"customerCode", dataIndex:"customerCode", hidden:true, width:100})
 			.addTextColumn({ name:"customer", dataIndex:"customer", width:200})
-			.addTextColumn({ name:"currency", dataIndex:"currency", width:100})
 			.addTextColumn({ name:"docType", dataIndex:"docType", width:120})
 			.addNumberColumn({ name:"totalNetAmount", dataIndex:"totalNetAmount", decimals:2})
 			.addNumberColumn({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", decimals:2})
 			.addNumberColumn({ name:"totalAmount", dataIndex:"totalAmount", decimals:2})
+			.addTextColumn({ name:"currency", dataIndex:"currency", width:60})
 			.addBooleanColumn({ name:"confirmed", dataIndex:"confirmed"})
 			.addBooleanColumn({ name:"posted", dataIndex:"posted"})
 			.addNumberColumn({ name:"supplierId", dataIndex:"supplierId", hidden:true, width:70, format:"0"})
@@ -191,14 +191,14 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$EditMain", {
 					if (record.get("confirmed") || record.get("posted") ) {
 						this._disableAllFields_();
 						return false;
-					};
+					}
 	},
 	
 	_endDefine_: function() {
 		
 					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 					 	this._applyStates_(dc.record);
-					 } , this );
+					 } , this )
 	}
 });
 
@@ -266,13 +266,13 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$EditDetails", {
 					if (record.get("confirmed") || record.get("posted") ) {
 						this._disableAllFields_();
 						return false;
-					};
+					}
 	},
 	
 	_endDefine_: function() {
 		
 					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 					 	this._applyStates_(dc.record);
-					 } , this );
+					 } , this )
 	}
 });

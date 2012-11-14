@@ -27,6 +27,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 			.linkDc("dsMtdAccess", "ctrl",{fetchMode:"auto",fields:[
 				{childField:"accessControlId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -57,7 +58,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailTabs", height:250, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -69,6 +70,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 			.addToolbarTo("dsAccessCtxEditList", "tlbDsAccessCtxEditList")
 			.addToolbarTo("asgnAccessCtxEditList", "tlbAsgnAccessCtxEditList")
 			.addToolbarTo("dsMtdAccessCtxEditList", "tlbDsMtdAccessCtxEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -85,6 +87,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 			.beginToolbar("tlbDsMtdAccessCtxEditList", {dc: "dsMtdAccess"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "DS Methods"})
 			.end()
+			;
 	}
 
 	,onBtnAsgnRoleToAccessCtrl: function() {
@@ -93,12 +96,12 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 	,onBtnShowUiAsgnRules: function() {
 		var bundle = "nan21.dnet.module.ad.ui.extjs";
 		var frame = "net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI";
-		getApplication().showFrameByName("nan21.dnet.module.ad.ui.extjs", "net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI");
+		getApplication().showFrameByName(bundle, frame);
 	}
 	,onBtnShowUiDsRules: function() {
 		var bundle = "nan21.dnet.module.ad.ui.extjs";
 		var frame = "net.nan21.dnet.module.ad.usr.frame.DsAccessControl_UI";
-		getApplication().showFrameByName("nan21.dnet.module.ad.ui.extjs", "net.nan21.dnet.module.ad.usr.frame.DsAccessControl_UI");
+		getApplication().showFrameByName(bundle, frame);
 	}
 	,onBtnCopyRules: function() {
 		this._getWindow_("wdwCopyRules").show();

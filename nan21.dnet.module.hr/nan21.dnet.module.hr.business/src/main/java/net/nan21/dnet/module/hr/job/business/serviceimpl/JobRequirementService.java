@@ -15,10 +15,17 @@ import net.nan21.dnet.module.hr.job.domain.entity.Job;
 import net.nan21.dnet.module.hr.job.domain.entity.JobRequirement;
 import net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement;
 
+/**
+ * Repository functionality for {@link JobRequirement} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class JobRequirementService
+		extends
+			AbstractEntityService<JobRequirement>
+		implements
+			IJobRequirementService {
 
-public class JobRequirementService extends AbstractEntityService<JobRequirement>
-		implements IJobRequirementService {
- 
 	public JobRequirementService() {
 		super();
 	}
@@ -32,28 +39,42 @@ public class JobRequirementService extends AbstractEntityService<JobRequirement>
 	public Class<JobRequirement> getEntityClass() {
 		return JobRequirement.class;
 	}
-	
+
+	/**
+	 * Find by reference: job
+	 */
 	public List<JobRequirement> findByJob(Job job) {
-		return this.findByJobId(job.getId()); 
+		return this.findByJobId(job.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: job.id
+	 */
 	public List<JobRequirement> findByJobId(Long jobId) {
 		return (List<JobRequirement>) this.em
-			.createQuery("select e from JobRequirement e where e.clientId = :pClientId and e.job.id = :pJobId", JobRequirement.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobId", jobId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from JobRequirement e where e.clientId = :pClientId and e.job.id = :pJobId",
+						JobRequirement.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobId", jobId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: requirement
+	 */
 	public List<JobRequirement> findByRequirement(WorkRequirement requirement) {
-		return this.findByRequirementId(requirement.getId()); 
+		return this.findByRequirementId(requirement.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: requirement.id
+	 */
 	public List<JobRequirement> findByRequirementId(Long requirementId) {
 		return (List<JobRequirement>) this.em
-			.createQuery("select e from JobRequirement e where e.clientId = :pClientId and e.requirement.id = :pRequirementId", JobRequirement.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pRequirementId", requirementId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from JobRequirement e where e.clientId = :pClientId and e.requirement.id = :pRequirementId",
+						JobRequirement.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pRequirementId", requirementId).getResultList();
 	}
 }

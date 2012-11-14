@@ -12,23 +12,25 @@ import net.nan21.dnet.module.ad.workflow.ds.param.ActDeploymentDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class ActDeploymentDsQueryBuilder extends QueryBuilderWithJpql<ActDeploymentDs,ActDeploymentDsFilter, ActDeploymentDsParam> {
-	
+public class ActDeploymentDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<ActDeploymentDs, ActDeploymentDsFilter, ActDeploymentDsParam> {
+
 	@Override
 	public void setFilter(ActDeploymentDsFilter filter) {
 		filter.setClientId(Session.user.get().getClientId());
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getFrom() != null) {
- 			addFilterCondition("  e.deployTime >= :from ");	
- 			addCustomFilterItem("from",this.params.getFrom());	
- 		}	
- 		if (this.params != null && this.params.getTo() != null) {
- 			addFilterCondition("  e.deployTime <= :to ");	
- 			addCustomFilterItem("to",this.params.getTo());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getFrom() != null) {
+			addFilterCondition("  e.deployTime >= :from ");
+			addCustomFilterItem("from", this.params.getFrom());
+		}
+		if (this.params != null && this.params.getTo() != null) {
+			addFilterCondition("  e.deployTime <= :to ");
+			addCustomFilterItem("to", this.params.getTo());
+		}
+	}
 }

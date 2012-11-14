@@ -25,122 +25,97 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Currencies definition*/
 @NamedQueries({
-	@NamedQuery(
-		name=Currency.NQ_FIND_BY_ID,
-		query="SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Currency.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Currency.NQ_FIND_BY_CODE,
-		query="SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Currency.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Currency.NQ_FIND_BY_ID, query = "SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Currency.NQ_FIND_BY_IDS, query = "SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Currency.NQ_FIND_BY_CODE, query = "SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Currency.NQ_FIND_BY_NAME, query = "SELECT e FROM Currency e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Currency.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Currency.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","CODE"}
-		),
-		@UniqueConstraint( 
-			name=Currency.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Currency.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = Currency.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "CODE"}),
+		@UniqueConstraint(name = Currency.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Currency extends AbstractTypeWithCode  {
-	
+public class Currency extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "BD_CRNCY";
 	public static final String SEQUENCE_NAME = "BD_CRNCY_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Currency.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Currency.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Code.
 	 */
 	public static final String NQ_FIND_BY_CODE = "Currency.findByCode";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Currency.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	/** ISO3 code.*/
-	@Column(name="ISO3", length=3)
+	@Column(name = "ISO3", length = 3)
 	private String iso3;
-	
-	@Column(name="SYMBOL", length=255)
+
+	@Column(name = "SYMBOL", length = 255)
 	private String symbol;
-	
-	@Column(name="STANDARDPRECISION")
+
+	@Column(name = "STANDARDPRECISION")
 	private Integer standardPrecision;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getIso3() {
 		return this.iso3;
 	}
-	
+
 	public void setIso3(String iso3) {
 		this.iso3 = iso3;
 	}
-	
+
 	public String getSymbol() {
 		return this.symbol;
 	}
-	
+
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
-	
+
 	public Integer getStandardPrecision() {
 		return this.standardPrecision;
 	}
-	
+
 	public void setStandardPrecision(Integer standardPrecision) {
 		this.standardPrecision = standardPrecision;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

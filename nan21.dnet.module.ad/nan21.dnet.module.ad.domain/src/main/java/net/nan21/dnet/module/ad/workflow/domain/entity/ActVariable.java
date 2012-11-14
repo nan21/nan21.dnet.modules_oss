@@ -30,189 +30,178 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ActVariable.NQ_FIND_BY_ID,
-		query="SELECT e FROM ActVariable e WHERE  e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ActVariable.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ActVariable e WHERE  e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ActVariable.NQ_FIND_BY_ID, query = "SELECT e FROM ActVariable e WHERE  e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ActVariable.NQ_FIND_BY_IDS, query = "SELECT e FROM ActVariable e WHERE  e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ActVariable.TABLE_NAME
-)
-@Cache(type=CacheType.NONE)
+@Table(name = ActVariable.TABLE_NAME)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActVariable  implements IModelWithId {
-	
+public class ActVariable implements IModelWithId {
+
 	public static final String TABLE_NAME = "ACT_RU_VARIABLE";
 	public static final String SEQUENCE_NAME = "ACT_RU_VARIABLE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ActVariable.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ActVariable.findByIds";
-	
-	@Column(name="ID_", nullable=false, length=64)
+
+	@Column(name = "ID_", nullable = false, length = 64)
 	@NotBlank
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private String id;
-	
-	@Column(name="REV_")
+
+	@Column(name = "REV_")
 	private Integer revision;
-	
-	@Column(name="TYPE_", length=255)
+
+	@Column(name = "TYPE_", length = 255)
 	private String type;
-	
-	@Column(name="NAME_", nullable=false, length=255)
+
+	@Column(name = "NAME_", nullable = false, length = 255)
 	@NotBlank
 	private String name;
-	
-	@Column(name="EXECUTION_ID_", length=255)
+
+	@Column(name = "EXECUTION_ID_", length = 255)
 	private String executionId;
-	
-	@Column(name="PROC_INST_ID_", length=255)
+
+	@Column(name = "PROC_INST_ID_", length = 255)
 	private String processInstanceId;
-	
-	@Column(name="TASK_ID_", length=255)
+
+	@Column(name = "TASK_ID_", length = 255)
 	private String taskId;
-	
-	@Column(name="DOUBLE_", scale=2)
+
+	@Column(name = "DOUBLE_", scale = 2)
 	private Float doubleValue;
-	
-	@Column(name="LONG_")
+
+	@Column(name = "LONG_")
 	private Long longValue;
-	
-	@Column(name="TEXT_", length=4000)
+
+	@Column(name = "TEXT_", length = 4000)
 	private String textValue;
-	
-	@Column(name="TEXT2_", length=4000)
+
+	@Column(name = "TEXT2_", length = 4000)
 	private String textValue2;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ActByteArray.class)
-	@JoinColumn(name="BYTEARRAY_ID_", referencedColumnName="ID_")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ActByteArray.class)
+	@JoinColumn(name = "BYTEARRAY_ID_", referencedColumnName = "ID_")
 	private ActByteArray byteArray;
-	
+
 	public String getId() {
 		return this.id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public Integer getRevision() {
 		return this.revision;
 	}
-	
+
 	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
-	
+
 	public String getType() {
 		return this.type;
 	}
-	
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getExecutionId() {
 		return this.executionId;
 	}
-	
+
 	public void setExecutionId(String executionId) {
 		this.executionId = executionId;
 	}
-	
+
 	public String getProcessInstanceId() {
 		return this.processInstanceId;
 	}
-	
+
 	public void setProcessInstanceId(String processInstanceId) {
 		this.processInstanceId = processInstanceId;
 	}
-	
+
 	public String getTaskId() {
 		return this.taskId;
 	}
-	
+
 	public void setTaskId(String taskId) {
 		this.taskId = taskId;
 	}
-	
+
 	public Float getDoubleValue() {
 		return this.doubleValue;
 	}
-	
+
 	public void setDoubleValue(Float doubleValue) {
 		this.doubleValue = doubleValue;
 	}
-	
+
 	public Long getLongValue() {
 		return this.longValue;
 	}
-	
+
 	public void setLongValue(Long longValue) {
 		this.longValue = longValue;
 	}
-	
+
 	public String getTextValue() {
 		return this.textValue;
 	}
-	
+
 	public void setTextValue(String textValue) {
 		this.textValue = textValue;
 	}
-	
+
 	public String getTextValue2() {
 		return this.textValue2;
 	}
-	
+
 	public void setTextValue2(String textValue2) {
 		this.textValue2 = textValue2;
 	}
-	
+
 	@Transient
 	public Long getVersion() {
-		return 1L; 
+		return 1L;
 	}
-	
+
 	public void setVersion(Long version) {
 	}
-	
+
 	public ActByteArray getByteArray() {
 		return this.byteArray;
 	}
-	
+
 	public void setByteArray(ActByteArray byteArray) {
 		this.byteArray = byteArray;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

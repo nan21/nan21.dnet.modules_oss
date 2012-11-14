@@ -32,180 +32,156 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=SysTimer.NQ_FIND_BY_ID,
-		query="SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysTimer.NQ_FIND_BY_IDS,
-		query="SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysTimer.NQ_FIND_BY_NAME,
-		query="SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.jobCtx = :pJobCtx and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysTimer.NQ_FIND_BY_NAME_PRIMITIVE,
-		query="SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = SysTimer.NQ_FIND_BY_ID, query = "SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysTimer.NQ_FIND_BY_IDS, query = "SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysTimer.NQ_FIND_BY_NAME, query = "SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.jobCtx = :pJobCtx and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysTimer.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysTimer e WHERE e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=SysTimer.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=SysTimer.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","JOBCTX_ID","NAME"}
-		)
-	}
-)
+@Table(name = SysTimer.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SysTimer.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "JOBCTX_ID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class SysTimer extends AbstractType  {
-	
+public class SysTimer extends AbstractType {
+
 	public static final String TABLE_NAME = "AD_SYS_TIMER";
 	public static final String SEQUENCE_NAME = "AD_SYS_TIMER_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "SysTimer.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "SysTimer.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "SysTimer.findByName";
-	
+
 	/**
 	 * Named query find by unique key: Name using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_NAME_PRIMITIVE = "SysTimer.findByName_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="TYPE", nullable=false, length=16)
+
+	@Column(name = "TYPE", nullable = false, length = 16)
 	@NotBlank
 	private String type;
-	
-	@Column(name="CRONEXPRESSION", length=400)
+
+	@Column(name = "CRONEXPRESSION", length = 400)
 	private String cronExpression;
-	
-	@Column(name="REPEATCOUNT")
+
+	@Column(name = "REPEATCOUNT")
 	private Integer repeatCount;
-	
-	@Column(name="REPEATINTERVAL")
+
+	@Column(name = "REPEATINTERVAL")
 	private Integer repeatInterval;
-	
-	@Column(name="REPEATINTERVALTYPE", length=16)
+
+	@Column(name = "REPEATINTERVALTYPE", length = 16)
 	private String repeatIntervalType;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="STARTTIME", nullable=false )
+	@Column(name = "STARTTIME", nullable = false)
 	@NotNull
 	private Date startTime;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="ENDTIME" )
+	@Column(name = "ENDTIME")
 	private Date endTime;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=SysJobCtx.class)
-	@JoinColumn(name="JOBCTX_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = SysJobCtx.class)
+	@JoinColumn(name = "JOBCTX_ID", referencedColumnName = "ID")
 	private SysJobCtx jobCtx;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getType() {
 		return this.type;
 	}
-	
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	public String getCronExpression() {
 		return this.cronExpression;
 	}
-	
+
 	public void setCronExpression(String cronExpression) {
 		this.cronExpression = cronExpression;
 	}
-	
+
 	public Integer getRepeatCount() {
 		return this.repeatCount;
 	}
-	
+
 	public void setRepeatCount(Integer repeatCount) {
 		this.repeatCount = repeatCount;
 	}
-	
+
 	public Integer getRepeatInterval() {
 		return this.repeatInterval;
 	}
-	
+
 	public void setRepeatInterval(Integer repeatInterval) {
 		this.repeatInterval = repeatInterval;
 	}
-	
+
 	public String getRepeatIntervalType() {
 		return this.repeatIntervalType;
 	}
-	
+
 	public void setRepeatIntervalType(String repeatIntervalType) {
 		this.repeatIntervalType = repeatIntervalType;
 	}
-	
+
 	public Date getStartTime() {
 		return this.startTime;
 	}
-	
+
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
-	
+
 	public Date getEndTime() {
 		return this.endTime;
 	}
-	
+
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-	
+
 	public SysJobCtx getJobCtx() {
 		return this.jobCtx;
 	}
-	
+
 	public void setJobCtx(SysJobCtx jobCtx) {
-		if (jobCtx != null ) {
+		if (jobCtx != null) {
 			this.__validate_client_context__(jobCtx.getClientId());
 		}
 		this.jobCtx = jobCtx;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.base.tx.business.service.IDeliveryMethodService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod;
 
+/**
+ * Repository functionality for {@link DeliveryMethod} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class DeliveryMethodService
+		extends
+			AbstractEntityService<DeliveryMethod>
+		implements
+			IDeliveryMethodService {
 
-public class DeliveryMethodService extends AbstractEntityService<DeliveryMethod>
-		implements IDeliveryMethodService {
- 
 	public DeliveryMethodService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class DeliveryMethodService extends AbstractEntityService<DeliveryMethod>
 	public Class<DeliveryMethod> getEntityClass() {
 		return DeliveryMethod.class;
 	}
-	
-	public DeliveryMethod findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public DeliveryMethod findByName(String name) {
 		return (DeliveryMethod) this.em
-			.createNamedQuery(DeliveryMethod.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(DeliveryMethod.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

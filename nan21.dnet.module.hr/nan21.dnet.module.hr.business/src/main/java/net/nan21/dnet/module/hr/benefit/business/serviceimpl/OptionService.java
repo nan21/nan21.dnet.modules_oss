@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.benefit.business.service.IOptionService;
 import net.nan21.dnet.module.hr.benefit.domain.entity.Option;
 
-
+/**
+ * Repository functionality for {@link Option} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class OptionService extends AbstractEntityService<Option>
-		implements IOptionService {
- 
+		implements
+			IOptionService {
+
 	public OptionService() {
 		super();
 	}
@@ -29,12 +34,13 @@ public class OptionService extends AbstractEntityService<Option>
 	public Class<Option> getEntityClass() {
 		return Option.class;
 	}
-	
-	public Option findByName(String name) {		 
-		return (Option) this.em
-			.createNamedQuery(Option.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Option findByName(String name) {
+		return (Option) this.em.createNamedQuery(Option.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

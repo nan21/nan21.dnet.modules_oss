@@ -14,10 +14,15 @@ import net.nan21.dnet.module.hr.skill.business.service.IRatingLevelService;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingScale;
 
-
+/**
+ * Repository functionality for {@link RatingLevel} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class RatingLevelService extends AbstractEntityService<RatingLevel>
-		implements IRatingLevelService {
- 
+		implements
+			IRatingLevelService {
+
 	public RatingLevelService() {
 		super();
 	}
@@ -31,34 +36,45 @@ public class RatingLevelService extends AbstractEntityService<RatingLevel>
 	public Class<RatingLevel> getEntityClass() {
 		return RatingLevel.class;
 	}
-	
-	public RatingLevel findByName(RatingScale ratingScale,String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public RatingLevel findByName(RatingScale ratingScale, String name) {
 		return (RatingLevel) this.em
-			.createNamedQuery(RatingLevel.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pRatingScale", ratingScale)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(RatingLevel.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pRatingScale", ratingScale)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
-	public RatingLevel findByName( Long ratingScaleId,String name) {
+
+	/**
+	 * Find by unique key
+	 */
+	public RatingLevel findByName(Long ratingScaleId, String name) {
 		return (RatingLevel) this.em
-			.createNamedQuery(RatingLevel.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pRatingScaleId", ratingScaleId)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(RatingLevel.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pRatingScaleId", ratingScaleId)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: ratingScale
+	 */
 	public List<RatingLevel> findByRatingScale(RatingScale ratingScale) {
-		return this.findByRatingScaleId(ratingScale.getId()); 
+		return this.findByRatingScaleId(ratingScale.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: ratingScale.id
+	 */
 	public List<RatingLevel> findByRatingScaleId(Long ratingScaleId) {
 		return (List<RatingLevel>) this.em
-			.createQuery("select e from RatingLevel e where e.clientId = :pClientId and e.ratingScale.id = :pRatingScaleId", RatingLevel.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pRatingScaleId", ratingScaleId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from RatingLevel e where e.clientId = :pClientId and e.ratingScale.id = :pRatingScaleId",
+						RatingLevel.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pRatingScaleId", ratingScaleId).getResultList();
 	}
 }

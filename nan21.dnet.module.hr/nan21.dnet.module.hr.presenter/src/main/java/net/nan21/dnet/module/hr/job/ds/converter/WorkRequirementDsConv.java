@@ -12,32 +12,41 @@ import net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement;
 import net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType;
 import net.nan21.dnet.module.hr.job.ds.model.WorkRequirementDs;
 
-public class WorkRequirementDsConv extends AbstractDsConverter<WorkRequirementDs, WorkRequirement> 
-		implements IDsConverter<WorkRequirementDs, WorkRequirement> {
-    
-    @Override
-    protected void modelToEntityReferences(WorkRequirementDs ds, WorkRequirement e, boolean isInsert) throws Exception {
-    	if( ds.getTypeId() != null  ) {
-    		if (e.getType() == null || !e.getType().getId().equals(ds.getTypeId()) ) {
-    			e.setType( (WorkRequirementType) this.em.find(WorkRequirementType.class, ds.getTypeId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_type_WorkRequirementType(ds, e);
-    	}
-    }
-    
-    protected void lookup_type_WorkRequirementType(WorkRequirementDs ds, WorkRequirement e ) throws Exception {
-    	if (ds.getType() != null && !ds.getType().equals("") ) {
-    		WorkRequirementType x = null;
-    		try { 
-    			x = ((IWorkRequirementTypeService)findEntityService(WorkRequirementType.class)).findByName( ds.getType() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `WorkRequirementType` reference: `type` = " + ds.getType() + "" );
-    		}
-    		e.setType(x); 
-    	} else {
-    		e.setType(null);
-    	}
-    }
+public class WorkRequirementDsConv
+		extends
+			AbstractDsConverter<WorkRequirementDs, WorkRequirement>
+		implements
+			IDsConverter<WorkRequirementDs, WorkRequirement> {
+
+	@Override
+	protected void modelToEntityReferences(WorkRequirementDs ds,
+			WorkRequirement e, boolean isInsert) throws Exception {
+		if (ds.getTypeId() != null) {
+			if (e.getType() == null
+					|| !e.getType().getId().equals(ds.getTypeId())) {
+				e.setType((WorkRequirementType) this.em.find(
+						WorkRequirementType.class, ds.getTypeId()));
+			}
+		} else {
+			this.lookup_type_WorkRequirementType(ds, e);
+		}
+	}
+
+	protected void lookup_type_WorkRequirementType(WorkRequirementDs ds,
+			WorkRequirement e) throws Exception {
+		if (ds.getType() != null && !ds.getType().equals("")) {
+			WorkRequirementType x = null;
+			try {
+				x = ((IWorkRequirementTypeService) findEntityService(WorkRequirementType.class))
+						.findByName(ds.getType());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `WorkRequirementType` reference: `type` = "
+								+ ds.getType() + "");
+			}
+			e.setType(x);
+		} else {
+			e.setType(null);
+		}
+	}
 }

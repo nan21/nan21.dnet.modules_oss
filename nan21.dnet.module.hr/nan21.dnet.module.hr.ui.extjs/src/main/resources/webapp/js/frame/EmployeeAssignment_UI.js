@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/ds/EmploymentTypeLovDs", "nan21.dnet.module.hr.ui.extjs/ds/GradeLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Jobs", "nan21.dnet.module.hr.ui.extjs/ds/PayrollLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Grades", "nan21.dnet.module.hr.ui.extjs/lov/EmploymentTypes", "nan21.dnet.module.hr.ui.extjs/ds/EmployeeLovDs", "nan21.dnet.module.bd.ui.extjs/ds/OrganizationLovDs", "nan21.dnet.module.hr.ui.extjs/dc/EmployeeAssignment", "nan21.dnet.module.hr.ui.extjs/lov/Positions", "nan21.dnet.module.hr.ui.extjs/lov/Employees", "nan21.dnet.module.hr.ui.extjs/ds/EmployeeAssignmentDs", "nan21.dnet.module.bd.ui.extjs/lov/Organizations", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.hr.ui.extjs/ds/JobLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Payrolls", "nan21.dnet.module.hr.ui.extjs/ds/PositionLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs"]);
+Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/ds/EmploymentTypeLovDs", "nan21.dnet.module.hr.ui.extjs/ds/GradeLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Jobs", "nan21.dnet.module.hr.ui.extjs/lov/Grades", "nan21.dnet.module.hr.ui.extjs/ds/PayrollLovDs", "nan21.dnet.module.hr.ui.extjs/lov/EmploymentTypes", "nan21.dnet.module.hr.ui.extjs/ds/EmployeeLovDs", "nan21.dnet.module.bd.ui.extjs/ds/OrganizationLovDs", "nan21.dnet.module.hr.ui.extjs/dc/EmployeeAssignment", "nan21.dnet.module.hr.ui.extjs/lov/Positions", "nan21.dnet.module.hr.ui.extjs/lov/Employees", "nan21.dnet.module.hr.ui.extjs/ds/EmployeeAssignmentDs", "nan21.dnet.module.bd.ui.extjs/lov/Organizations", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.hr.ui.extjs/ds/JobLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Payrolls", "nan21.dnet.module.hr.ui.extjs/ds/PositionLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs"]);
 
 Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeAssignment_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeAssignment_UI", {
 		this._getBuilder_()
 			.addDc("asgn", new net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeAssignment_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -38,6 +39,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeAssignment_UI", {
 			.addChildrenTo("canvas2", ["asgnEditEmployee", "asgnEdit"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbAsgnList")
 			.addToolbarTo("canvas2", "tlbAsgnEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -48,6 +50,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeAssignment_UI", {
 			.beginToolbar("tlbAsgnEdit", {dc: "asgn"}).addBack().addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Assignment"})
 			.end()
+			;
 	}
 
 });

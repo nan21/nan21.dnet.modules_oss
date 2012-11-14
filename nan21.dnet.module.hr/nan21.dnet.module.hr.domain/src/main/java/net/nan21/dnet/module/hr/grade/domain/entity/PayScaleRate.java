@@ -29,104 +29,84 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=PayScaleRate.NQ_FIND_BY_ID,
-		query="SELECT e FROM PayScaleRate e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PayScaleRate.NQ_FIND_BY_IDS,
-		query="SELECT e FROM PayScaleRate e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PayScaleRate.NQ_FIND_BY_NAME,
-		query="SELECT e FROM PayScaleRate e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = PayScaleRate.NQ_FIND_BY_ID, query = "SELECT e FROM PayScaleRate e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PayScaleRate.NQ_FIND_BY_IDS, query = "SELECT e FROM PayScaleRate e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PayScaleRate.NQ_FIND_BY_NAME, query = "SELECT e FROM PayScaleRate e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=PayScaleRate.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=PayScaleRate.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = PayScaleRate.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = PayScaleRate.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class PayScaleRate extends AbstractType  {
-	
+public class PayScaleRate extends AbstractType {
+
 	public static final String TABLE_NAME = "HR_PAYSCL_RATE";
 	public static final String SEQUENCE_NAME = "HR_PAYSCL_RATE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "PayScaleRate.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "PayScaleRate.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "PayScaleRate.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PayScale.class)
-	@JoinColumn(name="PAYSCALE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PayScale.class)
+	@JoinColumn(name = "PAYSCALE_ID", referencedColumnName = "ID")
 	private PayScale payScale;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Currency.class)
-	@JoinColumn(name="CURRENCY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Currency.class)
+	@JoinColumn(name = "CURRENCY_ID", referencedColumnName = "ID")
 	private Currency currency;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public PayScale getPayScale() {
 		return this.payScale;
 	}
-	
+
 	public void setPayScale(PayScale payScale) {
-		if (payScale != null ) {
+		if (payScale != null) {
 			this.__validate_client_context__(payScale.getClientId());
 		}
 		this.payScale = payScale;
 	}
-	
+
 	public Currency getCurrency() {
 		return this.currency;
 	}
-	
+
 	public void setCurrency(Currency currency) {
-		if (currency != null ) {
+		if (currency != null) {
 			this.__validate_client_context__(currency.getClientId());
 		}
 		this.currency = currency;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

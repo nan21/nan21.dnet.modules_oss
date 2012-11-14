@@ -14,10 +14,15 @@ import net.nan21.dnet.module.md.acc.business.service.IAccountService;
 import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
 import net.nan21.dnet.module.md.acc.domain.entity.Account;
 
-
+/**
+ * Repository functionality for {@link Account} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AccountService extends AbstractEntityService<Account>
-		implements IAccountService {
- 
+		implements
+			IAccountService {
+
 	public AccountService() {
 		super();
 	}
@@ -31,24 +36,32 @@ public class AccountService extends AbstractEntityService<Account>
 	public Class<Account> getEntityClass() {
 		return Account.class;
 	}
-	
-	public Account findByCode(String code) {		 
-		return (Account) this.em
-			.createNamedQuery(Account.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Account findByCode(String code) {
+		return (Account) this.em.createNamedQuery(Account.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: accSchema
+	 */
 	public List<Account> findByAccSchema(AccSchema accSchema) {
-		return this.findByAccSchemaId(accSchema.getId()); 
+		return this.findByAccSchemaId(accSchema.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: accSchema.id
+	 */
 	public List<Account> findByAccSchemaId(Long accSchemaId) {
 		return (List<Account>) this.em
-			.createQuery("select e from Account e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId", Account.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAccSchemaId", accSchemaId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Account e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
+						Account.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAccSchemaId", accSchemaId).getResultList();
 	}
 }

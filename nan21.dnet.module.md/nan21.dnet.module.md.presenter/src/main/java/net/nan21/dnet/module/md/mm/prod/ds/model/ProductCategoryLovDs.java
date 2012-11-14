@@ -10,15 +10,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductCategory;
 
-@Ds(entity=ProductCategory.class,jpqlWhere=" e.active = true ", sort={@SortField(field=ProductCategoryLovDs.fCODE)})
-public class ProductCategoryLovDs extends AbstractTypeWithCodeLov<ProductCategory> {
-
+@Ds(entity = ProductCategory.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ProductCategoryLovDs.fCODE)})
+public class ProductCategoryLovDs
+		extends
+			AbstractTypeWithCodeLov<ProductCategory> {
 
 	public ProductCategoryLovDs() {
 		super();
 	}
 
- 	public ProductCategoryLovDs(ProductCategory e) {
+	public ProductCategoryLovDs(ProductCategory e) {
 		super(e);
 	}
 }

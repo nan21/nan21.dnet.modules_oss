@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.SubInventories_UI", {
 			.linkDc("sloc", "subinv",{fields:[
 				{childField:"subInventoryId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.SubInventories_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -43,6 +44,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.SubInventories_UI", {
 			.addToolbarTo("canvas1", "tlbSubinvList")
 			.addToolbarTo("canvas2", "tlbSubinvEdit")
 			.addToolbarTo("slocEditList", "tlbSlocEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -56,6 +58,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.SubInventories_UI", {
 			.beginToolbar("tlbSlocEditList", {dc: "sloc"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Stock locators"})
 			.end()
+			;
 	}
 
 });

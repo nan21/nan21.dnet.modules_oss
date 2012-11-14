@@ -19,10 +19,15 @@ import net.nan21.dnet.module.md.tx.inventory.business.service.IInvOperationServi
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvOperation;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionLine;
 
-
+/**
+ * Repository functionality for {@link InvOperation} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class InvOperationService extends AbstractEntityService<InvOperation>
-		implements IInvOperationService {
- 
+		implements
+			IInvOperationService {
+
 	public InvOperationService() {
 		super();
 	}
@@ -36,76 +41,121 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 	public Class<InvOperation> getEntityClass() {
 		return InvOperation.class;
 	}
-	
+
+	/**
+	 * Find by reference: inventory
+	 */
 	public List<InvOperation> findByInventory(Organization inventory) {
-		return this.findByInventoryId(inventory.getId()); 
+		return this.findByInventoryId(inventory.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: inventory.id
+	 */
 	public List<InvOperation> findByInventoryId(Long inventoryId) {
 		return (List<InvOperation>) this.em
-			.createQuery("select e from InvOperation e where e.clientId = :pClientId and e.inventory.id = :pInventoryId", InvOperation.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pInventoryId", inventoryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from InvOperation e where e.clientId = :pClientId and e.inventory.id = :pInventoryId",
+						InvOperation.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pInventoryId", inventoryId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: subInventory
+	 */
 	public List<InvOperation> findBySubInventory(SubInventory subInventory) {
-		return this.findBySubInventoryId(subInventory.getId()); 
+		return this.findBySubInventoryId(subInventory.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: subInventory.id
+	 */
 	public List<InvOperation> findBySubInventoryId(Long subInventoryId) {
 		return (List<InvOperation>) this.em
-			.createQuery("select e from InvOperation e where e.clientId = :pClientId and e.subInventory.id = :pSubInventoryId", InvOperation.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pSubInventoryId", subInventoryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from InvOperation e where e.clientId = :pClientId and e.subInventory.id = :pSubInventoryId",
+						InvOperation.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pSubInventoryId", subInventoryId)
+				.getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: locator
+	 */
 	public List<InvOperation> findByLocator(StockLocator locator) {
-		return this.findByLocatorId(locator.getId()); 
+		return this.findByLocatorId(locator.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: locator.id
+	 */
 	public List<InvOperation> findByLocatorId(Long locatorId) {
 		return (List<InvOperation>) this.em
-			.createQuery("select e from InvOperation e where e.clientId = :pClientId and e.locator.id = :pLocatorId", InvOperation.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pLocatorId", locatorId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from InvOperation e where e.clientId = :pClientId and e.locator.id = :pLocatorId",
+						InvOperation.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pLocatorId", locatorId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: item
+	 */
 	public List<InvOperation> findByItem(Product item) {
-		return this.findByItemId(item.getId()); 
+		return this.findByItemId(item.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: item.id
+	 */
 	public List<InvOperation> findByItemId(Long itemId) {
 		return (List<InvOperation>) this.em
-			.createQuery("select e from InvOperation e where e.clientId = :pClientId and e.item.id = :pItemId", InvOperation.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pItemId", itemId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from InvOperation e where e.clientId = :pClientId and e.item.id = :pItemId",
+						InvOperation.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pItemId", itemId).getResultList();
 	}
-	
-	public List<InvOperation> findByTransactionLine(InvTransactionLine transactionLine) {
-		return this.findByTransactionLineId(transactionLine.getId()); 
+
+	/**
+	 * Find by reference: transactionLine
+	 */
+	public List<InvOperation> findByTransactionLine(
+			InvTransactionLine transactionLine) {
+		return this.findByTransactionLineId(transactionLine.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: transactionLine.id
+	 */
 	public List<InvOperation> findByTransactionLineId(Long transactionLineId) {
 		return (List<InvOperation>) this.em
-			.createQuery("select e from InvOperation e where e.clientId = :pClientId and e.transactionLine.id = :pTransactionLineId", InvOperation.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTransactionLineId", transactionLineId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from InvOperation e where e.clientId = :pClientId and e.transactionLine.id = :pTransactionLineId",
+						InvOperation.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTransactionLineId", transactionLineId)
+				.getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: uom
+	 */
 	public List<InvOperation> findByUom(Uom uom) {
-		return this.findByUomId(uom.getId()); 
+		return this.findByUomId(uom.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: uom.id
+	 */
 	public List<InvOperation> findByUomId(Long uomId) {
 		return (List<InvOperation>) this.em
-			.createQuery("select e from InvOperation e where e.clientId = :pClientId and e.uom.id = :pUomId", InvOperation.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pUomId", uomId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from InvOperation e where e.clientId = :pClientId and e.uom.id = :pUomId",
+						InvOperation.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pUomId", uomId).getResultList();
 	}
 }

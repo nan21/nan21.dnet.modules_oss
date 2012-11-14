@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.attr.business.service.IAttributeCategoryService;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory;
 
+/**
+ * Repository functionality for {@link AttributeCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class AttributeCategoryService
+		extends
+			AbstractEntityService<AttributeCategory>
+		implements
+			IAttributeCategoryService {
 
-public class AttributeCategoryService extends AbstractEntityService<AttributeCategory>
-		implements IAttributeCategoryService {
- 
 	public AttributeCategoryService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class AttributeCategoryService extends AbstractEntityService<AttributeCat
 	public Class<AttributeCategory> getEntityClass() {
 		return AttributeCategory.class;
 	}
-	
-	public AttributeCategory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AttributeCategory findByName(String name) {
 		return (AttributeCategory) this.em
-			.createNamedQuery(AttributeCategory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AttributeCategory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

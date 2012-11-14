@@ -12,8 +12,10 @@ import net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDs;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class MyCalendarEventDsQueryBuilder extends QueryBuilderWithJpql<MyCalendarEventDs,MyCalendarEventDsFilter, EmptyParam> {
-	
+public class MyCalendarEventDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<MyCalendarEventDs, MyCalendarEventDsFilter, EmptyParam> {
+
 	@Override
 	public void setFilter(MyCalendarEventDsFilter filter) {
 		filter.setCreatedBy(Session.user.get().getUsername());

@@ -36,224 +36,212 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=PurchaseInvoiceItem.NQ_FIND_BY_ID,
-		query="SELECT e FROM PurchaseInvoiceItem e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PurchaseInvoiceItem.NQ_FIND_BY_IDS,
-		query="SELECT e FROM PurchaseInvoiceItem e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = PurchaseInvoiceItem.NQ_FIND_BY_ID, query = "SELECT e FROM PurchaseInvoiceItem e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PurchaseInvoiceItem.NQ_FIND_BY_IDS, query = "SELECT e FROM PurchaseInvoiceItem e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=PurchaseInvoiceItem.TABLE_NAME
-)
+@Table(name = PurchaseInvoiceItem.TABLE_NAME)
 @Customizer(PurchaseInvoiceItemEventHandler.class)
-public class PurchaseInvoiceItem extends AbstractAuditable  {
-	
+public class PurchaseInvoiceItem extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "SC_INV_ITEM";
 	public static final String SEQUENCE_NAME = "SC_INV_ITEM_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "PurchaseInvoiceItem.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "PurchaseInvoiceItem.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="QUANTITY", nullable=false, scale=2)
+
+	@Column(name = "QUANTITY", nullable = false, scale = 2)
 	@NotNull
 	private Float quantity;
-	
-	@Column(name="UNITPRICE", nullable=false, scale=2)
+
+	@Column(name = "UNITPRICE", nullable = false, scale = 2)
 	@NotNull
 	private Float unitPrice;
-	
-	@Column(name="NETAMOUNT", nullable=false, scale=2)
+
+	@Column(name = "NETAMOUNT", nullable = false, scale = 2)
 	@NotNull
 	private Float netAmount;
-	
-	@Column(name="TAXAMOUNT", nullable=false, scale=2)
+
+	@Column(name = "TAXAMOUNT", nullable = false, scale = 2)
 	@NotNull
 	private Float taxAmount;
-	
-	@Column(name="LINEAMOUNT", nullable=false, scale=2)
+
+	@Column(name = "LINEAMOUNT", nullable = false, scale = 2)
 	@NotNull
 	private Float lineAmount;
-	
-	@Column(name="DESCRIPTION", length=400)
+
+	@Column(name = "DESCRIPTION", length = 400)
 	private String description;
-	
-	@Column(name="ENTRYMODE", nullable=false, length=16)
+
+	@Column(name = "ENTRYMODE", nullable = false, length = 16)
 	@NotBlank
 	private String entryMode;
-	
-	@Column(name="USEGIVENTAX", nullable=false)
+
+	@Column(name = "USEGIVENTAX", nullable = false)
 	@NotNull
 	private Boolean useGivenTax;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PurchaseInvoice.class)
-	@JoinColumn(name="PURCHASEINVOICE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PurchaseInvoice.class)
+	@JoinColumn(name = "PURCHASEINVOICE_ID", referencedColumnName = "ID")
 	private PurchaseInvoice purchaseInvoice;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Product.class)
-	@JoinColumn(name="PRODUCT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Product.class)
+	@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID")
 	private Product product;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Uom.class)
-	@JoinColumn(name="UOM_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Uom.class)
+	@JoinColumn(name = "UOM_ID", referencedColumnName = "ID")
 	private Uom uom;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Tax.class)
-	@JoinColumn(name="TAX_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Tax.class)
+	@JoinColumn(name = "TAX_ID", referencedColumnName = "ID")
 	private Tax tax;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=PurchaseInvoiceItemTax.class, mappedBy="purchaseInvoiceItem"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = PurchaseInvoiceItemTax.class, mappedBy = "purchaseInvoiceItem", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<PurchaseInvoiceItemTax> itemTaxes;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Float getQuantity() {
 		return this.quantity;
 	}
-	
+
 	public void setQuantity(Float quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	public Float getUnitPrice() {
 		return this.unitPrice;
 	}
-	
+
 	public void setUnitPrice(Float unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-	
+
 	public Float getNetAmount() {
 		return this.netAmount;
 	}
-	
+
 	public void setNetAmount(Float netAmount) {
 		this.netAmount = netAmount;
 	}
-	
+
 	public Float getTaxAmount() {
 		return this.taxAmount;
 	}
-	
+
 	public void setTaxAmount(Float taxAmount) {
 		this.taxAmount = taxAmount;
 	}
-	
+
 	public Float getLineAmount() {
 		return this.lineAmount;
 	}
-	
+
 	public void setLineAmount(Float lineAmount) {
 		this.lineAmount = lineAmount;
 	}
-	
+
 	public String getDescription() {
 		return this.description;
 	}
-	
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public String getEntryMode() {
 		return this.entryMode;
 	}
-	
+
 	public void setEntryMode(String entryMode) {
 		this.entryMode = entryMode;
 	}
-	
+
 	public Boolean getUseGivenTax() {
 		return this.useGivenTax;
 	}
-	
+
 	public void setUseGivenTax(Boolean useGivenTax) {
 		this.useGivenTax = useGivenTax;
 	}
-	
+
 	public PurchaseInvoice getPurchaseInvoice() {
 		return this.purchaseInvoice;
 	}
-	
+
 	public void setPurchaseInvoice(PurchaseInvoice purchaseInvoice) {
-		if (purchaseInvoice != null ) {
+		if (purchaseInvoice != null) {
 			this.__validate_client_context__(purchaseInvoice.getClientId());
 		}
 		this.purchaseInvoice = purchaseInvoice;
 	}
-	
+
 	public Product getProduct() {
 		return this.product;
 	}
-	
+
 	public void setProduct(Product product) {
-		if (product != null ) {
+		if (product != null) {
 			this.__validate_client_context__(product.getClientId());
 		}
 		this.product = product;
 	}
-	
+
 	public Uom getUom() {
 		return this.uom;
 	}
-	
+
 	public void setUom(Uom uom) {
-		if (uom != null ) {
+		if (uom != null) {
 			this.__validate_client_context__(uom.getClientId());
 		}
 		this.uom = uom;
 	}
-	
+
 	public Tax getTax() {
 		return this.tax;
 	}
-	
+
 	public void setTax(Tax tax) {
-		if (tax != null ) {
+		if (tax != null) {
 			this.__validate_client_context__(tax.getClientId());
 		}
 		this.tax = tax;
 	}
-	
+
 	public Collection<PurchaseInvoiceItemTax> getItemTaxes() {
 		return this.itemTaxes;
 	}
-	
+
 	public void setItemTaxes(Collection<PurchaseInvoiceItemTax> itemTaxes) {
 		this.itemTaxes = itemTaxes;
 	}
-	
+
 	public void addToItemTaxes(PurchaseInvoiceItemTax e) {
 		if (this.itemTaxes == null) {
 			this.itemTaxes = new ArrayList<PurchaseInvoiceItemTax>();
@@ -261,12 +249,12 @@ public class PurchaseInvoiceItem extends AbstractAuditable  {
 		e.setPurchaseInvoiceItem(this);
 		this.itemTaxes.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getUseGivenTax() == null ) {
-			event.updateAttributeWithObject("useGivenTax",false);
+
+		if (this.getUseGivenTax() == null) {
+			event.updateAttributeWithObject("useGivenTax", false);
 		}
 	}
 }

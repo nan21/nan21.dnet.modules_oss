@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssueTextTypeService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTextType;
 
-
+/**
+ * Repository functionality for {@link IssueTextType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class IssueTextTypeService extends AbstractEntityService<IssueTextType>
-		implements IIssueTextTypeService {
- 
+		implements
+			IIssueTextTypeService {
+
 	public IssueTextTypeService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class IssueTextTypeService extends AbstractEntityService<IssueTextType>
 	public Class<IssueTextType> getEntityClass() {
 		return IssueTextType.class;
 	}
-	
-	public IssueTextType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public IssueTextType findByName(String name) {
 		return (IssueTextType) this.em
-			.createNamedQuery(IssueTextType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(IssueTextType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

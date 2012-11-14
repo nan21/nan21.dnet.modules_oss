@@ -11,10 +11,19 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActByteArray;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActVariable;
 
+/**
+ * Interface to expose business functions specific for {@link ActVariable} domain
+ * entity.
+ */
 public interface IActVariableService extends IEntityService<ActVariable> {
-	
+
+	/**
+	 * Find by reference: byteArray
+	 */
 	public List<ActVariable> findByByteArray(ActByteArray byteArray);
-	
+
+	/**
+	 * Find by ID of reference: byteArray.id
+	 */
 	public List<ActVariable> findByByteArrayId(String byteArrayId);
-	
 }

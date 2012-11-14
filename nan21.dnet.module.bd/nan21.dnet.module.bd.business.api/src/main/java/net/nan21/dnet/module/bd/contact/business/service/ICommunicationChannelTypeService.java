@@ -9,8 +9,16 @@ package net.nan21.dnet.module.bd.contact.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType;
 
-public interface ICommunicationChannelTypeService extends IEntityService<CommunicationChannelType> {
-	
+/**
+ * Interface to expose business functions specific for {@link CommunicationChannelType} domain
+ * entity.
+ */
+public interface ICommunicationChannelTypeService
+		extends
+			IEntityService<CommunicationChannelType> {
+
+	/**
+	 * Find by unique key
+	 */
 	public CommunicationChannelType findByName(String name);
-	
 }

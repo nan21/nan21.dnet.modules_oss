@@ -15,10 +15,17 @@ import net.nan21.dnet.module.sc.order.business.service.IPurchaseInventoryTransac
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseInventoryTransaction;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
 
+/**
+ * Repository functionality for {@link PurchaseInventoryTransaction} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PurchaseInventoryTransactionService
+		extends
+			AbstractEntityService<PurchaseInventoryTransaction>
+		implements
+			IPurchaseInventoryTransactionService {
 
-public class PurchaseInventoryTransactionService extends AbstractEntityService<PurchaseInventoryTransaction>
-		implements IPurchaseInventoryTransactionService {
- 
 	public PurchaseInventoryTransactionService() {
 		super();
 	}
@@ -32,28 +39,46 @@ public class PurchaseInventoryTransactionService extends AbstractEntityService<P
 	public Class<PurchaseInventoryTransaction> getEntityClass() {
 		return PurchaseInventoryTransaction.class;
 	}
-	
-	public List<PurchaseInventoryTransaction> findBySupplier(BusinessPartner supplier) {
-		return this.findBySupplierId(supplier.getId()); 
+
+	/**
+	 * Find by reference: supplier
+	 */
+	public List<PurchaseInventoryTransaction> findBySupplier(
+			BusinessPartner supplier) {
+		return this.findBySupplierId(supplier.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: supplier.id
+	 */
 	public List<PurchaseInventoryTransaction> findBySupplierId(Long supplierId) {
 		return (List<PurchaseInventoryTransaction>) this.em
-			.createQuery("select e from PurchaseInventoryTransaction e where e.clientId = :pClientId and e.supplier.id = :pSupplierId", PurchaseInventoryTransaction.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pSupplierId", supplierId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PurchaseInventoryTransaction e where e.clientId = :pClientId and e.supplier.id = :pSupplierId",
+						PurchaseInventoryTransaction.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pSupplierId", supplierId).getResultList();
 	}
-	
-	public List<PurchaseInventoryTransaction> findByPurchaseOrder(PurchaseOrder purchaseOrder) {
-		return this.findByPurchaseOrderId(purchaseOrder.getId()); 
+
+	/**
+	 * Find by reference: purchaseOrder
+	 */
+	public List<PurchaseInventoryTransaction> findByPurchaseOrder(
+			PurchaseOrder purchaseOrder) {
+		return this.findByPurchaseOrderId(purchaseOrder.getId());
 	}
-	
-	public List<PurchaseInventoryTransaction> findByPurchaseOrderId(Long purchaseOrderId) {
+
+	/**
+	 * Find by ID of reference: purchaseOrder.id
+	 */
+	public List<PurchaseInventoryTransaction> findByPurchaseOrderId(
+			Long purchaseOrderId) {
 		return (List<PurchaseInventoryTransaction>) this.em
-			.createQuery("select e from PurchaseInventoryTransaction e where e.clientId = :pClientId and e.purchaseOrder.id = :pPurchaseOrderId", PurchaseInventoryTransaction.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPurchaseOrderId", purchaseOrderId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PurchaseInventoryTransaction e where e.clientId = :pClientId and e.purchaseOrder.id = :pPurchaseOrderId",
+						PurchaseInventoryTransaction.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPurchaseOrderId", purchaseOrderId)
+				.getResultList();
 	}
 }

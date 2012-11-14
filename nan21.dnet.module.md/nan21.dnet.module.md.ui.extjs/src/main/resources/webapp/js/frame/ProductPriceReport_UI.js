@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.ProductPriceReport_UI", {
 		this._getBuilder_()
 			.addDc("prodprice", new net.nan21.dnet.module.md.mm.price.dc.ProductPriceReport({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.ProductPriceReport_UI", {
 			.addDcGridView("prodprice", {name:"prodpriceList", xtype:"md_mm_price_dc_ProductPriceReport$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.ProductPriceReport_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["prodpriceFilter", "prodpriceList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbProdpriceList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.ProductPriceReport_UI", {
 			.beginToolbar("tlbProdpriceList", {dc: "prodprice"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Price report"})
 			.end()
+			;
 	}
 
 });

@@ -17,10 +17,17 @@ import net.nan21.dnet.module.sd.order.business.service.ISalesInventoryTransactio
 import net.nan21.dnet.module.sd.order.domain.entity.SalesInventoryTransaction;
 import net.nan21.dnet.module.sd.order.domain.entity.SalesOrder;
 
+/**
+ * Repository functionality for {@link SalesInventoryTransaction} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class SalesInventoryTransactionService
+		extends
+			AbstractEntityService<SalesInventoryTransaction>
+		implements
+			ISalesInventoryTransactionService {
 
-public class SalesInventoryTransactionService extends AbstractEntityService<SalesInventoryTransaction>
-		implements ISalesInventoryTransactionService {
- 
 	public SalesInventoryTransactionService() {
 		super();
 	}
@@ -34,52 +41,88 @@ public class SalesInventoryTransactionService extends AbstractEntityService<Sale
 	public Class<SalesInventoryTransaction> getEntityClass() {
 		return SalesInventoryTransaction.class;
 	}
-	
-	public List<SalesInventoryTransaction> findByCustomer(BusinessPartner customer) {
-		return this.findByCustomerId(customer.getId()); 
+
+	/**
+	 * Find by reference: customer
+	 */
+	public List<SalesInventoryTransaction> findByCustomer(
+			BusinessPartner customer) {
+		return this.findByCustomerId(customer.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: customer.id
+	 */
 	public List<SalesInventoryTransaction> findByCustomerId(Long customerId) {
 		return (List<SalesInventoryTransaction>) this.em
-			.createQuery("select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.customer.id = :pCustomerId", SalesInventoryTransaction.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCustomerId", customerId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.customer.id = :pCustomerId",
+						SalesInventoryTransaction.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCustomerId", customerId).getResultList();
 	}
-	
-	public List<SalesInventoryTransaction> findByDeliveryLocation(Location deliveryLocation) {
-		return this.findByDeliveryLocationId(deliveryLocation.getId()); 
+
+	/**
+	 * Find by reference: deliveryLocation
+	 */
+	public List<SalesInventoryTransaction> findByDeliveryLocation(
+			Location deliveryLocation) {
+		return this.findByDeliveryLocationId(deliveryLocation.getId());
 	}
-	
-	public List<SalesInventoryTransaction> findByDeliveryLocationId(Long deliveryLocationId) {
+
+	/**
+	 * Find by ID of reference: deliveryLocation.id
+	 */
+	public List<SalesInventoryTransaction> findByDeliveryLocationId(
+			Long deliveryLocationId) {
 		return (List<SalesInventoryTransaction>) this.em
-			.createQuery("select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.deliveryLocation.id = :pDeliveryLocationId", SalesInventoryTransaction.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pDeliveryLocationId", deliveryLocationId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.deliveryLocation.id = :pDeliveryLocationId",
+						SalesInventoryTransaction.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pDeliveryLocationId", deliveryLocationId)
+				.getResultList();
 	}
-	
-	public List<SalesInventoryTransaction> findByDeliveryContact(Contact deliveryContact) {
-		return this.findByDeliveryContactId(deliveryContact.getId()); 
+
+	/**
+	 * Find by reference: deliveryContact
+	 */
+	public List<SalesInventoryTransaction> findByDeliveryContact(
+			Contact deliveryContact) {
+		return this.findByDeliveryContactId(deliveryContact.getId());
 	}
-	
-	public List<SalesInventoryTransaction> findByDeliveryContactId(Long deliveryContactId) {
+
+	/**
+	 * Find by ID of reference: deliveryContact.id
+	 */
+	public List<SalesInventoryTransaction> findByDeliveryContactId(
+			Long deliveryContactId) {
 		return (List<SalesInventoryTransaction>) this.em
-			.createQuery("select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.deliveryContact.id = :pDeliveryContactId", SalesInventoryTransaction.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pDeliveryContactId", deliveryContactId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.deliveryContact.id = :pDeliveryContactId",
+						SalesInventoryTransaction.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pDeliveryContactId", deliveryContactId)
+				.getResultList();
 	}
-	
-	public List<SalesInventoryTransaction> findBySalesOrder(SalesOrder salesOrder) {
-		return this.findBySalesOrderId(salesOrder.getId()); 
+
+	/**
+	 * Find by reference: salesOrder
+	 */
+	public List<SalesInventoryTransaction> findBySalesOrder(
+			SalesOrder salesOrder) {
+		return this.findBySalesOrderId(salesOrder.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: salesOrder.id
+	 */
 	public List<SalesInventoryTransaction> findBySalesOrderId(Long salesOrderId) {
 		return (List<SalesInventoryTransaction>) this.em
-			.createQuery("select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.salesOrder.id = :pSalesOrderId", SalesInventoryTransaction.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pSalesOrderId", salesOrderId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.salesOrder.id = :pSalesOrderId",
+						SalesInventoryTransaction.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pSalesOrderId", salesOrderId).getResultList();
 	}
 }

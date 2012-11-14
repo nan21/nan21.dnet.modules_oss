@@ -8,6 +8,7 @@ package net.nan21.dnet.module.sd.invoice.business.serviceext;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.sd._businessdelegates.order.SalesTaxBD;
 import net.nan21.dnet.module.sd.invoice.business.service.ISalesInvoiceItemService;
@@ -24,12 +25,12 @@ public class SalesInvoiceItemService
 	private List<Long> invoiceIds;
 
 	@Override
-	protected void postUpdate(SalesInvoiceItem e) throws Exception {
+	protected void postUpdate(SalesInvoiceItem e) throws BusinessException {
 		this.calculateTaxes(e);
 	}
 
 	@Override
-	protected void postInsert(SalesInvoiceItem e) throws Exception {
+	protected void postInsert(SalesInvoiceItem e) throws BusinessException {
 		this.calculateTaxes(e);
 	}
 
@@ -58,7 +59,7 @@ public class SalesInvoiceItemService
 	}
 
 	@Override
-	protected void preDeleteByIds(List<Object> ids) throws Exception {
+	protected void preDeleteByIds(List<Object> ids) throws BusinessException {
 		this.invoiceIds = new ArrayList<Long>();
 		List<SalesInvoiceItem> items = this.findByIds(ids);
 		for (SalesInvoiceItem item : items) {
@@ -109,18 +110,21 @@ public class SalesInvoiceItemService
 		// re-create taxes
 		// delete existing
 		this.em.createQuery(
-				"delete from " +SalesInvoiceTax.class.getSimpleName()+ " t "
+				"delete from " + SalesInvoiceTax.class.getSimpleName() + " t "
 						+ " where t.salesInvoice.id = :invoiceId")
 				.setParameter("invoiceId", invoiceId).executeUpdate();
 
 		// create new
 
+		@SuppressWarnings("unchecked")
 		List<Object[]> taxes = (List<Object[]>) this.em
 				.createQuery(
-						"select i.tax,  sum(i.baseAmount), sum(i.taxAmount) from "+SalesInvoiceItemTax.class.getSimpleName()+" i "
+						"select i.tax,  sum(i.baseAmount), sum(i.taxAmount) from "
+								+ SalesInvoiceItemTax.class.getSimpleName()
+								+ " i "
 								+ " where i.salesInvoiceItem.salesInvoice.id = :invoiceId "
-								+ " group by i.tax ").setParameter("invoiceId",
-						invoiceId).getResultList();
+								+ " group by i.tax ")
+				.setParameter("invoiceId", invoiceId).getResultList();
 		for (Object[] tax : taxes) {
 			Tax t = (Tax) tax[0];
 			Double baseval = (Double) tax[1];
@@ -143,7 +147,8 @@ public class SalesInvoiceItemService
 		this.em.merge(invoice);
 	}
 
-	protected void calculateTaxes(SalesInvoiceItem item) throws Exception {
+	protected void calculateTaxes(SalesInvoiceItem item)
+			throws BusinessException {
 
 		if (item.getTax() != null) {
 			SalesTaxBD delegate = this.getBusinessDelegate(SalesTaxBD.class);

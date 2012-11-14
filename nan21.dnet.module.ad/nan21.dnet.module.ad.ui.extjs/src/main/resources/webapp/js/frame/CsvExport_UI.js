@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/ExportMapItem", "nan21.dnet.module.ad.ui.extjs/lov/SysDsFields", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportFieldDs", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapLovDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDsFieldLovDs", "nan21.dnet.module.ad.ui.extjs/dc/CsvExport", "nan21.dnet.module.ad.ui.extjs/dc/CsvExportField", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportDs", "nan21.dnet.module.ad.ui.extjs/lov/ExportMaps", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportSortDs", "nan21.dnet.module.ad.ui.extjs/lov/SysDataSource", "nan21.dnet.module.ad.ui.extjs/dc/CsvExportSort", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapItemDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDataSourceLovDs"]);
+Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/ExportMapItem", "nan21.dnet.module.ad.ui.extjs/lov/SysDsFields", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportFieldDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDsFieldLovDs", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapLovDs", "nan21.dnet.module.ad.ui.extjs/dc/CsvExport", "nan21.dnet.module.ad.ui.extjs/dc/CsvExportField", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportDs", "nan21.dnet.module.ad.ui.extjs/lov/ExportMaps", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportSortDs", "nan21.dnet.module.ad.ui.extjs/lov/SysDataSource", "nan21.dnet.module.ad.ui.extjs/dc/CsvExportSort", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapItemDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDataSourceLovDs"]);
 
 Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -27,6 +27,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 			.linkDc("item", "csv",{fields:[
 				{childField:"csvExportId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -51,7 +52,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsAccordion", width:600, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -63,6 +64,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 			.addToolbarTo("fieldCtxEditList", "tlbFieldCtxEditList")
 			.addToolbarTo("sortCtxEditList", "tlbSortCtxEditList")
 			.addToolbarTo("itemCtxEditList", "tlbItemCtxEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -79,6 +81,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 			.beginToolbar("tlbItemCtxEditList", {dc: "item"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "File-sets"})
 			.end()
+			;
 	}
 
 	,onBtnShowCloneWdw: function() {

@@ -34,304 +34,280 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=BpAccount.NQ_FIND_BY_ID,
-		query="SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=BpAccount.NQ_FIND_BY_IDS,
-		query="SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=BpAccount.NQ_FIND_BY_BP_ORG,
-		query="SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.bpartner = :pBpartner and e.org = :pOrg",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=BpAccount.NQ_FIND_BY_BP_ORG_PRIMITIVE,
-		query="SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.bpartner.id = :pBpartnerId and e.org.id = :pOrgId",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = BpAccount.NQ_FIND_BY_ID, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = BpAccount.NQ_FIND_BY_IDS, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = BpAccount.NQ_FIND_BY_BP_ORG, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.bpartner = :pBpartner and e.org = :pOrg", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = BpAccount.NQ_FIND_BY_BP_ORG_PRIMITIVE, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.bpartner.id = :pBpartnerId and e.org.id = :pOrgId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=BpAccount.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=BpAccount.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","BPARTNER_ID","ORG_ID"}
-		)
-	}
-)
+@Table(name = BpAccount.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = BpAccount.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "BPARTNER_ID", "ORG_ID"})})
 @Customizer(DefaultEventHandler.class)
-public class BpAccount extends AbstractAuditable  {
-	
+public class BpAccount extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "MD_BP_ACNT";
 	public static final String SEQUENCE_NAME = "MD_BP_ACNT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "BpAccount.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "BpAccount.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Bp_org.
 	 */
 	public static final String NQ_FIND_BY_BP_ORG = "BpAccount.findByBp_org";
-	
+
 	/**
 	 * Named query find by unique key: Bp_org using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_BP_ORG_PRIMITIVE = "BpAccount.findByBp_org_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="CUSTOMER", nullable=false)
+
+	@Column(name = "CUSTOMER", nullable = false)
 	@NotNull
 	private Boolean customer;
-	
-	@Column(name="VENDOR", nullable=false)
+
+	@Column(name = "VENDOR", nullable = false)
 	@NotNull
 	private Boolean vendor;
-	
-	@Column(name="CUSTCREDITLIMIT", scale=2)
+
+	@Column(name = "CUSTCREDITLIMIT", scale = 2)
 	private Float custCreditLimit;
-	
-	@Column(name="VENDCREDITLIMIT", scale=2)
+
+	@Column(name = "VENDCREDITLIMIT", scale = 2)
 	private Float vendCreditLimit;
-	
-	@Column(name="ANALITICSEGMENT", length=32)
+
+	@Column(name = "ANALITICSEGMENT", length = 32)
 	private String analiticSegment;
-	
-	@Column(name="CUSTANALITICSEGMENT", length=32)
+
+	@Column(name = "CUSTANALITICSEGMENT", length = 32)
 	private String custAnaliticSegment;
-	
-	@Column(name="VENDANALITICSEGMENT", length=32)
+
+	@Column(name = "VENDANALITICSEGMENT", length = 32)
 	private String vendAnaliticSegment;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=BusinessPartner.class)
-	@JoinColumn(name="BPARTNER_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = BusinessPartner.class)
+	@JoinColumn(name = "BPARTNER_ID", referencedColumnName = "ID")
 	private BusinessPartner bpartner;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="ORG_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "ORG_ID", referencedColumnName = "ID")
 	private Organization org;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=CustomerGroup.class)
-	@JoinColumn(name="CUSTGROUP_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = CustomerGroup.class)
+	@JoinColumn(name = "CUSTGROUP_ID", referencedColumnName = "ID")
 	private CustomerGroup custGroup;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PaymentMethod.class)
-	@JoinColumn(name="CUSTPAYMENTMETHOD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PaymentMethod.class)
+	@JoinColumn(name = "CUSTPAYMENTMETHOD_ID", referencedColumnName = "ID")
 	private PaymentMethod custPaymentMethod;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PaymentTerm.class)
-	@JoinColumn(name="CUSTPAYMENTTERM_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PaymentTerm.class)
+	@JoinColumn(name = "CUSTPAYMENTTERM_ID", referencedColumnName = "ID")
 	private PaymentTerm custPaymentTerm;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=DeliveryMethod.class)
-	@JoinColumn(name="CUSTDELIVERYMETHOD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = DeliveryMethod.class)
+	@JoinColumn(name = "CUSTDELIVERYMETHOD_ID", referencedColumnName = "ID")
 	private DeliveryMethod custDeliveryMethod;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=VendorGroup.class)
-	@JoinColumn(name="VENDGROUP_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = VendorGroup.class)
+	@JoinColumn(name = "VENDGROUP_ID", referencedColumnName = "ID")
 	private VendorGroup vendGroup;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PaymentMethod.class)
-	@JoinColumn(name="VENDPAYMENTMETHOD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PaymentMethod.class)
+	@JoinColumn(name = "VENDPAYMENTMETHOD_ID", referencedColumnName = "ID")
 	private PaymentMethod vendPaymentMethod;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PaymentTerm.class)
-	@JoinColumn(name="VENDPAYMENTTERM_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PaymentTerm.class)
+	@JoinColumn(name = "VENDPAYMENTTERM_ID", referencedColumnName = "ID")
 	private PaymentTerm vendPaymentTerm;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Boolean getCustomer() {
 		return this.customer;
 	}
-	
+
 	public void setCustomer(Boolean customer) {
 		this.customer = customer;
 	}
-	
+
 	public Boolean getVendor() {
 		return this.vendor;
 	}
-	
+
 	public void setVendor(Boolean vendor) {
 		this.vendor = vendor;
 	}
-	
+
 	public Float getCustCreditLimit() {
 		return this.custCreditLimit;
 	}
-	
+
 	public void setCustCreditLimit(Float custCreditLimit) {
 		this.custCreditLimit = custCreditLimit;
 	}
-	
+
 	public Float getVendCreditLimit() {
 		return this.vendCreditLimit;
 	}
-	
+
 	public void setVendCreditLimit(Float vendCreditLimit) {
 		this.vendCreditLimit = vendCreditLimit;
 	}
-	
+
 	public String getAnaliticSegment() {
 		return this.analiticSegment;
 	}
-	
+
 	public void setAnaliticSegment(String analiticSegment) {
 		this.analiticSegment = analiticSegment;
 	}
-	
+
 	public String getCustAnaliticSegment() {
 		return this.custAnaliticSegment;
 	}
-	
+
 	public void setCustAnaliticSegment(String custAnaliticSegment) {
 		this.custAnaliticSegment = custAnaliticSegment;
 	}
-	
+
 	public String getVendAnaliticSegment() {
 		return this.vendAnaliticSegment;
 	}
-	
+
 	public void setVendAnaliticSegment(String vendAnaliticSegment) {
 		this.vendAnaliticSegment = vendAnaliticSegment;
 	}
-	
+
 	public BusinessPartner getBpartner() {
 		return this.bpartner;
 	}
-	
+
 	public void setBpartner(BusinessPartner bpartner) {
-		if (bpartner != null ) {
+		if (bpartner != null) {
 			this.__validate_client_context__(bpartner.getClientId());
 		}
 		this.bpartner = bpartner;
 	}
-	
+
 	public Organization getOrg() {
 		return this.org;
 	}
-	
+
 	public void setOrg(Organization org) {
-		if (org != null ) {
+		if (org != null) {
 			this.__validate_client_context__(org.getClientId());
 		}
 		this.org = org;
 	}
-	
+
 	public CustomerGroup getCustGroup() {
 		return this.custGroup;
 	}
-	
+
 	public void setCustGroup(CustomerGroup custGroup) {
-		if (custGroup != null ) {
+		if (custGroup != null) {
 			this.__validate_client_context__(custGroup.getClientId());
 		}
 		this.custGroup = custGroup;
 	}
-	
+
 	public PaymentMethod getCustPaymentMethod() {
 		return this.custPaymentMethod;
 	}
-	
+
 	public void setCustPaymentMethod(PaymentMethod custPaymentMethod) {
-		if (custPaymentMethod != null ) {
+		if (custPaymentMethod != null) {
 			this.__validate_client_context__(custPaymentMethod.getClientId());
 		}
 		this.custPaymentMethod = custPaymentMethod;
 	}
-	
+
 	public PaymentTerm getCustPaymentTerm() {
 		return this.custPaymentTerm;
 	}
-	
+
 	public void setCustPaymentTerm(PaymentTerm custPaymentTerm) {
-		if (custPaymentTerm != null ) {
+		if (custPaymentTerm != null) {
 			this.__validate_client_context__(custPaymentTerm.getClientId());
 		}
 		this.custPaymentTerm = custPaymentTerm;
 	}
-	
+
 	public DeliveryMethod getCustDeliveryMethod() {
 		return this.custDeliveryMethod;
 	}
-	
+
 	public void setCustDeliveryMethod(DeliveryMethod custDeliveryMethod) {
-		if (custDeliveryMethod != null ) {
+		if (custDeliveryMethod != null) {
 			this.__validate_client_context__(custDeliveryMethod.getClientId());
 		}
 		this.custDeliveryMethod = custDeliveryMethod;
 	}
-	
+
 	public VendorGroup getVendGroup() {
 		return this.vendGroup;
 	}
-	
+
 	public void setVendGroup(VendorGroup vendGroup) {
-		if (vendGroup != null ) {
+		if (vendGroup != null) {
 			this.__validate_client_context__(vendGroup.getClientId());
 		}
 		this.vendGroup = vendGroup;
 	}
-	
+
 	public PaymentMethod getVendPaymentMethod() {
 		return this.vendPaymentMethod;
 	}
-	
+
 	public void setVendPaymentMethod(PaymentMethod vendPaymentMethod) {
-		if (vendPaymentMethod != null ) {
+		if (vendPaymentMethod != null) {
 			this.__validate_client_context__(vendPaymentMethod.getClientId());
 		}
 		this.vendPaymentMethod = vendPaymentMethod;
 	}
-	
+
 	public PaymentTerm getVendPaymentTerm() {
 		return this.vendPaymentTerm;
 	}
-	
+
 	public void setVendPaymentTerm(PaymentTerm vendPaymentTerm) {
-		if (vendPaymentTerm != null ) {
+		if (vendPaymentTerm != null) {
 			this.__validate_client_context__(vendPaymentTerm.getClientId());
 		}
 		this.vendPaymentTerm = vendPaymentTerm;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getCustomer() == null ) {
-			event.updateAttributeWithObject("customer",false);
+
+		if (this.getCustomer() == null) {
+			event.updateAttributeWithObject("customer", false);
 		}
-		if (this.getVendor() == null ) {
-			event.updateAttributeWithObject("vendor",false);
+		if (this.getVendor() == null) {
+			event.updateAttributeWithObject("vendor", false);
 		}
 	}
 }

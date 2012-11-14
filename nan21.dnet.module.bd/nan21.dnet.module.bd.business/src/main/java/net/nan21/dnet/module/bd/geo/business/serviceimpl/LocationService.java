@@ -16,10 +16,15 @@ import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.bd.geo.domain.entity.Location;
 import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 
-
+/**
+ * Repository functionality for {@link Location} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class LocationService extends AbstractEntityService<Location>
-		implements ILocationService {
- 
+		implements
+			ILocationService {
+
 	public LocationService() {
 		super();
 	}
@@ -33,40 +38,61 @@ public class LocationService extends AbstractEntityService<Location>
 	public Class<Location> getEntityClass() {
 		return Location.class;
 	}
-	
+
+	/**
+	 * Find by reference: country
+	 */
 	public List<Location> findByCountry(Country country) {
-		return this.findByCountryId(country.getId()); 
+		return this.findByCountryId(country.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: country.id
+	 */
 	public List<Location> findByCountryId(Long countryId) {
 		return (List<Location>) this.em
-			.createQuery("select e from Location e where e.clientId = :pClientId and e.country.id = :pCountryId", Location.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCountryId", countryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Location e where e.clientId = :pClientId and e.country.id = :pCountryId",
+						Location.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCountryId", countryId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: region
+	 */
 	public List<Location> findByRegion(Region region) {
-		return this.findByRegionId(region.getId()); 
+		return this.findByRegionId(region.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: region.id
+	 */
 	public List<Location> findByRegionId(Long regionId) {
 		return (List<Location>) this.em
-			.createQuery("select e from Location e where e.clientId = :pClientId and e.region.id = :pRegionId", Location.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pRegionId", regionId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Location e where e.clientId = :pClientId and e.region.id = :pRegionId",
+						Location.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pRegionId", regionId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: city
+	 */
 	public List<Location> findByCity(City city) {
-		return this.findByCityId(city.getId()); 
+		return this.findByCityId(city.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: city.id
+	 */
 	public List<Location> findByCityId(Long cityId) {
 		return (List<Location>) this.em
-			.createQuery("select e from Location e where e.clientId = :pClientId and e.city.id = :pCityId", Location.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCityId", cityId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Location e where e.clientId = :pClientId and e.city.id = :pCityId",
+						Location.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCityId", cityId).getResultList();
 	}
 }

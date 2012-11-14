@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.fi.asset.business.service.IAssetCategoryService;
 import net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory;
 
-
+/**
+ * Repository functionality for {@link AssetCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AssetCategoryService extends AbstractEntityService<AssetCategory>
-		implements IAssetCategoryService {
- 
+		implements
+			IAssetCategoryService {
+
 	public AssetCategoryService() {
 		super();
 	}
@@ -29,20 +34,24 @@ public class AssetCategoryService extends AbstractEntityService<AssetCategory>
 	public Class<AssetCategory> getEntityClass() {
 		return AssetCategory.class;
 	}
-	
-	public AssetCategory findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AssetCategory findByCode(String code) {
 		return (AssetCategory) this.em
-			.createNamedQuery(AssetCategory.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(AssetCategory.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public AssetCategory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AssetCategory findByName(String name) {
 		return (AssetCategory) this.em
-			.createNamedQuery(AssetCategory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AssetCategory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

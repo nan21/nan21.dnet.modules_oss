@@ -30,85 +30,64 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ExportJob.NQ_FIND_BY_ID,
-		query="SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ExportJob.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ExportJob.NQ_FIND_BY_NAME,
-		query="SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ExportJob.NQ_FIND_BY_ID, query = "SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ExportJob.NQ_FIND_BY_IDS, query = "SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ExportJob.NQ_FIND_BY_NAME, query = "SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ExportJob.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=ExportJob.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = ExportJob.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = ExportJob.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class ExportJob extends AbstractType  {
-	
+public class ExportJob extends AbstractType {
+
 	public static final String TABLE_NAME = "AD_EXP_JOB";
 	public static final String SEQUENCE_NAME = "AD_EXP_JOB_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ExportJob.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ExportJob.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "ExportJob.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=ExportJobItem.class, mappedBy="job"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = ExportJobItem.class, mappedBy = "job", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<ExportJobItem> items;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Collection<ExportJobItem> getItems() {
 		return this.items;
 	}
-	
+
 	public void setItems(Collection<ExportJobItem> items) {
 		this.items = items;
 	}
-	
+
 	public void addToItems(ExportJobItem e) {
 		if (this.items == null) {
 			this.items = new ArrayList<ExportJobItem>();
@@ -116,9 +95,9 @@ public class ExportJob extends AbstractType  {
 		e.setJob(this);
 		this.items.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

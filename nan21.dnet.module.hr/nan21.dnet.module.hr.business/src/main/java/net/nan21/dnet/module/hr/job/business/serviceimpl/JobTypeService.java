@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.job.business.service.IJobTypeService;
 import net.nan21.dnet.module.hr.job.domain.entity.JobType;
 
-
+/**
+ * Repository functionality for {@link JobType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class JobTypeService extends AbstractEntityService<JobType>
-		implements IJobTypeService {
- 
+		implements
+			IJobTypeService {
+
 	public JobTypeService() {
 		super();
 	}
@@ -29,12 +34,13 @@ public class JobTypeService extends AbstractEntityService<JobType>
 	public Class<JobType> getEntityClass() {
 		return JobType.class;
 	}
-	
-	public JobType findByName(String name) {		 
-		return (JobType) this.em
-			.createNamedQuery(JobType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public JobType findByName(String name) {
+		return (JobType) this.em.createNamedQuery(JobType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

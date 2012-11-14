@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 
-@Ds(entity=AccJournal.class,jpqlWhere=" e.active = true ", sort={@SortField(field=AccJournalLovDs.fNAME)})
+@Ds(entity = AccJournal.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AccJournalLovDs.fNAME)})
 public class AccJournalLovDs extends AbstractTypeLov<AccJournal> {
-
 
 	public AccJournalLovDs() {
 		super();
 	}
 
- 	public AccJournalLovDs(AccJournal e) {
+	public AccJournalLovDs(AccJournal e) {
 		super(e);
 	}
 }

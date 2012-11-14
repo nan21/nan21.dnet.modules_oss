@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.AttachmentType_UI", {
 		this._getBuilder_()
 			.addDc("attchType", new net.nan21.dnet.module.ad.data.dc.AttachmentType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -23,13 +24,14 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.AttachmentType_UI", {
 			.addDcFilterFormView("attchType", {name:"attchTypeFilter", height:80, xtype:"ad_data_dc_AttachmentType$Filter"})
 			.addDcEditGridView("attchType", {name:"attchTypeEditList", xtype:"ad_data_dc_AttachmentType$EditList", frame:true})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["attchTypeFilter", "attchTypeEditList"], ["north", "center"])
 			.addToolbarTo("main", "tlbAttchTypeEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -37,6 +39,7 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.AttachmentType_UI", {
 			.beginToolbar("tlbAttchTypeEditList", {dc: "attchType"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Attachment types"})
 			.end()
+			;
 	}
 
 });

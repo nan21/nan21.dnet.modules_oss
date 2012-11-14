@@ -17,6 +17,7 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.ProjectBaseData_UI", {
 			.addDc("type", new net.nan21.dnet.module.pj.base.dc.ProjectType({multiEdit:true}))
 			.addDc("role", new net.nan21.dnet.module.pj.base.dc.ProjectRole({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,6 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.ProjectBaseData_UI", {
 			.addPanel({name:"canvasCategory", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasRole", title:"Roles", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -50,6 +50,7 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.ProjectBaseData_UI", {
 			.addToolbarTo("canvasCategory", "tlbCategEditList")
 			.addToolbarTo("canvasType", "tlbTypeEditList")
 			.addToolbarTo("canvasRole", "tlbRoleEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -63,6 +64,7 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.ProjectBaseData_UI", {
 			.beginToolbar("tlbRoleEditList", {dc: "role"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Roles"})
 			.end()
+			;
 	}
 
 });

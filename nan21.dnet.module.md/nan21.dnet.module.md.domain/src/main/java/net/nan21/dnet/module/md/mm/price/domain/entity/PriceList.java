@@ -28,119 +28,99 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=PriceList.NQ_FIND_BY_ID,
-		query="SELECT e FROM PriceList e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PriceList.NQ_FIND_BY_IDS,
-		query="SELECT e FROM PriceList e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PriceList.NQ_FIND_BY_NAME,
-		query="SELECT e FROM PriceList e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = PriceList.NQ_FIND_BY_ID, query = "SELECT e FROM PriceList e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PriceList.NQ_FIND_BY_IDS, query = "SELECT e FROM PriceList e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PriceList.NQ_FIND_BY_NAME, query = "SELECT e FROM PriceList e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=PriceList.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=PriceList.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = PriceList.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = PriceList.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class PriceList extends AbstractType  {
-	
+public class PriceList extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_PRICE_LIST";
 	public static final String SEQUENCE_NAME = "MD_PRICE_LIST_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "PriceList.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "PriceList.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "PriceList.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ISDEFAULT", nullable=false)
+
+	@Column(name = "ISDEFAULT", nullable = false)
 	@NotNull
 	private Boolean isDefault;
-	
-	@Column(name="SALESLIST", nullable=false)
+
+	@Column(name = "SALESLIST", nullable = false)
 	@NotNull
 	private Boolean salesList;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Currency.class)
-	@JoinColumn(name="CURRENCY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Currency.class)
+	@JoinColumn(name = "CURRENCY_ID", referencedColumnName = "ID")
 	private Currency currency;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Boolean getIsDefault() {
 		return this.isDefault;
 	}
-	
+
 	public void setIsDefault(Boolean isDefault) {
 		this.isDefault = isDefault;
 	}
-	
+
 	public Boolean getSalesList() {
 		return this.salesList;
 	}
-	
+
 	public void setSalesList(Boolean salesList) {
 		this.salesList = salesList;
 	}
-	
+
 	public Currency getCurrency() {
 		return this.currency;
 	}
-	
+
 	public void setCurrency(Currency currency) {
-		if (currency != null ) {
+		if (currency != null) {
 			this.__validate_client_context__(currency.getClientId());
 		}
 		this.currency = currency;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getIsDefault() == null ) {
-			event.updateAttributeWithObject("isDefault",false);
+
+		if (this.getIsDefault() == null) {
+			event.updateAttributeWithObject("isDefault", false);
 		}
-		if (this.getSalesList() == null ) {
-			event.updateAttributeWithObject("salesList",false);
+		if (this.getSalesList() == null) {
+			event.updateAttributeWithObject("salesList", false);
 		}
 	}
 }

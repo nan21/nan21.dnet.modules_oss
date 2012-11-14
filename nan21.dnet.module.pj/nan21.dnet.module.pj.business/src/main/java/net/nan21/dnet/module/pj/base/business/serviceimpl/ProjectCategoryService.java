@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IProjectCategoryService;
 import net.nan21.dnet.module.pj.base.domain.entity.ProjectCategory;
 
+/**
+ * Repository functionality for {@link ProjectCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProjectCategoryService
+		extends
+			AbstractEntityService<ProjectCategory>
+		implements
+			IProjectCategoryService {
 
-public class ProjectCategoryService extends AbstractEntityService<ProjectCategory>
-		implements IProjectCategoryService {
- 
 	public ProjectCategoryService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class ProjectCategoryService extends AbstractEntityService<ProjectCategor
 	public Class<ProjectCategory> getEntityClass() {
 		return ProjectCategory.class;
 	}
-	
-	public ProjectCategory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectCategory findByName(String name) {
 		return (ProjectCategory) this.em
-			.createNamedQuery(ProjectCategory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProjectCategory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

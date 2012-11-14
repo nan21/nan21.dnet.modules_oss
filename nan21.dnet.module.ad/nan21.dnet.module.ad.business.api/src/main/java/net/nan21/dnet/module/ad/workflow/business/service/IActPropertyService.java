@@ -9,6 +9,9 @@ package net.nan21.dnet.module.ad.workflow.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProperty;
 
+/**
+ * Interface to expose business functions specific for {@link ActProperty} domain
+ * entity.
+ */
 public interface IActPropertyService extends IEntityService<ActProperty> {
-	
 }

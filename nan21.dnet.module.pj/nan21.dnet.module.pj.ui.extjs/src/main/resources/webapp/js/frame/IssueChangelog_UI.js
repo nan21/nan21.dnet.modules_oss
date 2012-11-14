@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI", {
 			.linkDc("issueInfo", "issue",{fetchMode:"auto",fields:[
 				{childField:"id", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -30,13 +31,14 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI", {
 			.addDcGridView("issue", {name:"issueList", xtype:"pj_md_dc_IssueChangelog$List"})
 			.addDcFormView("issueInfo", {name:"infoView", height:200, xtype:"pj_md_dc_Issue$View"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["issueFilter", "issueList", "infoView"], ["north", "center", "south"])
 			.addToolbarTo("main", "tlbIssueList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -44,6 +46,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI", {
 			.beginToolbar("tlbIssueList", {dc: "issue"}).addQuery()
 			.addSeparator().addSeparator().addButtons([this._elems_.get("btnIssueUi") ]).addReports().addSeparator().addSeparator().addTitle({text: "Changelog"})
 			.end()
+			;
 	}
 
 	,onBtnIssueUi: function() {

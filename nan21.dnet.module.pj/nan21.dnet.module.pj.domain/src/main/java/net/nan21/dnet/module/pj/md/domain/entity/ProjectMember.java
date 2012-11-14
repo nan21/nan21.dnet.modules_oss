@@ -30,129 +30,105 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ProjectMember.NQ_FIND_BY_ID,
-		query="SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ProjectMember.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ProjectMember.NQ_FIND_BY_NAME,
-		query="SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.project = :pProject and e.member = :pMember",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ProjectMember.NQ_FIND_BY_NAME_PRIMITIVE,
-		query="SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.project.id = :pProjectId and e.member.id = :pMemberId",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ProjectMember.NQ_FIND_BY_ID, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ProjectMember.NQ_FIND_BY_IDS, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ProjectMember.NQ_FIND_BY_NAME, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.project = :pProject and e.member = :pMember", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ProjectMember.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.project.id = :pProjectId and e.member.id = :pMemberId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ProjectMember.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=ProjectMember.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","PROJECT_ID","MEMBER_ID"}
-		)
-	}
-)
+@Table(name = ProjectMember.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = ProjectMember.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "PROJECT_ID", "MEMBER_ID"})})
 @Customizer(DefaultEventHandler.class)
-public class ProjectMember extends AbstractAuditable  {
-	
+public class ProjectMember extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "PJ_PRJ_MBR";
 	public static final String SEQUENCE_NAME = "PJ_PRJ_MBR_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ProjectMember.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ProjectMember.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "ProjectMember.findByName";
-	
+
 	/**
 	 * Named query find by unique key: Name using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_NAME_PRIMITIVE = "ProjectMember.findByName_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Project.class)
-	@JoinColumn(name="PROJECT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Project.class)
+	@JoinColumn(name = "PROJECT_ID", referencedColumnName = "ID")
 	private Project project;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Assignable.class)
-	@JoinColumn(name="MEMBER_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Assignable.class)
+	@JoinColumn(name = "MEMBER_ID", referencedColumnName = "ID")
 	private Assignable member;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ProjectRole.class)
-	@JoinColumn(name="PROJECTROLE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ProjectRole.class)
+	@JoinColumn(name = "PROJECTROLE_ID", referencedColumnName = "ID")
 	private ProjectRole projectRole;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Project getProject() {
 		return this.project;
 	}
-	
+
 	public void setProject(Project project) {
-		if (project != null ) {
+		if (project != null) {
 			this.__validate_client_context__(project.getClientId());
 		}
 		this.project = project;
 	}
-	
+
 	public Assignable getMember() {
 		return this.member;
 	}
-	
+
 	public void setMember(Assignable member) {
-		if (member != null ) {
+		if (member != null) {
 			this.__validate_client_context__(member.getClientId());
 		}
 		this.member = member;
 	}
-	
+
 	public ProjectRole getProjectRole() {
 		return this.projectRole;
 	}
-	
+
 	public void setProjectRole(ProjectRole projectRole) {
-		if (projectRole != null ) {
+		if (projectRole != null) {
 			this.__validate_client_context__(projectRole.getClientId());
 		}
 		this.projectRole = projectRole;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

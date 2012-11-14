@@ -46,6 +46,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$CtxList", {
 	extend: "dnet.core.dc.AbstractDcvGrid",
 	alias: "widget.sc_invoice_dc_PurchaseInvoiceItem$CtxList",
 	_noImport_: true,
+	_noExport_: true,
+	_noPrint_: true,
 
 	_defineColumns_: function() {
 		this._getBuilder_()
@@ -145,7 +147,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 					r.set("lineAmount", "");
 					//r.endEdit();
 					return;
-				};
+				}
 	},
 	
 	_onNetAmountChange_: function() {
@@ -154,14 +156,12 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 					r.set("taxAmount", "");	
 					r.set("lineAmount", "");
 					r.set("unitPrice", r.get("netAmount")||0 / r.get("quantity")||0);			  
-				;
 	},
 	
 	_onTaxAmountChange_: function() {
 				
 					var r = this._getController_().getRecord();		   			
 					r.set("lineAmount", "");			  
-				;
 	},
 	
 	_onLineAmountChange_: function() {
@@ -169,7 +169,6 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 					var r = this._getController_().getRecord();		  			
 					r.set("netAmount", "");	
 					r.set("taxAmount", "");		  
-				;
 	},
 	
 	_onEntryModeChange_: function() {
@@ -181,7 +180,6 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 				r.set("taxAmount", "");
 				r.set("lineAmount", "");
 				r.endEdit();
-				;
 	},
 	
 	_doEnableEntryFields_: function(mode) {
@@ -201,12 +199,11 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 					return;
 				}
 				 
-				;
 	},
 	
 	_afterBind_: function(record) {
 		if (record) {
 					this._doEnableEntryFields_(record.data.entryMode);
-				};
+				}
 	}
 });

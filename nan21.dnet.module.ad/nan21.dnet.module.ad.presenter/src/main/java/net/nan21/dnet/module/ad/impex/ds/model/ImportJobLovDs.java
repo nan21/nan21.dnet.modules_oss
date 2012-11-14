@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJob;
 
-@Ds(entity=ImportJob.class,jpqlWhere=" e.active = true ", sort={@SortField(field=ImportJobLovDs.fNAME)})
+@Ds(entity = ImportJob.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ImportJobLovDs.fNAME)})
 public class ImportJobLovDs extends AbstractTypeLov<ImportJob> {
-
 
 	public ImportJobLovDs() {
 		super();
 	}
 
- 	public ImportJobLovDs(ImportJob e) {
+	public ImportJobLovDs(ImportJob e) {
 		super(e);
 	}
 }

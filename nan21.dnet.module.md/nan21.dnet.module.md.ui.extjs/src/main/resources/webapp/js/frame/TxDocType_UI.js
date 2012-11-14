@@ -16,6 +16,7 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxDocType_UI", {
 			.addDc("docType", new net.nan21.dnet.module.md.base.tx.dc.TxDocType({multiEdit:true}))
 			.addDc("seq", new net.nan21.dnet.module.md.base.tx.dc.TxDocSequence({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,6 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxDocType_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasDocType", title:"Document types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasDocSeq", title:"Document sequences", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -44,6 +44,7 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxDocType_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasDocType", "tlbdocType")
 			.addToolbarTo("canvasDocSeq", "tlbSeqEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxDocType_UI", {
 			.beginToolbar("tlbSeqEditList", {dc: "seq"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Document sequences"})
 			.end()
+			;
 	}
 
 });

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.StockLocatorTypes_UI", {
 		this._getBuilder_()
 			.addDc("sloctype", new net.nan21.dnet.module.md.org.dc.StockLocatorType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -23,13 +24,14 @@ Ext.define("net.nan21.dnet.module.md.org.frame.StockLocatorTypes_UI", {
 			.addDcFilterFormView("sloctype", {name:"sloctypeFilter", height:80, xtype:"md_org_dc_StockLocatorType$Filter"})
 			.addDcEditGridView("sloctype", {name:"sloctypeEditList", xtype:"md_org_dc_StockLocatorType$EditList", frame:true})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["sloctypeFilter", "sloctypeEditList"], ["north", "center"])
 			.addToolbarTo("main", "tlbSloctypeEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -37,6 +39,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.StockLocatorTypes_UI", {
 			.beginToolbar("tlbSloctypeEditList", {dc: "sloctype"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Locator types"})
 			.end()
+			;
 	}
 
 });

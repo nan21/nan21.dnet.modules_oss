@@ -8,6 +8,7 @@ package net.nan21.dnet.module.ad.system.business.serviceext;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.api.job.IScheduler;
 import net.nan21.dnet.core.scheduler.JobDetailBase;
 import net.nan21.dnet.module.ad.system.business.service.ISysJobCtxService;
@@ -22,21 +23,31 @@ public class SysJobCtxService extends
 	private IScheduler scheduler;
 
 	@Override
-	protected void postUpdate(SysJobCtx e) throws Exception {
+	protected void postUpdate(SysJobCtx e) throws BusinessException {
 		JobDetail jobDetail = newJob(JobDetailBase.class)
 				.withIdentity(e.getId().toString(), e.getClientId().toString())
 				.storeDurably().build();
 		jobDetail.getJobDataMap().put("__JOB_NAME__", e.getJobAlias());
-		getQuartzScheduler().addJob(jobDetail, true);
+		try {
+			getQuartzScheduler().addJob(jobDetail, true);
+		} catch (Exception exc) {
+			throw new BusinessException("Cannot add job to quartz scheduler.",
+					exc);
+		}
 	}
 
 	@Override
-	protected void postInsert(SysJobCtx e) throws Exception {
+	protected void postInsert(SysJobCtx e) throws BusinessException {
 		JobDetail jobDetail = newJob(JobDetailBase.class)
 				.withIdentity(e.getId().toString(), e.getClientId().toString())
 				.storeDurably().build();
 		jobDetail.getJobDataMap().put("__JOB_NAME__", e.getJobAlias());
-		getQuartzScheduler().addJob(jobDetail, false);
+		try {
+			getQuartzScheduler().addJob(jobDetail, false);
+		} catch (Exception exc) {
+			throw new BusinessException("Cannot add job to quartz scheduler.",
+					exc);
+		}
 	}
 
 	protected Scheduler getQuartzScheduler() throws Exception {

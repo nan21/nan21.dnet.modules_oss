@@ -8,14 +8,15 @@ package net.nan21.dnet.module.sd.invoice.business.serviceimpl;
 
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
-import net.nan21.dnet.module.sd.invoice.business.service.IPaymentInService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentIn;
 
-import net.nan21.dnet.module.sd._businessdelegates.invoice.PaymentInToAccDocBD;
+/**
+ * Repository functionality for {@link PaymentIn} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PaymentInService extends AbstractEntityService<PaymentIn> {
 
-public class PaymentInService extends AbstractEntityService<PaymentIn>
-		implements IPaymentInService {
- 
 	public PaymentInService() {
 		super();
 	}
@@ -28,13 +29,5 @@ public class PaymentInService extends AbstractEntityService<PaymentIn>
 	@Override
 	public Class<PaymentIn> getEntityClass() {
 		return PaymentIn.class;
-	}
-	
-	public void doPost(PaymentIn payment) throws Exception {
-		this.getBusinessDelegate(PaymentInToAccDocBD.class).post(payment);
-	}
-	
-	public void doUnPost(PaymentIn payment) throws Exception {
-		this.getBusinessDelegate(PaymentInToAccDocBD.class).unPost(payment);
 	}
 }

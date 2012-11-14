@@ -16,76 +16,95 @@ import net.nan21.dnet.module.pj.md.domain.entity.Project;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectMember;
 import net.nan21.dnet.module.pj.md.ds.model.ProjectMemberDs;
 
-public class ProjectMemberDsConv extends AbstractDsConverter<ProjectMemberDs, ProjectMember> 
-		implements IDsConverter<ProjectMemberDs, ProjectMember> {
-    
-    @Override
-    protected void modelToEntityReferences(ProjectMemberDs ds, ProjectMember e, boolean isInsert) throws Exception {
-    	if( ds.getProjectId() != null  ) {
-    		if (e.getProject() == null || !e.getProject().getId().equals(ds.getProjectId()) ) {
-    			e.setProject( (Project) this.em.find(Project.class, ds.getProjectId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_project_Project(ds, e);
-    	}
-    	if( ds.getRoleId() != null  ) {
-    		if (e.getProjectRole() == null || !e.getProjectRole().getId().equals(ds.getRoleId()) ) {
-    			e.setProjectRole( (ProjectRole) this.em.find(ProjectRole.class, ds.getRoleId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_projectRole_ProjectRole(ds, e);
-    	}
-    	if( ds.getMemberId() != null  ) {
-    		if (e.getMember() == null || !e.getMember().getId().equals(ds.getMemberId()) ) {
-    			e.setMember( (Assignable) this.em.find(Assignable.class, ds.getMemberId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_member_Assignable(ds, e);
-    	}
-    }
-    
-    protected void lookup_project_Project(ProjectMemberDs ds, ProjectMember e ) throws Exception {
-    	if (ds.getProject() != null && !ds.getProject().equals("") ) {
-    		Project x = null;
-    		try { 
-    			x = ((IProjectService)findEntityService(Project.class)).findByCode( ds.getProject() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Project` reference: `project` = " + ds.getProject() + "" );
-    		}
-    		e.setProject(x); 
-    	} else {
-    		e.setProject(null);
-    	}
-    }
-    
-    protected void lookup_projectRole_ProjectRole(ProjectMemberDs ds, ProjectMember e ) throws Exception {
-    	if (ds.getRole() != null && !ds.getRole().equals("") ) {
-    		ProjectRole x = null;
-    		try { 
-    			x = ((IProjectRoleService)findEntityService(ProjectRole.class)).findByName( ds.getRole() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `ProjectRole` reference: `role` = " + ds.getRole() + "" );
-    		}
-    		e.setProjectRole(x); 
-    	} else {
-    		e.setProjectRole(null);
-    	}
-    }
-    
-    protected void lookup_member_Assignable(ProjectMemberDs ds, ProjectMember e ) throws Exception {
-    	if (ds.getMember() != null && !ds.getMember().equals("") ) {
-    		Assignable x = null;
-    		try { 
-    			x = ((IAssignableService)findEntityService(Assignable.class)).findByName( ds.getMember() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Assignable` reference: `member` = " + ds.getMember() + "" );
-    		}
-    		e.setMember(x); 
-    	} else {
-    		e.setMember(null);
-    	}
-    }
+public class ProjectMemberDsConv
+		extends
+			AbstractDsConverter<ProjectMemberDs, ProjectMember>
+		implements
+			IDsConverter<ProjectMemberDs, ProjectMember> {
+
+	@Override
+	protected void modelToEntityReferences(ProjectMemberDs ds, ProjectMember e,
+			boolean isInsert) throws Exception {
+		if (ds.getProjectId() != null) {
+			if (e.getProject() == null
+					|| !e.getProject().getId().equals(ds.getProjectId())) {
+				e.setProject((Project) this.em.find(Project.class,
+						ds.getProjectId()));
+			}
+		} else {
+			this.lookup_project_Project(ds, e);
+		}
+		if (ds.getRoleId() != null) {
+			if (e.getProjectRole() == null
+					|| !e.getProjectRole().getId().equals(ds.getRoleId())) {
+				e.setProjectRole((ProjectRole) this.em.find(ProjectRole.class,
+						ds.getRoleId()));
+			}
+		} else {
+			this.lookup_projectRole_ProjectRole(ds, e);
+		}
+		if (ds.getMemberId() != null) {
+			if (e.getMember() == null
+					|| !e.getMember().getId().equals(ds.getMemberId())) {
+				e.setMember((Assignable) this.em.find(Assignable.class,
+						ds.getMemberId()));
+			}
+		} else {
+			this.lookup_member_Assignable(ds, e);
+		}
+	}
+
+	protected void lookup_project_Project(ProjectMemberDs ds, ProjectMember e)
+			throws Exception {
+		if (ds.getProject() != null && !ds.getProject().equals("")) {
+			Project x = null;
+			try {
+				x = ((IProjectService) findEntityService(Project.class))
+						.findByCode(ds.getProject());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Project` reference: `project` = "
+								+ ds.getProject() + "");
+			}
+			e.setProject(x);
+		} else {
+			e.setProject(null);
+		}
+	}
+
+	protected void lookup_projectRole_ProjectRole(ProjectMemberDs ds,
+			ProjectMember e) throws Exception {
+		if (ds.getRole() != null && !ds.getRole().equals("")) {
+			ProjectRole x = null;
+			try {
+				x = ((IProjectRoleService) findEntityService(ProjectRole.class))
+						.findByName(ds.getRole());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `ProjectRole` reference: `role` = "
+								+ ds.getRole() + "");
+			}
+			e.setProjectRole(x);
+		} else {
+			e.setProjectRole(null);
+		}
+	}
+
+	protected void lookup_member_Assignable(ProjectMemberDs ds, ProjectMember e)
+			throws Exception {
+		if (ds.getMember() != null && !ds.getMember().equals("")) {
+			Assignable x = null;
+			try {
+				x = ((IAssignableService) findEntityService(Assignable.class))
+						.findByName(ds.getMember());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Assignable` reference: `member` = "
+								+ ds.getMember() + "");
+			}
+			e.setMember(x);
+		} else {
+			e.setMember(null);
+		}
+	}
 }

@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssueStatusService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueStatus;
 
-
+/**
+ * Repository functionality for {@link IssueStatus} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class IssueStatusService extends AbstractEntityService<IssueStatus>
-		implements IIssueStatusService {
- 
+		implements
+			IIssueStatusService {
+
 	public IssueStatusService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class IssueStatusService extends AbstractEntityService<IssueStatus>
 	public Class<IssueStatus> getEntityClass() {
 		return IssueStatus.class;
 	}
-	
-	public IssueStatus findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public IssueStatus findByName(String name) {
 		return (IssueStatus) this.em
-			.createNamedQuery(IssueStatus.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(IssueStatus.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

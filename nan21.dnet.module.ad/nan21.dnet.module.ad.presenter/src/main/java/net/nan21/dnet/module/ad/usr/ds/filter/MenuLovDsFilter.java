@@ -8,13 +8,13 @@ package net.nan21.dnet.module.ad.usr.ds.filter;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLovFilter;
 
 public class MenuLovDsFilter extends AbstractTypeLovFilter {
-	
-	private String  title;
-	
+
+	private String title;
+
 	public String getTitle() {
 		return this.title;
 	}
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}

@@ -14,10 +14,17 @@ import net.nan21.dnet.module.md.mm.prod.business.service.IProductAccountGroupSer
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroup;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroupAcct;
 
+/**
+ * Repository functionality for {@link ProductAccountGroup} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProductAccountGroupService
+		extends
+			AbstractEntityService<ProductAccountGroup>
+		implements
+			IProductAccountGroupService {
 
-public class ProductAccountGroupService extends AbstractEntityService<ProductAccountGroup>
-		implements IProductAccountGroupService {
- 
 	public ProductAccountGroupService() {
 		super();
 	}
@@ -31,32 +38,44 @@ public class ProductAccountGroupService extends AbstractEntityService<ProductAcc
 	public Class<ProductAccountGroup> getEntityClass() {
 		return ProductAccountGroup.class;
 	}
-	
-	public ProductAccountGroup findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductAccountGroup findByCode(String code) {
 		return (ProductAccountGroup) this.em
-			.createNamedQuery(ProductAccountGroup.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(ProductAccountGroup.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public ProductAccountGroup findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductAccountGroup findByName(String name) {
 		return (ProductAccountGroup) this.em
-			.createNamedQuery(ProductAccountGroup.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProductAccountGroup.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
-	public List<ProductAccountGroup> findByAccounts(ProductAccountGroupAcct accounts) {
-		return this.findByAccountsId(accounts.getId()); 
+
+	/**
+	 * Find by reference: accounts
+	 */
+	public List<ProductAccountGroup> findByAccounts(
+			ProductAccountGroupAcct accounts) {
+		return this.findByAccountsId(accounts.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: accounts.id
+	 */
 	public List<ProductAccountGroup> findByAccountsId(Long accountsId) {
 		return (List<ProductAccountGroup>) this.em
-			.createQuery("select distinct e from ProductAccountGroup e, IN (e.accounts) c where e.clientId = :pClientId and c.id = :pAccountsId", ProductAccountGroup.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAccountsId", accountsId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from ProductAccountGroup e, IN (e.accounts) c where e.clientId = :pClientId and c.id = :pAccountsId",
+						ProductAccountGroup.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAccountsId", accountsId).getResultList();
 	}
 }

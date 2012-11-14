@@ -20,60 +20,57 @@ import org.eclipse.persistence.annotations.ReadOnly;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-})
+@NamedQueries({})
 @Entity
-@Table(
-	name=QuartzLock.TABLE_NAME
-)
+@Table(name = QuartzLock.TABLE_NAME)
 @ReadOnly
-@Cache(type=CacheType.NONE)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class QuartzLock   {
-	
+public class QuartzLock {
+
 	public static final String TABLE_NAME = "XT_QRTZ_LOCKS";
 	public static final String SEQUENCE_NAME = "XT_QRTZ_LOCKS_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
-	@Column(name="SCHED_NAME", nullable=false, length=255)
+
+	@Column(name = "SCHED_NAME", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String schedulerName;
-	
-	@Column(name="LOCK_NAME", nullable=false, length=255)
+
+	@Column(name = "LOCK_NAME", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String lockName;
-	
+
 	public String getSchedulerName() {
 		return this.schedulerName;
 	}
-	
+
 	public void setSchedulerName(String schedulerName) {
 		this.schedulerName = schedulerName;
 	}
-	
+
 	public String getLockName() {
 		return this.lockName;
 	}
-	
+
 	public void setLockName(String lockName) {
 		this.lockName = lockName;
 	}
-	
+
 	@Transient
 	public Long getVersion() {
-		return 1L; 
+		return 1L;
 	}
-	
+
 	public void setVersion(Long version) {
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

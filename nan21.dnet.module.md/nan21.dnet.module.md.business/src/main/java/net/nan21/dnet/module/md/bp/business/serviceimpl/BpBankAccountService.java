@@ -16,10 +16,15 @@ import net.nan21.dnet.module.md.bp.domain.entity.Bank;
 import net.nan21.dnet.module.md.bp.domain.entity.BpBankAccount;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
-
+/**
+ * Repository functionality for {@link BpBankAccount} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
-		implements IBpBankAccountService {
- 
+		implements
+			IBpBankAccountService {
+
 	public BpBankAccountService() {
 		super();
 	}
@@ -33,58 +38,84 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 	public Class<BpBankAccount> getEntityClass() {
 		return BpBankAccount.class;
 	}
-	
-	public BpBankAccount findByAccount(BusinessPartner bpartner,String accountNo) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public BpBankAccount findByAccount(BusinessPartner bpartner,
+			String accountNo) {
 		return (BpBankAccount) this.em
-			.createNamedQuery(BpBankAccount.NQ_FIND_BY_ACCOUNT)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pBpartner", bpartner)
-			.setParameter("pAccountNo", accountNo)
-			.getSingleResult(); 
+				.createNamedQuery(BpBankAccount.NQ_FIND_BY_ACCOUNT)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pBpartner", bpartner)
+				.setParameter("pAccountNo", accountNo).getSingleResult();
 	}
-	
-	public BpBankAccount findByAccount( Long bpartnerId,String accountNo) {
+
+	/**
+	 * Find by unique key
+	 */
+	public BpBankAccount findByAccount(Long bpartnerId, String accountNo) {
 		return (BpBankAccount) this.em
-			.createNamedQuery(BpBankAccount.NQ_FIND_BY_ACCOUNT_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pBpartnerId", bpartnerId)
-			.setParameter("pAccountNo", accountNo)
-			.getSingleResult(); 
+				.createNamedQuery(BpBankAccount.NQ_FIND_BY_ACCOUNT_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pBpartnerId", bpartnerId)
+				.setParameter("pAccountNo", accountNo).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: bpartner
+	 */
 	public List<BpBankAccount> findByBpartner(BusinessPartner bpartner) {
-		return this.findByBpartnerId(bpartner.getId()); 
+		return this.findByBpartnerId(bpartner.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: bpartner.id
+	 */
 	public List<BpBankAccount> findByBpartnerId(Long bpartnerId) {
 		return (List<BpBankAccount>) this.em
-			.createQuery("select e from BpBankAccount e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId", BpBankAccount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pBpartnerId", bpartnerId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from BpBankAccount e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
+						BpBankAccount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pBpartnerId", bpartnerId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: bank
+	 */
 	public List<BpBankAccount> findByBank(Bank bank) {
-		return this.findByBankId(bank.getId()); 
+		return this.findByBankId(bank.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: bank.id
+	 */
 	public List<BpBankAccount> findByBankId(Long bankId) {
 		return (List<BpBankAccount>) this.em
-			.createQuery("select e from BpBankAccount e where e.clientId = :pClientId and e.bank.id = :pBankId", BpBankAccount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pBankId", bankId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from BpBankAccount e where e.clientId = :pClientId and e.bank.id = :pBankId",
+						BpBankAccount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pBankId", bankId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: currency
+	 */
 	public List<BpBankAccount> findByCurrency(Currency currency) {
-		return this.findByCurrencyId(currency.getId()); 
+		return this.findByCurrencyId(currency.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
 	public List<BpBankAccount> findByCurrencyId(Long currencyId) {
 		return (List<BpBankAccount>) this.em
-			.createQuery("select e from BpBankAccount e where e.clientId = :pClientId and e.currency.id = :pCurrencyId", BpBankAccount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCurrencyId", currencyId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from BpBankAccount e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
+						BpBankAccount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCurrencyId", currencyId).getResultList();
 	}
 }

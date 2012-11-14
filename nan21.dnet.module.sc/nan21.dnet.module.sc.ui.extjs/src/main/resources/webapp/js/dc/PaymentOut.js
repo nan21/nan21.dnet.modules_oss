@@ -176,13 +176,13 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Edit", {
 					if (record.get("confirmed") || record.get("posted") ) {
 						this._disableAllFields_();
 						return false;
-					};
+					}
 	},
 	
 	_endDefine_: function() {
 		
 					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 					 	this._applyStates_(dc.record);
-					 } , this );
+					 } , this )
 	}
 });

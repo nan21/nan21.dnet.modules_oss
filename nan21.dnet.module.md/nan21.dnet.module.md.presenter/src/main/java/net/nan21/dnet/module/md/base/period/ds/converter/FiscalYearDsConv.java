@@ -12,32 +12,41 @@ import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
 import net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDs;
 
-public class FiscalYearDsConv extends AbstractDsConverter<FiscalYearDs, FiscalYear> 
-		implements IDsConverter<FiscalYearDs, FiscalYear> {
-    
-    @Override
-    protected void modelToEntityReferences(FiscalYearDs ds, FiscalYear e, boolean isInsert) throws Exception {
-    	if( ds.getCalendarId() != null  ) {
-    		if (e.getCalendar() == null || !e.getCalendar().getId().equals(ds.getCalendarId()) ) {
-    			e.setCalendar( (Calendar) this.em.find(Calendar.class, ds.getCalendarId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_calendar_Calendar(ds, e);
-    	}
-    }
-    
-    protected void lookup_calendar_Calendar(FiscalYearDs ds, FiscalYear e ) throws Exception {
-    	if (ds.getCalendar() != null && !ds.getCalendar().equals("") ) {
-    		Calendar x = null;
-    		try { 
-    			x = ((ICalendarService)findEntityService(Calendar.class)).findByName( ds.getCalendar() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Calendar` reference: `calendar` = " + ds.getCalendar() + "" );
-    		}
-    		e.setCalendar(x); 
-    	} else {
-    		e.setCalendar(null);
-    	}
-    }
+public class FiscalYearDsConv
+		extends
+			AbstractDsConverter<FiscalYearDs, FiscalYear>
+		implements
+			IDsConverter<FiscalYearDs, FiscalYear> {
+
+	@Override
+	protected void modelToEntityReferences(FiscalYearDs ds, FiscalYear e,
+			boolean isInsert) throws Exception {
+		if (ds.getCalendarId() != null) {
+			if (e.getCalendar() == null
+					|| !e.getCalendar().getId().equals(ds.getCalendarId())) {
+				e.setCalendar((Calendar) this.em.find(Calendar.class,
+						ds.getCalendarId()));
+			}
+		} else {
+			this.lookup_calendar_Calendar(ds, e);
+		}
+	}
+
+	protected void lookup_calendar_Calendar(FiscalYearDs ds, FiscalYear e)
+			throws Exception {
+		if (ds.getCalendar() != null && !ds.getCalendar().equals("")) {
+			Calendar x = null;
+			try {
+				x = ((ICalendarService) findEntityService(Calendar.class))
+						.findByName(ds.getCalendar());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Calendar` reference: `calendar` = "
+								+ ds.getCalendar() + "");
+			}
+			e.setCalendar(x);
+		} else {
+			e.setCalendar(null);
+		}
+	}
 }

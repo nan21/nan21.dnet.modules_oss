@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysFrameExtension_UI", {
 		this._getBuilder_()
 			.addDc("extensions", new net.nan21.dnet.module.ad.system.dc.SysFrameExtension({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysFrameExtension_UI", {
 			.addDcEditGridView("extensions", {name:"extensionsEditList", xtype:"ad_system_dc_SysFrameExtension$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysFrameExtension_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["extensionsFilter", "extensionsEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbExtensionsEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysFrameExtension_UI", {
 			.beginToolbar("tlbExtensionsEditList", {dc: "extensions"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Frame extensions"})
 			.end()
+			;
 	}
 
 });

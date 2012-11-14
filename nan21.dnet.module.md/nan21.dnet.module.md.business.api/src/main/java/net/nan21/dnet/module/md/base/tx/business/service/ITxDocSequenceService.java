@@ -9,8 +9,14 @@ package net.nan21.dnet.module.md.base.tx.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence;
 
+/**
+ * Interface to expose business functions specific for {@link TxDocSequence} domain
+ * entity.
+ */
 public interface ITxDocSequenceService extends IEntityService<TxDocSequence> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public TxDocSequence findByName(String name);
-	
 }

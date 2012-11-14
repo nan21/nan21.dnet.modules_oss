@@ -30,144 +30,120 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ProductAccountAcct.NQ_FIND_BY_ID,
-		query="SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ProductAccountAcct.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ProductAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA,
-		query="SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.prodAccount = :pProdAccount and e.accSchema = :pAccSchema",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ProductAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE,
-		query="SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.prodAccount.id = :pProdAccountId and e.accSchema.id = :pAccSchemaId",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ProductAccountAcct.NQ_FIND_BY_ID, query = "SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ProductAccountAcct.NQ_FIND_BY_IDS, query = "SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ProductAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA, query = "SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.prodAccount = :pProdAccount and e.accSchema = :pAccSchema", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ProductAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE, query = "SELECT e FROM ProductAccountAcct e WHERE e.clientId = :pClientId and e.prodAccount.id = :pProdAccountId and e.accSchema.id = :pAccSchemaId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ProductAccountAcct.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=ProductAccountAcct.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","PRODACCOUNT_ID","ACCSCHEMA_ID"}
-		)
-	}
-)
+@Table(name = ProductAccountAcct.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = ProductAccountAcct.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "PRODACCOUNT_ID", "ACCSCHEMA_ID"})})
 @Customizer(DefaultEventHandler.class)
-public class ProductAccountAcct extends AbstractAuditable  {
-	
+public class ProductAccountAcct extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "MD_PROD_ACNT_ACCT";
 	public static final String SEQUENCE_NAME = "MD_PROD_ACNT_ACCT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ProductAccountAcct.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ProductAccountAcct.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Account_schema.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT_SCHEMA = "ProductAccountAcct.findByAccount_schema";
-	
+
 	/**
 	 * Named query find by unique key: Account_schema using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE = "ProductAccountAcct.findByAccount_schema_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ProductAccount.class)
-	@JoinColumn(name="PRODACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ProductAccount.class)
+	@JoinColumn(name = "PRODACCOUNT_ID", referencedColumnName = "ID")
 	private ProductAccount prodAccount;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccSchema.class)
-	@JoinColumn(name="ACCSCHEMA_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccSchema.class)
+	@JoinColumn(name = "ACCSCHEMA_ID", referencedColumnName = "ID")
 	private AccSchema accSchema;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Account.class)
-	@JoinColumn(name="EXPENSEACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Account.class)
+	@JoinColumn(name = "EXPENSEACCOUNT_ID", referencedColumnName = "ID")
 	private Account expenseAccount;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Account.class)
-	@JoinColumn(name="REVENUEACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Account.class)
+	@JoinColumn(name = "REVENUEACCOUNT_ID", referencedColumnName = "ID")
 	private Account revenueAccount;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public ProductAccount getProdAccount() {
 		return this.prodAccount;
 	}
-	
+
 	public void setProdAccount(ProductAccount prodAccount) {
-		if (prodAccount != null ) {
+		if (prodAccount != null) {
 			this.__validate_client_context__(prodAccount.getClientId());
 		}
 		this.prodAccount = prodAccount;
 	}
-	
+
 	public AccSchema getAccSchema() {
 		return this.accSchema;
 	}
-	
+
 	public void setAccSchema(AccSchema accSchema) {
-		if (accSchema != null ) {
+		if (accSchema != null) {
 			this.__validate_client_context__(accSchema.getClientId());
 		}
 		this.accSchema = accSchema;
 	}
-	
+
 	public Account getExpenseAccount() {
 		return this.expenseAccount;
 	}
-	
+
 	public void setExpenseAccount(Account expenseAccount) {
-		if (expenseAccount != null ) {
+		if (expenseAccount != null) {
 			this.__validate_client_context__(expenseAccount.getClientId());
 		}
 		this.expenseAccount = expenseAccount;
 	}
-	
+
 	public Account getRevenueAccount() {
 		return this.revenueAccount;
 	}
-	
+
 	public void setRevenueAccount(Account revenueAccount) {
-		if (revenueAccount != null ) {
+		if (revenueAccount != null) {
 			this.__validate_client_context__(revenueAccount.getClientId());
 		}
 		this.revenueAccount = revenueAccount;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

@@ -13,22 +13,49 @@ import net.nan21.dnet.module.pj.base.domain.entity.ProjectRole;
 import net.nan21.dnet.module.pj.md.domain.entity.Project;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectMember;
 
+/**
+ * Interface to expose business functions specific for {@link ProjectMember} domain
+ * entity.
+ */
 public interface IProjectMemberService extends IEntityService<ProjectMember> {
-	
-	public ProjectMember findByName(Project project,Assignable member);
-	
-	public ProjectMember findByName( Long projectId, Long memberId);
-	
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectMember findByName(Project project, Assignable member);
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectMember findByName(Long projectId, Long memberId);
+
+	/**
+	 * Find by reference: project
+	 */
 	public List<ProjectMember> findByProject(Project project);
-	
+
+	/**
+	 * Find by ID of reference: project.id
+	 */
 	public List<ProjectMember> findByProjectId(Long projectId);
-	
+
+	/**
+	 * Find by reference: member
+	 */
 	public List<ProjectMember> findByMember(Assignable member);
-	
+
+	/**
+	 * Find by ID of reference: member.id
+	 */
 	public List<ProjectMember> findByMemberId(Long memberId);
-	
+
+	/**
+	 * Find by reference: projectRole
+	 */
 	public List<ProjectMember> findByProjectRole(ProjectRole projectRole);
-	
+
+	/**
+	 * Find by ID of reference: projectRole.id
+	 */
 	public List<ProjectMember> findByProjectRoleId(Long projectRoleId);
-	
 }

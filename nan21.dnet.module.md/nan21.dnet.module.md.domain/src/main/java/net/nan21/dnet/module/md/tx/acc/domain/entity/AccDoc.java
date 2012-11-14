@@ -41,287 +41,275 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=AccDoc.NQ_FIND_BY_ID,
-		query="SELECT e FROM AccDoc e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AccDoc.NQ_FIND_BY_IDS,
-		query="SELECT e FROM AccDoc e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = AccDoc.NQ_FIND_BY_ID, query = "SELECT e FROM AccDoc e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AccDoc.NQ_FIND_BY_IDS, query = "SELECT e FROM AccDoc e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=AccDoc.TABLE_NAME
-)
+@Table(name = AccDoc.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class AccDoc extends AbstractAuditable  {
-	
+public class AccDoc extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "TX_ACC_DOC";
 	public static final String SEQUENCE_NAME = "TX_ACC_DOC_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "AccDoc.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "AccDoc.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="DOCNO", length=255)
+
+	@Column(name = "DOCNO", length = 255)
 	private String docNo;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="DOCDATE", nullable=false )
+	@Column(name = "DOCDATE", nullable = false)
 	@NotNull
 	private Date docDate;
-	
-	@Column(name="DOCUUID", length=36)
+
+	@Column(name = "DOCUUID", length = 36)
 	private String docUuid;
-	
-	@Column(name="DOCNETAMOUNT", scale=2)
+
+	@Column(name = "DOCNETAMOUNT", scale = 2)
 	private Float docNetAmount;
-	
-	@Column(name="DOCTAXAMOUNT", scale=2)
+
+	@Column(name = "DOCTAXAMOUNT", scale = 2)
 	private Float docTaxAmount;
-	
-	@Column(name="DOCAMOUNT", scale=2)
+
+	@Column(name = "DOCAMOUNT", scale = 2)
 	private Float docAmount;
-	
-	@Column(name="DBAMOUNT", scale=2)
+
+	@Column(name = "DBAMOUNT", scale = 2)
 	private Float dbAmount;
-	
-	@Column(name="CRAMOUNT", scale=2)
+
+	@Column(name = "CRAMOUNT", scale = 2)
 	private Float crAmount;
-	
-	@Column(name="DIFFERENCE", scale=2)
+
+	@Column(name = "DIFFERENCE", scale = 2)
 	private Float difference;
-	
-	@Column(name="POSTED", nullable=false)
+
+	@Column(name = "POSTED", nullable = false)
 	@NotNull
 	private Boolean posted;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="ORG_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "ORG_ID", referencedColumnName = "ID")
 	private Organization org;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccSchema.class)
-	@JoinColumn(name="ACCSCHEMA_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccSchema.class)
+	@JoinColumn(name = "ACCSCHEMA_ID", referencedColumnName = "ID")
 	private AccSchema accSchema;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=FiscalPeriod.class)
-	@JoinColumn(name="PERIOD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = FiscalPeriod.class)
+	@JoinColumn(name = "PERIOD_ID", referencedColumnName = "ID")
 	private FiscalPeriod period;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccJournal.class)
-	@JoinColumn(name="JOURNAL_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccJournal.class)
+	@JoinColumn(name = "JOURNAL_ID", referencedColumnName = "ID")
 	private AccJournal journal;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=BusinessPartner.class)
-	@JoinColumn(name="BPARTNER_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = BusinessPartner.class)
+	@JoinColumn(name = "BPARTNER_ID", referencedColumnName = "ID")
 	private BusinessPartner bpartner;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Currency.class)
-	@JoinColumn(name="DOCCURRENCY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Currency.class)
+	@JoinColumn(name = "DOCCURRENCY_ID", referencedColumnName = "ID")
 	private Currency docCurrency;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=TxDocType.class)
-	@JoinColumn(name="DOCTYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = TxDocType.class)
+	@JoinColumn(name = "DOCTYPE_ID", referencedColumnName = "ID")
 	private TxDocType docType;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=AccDocLine.class, mappedBy="accDoc"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = AccDocLine.class, mappedBy = "accDoc", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<AccDocLine> lines;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getDocNo() {
 		return this.docNo;
 	}
-	
+
 	public void setDocNo(String docNo) {
 		this.docNo = docNo;
 	}
-	
+
 	public Date getDocDate() {
 		return this.docDate;
 	}
-	
+
 	public void setDocDate(Date docDate) {
 		this.docDate = docDate;
 	}
-	
+
 	public String getDocUuid() {
 		return this.docUuid;
 	}
-	
+
 	public void setDocUuid(String docUuid) {
 		this.docUuid = docUuid;
 	}
-	
+
 	public Float getDocNetAmount() {
 		return this.docNetAmount;
 	}
-	
+
 	public void setDocNetAmount(Float docNetAmount) {
 		this.docNetAmount = docNetAmount;
 	}
-	
+
 	public Float getDocTaxAmount() {
 		return this.docTaxAmount;
 	}
-	
+
 	public void setDocTaxAmount(Float docTaxAmount) {
 		this.docTaxAmount = docTaxAmount;
 	}
-	
+
 	public Float getDocAmount() {
 		return this.docAmount;
 	}
-	
+
 	public void setDocAmount(Float docAmount) {
 		this.docAmount = docAmount;
 	}
-	
+
 	public Float getDbAmount() {
 		return this.dbAmount;
 	}
-	
+
 	public void setDbAmount(Float dbAmount) {
 		this.dbAmount = dbAmount;
 	}
-	
+
 	public Float getCrAmount() {
 		return this.crAmount;
 	}
-	
+
 	public void setCrAmount(Float crAmount) {
 		this.crAmount = crAmount;
 	}
-	
+
 	public Float getDifference() {
 		return this.difference;
 	}
-	
+
 	public void setDifference(Float difference) {
 		this.difference = difference;
 	}
-	
+
 	public Boolean getPosted() {
 		return this.posted;
 	}
-	
+
 	public void setPosted(Boolean posted) {
 		this.posted = posted;
 	}
-	
+
 	public Organization getOrg() {
 		return this.org;
 	}
-	
+
 	public void setOrg(Organization org) {
-		if (org != null ) {
+		if (org != null) {
 			this.__validate_client_context__(org.getClientId());
 		}
 		this.org = org;
 	}
-	
+
 	public AccSchema getAccSchema() {
 		return this.accSchema;
 	}
-	
+
 	public void setAccSchema(AccSchema accSchema) {
-		if (accSchema != null ) {
+		if (accSchema != null) {
 			this.__validate_client_context__(accSchema.getClientId());
 		}
 		this.accSchema = accSchema;
 	}
-	
+
 	public FiscalPeriod getPeriod() {
 		return this.period;
 	}
-	
+
 	public void setPeriod(FiscalPeriod period) {
-		if (period != null ) {
+		if (period != null) {
 			this.__validate_client_context__(period.getClientId());
 		}
 		this.period = period;
 	}
-	
+
 	public AccJournal getJournal() {
 		return this.journal;
 	}
-	
+
 	public void setJournal(AccJournal journal) {
-		if (journal != null ) {
+		if (journal != null) {
 			this.__validate_client_context__(journal.getClientId());
 		}
 		this.journal = journal;
 	}
-	
+
 	public BusinessPartner getBpartner() {
 		return this.bpartner;
 	}
-	
+
 	public void setBpartner(BusinessPartner bpartner) {
-		if (bpartner != null ) {
+		if (bpartner != null) {
 			this.__validate_client_context__(bpartner.getClientId());
 		}
 		this.bpartner = bpartner;
 	}
-	
+
 	public Currency getDocCurrency() {
 		return this.docCurrency;
 	}
-	
+
 	public void setDocCurrency(Currency docCurrency) {
-		if (docCurrency != null ) {
+		if (docCurrency != null) {
 			this.__validate_client_context__(docCurrency.getClientId());
 		}
 		this.docCurrency = docCurrency;
 	}
-	
+
 	public TxDocType getDocType() {
 		return this.docType;
 	}
-	
+
 	public void setDocType(TxDocType docType) {
-		if (docType != null ) {
+		if (docType != null) {
 			this.__validate_client_context__(docType.getClientId());
 		}
 		this.docType = docType;
 	}
-	
+
 	public Collection<AccDocLine> getLines() {
 		return this.lines;
 	}
-	
+
 	public void setLines(Collection<AccDocLine> lines) {
 		this.lines = lines;
 	}
-	
+
 	public void addToLines(AccDocLine e) {
 		if (this.lines == null) {
 			this.lines = new ArrayList<AccDocLine>();
@@ -329,12 +317,12 @@ public class AccDoc extends AbstractAuditable  {
 		e.setAccDoc(this);
 		this.lines.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getPosted() == null ) {
-			event.updateAttributeWithObject("posted",false);
+
+		if (this.getPosted() == null) {
+			event.updateAttributeWithObject("posted", false);
 		}
 	}
 }

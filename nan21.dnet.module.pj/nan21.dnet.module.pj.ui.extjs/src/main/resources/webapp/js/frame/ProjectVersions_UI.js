@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.ProjectVersions_UI", {
 		this._getBuilder_()
 			.addDc("version", new net.nan21.dnet.module.pj.md.dc.ProjectVersion({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,13 +30,14 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.ProjectVersions_UI", {
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnRoadmapUi"), this._elems_.get("btnChangelogUi")]}]})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["versionFilter", "versionEditList"], ["north", "center"])
 			.addToolbarTo("main", "tlbVersionEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -43,6 +45,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.ProjectVersions_UI", {
 			.beginToolbar("tlbVersionEditList", {dc: "version"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Project versions"})
 			.end()
+			;
 	}
 
 	,onBtnRoadmapUi: function() {

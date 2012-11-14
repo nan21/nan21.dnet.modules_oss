@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/lov/SubInventorys", "nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.bd.ui.extjs/lov/CarrierOrganizations", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/ds/StockLocatorLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseReceptionDs", "nan21.dnet.module.md.ui.extjs/dc/InvTransactionLine", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionTypeLovDs", "nan21.dnet.module.md.ui.extjs/lov/InvTransactionTypes", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionLineDs", "nan21.dnet.module.bd.ui.extjs/ds/CarrierOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/lov/VendorsName", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/SubInventoryLovDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseReception", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode", "nan21.dnet.module.md.ui.extjs/lov/StockLocators", "nan21.dnet.module.md.ui.extjs/ds/VendorLovDs", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs"]);
+Dnet.doImport(["nan21.dnet.module.md.ui.extjs/lov/SubInventorys", "nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.bd.ui.extjs/lov/CarrierOrganizations", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/ds/StockLocatorLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseReceptionDs", "nan21.dnet.module.md.ui.extjs/dc/InvTransactionLine", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionTypeLovDs", "nan21.dnet.module.md.ui.extjs/lov/InvTransactionTypes", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionLineDs", "nan21.dnet.module.bd.ui.extjs/ds/CarrierOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/lov/VendorsName", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/SubInventoryLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseReception", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode", "nan21.dnet.module.md.ui.extjs/lov/StockLocators", "nan21.dnet.module.md.ui.extjs/ds/VendorLovDs", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs"]);
 
 Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 			.linkDc("txline", "tx",{fields:[
 				{childField:"transactionId", parentField:"id"}, {childField:"toInventoryId", parentField:"warehouseId"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -38,7 +39,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -49,6 +50,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 			.addToolbarTo("canvas1", "tlbTxList")
 			.addToolbarTo("canvas2", "tlbTxEdit")
 			.addToolbarTo("txlineEditList", "tlbTxlineEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -62,6 +64,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 			.beginToolbar("tlbTxlineEditList", {dc: "txline"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Items"})
 			.end()
+			;
 	}
 
 	,onBtnConfirm: function() {

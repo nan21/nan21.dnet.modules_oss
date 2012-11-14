@@ -9,8 +9,14 @@ package net.nan21.dnet.module.md.base.tx.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 
+/**
+ * Interface to expose business functions specific for {@link PaymentTerm} domain
+ * entity.
+ */
 public interface IPaymentTermService extends IEntityService<PaymentTerm> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public PaymentTerm findByName(String name);
-	
 }

@@ -37,207 +37,195 @@ import org.hibernate.validator.constraints.NotBlank;
 
 /** Absence request filled by employee. After it is approved generates absence time-entries acoording its items */
 @NamedQueries({
-	@NamedQuery(
-		name=AbsenceRequest.NQ_FIND_BY_ID,
-		query="SELECT e FROM AbsenceRequest e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AbsenceRequest.NQ_FIND_BY_IDS,
-		query="SELECT e FROM AbsenceRequest e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = AbsenceRequest.NQ_FIND_BY_ID, query = "SELECT e FROM AbsenceRequest e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AbsenceRequest.NQ_FIND_BY_IDS, query = "SELECT e FROM AbsenceRequest e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=AbsenceRequest.TABLE_NAME
-)
+@Table(name = AbsenceRequest.TABLE_NAME)
 @Customizer(AbsenceRequestEventHandler.class)
-public class AbsenceRequest extends AbstractAuditable  {
-	
+public class AbsenceRequest extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "HR_ABSN_REQ";
 	public static final String SEQUENCE_NAME = "HR_ABSN_REQ_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "AbsenceRequest.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "AbsenceRequest.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="STARTDATE", nullable=false )
+	@Column(name = "STARTDATE", nullable = false)
 	@NotNull
 	private Date startDate;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="ENDDATE", nullable=false )
+	@Column(name = "ENDDATE", nullable = false)
 	@NotNull
 	private Date endDate;
-	
-	@Column(name="STATUS", nullable=false, length=16)
+
+	@Column(name = "STATUS", nullable = false, length = 16)
 	@NotBlank
 	private String status;
-	
-	@Column(name="HOURSPERDAY", nullable=false)
+
+	@Column(name = "HOURSPERDAY", nullable = false)
 	@NotNull
 	private Integer hoursPerDay;
-	
-	@Column(name="COMMENTS", length=400)
+
+	@Column(name = "COMMENTS", length = 400)
 	private String comment;
-	
-	@Column(name="TOTALHOURS")
+
+	@Column(name = "TOTALHOURS")
 	private Integer totalHours;
-	
-	@Column(name="CURRENTOWNER", length=32)
+
+	@Column(name = "CURRENTOWNER", length = 32)
 	private String currentOwner;
-	
-	@Column(name="PREVIOUSOWNER", length=32)
+
+	@Column(name = "PREVIOUSOWNER", length = 32)
 	private String previousOwner;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Employee.class)
-	@JoinColumn(name="EMPLOYEE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Employee.class)
+	@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "ID")
 	private Employee employee;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AbsenceType.class)
-	@JoinColumn(name="TYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AbsenceType.class)
+	@JoinColumn(name = "TYPE_ID", referencedColumnName = "ID")
 	private AbsenceType type;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AbsenceReason.class)
-	@JoinColumn(name="REASON_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AbsenceReason.class)
+	@JoinColumn(name = "REASON_ID", referencedColumnName = "ID")
 	private AbsenceReason reason;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=AbsenceRequestItem.class, mappedBy="absenceRequest"
-	)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = AbsenceRequestItem.class, mappedBy = "absenceRequest")
 	private Collection<AbsenceRequestItem> items;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getStartDate() {
 		return this.startDate;
 	}
-	
+
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	
+
 	public Date getEndDate() {
 		return this.endDate;
 	}
-	
+
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
+
 	public String getStatus() {
 		return this.status;
 	}
-	
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
 	public Integer getHoursPerDay() {
 		return this.hoursPerDay;
 	}
-	
+
 	public void setHoursPerDay(Integer hoursPerDay) {
 		this.hoursPerDay = hoursPerDay;
 	}
-	
+
 	public String getComment() {
 		return this.comment;
 	}
-	
+
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
+
 	public Integer getTotalHours() {
 		return this.totalHours;
 	}
-	
+
 	public void setTotalHours(Integer totalHours) {
 		this.totalHours = totalHours;
 	}
-	
+
 	public String getCurrentOwner() {
 		return this.currentOwner;
 	}
-	
+
 	public void setCurrentOwner(String currentOwner) {
 		this.currentOwner = currentOwner;
 	}
-	
+
 	public String getPreviousOwner() {
 		return this.previousOwner;
 	}
-	
+
 	public void setPreviousOwner(String previousOwner) {
 		this.previousOwner = previousOwner;
 	}
-	
+
 	public Employee getEmployee() {
 		return this.employee;
 	}
-	
+
 	public void setEmployee(Employee employee) {
-		if (employee != null ) {
+		if (employee != null) {
 			this.__validate_client_context__(employee.getClientId());
 		}
 		this.employee = employee;
 	}
-	
+
 	public AbsenceType getType() {
 		return this.type;
 	}
-	
+
 	public void setType(AbsenceType type) {
-		if (type != null ) {
+		if (type != null) {
 			this.__validate_client_context__(type.getClientId());
 		}
 		this.type = type;
 	}
-	
+
 	public AbsenceReason getReason() {
 		return this.reason;
 	}
-	
+
 	public void setReason(AbsenceReason reason) {
-		if (reason != null ) {
+		if (reason != null) {
 			this.__validate_client_context__(reason.getClientId());
 		}
 		this.reason = reason;
 	}
-	
+
 	public Collection<AbsenceRequestItem> getItems() {
 		return this.items;
 	}
-	
+
 	public void setItems(Collection<AbsenceRequestItem> items) {
 		this.items = items;
 	}
-	
+
 	public void addToItems(AbsenceRequestItem e) {
 		if (this.items == null) {
 			this.items = new ArrayList<AbsenceRequestItem>();
@@ -245,9 +233,9 @@ public class AbsenceRequest extends AbstractAuditable  {
 		e.setAbsenceRequest(this);
 		this.items.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

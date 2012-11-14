@@ -8,13 +8,13 @@ package net.nan21.dnet.module.ad.system.ds.filter;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDsFilter;
 
 public class SysJobCtxDsFilter extends AbstractTypeDsFilter {
-	
-	private String  jobAlias;
-	
+
+	private String jobAlias;
+
 	public String getJobAlias() {
 		return this.jobAlias;
 	}
-	
+
 	public void setJobAlias(String jobAlias) {
 		this.jobAlias = jobAlias;
 	}

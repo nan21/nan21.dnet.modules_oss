@@ -15,10 +15,15 @@ import net.nan21.dnet.module.bd.geo.domain.entity.City;
 import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 
-
+/**
+ * Repository functionality for {@link City} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class CityService extends AbstractEntityService<City>
-		implements ICityService {
- 
+		implements
+			ICityService {
+
 	public CityService() {
 		super();
 	}
@@ -32,28 +37,42 @@ public class CityService extends AbstractEntityService<City>
 	public Class<City> getEntityClass() {
 		return City.class;
 	}
-	
+
+	/**
+	 * Find by reference: country
+	 */
 	public List<City> findByCountry(Country country) {
-		return this.findByCountryId(country.getId()); 
+		return this.findByCountryId(country.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: country.id
+	 */
 	public List<City> findByCountryId(Long countryId) {
 		return (List<City>) this.em
-			.createQuery("select e from City e where e.clientId = :pClientId and e.country.id = :pCountryId", City.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCountryId", countryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from City e where e.clientId = :pClientId and e.country.id = :pCountryId",
+						City.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCountryId", countryId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: region
+	 */
 	public List<City> findByRegion(Region region) {
-		return this.findByRegionId(region.getId()); 
+		return this.findByRegionId(region.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: region.id
+	 */
 	public List<City> findByRegionId(Long regionId) {
 		return (List<City>) this.em
-			.createQuery("select e from City e where e.clientId = :pClientId and e.region.id = :pRegionId", City.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pRegionId", regionId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from City e where e.clientId = :pClientId and e.region.id = :pRegionId",
+						City.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pRegionId", regionId).getResultList();
 	}
 }

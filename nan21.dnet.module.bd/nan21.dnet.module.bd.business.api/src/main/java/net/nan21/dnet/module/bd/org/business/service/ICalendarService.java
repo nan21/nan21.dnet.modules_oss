@@ -9,8 +9,14 @@ package net.nan21.dnet.module.bd.org.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 
+/**
+ * Interface to expose business functions specific for {@link Calendar} domain
+ * entity.
+ */
 public interface ICalendarService extends IEntityService<Calendar> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public Calendar findByName(String name);
-	
 }

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.bd.org.frame.Calendars_UI", {
 		this._getBuilder_()
 			.addDc("calendar", new net.nan21.dnet.module.bd.org.dc.Calendar({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.bd.org.frame.Calendars_UI", {
 			.addDcEditGridView("calendar", {name:"calendarEditList", xtype:"bd_org_dc_Calendar$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.bd.org.frame.Calendars_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["calendarFilter", "calendarEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbCalendarList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.bd.org.frame.Calendars_UI", {
 			.beginToolbar("tlbCalendarList", {dc: "calendar"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Calendars"})
 			.end()
+			;
 	}
 
 });

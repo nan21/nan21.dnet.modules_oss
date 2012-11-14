@@ -32,196 +32,172 @@ import org.hibernate.validator.constraints.NotBlank;
 
 /** Business partner bank accounts. */
 @NamedQueries({
-	@NamedQuery(
-		name=BpBankAccount.NQ_FIND_BY_ID,
-		query="SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=BpBankAccount.NQ_FIND_BY_IDS,
-		query="SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=BpBankAccount.NQ_FIND_BY_ACCOUNT,
-		query="SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.bpartner = :pBpartner and e.accountNo = :pAccountNo",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=BpBankAccount.NQ_FIND_BY_ACCOUNT_PRIMITIVE,
-		query="SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.bpartner.id = :pBpartnerId and e.accountNo = :pAccountNo",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = BpBankAccount.NQ_FIND_BY_ID, query = "SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = BpBankAccount.NQ_FIND_BY_IDS, query = "SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = BpBankAccount.NQ_FIND_BY_ACCOUNT, query = "SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.bpartner = :pBpartner and e.accountNo = :pAccountNo", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = BpBankAccount.NQ_FIND_BY_ACCOUNT_PRIMITIVE, query = "SELECT e FROM BpBankAccount e WHERE e.clientId = :pClientId and e.bpartner.id = :pBpartnerId and e.accountNo = :pAccountNo", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=BpBankAccount.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=BpBankAccount.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","BPARTNER_ID","ACCOUNTNO"}
-		)
-	}
-)
+@Table(name = BpBankAccount.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = BpBankAccount.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "BPARTNER_ID", "ACCOUNTNO"})})
 @Customizer(DefaultEventHandler.class)
-public class BpBankAccount extends AbstractAuditable  {
-	
+public class BpBankAccount extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "MD_BP_BANKACNT";
 	public static final String SEQUENCE_NAME = "MD_BP_BANKACNT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "BpBankAccount.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "BpBankAccount.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Account.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT = "BpBankAccount.findByAccount";
-	
+
 	/**
 	 * Named query find by unique key: Account using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT_PRIMITIVE = "BpBankAccount.findByAccount_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	/** Bank branch where this account is opened. */
-	@Column(name="BANKBRANCH", length=255)
+	@Column(name = "BANKBRANCH", length = 255)
 	private String bankBranch;
-	
+
 	/** Account number. */
-	@Column(name="ACCOUNTNO", nullable=false, length=32)
+	@Column(name = "ACCOUNTNO", nullable = false, length = 32)
 	@NotBlank
 	private String accountNo;
-	
+
 	/** Flag which indicates if the account number represents an IBAN account. */
-	@Column(name="IBANACCOUNT", nullable=false)
+	@Column(name = "IBANACCOUNT", nullable = false)
 	@NotNull
 	private Boolean ibanAccount;
-	
-	@Column(name="NOTES", length=4000)
+
+	@Column(name = "NOTES", length = 4000)
 	private String notes;
-	
-	@Column(name="ACTIVE", nullable=false)
+
+	@Column(name = "ACTIVE", nullable = false)
 	@NotNull
 	private Boolean active;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=BusinessPartner.class)
-	@JoinColumn(name="BPARTNER_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = BusinessPartner.class)
+	@JoinColumn(name = "BPARTNER_ID", referencedColumnName = "ID")
 	private BusinessPartner bpartner;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Bank.class)
-	@JoinColumn(name="BANK_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Bank.class)
+	@JoinColumn(name = "BANK_ID", referencedColumnName = "ID")
 	private Bank bank;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Currency.class)
-	@JoinColumn(name="CURRENCY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Currency.class)
+	@JoinColumn(name = "CURRENCY_ID", referencedColumnName = "ID")
 	private Currency currency;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getBankBranch() {
 		return this.bankBranch;
 	}
-	
+
 	public void setBankBranch(String bankBranch) {
 		this.bankBranch = bankBranch;
 	}
-	
+
 	public String getAccountNo() {
 		return this.accountNo;
 	}
-	
+
 	public void setAccountNo(String accountNo) {
 		this.accountNo = accountNo;
 	}
-	
+
 	public Boolean getIbanAccount() {
 		return this.ibanAccount;
 	}
-	
+
 	public void setIbanAccount(Boolean ibanAccount) {
 		this.ibanAccount = ibanAccount;
 	}
-	
+
 	public String getNotes() {
 		return this.notes;
 	}
-	
+
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
 	public Boolean getActive() {
 		return this.active;
 	}
-	
+
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	
+
 	public BusinessPartner getBpartner() {
 		return this.bpartner;
 	}
-	
+
 	public void setBpartner(BusinessPartner bpartner) {
-		if (bpartner != null ) {
+		if (bpartner != null) {
 			this.__validate_client_context__(bpartner.getClientId());
 		}
 		this.bpartner = bpartner;
 	}
-	
+
 	public Bank getBank() {
 		return this.bank;
 	}
-	
+
 	public void setBank(Bank bank) {
-		if (bank != null ) {
+		if (bank != null) {
 			this.__validate_client_context__(bank.getClientId());
 		}
 		this.bank = bank;
 	}
-	
+
 	public Currency getCurrency() {
 		return this.currency;
 	}
-	
+
 	public void setCurrency(Currency currency) {
-		if (currency != null ) {
+		if (currency != null) {
 			this.__validate_client_context__(currency.getClientId());
 		}
 		this.currency = currency;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getIbanAccount() == null ) {
-			event.updateAttributeWithObject("ibanAccount",false);
+
+		if (this.getIbanAccount() == null) {
+			event.updateAttributeWithObject("ibanAccount", false);
 		}
-		if (this.getActive() == null ) {
-			event.updateAttributeWithObject("active",false);
+		if (this.getActive() == null) {
+			event.updateAttributeWithObject("active", false);
 		}
 	}
 }

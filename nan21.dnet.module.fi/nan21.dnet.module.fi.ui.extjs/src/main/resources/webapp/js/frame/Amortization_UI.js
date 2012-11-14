@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Amortization_UI", {
 		this._getBuilder_()
 			.addDc("amort", new net.nan21.dnet.module.fi.asset.dc.Amortization({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Amortization_UI", {
 			.addDcGridView("amort", {name:"amortList", xtype:"fi_asset_dc_Amortization$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Amortization_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["amortFilter", "amortList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbAmortList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Amortization_UI", {
 			.beginToolbar("tlbAmortList", {dc: "amort"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Amortization"})
 			.end()
+			;
 	}
 
 });

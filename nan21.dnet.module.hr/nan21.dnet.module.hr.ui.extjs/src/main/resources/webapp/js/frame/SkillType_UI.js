@@ -16,6 +16,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.SkillType_UI", {
 			.addDc("scateg", new net.nan21.dnet.module.hr.skill.dc.SkillCategory({multiEdit:true}))
 			.addDc("stype", new net.nan21.dnet.module.hr.skill.dc.SkillType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,6 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.SkillType_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCateg", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -44,6 +44,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.SkillType_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasCateg", "tlbscateg")
 			.addToolbarTo("canvasType", "tlbstype")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.SkillType_UI", {
 			.beginToolbar("tlbstype", {dc: "stype"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Types"})
 			.end()
+			;
 	}
 
 });

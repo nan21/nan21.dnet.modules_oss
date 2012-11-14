@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysParamService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 
-
+/**
+ * Repository functionality for {@link SysParam} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class SysParamService extends AbstractEntityService<SysParam>
-		implements ISysParamService {
- 
+		implements
+			ISysParamService {
+
 	public SysParamService() {
 		super();
 	}
@@ -29,20 +34,22 @@ public class SysParamService extends AbstractEntityService<SysParam>
 	public Class<SysParam> getEntityClass() {
 		return SysParam.class;
 	}
-	
-	public SysParam findByCode(String code) {		 
-		return (SysParam) this.em
-			.createNamedQuery(SysParam.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysParam findByCode(String code) {
+		return (SysParam) this.em.createNamedQuery(SysParam.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public SysParam findByName(String name) {		 
-		return (SysParam) this.em
-			.createNamedQuery(SysParam.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysParam findByName(String name) {
+		return (SysParam) this.em.createNamedQuery(SysParam.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

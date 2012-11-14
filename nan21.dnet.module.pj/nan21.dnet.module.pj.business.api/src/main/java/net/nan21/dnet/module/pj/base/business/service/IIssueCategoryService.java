@@ -9,8 +9,14 @@ package net.nan21.dnet.module.pj.base.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueCategory;
 
+/**
+ * Interface to expose business functions specific for {@link IssueCategory} domain
+ * entity.
+ */
 public interface IIssueCategoryService extends IEntityService<IssueCategory> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public IssueCategory findByName(String name);
-	
 }

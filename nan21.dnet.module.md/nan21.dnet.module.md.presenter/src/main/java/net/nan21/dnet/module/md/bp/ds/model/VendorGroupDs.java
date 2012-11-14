@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.md.bp.domain.entity.VendorGroup;
 
-@Ds(entity=VendorGroup.class, sort={@SortField(field=VendorGroupDs.fNAME)})
+@Ds(entity = VendorGroup.class, sort = {@SortField(field = VendorGroupDs.fNAME)})
 public class VendorGroupDs extends AbstractTypeWithCodeDs<VendorGroup> {
-
 
 	public VendorGroupDs() {
 		super();
 	}
 
- 	public VendorGroupDs(VendorGroup e) {
+	public VendorGroupDs(VendorGroup e) {
 		super(e);
 	}
 }

@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.base.tax.domain.entity.TaxCategory;
 
-@Ds(entity=TaxCategory.class, sort={@SortField(field=TaxCategoryDs.fNAME)})
+@Ds(entity = TaxCategory.class, sort = {@SortField(field = TaxCategoryDs.fNAME)})
 public class TaxCategoryDs extends AbstractTypeDs<TaxCategory> {
-
 
 	public TaxCategoryDs() {
 		super();
 	}
 
- 	public TaxCategoryDs(TaxCategory e) {
+	public TaxCategoryDs(TaxCategory e) {
 		super(e);
 	}
 }

@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Contact_UI", {
 			.linkDc("communic", "c",{fields:[
 				{childField:"targetUuid", parentField:"uuid"}, {childField:"targetType", parentField:"className"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Contact_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"bpDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -44,6 +45,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Contact_UI", {
 			.addToolbarTo("canvas1", "tlbTList")
 			.addToolbarTo("canvas2", "tlbTEdit")
 			.addToolbarTo("communicEditList", "tlbCommunicEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -57,6 +59,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Contact_UI", {
 			.beginToolbar("tlbCommunicEditList", {dc: "communic"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Communication"})
 			.end()
+			;
 	}
 
 });

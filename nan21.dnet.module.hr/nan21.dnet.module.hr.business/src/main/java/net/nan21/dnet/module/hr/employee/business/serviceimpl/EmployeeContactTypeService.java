@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.employee.business.service.IEmployeeContactTypeService;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactType;
 
+/**
+ * Repository functionality for {@link EmployeeContactType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class EmployeeContactTypeService
+		extends
+			AbstractEntityService<EmployeeContactType>
+		implements
+			IEmployeeContactTypeService {
 
-public class EmployeeContactTypeService extends AbstractEntityService<EmployeeContactType>
-		implements IEmployeeContactTypeService {
- 
 	public EmployeeContactTypeService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class EmployeeContactTypeService extends AbstractEntityService<EmployeeCo
 	public Class<EmployeeContactType> getEntityClass() {
 		return EmployeeContactType.class;
 	}
-	
-	public EmployeeContactType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public EmployeeContactType findByName(String name) {
 		return (EmployeeContactType) this.em
-			.createNamedQuery(EmployeeContactType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(EmployeeContactType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

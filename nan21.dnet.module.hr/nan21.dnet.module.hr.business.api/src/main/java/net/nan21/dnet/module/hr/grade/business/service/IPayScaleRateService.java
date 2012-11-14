@@ -12,16 +12,34 @@ import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScale;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRate;
 
+/**
+ * Interface to expose business functions specific for {@link PayScaleRate} domain
+ * entity.
+ */
 public interface IPayScaleRateService extends IEntityService<PayScaleRate> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public PayScaleRate findByName(String name);
-	
+
+	/**
+	 * Find by reference: payScale
+	 */
 	public List<PayScaleRate> findByPayScale(PayScale payScale);
-	
+
+	/**
+	 * Find by ID of reference: payScale.id
+	 */
 	public List<PayScaleRate> findByPayScaleId(Long payScaleId);
-	
+
+	/**
+	 * Find by reference: currency
+	 */
 	public List<PayScaleRate> findByCurrency(Currency currency);
-	
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
 	public List<PayScaleRate> findByCurrencyId(Long currencyId);
-	
 }

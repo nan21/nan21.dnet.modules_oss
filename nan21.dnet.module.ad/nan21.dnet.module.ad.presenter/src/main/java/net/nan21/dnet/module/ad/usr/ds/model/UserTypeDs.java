@@ -11,38 +11,38 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.UserType;
 
-@Ds(entity=UserType.class, sort={@SortField(field=UserTypeDs.fNAME)})
+@Ds(entity = UserType.class, sort = {@SortField(field = UserTypeDs.fNAME)})
 public class UserTypeDs extends AbstractTypeDs<UserType> {
 
- 	public static final String fEMPLOYEEACCOUNT = "employeeAccount";
- 	public static final String fBPACCOUNT = "bpAccount";
- 	
- 	@DsField()
- 	private Boolean employeeAccount;
- 	
- 	@DsField()
- 	private Boolean bpAccount;
+	public static final String fEMPLOYEEACCOUNT = "employeeAccount";
+	public static final String fBPACCOUNT = "bpAccount";
+
+	@DsField()
+	private Boolean employeeAccount;
+
+	@DsField()
+	private Boolean bpAccount;
 
 	public UserTypeDs() {
 		super();
 	}
 
- 	public UserTypeDs(UserType e) {
+	public UserTypeDs(UserType e) {
 		super(e);
 	}
-	
+
 	public Boolean getEmployeeAccount() {
 		return this.employeeAccount;
 	}
-	
+
 	public void setEmployeeAccount(Boolean employeeAccount) {
 		this.employeeAccount = employeeAccount;
 	}
-	
+
 	public Boolean getBpAccount() {
 		return this.bpAccount;
 	}
-	
+
 	public void setBpAccount(Boolean bpAccount) {
 		this.bpAccount = bpAccount;
 	}

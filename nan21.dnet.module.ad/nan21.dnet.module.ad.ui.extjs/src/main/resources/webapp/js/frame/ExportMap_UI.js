@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportMap_UI", {
 			.linkDc("jobItem", "map",{fields:[
 				{childField:"mapId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -46,7 +47,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportMap_UI", {
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			.addPanel({name:"itemsPanel", title:"Files", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -60,6 +61,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportMap_UI", {
 			.addToolbarTo("canvas2", "tlbMapEdit")
 			.addToolbarTo("itemEditList", "tlbItemEditList")
 			.addToolbarTo("jobItemList", "tlbJobItemEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -76,6 +78,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportMap_UI", {
 			.beginToolbar("tlbJobItemEditList", {dc: "jobItem"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Jobs"})
 			.end()
+			;
 	}
 
 	,onBtnRunExportMap: function() {

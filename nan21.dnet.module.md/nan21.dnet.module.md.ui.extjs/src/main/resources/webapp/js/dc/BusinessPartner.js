@@ -210,11 +210,11 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Edit", {
 					} else {
 						this._showStackedViewElement_("col0", "formPerson");
 					}			
-				};
+				}
 	},
 	
 	_afterRender_: function() {
-		this._controller_.on("recordChange", this.onRecordChange, this);;
+		this._controller_.on("recordChange", this.onRecordChange, this);
 	},
 	
 	_updatePersonName_: function() {
@@ -224,7 +224,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Edit", {
 					if (rec.get("name") != n) {
 						rec.set("name", n)
 					}
-				};
+				}
 	},
 	
 	_updateCompanyName_: function() {
@@ -234,6 +234,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Edit", {
 					if (rec.get("name") != n) {
 						rec.set("name", n)
 					}
-				};
+				}
 	}
 });

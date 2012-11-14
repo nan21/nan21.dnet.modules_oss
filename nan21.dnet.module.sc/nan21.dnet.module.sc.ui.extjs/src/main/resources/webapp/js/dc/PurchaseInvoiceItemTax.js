@@ -24,6 +24,9 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItemTax", {
 Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItemTax$CtxList", {
 	extend: "dnet.core.dc.AbstractDcvGrid",
 	alias: "widget.sc_invoice_dc_PurchaseInvoiceItemTax$CtxList",
+	_noImport_: true,
+	_noExport_: true,
+	_noPrint_: true,
 
 	_defineColumns_: function() {
 		this._getBuilder_()

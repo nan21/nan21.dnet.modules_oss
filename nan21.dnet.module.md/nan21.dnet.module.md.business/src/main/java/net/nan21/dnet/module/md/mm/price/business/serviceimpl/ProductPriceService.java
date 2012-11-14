@@ -15,11 +15,13 @@ import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 import net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 
-import java.util.Date;
+/**
+ * Repository functionality for {@link ProductPrice} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProductPriceService extends AbstractEntityService<ProductPrice> {
 
-public class ProductPriceService extends AbstractEntityService<ProductPrice>
-		{
- 
 	public ProductPriceService() {
 		super();
 	}
@@ -33,58 +35,86 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice>
 	public Class<ProductPrice> getEntityClass() {
 		return ProductPrice.class;
 	}
-	
-	public ProductPrice findByName(PriceListVersion priceListVersion,Product product) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductPrice findByName(PriceListVersion priceListVersion,
+			Product product) {
 		return (ProductPrice) this.em
-			.createNamedQuery(ProductPrice.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPriceListVersion", priceListVersion)
-			.setParameter("pProduct", product)
-			.getSingleResult(); 
+				.createNamedQuery(ProductPrice.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPriceListVersion", priceListVersion)
+				.setParameter("pProduct", product).getSingleResult();
 	}
-	
-	public ProductPrice findByName( Long priceListVersionId, Long productId) {
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductPrice findByName(Long priceListVersionId, Long productId) {
 		return (ProductPrice) this.em
-			.createNamedQuery(ProductPrice.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPriceListVersionId", priceListVersionId)
-			.setParameter("pProductId", productId)
-			.getSingleResult(); 
+				.createNamedQuery(ProductPrice.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPriceListVersionId", priceListVersionId)
+				.setParameter("pProductId", productId).getSingleResult();
 	}
-	
-	public List<ProductPrice> findByPriceListVersion(PriceListVersion priceListVersion) {
-		return this.findByPriceListVersionId(priceListVersion.getId()); 
+
+	/**
+	 * Find by reference: priceListVersion
+	 */
+	public List<ProductPrice> findByPriceListVersion(
+			PriceListVersion priceListVersion) {
+		return this.findByPriceListVersionId(priceListVersion.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: priceListVersion.id
+	 */
 	public List<ProductPrice> findByPriceListVersionId(Long priceListVersionId) {
 		return (List<ProductPrice>) this.em
-			.createQuery("select e from ProductPrice e where e.clientId = :pClientId and e.priceListVersion.id = :pPriceListVersionId", ProductPrice.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPriceListVersionId", priceListVersionId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProductPrice e where e.clientId = :pClientId and e.priceListVersion.id = :pPriceListVersionId",
+						ProductPrice.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPriceListVersionId", priceListVersionId)
+				.getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: product
+	 */
 	public List<ProductPrice> findByProduct(Product product) {
-		return this.findByProductId(product.getId()); 
+		return this.findByProductId(product.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: product.id
+	 */
 	public List<ProductPrice> findByProductId(Long productId) {
 		return (List<ProductPrice>) this.em
-			.createQuery("select e from ProductPrice e where e.clientId = :pClientId and e.product.id = :pProductId", ProductPrice.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProductId", productId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProductPrice e where e.clientId = :pClientId and e.product.id = :pProductId",
+						ProductPrice.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProductId", productId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: uom
+	 */
 	public List<ProductPrice> findByUom(Uom uom) {
-		return this.findByUomId(uom.getId()); 
+		return this.findByUomId(uom.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: uom.id
+	 */
 	public List<ProductPrice> findByUomId(Long uomId) {
 		return (List<ProductPrice>) this.em
-			.createQuery("select e from ProductPrice e where e.clientId = :pClientId and e.uom.id = :pUomId", ProductPrice.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pUomId", uomId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProductPrice e where e.clientId = :pClientId and e.uom.id = :pUomId",
+						ProductPrice.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pUomId", uomId).getResultList();
 	}
 }

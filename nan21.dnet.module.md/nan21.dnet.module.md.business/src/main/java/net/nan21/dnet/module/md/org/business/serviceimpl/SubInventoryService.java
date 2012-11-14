@@ -14,10 +14,15 @@ import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.org.business.service.ISubInventoryService;
 import net.nan21.dnet.module.md.org.domain.entity.SubInventory;
 
-
+/**
+ * Repository functionality for {@link SubInventory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class SubInventoryService extends AbstractEntityService<SubInventory>
-		implements ISubInventoryService {
- 
+		implements
+			ISubInventoryService {
+
 	public SubInventoryService() {
 		super();
 	}
@@ -31,24 +36,33 @@ public class SubInventoryService extends AbstractEntityService<SubInventory>
 	public Class<SubInventory> getEntityClass() {
 		return SubInventory.class;
 	}
-	
-	public SubInventory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public SubInventory findByName(String name) {
 		return (SubInventory) this.em
-			.createNamedQuery(SubInventory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(SubInventory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: inventory
+	 */
 	public List<SubInventory> findByInventory(Organization inventory) {
-		return this.findByInventoryId(inventory.getId()); 
+		return this.findByInventoryId(inventory.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: inventory.id
+	 */
 	public List<SubInventory> findByInventoryId(Long inventoryId) {
 		return (List<SubInventory>) this.em
-			.createQuery("select e from SubInventory e where e.clientId = :pClientId and e.inventory.id = :pInventoryId", SubInventory.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pInventoryId", inventoryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SubInventory e where e.clientId = :pClientId and e.inventory.id = :pInventoryId",
+						SubInventory.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pInventoryId", inventoryId).getResultList();
 	}
 }

@@ -11,8 +11,10 @@ import net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentLovDs;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class ActDeploymentLovDsQueryBuilder extends QueryBuilderWithJpql<ActDeploymentLovDs,ActDeploymentLovDs, EmptyParam> {
-	
+public class ActDeploymentLovDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<ActDeploymentLovDs, ActDeploymentLovDs, EmptyParam> {
+
 	@Override
 	public void setFilter(ActDeploymentLovDs filter) {
 		filter.setClientId(Session.user.get().getClientId());

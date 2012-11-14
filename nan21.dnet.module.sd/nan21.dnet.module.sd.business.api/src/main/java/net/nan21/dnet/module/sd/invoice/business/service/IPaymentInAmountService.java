@@ -11,10 +11,21 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentInAmount;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount;
 
-public interface IPaymentInAmountService extends IEntityService<PaymentInAmount> {
-	
+/**
+ * Interface to expose business functions specific for {@link PaymentInAmount} domain
+ * entity.
+ */
+public interface IPaymentInAmountService
+		extends
+			IEntityService<PaymentInAmount> {
+
+	/**
+	 * Find by reference: txAmount
+	 */
 	public List<PaymentInAmount> findByTxAmount(SalesTxAmount txAmount);
-	
+
+	/**
+	 * Find by ID of reference: txAmount.id
+	 */
 	public List<PaymentInAmount> findByTxAmountId(Long txAmountId);
-	
 }

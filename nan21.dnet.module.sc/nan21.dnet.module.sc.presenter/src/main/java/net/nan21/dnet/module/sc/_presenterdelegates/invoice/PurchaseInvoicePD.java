@@ -11,16 +11,14 @@ public class PurchaseInvoicePD extends AbstractPresenterBaseService {
 		IPurchaseInvoiceService srv = ((IPurchaseInvoiceService) this
 				.findEntityService(PurchaseInvoice.class));
 		PurchaseInvoice e = srv.findById(ds.getId());
-		e.setConfirmed(true);
-		srv.update(e);
+		srv.doConfirm(e);
 	}
 
 	public void unConfirm(PurchaseInvoiceDs ds) throws Exception {
 		IPurchaseInvoiceService srv = ((IPurchaseInvoiceService) this
 				.findEntityService(PurchaseInvoice.class));
 		PurchaseInvoice e = srv.findById(ds.getId());
-		e.setConfirmed(false);
-		srv.update(e);
+		srv.doUnConfirm(e);
 	}
 
 	public void post(PurchaseInvoiceDs ds) throws Exception {

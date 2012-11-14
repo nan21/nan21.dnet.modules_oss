@@ -28,99 +28,75 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=CompanyLegalForm.NQ_FIND_BY_ID,
-		query="SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=CompanyLegalForm.NQ_FIND_BY_IDS,
-		query="SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=CompanyLegalForm.NQ_FIND_BY_NAME,
-		query="SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.country = :pCountry and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=CompanyLegalForm.NQ_FIND_BY_NAME_PRIMITIVE,
-		query="SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.country.id = :pCountryId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = CompanyLegalForm.NQ_FIND_BY_ID, query = "SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = CompanyLegalForm.NQ_FIND_BY_IDS, query = "SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = CompanyLegalForm.NQ_FIND_BY_NAME, query = "SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.country = :pCountry and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = CompanyLegalForm.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM CompanyLegalForm e WHERE e.clientId = :pClientId and e.country.id = :pCountryId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=CompanyLegalForm.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=CompanyLegalForm.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","COUNTRY_ID","NAME"}
-		)
-	}
-)
+@Table(name = CompanyLegalForm.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = CompanyLegalForm.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "COUNTRY_ID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class CompanyLegalForm extends AbstractType  {
-	
+public class CompanyLegalForm extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_BP_LGL_FRM";
 	public static final String SEQUENCE_NAME = "MD_BP_LGL_FRM_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "CompanyLegalForm.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "CompanyLegalForm.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "CompanyLegalForm.findByName";
-	
+
 	/**
 	 * Named query find by unique key: Name using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_NAME_PRIMITIVE = "CompanyLegalForm.findByName_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Country.class)
-	@JoinColumn(name="COUNTRY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Country.class)
+	@JoinColumn(name = "COUNTRY_ID", referencedColumnName = "ID")
 	private Country country;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Country getCountry() {
 		return this.country;
 	}
-	
+
 	public void setCountry(Country country) {
-		if (country != null ) {
+		if (country != null) {
 			this.__validate_client_context__(country.getClientId());
 		}
 		this.country = country;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

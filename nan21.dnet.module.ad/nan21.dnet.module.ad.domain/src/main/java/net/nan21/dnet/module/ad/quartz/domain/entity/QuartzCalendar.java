@@ -22,73 +22,70 @@ import org.eclipse.persistence.annotations.ReadOnly;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-})
+@NamedQueries({})
 @Entity
-@Table(
-	name=QuartzCalendar.TABLE_NAME
-)
+@Table(name = QuartzCalendar.TABLE_NAME)
 @ReadOnly
-@Cache(type=CacheType.NONE)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class QuartzCalendar   {
-	
+public class QuartzCalendar {
+
 	public static final String TABLE_NAME = "XT_QRTZ_CALENDARS";
 	public static final String SEQUENCE_NAME = "XT_QRTZ_CALENDARS_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
-	@Column(name="SCHED_NAME", nullable=false, length=255)
+
+	@Column(name = "SCHED_NAME", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String schedulerName;
-	
-	@Column(name="CALENDAR_NAME", nullable=false, length=255)
+
+	@Column(name = "CALENDAR_NAME", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String calendarName;
-	
-	@Column(name="CALENDAR", nullable=false)
+
+	@Column(name = "CALENDAR", nullable = false)
 	@NotNull
 	@Lob
 	private byte[] calendar;
-	
+
 	public String getSchedulerName() {
 		return this.schedulerName;
 	}
-	
+
 	public void setSchedulerName(String schedulerName) {
 		this.schedulerName = schedulerName;
 	}
-	
+
 	public String getCalendarName() {
 		return this.calendarName;
 	}
-	
+
 	public void setCalendarName(String calendarName) {
 		this.calendarName = calendarName;
 	}
-	
+
 	public byte[] getCalendar() {
 		return this.calendar;
 	}
-	
+
 	public void setCalendar(byte[] calendar) {
 		this.calendar = calendar;
 	}
-	
+
 	@Transient
 	public Long getVersion() {
-		return 1L; 
+		return 1L;
 	}
-	
+
 	public void setVersion(Long version) {
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

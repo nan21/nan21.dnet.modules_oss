@@ -13,37 +13,48 @@ import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeEducation;
 import net.nan21.dnet.module.hr.employee.ds.model.EmployeeEducationDs;
 
-public class EmployeeEducationDsConv extends AbstractDsConverter<EmployeeEducationDs, EmployeeEducation> 
-		implements IDsConverter<EmployeeEducationDs, EmployeeEducation> {
-    
-    @Override
-    protected void modelToEntityReferences(EmployeeEducationDs ds, EmployeeEducation e, boolean isInsert) throws Exception {
-    	if( ds.getEmployeeId() != null  ) {
-    		if (e.getEmployee() == null || !e.getEmployee().getId().equals(ds.getEmployeeId()) ) {
-    			e.setEmployee( (Employee) this.em.find(Employee.class, ds.getEmployeeId() ) );
-    		}
-    	}
-    	if( ds.getTypeId() != null  ) {
-    		if (e.getType() == null || !e.getType().getId().equals(ds.getTypeId()) ) {
-    			e.setType( (EducationType) this.em.find(EducationType.class, ds.getTypeId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_type_EducationType(ds, e);
-    	}
-    }
-    
-    protected void lookup_type_EducationType(EmployeeEducationDs ds, EmployeeEducation e ) throws Exception {
-    	if (ds.getType() != null && !ds.getType().equals("") ) {
-    		EducationType x = null;
-    		try { 
-    			x = ((IEducationTypeService)findEntityService(EducationType.class)).findByName( ds.getType() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `EducationType` reference: `type` = " + ds.getType() + "" );
-    		}
-    		e.setType(x); 
-    	} else {
-    		e.setType(null);
-    	}
-    }
+public class EmployeeEducationDsConv
+		extends
+			AbstractDsConverter<EmployeeEducationDs, EmployeeEducation>
+		implements
+			IDsConverter<EmployeeEducationDs, EmployeeEducation> {
+
+	@Override
+	protected void modelToEntityReferences(EmployeeEducationDs ds,
+			EmployeeEducation e, boolean isInsert) throws Exception {
+		if (ds.getEmployeeId() != null) {
+			if (e.getEmployee() == null
+					|| !e.getEmployee().getId().equals(ds.getEmployeeId())) {
+				e.setEmployee((Employee) this.em.find(Employee.class,
+						ds.getEmployeeId()));
+			}
+		}
+		if (ds.getTypeId() != null) {
+			if (e.getType() == null
+					|| !e.getType().getId().equals(ds.getTypeId())) {
+				e.setType((EducationType) this.em.find(EducationType.class,
+						ds.getTypeId()));
+			}
+		} else {
+			this.lookup_type_EducationType(ds, e);
+		}
+	}
+
+	protected void lookup_type_EducationType(EmployeeEducationDs ds,
+			EmployeeEducation e) throws Exception {
+		if (ds.getType() != null && !ds.getType().equals("")) {
+			EducationType x = null;
+			try {
+				x = ((IEducationTypeService) findEntityService(EducationType.class))
+						.findByName(ds.getType());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `EducationType` reference: `type` = "
+								+ ds.getType() + "");
+			}
+			e.setType(x);
+		} else {
+			e.setType(null);
+		}
+	}
 }

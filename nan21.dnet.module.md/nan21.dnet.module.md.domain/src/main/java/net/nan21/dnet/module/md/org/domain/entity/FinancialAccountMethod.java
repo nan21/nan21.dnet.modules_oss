@@ -29,144 +29,121 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=FinancialAccountMethod.NQ_FIND_BY_ID,
-		query="SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccountMethod.NQ_FIND_BY_IDS,
-		query="SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccountMethod.NQ_FIND_BY_ACCOUNT_MTD,
-		query="SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.financialAccount = :pFinancialAccount and e.payMethod = :pPayMethod",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=FinancialAccountMethod.NQ_FIND_BY_ACCOUNT_MTD_PRIMITIVE,
-		query="SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.financialAccount.id = :pFinancialAccountId and e.payMethod.id = :pPayMethodId",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = FinancialAccountMethod.NQ_FIND_BY_ID, query = "SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccountMethod.NQ_FIND_BY_IDS, query = "SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccountMethod.NQ_FIND_BY_ACCOUNT_MTD, query = "SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.financialAccount = :pFinancialAccount and e.payMethod = :pPayMethod", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = FinancialAccountMethod.NQ_FIND_BY_ACCOUNT_MTD_PRIMITIVE, query = "SELECT e FROM FinancialAccountMethod e WHERE e.clientId = :pClientId and e.financialAccount.id = :pFinancialAccountId and e.payMethod.id = :pPayMethodId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=FinancialAccountMethod.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=FinancialAccountMethod.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","FINANCIALACCOUNT_ID","PAYMETHOD_ID"}
-		)
-	}
-)
+@Table(name = FinancialAccountMethod.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = FinancialAccountMethod.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "FINANCIALACCOUNT_ID",
+		"PAYMETHOD_ID"})})
 @Customizer(DefaultEventHandler.class)
-public class FinancialAccountMethod extends AbstractAuditable  {
-	
+public class FinancialAccountMethod extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "MD_FINACNT_MTD";
 	public static final String SEQUENCE_NAME = "MD_FINACNT_MTD_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "FinancialAccountMethod.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "FinancialAccountMethod.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Account_mtd.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT_MTD = "FinancialAccountMethod.findByAccount_mtd";
-	
+
 	/**
 	 * Named query find by unique key: Account_mtd using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_ACCOUNT_MTD_PRIMITIVE = "FinancialAccountMethod.findByAccount_mtd_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ALLOWPAYIN", nullable=false)
+
+	@Column(name = "ALLOWPAYIN", nullable = false)
 	@NotNull
 	private Boolean allowPayIn;
-	
-	@Column(name="ALLOWPAYOUT", nullable=false)
+
+	@Column(name = "ALLOWPAYOUT", nullable = false)
 	@NotNull
 	private Boolean allowPayOut;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=FinancialAccount.class)
-	@JoinColumn(name="FINANCIALACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = FinancialAccount.class)
+	@JoinColumn(name = "FINANCIALACCOUNT_ID", referencedColumnName = "ID")
 	private FinancialAccount financialAccount;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PaymentMethod.class)
-	@JoinColumn(name="PAYMETHOD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PaymentMethod.class)
+	@JoinColumn(name = "PAYMETHOD_ID", referencedColumnName = "ID")
 	private PaymentMethod payMethod;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Boolean getAllowPayIn() {
 		return this.allowPayIn;
 	}
-	
+
 	public void setAllowPayIn(Boolean allowPayIn) {
 		this.allowPayIn = allowPayIn;
 	}
-	
+
 	public Boolean getAllowPayOut() {
 		return this.allowPayOut;
 	}
-	
+
 	public void setAllowPayOut(Boolean allowPayOut) {
 		this.allowPayOut = allowPayOut;
 	}
-	
+
 	public FinancialAccount getFinancialAccount() {
 		return this.financialAccount;
 	}
-	
+
 	public void setFinancialAccount(FinancialAccount financialAccount) {
-		if (financialAccount != null ) {
+		if (financialAccount != null) {
 			this.__validate_client_context__(financialAccount.getClientId());
 		}
 		this.financialAccount = financialAccount;
 	}
-	
+
 	public PaymentMethod getPayMethod() {
 		return this.payMethod;
 	}
-	
+
 	public void setPayMethod(PaymentMethod payMethod) {
-		if (payMethod != null ) {
+		if (payMethod != null) {
 			this.__validate_client_context__(payMethod.getClientId());
 		}
 		this.payMethod = payMethod;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getAllowPayIn() == null ) {
-			event.updateAttributeWithObject("allowPayIn",false);
+
+		if (this.getAllowPayIn() == null) {
+			event.updateAttributeWithObject("allowPayIn", false);
 		}
-		if (this.getAllowPayOut() == null ) {
-			event.updateAttributeWithObject("allowPayOut",false);
+		if (this.getAllowPayOut() == null) {
+			event.updateAttributeWithObject("allowPayOut", false);
 		}
 	}
 }

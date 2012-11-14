@@ -13,37 +13,49 @@ import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeLicense;
 import net.nan21.dnet.module.hr.employee.domain.entity.LicenseType;
 import net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDs;
 
-public class EmployeeLicenseDsConv extends AbstractDsConverter<EmployeeLicenseDs, EmployeeLicense> 
-		implements IDsConverter<EmployeeLicenseDs, EmployeeLicense> {
-    
-    @Override
-    protected void modelToEntityReferences(EmployeeLicenseDs ds, EmployeeLicense e, boolean isInsert) throws Exception {
-    	if( ds.getEmployeeId() != null  ) {
-    		if (e.getEmployee() == null || !e.getEmployee().getId().equals(ds.getEmployeeId()) ) {
-    			e.setEmployee( (Employee) this.em.find(Employee.class, ds.getEmployeeId() ) );
-    		}
-    	}
-    	if( ds.getLicenseTypeId() != null  ) {
-    		if (e.getLicenseType() == null || !e.getLicenseType().getId().equals(ds.getLicenseTypeId()) ) {
-    			e.setLicenseType( (LicenseType) this.em.find(LicenseType.class, ds.getLicenseTypeId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_licenseType_LicenseType(ds, e);
-    	}
-    }
-    
-    protected void lookup_licenseType_LicenseType(EmployeeLicenseDs ds, EmployeeLicense e ) throws Exception {
-    	if (ds.getLicenseType() != null && !ds.getLicenseType().equals("") ) {
-    		LicenseType x = null;
-    		try { 
-    			x = ((ILicenseTypeService)findEntityService(LicenseType.class)).findByName( ds.getLicenseType() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `LicenseType` reference: `licenseType` = " + ds.getLicenseType() + "" );
-    		}
-    		e.setLicenseType(x); 
-    	} else {
-    		e.setLicenseType(null);
-    	}
-    }
+public class EmployeeLicenseDsConv
+		extends
+			AbstractDsConverter<EmployeeLicenseDs, EmployeeLicense>
+		implements
+			IDsConverter<EmployeeLicenseDs, EmployeeLicense> {
+
+	@Override
+	protected void modelToEntityReferences(EmployeeLicenseDs ds,
+			EmployeeLicense e, boolean isInsert) throws Exception {
+		if (ds.getEmployeeId() != null) {
+			if (e.getEmployee() == null
+					|| !e.getEmployee().getId().equals(ds.getEmployeeId())) {
+				e.setEmployee((Employee) this.em.find(Employee.class,
+						ds.getEmployeeId()));
+			}
+		}
+		if (ds.getLicenseTypeId() != null) {
+			if (e.getLicenseType() == null
+					|| !e.getLicenseType().getId()
+							.equals(ds.getLicenseTypeId())) {
+				e.setLicenseType((LicenseType) this.em.find(LicenseType.class,
+						ds.getLicenseTypeId()));
+			}
+		} else {
+			this.lookup_licenseType_LicenseType(ds, e);
+		}
+	}
+
+	protected void lookup_licenseType_LicenseType(EmployeeLicenseDs ds,
+			EmployeeLicense e) throws Exception {
+		if (ds.getLicenseType() != null && !ds.getLicenseType().equals("")) {
+			LicenseType x = null;
+			try {
+				x = ((ILicenseTypeService) findEntityService(LicenseType.class))
+						.findByName(ds.getLicenseType());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `LicenseType` reference: `licenseType` = "
+								+ ds.getLicenseType() + "");
+			}
+			e.setLicenseType(x);
+		} else {
+			e.setLicenseType(null);
+		}
+	}
 }

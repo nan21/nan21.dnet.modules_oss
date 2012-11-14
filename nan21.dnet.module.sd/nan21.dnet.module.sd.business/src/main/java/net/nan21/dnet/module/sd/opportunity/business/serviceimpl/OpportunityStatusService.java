@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.sd.opportunity.business.service.IOpportunityStatusService;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStatus;
 
+/**
+ * Repository functionality for {@link OpportunityStatus} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class OpportunityStatusService
+		extends
+			AbstractEntityService<OpportunityStatus>
+		implements
+			IOpportunityStatusService {
 
-public class OpportunityStatusService extends AbstractEntityService<OpportunityStatus>
-		implements IOpportunityStatusService {
- 
 	public OpportunityStatusService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class OpportunityStatusService extends AbstractEntityService<OpportunityS
 	public Class<OpportunityStatus> getEntityClass() {
 		return OpportunityStatus.class;
 	}
-	
-	public OpportunityStatus findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public OpportunityStatus findByName(String name) {
 		return (OpportunityStatus) this.em
-			.createNamedQuery(OpportunityStatus.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(OpportunityStatus.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

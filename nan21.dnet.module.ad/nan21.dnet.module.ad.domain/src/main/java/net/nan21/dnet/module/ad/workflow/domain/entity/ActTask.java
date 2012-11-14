@@ -34,226 +34,215 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ActTask.NQ_FIND_BY_ID,
-		query="SELECT e FROM ActTask e WHERE  e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ActTask.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ActTask e WHERE  e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ActTask.NQ_FIND_BY_ID, query = "SELECT e FROM ActTask e WHERE  e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ActTask.NQ_FIND_BY_IDS, query = "SELECT e FROM ActTask e WHERE  e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ActTask.TABLE_NAME
-)
-@Cache(type=CacheType.NONE)
+@Table(name = ActTask.TABLE_NAME)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActTask  implements IModelWithId {
-	
+public class ActTask implements IModelWithId {
+
 	public static final String TABLE_NAME = "ACT_RU_TASK";
 	public static final String SEQUENCE_NAME = "ACT_RU_TASK_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ActTask.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ActTask.findByIds";
-	
-	@Column(name="ID_", nullable=false, length=64)
+
+	@Column(name = "ID_", nullable = false, length = 64)
 	@NotBlank
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private String id;
-	
-	@Column(name="REV_")
+
+	@Column(name = "REV_")
 	private Integer revision;
-	
-	@Column(name="EXECUTION_ID_", length=64)
+
+	@Column(name = "EXECUTION_ID_", length = 64)
 	private String executionId;
-	
-	@Column(name="PROC_INST_ID_", length=64)
+
+	@Column(name = "PROC_INST_ID_", length = 64)
 	private String processInstanceId;
-	
-	@Column(name="NAME_", nullable=false, length=255)
+
+	@Column(name = "NAME_", nullable = false, length = 255)
 	@NotBlank
 	private String name;
-	
-	@Column(name="DESCRIPTION_", length=4000)
+
+	@Column(name = "DESCRIPTION_", length = 4000)
 	private String description;
-	
-	@Column(name="TASK_DEF_KEY_", length=255)
+
+	@Column(name = "TASK_DEF_KEY_", length = 255)
 	private String taskDefinitionKey;
-	
-	@Column(name="OWNER_", length=32)
+
+	@Column(name = "OWNER_", length = 32)
 	private String owner;
-	
-	@Column(name="ASSIGNEE_", length=32)
+
+	@Column(name = "ASSIGNEE_", length = 32)
 	private String assignee;
-	
-	@Column(name="DELEGATION_", length=255)
+
+	@Column(name = "DELEGATION_", length = 255)
 	private String delegationState;
-	
-	@Column(name="PRIORITY_")
+
+	@Column(name = "PRIORITY_")
 	private Integer priority;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="CREATE_TIME_" )
+	@Column(name = "CREATE_TIME_")
 	private Date createdAt;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="DUE_DATE_" )
+	@Column(name = "DUE_DATE_")
 	private Date dueDate;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ActProcessDefinition.class)
-	@JoinColumn(name="PROC_DEF_ID_", referencedColumnName="ID_")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ActProcessDefinition.class)
+	@JoinColumn(name = "PROC_DEF_ID_", referencedColumnName = "ID_")
 	private ActProcessDefinition processDefinition;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ActTask.class)
-	@JoinColumn(name="PARENT_TASK_ID_", referencedColumnName="ID_")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ActTask.class)
+	@JoinColumn(name = "PARENT_TASK_ID_", referencedColumnName = "ID_")
 	private ActTask parent;
-	
+
 	public String getId() {
 		return this.id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public Integer getRevision() {
 		return this.revision;
 	}
-	
+
 	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
-	
+
 	public String getExecutionId() {
 		return this.executionId;
 	}
-	
+
 	public void setExecutionId(String executionId) {
 		this.executionId = executionId;
 	}
-	
+
 	public String getProcessInstanceId() {
 		return this.processInstanceId;
 	}
-	
+
 	public void setProcessInstanceId(String processInstanceId) {
 		this.processInstanceId = processInstanceId;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getDescription() {
 		return this.description;
 	}
-	
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public String getTaskDefinitionKey() {
 		return this.taskDefinitionKey;
 	}
-	
+
 	public void setTaskDefinitionKey(String taskDefinitionKey) {
 		this.taskDefinitionKey = taskDefinitionKey;
 	}
-	
+
 	public String getOwner() {
 		return this.owner;
 	}
-	
+
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
-	
+
 	public String getAssignee() {
 		return this.assignee;
 	}
-	
+
 	public void setAssignee(String assignee) {
 		this.assignee = assignee;
 	}
-	
+
 	public String getDelegationState() {
 		return this.delegationState;
 	}
-	
+
 	public void setDelegationState(String delegationState) {
 		this.delegationState = delegationState;
 	}
-	
+
 	public Integer getPriority() {
 		return this.priority;
 	}
-	
+
 	public void setPriority(Integer priority) {
 		this.priority = priority;
 	}
-	
+
 	public Date getCreatedAt() {
 		return this.createdAt;
 	}
-	
+
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	
+
 	public Date getDueDate() {
 		return this.dueDate;
 	}
-	
+
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-	
+
 	@Transient
 	public Long getVersion() {
-		return 1L; 
+		return 1L;
 	}
-	
+
 	public void setVersion(Long version) {
 	}
-	
+
 	public ActProcessDefinition getProcessDefinition() {
 		return this.processDefinition;
 	}
-	
+
 	public void setProcessDefinition(ActProcessDefinition processDefinition) {
 		this.processDefinition = processDefinition;
 	}
-	
+
 	public ActTask getParent() {
 		return this.parent;
 	}
-	
+
 	public void setParent(ActTask parent) {
 		this.parent = parent;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		event.updateAttributeWithObject("createdAt", new Date());
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

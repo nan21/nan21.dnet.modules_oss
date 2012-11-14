@@ -9,8 +9,16 @@ package net.nan21.dnet.module.hr.time.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory;
 
-public interface IAbsenceCategoryService extends IEntityService<AbsenceCategory> {
-	
+/**
+ * Interface to expose business functions specific for {@link AbsenceCategory} domain
+ * entity.
+ */
+public interface IAbsenceCategoryService
+		extends
+			IEntityService<AbsenceCategory> {
+
+	/**
+	 * Find by unique key
+	 */
 	public AbsenceCategory findByName(String name);
-	
 }

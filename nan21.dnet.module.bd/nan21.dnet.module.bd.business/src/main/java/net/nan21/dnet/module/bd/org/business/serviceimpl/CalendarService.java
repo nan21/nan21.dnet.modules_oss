@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.business.service.ICalendarService;
 import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 
-
+/**
+ * Repository functionality for {@link Calendar} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class CalendarService extends AbstractEntityService<Calendar>
-		implements ICalendarService {
- 
+		implements
+			ICalendarService {
+
 	public CalendarService() {
 		super();
 	}
@@ -29,12 +34,13 @@ public class CalendarService extends AbstractEntityService<Calendar>
 	public Class<Calendar> getEntityClass() {
 		return Calendar.class;
 	}
-	
-	public Calendar findByName(String name) {		 
-		return (Calendar) this.em
-			.createNamedQuery(Calendar.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Calendar findByName(String name) {
+		return (Calendar) this.em.createNamedQuery(Calendar.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

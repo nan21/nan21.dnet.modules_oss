@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysTimer_UI", {
 		this._getBuilder_()
 			.addDc("timer", new net.nan21.dnet.module.ad.system.dc.SysTimer({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -26,7 +27,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysTimer_UI", {
 			})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -35,6 +36,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysTimer_UI", {
 			.addChildrenTo("canvas1", ["timerFilter", "timerList", "timerEdit"], ["north", "center", "east"])
 			.addToolbarTo("canvas1", "tlbTimerList")
 			.addToolbarTo("timerEdit", "tlbTimerEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -45,6 +47,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysTimer_UI", {
 			.beginToolbar("tlbTimerEdit", {dc: "timer"}).addSave().addNew().addCopy().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Timer"})
 			.end()
+			;
 	}
 
 });

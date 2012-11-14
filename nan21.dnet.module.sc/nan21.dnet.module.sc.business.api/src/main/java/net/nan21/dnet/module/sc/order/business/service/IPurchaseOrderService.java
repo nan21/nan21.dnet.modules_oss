@@ -19,46 +19,110 @@ import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem;
 
+/**
+ * Interface to expose business functions specific for {@link PurchaseOrder} domain
+ * entity.
+ */
 public interface IPurchaseOrderService extends IEntityService<PurchaseOrder> {
-	
+
+	/**
+	 * Find by reference: docType
+	 */
 	public List<PurchaseOrder> findByDocType(TxDocType docType);
-	
+
+	/**
+	 * Find by ID of reference: docType.id
+	 */
 	public List<PurchaseOrder> findByDocTypeId(Long docTypeId);
-	
+
+	/**
+	 * Find by reference: supplier
+	 */
 	public List<PurchaseOrder> findBySupplier(BusinessPartner supplier);
-	
+
+	/**
+	 * Find by ID of reference: supplier.id
+	 */
 	public List<PurchaseOrder> findBySupplierId(Long supplierId);
-	
+
+	/**
+	 * Find by reference: customer
+	 */
 	public List<PurchaseOrder> findByCustomer(Organization customer);
-	
+
+	/**
+	 * Find by ID of reference: customer.id
+	 */
 	public List<PurchaseOrder> findByCustomerId(Long customerId);
-	
+
+	/**
+	 * Find by reference: priceList
+	 */
 	public List<PurchaseOrder> findByPriceList(PriceList priceList);
-	
+
+	/**
+	 * Find by ID of reference: priceList.id
+	 */
 	public List<PurchaseOrder> findByPriceListId(Long priceListId);
-	
+
+	/**
+	 * Find by reference: currency
+	 */
 	public List<PurchaseOrder> findByCurrency(Currency currency);
-	
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
 	public List<PurchaseOrder> findByCurrencyId(Long currencyId);
-	
+
+	/**
+	 * Find by reference: paymentMethod
+	 */
 	public List<PurchaseOrder> findByPaymentMethod(PaymentMethod paymentMethod);
-	
+
+	/**
+	 * Find by ID of reference: paymentMethod.id
+	 */
 	public List<PurchaseOrder> findByPaymentMethodId(Long paymentMethodId);
-	
+
+	/**
+	 * Find by reference: paymentTerm
+	 */
 	public List<PurchaseOrder> findByPaymentTerm(PaymentTerm paymentTerm);
-	
+
+	/**
+	 * Find by ID of reference: paymentTerm.id
+	 */
 	public List<PurchaseOrder> findByPaymentTermId(Long paymentTermId);
-	
+
+	/**
+	 * Find by reference: inventory
+	 */
 	public List<PurchaseOrder> findByInventory(Organization inventory);
-	
+
+	/**
+	 * Find by ID of reference: inventory.id
+	 */
 	public List<PurchaseOrder> findByInventoryId(Long inventoryId);
-	
-	public List<PurchaseOrder> findByDeliveryMethod(DeliveryMethod deliveryMethod);
-	
+
+	/**
+	 * Find by reference: deliveryMethod
+	 */
+	public List<PurchaseOrder> findByDeliveryMethod(
+			DeliveryMethod deliveryMethod);
+
+	/**
+	 * Find by ID of reference: deliveryMethod.id
+	 */
 	public List<PurchaseOrder> findByDeliveryMethodId(Long deliveryMethodId);
-	
+
+	/**
+	 * Find by reference: lines
+	 */
 	public List<PurchaseOrder> findByLines(PurchaseOrderItem lines);
-	
+
+	/**
+	 * Find by ID of reference: lines.id
+	 */
 	public List<PurchaseOrder> findByLinesId(Long linesId);
-	
 }

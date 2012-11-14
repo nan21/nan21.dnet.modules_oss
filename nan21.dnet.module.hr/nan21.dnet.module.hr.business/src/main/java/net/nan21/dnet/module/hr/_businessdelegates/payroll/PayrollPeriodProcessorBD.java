@@ -10,6 +10,7 @@ import javax.script.ScriptEngineManager;
 
 import org.eclipse.persistence.config.QueryHints;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementFormula;
@@ -35,7 +36,7 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 	 * @param period
 	 * @throws Exception
 	 */
-	public void close(PayrollPeriod period) throws Exception {
+	public void close(PayrollPeriod period) throws BusinessException {
 
 		period.setActive(false);
 		period.setClosed(true);
@@ -48,13 +49,13 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 	 * @param period
 	 * @throws Exception
 	 */
-	public void clear(PayrollPeriod period) throws Exception {
+	public void clear(PayrollPeriod period) throws BusinessException {
 		String eql = "delete from " + PayrollElementValue.class.getSimpleName()
 				+ " e where e.clientId = :clientId "
 				+ "   and e.period.id = :periodId ";
-		this.getEntityManager().createQuery(eql).setParameter("clientId",
-				Session.user.get().getClientId()).setParameter("periodId",
-				period.getId()).executeUpdate();
+		this.getEntityManager().createQuery(eql)
+				.setParameter("clientId", Session.user.get().getClientId())
+				.setParameter("periodId", period.getId()).executeUpdate();
 		period.setProcessed(false);
 		this.getEntityManager().merge(period);
 	}
@@ -65,7 +66,7 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 	 * @param period
 	 * @throws Exception
 	 */
-	public void open(PayrollPeriod period) throws Exception {
+	public void open(PayrollPeriod period) throws BusinessException {
 
 		this.emplService = (IEmployeeService) this
 				.findEntityService(Employee.class);
@@ -78,11 +79,12 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 				+ " and ( e.validTo is null or e.validTo>= :effectiveDate)";
 
 		List<EmployeeAssignment> assignments = this.emplService
-				.getEntityManager().createQuery(eqlEmpl,
-						EmployeeAssignment.class).setParameter("clientId",
-						Session.user.get().getClientId()).setParameter(
-						"payrollId", period.getPayroll().getId()).setParameter(
-						"effectiveDate", period.getStartDate()).getResultList();
+				.getEntityManager()
+				.createQuery(eqlEmpl, EmployeeAssignment.class)
+				.setParameter("clientId", Session.user.get().getClientId())
+				.setParameter("payrollId", period.getPayroll().getId())
+				.setParameter("effectiveDate", period.getStartDate())
+				.getResultList();
 
 		// load elements
 		String eql = "select e from " + PayrollElement.class.getSimpleName()
@@ -90,10 +92,13 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 				+ "  and e.active = true" + " and e.calculation = 'manual' "
 				+ " and e.balance = false " + " and e.engine.id = :engineId ";
 
-		this.elements = this.emplService.getEntityManager().createQuery(eql,
-				PayrollElement.class).setParameter("engineId",
-				period.getPayroll().getEngine().getId()).setParameter(
-				"clientId", Session.user.get().getClientId()).getResultList();
+		this.elements = this.emplService
+				.getEntityManager()
+				.createQuery(eql, PayrollElement.class)
+				.setParameter("engineId",
+						period.getPayroll().getEngine().getId())
+				.setParameter("clientId", Session.user.get().getClientId())
+				.getResultList();
 
 		for (EmployeeAssignment asgn : assignments) {
 			for (PayrollElement element : elements) {
@@ -115,7 +120,7 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 	 * @param period
 	 * @throws Exception
 	 */
-	public void process(PayrollPeriod period) throws Exception {
+	public void process(PayrollPeriod period) throws BusinessException {
 		this.emplService = (IEmployeeService) this
 				.findEntityService(Employee.class);
 
@@ -127,13 +132,13 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 				+ " and ( e.validTo is null or e.validTo>= :effectiveDate)";
 
 		List<EmployeeAssignment> assignments = this.emplService
-				.getEntityManager().createQuery(eqlEmpl,
-						EmployeeAssignment.class).setParameter("clientId",
-						Session.user.get().getClientId()).setParameter(
-						"payrollId", period.getPayroll().getId()).setParameter(
-						"effectiveDate", period.getStartDate()).setHint(
-						QueryHints.FETCH, "e.employee").setHint(
-						QueryHints.LEFT_FETCH, "e.employee.contacts")
+				.getEntityManager()
+				.createQuery(eqlEmpl, EmployeeAssignment.class)
+				.setParameter("clientId", Session.user.get().getClientId())
+				.setParameter("payrollId", period.getPayroll().getId())
+				.setParameter("effectiveDate", period.getStartDate())
+				.setHint(QueryHints.FETCH, "e.employee")
+				.setHint(QueryHints.LEFT_FETCH, "e.employee.contacts")
 				.getResultList();
 
 		// load elements
@@ -143,10 +148,13 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 				+ "  and e.balance = false and e.engine.id = :engineId "
 				+ " order by e.sequenceNo ";
 
-		this.elements = this.emplService.getEntityManager().createQuery(eql,
-				PayrollElement.class).setParameter("engineId",
-				period.getPayroll().getEngine().getId()).setParameter(
-				"clientId", Session.user.get().getClientId()).getResultList();
+		this.elements = this.emplService
+				.getEntityManager()
+				.createQuery(eql, PayrollElement.class)
+				.setParameter("engineId",
+						period.getPayroll().getEngine().getId())
+				.setParameter("clientId", Session.user.get().getClientId())
+				.getResultList();
 
 		// load valid formulas
 		String eqlf = "select e from "
@@ -157,12 +165,13 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 				+ " and (e.validTo is null or e.validTo>= :eventDate)"
 				+ " and e.element.engine.id = :engineId ";
 
-		List<ElementFormula> result = this.emplService.getEntityManager()
-				.createQuery(eqlf, ElementFormula.class).setParameter(
-						"clientId", Session.user.get().getClientId())
+		List<ElementFormula> result = this.emplService
+				.getEntityManager()
+				.createQuery(eqlf, ElementFormula.class)
+				.setParameter("clientId", Session.user.get().getClientId())
 				.setParameter("engineId",
-						period.getPayroll().getEngine().getId()).setParameter(
-						"eventDate", new Date()).getResultList();
+						period.getPayroll().getEngine().getId())
+				.setParameter("eventDate", new Date()).getResultList();
 
 		// keep the formulas in a Map for later use
 		this.formulas = new HashMap<String, ElementFormula>();
@@ -185,9 +194,10 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 				+ "  and e.sourceElement.id = ev.element.id "
 				+ "  and e.balance = true " + " and e.balanceFunction = 'sum'"
 				+ " group by e, ev.org ";
-		//				 
-		List<Object[]> t1res = this.emplService.getEntityManager().createQuery(
-				t1).setParameter("periodId", period.getId()).getResultList();
+		//
+		List<Object[]> t1res = this.emplService.getEntityManager()
+				.createQuery(t1).setParameter("periodId", period.getId())
+				.getResultList();
 		for (Object[] row : t1res) {
 			PayrollElementValue ev = new PayrollElementValue();
 			ev.setPeriod(period);
@@ -208,8 +218,8 @@ public class PayrollPeriodProcessorBD extends AbstractBusinessDelegate {
 	 * @param employee
 	 * @throws Exception
 	 */
-	protected void processPayrollPeriod(PayrollPeriod period, EmployeeAssignment assignment)
-			throws Exception {
+	protected void processPayrollPeriod(PayrollPeriod period,
+			EmployeeAssignment assignment) throws BusinessException {
 
 		Map<String, PayrollElementValue> elemValMap = new HashMap<String, PayrollElementValue>();
 		ScriptEngine engine = this.getScriptEngine();

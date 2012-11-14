@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.Account_UI", {
 		this._getBuilder_()
 			.addDc("account", new net.nan21.dnet.module.md.acc.dc.Account({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -26,7 +27,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.Account_UI", {
 			.addDcFormView("account", {name:"accountEdit", xtype:"md_acc_dc_Account$Edit"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -34,6 +35,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.Account_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["accountFilter", "accountEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbSchemaList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -41,6 +43,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.Account_UI", {
 			.beginToolbar("tlbSchemaList", {dc: "account"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Accounts chart"})
 			.end()
+			;
 	}
 
 });

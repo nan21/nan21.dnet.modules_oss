@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 
-@Ds(entity=PaymentTerm.class,jpqlWhere=" e.active = true ", sort={@SortField(field=PaymentTermLovDs.fNAME)})
+@Ds(entity = PaymentTerm.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PaymentTermLovDs.fNAME)})
 public class PaymentTermLovDs extends AbstractTypeLov<PaymentTerm> {
-
 
 	public PaymentTermLovDs() {
 		super();
 	}
 
- 	public PaymentTermLovDs(PaymentTerm e) {
+	public PaymentTermLovDs(PaymentTerm e) {
 		super(e);
 	}
 }

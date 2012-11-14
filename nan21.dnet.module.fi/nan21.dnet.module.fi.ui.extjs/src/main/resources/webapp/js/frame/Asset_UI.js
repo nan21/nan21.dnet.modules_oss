@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Asset_UI", {
 			.linkDc("acct", "asset",{fields:[
 				{childField:"assetId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -42,7 +43,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Asset_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -55,6 +56,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Asset_UI", {
 			.addToolbarTo("canvas2", "tlbAssetEdit")
 			.addToolbarTo("amortEditList", "tlbAmortEditList")
 			.addToolbarTo("acctEditList", "tlbAcctList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -71,6 +73,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Asset_UI", {
 			.beginToolbar("tlbAcctList", {dc: "acct"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Accounting"})
 			.end()
+			;
 	}
 
 	,onBtnCreateAmortization: function() {

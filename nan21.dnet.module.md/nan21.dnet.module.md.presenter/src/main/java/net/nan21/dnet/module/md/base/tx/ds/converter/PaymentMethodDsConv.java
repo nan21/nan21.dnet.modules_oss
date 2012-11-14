@@ -12,32 +12,41 @@ import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 import net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs;
 
-public class PaymentMethodDsConv extends AbstractDsConverter<PaymentMethodDs, PaymentMethod> 
-		implements IDsConverter<PaymentMethodDs, PaymentMethod> {
-    
-    @Override
-    protected void modelToEntityReferences(PaymentMethodDs ds, PaymentMethod e, boolean isInsert) throws Exception {
-    	if( ds.getDocTypeId() != null  ) {
-    		if (e.getDocType() == null || !e.getDocType().getId().equals(ds.getDocTypeId()) ) {
-    			e.setDocType( (TxDocType) this.em.find(TxDocType.class, ds.getDocTypeId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_docType_TxDocType(ds, e);
-    	}
-    }
-    
-    protected void lookup_docType_TxDocType(PaymentMethodDs ds, PaymentMethod e ) throws Exception {
-    	if (ds.getDocType() != null && !ds.getDocType().equals("") ) {
-    		TxDocType x = null;
-    		try { 
-    			x = ((ITxDocTypeService)findEntityService(TxDocType.class)).findByName( ds.getDocType() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `TxDocType` reference: `docType` = " + ds.getDocType() + "" );
-    		}
-    		e.setDocType(x); 
-    	} else {
-    		e.setDocType(null);
-    	}
-    }
+public class PaymentMethodDsConv
+		extends
+			AbstractDsConverter<PaymentMethodDs, PaymentMethod>
+		implements
+			IDsConverter<PaymentMethodDs, PaymentMethod> {
+
+	@Override
+	protected void modelToEntityReferences(PaymentMethodDs ds, PaymentMethod e,
+			boolean isInsert) throws Exception {
+		if (ds.getDocTypeId() != null) {
+			if (e.getDocType() == null
+					|| !e.getDocType().getId().equals(ds.getDocTypeId())) {
+				e.setDocType((TxDocType) this.em.find(TxDocType.class,
+						ds.getDocTypeId()));
+			}
+		} else {
+			this.lookup_docType_TxDocType(ds, e);
+		}
+	}
+
+	protected void lookup_docType_TxDocType(PaymentMethodDs ds, PaymentMethod e)
+			throws Exception {
+		if (ds.getDocType() != null && !ds.getDocType().equals("")) {
+			TxDocType x = null;
+			try {
+				x = ((ITxDocTypeService) findEntityService(TxDocType.class))
+						.findByName(ds.getDocType());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `TxDocType` reference: `docType` = "
+								+ ds.getDocType() + "");
+			}
+			e.setDocType(x);
+		} else {
+			e.setDocType(null);
+		}
+	}
 }

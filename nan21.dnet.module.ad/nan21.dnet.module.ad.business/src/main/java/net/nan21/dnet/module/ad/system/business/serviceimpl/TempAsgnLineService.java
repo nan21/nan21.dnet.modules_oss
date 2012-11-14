@@ -11,10 +11,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ITempAsgnLineService;
 import net.nan21.dnet.module.ad.system.domain.entity.TempAsgnLine;
 
-
+/**
+ * Repository functionality for {@link TempAsgnLine} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class TempAsgnLineService extends AbstractEntityService<TempAsgnLine>
-		implements ITempAsgnLineService {
- 
+		implements
+			ITempAsgnLineService {
+
 	public TempAsgnLineService() {
 		super();
 	}

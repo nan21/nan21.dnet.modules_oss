@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.base.tx.business.service.IPaymentTermService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 
-
+/**
+ * Repository functionality for {@link PaymentTerm} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class PaymentTermService extends AbstractEntityService<PaymentTerm>
-		implements IPaymentTermService {
- 
+		implements
+			IPaymentTermService {
+
 	public PaymentTermService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class PaymentTermService extends AbstractEntityService<PaymentTerm>
 	public Class<PaymentTerm> getEntityClass() {
 		return PaymentTerm.class;
 	}
-	
-	public PaymentTerm findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public PaymentTerm findByName(String name) {
 		return (PaymentTerm) this.em
-			.createNamedQuery(PaymentTerm.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(PaymentTerm.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

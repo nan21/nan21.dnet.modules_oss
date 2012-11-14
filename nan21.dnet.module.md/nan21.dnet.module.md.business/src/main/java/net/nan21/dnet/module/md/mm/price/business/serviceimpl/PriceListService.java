@@ -13,10 +13,13 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 
+/**
+ * Repository functionality for {@link PriceList} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PriceListService extends AbstractEntityService<PriceList> {
 
-public class PriceListService extends AbstractEntityService<PriceList>
-		{
- 
 	public PriceListService() {
 		super();
 	}
@@ -30,24 +33,32 @@ public class PriceListService extends AbstractEntityService<PriceList>
 	public Class<PriceList> getEntityClass() {
 		return PriceList.class;
 	}
-	
-	public PriceList findByName(String name) {		 
-		return (PriceList) this.em
-			.createNamedQuery(PriceList.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public PriceList findByName(String name) {
+		return (PriceList) this.em.createNamedQuery(PriceList.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: currency
+	 */
 	public List<PriceList> findByCurrency(Currency currency) {
-		return this.findByCurrencyId(currency.getId()); 
+		return this.findByCurrencyId(currency.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
 	public List<PriceList> findByCurrencyId(Long currencyId) {
 		return (List<PriceList>) this.em
-			.createQuery("select e from PriceList e where e.clientId = :pClientId and e.currency.id = :pCurrencyId", PriceList.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCurrencyId", currencyId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PriceList e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
+						PriceList.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCurrencyId", currencyId).getResultList();
 	}
 }

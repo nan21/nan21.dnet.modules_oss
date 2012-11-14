@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementSet_UI", {
 			.linkDc("elem", "set",{fields:[
 				{childField:"elementSetId", parentField:"id"}, {childField:"engineId", parentField:"engineId"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,7 +30,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementSet_UI", {
 			.addDcEditGridView("elem", {name:"elemCtxEditList", height:220, xtype:"bd_elem_dc_ElementSetElement$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -38,6 +39,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementSet_UI", {
 			.addChildrenTo("canvas1", ["setFilter", "setEditList", "elemCtxEditList"], ["north", "center", "south"])
 			.addToolbarTo("canvas1", "tlbSetEditList")
 			.addToolbarTo("elemCtxEditList", "tlbElemCtxEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -48,6 +50,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementSet_UI", {
 			.beginToolbar("tlbElemCtxEditList", {dc: "elem"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Elements"})
 			.end()
+			;
 	}
 
 });

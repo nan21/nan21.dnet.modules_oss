@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat;
 
-@Ds(entity=SysDateFormat.class,jpqlWhere=" e.active = true ", sort={@SortField(field=SysDateFormatLovDs.fNAME)})
+@Ds(entity = SysDateFormat.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysDateFormatLovDs.fNAME)})
 public class SysDateFormatLovDs extends AbstractTypeLov<SysDateFormat> {
-
 
 	public SysDateFormatLovDs() {
 		super();
 	}
 
- 	public SysDateFormatLovDs(SysDateFormat e) {
+	public SysDateFormatLovDs(SysDateFormat e) {
 		super(e);
 	}
 }

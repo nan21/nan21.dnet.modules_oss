@@ -12,22 +12,24 @@ import net.nan21.dnet.module.ad.usr.ds.param.UserDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class UserDsQueryBuilder extends QueryBuilderWithJpql<UserDs,UserDsFilter, UserDsParam> {
-	
+public class UserDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<UserDs, UserDsFilter, UserDsParam> {
+
 	@Override
 	public void setFilter(UserDsFilter filter) {
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getWithRoleId() != null) {
- 			addFilterCondition("  e.id in ( select p.id from  User p, IN (p.roles) c where c.id = :withRoleId )  ");	
- 			addCustomFilterItem("withRoleId",this.params.getWithRoleId());	
- 		}	
- 		if (this.params != null && this.params.getInGroupId() != null) {
- 			addFilterCondition("  e.id in ( select p.id from  User p, IN (p.groups) c where c.id = :inGroupId )  ");	
- 			addCustomFilterItem("inGroupId",this.params.getInGroupId());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getWithRoleId() != null) {
+			addFilterCondition("  e.id in ( select p.id from  User p, IN (p.roles) c where c.id = :withRoleId )  ");
+			addCustomFilterItem("withRoleId", this.params.getWithRoleId());
+		}
+		if (this.params != null && this.params.getInGroupId() != null) {
+			addFilterCondition("  e.id in ( select p.id from  User p, IN (p.groups) c where c.id = :inGroupId )  ");
+			addCustomFilterItem("inGroupId", this.params.getInGroupId());
+		}
+	}
 }

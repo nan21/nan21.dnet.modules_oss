@@ -27,106 +27,95 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=DsReportUsage.NQ_FIND_BY_ID,
-		query="SELECT e FROM DsReportUsage e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=DsReportUsage.NQ_FIND_BY_IDS,
-		query="SELECT e FROM DsReportUsage e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = DsReportUsage.NQ_FIND_BY_ID, query = "SELECT e FROM DsReportUsage e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = DsReportUsage.NQ_FIND_BY_IDS, query = "SELECT e FROM DsReportUsage e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=DsReportUsage.TABLE_NAME
-)
+@Table(name = DsReportUsage.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class DsReportUsage extends AbstractAuditable  {
-	
+public class DsReportUsage extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "AD_DS_RPT_USAGE";
 	public static final String SEQUENCE_NAME = "AD_DS_RPT_USAGE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "DsReportUsage.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "DsReportUsage.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="FRAMENAME", length=255)
+
+	@Column(name = "FRAMENAME", length = 255)
 	private String frameName;
-	
-	@Column(name="TOOLBARKEY", length=400)
+
+	@Column(name = "TOOLBARKEY", length = 400)
 	private String toolbarKey;
-	
-	@Column(name="DCKEY", length=400)
+
+	@Column(name = "DCKEY", length = 400)
 	private String dcKey;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=DsReport.class)
-	@JoinColumn(name="DSREPORT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = DsReport.class)
+	@JoinColumn(name = "DSREPORT_ID", referencedColumnName = "ID")
 	private DsReport dsReport;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getFrameName() {
 		return this.frameName;
 	}
-	
+
 	public void setFrameName(String frameName) {
 		this.frameName = frameName;
 	}
-	
+
 	public String getToolbarKey() {
 		return this.toolbarKey;
 	}
-	
+
 	public void setToolbarKey(String toolbarKey) {
 		this.toolbarKey = toolbarKey;
 	}
-	
+
 	public String getDcKey() {
 		return this.dcKey;
 	}
-	
+
 	public void setDcKey(String dcKey) {
 		this.dcKey = dcKey;
 	}
-	
+
 	public DsReport getDsReport() {
 		return this.dsReport;
 	}
-	
+
 	public void setDsReport(DsReport dsReport) {
-		if (dsReport != null ) {
+		if (dsReport != null) {
 			this.__validate_client_context__(dsReport.getClientId());
 		}
 		this.dsReport = dsReport;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

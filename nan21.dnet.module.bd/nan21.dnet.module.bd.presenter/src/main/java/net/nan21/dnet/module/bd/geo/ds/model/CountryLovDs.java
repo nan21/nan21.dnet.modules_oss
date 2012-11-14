@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 
-@Ds(entity=Country.class,jpqlWhere=" e.active = true ", sort={@SortField(field=CountryLovDs.fCODE)})
+@Ds(entity = Country.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CountryLovDs.fCODE)})
 public class CountryLovDs extends AbstractTypeWithCodeLov<Country> {
-
 
 	public CountryLovDs() {
 		super();
 	}
 
- 	public CountryLovDs(Country e) {
+	public CountryLovDs(Country e) {
 		super(e);
 	}
 }

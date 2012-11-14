@@ -3,6 +3,7 @@ package net.nan21.dnet.module.sd._businessdelegates.order;
 import java.util.Date;
 import java.util.List;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionLine;
@@ -17,14 +18,14 @@ public class SalesOrderToDeliveryBD extends AbstractBusinessDelegate {
 
 	public SalesInventoryTransaction generateDelivery(SalesOrder order,
 			TxDocType deliveryDocType, InvTransactionType delivTxType,
-			Date delivEventDate) throws Exception {
+			Date delivEventDate) throws BusinessException {
 
 		List<SalesInventoryTransaction> deliveries = ((ISalesInventoryTransactionService) this
 				.findEntityService(SalesInventoryTransaction.class))
 				.findBySalesOrderId(order.getId());
 		if (deliveries.size() > 0) {
 			// String invCode = deliveries.get(0).getCode();
-			throw new Exception(
+			throw new BusinessException(
 					"Delivery note already createad for this sales order. ");
 		}
 

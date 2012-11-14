@@ -12,32 +12,41 @@ import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportSort;
 import net.nan21.dnet.module.ad.impex.ds.model.CsvExportSortDs;
 
-public class CsvExportSortDsConv extends AbstractDsConverter<CsvExportSortDs, CsvExportSort> 
-		implements IDsConverter<CsvExportSortDs, CsvExportSort> {
-    
-    @Override
-    protected void modelToEntityReferences(CsvExportSortDs ds, CsvExportSort e, boolean isInsert) throws Exception {
-    	if( ds.getCsvExportId() != null  ) {
-    		if (e.getCsvExport() == null || !e.getCsvExport().getId().equals(ds.getCsvExportId()) ) {
-    			e.setCsvExport( (CsvExport) this.em.find(CsvExport.class, ds.getCsvExportId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_csvExport_CsvExport(ds, e);
-    	}
-    }
-    
-    protected void lookup_csvExport_CsvExport(CsvExportSortDs ds, CsvExportSort e ) throws Exception {
-    	if (ds.getCsvExport() != null && !ds.getCsvExport().equals("") ) {
-    		CsvExport x = null;
-    		try { 
-    			x = ((ICsvExportService)findEntityService(CsvExport.class)).findByName( ds.getCsvExport() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `CsvExport` reference: `csvExport` = " + ds.getCsvExport() + "" );
-    		}
-    		e.setCsvExport(x); 
-    	} else {
-    		e.setCsvExport(null);
-    	}
-    }
+public class CsvExportSortDsConv
+		extends
+			AbstractDsConverter<CsvExportSortDs, CsvExportSort>
+		implements
+			IDsConverter<CsvExportSortDs, CsvExportSort> {
+
+	@Override
+	protected void modelToEntityReferences(CsvExportSortDs ds, CsvExportSort e,
+			boolean isInsert) throws Exception {
+		if (ds.getCsvExportId() != null) {
+			if (e.getCsvExport() == null
+					|| !e.getCsvExport().getId().equals(ds.getCsvExportId())) {
+				e.setCsvExport((CsvExport) this.em.find(CsvExport.class,
+						ds.getCsvExportId()));
+			}
+		} else {
+			this.lookup_csvExport_CsvExport(ds, e);
+		}
+	}
+
+	protected void lookup_csvExport_CsvExport(CsvExportSortDs ds,
+			CsvExportSort e) throws Exception {
+		if (ds.getCsvExport() != null && !ds.getCsvExport().equals("")) {
+			CsvExport x = null;
+			try {
+				x = ((ICsvExportService) findEntityService(CsvExport.class))
+						.findByName(ds.getCsvExport());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `CsvExport` reference: `csvExport` = "
+								+ ds.getCsvExport() + "");
+			}
+			e.setCsvExport(x);
+		} else {
+			e.setCsvExport(null);
+		}
+	}
 }

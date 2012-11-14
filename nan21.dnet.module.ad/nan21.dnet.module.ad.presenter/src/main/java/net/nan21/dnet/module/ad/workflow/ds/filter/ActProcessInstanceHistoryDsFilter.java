@@ -9,224 +9,224 @@ import java.util.Date;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDsFilter;
 
 public class ActProcessInstanceHistoryDsFilter extends AbstractBaseDsFilter {
-	
-	private String  id;
-	
-	private String  processInstanceId;
-	
-	private String  processId;
-	
-	private String  process;
-	
-	private Integer  processVersion;
-	
-	private Integer  processVersion_From;
-	
-	private Integer  processVersion_To;
-	
-	private Long  clientId;
-	
-	private Date  startTime;
-	
-	private Date  startTime_From;
-	
-	private Date  startTime_To;
-	
-	private Date  endTime;
-	
-	private Date  endTime_From;
-	
-	private Date  endTime_To;
-	
-	private Long  duration;
-	
-	private Long  duration_From;
-	
-	private Long  duration_To;
-	
-	private String  durationText;
-	
-	private String  startedBy;
-	
-	private String  startAction;
-	
-	private String  endAction;
-	
-	private String  deleteReason;
-	
+
+	private String id;
+
+	private String processInstanceId;
+
+	private String processId;
+
+	private String process;
+
+	private Integer processVersion;
+
+	private Integer processVersion_From;
+
+	private Integer processVersion_To;
+
+	private Long clientId;
+
+	private Date startTime;
+
+	private Date startTime_From;
+
+	private Date startTime_To;
+
+	private Date endTime;
+
+	private Date endTime_From;
+
+	private Date endTime_To;
+
+	private Long duration;
+
+	private Long duration_From;
+
+	private Long duration_To;
+
+	private String durationText;
+
+	private String startedBy;
+
+	private String startAction;
+
+	private String endAction;
+
+	private String deleteReason;
+
 	public String getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Object id) {
-		this.id = (String)id;
-		
+		this.id = (String) id;
+
 	}
-	
+
 	public String getProcessInstanceId() {
 		return this.processInstanceId;
 	}
-	
+
 	public void setProcessInstanceId(String processInstanceId) {
 		this.processInstanceId = processInstanceId;
 	}
-	
+
 	public String getProcessId() {
 		return this.processId;
 	}
-	
+
 	public void setProcessId(String processId) {
 		this.processId = processId;
 	}
-	
+
 	public String getProcess() {
 		return this.process;
 	}
-	
+
 	public void setProcess(String process) {
 		this.process = process;
 	}
-	
+
 	public Integer getProcessVersion() {
 		return this.processVersion;
 	}
-	
+
 	public Integer getProcessVersion_From() {
 		return this.processVersion_From;
 	}
-	
+
 	public Integer getProcessVersion_To() {
 		return this.processVersion_To;
 	}
-	
+
 	public void setProcessVersion(Integer processVersion) {
 		this.processVersion = processVersion;
 	}
-	
+
 	public void setProcessVersion_From(Integer processVersion_From) {
 		this.processVersion_From = processVersion_From;
 	}
-	
+
 	public void setProcessVersion_To(Integer processVersion_To) {
 		this.processVersion_To = processVersion_To;
 	}
-	
+
 	public Long getClientId() {
 		return this.clientId;
 	}
-	
+
 	public void setClientId(Long clientId) {
 		this.clientId = clientId;
 	}
-	
+
 	public Date getStartTime() {
 		return this.startTime;
 	}
-	
+
 	public Date getStartTime_From() {
 		return this.startTime_From;
 	}
-	
+
 	public Date getStartTime_To() {
 		return this.startTime_To;
 	}
-	
+
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
-	
+
 	public void setStartTime_From(Date startTime_From) {
 		this.startTime_From = startTime_From;
 	}
-	
+
 	public void setStartTime_To(Date startTime_To) {
 		this.startTime_To = startTime_To;
 	}
-	
+
 	public Date getEndTime() {
 		return this.endTime;
 	}
-	
+
 	public Date getEndTime_From() {
 		return this.endTime_From;
 	}
-	
+
 	public Date getEndTime_To() {
 		return this.endTime_To;
 	}
-	
+
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-	
+
 	public void setEndTime_From(Date endTime_From) {
 		this.endTime_From = endTime_From;
 	}
-	
+
 	public void setEndTime_To(Date endTime_To) {
 		this.endTime_To = endTime_To;
 	}
-	
+
 	public Long getDuration() {
 		return this.duration;
 	}
-	
+
 	public Long getDuration_From() {
 		return this.duration_From;
 	}
-	
+
 	public Long getDuration_To() {
 		return this.duration_To;
 	}
-	
+
 	public void setDuration(Long duration) {
 		this.duration = duration;
 	}
-	
+
 	public void setDuration_From(Long duration_From) {
 		this.duration_From = duration_From;
 	}
-	
+
 	public void setDuration_To(Long duration_To) {
 		this.duration_To = duration_To;
 	}
-	
+
 	public String getDurationText() {
 		return this.durationText;
 	}
-	
+
 	public void setDurationText(String durationText) {
 		this.durationText = durationText;
 	}
-	
+
 	public String getStartedBy() {
 		return this.startedBy;
 	}
-	
+
 	public void setStartedBy(String startedBy) {
 		this.startedBy = startedBy;
 	}
-	
+
 	public String getStartAction() {
 		return this.startAction;
 	}
-	
+
 	public void setStartAction(String startAction) {
 		this.startAction = startAction;
 	}
-	
+
 	public String getEndAction() {
 		return this.endAction;
 	}
-	
+
 	public void setEndAction(String endAction) {
 		this.endAction = endAction;
 	}
-	
+
 	public String getDeleteReason() {
 		return this.deleteReason;
 	}
-	
+
 	public void setDeleteReason(String deleteReason) {
 		this.deleteReason = deleteReason;
 	}

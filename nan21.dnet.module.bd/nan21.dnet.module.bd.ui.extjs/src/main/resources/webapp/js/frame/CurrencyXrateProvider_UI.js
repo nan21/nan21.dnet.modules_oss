@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.bd.currency.frame.CurrencyXrateProvider_UI", {
 		this._getBuilder_()
 			.addDc("prvd", new net.nan21.dnet.module.bd.currency.dc.CurrencyXRateProvider({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.bd.currency.frame.CurrencyXrateProvider_UI", {
 			.addDcEditGridView("prvd", {name:"prvdEditList", xtype:"bd_currency_dc_CurrencyXRateProvider$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.bd.currency.frame.CurrencyXrateProvider_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["prvdFilter", "prvdEditList"], ["north", "center"])
 			.addToolbarTo("main", "tlbMain")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.bd.currency.frame.CurrencyXrateProvider_UI", {
 			.beginToolbar("tlbMain", {dc: "prvd"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Exchange rate providers"})
 			.end()
+			;
 	}
 
 });

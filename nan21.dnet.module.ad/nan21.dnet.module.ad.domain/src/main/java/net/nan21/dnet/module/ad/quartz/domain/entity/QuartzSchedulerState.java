@@ -23,83 +23,80 @@ import org.eclipse.persistence.annotations.ReadOnly;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-})
+@NamedQueries({})
 @Entity
-@Table(
-	name=QuartzSchedulerState.TABLE_NAME
-)
+@Table(name = QuartzSchedulerState.TABLE_NAME)
 @ReadOnly
-@Cache(type=CacheType.NONE)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class QuartzSchedulerState   {
-	
+public class QuartzSchedulerState {
+
 	public static final String TABLE_NAME = "XT_QRTZ_SCHEDULER_STATE";
 	public static final String SEQUENCE_NAME = "XT_QRTZ_SCHEDULER_STATE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
-	@Column(name="SCHED_NAME", nullable=false, length=255)
+
+	@Column(name = "SCHED_NAME", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String schedulerName;
-	
-	@Column(name="INSTANCE_NAME", nullable=false, length=255)
+
+	@Column(name = "INSTANCE_NAME", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String instanceName;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="LAST_CHECKIN_TIME" )
+	@Column(name = "LAST_CHECKIN_TIME")
 	private Date lastCheckinTime;
-	
-	@Column(name="CHECKIN_INTERVAL")
+
+	@Column(name = "CHECKIN_INTERVAL")
 	private Integer checkinInterval;
-	
+
 	public String getSchedulerName() {
 		return this.schedulerName;
 	}
-	
+
 	public void setSchedulerName(String schedulerName) {
 		this.schedulerName = schedulerName;
 	}
-	
+
 	public String getInstanceName() {
 		return this.instanceName;
 	}
-	
+
 	public void setInstanceName(String instanceName) {
 		this.instanceName = instanceName;
 	}
-	
+
 	public Date getLastCheckinTime() {
 		return this.lastCheckinTime;
 	}
-	
+
 	public void setLastCheckinTime(Date lastCheckinTime) {
 		this.lastCheckinTime = lastCheckinTime;
 	}
-	
+
 	public Integer getCheckinInterval() {
 		return this.checkinInterval;
 	}
-	
+
 	public void setCheckinInterval(Integer checkinInterval) {
 		this.checkinInterval = checkinInterval;
 	}
-	
+
 	@Transient
 	public Long getVersion() {
-		return 1L; 
+		return 1L;
 	}
-	
+
 	public void setVersion(Long version) {
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

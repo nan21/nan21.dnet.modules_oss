@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDateFormatService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat;
 
-
+/**
+ * Repository functionality for {@link SysDateFormat} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class SysDateFormatService extends AbstractEntityService<SysDateFormat>
-		implements ISysDateFormatService {
- 
+		implements
+			ISysDateFormatService {
+
 	public SysDateFormatService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class SysDateFormatService extends AbstractEntityService<SysDateFormat>
 	public Class<SysDateFormat> getEntityClass() {
 		return SysDateFormat.class;
 	}
-	
-	public SysDateFormat findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysDateFormat findByName(String name) {
 		return (SysDateFormat) this.em
-			.createNamedQuery(SysDateFormat.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(SysDateFormat.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

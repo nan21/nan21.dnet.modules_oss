@@ -28,110 +28,86 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Region.NQ_FIND_BY_ID,
-		query="SELECT e FROM Region e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Region.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Region e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Region.NQ_FIND_BY_CODEANDCOUNTRY,
-		query="SELECT e FROM Region e WHERE e.clientId = :pClientId and e.country = :pCountry and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE,
-		query="SELECT e FROM Region e WHERE e.clientId = :pClientId and e.country.id = :pCountryId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Region.NQ_FIND_BY_ID, query = "SELECT e FROM Region e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Region.NQ_FIND_BY_IDS, query = "SELECT e FROM Region e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Region.NQ_FIND_BY_CODEANDCOUNTRY, query = "SELECT e FROM Region e WHERE e.clientId = :pClientId and e.country = :pCountry and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE, query = "SELECT e FROM Region e WHERE e.clientId = :pClientId and e.country.id = :pCountryId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Region.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Region.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","COUNTRY_ID","CODE"}
-		)
-	}
-)
+@Table(name = Region.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Region.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "COUNTRY_ID", "CODE"})})
 @Customizer(DefaultEventHandler.class)
-public class Region extends AbstractTypeWithCode  {
-	
+public class Region extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "BD_GEO_REGION";
 	public static final String SEQUENCE_NAME = "BD_GEO_REGION_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Region.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Region.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: CodeAndCountry.
 	 */
 	public static final String NQ_FIND_BY_CODEANDCOUNTRY = "Region.findByCodeAndCountry";
-	
+
 	/**
 	 * Named query find by unique key: CodeAndCountry using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE = "Region.findByCodeAndCountry_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ISO", length=32)
+
+	@Column(name = "ISO", length = 32)
 	private String iso;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Country.class)
-	@JoinColumn(name="COUNTRY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Country.class)
+	@JoinColumn(name = "COUNTRY_ID", referencedColumnName = "ID")
 	private Country country;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getIso() {
 		return this.iso;
 	}
-	
+
 	public void setIso(String iso) {
 		this.iso = iso;
 	}
-	
+
 	public Country getCountry() {
 		return this.country;
 	}
-	
+
 	public void setCountry(Country country) {
-		if (country != null ) {
+		if (country != null) {
 			this.__validate_client_context__(country.getClientId());
 		}
 		this.country = country;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

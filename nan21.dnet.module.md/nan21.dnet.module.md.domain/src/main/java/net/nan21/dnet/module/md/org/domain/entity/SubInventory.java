@@ -28,89 +28,69 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=SubInventory.NQ_FIND_BY_ID,
-		query="SELECT e FROM SubInventory e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SubInventory.NQ_FIND_BY_IDS,
-		query="SELECT e FROM SubInventory e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SubInventory.NQ_FIND_BY_NAME,
-		query="SELECT e FROM SubInventory e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = SubInventory.NQ_FIND_BY_ID, query = "SELECT e FROM SubInventory e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SubInventory.NQ_FIND_BY_IDS, query = "SELECT e FROM SubInventory e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SubInventory.NQ_FIND_BY_NAME, query = "SELECT e FROM SubInventory e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=SubInventory.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=SubInventory.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = SubInventory.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SubInventory.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class SubInventory extends AbstractType  {
-	
+public class SubInventory extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_SUBINVT";
 	public static final String SEQUENCE_NAME = "MD_SUBINVT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "SubInventory.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "SubInventory.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "SubInventory.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="INVENTORY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "INVENTORY_ID", referencedColumnName = "ID")
 	private Organization inventory;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Organization getInventory() {
 		return this.inventory;
 	}
-	
+
 	public void setInventory(Organization inventory) {
-		if (inventory != null ) {
+		if (inventory != null) {
 			this.__validate_client_context__(inventory.getClientId());
 		}
 		this.inventory = inventory;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

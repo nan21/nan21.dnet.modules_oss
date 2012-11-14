@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJobCtx_UI", {
 			.linkDc("schedule", "job",{fields:[
 				{childField:"jobCtxId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -35,7 +36,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJobCtx_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"theDetails", width:600, layout:"accordion", activeItem:0})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -46,6 +47,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJobCtx_UI", {
 			.addToolbarTo("canvas1", "tlbJobEditList")
 			.addToolbarTo("paramsEditList", "tlbParamsEditList")
 			.addToolbarTo("scheduleEditList", "tlbScheduleEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -60,6 +62,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJobCtx_UI", {
 			.addDeleteSelected()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Execution schedule"})
 			.end()
+			;
 	}
 
 });

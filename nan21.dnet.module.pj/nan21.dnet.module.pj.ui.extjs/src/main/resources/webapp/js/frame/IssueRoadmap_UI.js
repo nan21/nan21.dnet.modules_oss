@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI", {
 			.linkDc("issueInfo", "issue",{fetchMode:"auto",fields:[
 				{childField:"id", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI", {
 			.addDcFormView("issueInfo", {name:"issueInfoView", title:"Issue Info", xtype:"pj_md_dc_Issue$View"})
 			.addDcFormView("issueInfo", {name:"issueDescView", title:"Issue Description", xtype:"pj_md_dc_Issue$ViewDescription"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -40,6 +41,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI", {
 			.addChildrenTo("detailsTab", ["issueInfoView", "issueDescView"])
 			.addChildrenTo("main", ["issueFilter", "issueList", "detailsTab"], ["north", "center", "south"])
 			.addToolbarTo("main", "tlbIssueList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -47,6 +49,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI", {
 			.beginToolbar("tlbIssueList", {dc: "issue"}).addQuery()
 			.addSeparator().addSeparator().addButtons([this._elems_.get("btnIssueUi") ]).addReports().addSeparator().addSeparator().addTitle({text: "Roadmap"})
 			.end()
+			;
 	}
 
 	,onBtnIssueUi: function() {

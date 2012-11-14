@@ -28,137 +28,126 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ExportMapItem.NQ_FIND_BY_ID,
-		query="SELECT e FROM ExportMapItem e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ExportMapItem.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ExportMapItem e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ExportMapItem.NQ_FIND_BY_ID, query = "SELECT e FROM ExportMapItem e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ExportMapItem.NQ_FIND_BY_IDS, query = "SELECT e FROM ExportMapItem e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ExportMapItem.TABLE_NAME
-)
+@Table(name = ExportMapItem.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class ExportMapItem extends AbstractAuditable  {
-	
+public class ExportMapItem extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "AD_EXP_MAP_ITEM";
 	public static final String SEQUENCE_NAME = "AD_EXP_MAP_ITEM_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ExportMapItem.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ExportMapItem.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="SEQUENCENO", nullable=false)
+
+	@Column(name = "SEQUENCENO", nullable = false)
 	@NotNull
 	private Integer sequenceNo;
-	
-	@Column(name="PATH", length=255)
+
+	@Column(name = "PATH", length = 255)
 	private String path;
-	
-	@Column(name="FILENAME", length=255)
+
+	@Column(name = "FILENAME", length = 255)
 	private String fileName;
-	
-	@Column(name="ACTIVE", nullable=false)
+
+	@Column(name = "ACTIVE", nullable = false)
 	@NotNull
 	private Boolean active;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ExportMap.class)
-	@JoinColumn(name="EXPORTMAP_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ExportMap.class)
+	@JoinColumn(name = "EXPORTMAP_ID", referencedColumnName = "ID")
 	private ExportMap exportMap;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=CsvExport.class)
-	@JoinColumn(name="CSVEXPORT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = CsvExport.class)
+	@JoinColumn(name = "CSVEXPORT_ID", referencedColumnName = "ID")
 	private CsvExport csvExport;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Integer getSequenceNo() {
 		return this.sequenceNo;
 	}
-	
+
 	public void setSequenceNo(Integer sequenceNo) {
 		this.sequenceNo = sequenceNo;
 	}
-	
+
 	public String getPath() {
 		return this.path;
 	}
-	
+
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
+
 	public String getFileName() {
 		return this.fileName;
 	}
-	
+
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	
+
 	public Boolean getActive() {
 		return this.active;
 	}
-	
+
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	
+
 	public ExportMap getExportMap() {
 		return this.exportMap;
 	}
-	
+
 	public void setExportMap(ExportMap exportMap) {
-		if (exportMap != null ) {
+		if (exportMap != null) {
 			this.__validate_client_context__(exportMap.getClientId());
 		}
 		this.exportMap = exportMap;
 	}
-	
+
 	public CsvExport getCsvExport() {
 		return this.csvExport;
 	}
-	
+
 	public void setCsvExport(CsvExport csvExport) {
-		if (csvExport != null ) {
+		if (csvExport != null) {
 			this.__validate_client_context__(csvExport.getClientId());
 		}
 		this.csvExport = csvExport;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getActive() == null ) {
-			event.updateAttributeWithObject("active",false);
+
+		if (this.getActive() == null) {
+			event.updateAttributeWithObject("active", false);
 		}
 	}
 }

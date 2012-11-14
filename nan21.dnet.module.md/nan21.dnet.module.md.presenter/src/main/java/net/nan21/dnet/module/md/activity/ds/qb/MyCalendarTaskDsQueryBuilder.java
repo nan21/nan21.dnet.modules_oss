@@ -12,8 +12,10 @@ import net.nan21.dnet.module.md.activity.ds.model.MyCalendarTaskDs;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class MyCalendarTaskDsQueryBuilder extends QueryBuilderWithJpql<MyCalendarTaskDs,MyCalendarTaskDsFilter, EmptyParam> {
-	
+public class MyCalendarTaskDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<MyCalendarTaskDs, MyCalendarTaskDsFilter, EmptyParam> {
+
 	@Override
 	public void setFilter(MyCalendarTaskDsFilter filter) {
 		filter.setCreatedBy(Session.user.get().getUsername());

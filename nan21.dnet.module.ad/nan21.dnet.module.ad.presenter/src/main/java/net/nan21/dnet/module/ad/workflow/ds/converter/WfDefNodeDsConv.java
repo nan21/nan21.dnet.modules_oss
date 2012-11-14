@@ -11,15 +11,21 @@ import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode;
 import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefProcess;
 import net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeDs;
 
-public class WfDefNodeDsConv extends AbstractDsConverter<WfDefNodeDs, WfDefNode> 
-		implements IDsConverter<WfDefNodeDs, WfDefNode> {
-    
-    @Override
-    protected void modelToEntityReferences(WfDefNodeDs ds, WfDefNode e, boolean isInsert) throws Exception {
-    	if( ds.getProcessId() != null  ) {
-    		if (e.getProcess() == null || !e.getProcess().getId().equals(ds.getProcessId()) ) {
-    			e.setProcess( (WfDefProcess) this.em.find(WfDefProcess.class, ds.getProcessId() ) );
-    		}
-    	}
-    }
+public class WfDefNodeDsConv
+		extends
+			AbstractDsConverter<WfDefNodeDs, WfDefNode>
+		implements
+			IDsConverter<WfDefNodeDs, WfDefNode> {
+
+	@Override
+	protected void modelToEntityReferences(WfDefNodeDs ds, WfDefNode e,
+			boolean isInsert) throws Exception {
+		if (ds.getProcessId() != null) {
+			if (e.getProcess() == null
+					|| !e.getProcess().getId().equals(ds.getProcessId())) {
+				e.setProcess((WfDefProcess) this.em.find(WfDefProcess.class,
+						ds.getProcessId()));
+			}
+		}
+	}
 }

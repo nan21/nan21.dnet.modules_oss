@@ -13,10 +13,13 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx;
 import net.nan21.dnet.module.ad.system.domain.entity.SysTimer;
 
+/**
+ * Repository functionality for {@link SysTimer} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class SysTimerService extends AbstractEntityService<SysTimer> {
 
-public class SysTimerService extends AbstractEntityService<SysTimer>
-		{
- 
 	public SysTimerService() {
 		super();
 	}
@@ -30,34 +33,44 @@ public class SysTimerService extends AbstractEntityService<SysTimer>
 	public Class<SysTimer> getEntityClass() {
 		return SysTimer.class;
 	}
-	
-	public SysTimer findByName(SysJobCtx jobCtx,String name) {		 
-		return (SysTimer) this.em
-			.createNamedQuery(SysTimer.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobCtx", jobCtx)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysTimer findByName(SysJobCtx jobCtx, String name) {
+		return (SysTimer) this.em.createNamedQuery(SysTimer.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobCtx", jobCtx).setParameter("pName", name)
+				.getSingleResult();
 	}
-	
-	public SysTimer findByName( Long jobCtxId,String name) {
+
+	/**
+	 * Find by unique key
+	 */
+	public SysTimer findByName(Long jobCtxId, String name) {
 		return (SysTimer) this.em
-			.createNamedQuery(SysTimer.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobCtxId", jobCtxId)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(SysTimer.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobCtxId", jobCtxId)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: jobCtx
+	 */
 	public List<SysTimer> findByJobCtx(SysJobCtx jobCtx) {
-		return this.findByJobCtxId(jobCtx.getId()); 
+		return this.findByJobCtxId(jobCtx.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: jobCtx.id
+	 */
 	public List<SysTimer> findByJobCtxId(Long jobCtxId) {
 		return (List<SysTimer>) this.em
-			.createQuery("select e from SysTimer e where e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId", SysTimer.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobCtxId", jobCtxId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SysTimer e where e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId",
+						SysTimer.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobCtxId", jobCtxId).getResultList();
 	}
 }

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Bank_UI", {
 		this._getBuilder_()
 			.addDc("bank", new net.nan21.dnet.module.md.bp.dc.Bank({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Bank_UI", {
 			.addDcEditGridView("bank", {name:"bankEditList", xtype:"md_bp_dc_Bank$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Bank_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["bankFilter", "bankEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlb")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.Bank_UI", {
 			.beginToolbar("tlb", {dc: "bank"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Banks"})
 			.end()
+			;
 	}
 
 });

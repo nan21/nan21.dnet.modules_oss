@@ -16,10 +16,17 @@ import net.nan21.dnet.module.hr.skill.domain.entity.QualificationSkill;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel;
 import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
 
+/**
+ * Repository functionality for {@link QualificationSkill} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class QualificationSkillService
+		extends
+			AbstractEntityService<QualificationSkill>
+		implements
+			IQualificationSkillService {
 
-public class QualificationSkillService extends AbstractEntityService<QualificationSkill>
-		implements IQualificationSkillService {
- 
 	public QualificationSkillService() {
 		super();
 	}
@@ -33,40 +40,65 @@ public class QualificationSkillService extends AbstractEntityService<Qualificati
 	public Class<QualificationSkill> getEntityClass() {
 		return QualificationSkill.class;
 	}
-	
-	public List<QualificationSkill> findByQualification(Qualification qualification) {
-		return this.findByQualificationId(qualification.getId()); 
+
+	/**
+	 * Find by reference: qualification
+	 */
+	public List<QualificationSkill> findByQualification(
+			Qualification qualification) {
+		return this.findByQualificationId(qualification.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: qualification.id
+	 */
 	public List<QualificationSkill> findByQualificationId(Long qualificationId) {
 		return (List<QualificationSkill>) this.em
-			.createQuery("select e from QualificationSkill e where e.clientId = :pClientId and e.qualification.id = :pQualificationId", QualificationSkill.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pQualificationId", qualificationId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from QualificationSkill e where e.clientId = :pClientId and e.qualification.id = :pQualificationId",
+						QualificationSkill.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pQualificationId", qualificationId)
+				.getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: skill
+	 */
 	public List<QualificationSkill> findBySkill(Skill skill) {
-		return this.findBySkillId(skill.getId()); 
+		return this.findBySkillId(skill.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: skill.id
+	 */
 	public List<QualificationSkill> findBySkillId(Long skillId) {
 		return (List<QualificationSkill>) this.em
-			.createQuery("select e from QualificationSkill e where e.clientId = :pClientId and e.skill.id = :pSkillId", QualificationSkill.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pSkillId", skillId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from QualificationSkill e where e.clientId = :pClientId and e.skill.id = :pSkillId",
+						QualificationSkill.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pSkillId", skillId).getResultList();
 	}
-	
-	public List<QualificationSkill> findByRequiredLevel(RatingLevel requiredLevel) {
-		return this.findByRequiredLevelId(requiredLevel.getId()); 
+
+	/**
+	 * Find by reference: requiredLevel
+	 */
+	public List<QualificationSkill> findByRequiredLevel(
+			RatingLevel requiredLevel) {
+		return this.findByRequiredLevelId(requiredLevel.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: requiredLevel.id
+	 */
 	public List<QualificationSkill> findByRequiredLevelId(Long requiredLevelId) {
 		return (List<QualificationSkill>) this.em
-			.createQuery("select e from QualificationSkill e where e.clientId = :pClientId and e.requiredLevel.id = :pRequiredLevelId", QualificationSkill.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pRequiredLevelId", requiredLevelId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from QualificationSkill e where e.clientId = :pClientId and e.requiredLevel.id = :pRequiredLevelId",
+						QualificationSkill.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pRequiredLevelId", requiredLevelId)
+				.getResultList();
 	}
 }

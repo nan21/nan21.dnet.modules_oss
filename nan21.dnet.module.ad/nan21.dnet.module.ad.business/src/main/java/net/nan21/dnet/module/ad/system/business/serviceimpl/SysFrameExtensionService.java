@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysFrameExtensionService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysFrameExtension;
 
+/**
+ * Repository functionality for {@link SysFrameExtension} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class SysFrameExtensionService
+		extends
+			AbstractEntityService<SysFrameExtension>
+		implements
+			ISysFrameExtensionService {
 
-public class SysFrameExtensionService extends AbstractEntityService<SysFrameExtension>
-		implements ISysFrameExtensionService {
- 
 	public SysFrameExtensionService() {
 		super();
 	}
@@ -29,13 +36,15 @@ public class SysFrameExtensionService extends AbstractEntityService<SysFrameExte
 	public Class<SysFrameExtension> getEntityClass() {
 		return SysFrameExtension.class;
 	}
-	
-	public SysFrameExtension findByName(String frameFQN,String fileLocation) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysFrameExtension findByName(String frameFQN, String fileLocation) {
 		return (SysFrameExtension) this.em
-			.createNamedQuery(SysFrameExtension.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pFrameFQN", frameFQN)
-			.setParameter("pFileLocation", fileLocation)
-			.getSingleResult(); 
+				.createNamedQuery(SysFrameExtension.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pFrameFQN", frameFQN)
+				.setParameter("pFileLocation", fileLocation).getSingleResult();
 	}
 }

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElementFormulas_UI", {
 		this._getBuilder_()
 			.addDc("formula", new net.nan21.dnet.module.bd.elem.dc.ElementFormula({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -25,7 +26,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElementFormulas_UI", {
 			.addDcFormView("formula", {name:"formulaEdit", width:350, xtype:"bd_elem_dc_ElementFormula$EditExpression"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -33,6 +34,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElementFormulas_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["formulaFilter", "formulaList", "formulaEdit"], ["north", "center", "east"])
 			.addToolbarTo("canvas1", "tlbInputList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -40,6 +42,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElementFormulas_UI", {
 			.beginToolbar("tlbInputList", {dc: "formula"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Element formulas"})
 			.end()
+			;
 	}
 
 });

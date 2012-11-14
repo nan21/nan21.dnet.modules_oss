@@ -13,26 +13,67 @@ import net.nan21.dnet.module.md.acc.domain.entity.Account;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroup;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroupAcct;
 
-public interface IProductAccountGroupAcctService extends IEntityService<ProductAccountGroupAcct> {
-	
-	public ProductAccountGroupAcct findByGroup_schema(ProductAccountGroup group,AccSchema accSchema);
-	
-	public ProductAccountGroupAcct findByGroup_schema( Long groupId, Long accSchemaId);
-	
+/**
+ * Interface to expose business functions specific for {@link ProductAccountGroupAcct} domain
+ * entity.
+ */
+public interface IProductAccountGroupAcctService
+		extends
+			IEntityService<ProductAccountGroupAcct> {
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductAccountGroupAcct findByGroup_schema(
+			ProductAccountGroup group, AccSchema accSchema);
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductAccountGroupAcct findByGroup_schema(Long groupId,
+			Long accSchemaId);
+
+	/**
+	 * Find by reference: group
+	 */
 	public List<ProductAccountGroupAcct> findByGroup(ProductAccountGroup group);
-	
+
+	/**
+	 * Find by ID of reference: group.id
+	 */
 	public List<ProductAccountGroupAcct> findByGroupId(Long groupId);
-	
+
+	/**
+	 * Find by reference: accSchema
+	 */
 	public List<ProductAccountGroupAcct> findByAccSchema(AccSchema accSchema);
-	
+
+	/**
+	 * Find by ID of reference: accSchema.id
+	 */
 	public List<ProductAccountGroupAcct> findByAccSchemaId(Long accSchemaId);
-	
-	public List<ProductAccountGroupAcct> findByExpenseAccount(Account expenseAccount);
-	
-	public List<ProductAccountGroupAcct> findByExpenseAccountId(Long expenseAccountId);
-	
-	public List<ProductAccountGroupAcct> findByRevenueAccount(Account revenueAccount);
-	
-	public List<ProductAccountGroupAcct> findByRevenueAccountId(Long revenueAccountId);
-	
+
+	/**
+	 * Find by reference: expenseAccount
+	 */
+	public List<ProductAccountGroupAcct> findByExpenseAccount(
+			Account expenseAccount);
+
+	/**
+	 * Find by ID of reference: expenseAccount.id
+	 */
+	public List<ProductAccountGroupAcct> findByExpenseAccountId(
+			Long expenseAccountId);
+
+	/**
+	 * Find by reference: revenueAccount
+	 */
+	public List<ProductAccountGroupAcct> findByRevenueAccount(
+			Account revenueAccount);
+
+	/**
+	 * Find by ID of reference: revenueAccount.id
+	 */
+	public List<ProductAccountGroupAcct> findByRevenueAccountId(
+			Long revenueAccountId);
 }

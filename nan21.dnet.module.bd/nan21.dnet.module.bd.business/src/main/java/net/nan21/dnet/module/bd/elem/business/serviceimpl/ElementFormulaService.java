@@ -14,10 +14,17 @@ import net.nan21.dnet.module.bd.elem.business.service.IElementFormulaService;
 import net.nan21.dnet.module.bd.elem.domain.entity.Element;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementFormula;
 
+/**
+ * Repository functionality for {@link ElementFormula} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ElementFormulaService
+		extends
+			AbstractEntityService<ElementFormula>
+		implements
+			IElementFormulaService {
 
-public class ElementFormulaService extends AbstractEntityService<ElementFormula>
-		implements IElementFormulaService {
- 
 	public ElementFormulaService() {
 		super();
 	}
@@ -31,16 +38,23 @@ public class ElementFormulaService extends AbstractEntityService<ElementFormula>
 	public Class<ElementFormula> getEntityClass() {
 		return ElementFormula.class;
 	}
-	
+
+	/**
+	 * Find by reference: element
+	 */
 	public List<ElementFormula> findByElement(Element element) {
-		return this.findByElementId(element.getId()); 
+		return this.findByElementId(element.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: element.id
+	 */
 	public List<ElementFormula> findByElementId(Long elementId) {
 		return (List<ElementFormula>) this.em
-			.createQuery("select e from ElementFormula e where e.clientId = :pClientId and e.element.id = :pElementId", ElementFormula.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pElementId", elementId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ElementFormula e where e.clientId = :pClientId and e.element.id = :pElementId",
+						ElementFormula.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pElementId", elementId).getResultList();
 	}
 }

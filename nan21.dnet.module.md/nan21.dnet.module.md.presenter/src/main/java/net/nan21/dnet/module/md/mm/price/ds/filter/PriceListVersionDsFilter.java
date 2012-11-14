@@ -9,113 +9,113 @@ import java.util.Date;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDsFilter;
 
 public class PriceListVersionDsFilter extends AbstractTypeDsFilter {
-	
-	private Long  priceListId;
-	
-	private Long  priceListId_From;
-	
-	private Long  priceListId_To;
-	
-	private String  priceList;
-	
-	private Long  currencyId;
-	
-	private Long  currencyId_From;
-	
-	private Long  currencyId_To;
-	
-	private String  currency;
-	
-	private Date  validFrom;
-	
-	private Date  validFrom_From;
-	
-	private Date  validFrom_To;
-	
+
+	private Long priceListId;
+
+	private Long priceListId_From;
+
+	private Long priceListId_To;
+
+	private String priceList;
+
+	private Long currencyId;
+
+	private Long currencyId_From;
+
+	private Long currencyId_To;
+
+	private String currency;
+
+	private Date validFrom;
+
+	private Date validFrom_From;
+
+	private Date validFrom_To;
+
 	public Long getPriceListId() {
 		return this.priceListId;
 	}
-	
+
 	public Long getPriceListId_From() {
 		return this.priceListId_From;
 	}
-	
+
 	public Long getPriceListId_To() {
 		return this.priceListId_To;
 	}
-	
+
 	public void setPriceListId(Long priceListId) {
 		this.priceListId = priceListId;
 	}
-	
+
 	public void setPriceListId_From(Long priceListId_From) {
 		this.priceListId_From = priceListId_From;
 	}
-	
+
 	public void setPriceListId_To(Long priceListId_To) {
 		this.priceListId_To = priceListId_To;
 	}
-	
+
 	public String getPriceList() {
 		return this.priceList;
 	}
-	
+
 	public void setPriceList(String priceList) {
 		this.priceList = priceList;
 	}
-	
+
 	public Long getCurrencyId() {
 		return this.currencyId;
 	}
-	
+
 	public Long getCurrencyId_From() {
 		return this.currencyId_From;
 	}
-	
+
 	public Long getCurrencyId_To() {
 		return this.currencyId_To;
 	}
-	
+
 	public void setCurrencyId(Long currencyId) {
 		this.currencyId = currencyId;
 	}
-	
+
 	public void setCurrencyId_From(Long currencyId_From) {
 		this.currencyId_From = currencyId_From;
 	}
-	
+
 	public void setCurrencyId_To(Long currencyId_To) {
 		this.currencyId_To = currencyId_To;
 	}
-	
+
 	public String getCurrency() {
 		return this.currency;
 	}
-	
+
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	
+
 	public Date getValidFrom() {
 		return this.validFrom;
 	}
-	
+
 	public Date getValidFrom_From() {
 		return this.validFrom_From;
 	}
-	
+
 	public Date getValidFrom_To() {
 		return this.validFrom_To;
 	}
-	
+
 	public void setValidFrom(Date validFrom) {
 		this.validFrom = validFrom;
 	}
-	
+
 	public void setValidFrom_From(Date validFrom_From) {
 		this.validFrom_From = validFrom_From;
 	}
-	
+
 	public void setValidFrom_To(Date validFrom_To) {
 		this.validFrom_To = validFrom_To;
 	}

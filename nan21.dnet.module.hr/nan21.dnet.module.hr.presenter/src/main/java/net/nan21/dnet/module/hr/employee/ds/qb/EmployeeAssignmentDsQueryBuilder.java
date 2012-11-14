@@ -12,18 +12,20 @@ import net.nan21.dnet.module.hr.employee.ds.param.EmployeeAssignmentDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class EmployeeAssignmentDsQueryBuilder extends QueryBuilderWithJpql<EmployeeAssignmentDs,EmployeeAssignmentDsFilter, EmployeeAssignmentDsParam> {
-	
+public class EmployeeAssignmentDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<EmployeeAssignmentDs, EmployeeAssignmentDsFilter, EmployeeAssignmentDsParam> {
+
 	@Override
 	public void setFilter(EmployeeAssignmentDsFilter filter) {
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getValidAt() != null) {
- 			addFilterCondition("  e.validFrom <= :validAt and ( e.validTo is null or e.validTo >= :validAt) ");	
- 			addCustomFilterItem("validAt",this.params.getValidAt());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getValidAt() != null) {
+			addFilterCondition("  e.validFrom <= :validAt and ( e.validTo is null or e.validTo >= :validAt) ");
+			addCustomFilterItem("validAt", this.params.getValidAt());
+		}
+	}
 }

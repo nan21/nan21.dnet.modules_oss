@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.mm.prod.business.service.IProductManufacturerService;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer;
 
+/**
+ * Repository functionality for {@link ProductManufacturer} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProductManufacturerService
+		extends
+			AbstractEntityService<ProductManufacturer>
+		implements
+			IProductManufacturerService {
 
-public class ProductManufacturerService extends AbstractEntityService<ProductManufacturer>
-		implements IProductManufacturerService {
- 
 	public ProductManufacturerService() {
 		super();
 	}
@@ -29,20 +36,24 @@ public class ProductManufacturerService extends AbstractEntityService<ProductMan
 	public Class<ProductManufacturer> getEntityClass() {
 		return ProductManufacturer.class;
 	}
-	
-	public ProductManufacturer findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductManufacturer findByCode(String code) {
 		return (ProductManufacturer) this.em
-			.createNamedQuery(ProductManufacturer.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(ProductManufacturer.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public ProductManufacturer findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductManufacturer findByName(String name) {
 		return (ProductManufacturer) this.em
-			.createNamedQuery(ProductManufacturer.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProductManufacturer.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

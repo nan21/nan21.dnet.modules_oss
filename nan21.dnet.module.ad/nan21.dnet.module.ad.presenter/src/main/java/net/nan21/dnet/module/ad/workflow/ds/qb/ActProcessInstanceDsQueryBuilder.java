@@ -12,23 +12,25 @@ import net.nan21.dnet.module.ad.workflow.ds.param.ActProcessInstanceDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class ActProcessInstanceDsQueryBuilder extends QueryBuilderWithJpql<ActProcessInstanceDs,ActProcessInstanceDsFilter, ActProcessInstanceDsParam> {
-	
+public class ActProcessInstanceDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<ActProcessInstanceDs, ActProcessInstanceDsFilter, ActProcessInstanceDsParam> {
+
 	@Override
 	public void setFilter(ActProcessInstanceDsFilter filter) {
 		filter.setClientId(Session.user.get().getClientId());
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getFrom() != null) {
- 			addFilterCondition("  e.startTime >= :from ");	
- 			addCustomFilterItem("from",this.params.getFrom());	
- 		}	
- 		if (this.params != null && this.params.getTo() != null) {
- 			addFilterCondition("  e.startTime <= :to ");	
- 			addCustomFilterItem("to",this.params.getTo());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getFrom() != null) {
+			addFilterCondition("  e.startTime >= :from ");
+			addCustomFilterItem("from", this.params.getFrom());
+		}
+		if (this.params != null && this.params.getTo() != null) {
+			addFilterCondition("  e.startTime <= :to ");
+			addCustomFilterItem("to", this.params.getTo());
+		}
+	}
 }

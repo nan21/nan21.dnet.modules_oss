@@ -9,6 +9,9 @@ package net.nan21.dnet.module.ad.workflow.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment;
 
+/**
+ * Interface to expose business functions specific for {@link ActDeployment} domain
+ * entity.
+ */
 public interface IActDeploymentService extends IEntityService<ActDeployment> {
-	
 }

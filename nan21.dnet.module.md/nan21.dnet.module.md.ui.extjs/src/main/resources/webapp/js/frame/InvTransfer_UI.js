@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTransfer_UI", {
 			.linkDc("txline", "tx",{fields:[
 				{childField:"transactionId", parentField:"id"}, {childField:"fromInventoryId", parentField:"fromInventoryId"}, {childField:"toInventoryId", parentField:"toInventoryId"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -40,7 +41,7 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTransfer_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -51,6 +52,7 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTransfer_UI", {
 			.addToolbarTo("canvas1", "tlbTxList")
 			.addToolbarTo("canvas2", "tlbTxEdit")
 			.addToolbarTo("txlineList", "tlbTxlineEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -64,6 +66,7 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTransfer_UI", {
 			.beginToolbar("tlbTxlineEditList", {dc: "txline"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Items"})
 			.end()
+			;
 	}
 
 	,onBtnConfirm: function() {

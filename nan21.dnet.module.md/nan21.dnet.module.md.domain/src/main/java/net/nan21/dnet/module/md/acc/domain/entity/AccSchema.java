@@ -25,88 +25,63 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Accounting schema definition.  */
 @NamedQueries({
-	@NamedQuery(
-		name=AccSchema.NQ_FIND_BY_ID,
-		query="SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AccSchema.NQ_FIND_BY_IDS,
-		query="SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AccSchema.NQ_FIND_BY_CODE,
-		query="SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AccSchema.NQ_FIND_BY_NAME,
-		query="SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = AccSchema.NQ_FIND_BY_ID, query = "SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AccSchema.NQ_FIND_BY_IDS, query = "SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AccSchema.NQ_FIND_BY_CODE, query = "SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AccSchema.NQ_FIND_BY_NAME, query = "SELECT e FROM AccSchema e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=AccSchema.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=AccSchema.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","CODE"}
-		),
-		@UniqueConstraint( 
-			name=AccSchema.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = AccSchema.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = AccSchema.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "CODE"}),
+		@UniqueConstraint(name = AccSchema.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class AccSchema extends AbstractTypeWithCode  {
-	
+public class AccSchema extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "MD_ACC_SCHEMA";
 	public static final String SEQUENCE_NAME = "MD_ACC_SCHEMA_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "AccSchema.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "AccSchema.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Code.
 	 */
 	public static final String NQ_FIND_BY_CODE = "AccSchema.findByCode";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "AccSchema.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

@@ -16,10 +16,15 @@ import net.nan21.dnet.module.pj.md.business.service.IProjectMemberService;
 import net.nan21.dnet.module.pj.md.domain.entity.Project;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectMember;
 
-
+/**
+ * Repository functionality for {@link ProjectMember} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ProjectMemberService extends AbstractEntityService<ProjectMember>
-		implements IProjectMemberService {
- 
+		implements
+			IProjectMemberService {
+
 	public ProjectMemberService() {
 		super();
 	}
@@ -33,58 +38,83 @@ public class ProjectMemberService extends AbstractEntityService<ProjectMember>
 	public Class<ProjectMember> getEntityClass() {
 		return ProjectMember.class;
 	}
-	
-	public ProjectMember findByName(Project project,Assignable member) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectMember findByName(Project project, Assignable member) {
 		return (ProjectMember) this.em
-			.createNamedQuery(ProjectMember.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProject", project)
-			.setParameter("pMember", member)
-			.getSingleResult(); 
+				.createNamedQuery(ProjectMember.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProject", project)
+				.setParameter("pMember", member).getSingleResult();
 	}
-	
-	public ProjectMember findByName( Long projectId, Long memberId) {
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectMember findByName(Long projectId, Long memberId) {
 		return (ProjectMember) this.em
-			.createNamedQuery(ProjectMember.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectId", projectId)
-			.setParameter("pMemberId", memberId)
-			.getSingleResult(); 
+				.createNamedQuery(ProjectMember.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectId", projectId)
+				.setParameter("pMemberId", memberId).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: project
+	 */
 	public List<ProjectMember> findByProject(Project project) {
-		return this.findByProjectId(project.getId()); 
+		return this.findByProjectId(project.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: project.id
+	 */
 	public List<ProjectMember> findByProjectId(Long projectId) {
 		return (List<ProjectMember>) this.em
-			.createQuery("select e from ProjectMember e where e.clientId = :pClientId and e.project.id = :pProjectId", ProjectMember.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectId", projectId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProjectMember e where e.clientId = :pClientId and e.project.id = :pProjectId",
+						ProjectMember.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectId", projectId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: member
+	 */
 	public List<ProjectMember> findByMember(Assignable member) {
-		return this.findByMemberId(member.getId()); 
+		return this.findByMemberId(member.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: member.id
+	 */
 	public List<ProjectMember> findByMemberId(Long memberId) {
 		return (List<ProjectMember>) this.em
-			.createQuery("select e from ProjectMember e where e.clientId = :pClientId and e.member.id = :pMemberId", ProjectMember.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pMemberId", memberId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProjectMember e where e.clientId = :pClientId and e.member.id = :pMemberId",
+						ProjectMember.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pMemberId", memberId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: projectRole
+	 */
 	public List<ProjectMember> findByProjectRole(ProjectRole projectRole) {
-		return this.findByProjectRoleId(projectRole.getId()); 
+		return this.findByProjectRoleId(projectRole.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: projectRole.id
+	 */
 	public List<ProjectMember> findByProjectRoleId(Long projectRoleId) {
 		return (List<ProjectMember>) this.em
-			.createQuery("select e from ProjectMember e where e.clientId = :pClientId and e.projectRole.id = :pProjectRoleId", ProjectMember.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectRoleId", projectRoleId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProjectMember e where e.clientId = :pClientId and e.projectRole.id = :pProjectRoleId",
+						ProjectMember.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectRoleId", projectRoleId).getResultList();
 	}
 }

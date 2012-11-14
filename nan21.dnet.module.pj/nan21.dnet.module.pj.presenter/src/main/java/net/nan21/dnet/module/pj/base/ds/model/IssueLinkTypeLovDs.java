@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueLinkType;
 
-@Ds(entity=IssueLinkType.class,jpqlWhere=" e.active = true ", sort={@SortField(field=IssueLinkTypeLovDs.fNAME)})
+@Ds(entity = IssueLinkType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = IssueLinkTypeLovDs.fNAME)})
 public class IssueLinkTypeLovDs extends AbstractTypeLov<IssueLinkType> {
-
 
 	public IssueLinkTypeLovDs() {
 		super();
 	}
 
- 	public IssueLinkTypeLovDs(IssueLinkType e) {
+	public IssueLinkTypeLovDs(IssueLinkType e) {
 		super(e);
 	}
 }

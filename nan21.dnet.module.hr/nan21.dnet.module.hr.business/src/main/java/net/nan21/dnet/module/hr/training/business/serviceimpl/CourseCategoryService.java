@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.training.business.service.ICourseCategoryService;
 import net.nan21.dnet.module.hr.training.domain.entity.CourseCategory;
 
+/**
+ * Repository functionality for {@link CourseCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class CourseCategoryService
+		extends
+			AbstractEntityService<CourseCategory>
+		implements
+			ICourseCategoryService {
 
-public class CourseCategoryService extends AbstractEntityService<CourseCategory>
-		implements ICourseCategoryService {
- 
 	public CourseCategoryService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class CourseCategoryService extends AbstractEntityService<CourseCategory>
 	public Class<CourseCategory> getEntityClass() {
 		return CourseCategory.class;
 	}
-	
-	public CourseCategory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public CourseCategory findByName(String name) {
 		return (CourseCategory) this.em
-			.createNamedQuery(CourseCategory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(CourseCategory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

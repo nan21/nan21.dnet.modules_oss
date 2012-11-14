@@ -12,14 +12,33 @@ import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceTax;
 
-public interface IPurchaseInvoiceTaxService extends IEntityService<PurchaseInvoiceTax> {
-	
-	public List<PurchaseInvoiceTax> findByPurchaseInvoice(PurchaseInvoice purchaseInvoice);
-	
-	public List<PurchaseInvoiceTax> findByPurchaseInvoiceId(Long purchaseInvoiceId);
-	
+/**
+ * Interface to expose business functions specific for {@link PurchaseInvoiceTax} domain
+ * entity.
+ */
+public interface IPurchaseInvoiceTaxService
+		extends
+			IEntityService<PurchaseInvoiceTax> {
+
+	/**
+	 * Find by reference: purchaseInvoice
+	 */
+	public List<PurchaseInvoiceTax> findByPurchaseInvoice(
+			PurchaseInvoice purchaseInvoice);
+
+	/**
+	 * Find by ID of reference: purchaseInvoice.id
+	 */
+	public List<PurchaseInvoiceTax> findByPurchaseInvoiceId(
+			Long purchaseInvoiceId);
+
+	/**
+	 * Find by reference: tax
+	 */
 	public List<PurchaseInvoiceTax> findByTax(Tax tax);
-	
+
+	/**
+	 * Find by ID of reference: tax.id
+	 */
 	public List<PurchaseInvoiceTax> findByTaxId(Long taxId);
-	
 }

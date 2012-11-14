@@ -33,160 +33,135 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Position.NQ_FIND_BY_ID,
-		query="SELECT e FROM Position e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Position.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Position e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Position.NQ_FIND_BY_CODE,
-		query="SELECT e FROM Position e WHERE e.clientId = :pClientId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Position.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Position e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Position.NQ_FIND_BY_ID, query = "SELECT e FROM Position e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Position.NQ_FIND_BY_IDS, query = "SELECT e FROM Position e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Position.NQ_FIND_BY_CODE, query = "SELECT e FROM Position e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Position.NQ_FIND_BY_NAME, query = "SELECT e FROM Position e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Position.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Position.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","CODE"}
-		),
-		@UniqueConstraint( 
-			name=Position.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Position.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = Position.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "CODE"}),
+		@UniqueConstraint(name = Position.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Position extends AbstractTypeWithCode  {
-	
+public class Position extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "HR_POS";
 	public static final String SEQUENCE_NAME = "HR_POS_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Position.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Position.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Code.
 	 */
 	public static final String NQ_FIND_BY_CODE = "Position.findByCode";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Position.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDFROM" )
+	@Column(name = "VALIDFROM")
 	private Date validFrom;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDTO" )
+	@Column(name = "VALIDTO")
 	private Date validTo;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="ORG_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "ORG_ID", referencedColumnName = "ID")
 	private Organization org;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Job.class)
-	@JoinColumn(name="JOB_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Job.class)
+	@JoinColumn(name = "JOB_ID", referencedColumnName = "ID")
 	private Job job;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Location.class)
-	@JoinColumn(name="LOCATION_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Location.class)
+	@JoinColumn(name = "LOCATION_ID", referencedColumnName = "ID")
 	private Location location;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getValidFrom() {
 		return this.validFrom;
 	}
-	
+
 	public void setValidFrom(Date validFrom) {
 		this.validFrom = validFrom;
 	}
-	
+
 	public Date getValidTo() {
 		return this.validTo;
 	}
-	
+
 	public void setValidTo(Date validTo) {
 		this.validTo = validTo;
 	}
-	
+
 	public Organization getOrg() {
 		return this.org;
 	}
-	
+
 	public void setOrg(Organization org) {
-		if (org != null ) {
+		if (org != null) {
 			this.__validate_client_context__(org.getClientId());
 		}
 		this.org = org;
 	}
-	
+
 	public Job getJob() {
 		return this.job;
 	}
-	
+
 	public void setJob(Job job) {
-		if (job != null ) {
+		if (job != null) {
 			this.__validate_client_context__(job.getClientId());
 		}
 		this.job = job;
 	}
-	
+
 	public Location getLocation() {
 		return this.location;
 	}
-	
+
 	public void setLocation(Location location) {
-		if (location != null ) {
+		if (location != null) {
 			this.__validate_client_context__(location.getClientId());
 		}
 		this.location = location;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getCode() == null || this.getCode().equals("") ) {
-			event.updateAttributeWithObject("code","POS-"+this.getId());
+
+		if (this.getCode() == null || this.getCode().equals("")) {
+			event.updateAttributeWithObject("code", "POS-" + this.getId());
 		}
 	}
 }

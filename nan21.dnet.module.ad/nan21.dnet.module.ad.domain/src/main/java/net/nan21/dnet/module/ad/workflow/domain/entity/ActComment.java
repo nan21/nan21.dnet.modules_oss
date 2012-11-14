@@ -29,155 +29,144 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ActComment.NQ_FIND_BY_ID,
-		query="SELECT e FROM ActComment e WHERE  e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ActComment.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ActComment e WHERE  e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ActComment.NQ_FIND_BY_ID, query = "SELECT e FROM ActComment e WHERE  e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ActComment.NQ_FIND_BY_IDS, query = "SELECT e FROM ActComment e WHERE  e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ActComment.TABLE_NAME
-)
-@Cache(type=CacheType.NONE)
+@Table(name = ActComment.TABLE_NAME)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActComment  implements IModelWithId {
-	
+public class ActComment implements IModelWithId {
+
 	public static final String TABLE_NAME = "ACT_HI_COMMENT";
 	public static final String SEQUENCE_NAME = "ACT_HI_COMMENT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ActComment.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ActComment.findByIds";
-	
-	@Column(name="ID_", nullable=false, length=64)
+
+	@Column(name = "ID_", nullable = false, length = 64)
 	@NotBlank
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private String id;
-	
-	@Column(name="TYPE_", length=255)
+
+	@Column(name = "TYPE_", length = 255)
 	private String type;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="TIME_" )
+	@Column(name = "TIME_")
 	private Date time;
-	
-	@Column(name="USER_ID_", length=64)
+
+	@Column(name = "USER_ID_", length = 64)
 	private String userId;
-	
-	@Column(name="TASK_ID_", length=64)
+
+	@Column(name = "TASK_ID_", length = 64)
 	private String taskId;
-	
-	@Column(name="PROC_INST_ID_", length=255)
+
+	@Column(name = "PROC_INST_ID_", length = 255)
 	private String processInstanceId;
-	
-	@Column(name="ACTION_", length=255)
+
+	@Column(name = "ACTION_", length = 255)
 	private String action;
-	
-	@Column(name="MESSAGE_", length=4000)
+
+	@Column(name = "MESSAGE_", length = 4000)
 	private String message;
-	
-	@Column(name="FULL_MSG_", length=4000)
+
+	@Column(name = "FULL_MSG_", length = 4000)
 	private String fullMessage;
-	
+
 	public String getId() {
 		return this.id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getType() {
 		return this.type;
 	}
-	
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	public Date getTime() {
 		return this.time;
 	}
-	
+
 	public void setTime(Date time) {
 		this.time = time;
 	}
-	
+
 	public String getUserId() {
 		return this.userId;
 	}
-	
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
+
 	public String getTaskId() {
 		return this.taskId;
 	}
-	
+
 	public void setTaskId(String taskId) {
 		this.taskId = taskId;
 	}
-	
+
 	public String getProcessInstanceId() {
 		return this.processInstanceId;
 	}
-	
+
 	public void setProcessInstanceId(String processInstanceId) {
 		this.processInstanceId = processInstanceId;
 	}
-	
+
 	public String getAction() {
 		return this.action;
 	}
-	
+
 	public void setAction(String action) {
 		this.action = action;
 	}
-	
+
 	public String getMessage() {
 		return this.message;
 	}
-	
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 	public String getFullMessage() {
 		return this.fullMessage;
 	}
-	
+
 	public void setFullMessage(String fullMessage) {
 		this.fullMessage = fullMessage;
 	}
-	
+
 	@Transient
 	public Long getVersion() {
-		return 1L; 
+		return 1L;
 	}
-	
+
 	public void setVersion(Long version) {
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

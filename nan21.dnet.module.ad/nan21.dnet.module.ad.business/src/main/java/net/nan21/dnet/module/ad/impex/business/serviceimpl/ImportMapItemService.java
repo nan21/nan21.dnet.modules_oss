@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.impex.business.service.IImportMapItemService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMap;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
 
-
+/**
+ * Repository functionality for {@link ImportMapItem} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ImportMapItemService extends AbstractEntityService<ImportMapItem>
-		implements IImportMapItemService {
- 
+		implements
+			IImportMapItemService {
+
 	public ImportMapItemService() {
 		super();
 	}
@@ -31,16 +36,23 @@ public class ImportMapItemService extends AbstractEntityService<ImportMapItem>
 	public Class<ImportMapItem> getEntityClass() {
 		return ImportMapItem.class;
 	}
-	
+
+	/**
+	 * Find by reference: importMap
+	 */
 	public List<ImportMapItem> findByImportMap(ImportMap importMap) {
-		return this.findByImportMapId(importMap.getId()); 
+		return this.findByImportMapId(importMap.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: importMap.id
+	 */
 	public List<ImportMapItem> findByImportMapId(Long importMapId) {
 		return (List<ImportMapItem>) this.em
-			.createQuery("select e from ImportMapItem e where e.clientId = :pClientId and e.importMap.id = :pImportMapId", ImportMapItem.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pImportMapId", importMapId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ImportMapItem e where e.clientId = :pClientId and e.importMap.id = :pImportMapId",
+						ImportMapItem.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pImportMapId", importMapId).getResultList();
 	}
 }

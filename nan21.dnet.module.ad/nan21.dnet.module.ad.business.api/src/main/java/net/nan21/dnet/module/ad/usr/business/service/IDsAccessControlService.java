@@ -11,14 +11,32 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 import net.nan21.dnet.module.ad.usr.domain.entity.DsAccessControl;
 
-public interface IDsAccessControlService extends IEntityService<DsAccessControl> {
-	
-	public DsAccessControl findByUnique(AccessControl accessControl,String dsName);
-	
-	public DsAccessControl findByUnique( Long accessControlId,String dsName);
-	
+/**
+ * Interface to expose business functions specific for {@link DsAccessControl} domain
+ * entity.
+ */
+public interface IDsAccessControlService
+		extends
+			IEntityService<DsAccessControl> {
+
+	/**
+	 * Find by unique key
+	 */
+	public DsAccessControl findByUnique(AccessControl accessControl,
+			String dsName);
+
+	/**
+	 * Find by unique key
+	 */
+	public DsAccessControl findByUnique(Long accessControlId, String dsName);
+
+	/**
+	 * Find by reference: accessControl
+	 */
 	public List<DsAccessControl> findByAccessControl(AccessControl accessControl);
-	
+
+	/**
+	 * Find by ID of reference: accessControl.id
+	 */
 	public List<DsAccessControl> findByAccessControlId(Long accessControlId);
-	
 }

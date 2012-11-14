@@ -24,105 +24,94 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=UiViewState.NQ_FIND_BY_ID,
-		query="SELECT e FROM UiViewState e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=UiViewState.NQ_FIND_BY_IDS,
-		query="SELECT e FROM UiViewState e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = UiViewState.NQ_FIND_BY_ID, query = "SELECT e FROM UiViewState e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = UiViewState.NQ_FIND_BY_IDS, query = "SELECT e FROM UiViewState e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=UiViewState.TABLE_NAME
-)
+@Table(name = UiViewState.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class UiViewState extends AbstractAuditable  {
-	
+public class UiViewState extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "AD_UI_VIEW_STATE";
 	public static final String SEQUENCE_NAME = "AD_UI_VIEW_STATE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "UiViewState.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "UiViewState.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="NAME", nullable=false, length=255)
+
+	@Column(name = "NAME", nullable = false, length = 255)
 	@NotBlank
 	private String name;
-	
-	@Column(name="CMP", nullable=false, length=255)
+
+	@Column(name = "CMP", nullable = false, length = 255)
 	@NotBlank
 	private String cmp;
-	
-	@Column(name="CMPTYPE", nullable=false, length=16)
+
+	@Column(name = "CMPTYPE", nullable = false, length = 16)
 	@NotBlank
 	private String cmpType;
-	
-	@Column(name="STATEVALUE", length=4000)
+
+	@Column(name = "STATEVALUE", length = 4000)
 	private String stateValue;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getCmp() {
 		return this.cmp;
 	}
-	
+
 	public void setCmp(String cmp) {
 		this.cmp = cmp;
 	}
-	
+
 	public String getCmpType() {
 		return this.cmpType;
 	}
-	
+
 	public void setCmpType(String cmpType) {
 		this.cmpType = cmpType;
 	}
-	
+
 	public String getStateValue() {
 		return this.stateValue;
 	}
-	
+
 	public void setStateValue(String stateValue) {
 		this.stateValue = stateValue;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

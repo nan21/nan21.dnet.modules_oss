@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.usr.business.service.IUserGroupService;
 import net.nan21.dnet.module.ad.usr.domain.entity.User;
 import net.nan21.dnet.module.ad.usr.domain.entity.UserGroup;
 
-
+/**
+ * Repository functionality for {@link UserGroup} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class UserGroupService extends AbstractEntityService<UserGroup>
-		implements IUserGroupService {
- 
+		implements
+			IUserGroupService {
+
 	public UserGroupService() {
 		super();
 	}
@@ -31,24 +36,32 @@ public class UserGroupService extends AbstractEntityService<UserGroup>
 	public Class<UserGroup> getEntityClass() {
 		return UserGroup.class;
 	}
-	
-	public UserGroup findByName(String name) {		 
-		return (UserGroup) this.em
-			.createNamedQuery(UserGroup.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public UserGroup findByName(String name) {
+		return (UserGroup) this.em.createNamedQuery(UserGroup.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: users
+	 */
 	public List<UserGroup> findByUsers(User users) {
-		return this.findByUsersId(users.getId()); 
+		return this.findByUsersId(users.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: users.id
+	 */
 	public List<UserGroup> findByUsersId(Long usersId) {
 		return (List<UserGroup>) this.em
-			.createQuery("select distinct e from UserGroup e, IN (e.users) c where e.clientId = :pClientId and c.id = :pUsersId", UserGroup.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pUsersId", usersId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from UserGroup e, IN (e.users) c where e.clientId = :pClientId and c.id = :pUsersId",
+						UserGroup.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pUsersId", usersId).getResultList();
 	}
 }

@@ -272,14 +272,14 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditMain", {
 		if (record.get("confirmed") || record.get("invoiced") || record.get("delivered") ) {
 			this._disableAllFields_();
 			return false;
-		};
+		}
 	},
 	
 	_endDefine_: function() {
 		
 		this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 		 	this._applyStates_(dc.record);
-		 } , this );
+		 } , this )
 	}
 });
 
@@ -381,12 +381,12 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditDetails", {
 		}
 		if ( record.get("delivered") ) {
 			this._disableFields_(["shipTo","shipToLocation", "carrier", "deliveryMethod", "deliveryNotes" , "plannedDeliveryDate" ]);
-		};
+		}
 	},
 	
 	_endDefine_: function() {
 		this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 			this._applyStates_(dc.record);
-		} , this );
+		} , this )
 	}
 });

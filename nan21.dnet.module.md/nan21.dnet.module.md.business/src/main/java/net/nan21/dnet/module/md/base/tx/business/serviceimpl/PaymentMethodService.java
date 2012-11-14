@@ -14,10 +14,15 @@ import net.nan21.dnet.module.md.base.tx.business.service.IPaymentMethodService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 
-
+/**
+ * Repository functionality for {@link PaymentMethod} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class PaymentMethodService extends AbstractEntityService<PaymentMethod>
-		implements IPaymentMethodService {
- 
+		implements
+			IPaymentMethodService {
+
 	public PaymentMethodService() {
 		super();
 	}
@@ -31,24 +36,33 @@ public class PaymentMethodService extends AbstractEntityService<PaymentMethod>
 	public Class<PaymentMethod> getEntityClass() {
 		return PaymentMethod.class;
 	}
-	
-	public PaymentMethod findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public PaymentMethod findByName(String name) {
 		return (PaymentMethod) this.em
-			.createNamedQuery(PaymentMethod.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(PaymentMethod.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: docType
+	 */
 	public List<PaymentMethod> findByDocType(TxDocType docType) {
-		return this.findByDocTypeId(docType.getId()); 
+		return this.findByDocTypeId(docType.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: docType.id
+	 */
 	public List<PaymentMethod> findByDocTypeId(Long docTypeId) {
 		return (List<PaymentMethod>) this.em
-			.createQuery("select e from PaymentMethod e where e.clientId = :pClientId and e.docType.id = :pDocTypeId", PaymentMethod.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pDocTypeId", docTypeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PaymentMethod e where e.clientId = :pClientId and e.docType.id = :pDocTypeId",
+						PaymentMethod.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pDocTypeId", docTypeId).getResultList();
 	}
 }

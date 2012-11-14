@@ -12,14 +12,33 @@ import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItemTax;
 
-public interface IPurchaseOrderItemTaxService extends IEntityService<PurchaseOrderItemTax> {
-	
-	public List<PurchaseOrderItemTax> findByPurchaseOrderItem(PurchaseOrderItem purchaseOrderItem);
-	
-	public List<PurchaseOrderItemTax> findByPurchaseOrderItemId(Long purchaseOrderItemId);
-	
+/**
+ * Interface to expose business functions specific for {@link PurchaseOrderItemTax} domain
+ * entity.
+ */
+public interface IPurchaseOrderItemTaxService
+		extends
+			IEntityService<PurchaseOrderItemTax> {
+
+	/**
+	 * Find by reference: purchaseOrderItem
+	 */
+	public List<PurchaseOrderItemTax> findByPurchaseOrderItem(
+			PurchaseOrderItem purchaseOrderItem);
+
+	/**
+	 * Find by ID of reference: purchaseOrderItem.id
+	 */
+	public List<PurchaseOrderItemTax> findByPurchaseOrderItemId(
+			Long purchaseOrderItemId);
+
+	/**
+	 * Find by reference: tax
+	 */
 	public List<PurchaseOrderItemTax> findByTax(Tax tax);
-	
+
+	/**
+	 * Find by ID of reference: tax.id
+	 */
 	public List<PurchaseOrderItemTax> findByTaxId(Long taxId);
-	
 }

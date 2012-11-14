@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.elem.business.service.IEngineService;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
-
+/**
+ * Repository functionality for {@link Engine} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class EngineService extends AbstractEntityService<Engine>
-		implements IEngineService {
- 
+		implements
+			IEngineService {
+
 	public EngineService() {
 		super();
 	}
@@ -29,12 +34,13 @@ public class EngineService extends AbstractEntityService<Engine>
 	public Class<Engine> getEntityClass() {
 		return Engine.class;
 	}
-	
-	public Engine findByName(String name) {		 
-		return (Engine) this.em
-			.createNamedQuery(Engine.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Engine findByName(String name) {
+		return (Engine) this.em.createNamedQuery(Engine.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

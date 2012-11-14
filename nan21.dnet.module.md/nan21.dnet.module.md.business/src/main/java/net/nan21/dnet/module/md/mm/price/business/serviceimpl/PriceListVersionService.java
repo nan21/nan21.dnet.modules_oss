@@ -14,10 +14,17 @@ import net.nan21.dnet.module.md.mm.price.business.service.IPriceListVersionServi
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 
+/**
+ * Repository functionality for {@link PriceListVersion} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PriceListVersionService
+		extends
+			AbstractEntityService<PriceListVersion>
+		implements
+			IPriceListVersionService {
 
-public class PriceListVersionService extends AbstractEntityService<PriceListVersion>
-		implements IPriceListVersionService {
- 
 	public PriceListVersionService() {
 		super();
 	}
@@ -31,24 +38,33 @@ public class PriceListVersionService extends AbstractEntityService<PriceListVers
 	public Class<PriceListVersion> getEntityClass() {
 		return PriceListVersion.class;
 	}
-	
-	public PriceListVersion findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public PriceListVersion findByName(String name) {
 		return (PriceListVersion) this.em
-			.createNamedQuery(PriceListVersion.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(PriceListVersion.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: priceList
+	 */
 	public List<PriceListVersion> findByPriceList(PriceList priceList) {
-		return this.findByPriceListId(priceList.getId()); 
+		return this.findByPriceListId(priceList.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: priceList.id
+	 */
 	public List<PriceListVersion> findByPriceListId(Long priceListId) {
 		return (List<PriceListVersion>) this.em
-			.createQuery("select e from PriceListVersion e where e.clientId = :pClientId and e.priceList.id = :pPriceListId", PriceListVersion.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPriceListId", priceListId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PriceListVersion e where e.clientId = :pClientId and e.priceList.id = :pPriceListId",
+						PriceListVersion.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPriceListId", priceListId).getResultList();
 	}
 }

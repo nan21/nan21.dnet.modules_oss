@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.PayScaleRate_UI", {
 			.linkDc("value", "srate",{fields:[
 				{childField:"scaleRateId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -31,7 +32,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.PayScaleRate_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -42,6 +43,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.PayScaleRate_UI", {
 			.addToolbarTo("canvas1", "tlbSrateList")
 			.addToolbarTo("canvas2", "tlbSrateEdit")
 			.addToolbarTo("valueEditList", "tlbSalueEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -55,6 +57,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.frame.PayScaleRate_UI", {
 			.beginToolbar("tlbSalueEditList", {dc: "value"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Progression point rates"})
 			.end()
+			;
 	}
 
 });

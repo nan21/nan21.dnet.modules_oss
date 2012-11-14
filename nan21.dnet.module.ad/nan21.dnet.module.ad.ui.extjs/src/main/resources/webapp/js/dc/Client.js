@@ -145,6 +145,6 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Create", {
 	/* ==================== Business functions ==================== */
 	
 	_shouldValidate_: function() {
-		return this._controller_.record.phantom;;
+		return this._controller_.record.phantom;
 	}
 });

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.bd.contact.frame.CommunicationChannelTypes_UI"
 		this._getBuilder_()
 			.addDc("ctype", new net.nan21.dnet.module.bd.contact.dc.CommunicationChannelType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.bd.contact.frame.CommunicationChannelTypes_UI"
 			.addDcEditGridView("ctype", {name:"ctypeEditList", xtype:"bd_contact_dc_CommunicationChannelType$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.bd.contact.frame.CommunicationChannelTypes_UI"
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["ctypeFilter", "ctypeEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbCtypeEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.bd.contact.frame.CommunicationChannelTypes_UI"
 			.beginToolbar("tlbCtypeEditList", {dc: "ctype"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Communication methods"})
 			.end()
+			;
 	}
 
 });

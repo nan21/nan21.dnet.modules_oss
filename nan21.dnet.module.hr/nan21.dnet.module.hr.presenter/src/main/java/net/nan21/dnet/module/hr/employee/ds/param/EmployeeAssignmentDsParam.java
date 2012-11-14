@@ -8,16 +8,16 @@ package net.nan21.dnet.module.hr.employee.ds.param;
 import java.util.Date;
 import net.nan21.dnet.core.presenter.model.EmptyParam;
 
-public class EmployeeAssignmentDsParam extends EmptyParam {		
-	
+public class EmployeeAssignmentDsParam extends EmptyParam {
+
 	public static final String fVALIDAT = "validAt";
-	
-	private Date  validAt;
-	
+
+	private Date validAt;
+
 	public Date getValidAt() {
 		return this.validAt;
 	}
-	
+
 	public void setValidAt(Date validAt) {
 		this.validAt = validAt;
 	}

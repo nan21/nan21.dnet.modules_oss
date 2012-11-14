@@ -28,87 +28,76 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=DsReport.NQ_FIND_BY_ID,
-		query="SELECT e FROM DsReport e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=DsReport.NQ_FIND_BY_IDS,
-		query="SELECT e FROM DsReport e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = DsReport.NQ_FIND_BY_ID, query = "SELECT e FROM DsReport e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = DsReport.NQ_FIND_BY_IDS, query = "SELECT e FROM DsReport e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=DsReport.TABLE_NAME
-)
+@Table(name = DsReport.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class DsReport extends AbstractAuditable  {
-	
+public class DsReport extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "AD_DS_RPT";
 	public static final String SEQUENCE_NAME = "AD_DS_RPT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "DsReport.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "DsReport.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	/** Reference to the data-source. 
-			  */
-	@Column(name="DATASOURCE", nullable=false, length=255)
+	 */
+	@Column(name = "DATASOURCE", nullable = false, length = 255)
 	@NotBlank
 	private String dataSource;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Report.class)
-	@JoinColumn(name="REPORT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Report.class)
+	@JoinColumn(name = "REPORT_ID", referencedColumnName = "ID")
 	private Report report;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getDataSource() {
 		return this.dataSource;
 	}
-	
+
 	public void setDataSource(String dataSource) {
 		this.dataSource = dataSource;
 	}
-	
+
 	public Report getReport() {
 		return this.report;
 	}
-	
+
 	public void setReport(Report report) {
-		if (report != null ) {
+		if (report != null) {
 			this.__validate_client_context__(report.getClientId());
 		}
 		this.report = report;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

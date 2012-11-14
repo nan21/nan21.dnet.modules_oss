@@ -27,123 +27,98 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Grade.NQ_FIND_BY_ID,
-		query="SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Grade.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Grade.NQ_FIND_BY_CODE,
-		query="SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Grade.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Grade.NQ_FIND_BY_ID, query = "SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Grade.NQ_FIND_BY_IDS, query = "SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Grade.NQ_FIND_BY_CODE, query = "SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Grade.NQ_FIND_BY_NAME, query = "SELECT e FROM Grade e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Grade.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Grade.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","CODE"}
-		),
-		@UniqueConstraint( 
-			name=Grade.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Grade.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = Grade.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "CODE"}),
+		@UniqueConstraint(name = Grade.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Grade extends AbstractTypeWithCode  {
-	
+public class Grade extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "HR_GRD";
 	public static final String SEQUENCE_NAME = "HR_GRD_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Grade.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Grade.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Code.
 	 */
 	public static final String NQ_FIND_BY_CODE = "Grade.findByCode";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Grade.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="SEQUENCENO")
+
+	@Column(name = "SEQUENCENO")
 	private Integer sequenceNo;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDFROM" )
+	@Column(name = "VALIDFROM")
 	private Date validFrom;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDTO" )
+	@Column(name = "VALIDTO")
 	private Date validTo;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Integer getSequenceNo() {
 		return this.sequenceNo;
 	}
-	
+
 	public void setSequenceNo(Integer sequenceNo) {
 		this.sequenceNo = sequenceNo;
 	}
-	
+
 	public Date getValidFrom() {
 		return this.validFrom;
 	}
-	
+
 	public void setValidFrom(Date validFrom) {
 		this.validFrom = validFrom;
 	}
-	
+
 	public Date getValidTo() {
 		return this.validTo;
 	}
-	
+
 	public void setValidTo(Date validTo) {
 		this.validTo = validTo;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

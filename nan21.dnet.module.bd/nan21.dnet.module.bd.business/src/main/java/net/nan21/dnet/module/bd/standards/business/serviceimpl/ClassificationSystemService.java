@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.standards.business.service.IClassificationSystemService;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
 
+/**
+ * Repository functionality for {@link ClassificationSystem} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ClassificationSystemService
+		extends
+			AbstractEntityService<ClassificationSystem>
+		implements
+			IClassificationSystemService {
 
-public class ClassificationSystemService extends AbstractEntityService<ClassificationSystem>
-		implements IClassificationSystemService {
- 
 	public ClassificationSystemService() {
 		super();
 	}
@@ -29,20 +36,24 @@ public class ClassificationSystemService extends AbstractEntityService<Classific
 	public Class<ClassificationSystem> getEntityClass() {
 		return ClassificationSystem.class;
 	}
-	
-	public ClassificationSystem findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ClassificationSystem findByCode(String code) {
 		return (ClassificationSystem) this.em
-			.createNamedQuery(ClassificationSystem.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(ClassificationSystem.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public ClassificationSystem findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ClassificationSystem findByName(String name) {
 		return (ClassificationSystem) this.em
-			.createNamedQuery(ClassificationSystem.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ClassificationSystem.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

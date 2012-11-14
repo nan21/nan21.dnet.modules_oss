@@ -16,10 +16,15 @@ import net.nan21.dnet.module.md.bp.business.service.ICustomerGroupService;
 import net.nan21.dnet.module.md.bp.domain.entity.CustomerGroup;
 import net.nan21.dnet.module.md.bp.domain.entity.CustomerGroupAcct;
 
-
+/**
+ * Repository functionality for {@link CustomerGroup} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class CustomerGroupService extends AbstractEntityService<CustomerGroup>
-		implements ICustomerGroupService {
- 
+		implements
+			ICustomerGroupService {
+
 	public CustomerGroupService() {
 		super();
 	}
@@ -33,56 +38,82 @@ public class CustomerGroupService extends AbstractEntityService<CustomerGroup>
 	public Class<CustomerGroup> getEntityClass() {
 		return CustomerGroup.class;
 	}
-	
-	public CustomerGroup findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public CustomerGroup findByCode(String code) {
 		return (CustomerGroup) this.em
-			.createNamedQuery(CustomerGroup.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(CustomerGroup.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public CustomerGroup findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public CustomerGroup findByName(String name) {
 		return (CustomerGroup) this.em
-			.createNamedQuery(CustomerGroup.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(CustomerGroup.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: paymentMethod
+	 */
 	public List<CustomerGroup> findByPaymentMethod(PaymentMethod paymentMethod) {
-		return this.findByPaymentMethodId(paymentMethod.getId()); 
+		return this.findByPaymentMethodId(paymentMethod.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: paymentMethod.id
+	 */
 	public List<CustomerGroup> findByPaymentMethodId(Long paymentMethodId) {
 		return (List<CustomerGroup>) this.em
-			.createQuery("select e from CustomerGroup e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId", CustomerGroup.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPaymentMethodId", paymentMethodId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from CustomerGroup e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId",
+						CustomerGroup.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPaymentMethodId", paymentMethodId)
+				.getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: paymentTerm
+	 */
 	public List<CustomerGroup> findByPaymentTerm(PaymentTerm paymentTerm) {
-		return this.findByPaymentTermId(paymentTerm.getId()); 
+		return this.findByPaymentTermId(paymentTerm.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: paymentTerm.id
+	 */
 	public List<CustomerGroup> findByPaymentTermId(Long paymentTermId) {
 		return (List<CustomerGroup>) this.em
-			.createQuery("select e from CustomerGroup e where e.clientId = :pClientId and e.paymentTerm.id = :pPaymentTermId", CustomerGroup.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPaymentTermId", paymentTermId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from CustomerGroup e where e.clientId = :pClientId and e.paymentTerm.id = :pPaymentTermId",
+						CustomerGroup.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPaymentTermId", paymentTermId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: accounts
+	 */
 	public List<CustomerGroup> findByAccounts(CustomerGroupAcct accounts) {
-		return this.findByAccountsId(accounts.getId()); 
+		return this.findByAccountsId(accounts.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: accounts.id
+	 */
 	public List<CustomerGroup> findByAccountsId(Long accountsId) {
 		return (List<CustomerGroup>) this.em
-			.createQuery("select distinct e from CustomerGroup e, IN (e.accounts) c where e.clientId = :pClientId and c.id = :pAccountsId", CustomerGroup.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAccountsId", accountsId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from CustomerGroup e, IN (e.accounts) c where e.clientId = :pClientId and c.id = :pAccountsId",
+						CustomerGroup.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAccountsId", accountsId).getResultList();
 	}
 }

@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.currency.business.service.ICurrencyService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 
-
+/**
+ * Repository functionality for {@link Currency} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class CurrencyService extends AbstractEntityService<Currency>
-		implements ICurrencyService {
- 
+		implements
+			ICurrencyService {
+
 	public CurrencyService() {
 		super();
 	}
@@ -29,20 +34,22 @@ public class CurrencyService extends AbstractEntityService<Currency>
 	public Class<Currency> getEntityClass() {
 		return Currency.class;
 	}
-	
-	public Currency findByCode(String code) {		 
-		return (Currency) this.em
-			.createNamedQuery(Currency.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Currency findByCode(String code) {
+		return (Currency) this.em.createNamedQuery(Currency.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public Currency findByName(String name) {		 
-		return (Currency) this.em
-			.createNamedQuery(Currency.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Currency findByName(String name) {
+		return (Currency) this.em.createNamedQuery(Currency.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

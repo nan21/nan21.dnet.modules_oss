@@ -12,18 +12,21 @@ import net.nan21.dnet.module.md.mm.prod.ds.param.ProductDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class ProductDsQueryBuilder extends QueryBuilderWithJpql<ProductDs,ProductDsFilter, ProductDsParam> {
-	
+public class ProductDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<ProductDs, ProductDsFilter, ProductDsParam> {
+
 	@Override
 	public void setFilter(ProductDsFilter filter) {
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getProductCategoryId() != null) {
- 			addFilterCondition("  e.id in ( select p.id from  Product p, IN (p.categories) c where c.id = :productCategoryId )  ");	
- 			addCustomFilterItem("productCategoryId",this.params.getProductCategoryId());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getProductCategoryId() != null) {
+			addFilterCondition("  e.id in ( select p.id from  Product p, IN (p.categories) c where c.id = :productCategoryId )  ");
+			addCustomFilterItem("productCategoryId",
+					this.params.getProductCategoryId());
+		}
+	}
 }

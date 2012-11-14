@@ -28,119 +28,99 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=InvTransactionType.NQ_FIND_BY_ID,
-		query="SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=InvTransactionType.NQ_FIND_BY_IDS,
-		query="SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=InvTransactionType.NQ_FIND_BY_NAME,
-		query="SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = InvTransactionType.NQ_FIND_BY_ID, query = "SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = InvTransactionType.NQ_FIND_BY_IDS, query = "SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = InvTransactionType.NQ_FIND_BY_NAME, query = "SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=InvTransactionType.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=InvTransactionType.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = InvTransactionType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = InvTransactionType.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class InvTransactionType extends AbstractType  {
-	
+public class InvTransactionType extends AbstractType {
+
 	public static final String TABLE_NAME = "TX_INVT_TX_TYPE";
 	public static final String SEQUENCE_NAME = "TX_INVT_TX_TYPE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "InvTransactionType.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "InvTransactionType.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "InvTransactionType.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="HASFROMINVENTORY", nullable=false)
+
+	@Column(name = "HASFROMINVENTORY", nullable = false)
 	@NotNull
 	private Boolean hasFromInventory;
-	
-	@Column(name="HASTOINVENTORY", nullable=false)
+
+	@Column(name = "HASTOINVENTORY", nullable = false)
 	@NotNull
 	private Boolean hasToInventory;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=TxDocType.class)
-	@JoinColumn(name="DOCTYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = TxDocType.class)
+	@JoinColumn(name = "DOCTYPE_ID", referencedColumnName = "ID")
 	private TxDocType docType;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Boolean getHasFromInventory() {
 		return this.hasFromInventory;
 	}
-	
+
 	public void setHasFromInventory(Boolean hasFromInventory) {
 		this.hasFromInventory = hasFromInventory;
 	}
-	
+
 	public Boolean getHasToInventory() {
 		return this.hasToInventory;
 	}
-	
+
 	public void setHasToInventory(Boolean hasToInventory) {
 		this.hasToInventory = hasToInventory;
 	}
-	
+
 	public TxDocType getDocType() {
 		return this.docType;
 	}
-	
+
 	public void setDocType(TxDocType docType) {
-		if (docType != null ) {
+		if (docType != null) {
 			this.__validate_client_context__(docType.getClientId());
 		}
 		this.docType = docType;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getHasFromInventory() == null ) {
-			event.updateAttributeWithObject("hasFromInventory",false);
+
+		if (this.getHasFromInventory() == null) {
+			event.updateAttributeWithObject("hasFromInventory", false);
 		}
-		if (this.getHasToInventory() == null ) {
-			event.updateAttributeWithObject("hasToInventory",false);
+		if (this.getHasToInventory() == null) {
+			event.updateAttributeWithObject("hasToInventory", false);
 		}
 	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.NoResultException;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 
 import net.nan21.dnet.module.md.acc.business.service.IAccSchemaService;
@@ -31,12 +32,10 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	IFiscalPeriodService periodService;
 	IProductService prodService;
 
-	public void unPost(SalesInvoice invoice) throws Exception {
+	public void unPost(SalesInvoice invoice) throws BusinessException {
 		try {
-			this.em
-					.createQuery(
-							"delete from AccDoc t "
-									+ " where t.docUuid = :invoiceUuid")
+			this.em.createQuery(
+					"delete from AccDoc t " + " where t.docUuid = :invoiceUuid")
 					.setParameter("invoiceUuid", invoice.getUuid())
 					.executeUpdate();
 			invoice.setPosted(false);
@@ -44,18 +43,19 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		} catch (Exception e) {
 			if (e.getCause() != null
 					&& e.getCause() instanceof SQLIntegrityConstraintViolationException) {
-				throw new RuntimeException(
+				throw new BusinessException(
 						"Cannot unpost document `"
 								+ invoice.getCode()
 								+ "`. The corresponding accounting document is already posted to great ledger.");
 			} else {
-				throw e;
+				throw new BusinessException("Cannot unpost document `"
+						+ invoice.getCode() + "`.", e);
 			}
 		}
 
 	}
 
-	public List<AccDoc> post(SalesInvoice invoice) throws Exception {
+	public List<AccDoc> post(SalesInvoice invoice) throws BusinessException {
 		List<AccDoc> result = new ArrayList<AccDoc>();
 		// get org schemas , for each schema generate an acc-doc
 		IAccSchemaService srv = (IAccSchemaService) this
@@ -72,7 +72,7 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	}
 
 	protected AccDoc generateAccDoc(SalesInvoice invoice, AccSchema schema)
-			throws Exception {
+			throws BusinessException {
 
 		Float totalCrAmount = 0F;
 		Float totalDbAmount = 0F;
@@ -165,7 +165,7 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	}
 
 	private Account getTaxAccount(Long taxId, Long organizationId,
-			Long accSchemaId) throws Exception {
+			Long accSchemaId) throws BusinessException {
 
 		ITaxAcctService acctService = (ITaxAcctService) this
 				.findEntityService(TaxAcct.class);
@@ -174,7 +174,7 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		return acct.getSalesAccount();
 	}
 
-	protected IBusinessPartnerService getBpService() throws Exception {
+	protected IBusinessPartnerService getBpService() throws BusinessException {
 		if (this.bpService == null) {
 			this.bpService = (IBusinessPartnerService) this
 					.findEntityService(BusinessPartner.class);
@@ -182,7 +182,7 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		return this.bpService;
 	}
 
-	public IFiscalPeriodService getPeriodService() throws Exception {
+	public IFiscalPeriodService getPeriodService() throws BusinessException {
 		if (this.periodService == null) {
 			this.periodService = (IFiscalPeriodService) this
 					.findEntityService(FiscalPeriod.class);
@@ -190,7 +190,7 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		return this.periodService;
 	}
 
-	public IProductService getProdService() throws Exception {
+	public IProductService getProdService() throws BusinessException {
 		if (this.prodService == null) {
 			this.prodService = (IProductService) this
 					.findEntityService(Product.class);

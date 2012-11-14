@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductAttribute_UI", {
 		this._getBuilder_()
 			.addDc("attr", new net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductAttribute_UI", {
 			.addDcEditGridView("attr", {name:"attrEditList", xtype:"md_mm_prod_dc_ProductAttributeValue$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductAttribute_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["attrFilter", "attrEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbAttrEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductAttribute_UI", {
 			.beginToolbar("tlbAttrEditList", {dc: "attr"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Product attributes values"})
 			.end()
+			;
 	}
 
 });

@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.system.business.service.IAuditEntryService;
 import net.nan21.dnet.module.ad.system.domain.entity.AuditEntry;
 import net.nan21.dnet.module.ad.system.domain.entity.AuditField;
 
-
+/**
+ * Repository functionality for {@link AuditEntry} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AuditEntryService extends AbstractEntityService<AuditEntry>
-		implements IAuditEntryService {
- 
+		implements
+			IAuditEntryService {
+
 	public AuditEntryService() {
 		super();
 	}
@@ -31,16 +36,23 @@ public class AuditEntryService extends AbstractEntityService<AuditEntry>
 	public Class<AuditEntry> getEntityClass() {
 		return AuditEntry.class;
 	}
-	
+
+	/**
+	 * Find by reference: auditFields
+	 */
 	public List<AuditEntry> findByAuditFields(AuditField auditFields) {
-		return this.findByAuditFieldsId(auditFields.getId()); 
+		return this.findByAuditFieldsId(auditFields.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: auditFields.id
+	 */
 	public List<AuditEntry> findByAuditFieldsId(Long auditFieldsId) {
 		return (List<AuditEntry>) this.em
-			.createQuery("select distinct e from AuditEntry e, IN (e.auditFields) c where e.clientId = :pClientId and c.id = :pAuditFieldsId", AuditEntry.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAuditFieldsId", auditFieldsId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from AuditEntry e, IN (e.auditFields) c where e.clientId = :pClientId and c.id = :pAuditFieldsId",
+						AuditEntry.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAuditFieldsId", auditFieldsId).getResultList();
 	}
 }

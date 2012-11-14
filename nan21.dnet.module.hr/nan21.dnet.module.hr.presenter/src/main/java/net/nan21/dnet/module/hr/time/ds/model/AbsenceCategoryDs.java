@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory;
 
-@Ds(entity=AbsenceCategory.class, sort={@SortField(field=AbsenceCategoryDs.fNAME)})
+@Ds(entity = AbsenceCategory.class, sort = {@SortField(field = AbsenceCategoryDs.fNAME)})
 public class AbsenceCategoryDs extends AbstractTypeDs<AbsenceCategory> {
-
 
 	public AbsenceCategoryDs() {
 		super();
 	}
 
- 	public AbsenceCategoryDs(AbsenceCategory e) {
+	public AbsenceCategoryDs(AbsenceCategory e) {
 		super(e);
 	}
 }

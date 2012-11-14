@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJob_UI", {
 			.linkDc("params", "job",{fields:[
 				{childField:"jobId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -33,7 +34,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJob_UI", {
 			.addDcEditGridView("params", {name:"paramsCtxList", width:300, xtype:"ad_system_dc_SysJobParam$CtxList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -42,6 +43,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJob_UI", {
 			.addChildrenTo("canvas1", ["jobFilter", "jobList", "paramsCtxList"], ["north", "center", "east"])
 			.addToolbarTo("canvas1", "tlbJobList")
 			.addToolbarTo("paramsCtxList", "tlbParamsCtxList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -52,6 +54,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJob_UI", {
 			.beginToolbar("tlbParamsCtxList", {dc: "params"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Params"})
 			.end()
+			;
 	}
 
 	,onBtnSynchronize: function() {

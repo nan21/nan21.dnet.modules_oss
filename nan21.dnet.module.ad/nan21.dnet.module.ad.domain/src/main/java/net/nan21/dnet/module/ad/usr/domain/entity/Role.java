@@ -28,121 +28,101 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Role.NQ_FIND_BY_ID,
-		query="SELECT e FROM Role e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Role.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Role e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Role.NQ_FIND_BY_NAME,
-		query="SELECT e FROM Role e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Role.NQ_FIND_BY_ID, query = "SELECT e FROM Role e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Role.NQ_FIND_BY_IDS, query = "SELECT e FROM Role e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Role.NQ_FIND_BY_NAME, query = "SELECT e FROM Role e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=Role.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Role.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = Role.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Role.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class Role extends AbstractType  {
-	
+public class Role extends AbstractType {
+
 	public static final String TABLE_NAME = "AD_ROLE";
 	public static final String SEQUENCE_NAME = "AD_ROLE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Role.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Role.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "Role.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToMany(mappedBy="roles")
+
+	@ManyToMany(mappedBy = "roles")
 	private Collection<User> users;
-	
+
 	@ManyToMany
-	@JoinTable(name="AD_ROLE_ACLS", joinColumns={@JoinColumn(name="ROLES_ID")}, inverseJoinColumns={@JoinColumn(name="ACCESSCONTROLS_ID")})
+	@JoinTable(name = "AD_ROLE_ACLS", joinColumns = {@JoinColumn(name = "ROLES_ID")}, inverseJoinColumns = {@JoinColumn(name = "ACCESSCONTROLS_ID")})
 	private Collection<AccessControl> accessControls;
-	
+
 	@ManyToMany
-	@JoinTable(name="AD_ROLE_MENU", joinColumns={@JoinColumn(name="ROLES_ID")}, inverseJoinColumns={@JoinColumn(name="MENUS_ID")})
+	@JoinTable(name = "AD_ROLE_MENU", joinColumns = {@JoinColumn(name = "ROLES_ID")}, inverseJoinColumns = {@JoinColumn(name = "MENUS_ID")})
 	private Collection<Menu> menus;
-	
+
 	@ManyToMany
-	@JoinTable(name="AD_ROLE_MENUITEM", joinColumns={@JoinColumn(name="ROLES_ID")}, inverseJoinColumns={@JoinColumn(name="MENUITEMS_ID")})
+	@JoinTable(name = "AD_ROLE_MENUITEM", joinColumns = {@JoinColumn(name = "ROLES_ID")}, inverseJoinColumns = {@JoinColumn(name = "MENUITEMS_ID")})
 	private Collection<MenuItem> menuItems;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Collection<User> getUsers() {
 		return this.users;
 	}
-	
+
 	public void setUsers(Collection<User> users) {
 		this.users = users;
 	}
-	
+
 	public Collection<AccessControl> getAccessControls() {
 		return this.accessControls;
 	}
-	
+
 	public void setAccessControls(Collection<AccessControl> accessControls) {
 		this.accessControls = accessControls;
 	}
-	
+
 	public Collection<Menu> getMenus() {
 		return this.menus;
 	}
-	
+
 	public void setMenus(Collection<Menu> menus) {
 		this.menus = menus;
 	}
-	
+
 	public Collection<MenuItem> getMenuItems() {
 		return this.menuItems;
 	}
-	
+
 	public void setMenuItems(Collection<MenuItem> menuItems) {
 		this.menuItems = menuItems;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

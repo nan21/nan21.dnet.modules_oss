@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.Qualification_UI", {
 			.linkDc("skill", "qualif",{fields:[
 				{childField:"qualificationId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -30,7 +31,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.Qualification_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"panelRequirements", width:500, layout:"accordion", activeItem:0})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -40,6 +41,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.Qualification_UI", {
 			.addChildrenTo("panelRequirements", ["skillCtxEditList"])
 			.addToolbarTo("canvas1", "tlbQualifEditList")
 			.addToolbarTo("skillCtxEditList", "tlbSkillCtxEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -50,6 +52,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.Qualification_UI", {
 			.beginToolbar("tlbSkillCtxEditList", {dc: "skill"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Required competences"})
 			.end()
+			;
 	}
 
 });

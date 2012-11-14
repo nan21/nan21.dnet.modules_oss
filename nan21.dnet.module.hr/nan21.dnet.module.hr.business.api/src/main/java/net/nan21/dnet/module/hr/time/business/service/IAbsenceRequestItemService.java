@@ -11,10 +11,22 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceRequest;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceRequestItem;
 
-public interface IAbsenceRequestItemService extends IEntityService<AbsenceRequestItem> {
-	
-	public List<AbsenceRequestItem> findByAbsenceRequest(AbsenceRequest absenceRequest);
-	
+/**
+ * Interface to expose business functions specific for {@link AbsenceRequestItem} domain
+ * entity.
+ */
+public interface IAbsenceRequestItemService
+		extends
+			IEntityService<AbsenceRequestItem> {
+
+	/**
+	 * Find by reference: absenceRequest
+	 */
+	public List<AbsenceRequestItem> findByAbsenceRequest(
+			AbsenceRequest absenceRequest);
+
+	/**
+	 * Find by ID of reference: absenceRequest.id
+	 */
 	public List<AbsenceRequestItem> findByAbsenceRequestId(Long absenceRequestId);
-	
 }

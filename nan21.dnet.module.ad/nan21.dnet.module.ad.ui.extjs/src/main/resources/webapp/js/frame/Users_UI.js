@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 		this._getBuilder_()
 			.addDc("usr", new net.nan21.dnet.module.ad.usr.dc.User({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -43,7 +44,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -53,6 +54,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 			.addChildrenTo("canvas2", ["usrEdit"], ["center"])
 			.addToolbarTo("canvas1", "tlbUsrList")
 			.addToolbarTo("canvas2", "tlbUsrEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -63,6 +65,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 			.beginToolbar("tlbUsrEdit", {dc: "usr"}).addBack().addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
 			.addReports().addSeparator().addSeparator().addTitle({text: "User"})
 			.end()
+			;
 	}
 
 	,onBtnAsgnRoles: function() {

@@ -25,100 +25,75 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=SysJob.NQ_FIND_BY_ID,
-		query="SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysJob.NQ_FIND_BY_IDS,
-		query="SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysJob.NQ_FIND_BY_NAME,
-		query="SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=SysJob.NQ_FIND_BY_JCLASS,
-		query="SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.javaClass = :pJavaClass",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = SysJob.NQ_FIND_BY_ID, query = "SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysJob.NQ_FIND_BY_IDS, query = "SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysJob.NQ_FIND_BY_NAME, query = "SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysJob.NQ_FIND_BY_JCLASS, query = "SELECT e FROM SysJob e WHERE e.clientId = :pClientId and e.javaClass = :pJavaClass", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=SysJob.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=SysJob.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		),
-		@UniqueConstraint( 
-			name=SysJob.TABLE_NAME+"_UK2"
-			,columnNames={"CLIENTID","JAVACLASS"}
-		)
-	}
-)
+@Table(name = SysJob.TABLE_NAME, uniqueConstraints = {
+		@UniqueConstraint(name = SysJob.TABLE_NAME + "_UK1", columnNames = {
+				"CLIENTID", "NAME"}),
+		@UniqueConstraint(name = SysJob.TABLE_NAME + "_UK2", columnNames = {
+				"CLIENTID", "JAVACLASS"})})
 @Customizer(DefaultEventHandler.class)
-public class SysJob extends AbstractType  {
-	
+public class SysJob extends AbstractType {
+
 	public static final String TABLE_NAME = "AD_SYS_JOB";
 	public static final String SEQUENCE_NAME = "AD_SYS_JOB_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "SysJob.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "SysJob.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "SysJob.findByName";
-	
+
 	/**
 	 * Named query find by unique key: Jclass.
 	 */
 	public static final String NQ_FIND_BY_JCLASS = "SysJob.findByJclass";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="JAVACLASS", nullable=false, length=255)
+
+	@Column(name = "JAVACLASS", nullable = false, length = 255)
 	@NotBlank
 	private String javaClass;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getJavaClass() {
 		return this.javaClass;
 	}
-	
+
 	public void setJavaClass(String javaClass) {
 		this.javaClass = javaClass;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

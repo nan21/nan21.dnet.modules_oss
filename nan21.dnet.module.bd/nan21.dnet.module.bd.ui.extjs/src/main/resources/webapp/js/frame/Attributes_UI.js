@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.Attributes_UI", {
 		this._getBuilder_()
 			.addDc("attr", new net.nan21.dnet.module.bd.attr.dc.Attribute({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.Attributes_UI", {
 			.addDcEditGridView("attr", {name:"attrEditList", xtype:"bd_attr_dc_Attribute$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasAttr", title:"Attributes", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.Attributes_UI", {
 			.addChildrenTo("main", ["canvasAttr"])
 			.addChildrenTo("canvasAttr", ["attrFilter", "attrEditList"], ["north", "center"])
 			.addToolbarTo("canvasAttr", "tlbAttrEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.Attributes_UI", {
 			.beginToolbar("tlbAttrEditList", {dc: "attr"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Attributes"})
 			.end()
+			;
 	}
 
 });

@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.skill.business.service.IRatingScaleService;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingScale;
 
-
+/**
+ * Repository functionality for {@link RatingScale} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class RatingScaleService extends AbstractEntityService<RatingScale>
-		implements IRatingScaleService {
- 
+		implements
+			IRatingScaleService {
+
 	public RatingScaleService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class RatingScaleService extends AbstractEntityService<RatingScale>
 	public Class<RatingScale> getEntityClass() {
 		return RatingScale.class;
 	}
-	
-	public RatingScale findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public RatingScale findByName(String name) {
 		return (RatingScale) this.em
-			.createNamedQuery(RatingScale.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(RatingScale.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

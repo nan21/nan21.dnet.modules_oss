@@ -17,6 +17,7 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.AbsenceBaseData_UI", {
 			.addDc("abstype", new net.nan21.dnet.module.hr.time.dc.AbsenceType({multiEdit:true}))
 			.addDc("absreason", new net.nan21.dnet.module.hr.time.dc.AbsenceReason({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,6 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.AbsenceBaseData_UI", {
 			.addPanel({name:"canvasCateg", title:"Absence categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Absence types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasReason", title:"Absence reasons", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -50,6 +50,7 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.AbsenceBaseData_UI", {
 			.addToolbarTo("canvasCateg", "tlbabcategFilter")
 			.addToolbarTo("canvasType", "tlbabstypeFilter")
 			.addToolbarTo("canvasReason", "tlbabsreasonFilter")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -63,6 +64,7 @@ Ext.define("net.nan21.dnet.module.hr.time.frame.AbsenceBaseData_UI", {
 			.beginToolbar("tlbabsreasonFilter", {dc: "absreason"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Absence reasons"})
 			.end()
+			;
 	}
 
 });

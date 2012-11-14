@@ -11,10 +11,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.data.business.service.INoteService;
 import net.nan21.dnet.module.ad.data.domain.entity.Note;
 
-
+/**
+ * Repository functionality for {@link Note} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class NoteService extends AbstractEntityService<Note>
-		implements INoteService {
- 
+		implements
+			INoteService {
+
 	public NoteService() {
 		super();
 	}

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.frame.Payment_UI", {
 		this._getBuilder_()
 			.addDc("payment", new net.nan21.dnet.module.md.tx.fin.dc.Payment({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.frame.Payment_UI", {
 			.addDcGridView("payment", {name:"paymentList", xtype:"md_tx_fin_dc_Payment$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.frame.Payment_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["paymentFilter", "paymentList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbPaymentList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.frame.Payment_UI", {
 			.beginToolbar("tlbPaymentList", {dc: "payment"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Payments"})
 			.end()
+			;
 	}
 
 });

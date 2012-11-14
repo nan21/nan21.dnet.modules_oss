@@ -9,8 +9,16 @@ package net.nan21.dnet.module.sd.opportunity.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStatus;
 
-public interface IOpportunityStatusService extends IEntityService<OpportunityStatus> {
-	
+/**
+ * Interface to expose business functions specific for {@link OpportunityStatus} domain
+ * entity.
+ */
+public interface IOpportunityStatusService
+		extends
+			IEntityService<OpportunityStatus> {
+
+	/**
+	 * Find by unique key
+	 */
 	public OpportunityStatus findByName(String name);
-	
 }

@@ -15,10 +15,17 @@ import net.nan21.dnet.module.hr.grade.domain.entity.Grade;
 import net.nan21.dnet.module.hr.grade.domain.entity.GradeRate;
 import net.nan21.dnet.module.hr.grade.domain.entity.GradeRateValue;
 
+/**
+ * Repository functionality for {@link GradeRateValue} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class GradeRateValueService
+		extends
+			AbstractEntityService<GradeRateValue>
+		implements
+			IGradeRateValueService {
 
-public class GradeRateValueService extends AbstractEntityService<GradeRateValue>
-		implements IGradeRateValueService {
- 
 	public GradeRateValueService() {
 		super();
 	}
@@ -32,28 +39,42 @@ public class GradeRateValueService extends AbstractEntityService<GradeRateValue>
 	public Class<GradeRateValue> getEntityClass() {
 		return GradeRateValue.class;
 	}
-	
+
+	/**
+	 * Find by reference: gradeRate
+	 */
 	public List<GradeRateValue> findByGradeRate(GradeRate gradeRate) {
-		return this.findByGradeRateId(gradeRate.getId()); 
+		return this.findByGradeRateId(gradeRate.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: gradeRate.id
+	 */
 	public List<GradeRateValue> findByGradeRateId(Long gradeRateId) {
 		return (List<GradeRateValue>) this.em
-			.createQuery("select e from GradeRateValue e where e.clientId = :pClientId and e.gradeRate.id = :pGradeRateId", GradeRateValue.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pGradeRateId", gradeRateId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from GradeRateValue e where e.clientId = :pClientId and e.gradeRate.id = :pGradeRateId",
+						GradeRateValue.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pGradeRateId", gradeRateId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: grade
+	 */
 	public List<GradeRateValue> findByGrade(Grade grade) {
-		return this.findByGradeId(grade.getId()); 
+		return this.findByGradeId(grade.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: grade.id
+	 */
 	public List<GradeRateValue> findByGradeId(Long gradeId) {
 		return (List<GradeRateValue>) this.em
-			.createQuery("select e from GradeRateValue e where e.clientId = :pClientId and e.grade.id = :pGradeId", GradeRateValue.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pGradeId", gradeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from GradeRateValue e where e.clientId = :pClientId and e.grade.id = :pGradeId",
+						GradeRateValue.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pGradeId", gradeId).getResultList();
 	}
 }

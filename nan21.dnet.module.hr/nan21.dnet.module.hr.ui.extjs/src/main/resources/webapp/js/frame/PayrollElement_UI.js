@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElement_UI", {
 			.linkDc("formula", "elem",{fetchMode:"auto",fields:[
 				{childField:"elementId", parentField:"id"}, {childField:"engineId", parentField:"engineId"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -39,7 +40,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElement_UI", {
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			.addPanel({name:"formulaPanel", title:"Formula", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -53,6 +54,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElement_UI", {
 			.addToolbarTo("canvas2", "tlbElemmEdit")
 			.addToolbarTo("inputEditList", "tlbInputEditList")
 			.addToolbarTo("formulaPanel", "tlbFormulaList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -69,6 +71,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElement_UI", {
 			.beginToolbar("tlbFormulaList", {dc: "formula"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Formula"})
 			.end()
+			;
 	}
 
 });

@@ -16,6 +16,7 @@ Ext.define("net.nan21.dnet.module.bd.standards.frame.Classifications_UI", {
 			.addDc("classsys", new net.nan21.dnet.module.bd.standards.dc.ClassificationSystem({multiEdit:true}))
 			.addDc("classcode", new net.nan21.dnet.module.bd.standards.dc.ClassificationCode({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,6 @@ Ext.define("net.nan21.dnet.module.bd.standards.frame.Classifications_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasClasssys", title:"Classification systems", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasClasscode", title:"Classification codes", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -44,6 +44,7 @@ Ext.define("net.nan21.dnet.module.bd.standards.frame.Classifications_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasClasssys", "tlbClasssysEditList")
 			.addToolbarTo("canvasClasscode", "tlbClasscodeEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.bd.standards.frame.Classifications_UI", {
 			.beginToolbar("tlbClasscodeEditList", {dc: "classcode"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Classification codes"})
 			.end()
+			;
 	}
 
 });

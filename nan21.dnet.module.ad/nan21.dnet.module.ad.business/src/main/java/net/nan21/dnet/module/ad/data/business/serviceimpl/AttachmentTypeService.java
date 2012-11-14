@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.data.business.service.IAttachmentTypeService;
 import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
 
+/**
+ * Repository functionality for {@link AttachmentType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class AttachmentTypeService
+		extends
+			AbstractEntityService<AttachmentType>
+		implements
+			IAttachmentTypeService {
 
-public class AttachmentTypeService extends AbstractEntityService<AttachmentType>
-		implements IAttachmentTypeService {
- 
 	public AttachmentTypeService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class AttachmentTypeService extends AbstractEntityService<AttachmentType>
 	public Class<AttachmentType> getEntityClass() {
 		return AttachmentType.class;
 	}
-	
-	public AttachmentType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AttachmentType findByName(String name) {
 		return (AttachmentType) this.em
-			.createNamedQuery(AttachmentType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AttachmentType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

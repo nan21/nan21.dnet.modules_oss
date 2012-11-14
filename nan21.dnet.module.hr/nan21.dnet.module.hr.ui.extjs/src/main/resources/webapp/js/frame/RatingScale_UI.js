@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.RatingScale_UI", {
 			.linkDc("level", "scale",{fields:[
 				{childField:"ratingScaleId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,7 +30,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.RatingScale_UI", {
 			.addDcEditGridView("level", {name:"levelCtxEditList", height:250, xtype:"hr_skill_dc_RatingLevel$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -38,6 +39,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.RatingScale_UI", {
 			.addChildrenTo("canvas1", ["scaleFilter", "scaleList", "levelCtxEditList"], ["north", "center", "south"])
 			.addToolbarTo("canvas1", "tlbScaleList")
 			.addToolbarTo("levelCtxEditList", "tlbLevelCtxEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -48,6 +50,7 @@ Ext.define("net.nan21.dnet.module.hr.skill.frame.RatingScale_UI", {
 			.beginToolbar("tlbLevelCtxEditList", {dc: "level"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Proficiency levels"})
 			.end()
+			;
 	}
 
 });

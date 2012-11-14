@@ -8,13 +8,13 @@ package net.nan21.dnet.module.md.activity.ds.filter;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDsFilter;
 
 public class CalendarEventPriorityDsFilter extends AbstractTypeDsFilter {
-	
-	private String  eventType;
-	
+
+	private String eventType;
+
 	public String getEventType() {
 		return this.eventType;
 	}
-	
+
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
 	}

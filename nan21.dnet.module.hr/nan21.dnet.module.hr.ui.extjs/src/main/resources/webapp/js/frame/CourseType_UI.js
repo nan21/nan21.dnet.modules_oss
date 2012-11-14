@@ -16,6 +16,7 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.CourseType_UI", {
 			.addDc("ccateg", new net.nan21.dnet.module.hr.training.dc.CourseCategory({multiEdit:true}))
 			.addDc("ctype", new net.nan21.dnet.module.hr.training.dc.CourseType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,6 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.CourseType_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCategory", title:"Course categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Course types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -44,6 +44,7 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.CourseType_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasCategory", "tlbCcategEditList")
 			.addToolbarTo("canvasType", "tlbCtypeEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.hr.training.frame.CourseType_UI", {
 			.beginToolbar("tlbCtypeEditList", {dc: "ctype"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Course types"})
 			.end()
+			;
 	}
 
 });

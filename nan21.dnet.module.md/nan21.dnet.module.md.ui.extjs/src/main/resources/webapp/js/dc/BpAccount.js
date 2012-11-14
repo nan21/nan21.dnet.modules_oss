@@ -28,7 +28,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Filter", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addLov({xtype:"md_bp_lovs_BusinessPartnersCode", name:"businessPartner", dataIndex:"businessPartner", anchor:"-20", maxLength:32,
+			.addLov({xtype:"md_bp_lovs_BusinessPartnersCode", name:"businessPartnerCode", dataIndex:"businessPartnerCode", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "businessPartnerId"} 
 				]})
@@ -59,7 +59,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Filter", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3"])
-			.addChildrenTo("col1", ["org", "businessPartner"])
+			.addChildrenTo("col1", ["org", "businessPartnerCode"])
 			.addChildrenTo("col2", ["customerGroup", "vendorGroup"])
 			.addChildrenTo("col3", ["analiticSegment", "custAnaliticSegment", "vendAnaliticSegment"])
 		;
@@ -76,7 +76,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$List", {
 	_defineColumns_: function() {
 		this._getBuilder_()
 			.addTextColumn({ name:"org", dataIndex:"org", width:100})
-			.addTextColumn({ name:"businessPartner", dataIndex:"businessPartner", width:100})
+			.addTextColumn({ name:"businessPartnerCode", dataIndex:"businessPartnerCode", hidden:true, width:100})
+			.addTextColumn({ name:"businessPartnerName", dataIndex:"businessPartnerName", width:200})
 			.addTextColumn({ name:"analiticSegment", dataIndex:"analiticSegment", width:100})
 			.addBooleanColumn({ name:"customer", dataIndex:"customer"})
 			.addBooleanColumn({ name:"vendor", dataIndex:"vendor"})
@@ -113,7 +114,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 			.addTextField({ name:"analiticSegment", dataIndex:"analiticSegment", anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"customer", dataIndex:"customer", anchor:"-20"})
 			.addBooleanField({ name:"vendor", dataIndex:"vendor", anchor:"-20"})
-			.addLov({xtype:"md_bp_lovs_BusinessPartnersCode", name:"businessPartner", dataIndex:"businessPartner", anchor:"-20", maxLength:32,
+			.addLov({xtype:"md_bp_lovs_BusinessPartnersCode", name:"businessPartnerCode", dataIndex:"businessPartnerCode", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "businessPartnerId"} 
 				]})
@@ -153,15 +154,15 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
-			.addPanel({ name:"col2", title:"Customer", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
-			.addPanel({ name:"col3", title:"Vendor", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col2", title:"Customer", width:350, layout:"form", xtype:"fieldset", border:true, collapsible:false, defaults:{labelAlign:"right", labelWidth:180}})
+			.addPanel({ name:"col3", title:"Vendor", width:350, layout:"form", xtype:"fieldset", border:true, collapsible:false, defaults:{labelAlign:"right", labelWidth:180}})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3"])
-			.addChildrenTo("col1", ["org", "businessPartner", "analiticSegment", "customer", "vendor"])
+			.addChildrenTo("col1", ["org", "businessPartnerCode", "analiticSegment", "customer", "vendor"])
 			.addChildrenTo("col2", ["customerGroup", "customerPaymentMethod", "customerCreditLimit", "customerPaymentTerm", "custAnaliticSegment"])
 			.addChildrenTo("col3", ["vendorGroup", "vendorPaymentMethod", "vendorCreditLimit", "vendorPaymentTerm", "vendAnaliticSegment"])
 		;
@@ -217,8 +218,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
-			.addPanel({ name:"col2", title:"Customer", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
-			.addPanel({ name:"col3", title:"Vendor", width:300, layout:"form", xtype:"fieldset", border:true, collapsible:false})
+			.addPanel({ name:"col2", title:"Customer", width:350, layout:"form", xtype:"fieldset", border:true, collapsible:false, defaults:{labelAlign:"right", labelWidth:180}})
+			.addPanel({ name:"col3", title:"Vendor", width:350, layout:"form", xtype:"fieldset", border:true, collapsible:false, defaults:{labelAlign:"right", labelWidth:180}})
 		;
 	},
 

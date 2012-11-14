@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.benefit.business.service.IBenefitTypeService;
 import net.nan21.dnet.module.hr.benefit.domain.entity.BenefitType;
 
-
+/**
+ * Repository functionality for {@link BenefitType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class BenefitTypeService extends AbstractEntityService<BenefitType>
-		implements IBenefitTypeService {
- 
+		implements
+			IBenefitTypeService {
+
 	public BenefitTypeService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class BenefitTypeService extends AbstractEntityService<BenefitType>
 	public Class<BenefitType> getEntityClass() {
 		return BenefitType.class;
 	}
-	
-	public BenefitType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public BenefitType findByName(String name) {
 		return (BenefitType) this.em
-			.createNamedQuery(BenefitType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(BenefitType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

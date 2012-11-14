@@ -14,10 +14,15 @@ import net.nan21.dnet.module.bd.geo.business.service.IRegionService;
 import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 
-
+/**
+ * Repository functionality for {@link Region} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class RegionService extends AbstractEntityService<Region>
-		implements IRegionService {
- 
+		implements
+			IRegionService {
+
 	public RegionService() {
 		super();
 	}
@@ -31,34 +36,45 @@ public class RegionService extends AbstractEntityService<Region>
 	public Class<Region> getEntityClass() {
 		return Region.class;
 	}
-	
-	public Region findByCodeAndCountry(Country country,String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public Region findByCodeAndCountry(Country country, String code) {
 		return (Region) this.em
-			.createNamedQuery(Region.NQ_FIND_BY_CODEANDCOUNTRY)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCountry", country)
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(Region.NQ_FIND_BY_CODEANDCOUNTRY)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCountry", country).setParameter("pCode", code)
+				.getSingleResult();
 	}
-	
-	public Region findByCodeAndCountry( Long countryId,String code) {
+
+	/**
+	 * Find by unique key
+	 */
+	public Region findByCodeAndCountry(Long countryId, String code) {
 		return (Region) this.em
-			.createNamedQuery(Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCountryId", countryId)
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCountryId", countryId)
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: country
+	 */
 	public List<Region> findByCountry(Country country) {
-		return this.findByCountryId(country.getId()); 
+		return this.findByCountryId(country.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: country.id
+	 */
 	public List<Region> findByCountryId(Long countryId) {
 		return (List<Region>) this.em
-			.createQuery("select e from Region e where e.clientId = :pClientId and e.country.id = :pCountryId", Region.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCountryId", countryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Region e where e.clientId = :pClientId and e.country.id = :pCountryId",
+						Region.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCountryId", countryId).getResultList();
 	}
 }

@@ -30,144 +30,120 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=AccItemAcct.NQ_FIND_BY_ID,
-		query="SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AccItemAcct.NQ_FIND_BY_IDS,
-		query="SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA,
-		query="SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.accItem = :pAccItem and e.accSchema = :pAccSchema",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA_PRIMITIVE,
-		query="SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.accItem.id = :pAccItemId and e.accSchema.id = :pAccSchemaId",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_ID, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_IDS, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.accItem = :pAccItem and e.accSchema = :pAccSchema", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA_PRIMITIVE, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.accItem.id = :pAccItemId and e.accSchema.id = :pAccSchemaId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=AccItemAcct.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=AccItemAcct.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","ACCITEM_ID","ACCSCHEMA_ID"}
-		)
-	}
-)
+@Table(name = AccItemAcct.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = AccItemAcct.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "ACCITEM_ID", "ACCSCHEMA_ID"})})
 @Customizer(DefaultEventHandler.class)
-public class AccItemAcct extends AbstractAuditable  {
-	
+public class AccItemAcct extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "MD_ACC_ITEM_ACCT";
 	public static final String SEQUENCE_NAME = "MD_ACC_ITEM_ACCT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "AccItemAcct.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "AccItemAcct.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Item_schema.
 	 */
 	public static final String NQ_FIND_BY_ITEM_SCHEMA = "AccItemAcct.findByItem_schema";
-	
+
 	/**
 	 * Named query find by unique key: Item_schema using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_ITEM_SCHEMA_PRIMITIVE = "AccItemAcct.findByItem_schema_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccItem.class)
-	@JoinColumn(name="ACCITEM_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccItem.class)
+	@JoinColumn(name = "ACCITEM_ID", referencedColumnName = "ID")
 	private AccItem accItem;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=AccSchema.class)
-	@JoinColumn(name="ACCSCHEMA_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = AccSchema.class)
+	@JoinColumn(name = "ACCSCHEMA_ID", referencedColumnName = "ID")
 	private AccSchema accSchema;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Account.class)
-	@JoinColumn(name="CRACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Account.class)
+	@JoinColumn(name = "CRACCOUNT_ID", referencedColumnName = "ID")
 	private Account crAccount;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Account.class)
-	@JoinColumn(name="DBACCOUNT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Account.class)
+	@JoinColumn(name = "DBACCOUNT_ID", referencedColumnName = "ID")
 	private Account dbAccount;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public AccItem getAccItem() {
 		return this.accItem;
 	}
-	
+
 	public void setAccItem(AccItem accItem) {
-		if (accItem != null ) {
+		if (accItem != null) {
 			this.__validate_client_context__(accItem.getClientId());
 		}
 		this.accItem = accItem;
 	}
-	
+
 	public AccSchema getAccSchema() {
 		return this.accSchema;
 	}
-	
+
 	public void setAccSchema(AccSchema accSchema) {
-		if (accSchema != null ) {
+		if (accSchema != null) {
 			this.__validate_client_context__(accSchema.getClientId());
 		}
 		this.accSchema = accSchema;
 	}
-	
+
 	public Account getCrAccount() {
 		return this.crAccount;
 	}
-	
+
 	public void setCrAccount(Account crAccount) {
-		if (crAccount != null ) {
+		if (crAccount != null) {
 			this.__validate_client_context__(crAccount.getClientId());
 		}
 		this.crAccount = crAccount;
 	}
-	
+
 	public Account getDbAccount() {
 		return this.dbAccount;
 	}
-	
+
 	public void setDbAccount(Account dbAccount) {
-		if (dbAccount != null ) {
+		if (dbAccount != null) {
 			this.__validate_client_context__(dbAccount.getClientId());
 		}
 		this.dbAccount = dbAccount;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

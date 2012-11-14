@@ -18,6 +18,7 @@ import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
 import org.quartz.TriggerKey;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.api.job.IScheduler;
 import net.nan21.dnet.module.ad.system.business.service.ISysTimerService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysTimer;
@@ -29,7 +30,7 @@ public class SysTimerService extends
 	private IScheduler scheduler;
 
 	@Override
-	protected void postInsert(SysTimer e) throws Exception {
+	protected void postInsert(SysTimer e) throws BusinessException {
 		try {
 			Scheduler s = this.getQuartzScheduler();
 			JobDetail jobDetail = s.getJobDetail(JobKey
@@ -41,14 +42,14 @@ public class SysTimerService extends
 			getQuartzScheduler().scheduleJob(newTrigger);
 
 		} catch (Exception ex) {
-			throw new RuntimeException("Cannot create timer. Reason: "
+			throw new BusinessException("Cannot create timer. Reason: "
 					+ ex.getMessage());
 		}
 
 	}
 
 	@Override
-	protected void postUpdate(SysTimer e) throws Exception {
+	protected void postUpdate(SysTimer e) throws BusinessException {
 		try {
 			Scheduler s = this.getQuartzScheduler();
 			Trigger oldTrigger = s.getTrigger(TriggerKey.triggerKey(e.getId()
@@ -68,7 +69,7 @@ public class SysTimerService extends
 			}
 
 		} catch (Exception ex) {
-			throw new RuntimeException("Cannot create timer. Reason: "
+			throw new BusinessException("Cannot create timer. Reason: "
 					+ ex.getMessage());
 		}
 

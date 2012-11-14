@@ -17,6 +17,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementBaseData_UI", {
 			.addDc("ecateg", new net.nan21.dnet.module.bd.elem.dc.ElementCategory({multiEdit:true}))
 			.addDc("etype", new net.nan21.dnet.module.bd.elem.dc.ElementType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,6 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementBaseData_UI", {
 			.addPanel({name:"canvasEngine", title:"Engines", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasCateg", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasType", title:"Types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -50,6 +50,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementBaseData_UI", {
 			.addToolbarTo("canvasEngine", "tlbEngineEditList")
 			.addToolbarTo("canvasCateg", "tlbEcategEditList")
 			.addToolbarTo("canvasType", "tlbEtypeEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -63,6 +64,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.ElementBaseData_UI", {
 			.beginToolbar("tlbEtypeEditList", {dc: "etype"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Types"})
 			.end()
+			;
 	}
 
 });

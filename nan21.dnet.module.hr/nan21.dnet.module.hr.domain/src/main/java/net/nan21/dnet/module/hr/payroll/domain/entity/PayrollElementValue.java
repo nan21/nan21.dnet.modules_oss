@@ -30,129 +30,118 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=PayrollElementValue.NQ_FIND_BY_ID,
-		query="SELECT e FROM PayrollElementValue e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PayrollElementValue.NQ_FIND_BY_IDS,
-		query="SELECT e FROM PayrollElementValue e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = PayrollElementValue.NQ_FIND_BY_ID, query = "SELECT e FROM PayrollElementValue e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PayrollElementValue.NQ_FIND_BY_IDS, query = "SELECT e FROM PayrollElementValue e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=PayrollElementValue.TABLE_NAME
-)
+@Table(name = PayrollElementValue.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class PayrollElementValue extends AbstractAuditable  {
-	
+public class PayrollElementValue extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "HR_PAYROLL_ELEM_VAL";
 	public static final String SEQUENCE_NAME = "HR_PAYROLL_ELEM_VAL_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "PayrollElementValue.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "PayrollElementValue.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="VALUE", length=255)
+
+	@Column(name = "VALUE", length = 255)
 	private String value;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PayrollElement.class)
-	@JoinColumn(name="ELEMENT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PayrollElement.class)
+	@JoinColumn(name = "ELEMENT_ID", referencedColumnName = "ID")
 	private PayrollElement element;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=PayrollPeriod.class)
-	@JoinColumn(name="PERIOD_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PayrollPeriod.class)
+	@JoinColumn(name = "PERIOD_ID", referencedColumnName = "ID")
 	private PayrollPeriod period;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=EmployeeAssignment.class)
-	@JoinColumn(name="ASSIGNMENT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = EmployeeAssignment.class)
+	@JoinColumn(name = "ASSIGNMENT_ID", referencedColumnName = "ID")
 	private EmployeeAssignment assignment;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="ORG_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "ORG_ID", referencedColumnName = "ID")
 	private Organization org;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getValue() {
 		return this.value;
 	}
-	
+
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
+
 	public PayrollElement getElement() {
 		return this.element;
 	}
-	
+
 	public void setElement(PayrollElement element) {
-		if (element != null ) {
+		if (element != null) {
 			this.__validate_client_context__(element.getClientId());
 		}
 		this.element = element;
 	}
-	
+
 	public PayrollPeriod getPeriod() {
 		return this.period;
 	}
-	
+
 	public void setPeriod(PayrollPeriod period) {
-		if (period != null ) {
+		if (period != null) {
 			this.__validate_client_context__(period.getClientId());
 		}
 		this.period = period;
 	}
-	
+
 	public EmployeeAssignment getAssignment() {
 		return this.assignment;
 	}
-	
+
 	public void setAssignment(EmployeeAssignment assignment) {
-		if (assignment != null ) {
+		if (assignment != null) {
 			this.__validate_client_context__(assignment.getClientId());
 		}
 		this.assignment = assignment;
 	}
-	
+
 	public Organization getOrg() {
 		return this.org;
 	}
-	
+
 	public void setOrg(Organization org) {
-		if (org != null ) {
+		if (org != null) {
 			this.__validate_client_context__(org.getClientId());
 		}
 		this.org = org;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

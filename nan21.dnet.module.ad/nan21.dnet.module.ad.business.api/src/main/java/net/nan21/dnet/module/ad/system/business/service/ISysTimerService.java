@@ -11,14 +11,29 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx;
 import net.nan21.dnet.module.ad.system.domain.entity.SysTimer;
 
+/**
+ * Interface to expose business functions specific for {@link SysTimer} domain
+ * entity.
+ */
 public interface ISysTimerService extends IEntityService<SysTimer> {
-	
-	public SysTimer findByName(SysJobCtx jobCtx,String name);
-	
-	public SysTimer findByName( Long jobCtxId,String name);
-	
+
+	/**
+	 * Find by unique key
+	 */
+	public SysTimer findByName(SysJobCtx jobCtx, String name);
+
+	/**
+	 * Find by unique key
+	 */
+	public SysTimer findByName(Long jobCtxId, String name);
+
+	/**
+	 * Find by reference: jobCtx
+	 */
 	public List<SysTimer> findByJobCtx(SysJobCtx jobCtx);
-	
+
+	/**
+	 * Find by ID of reference: jobCtx.id
+	 */
 	public List<SysTimer> findByJobCtxId(Long jobCtxId);
-	
 }

@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.business.service.IOrganizationTypeService;
 import net.nan21.dnet.module.bd.org.domain.entity.OrganizationType;
 
+/**
+ * Repository functionality for {@link OrganizationType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class OrganizationTypeService
+		extends
+			AbstractEntityService<OrganizationType>
+		implements
+			IOrganizationTypeService {
 
-public class OrganizationTypeService extends AbstractEntityService<OrganizationType>
-		implements IOrganizationTypeService {
- 
 	public OrganizationTypeService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class OrganizationTypeService extends AbstractEntityService<OrganizationT
 	public Class<OrganizationType> getEntityClass() {
 		return OrganizationType.class;
 	}
-	
-	public OrganizationType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public OrganizationType findByName(String name) {
 		return (OrganizationType) this.em
-			.createNamedQuery(OrganizationType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(OrganizationType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

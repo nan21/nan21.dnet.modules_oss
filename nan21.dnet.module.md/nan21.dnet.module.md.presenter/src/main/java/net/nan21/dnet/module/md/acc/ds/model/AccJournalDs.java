@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 
-@Ds(entity=AccJournal.class, sort={@SortField(field=AccJournalDs.fNAME)})
+@Ds(entity = AccJournal.class, sort = {@SortField(field = AccJournalDs.fNAME)})
 public class AccJournalDs extends AbstractTypeDs<AccJournal> {
-
 
 	public AccJournalDs() {
 		super();
 	}
 
- 	public AccJournalDs(AccJournal e) {
+	public AccJournalDs(AccJournal e) {
 		super(e);
 	}
 }

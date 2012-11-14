@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeSet_UI", {
 			.linkDc("setattr", "set",{fields:[
 				{childField:"setId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,7 +30,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeSet_UI", {
 			.addDcEditGridView("setattr", {name:"setattrEditList", height:220, xtype:"bd_attr_dc_AttributeSetAttribute$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasAttrSet", title:"Attribute sets", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -38,6 +39,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeSet_UI", {
 			.addChildrenTo("canvasAttrSet", ["setFilter", "setEditList", "setattrEditList"], ["north", "center", "south"])
 			.addToolbarTo("canvasAttrSet", "tlbSetEditList")
 			.addToolbarTo("setattrEditList", "tlbSetAttrEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -48,6 +50,7 @@ Ext.define("net.nan21.dnet.module.bd.attr.frame.AttributeSet_UI", {
 			.beginToolbar("tlbSetAttrEditList", {dc: "setattr"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Set attributes"})
 			.end()
+			;
 	}
 
 });

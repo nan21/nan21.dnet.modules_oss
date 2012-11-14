@@ -11,8 +11,10 @@ import net.nan21.dnet.module.ad.client.ds.model.MyClientDs;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class MyClientDsQueryBuilder extends QueryBuilderWithJpql<MyClientDs,MyClientDs, EmptyParam> {
-	
+public class MyClientDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<MyClientDs, MyClientDs, EmptyParam> {
+
 	@Override
 	public void setFilter(MyClientDs filter) {
 		filter.setId(Session.user.get().getClientId());

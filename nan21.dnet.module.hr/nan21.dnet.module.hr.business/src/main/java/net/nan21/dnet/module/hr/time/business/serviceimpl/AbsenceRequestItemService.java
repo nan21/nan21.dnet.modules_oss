@@ -14,10 +14,17 @@ import net.nan21.dnet.module.hr.time.business.service.IAbsenceRequestItemService
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceRequest;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceRequestItem;
 
+/**
+ * Repository functionality for {@link AbsenceRequestItem} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class AbsenceRequestItemService
+		extends
+			AbstractEntityService<AbsenceRequestItem>
+		implements
+			IAbsenceRequestItemService {
 
-public class AbsenceRequestItemService extends AbstractEntityService<AbsenceRequestItem>
-		implements IAbsenceRequestItemService {
- 
 	public AbsenceRequestItemService() {
 		super();
 	}
@@ -31,16 +38,25 @@ public class AbsenceRequestItemService extends AbstractEntityService<AbsenceRequ
 	public Class<AbsenceRequestItem> getEntityClass() {
 		return AbsenceRequestItem.class;
 	}
-	
-	public List<AbsenceRequestItem> findByAbsenceRequest(AbsenceRequest absenceRequest) {
-		return this.findByAbsenceRequestId(absenceRequest.getId()); 
+
+	/**
+	 * Find by reference: absenceRequest
+	 */
+	public List<AbsenceRequestItem> findByAbsenceRequest(
+			AbsenceRequest absenceRequest) {
+		return this.findByAbsenceRequestId(absenceRequest.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: absenceRequest.id
+	 */
 	public List<AbsenceRequestItem> findByAbsenceRequestId(Long absenceRequestId) {
 		return (List<AbsenceRequestItem>) this.em
-			.createQuery("select e from AbsenceRequestItem e where e.clientId = :pClientId and e.absenceRequest.id = :pAbsenceRequestId", AbsenceRequestItem.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAbsenceRequestId", absenceRequestId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from AbsenceRequestItem e where e.clientId = :pClientId and e.absenceRequest.id = :pAbsenceRequestId",
+						AbsenceRequestItem.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAbsenceRequestId", absenceRequestId)
+				.getResultList();
 	}
 }

@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.bd.uom.frame.UomMD_UI", {
 			.linkDc("cnv", "uom",{fields:[
 				{childField:"sourceId", parentField:"id"}, {childField:"sourceCode", parentField:"code"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -31,7 +32,7 @@ Ext.define("net.nan21.dnet.module.bd.uom.frame.UomMD_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -42,6 +43,7 @@ Ext.define("net.nan21.dnet.module.bd.uom.frame.UomMD_UI", {
 			.addToolbarTo("canvas1", "tlbUomList")
 			.addToolbarTo("canvas2", "tlbUomEdit")
 			.addToolbarTo("cnvEditList", "tlbCnvEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -55,6 +57,7 @@ Ext.define("net.nan21.dnet.module.bd.uom.frame.UomMD_UI", {
 			.beginToolbar("tlbCnvEditList", {dc: "cnv"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "UoM conversions"})
 			.end()
+			;
 	}
 
 });

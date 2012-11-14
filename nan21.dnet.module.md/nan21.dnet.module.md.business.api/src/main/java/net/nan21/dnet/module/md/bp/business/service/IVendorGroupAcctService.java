@@ -13,26 +13,63 @@ import net.nan21.dnet.module.md.acc.domain.entity.Account;
 import net.nan21.dnet.module.md.bp.domain.entity.VendorGroup;
 import net.nan21.dnet.module.md.bp.domain.entity.VendorGroupAcct;
 
-public interface IVendorGroupAcctService extends IEntityService<VendorGroupAcct> {
-	
-	public VendorGroupAcct findByGroup_schema(VendorGroup vendorGroup,AccSchema accSchema);
-	
-	public VendorGroupAcct findByGroup_schema( Long vendorGroupId, Long accSchemaId);
-	
+/**
+ * Interface to expose business functions specific for {@link VendorGroupAcct} domain
+ * entity.
+ */
+public interface IVendorGroupAcctService
+		extends
+			IEntityService<VendorGroupAcct> {
+
+	/**
+	 * Find by unique key
+	 */
+	public VendorGroupAcct findByGroup_schema(VendorGroup vendorGroup,
+			AccSchema accSchema);
+
+	/**
+	 * Find by unique key
+	 */
+	public VendorGroupAcct findByGroup_schema(Long vendorGroupId,
+			Long accSchemaId);
+
+	/**
+	 * Find by reference: vendorGroup
+	 */
 	public List<VendorGroupAcct> findByVendorGroup(VendorGroup vendorGroup);
-	
+
+	/**
+	 * Find by ID of reference: vendorGroup.id
+	 */
 	public List<VendorGroupAcct> findByVendorGroupId(Long vendorGroupId);
-	
+
+	/**
+	 * Find by reference: accSchema
+	 */
 	public List<VendorGroupAcct> findByAccSchema(AccSchema accSchema);
-	
+
+	/**
+	 * Find by ID of reference: accSchema.id
+	 */
 	public List<VendorGroupAcct> findByAccSchemaId(Long accSchemaId);
-	
+
+	/**
+	 * Find by reference: purchaseAccount
+	 */
 	public List<VendorGroupAcct> findByPurchaseAccount(Account purchaseAccount);
-	
+
+	/**
+	 * Find by ID of reference: purchaseAccount.id
+	 */
 	public List<VendorGroupAcct> findByPurchaseAccountId(Long purchaseAccountId);
-	
+
+	/**
+	 * Find by reference: prepayAccount
+	 */
 	public List<VendorGroupAcct> findByPrepayAccount(Account prepayAccount);
-	
+
+	/**
+	 * Find by ID of reference: prepayAccount.id
+	 */
 	public List<VendorGroupAcct> findByPrepayAccountId(Long prepayAccountId);
-	
 }

@@ -11,10 +11,21 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActIdentityGroup;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActIdentityUser;
 
-public interface IActIdentityUserService extends IEntityService<ActIdentityUser> {
-	
+/**
+ * Interface to expose business functions specific for {@link ActIdentityUser} domain
+ * entity.
+ */
+public interface IActIdentityUserService
+		extends
+			IEntityService<ActIdentityUser> {
+
+	/**
+	 * Find by reference: groups
+	 */
 	public List<ActIdentityUser> findByGroups(ActIdentityGroup groups);
-	
+
+	/**
+	 * Find by ID of reference: groups.id
+	 */
 	public List<ActIdentityUser> findByGroupsId(String groupsId);
-	
 }

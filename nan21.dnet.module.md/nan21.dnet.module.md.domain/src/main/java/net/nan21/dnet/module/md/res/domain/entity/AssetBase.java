@@ -33,123 +33,103 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /**
-	 Base asset definition. It is meant to be extended by the asset management in the accounting module.
-	 */
+ Base asset definition. It is meant to be extended by the asset management in the accounting module.
+ */
 @NamedQueries({
-	@NamedQuery(
-		name=AssetBase.NQ_FIND_BY_ID,
-		query="SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AssetBase.NQ_FIND_BY_IDS,
-		query="SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=AssetBase.NQ_FIND_BY_CODE,
-		query="SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = AssetBase.NQ_FIND_BY_ID, query = "SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AssetBase.NQ_FIND_BY_IDS, query = "SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = AssetBase.NQ_FIND_BY_CODE, query = "SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="ENTITYTYPE", discriminatorType=DiscriminatorType.STRING, length=32)
-@Table(
-	name=AssetBase.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=AssetBase.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","CODE"}
-		)
-	}
-)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ENTITYTYPE", discriminatorType = DiscriminatorType.STRING, length = 32)
+@Table(name = AssetBase.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = AssetBase.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "CODE"})})
 @Customizer(DefaultEventHandler.class)
-public class AssetBase extends AbstractTypeWithCode  {
-	
+public class AssetBase extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "MD_RES_ASSET";
 	public static final String SEQUENCE_NAME = "MD_RES_ASSET_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "AssetBase.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "AssetBase.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Code.
 	 */
 	public static final String NQ_FIND_BY_CODE = "AssetBase.findByCode";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ENTITYTYPE", length=32)
+
+	@Column(name = "ENTITYTYPE", length = 32)
 	private String entityType;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="ORG_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "ORG_ID", referencedColumnName = "ID")
 	private Organization org;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Product.class)
-	@JoinColumn(name="PRODUCT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Product.class)
+	@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID")
 	private Product product;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getEntityType() {
 		return this.entityType;
 	}
-	
+
 	public void setEntityType(String entityType) {
 		this.entityType = entityType;
 	}
-	
+
 	public Organization getOrg() {
 		return this.org;
 	}
-	
+
 	public void setOrg(Organization org) {
-		if (org != null ) {
+		if (org != null) {
 			this.__validate_client_context__(org.getClientId());
 		}
 		this.org = org;
 	}
-	
+
 	public Product getProduct() {
 		return this.product;
 	}
-	
+
 	public void setProduct(Product product) {
-		if (product != null ) {
+		if (product != null) {
 			this.__validate_client_context__(product.getClientId());
 		}
 		this.product = product;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getCode() == null || this.getCode().equals("") ) {
-			event.updateAttributeWithObject("code","A-"+this.getId());
+
+		if (this.getCode() == null || this.getCode().equals("")) {
+			event.updateAttributeWithObject("code", "A-" + this.getId());
 		}
 	}
 }

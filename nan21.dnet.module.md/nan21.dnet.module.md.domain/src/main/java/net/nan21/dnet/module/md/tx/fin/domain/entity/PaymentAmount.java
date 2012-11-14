@@ -31,98 +31,87 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=PaymentAmount.NQ_FIND_BY_ID,
-		query="SELECT e FROM PaymentAmount e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PaymentAmount.NQ_FIND_BY_IDS,
-		query="SELECT e FROM PaymentAmount e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = PaymentAmount.NQ_FIND_BY_ID, query = "SELECT e FROM PaymentAmount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PaymentAmount.NQ_FIND_BY_IDS, query = "SELECT e FROM PaymentAmount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="ENTITYTYPE", discriminatorType=DiscriminatorType.STRING, length=32)
-@Table(
-	name=PaymentAmount.TABLE_NAME
-)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ENTITYTYPE", discriminatorType = DiscriminatorType.STRING, length = 32)
+@Table(name = PaymentAmount.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class PaymentAmount extends AbstractAuditable  {
-	
+public class PaymentAmount extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "TX_PYMNT_AMNT";
 	public static final String SEQUENCE_NAME = "TX_PYMNT_AMNT_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "PaymentAmount.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "PaymentAmount.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ENTITYTYPE", length=32)
+
+	@Column(name = "ENTITYTYPE", length = 32)
 	private String entityType;
-	
-	@Column(name="AMOUNT", nullable=false, scale=2)
+
+	@Column(name = "AMOUNT", nullable = false, scale = 2)
 	@NotNull
 	private Float amount;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Payment.class)
-	@JoinColumn(name="PAYMENT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Payment.class)
+	@JoinColumn(name = "PAYMENT_ID", referencedColumnName = "ID")
 	private Payment payment;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getEntityType() {
 		return this.entityType;
 	}
-	
+
 	public void setEntityType(String entityType) {
 		this.entityType = entityType;
 	}
-	
+
 	public Float getAmount() {
 		return this.amount;
 	}
-	
+
 	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
-	
+
 	public Payment getPayment() {
 		return this.payment;
 	}
-	
+
 	public void setPayment(Payment payment) {
-		if (payment != null ) {
+		if (payment != null) {
 			this.__validate_client_context__(payment.getClientId());
 		}
 		this.payment = payment;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

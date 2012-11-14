@@ -12,14 +12,31 @@ import net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRate;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRateValue;
 
-public interface IPayScaleRateValueService extends IEntityService<PayScaleRateValue> {
-	
+/**
+ * Interface to expose business functions specific for {@link PayScaleRateValue} domain
+ * entity.
+ */
+public interface IPayScaleRateValueService
+		extends
+			IEntityService<PayScaleRateValue> {
+
+	/**
+	 * Find by reference: scaleRate
+	 */
 	public List<PayScaleRateValue> findByScaleRate(PayScaleRate scaleRate);
-	
+
+	/**
+	 * Find by ID of reference: scaleRate.id
+	 */
 	public List<PayScaleRateValue> findByScaleRateId(Long scaleRateId);
-	
+
+	/**
+	 * Find by reference: scalePoint
+	 */
 	public List<PayScaleRateValue> findByScalePoint(PayScalePoint scalePoint);
-	
+
+	/**
+	 * Find by ID of reference: scalePoint.id
+	 */
 	public List<PayScaleRateValue> findByScalePointId(Long scalePointId);
-	
 }

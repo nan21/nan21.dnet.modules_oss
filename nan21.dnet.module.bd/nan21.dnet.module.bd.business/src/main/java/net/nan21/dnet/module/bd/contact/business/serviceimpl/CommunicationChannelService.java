@@ -14,10 +14,17 @@ import net.nan21.dnet.module.bd.contact.business.service.ICommunicationChannelSe
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannel;
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType;
 
+/**
+ * Repository functionality for {@link CommunicationChannel} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class CommunicationChannelService
+		extends
+			AbstractEntityService<CommunicationChannel>
+		implements
+			ICommunicationChannelService {
 
-public class CommunicationChannelService extends AbstractEntityService<CommunicationChannel>
-		implements ICommunicationChannelService {
- 
 	public CommunicationChannelService() {
 		super();
 	}
@@ -31,16 +38,23 @@ public class CommunicationChannelService extends AbstractEntityService<Communica
 	public Class<CommunicationChannel> getEntityClass() {
 		return CommunicationChannel.class;
 	}
-	
+
+	/**
+	 * Find by reference: type
+	 */
 	public List<CommunicationChannel> findByType(CommunicationChannelType type) {
-		return this.findByTypeId(type.getId()); 
+		return this.findByTypeId(type.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: type.id
+	 */
 	public List<CommunicationChannel> findByTypeId(Long typeId) {
 		return (List<CommunicationChannel>) this.em
-			.createQuery("select e from CommunicationChannel e where e.clientId = :pClientId and e.type.id = :pTypeId", CommunicationChannel.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTypeId", typeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from CommunicationChannel e where e.clientId = :pClientId and e.type.id = :pTypeId",
+						CommunicationChannel.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTypeId", typeId).getResultList();
 	}
 }

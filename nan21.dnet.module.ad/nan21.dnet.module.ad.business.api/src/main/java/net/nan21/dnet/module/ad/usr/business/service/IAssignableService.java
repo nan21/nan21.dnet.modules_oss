@@ -11,12 +11,24 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.usr.domain.entity.Assignable;
 import net.nan21.dnet.module.ad.usr.domain.entity.AssignableType;
 
+/**
+ * Interface to expose business functions specific for {@link Assignable} domain
+ * entity.
+ */
 public interface IAssignableService extends IEntityService<Assignable> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public Assignable findByName(String name);
-	
+
+	/**
+	 * Find by reference: assignableType
+	 */
 	public List<Assignable> findByAssignableType(AssignableType assignableType);
-	
+
+	/**
+	 * Find by ID of reference: assignableType.id
+	 */
 	public List<Assignable> findByAssignableTypeId(Long assignableTypeId);
-	
 }

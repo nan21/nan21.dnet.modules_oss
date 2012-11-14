@@ -2,6 +2,7 @@ package net.nan21.dnet.module.md._businessdelegates.bp;
 
 import javax.persistence.NoResultException;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
@@ -17,8 +18,18 @@ import net.nan21.dnet.module.md.bp.domain.entity.VendorGroupAcct;
 
 public class BpVendorAcctBD extends AbstractBusinessDelegate {
 
+	/**
+	 * Find posting account.
+	 * 
+	 * @param businessPartner
+	 * @param organization
+	 * @param schema
+	 * @return
+	 * @throws BusinessException
+	 */
 	public String getPostingAcct(BusinessPartner businessPartner,
-			Organization organization, AccSchema schema) throws Exception {
+			Organization organization, AccSchema schema)
+			throws BusinessException {
 		IBpAccountService accountService = (IBpAccountService) this
 				.findEntityService(BpAccount.class);
 		BpAccount account = null;
@@ -46,9 +57,11 @@ public class BpVendorAcctBD extends AbstractBusinessDelegate {
 			// if nothing found raise an error or just return null (TBA)
 		}
 		if (acct != null && account != null) {
-			if (account.getVendAnaliticSegment() != null && !account.getVendAnaliticSegment().equals("")) {
+			if (account.getVendAnaliticSegment() != null
+					&& !account.getVendAnaliticSegment().equals("")) {
 				return acct.getCode() + "." + account.getVendAnaliticSegment();
-			} else if (account.getAnaliticSegment() != null && !account.getAnaliticSegment().equals("")) {
+			} else if (account.getAnaliticSegment() != null
+					&& !account.getAnaliticSegment().equals("")) {
 				return acct.getCode() + "." + account.getAnaliticSegment();
 			}
 			return acct.getCode();
@@ -71,7 +84,8 @@ public class BpVendorAcctBD extends AbstractBusinessDelegate {
 	 * @throws Exception
 	 */
 	protected Account findByAccount(Long accountId, Long schemaId)
-			throws Exception {
+			throws BusinessException {
+
 		IBpAccountAcctService acctService = (IBpAccountAcctService) this
 				.findEntityService(BpAccountAcct.class);
 		BpAccountAcct acct = null;
@@ -91,7 +105,9 @@ public class BpVendorAcctBD extends AbstractBusinessDelegate {
 	 * @return
 	 * @throws Exception
 	 */
-	protected Account findByGroup(Long groupId, Long schemaId) throws Exception {
+	protected Account findByGroup(Long groupId, Long schemaId)
+			throws BusinessException {
+
 		IVendorGroupAcctService groupAcctService = (IVendorGroupAcctService) this
 				.findEntityService(VendorGroupAcct.class);
 		VendorGroupAcct groupAcct = groupAcctService.findByGroup_schema(

@@ -81,8 +81,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$Filter", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
-			.addChildrenTo("col1", ["customer", "supplier", "docType", "code"])
-			.addChildrenTo("col2", ["docNo", "currency"])
+			.addChildrenTo("col1", ["customer", "supplier", "docType"])
+			.addChildrenTo("col2", ["code", "docNo", "currency"])
 			.addChildrenTo("col3", ["docDate", "totalAmount", "totalNetAmount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
 		;
@@ -104,11 +104,11 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$List", {
 			.addTextColumn({ name:"customer", dataIndex:"customer", width:100})
 			.addTextColumn({ name:"supplierCode", dataIndex:"supplierCode", hidden:true, width:100})
 			.addTextColumn({ name:"supplier", dataIndex:"supplier", width:200})
-			.addTextColumn({ name:"currency", dataIndex:"currency", width:100})
 			.addTextColumn({ name:"docType", dataIndex:"docType", width:120})
 			.addNumberColumn({ name:"totalNetAmount", dataIndex:"totalNetAmount", decimals:2})
 			.addNumberColumn({ name:"totalTaxAmount", dataIndex:"totalTaxAmount", decimals:2})
 			.addNumberColumn({ name:"totalAmount", dataIndex:"totalAmount", decimals:2})
+			.addTextColumn({ name:"currency", dataIndex:"currency", width:60})
 			.addBooleanColumn({ name:"confirmed", dataIndex:"confirmed"})
 			.addBooleanColumn({ name:"posted", dataIndex:"posted"})
 			.addNumberColumn({ name:"purchaseOrderId", dataIndex:"purchaseOrderId", hidden:true, width:70, format:"0"})
@@ -182,14 +182,14 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditMain", {
 					if (record.get("confirmed") || record.get("posted") ) {
 						this._disableAllFields_();
 						return false;
-					};
+					}
 	},
 	
 	_endDefine_: function() {
 		
 					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 					 	this._applyStates_(dc.record);
-					 } , this );
+					 } , this )
 	}
 });
 
@@ -249,14 +249,14 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditDetails", {
 					if (record.get("confirmed") || record.get("posted") ) {
 						this._disableAllFields_();
 						return false;
-					};
+					}
 	},
 	
 	_endDefine_: function() {
 		
 					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 					 	this._applyStates_(dc.record);
-					 } , this );
+					 } , this )
 	},
 	
 	_onSelfPayedChange_: function() {
@@ -265,7 +265,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditDetails", {
 		            r.set("fromAccountId", "");
 		            r.set("fromAccount", "");            
 				}
-				this._doEnableFromAccount_(r.data.selfPayed);;
+				this._doEnableFromAccount_(r.data.selfPayed);
 	},
 	
 	_doEnableFromAccount_: function(enable) {
@@ -277,12 +277,12 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditDetails", {
 					this._getElement_("fromAccount").disable();	
 					this._getElement_("paymentMethod").enable();
 					this._getElement_("paymentTerm").enable();		 
-				};
+				}
 	},
 	
 	_afterBind_: function(record) {
 		if (record) {
 					this._doEnableFromAccount_(record.data.selfPayed);
-				};
+				}
 	}
 });

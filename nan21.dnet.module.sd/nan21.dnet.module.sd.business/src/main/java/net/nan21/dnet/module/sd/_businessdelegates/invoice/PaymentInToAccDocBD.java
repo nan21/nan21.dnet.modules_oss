@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.md.acc.business.service.IAccItemAcctService;
 import net.nan21.dnet.module.md.acc.business.service.IAccSchemaService;
@@ -37,12 +38,10 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 	 * @param payment
 	 * @throws Exception
 	 */
-	public void unPost(PaymentIn payment) throws Exception {
+	public void unPost(PaymentIn payment) throws BusinessException {
 		try {
-			this.em
-					.createQuery(
-							"delete from AccDoc t "
-									+ " where t.docUuid = :invoiceUuid")
+			this.em.createQuery(
+					"delete from AccDoc t " + " where t.docUuid = :invoiceUuid")
 					.setParameter("invoiceUuid", payment.getUuid())
 					.executeUpdate();
 			payment.setPosted(false);
@@ -50,12 +49,13 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 		} catch (Exception e) {
 			if (e.getCause() != null
 					&& e.getCause() instanceof SQLIntegrityConstraintViolationException) {
-				throw new RuntimeException(
+				throw new BusinessException(
 						"Cannot unpost document `"
 								+ payment.getCode()
 								+ "`. The corresponding accounting document is already posted to great ledger.");
 			} else {
-				throw e;
+				throw new BusinessException("Cannot unpost document "
+						+ payment.getCode(), e);
 			}
 		}
 	}
@@ -67,7 +67,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<AccDoc> post(PaymentIn payment) throws Exception {
+	public List<AccDoc> post(PaymentIn payment) throws BusinessException {
 		List<AccDoc> result = new ArrayList<AccDoc>();
 		// get org schemas , for each schema generate an acc-doc
 		IAccSchemaService srv = (IAccSchemaService) this
@@ -92,7 +92,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 	 * @throws Exception
 	 */
 	protected AccDoc generateAccDoc(PaymentIn payment, AccSchema schema)
-			throws Exception {
+			throws BusinessException {
 
 		if (payment.getLines() != null && payment.getLines().size() > 0) {
 			return this.generateAccDocRevenue(payment, schema);
@@ -110,7 +110,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 	 * @throws Exception
 	 */
 	protected AccDoc createHeader(PaymentIn payment, AccSchema schema)
-			throws Exception {
+			throws BusinessException {
 		AccDoc accDoc = new AccDoc();
 		accDoc.setPeriod(getPeriodService().getPostingPeriod(
 				payment.getDocDate(), payment.getToOrg()));
@@ -134,7 +134,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 	}
 
 	protected AccDoc generateAccDocRevenue(PaymentIn payment, AccSchema schema)
-			throws Exception {
+			throws BusinessException {
 
 		AccDoc accDoc = this.createHeader(payment, schema);
 
@@ -199,7 +199,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 	 * @throws Exception
 	 */
 	protected AccDoc generateAccDocPayment(PaymentIn payment, AccSchema schema)
-			throws Exception {
+			throws BusinessException {
 
 		AccDoc accDoc = this.createHeader(payment, schema);
 
@@ -239,7 +239,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 		return accDoc;
 	}
 
-	protected IBusinessPartnerService getBpService() throws Exception {
+	protected IBusinessPartnerService getBpService() throws BusinessException {
 		if (this.bpService == null) {
 			this.bpService = (IBusinessPartnerService) this
 					.findEntityService(BusinessPartner.class);
@@ -247,7 +247,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 		return this.bpService;
 	}
 
-	public IFiscalPeriodService getPeriodService() throws Exception {
+	public IFiscalPeriodService getPeriodService() throws BusinessException {
 		if (this.periodService == null) {
 			this.periodService = (IFiscalPeriodService) this
 					.findEntityService(FiscalPeriod.class);
@@ -255,7 +255,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 		return this.periodService;
 	}
 
-	public IProductService getProdService() throws Exception {
+	public IProductService getProdService() throws BusinessException {
 		if (this.prodService == null) {
 			this.prodService = (IProductService) this
 					.findEntityService(Product.class);
@@ -263,7 +263,7 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 		return this.prodService;
 	}
 
-	public IAccItemAcctService getAccItemAcctService() throws Exception {
+	public IAccItemAcctService getAccItemAcctService() throws BusinessException {
 		if (this.accItemAcctService == null) {
 			this.accItemAcctService = (IAccItemAcctService) this
 					.findEntityService(AccItemAcct.class);
@@ -271,7 +271,8 @@ public class PaymentInToAccDocBD extends AbstractBusinessDelegate {
 		return this.accItemAcctService;
 	}
 
-	public IFinancialAccountAcctService getPayAcctService() throws Exception {
+	public IFinancialAccountAcctService getPayAcctService()
+			throws BusinessException {
 		if (this.payAcctService == null) {
 			this.payAcctService = (IFinancialAccountAcctService) this
 					.findEntityService(FinancialAccountAcct.class);

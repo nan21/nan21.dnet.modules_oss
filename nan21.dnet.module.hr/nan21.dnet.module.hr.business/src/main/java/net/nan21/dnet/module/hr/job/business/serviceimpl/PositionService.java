@@ -16,10 +16,15 @@ import net.nan21.dnet.module.hr.job.business.service.IPositionService;
 import net.nan21.dnet.module.hr.job.domain.entity.Job;
 import net.nan21.dnet.module.hr.job.domain.entity.Position;
 
-
+/**
+ * Repository functionality for {@link Position} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class PositionService extends AbstractEntityService<Position>
-		implements IPositionService {
- 
+		implements
+			IPositionService {
+
 	public PositionService() {
 		super();
 	}
@@ -33,56 +38,79 @@ public class PositionService extends AbstractEntityService<Position>
 	public Class<Position> getEntityClass() {
 		return Position.class;
 	}
-	
-	public Position findByCode(String code) {		 
-		return (Position) this.em
-			.createNamedQuery(Position.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Position findByCode(String code) {
+		return (Position) this.em.createNamedQuery(Position.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public Position findByName(String name) {		 
-		return (Position) this.em
-			.createNamedQuery(Position.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Position findByName(String name) {
+		return (Position) this.em.createNamedQuery(Position.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: org
+	 */
 	public List<Position> findByOrg(Organization org) {
-		return this.findByOrgId(org.getId()); 
+		return this.findByOrgId(org.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: org.id
+	 */
 	public List<Position> findByOrgId(Long orgId) {
 		return (List<Position>) this.em
-			.createQuery("select e from Position e where e.clientId = :pClientId and e.org.id = :pOrgId", Position.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pOrgId", orgId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Position e where e.clientId = :pClientId and e.org.id = :pOrgId",
+						Position.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pOrgId", orgId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: job
+	 */
 	public List<Position> findByJob(Job job) {
-		return this.findByJobId(job.getId()); 
+		return this.findByJobId(job.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: job.id
+	 */
 	public List<Position> findByJobId(Long jobId) {
 		return (List<Position>) this.em
-			.createQuery("select e from Position e where e.clientId = :pClientId and e.job.id = :pJobId", Position.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobId", jobId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Position e where e.clientId = :pClientId and e.job.id = :pJobId",
+						Position.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobId", jobId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: location
+	 */
 	public List<Position> findByLocation(Location location) {
-		return this.findByLocationId(location.getId()); 
+		return this.findByLocationId(location.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: location.id
+	 */
 	public List<Position> findByLocationId(Long locationId) {
 		return (List<Position>) this.em
-			.createQuery("select e from Position e where e.clientId = :pClientId and e.location.id = :pLocationId", Position.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pLocationId", locationId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Position e where e.clientId = :pClientId and e.location.id = :pLocationId",
+						Position.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pLocationId", locationId).getResultList();
 	}
 }

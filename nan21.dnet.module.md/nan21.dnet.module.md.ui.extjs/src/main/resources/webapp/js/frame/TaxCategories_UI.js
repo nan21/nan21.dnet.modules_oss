@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.TaxCategories_UI", {
 		this._getBuilder_()
 			.addDc("taxcateg", new net.nan21.dnet.module.md.base.tax.dc.TaxCategory({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.TaxCategories_UI", {
 			.addDcEditGridView("taxcateg", {name:"taxcategEditList", xtype:"md_base_tax_dc_TaxCategory$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.TaxCategories_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["taxcategFilter", "taxcategEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbTaxcategEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.TaxCategories_UI", {
 			.beginToolbar("tlbTaxcategEditList", {dc: "taxcateg"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Tax categories"})
 			.end()
+			;
 	}
 
 });

@@ -11,26 +11,26 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectComponent;
 
-@Ds(entity=ProjectComponent.class,jpqlWhere=" e.active = true ", sort={@SortField(field=ProjectComponentLovDs.fNAME)})
+@Ds(entity = ProjectComponent.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ProjectComponentLovDs.fNAME)})
 public class ProjectComponentLovDs extends AbstractTypeLov<ProjectComponent> {
 
- 	public static final String fPROJECTID = "projectId";
- 	
- 	@DsField(join="left", path="project.id")
- 	private Long projectId;
+	public static final String fPROJECTID = "projectId";
+
+	@DsField(join = "left", path = "project.id")
+	private Long projectId;
 
 	public ProjectComponentLovDs() {
 		super();
 	}
 
- 	public ProjectComponentLovDs(ProjectComponent e) {
+	public ProjectComponentLovDs(ProjectComponent e) {
 		super(e);
 	}
-	
+
 	public Long getProjectId() {
 		return this.projectId;
 	}
-	
+
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}

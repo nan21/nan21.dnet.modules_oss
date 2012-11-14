@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.geo.business.service.IGeoZoneService;
 import net.nan21.dnet.module.bd.geo.domain.entity.GeoZone;
 
-
+/**
+ * Repository functionality for {@link GeoZone} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class GeoZoneService extends AbstractEntityService<GeoZone>
-		implements IGeoZoneService {
- 
+		implements
+			IGeoZoneService {
+
 	public GeoZoneService() {
 		super();
 	}
@@ -29,12 +34,13 @@ public class GeoZoneService extends AbstractEntityService<GeoZone>
 	public Class<GeoZone> getEntityClass() {
 		return GeoZone.class;
 	}
-	
-	public GeoZone findByName(String name) {		 
-		return (GeoZone) this.em
-			.createNamedQuery(GeoZone.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public GeoZone findByName(String name) {
+		return (GeoZone) this.em.createNamedQuery(GeoZone.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

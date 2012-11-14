@@ -9,8 +9,16 @@ package net.nan21.dnet.module.ad.system.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysFrameExtension;
 
-public interface ISysFrameExtensionService extends IEntityService<SysFrameExtension> {
-	
-	public SysFrameExtension findByName(String frameFQN,String fileLocation);
-	
+/**
+ * Interface to expose business functions specific for {@link SysFrameExtension} domain
+ * entity.
+ */
+public interface ISysFrameExtensionService
+		extends
+			IEntityService<SysFrameExtension> {
+
+	/**
+	 * Find by unique key
+	 */
+	public SysFrameExtension findByName(String frameFQN, String fileLocation);
 }

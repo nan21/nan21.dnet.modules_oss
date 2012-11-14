@@ -14,10 +14,15 @@ import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 import net.nan21.dnet.module.hr.payroll.business.service.IPayrollService;
 import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
 
-
+/**
+ * Repository functionality for {@link Payroll} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class PayrollService extends AbstractEntityService<Payroll>
-		implements IPayrollService {
- 
+		implements
+			IPayrollService {
+
 	public PayrollService() {
 		super();
 	}
@@ -31,24 +36,32 @@ public class PayrollService extends AbstractEntityService<Payroll>
 	public Class<Payroll> getEntityClass() {
 		return Payroll.class;
 	}
-	
-	public Payroll findByName(String name) {		 
-		return (Payroll) this.em
-			.createNamedQuery(Payroll.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Payroll findByName(String name) {
+		return (Payroll) this.em.createNamedQuery(Payroll.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: engine
+	 */
 	public List<Payroll> findByEngine(Engine engine) {
-		return this.findByEngineId(engine.getId()); 
+		return this.findByEngineId(engine.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: engine.id
+	 */
 	public List<Payroll> findByEngineId(Long engineId) {
 		return (List<Payroll>) this.em
-			.createQuery("select e from Payroll e where e.clientId = :pClientId and e.engine.id = :pEngineId", Payroll.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngineId", engineId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Payroll e where e.clientId = :pClientId and e.engine.id = :pEngineId",
+						Payroll.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngineId", engineId).getResultList();
 	}
 }

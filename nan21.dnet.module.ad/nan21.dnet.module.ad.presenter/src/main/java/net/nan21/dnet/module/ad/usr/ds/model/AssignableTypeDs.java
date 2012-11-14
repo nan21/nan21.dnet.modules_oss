@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.AssignableType;
 
-@Ds(entity=AssignableType.class, sort={@SortField(field=AssignableTypeDs.fNAME)})
+@Ds(entity = AssignableType.class, sort = {@SortField(field = AssignableTypeDs.fNAME)})
 public class AssignableTypeDs extends AbstractTypeDs<AssignableType> {
-
 
 	public AssignableTypeDs() {
 		super();
 	}
 
- 	public AssignableTypeDs(AssignableType e) {
+	public AssignableTypeDs(AssignableType e) {
 		super(e);
 	}
 }

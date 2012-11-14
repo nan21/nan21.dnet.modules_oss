@@ -39,177 +39,151 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Element.NQ_FIND_BY_ID,
-		query="SELECT e FROM Element e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Element.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Element e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Element.NQ_FIND_BY_ENGINE_CODE,
-		query="SELECT e FROM Element e WHERE e.clientId = :pClientId and e.engine = :pEngine and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE,
-		query="SELECT e FROM Element e WHERE e.clientId = :pClientId and e.engine.id = :pEngineId and e.code = :pCode",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Element.NQ_FIND_BY_ID, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Element.NQ_FIND_BY_IDS, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Element.NQ_FIND_BY_ENGINE_CODE, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.engine = :pEngine and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.engine.id = :pEngineId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="ENTITYTYPE", discriminatorType=DiscriminatorType.STRING, length=32)
-@Table(
-	name=Element.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=Element.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","ENGINE_ID","CODE"}
-		)
-	}
-)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ENTITYTYPE", discriminatorType = DiscriminatorType.STRING, length = 32)
+@Table(name = Element.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Element.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "ENGINE_ID", "CODE"})})
 @Customizer(ElementEventHandler.class)
-public class Element extends AbstractTypeWithCode  {
-	
+public class Element extends AbstractTypeWithCode {
+
 	public static final String TABLE_NAME = "BD_ELEM";
 	public static final String SEQUENCE_NAME = "BD_ELEM_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Element.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Element.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Engine_code.
 	 */
 	public static final String NQ_FIND_BY_ENGINE_CODE = "Element.findByEngine_code";
-	
+
 	/**
 	 * Named query find by unique key: Engine_code using the ID field for references.
 	 */
 	public static final String NQ_FIND_BY_ENGINE_CODE_PRIMITIVE = "Element.findByEngine_code_PRIMITIVE";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ENTITYTYPE", length=32)
+
+	@Column(name = "ENTITYTYPE", length = 32)
 	private String entityType;
-	
-	@Column(name="CALCULATION", length=32)
+
+	@Column(name = "CALCULATION", length = 32)
 	private String calculation;
-	
-	@Column(name="DATATYPE", nullable=false, length=32)
+
+	@Column(name = "DATATYPE", nullable = false, length = 32)
 	@NotBlank
 	private String dataType;
-	
-	@Column(name="SEQUENCENO")
+
+	@Column(name = "SEQUENCENO")
 	private Integer sequenceNo;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Engine.class)
-	@JoinColumn(name="ENGINE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Engine.class)
+	@JoinColumn(name = "ENGINE_ID", referencedColumnName = "ID")
 	private Engine engine;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ElementType.class)
-	@JoinColumn(name="TYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ElementType.class)
+	@JoinColumn(name = "TYPE_ID", referencedColumnName = "ID")
 	private ElementType type;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=ElementInput.class, mappedBy="element"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = ElementInput.class, mappedBy = "element", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<ElementInput> variables;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=ElementFormula.class, mappedBy="element"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = ElementFormula.class, mappedBy = "element", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<ElementFormula> formulas;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getEntityType() {
 		return this.entityType;
 	}
-	
+
 	public void setEntityType(String entityType) {
 		this.entityType = entityType;
 	}
-	
+
 	public String getCalculation() {
 		return this.calculation;
 	}
-	
+
 	public void setCalculation(String calculation) {
 		this.calculation = calculation;
 	}
-	
+
 	public String getDataType() {
 		return this.dataType;
 	}
-	
+
 	public void setDataType(String dataType) {
 		this.dataType = dataType;
 	}
-	
+
 	public Integer getSequenceNo() {
 		return this.sequenceNo;
 	}
-	
+
 	public void setSequenceNo(Integer sequenceNo) {
 		this.sequenceNo = sequenceNo;
 	}
-	
+
 	public Engine getEngine() {
 		return this.engine;
 	}
-	
+
 	public void setEngine(Engine engine) {
-		if (engine != null ) {
+		if (engine != null) {
 			this.__validate_client_context__(engine.getClientId());
 		}
 		this.engine = engine;
 	}
-	
+
 	public ElementType getType() {
 		return this.type;
 	}
-	
+
 	public void setType(ElementType type) {
-		if (type != null ) {
+		if (type != null) {
 			this.__validate_client_context__(type.getClientId());
 		}
 		this.type = type;
 	}
-	
+
 	public Collection<ElementInput> getVariables() {
 		return this.variables;
 	}
-	
+
 	public void setVariables(Collection<ElementInput> variables) {
 		this.variables = variables;
 	}
-	
+
 	public void addToVariables(ElementInput e) {
 		if (this.variables == null) {
 			this.variables = new ArrayList<ElementInput>();
@@ -217,15 +191,15 @@ public class Element extends AbstractTypeWithCode  {
 		e.setElement(this);
 		this.variables.add(e);
 	}
-	
+
 	public Collection<ElementFormula> getFormulas() {
 		return this.formulas;
 	}
-	
+
 	public void setFormulas(Collection<ElementFormula> formulas) {
 		this.formulas = formulas;
 	}
-	
+
 	public void addToFormulas(ElementFormula e) {
 		if (this.formulas == null) {
 			this.formulas = new ArrayList<ElementFormula>();
@@ -233,9 +207,9 @@ public class Element extends AbstractTypeWithCode  {
 		e.setElement(this);
 		this.formulas.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

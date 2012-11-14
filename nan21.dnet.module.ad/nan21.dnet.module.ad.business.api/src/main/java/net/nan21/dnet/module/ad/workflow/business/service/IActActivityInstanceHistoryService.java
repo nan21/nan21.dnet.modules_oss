@@ -11,10 +11,23 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActActivityInstanceHistory;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;
 
-public interface IActActivityInstanceHistoryService extends IEntityService<ActActivityInstanceHistory> {
-	
-	public List<ActActivityInstanceHistory> findByProcessDefinition(ActProcessDefinition processDefinition);
-	
-	public List<ActActivityInstanceHistory> findByProcessDefinitionId(String processDefinitionId);
-	
+/**
+ * Interface to expose business functions specific for {@link ActActivityInstanceHistory} domain
+ * entity.
+ */
+public interface IActActivityInstanceHistoryService
+		extends
+			IEntityService<ActActivityInstanceHistory> {
+
+	/**
+	 * Find by reference: processDefinition
+	 */
+	public List<ActActivityInstanceHistory> findByProcessDefinition(
+			ActProcessDefinition processDefinition);
+
+	/**
+	 * Find by ID of reference: processDefinition.id
+	 */
+	public List<ActActivityInstanceHistory> findByProcessDefinitionId(
+			String processDefinitionId);
 }

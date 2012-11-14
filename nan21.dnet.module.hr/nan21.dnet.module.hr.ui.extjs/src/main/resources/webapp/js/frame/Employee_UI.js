@@ -55,6 +55,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.Employee_UI", {
 			.linkDc("address", "emp",{fields:[
 				{childField:"targetUuid", parentField:"uuid"}, {childField:"targetType", parentField:"className"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -92,7 +93,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.Employee_UI", {
 			.addPanel({name:"asgnEditWrapper", layout:"fit"})
 			.addPanel({name:"addressPanel", title:"Address", layout:"card", activeItem:0})
 			.addPanel({name:"addressEditWrapper", layout:"fit"})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -121,6 +122,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.Employee_UI", {
 			.addToolbarTo("addressEditWrapper", "tlbAddressEdit")
 			.addToolbarTo("asgnList", "tlbAsgnList")
 			.addToolbarTo("asgnEditWrapper", "tlbAsgnEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -198,6 +200,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.Employee_UI", {
 			)
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Assignment"})
 			.end()
+			;
 	}
 
 	,onUploadSuccess: function() {	

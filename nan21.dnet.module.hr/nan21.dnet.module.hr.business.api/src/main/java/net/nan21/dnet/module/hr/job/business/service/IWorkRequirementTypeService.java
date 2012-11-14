@@ -9,8 +9,16 @@ package net.nan21.dnet.module.hr.job.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType;
 
-public interface IWorkRequirementTypeService extends IEntityService<WorkRequirementType> {
-	
+/**
+ * Interface to expose business functions specific for {@link WorkRequirementType} domain
+ * entity.
+ */
+public interface IWorkRequirementTypeService
+		extends
+			IEntityService<WorkRequirementType> {
+
+	/**
+	 * Find by unique key
+	 */
 	public WorkRequirementType findByName(String name);
-	
 }

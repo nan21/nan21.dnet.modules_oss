@@ -16,10 +16,17 @@ import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 import net.nan21.dnet.module.md.org.business.service.IFinancialAccountService;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
 
+/**
+ * Repository functionality for {@link FinancialAccount} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class FinancialAccountService
+		extends
+			AbstractEntityService<FinancialAccount>
+		implements
+			IFinancialAccountService {
 
-public class FinancialAccountService extends AbstractEntityService<FinancialAccount>
-		implements IFinancialAccountService {
- 
 	public FinancialAccountService() {
 		super();
 	}
@@ -33,48 +40,71 @@ public class FinancialAccountService extends AbstractEntityService<FinancialAcco
 	public Class<FinancialAccount> getEntityClass() {
 		return FinancialAccount.class;
 	}
-	
-	public FinancialAccount findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public FinancialAccount findByName(String name) {
 		return (FinancialAccount) this.em
-			.createNamedQuery(FinancialAccount.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(FinancialAccount.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: org
+	 */
 	public List<FinancialAccount> findByOrg(Organization org) {
-		return this.findByOrgId(org.getId()); 
+		return this.findByOrgId(org.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: org.id
+	 */
 	public List<FinancialAccount> findByOrgId(Long orgId) {
 		return (List<FinancialAccount>) this.em
-			.createQuery("select e from FinancialAccount e where e.clientId = :pClientId and e.org.id = :pOrgId", FinancialAccount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pOrgId", orgId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from FinancialAccount e where e.clientId = :pClientId and e.org.id = :pOrgId",
+						FinancialAccount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pOrgId", orgId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: currency
+	 */
 	public List<FinancialAccount> findByCurrency(Currency currency) {
-		return this.findByCurrencyId(currency.getId()); 
+		return this.findByCurrencyId(currency.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
 	public List<FinancialAccount> findByCurrencyId(Long currencyId) {
 		return (List<FinancialAccount>) this.em
-			.createQuery("select e from FinancialAccount e where e.clientId = :pClientId and e.currency.id = :pCurrencyId", FinancialAccount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCurrencyId", currencyId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from FinancialAccount e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
+						FinancialAccount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCurrencyId", currencyId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: journal
+	 */
 	public List<FinancialAccount> findByJournal(AccJournal journal) {
-		return this.findByJournalId(journal.getId()); 
+		return this.findByJournalId(journal.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: journal.id
+	 */
 	public List<FinancialAccount> findByJournalId(Long journalId) {
 		return (List<FinancialAccount>) this.em
-			.createQuery("select e from FinancialAccount e where e.clientId = :pClientId and e.journal.id = :pJournalId", FinancialAccount.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJournalId", journalId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from FinancialAccount e where e.clientId = :pClientId and e.journal.id = :pJournalId",
+						FinancialAccount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJournalId", journalId).getResultList();
 	}
 }

@@ -10,15 +10,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
-@Ds(entity=BusinessPartner.class,jpqlWhere=" e.active = true ", sort={@SortField(field=BusinessPartnerLovDs.fCODE)})
-public class BusinessPartnerLovDs extends AbstractTypeWithCodeLov<BusinessPartner> {
-
+@Ds(entity = BusinessPartner.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = BusinessPartnerLovDs.fCODE)})
+public class BusinessPartnerLovDs
+		extends
+			AbstractTypeWithCodeLov<BusinessPartner> {
 
 	public BusinessPartnerLovDs() {
 		super();
 	}
 
- 	public BusinessPartnerLovDs(BusinessPartner e) {
+	public BusinessPartnerLovDs(BusinessPartner e) {
 		super(e);
 	}
 }

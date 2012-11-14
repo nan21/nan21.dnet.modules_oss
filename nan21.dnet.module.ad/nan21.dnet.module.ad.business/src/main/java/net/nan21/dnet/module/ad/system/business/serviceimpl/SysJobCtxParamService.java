@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtxParam;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobParam;
 
+/**
+ * Repository functionality for {@link SysJobCtxParam} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class SysJobCtxParamService
+		extends
+			AbstractEntityService<SysJobCtxParam> {
 
-public class SysJobCtxParamService extends AbstractEntityService<SysJobCtxParam>
-		{
- 
 	public SysJobCtxParamService() {
 		super();
 	}
@@ -31,28 +36,42 @@ public class SysJobCtxParamService extends AbstractEntityService<SysJobCtxParam>
 	public Class<SysJobCtxParam> getEntityClass() {
 		return SysJobCtxParam.class;
 	}
-	
+
+	/**
+	 * Find by reference: jobCtx
+	 */
 	public List<SysJobCtxParam> findByJobCtx(SysJobCtx jobCtx) {
-		return this.findByJobCtxId(jobCtx.getId()); 
+		return this.findByJobCtxId(jobCtx.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: jobCtx.id
+	 */
 	public List<SysJobCtxParam> findByJobCtxId(Long jobCtxId) {
 		return (List<SysJobCtxParam>) this.em
-			.createQuery("select e from SysJobCtxParam e where e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId", SysJobCtxParam.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobCtxId", jobCtxId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SysJobCtxParam e where e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId",
+						SysJobCtxParam.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobCtxId", jobCtxId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: jobParam
+	 */
 	public List<SysJobCtxParam> findByJobParam(SysJobParam jobParam) {
-		return this.findByJobParamId(jobParam.getId()); 
+		return this.findByJobParamId(jobParam.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: jobParam.id
+	 */
 	public List<SysJobCtxParam> findByJobParamId(Long jobParamId) {
 		return (List<SysJobCtxParam>) this.em
-			.createQuery("select e from SysJobCtxParam e where e.clientId = :pClientId and e.jobParam.id = :pJobParamId", SysJobCtxParam.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJobParamId", jobParamId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from SysJobCtxParam e where e.clientId = :pClientId and e.jobParam.id = :pJobParamId",
+						SysJobCtxParam.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJobParamId", jobParamId).getResultList();
 	}
 }

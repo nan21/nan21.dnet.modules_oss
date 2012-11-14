@@ -200,14 +200,14 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditMain", {
 					if (record.get("confirmed")   ) {
 						this._disableAllFields_();
 						return false;
-					};
+					}
 	},
 	
 	_endDefine_: function() {
 		
 					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 					 	this._applyStates_(dc.record);
-					 } , this );
+					 } , this )
 	}
 });
 
@@ -269,13 +269,12 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditDetails", {
 				if ( record.get("delivered") ) {
 					this._disableFields_(["shipTo","shipToLocation" ]);
 				}
-				;
 	},
 	
 	_endDefine_: function() {
 		
 				this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
 				 	this._applyStates_(dc.record);
-				 } , this );
+				 } , this )
 	}
 });

@@ -15,10 +15,17 @@ import net.nan21.dnet.module.md.mm.prod.business.service.IProductAttributeValueS
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAttributeValue;
 
+/**
+ * Repository functionality for {@link ProductAttributeValue} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProductAttributeValueService
+		extends
+			AbstractEntityService<ProductAttributeValue>
+		implements
+			IProductAttributeValueService {
 
-public class ProductAttributeValueService extends AbstractEntityService<ProductAttributeValue>
-		implements IProductAttributeValueService {
- 
 	public ProductAttributeValueService() {
 		super();
 	}
@@ -32,46 +39,65 @@ public class ProductAttributeValueService extends AbstractEntityService<ProductA
 	public Class<ProductAttributeValue> getEntityClass() {
 		return ProductAttributeValue.class;
 	}
-	
-	public ProductAttributeValue findByName(Product product,Attribute attribute) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductAttributeValue findByName(Product product, Attribute attribute) {
 		return (ProductAttributeValue) this.em
-			.createNamedQuery(ProductAttributeValue.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProduct", product)
-			.setParameter("pAttribute", attribute)
-			.getSingleResult(); 
+				.createNamedQuery(ProductAttributeValue.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProduct", product)
+				.setParameter("pAttribute", attribute).getSingleResult();
 	}
-	
-	public ProductAttributeValue findByName( Long productId, Long attributeId) {
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductAttributeValue findByName(Long productId, Long attributeId) {
 		return (ProductAttributeValue) this.em
-			.createNamedQuery(ProductAttributeValue.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProductId", productId)
-			.setParameter("pAttributeId", attributeId)
-			.getSingleResult(); 
+				.createNamedQuery(
+						ProductAttributeValue.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProductId", productId)
+				.setParameter("pAttributeId", attributeId).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: product
+	 */
 	public List<ProductAttributeValue> findByProduct(Product product) {
-		return this.findByProductId(product.getId()); 
+		return this.findByProductId(product.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: product.id
+	 */
 	public List<ProductAttributeValue> findByProductId(Long productId) {
 		return (List<ProductAttributeValue>) this.em
-			.createQuery("select e from ProductAttributeValue e where e.clientId = :pClientId and e.product.id = :pProductId", ProductAttributeValue.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProductId", productId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProductAttributeValue e where e.clientId = :pClientId and e.product.id = :pProductId",
+						ProductAttributeValue.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProductId", productId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: attribute
+	 */
 	public List<ProductAttributeValue> findByAttribute(Attribute attribute) {
-		return this.findByAttributeId(attribute.getId()); 
+		return this.findByAttributeId(attribute.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: attribute.id
+	 */
 	public List<ProductAttributeValue> findByAttributeId(Long attributeId) {
 		return (List<ProductAttributeValue>) this.em
-			.createQuery("select e from ProductAttributeValue e where e.clientId = :pClientId and e.attribute.id = :pAttributeId", ProductAttributeValue.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAttributeId", attributeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProductAttributeValue e where e.clientId = :pClientId and e.attribute.id = :pAttributeId",
+						ProductAttributeValue.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAttributeId", attributeId).getResultList();
 	}
 }

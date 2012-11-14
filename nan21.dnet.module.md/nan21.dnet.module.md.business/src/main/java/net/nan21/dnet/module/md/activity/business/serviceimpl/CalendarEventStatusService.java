@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.activity.business.service.ICalendarEventStatusService;
 import net.nan21.dnet.module.md.activity.domain.entity.CalendarEventStatus;
 
+/**
+ * Repository functionality for {@link CalendarEventStatus} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class CalendarEventStatusService
+		extends
+			AbstractEntityService<CalendarEventStatus>
+		implements
+			ICalendarEventStatusService {
 
-public class CalendarEventStatusService extends AbstractEntityService<CalendarEventStatus>
-		implements ICalendarEventStatusService {
- 
 	public CalendarEventStatusService() {
 		super();
 	}
@@ -29,13 +36,15 @@ public class CalendarEventStatusService extends AbstractEntityService<CalendarEv
 	public Class<CalendarEventStatus> getEntityClass() {
 		return CalendarEventStatus.class;
 	}
-	
-	public CalendarEventStatus findByType_and_name(String eventType,String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public CalendarEventStatus findByType_and_name(String eventType, String name) {
 		return (CalendarEventStatus) this.em
-			.createNamedQuery(CalendarEventStatus.NQ_FIND_BY_TYPE_AND_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEventType", eventType)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(CalendarEventStatus.NQ_FIND_BY_TYPE_AND_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEventType", eventType)
+				.setParameter("pName", name).getSingleResult();
 	}
 }

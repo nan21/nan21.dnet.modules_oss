@@ -9,6 +9,9 @@ package net.nan21.dnet.module.ad.system.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.TempAsgn;
 
+/**
+ * Interface to expose business functions specific for {@link TempAsgn} domain
+ * entity.
+ */
 public interface ITempAsgnService extends IEntityService<TempAsgn> {
-	
 }

@@ -9,8 +9,16 @@ package net.nan21.dnet.module.md.org.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.md.org.domain.entity.StockLocatorType;
 
-public interface IStockLocatorTypeService extends IEntityService<StockLocatorType> {
-	
+/**
+ * Interface to expose business functions specific for {@link StockLocatorType} domain
+ * entity.
+ */
+public interface IStockLocatorTypeService
+		extends
+			IEntityService<StockLocatorType> {
+
+	/**
+	 * Find by unique key
+	 */
 	public StockLocatorType findByName(String name);
-	
 }

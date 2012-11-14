@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.business.service.IAssignableTypeService;
 import net.nan21.dnet.module.ad.usr.domain.entity.AssignableType;
 
+/**
+ * Repository functionality for {@link AssignableType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class AssignableTypeService
+		extends
+			AbstractEntityService<AssignableType>
+		implements
+			IAssignableTypeService {
 
-public class AssignableTypeService extends AbstractEntityService<AssignableType>
-		implements IAssignableTypeService {
- 
 	public AssignableTypeService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class AssignableTypeService extends AbstractEntityService<AssignableType>
 	public Class<AssignableType> getEntityClass() {
 		return AssignableType.class;
 	}
-	
-	public AssignableType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AssignableType findByName(String name) {
 		return (AssignableType) this.em
-			.createNamedQuery(AssignableType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AssignableType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

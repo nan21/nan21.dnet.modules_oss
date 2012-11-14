@@ -12,18 +12,39 @@ import net.nan21.dnet.module.bd.elem.domain.entity.ElementCategory;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementType;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
+/**
+ * Interface to expose business functions specific for {@link ElementType} domain
+ * entity.
+ */
 public interface IElementTypeService extends IEntityService<ElementType> {
-	
-	public ElementType findByEngine_name(Engine engine,String name);
-	
-	public ElementType findByEngine_name( Long engineId,String name);
-	
+
+	/**
+	 * Find by unique key
+	 */
+	public ElementType findByEngine_name(Engine engine, String name);
+
+	/**
+	 * Find by unique key
+	 */
+	public ElementType findByEngine_name(Long engineId, String name);
+
+	/**
+	 * Find by reference: engine
+	 */
 	public List<ElementType> findByEngine(Engine engine);
-	
+
+	/**
+	 * Find by ID of reference: engine.id
+	 */
 	public List<ElementType> findByEngineId(Long engineId);
-	
+
+	/**
+	 * Find by reference: category
+	 */
 	public List<ElementType> findByCategory(ElementCategory category);
-	
+
+	/**
+	 * Find by ID of reference: category.id
+	 */
 	public List<ElementType> findByCategoryId(Long categoryId);
-	
 }

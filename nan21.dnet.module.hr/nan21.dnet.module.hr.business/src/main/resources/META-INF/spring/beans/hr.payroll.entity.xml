@@ -13,5 +13,5 @@
 	<bean id="PayrollService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.payroll.business.serviceimpl.PayrollService"/>
 	<bean id="PayrollPeriodService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.hr.payroll.business.serviceimpl.PayrollPeriodService"/>
+		class="net.nan21.dnet.module.hr.payroll.business.serviceext.PayrollPeriodService"/>
 </beans>

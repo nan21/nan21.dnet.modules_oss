@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.MyUserSettings_UI", {
 		this._getBuilder_()
 			.addDc("usr", new net.nan21.dnet.module.ad.usr.dc.MyUserSettings({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -22,13 +23,14 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.MyUserSettings_UI", {
 			
 			.addDcFormView("usr", {name:"usrEdit", xtype:"ad_usr_dc_MyUserSettings$Edit"})
 			.addPanel({name:"main", layout:"fit"})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["usrEdit"])
 			.addToolbarTo("main", "tlbUsrEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -36,6 +38,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.MyUserSettings_UI", {
 			.beginToolbar("tlbUsrEdit", {dc: "usr"}).addSave().addCancel()
 			.addReports()
 			.end()
+			;
 	}
 
 	,loadCurrentUser: function() {

@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssueTaskTypeService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskType;
 
-
+/**
+ * Repository functionality for {@link IssueTaskType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class IssueTaskTypeService extends AbstractEntityService<IssueTaskType>
-		implements IIssueTaskTypeService {
- 
+		implements
+			IIssueTaskTypeService {
+
 	public IssueTaskTypeService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class IssueTaskTypeService extends AbstractEntityService<IssueTaskType>
 	public Class<IssueTaskType> getEntityClass() {
 		return IssueTaskType.class;
 	}
-	
-	public IssueTaskType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public IssueTaskType findByName(String name) {
 		return (IssueTaskType) this.em
-			.createNamedQuery(IssueTaskType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(IssueTaskType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

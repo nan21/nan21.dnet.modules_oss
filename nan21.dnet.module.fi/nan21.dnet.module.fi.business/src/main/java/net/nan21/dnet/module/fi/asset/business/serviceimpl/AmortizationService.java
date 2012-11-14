@@ -15,10 +15,15 @@ import net.nan21.dnet.module.fi.asset.business.service.IAmortizationService;
 import net.nan21.dnet.module.fi.asset.domain.entity.Amortization;
 import net.nan21.dnet.module.fi.asset.domain.entity.Asset;
 
-
+/**
+ * Repository functionality for {@link Amortization} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AmortizationService extends AbstractEntityService<Amortization>
-		implements IAmortizationService {
- 
+		implements
+			IAmortizationService {
+
 	public AmortizationService() {
 		super();
 	}
@@ -32,34 +37,45 @@ public class AmortizationService extends AbstractEntityService<Amortization>
 	public Class<Amortization> getEntityClass() {
 		return Amortization.class;
 	}
-	
-	public Amortization findByAmort(Asset asset,Date postingDate) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public Amortization findByAmort(Asset asset, Date postingDate) {
 		return (Amortization) this.em
-			.createNamedQuery(Amortization.NQ_FIND_BY_AMORT)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAsset", asset)
-			.setParameter("pPostingDate", postingDate)
-			.getSingleResult(); 
+				.createNamedQuery(Amortization.NQ_FIND_BY_AMORT)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAsset", asset)
+				.setParameter("pPostingDate", postingDate).getSingleResult();
 	}
-	
-	public Amortization findByAmort( Long assetId,Date postingDate) {
+
+	/**
+	 * Find by unique key
+	 */
+	public Amortization findByAmort(Long assetId, Date postingDate) {
 		return (Amortization) this.em
-			.createNamedQuery(Amortization.NQ_FIND_BY_AMORT_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAssetId", assetId)
-			.setParameter("pPostingDate", postingDate)
-			.getSingleResult(); 
+				.createNamedQuery(Amortization.NQ_FIND_BY_AMORT_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAssetId", assetId)
+				.setParameter("pPostingDate", postingDate).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: asset
+	 */
 	public List<Amortization> findByAsset(Asset asset) {
-		return this.findByAssetId(asset.getId()); 
+		return this.findByAssetId(asset.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: asset.id
+	 */
 	public List<Amortization> findByAssetId(Long assetId) {
 		return (List<Amortization>) this.em
-			.createQuery("select e from Amortization e where e.clientId = :pClientId and e.asset.id = :pAssetId", Amortization.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAssetId", assetId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Amortization e where e.clientId = :pClientId and e.asset.id = :pAssetId",
+						Amortization.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAssetId", assetId).getResultList();
 	}
 }

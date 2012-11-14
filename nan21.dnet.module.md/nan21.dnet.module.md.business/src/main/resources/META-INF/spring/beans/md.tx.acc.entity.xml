@@ -7,7 +7,7 @@
 			http://www.springframework.org/schema/context 
 				http://www.springframework.org/schema/context/spring-context.xsd">   
 	<bean id="AccDocService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.md.tx.acc.business.serviceimpl.AccDocService"/>
+		class="net.nan21.dnet.module.md.tx.acc.business.serviceext.AccDocService"/>
 	<bean id="AccDocLineService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.md.tx.acc.business.serviceimpl.AccDocLineService"/>
 	<bean id="AccOperationService" scope="singleton" lazy-init="true"

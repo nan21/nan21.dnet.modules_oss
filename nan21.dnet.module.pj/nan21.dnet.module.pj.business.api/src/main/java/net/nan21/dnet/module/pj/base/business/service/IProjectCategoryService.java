@@ -9,8 +9,16 @@ package net.nan21.dnet.module.pj.base.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.pj.base.domain.entity.ProjectCategory;
 
-public interface IProjectCategoryService extends IEntityService<ProjectCategory> {
-	
+/**
+ * Interface to expose business functions specific for {@link ProjectCategory} domain
+ * entity.
+ */
+public interface IProjectCategoryService
+		extends
+			IEntityService<ProjectCategory> {
+
+	/**
+	 * Find by unique key
+	 */
 	public ProjectCategory findByName(String name);
-	
 }

@@ -31,145 +31,134 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=EmployeeEducation.NQ_FIND_BY_ID,
-		query="SELECT e FROM EmployeeEducation e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=EmployeeEducation.NQ_FIND_BY_IDS,
-		query="SELECT e FROM EmployeeEducation e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = EmployeeEducation.NQ_FIND_BY_ID, query = "SELECT e FROM EmployeeEducation e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = EmployeeEducation.NQ_FIND_BY_IDS, query = "SELECT e FROM EmployeeEducation e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=EmployeeEducation.TABLE_NAME
-)
+@Table(name = EmployeeEducation.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class EmployeeEducation extends AbstractAuditable  {
-	
+public class EmployeeEducation extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "HR_EMPL_EDUC";
 	public static final String SEQUENCE_NAME = "HR_EMPL_EDUC_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "EmployeeEducation.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "EmployeeEducation.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="FROMDATE" )
+	@Column(name = "FROMDATE")
 	private Date fromDate;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="TODATE" )
+	@Column(name = "TODATE")
 	private Date toDate;
-	
-	@Column(name="INSTITUTE", length=255)
+
+	@Column(name = "INSTITUTE", length = 255)
 	private String institute;
-	
-	@Column(name="DEGREE", length=255)
+
+	@Column(name = "DEGREE", length = 255)
 	private String degree;
-	
-	@Column(name="NOTES", length=4000)
+
+	@Column(name = "NOTES", length = 4000)
 	private String notes;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Employee.class)
-	@JoinColumn(name="EMPLOYEE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Employee.class)
+	@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "ID")
 	private Employee employee;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=EducationType.class)
-	@JoinColumn(name="TYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = EducationType.class)
+	@JoinColumn(name = "TYPE_ID", referencedColumnName = "ID")
 	private EducationType type;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getFromDate() {
 		return this.fromDate;
 	}
-	
+
 	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
 	}
-	
+
 	public Date getToDate() {
 		return this.toDate;
 	}
-	
+
 	public void setToDate(Date toDate) {
 		this.toDate = toDate;
 	}
-	
+
 	public String getInstitute() {
 		return this.institute;
 	}
-	
+
 	public void setInstitute(String institute) {
 		this.institute = institute;
 	}
-	
+
 	public String getDegree() {
 		return this.degree;
 	}
-	
+
 	public void setDegree(String degree) {
 		this.degree = degree;
 	}
-	
+
 	public String getNotes() {
 		return this.notes;
 	}
-	
+
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
 	public Employee getEmployee() {
 		return this.employee;
 	}
-	
+
 	public void setEmployee(Employee employee) {
-		if (employee != null ) {
+		if (employee != null) {
 			this.__validate_client_context__(employee.getClientId());
 		}
 		this.employee = employee;
 	}
-	
+
 	public EducationType getType() {
 		return this.type;
 	}
-	
+
 	public void setType(EducationType type) {
-		if (type != null ) {
+		if (type != null) {
 			this.__validate_client_context__(type.getClientId());
 		}
 		this.type = type;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccSchema_UI", {
 		this._getBuilder_()
 			.addDc("schema", new net.nan21.dnet.module.md.acc.dc.AccSchema({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccSchema_UI", {
 			.addDcEditGridView("schema", {name:"schemaEditList", xtype:"md_acc_dc_AccSchema$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccSchema_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["schemaFilter", "schemaEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbSchemaEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccSchema_UI", {
 			.beginToolbar("tlbSchemaEditList", {dc: "schema"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Accounting schema"})
 			.end()
+			;
 	}
 
 });

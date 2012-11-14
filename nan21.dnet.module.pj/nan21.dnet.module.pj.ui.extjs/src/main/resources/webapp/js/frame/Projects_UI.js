@@ -31,6 +31,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			.linkDc("atch", "project",{fields:[
 				{childField:"targetUuid", parentField:"uuid"}, {childField:"targetType", parentField:"entityFQN"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -61,7 +62,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"projectDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -76,6 +77,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			.addToolbarTo("componentEditList", "tlbComponentEditList")
 			.addToolbarTo("memberEditList", "tlbMemberEditList")
 			.addToolbarTo("atchEditList", "tlbAtchList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -98,6 +100,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			.beginToolbar("tlbAtchList", {dc: "atch"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Attachments"})
 			.end()
+			;
 	}
 
 	,onBtnRoadmapUi: function() {

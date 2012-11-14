@@ -31,6 +31,7 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.Job_UI", {
 			.linkDc("asgn", "job",{fields:[
 				{childField:"jobId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -50,7 +51,7 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.Job_UI", {
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			.addPanel({name:"asgnPanel", title:"Assignments", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -66,6 +67,7 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.Job_UI", {
 			.addToolbarTo("reqCtxEditList", "tlbReqCtxEditList")
 			.addToolbarTo("courseCtxEditList", "tlbCourseCtxEditList")
 			.addToolbarTo("asgnPanel", "tlbAsgnList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -88,6 +90,7 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.Job_UI", {
 			.beginToolbar("tlbAsgnList", {dc: "asgn"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Assignments"})
 			.end()
+			;
 	}
 
 });

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.Client_UI", {
 		this._getBuilder_()
 			.addDc("client", new net.nan21.dnet.module.ad.client.dc.Client({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.Client_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas3", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -40,6 +41,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.Client_UI", {
 			.addToolbarTo("canvas1", "tlbClientList")
 			.addToolbarTo("canvas2", "tlbClientEdit")
 			.addToolbarTo("canvas3", "tlbClientCreate")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -53,6 +55,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.Client_UI", {
 			.beginToolbar("tlbClientCreate", {dc: "client"}).addBack().addSave().addNew({autoEdit:"false",showView:"canvas3"}).addCancel().addPrevRec().addNextRec()
 			.addReports()
 			.end()
+			;
 	}
 
 });

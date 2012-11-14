@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.data.business.service.IAttachmentService;
 import net.nan21.dnet.module.ad.data.domain.entity.Attachment;
 import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
 
-
+/**
+ * Repository functionality for {@link Attachment} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AttachmentService extends AbstractEntityService<Attachment>
-		implements IAttachmentService {
- 
+		implements
+			IAttachmentService {
+
 	public AttachmentService() {
 		super();
 	}
@@ -31,16 +36,23 @@ public class AttachmentService extends AbstractEntityService<Attachment>
 	public Class<Attachment> getEntityClass() {
 		return Attachment.class;
 	}
-	
+
+	/**
+	 * Find by reference: type
+	 */
 	public List<Attachment> findByType(AttachmentType type) {
-		return this.findByTypeId(type.getId()); 
+		return this.findByTypeId(type.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: type.id
+	 */
 	public List<Attachment> findByTypeId(Long typeId) {
 		return (List<Attachment>) this.em
-			.createQuery("select e from Attachment e where e.clientId = :pClientId and e.type.id = :pTypeId", Attachment.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTypeId", typeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Attachment e where e.clientId = :pClientId and e.type.id = :pTypeId",
+						Attachment.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTypeId", typeId).getResultList();
 	}
 }

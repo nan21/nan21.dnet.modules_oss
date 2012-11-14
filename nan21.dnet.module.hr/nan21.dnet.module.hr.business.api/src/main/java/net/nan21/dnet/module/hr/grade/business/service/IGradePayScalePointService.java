@@ -12,14 +12,32 @@ import net.nan21.dnet.module.hr.grade.domain.entity.GradePayScale;
 import net.nan21.dnet.module.hr.grade.domain.entity.GradePayScalePoint;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint;
 
-public interface IGradePayScalePointService extends IEntityService<GradePayScalePoint> {
-	
-	public List<GradePayScalePoint> findByGradePayScale(GradePayScale gradePayScale);
-	
+/**
+ * Interface to expose business functions specific for {@link GradePayScalePoint} domain
+ * entity.
+ */
+public interface IGradePayScalePointService
+		extends
+			IEntityService<GradePayScalePoint> {
+
+	/**
+	 * Find by reference: gradePayScale
+	 */
+	public List<GradePayScalePoint> findByGradePayScale(
+			GradePayScale gradePayScale);
+
+	/**
+	 * Find by ID of reference: gradePayScale.id
+	 */
 	public List<GradePayScalePoint> findByGradePayScaleId(Long gradePayScaleId);
-	
+
+	/**
+	 * Find by reference: point
+	 */
 	public List<GradePayScalePoint> findByPoint(PayScalePoint point);
-	
+
+	/**
+	 * Find by ID of reference: point.id
+	 */
 	public List<GradePayScalePoint> findByPointId(Long pointId);
-	
 }

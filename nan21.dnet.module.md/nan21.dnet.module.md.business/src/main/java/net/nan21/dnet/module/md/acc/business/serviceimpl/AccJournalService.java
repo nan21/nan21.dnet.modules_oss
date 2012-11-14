@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.acc.business.service.IAccJournalService;
 import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 
-
+/**
+ * Repository functionality for {@link AccJournal} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AccJournalService extends AbstractEntityService<AccJournal>
-		implements IAccJournalService {
- 
+		implements
+			IAccJournalService {
+
 	public AccJournalService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class AccJournalService extends AbstractEntityService<AccJournal>
 	public Class<AccJournal> getEntityClass() {
 		return AccJournal.class;
 	}
-	
-	public AccJournal findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AccJournal findByName(String name) {
 		return (AccJournal) this.em
-			.createNamedQuery(AccJournal.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AccJournal.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.sd.opportunity.business.service.IOpportunityStageService;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage;
 
+/**
+ * Repository functionality for {@link OpportunityStage} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class OpportunityStageService
+		extends
+			AbstractEntityService<OpportunityStage>
+		implements
+			IOpportunityStageService {
 
-public class OpportunityStageService extends AbstractEntityService<OpportunityStage>
-		implements IOpportunityStageService {
- 
 	public OpportunityStageService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class OpportunityStageService extends AbstractEntityService<OpportunitySt
 	public Class<OpportunityStage> getEntityClass() {
 		return OpportunityStage.class;
 	}
-	
-	public OpportunityStage findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public OpportunityStage findByName(String name) {
 		return (OpportunityStage) this.em
-			.createNamedQuery(OpportunityStage.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(OpportunityStage.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

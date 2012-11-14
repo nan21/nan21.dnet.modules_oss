@@ -15,10 +15,15 @@ import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.bd.org.domain.entity.OrganizationType;
 
-
+/**
+ * Repository functionality for {@link Organization} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class OrganizationService extends AbstractEntityService<Organization>
-		implements IOrganizationService {
- 
+		implements
+			IOrganizationService {
+
 	public OrganizationService() {
 		super();
 	}
@@ -32,44 +37,62 @@ public class OrganizationService extends AbstractEntityService<Organization>
 	public Class<Organization> getEntityClass() {
 		return Organization.class;
 	}
-	
-	public Organization findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public Organization findByCode(String code) {
 		return (Organization) this.em
-			.createNamedQuery(Organization.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(Organization.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public Organization findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public Organization findByName(String name) {
 		return (Organization) this.em
-			.createNamedQuery(Organization.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(Organization.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: type
+	 */
 	public List<Organization> findByType(OrganizationType type) {
-		return this.findByTypeId(type.getId()); 
+		return this.findByTypeId(type.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: type.id
+	 */
 	public List<Organization> findByTypeId(Long typeId) {
 		return (List<Organization>) this.em
-			.createQuery("select e from Organization e where e.clientId = :pClientId and e.type.id = :pTypeId", Organization.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTypeId", typeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Organization e where e.clientId = :pClientId and e.type.id = :pTypeId",
+						Organization.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTypeId", typeId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: calendar
+	 */
 	public List<Organization> findByCalendar(Calendar calendar) {
-		return this.findByCalendarId(calendar.getId()); 
+		return this.findByCalendarId(calendar.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: calendar.id
+	 */
 	public List<Organization> findByCalendarId(Long calendarId) {
 		return (List<Organization>) this.em
-			.createQuery("select e from Organization e where e.clientId = :pClientId and e.calendar.id = :pCalendarId", Organization.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCalendarId", calendarId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Organization e where e.clientId = :pClientId and e.calendar.id = :pCalendarId",
+						Organization.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCalendarId", calendarId).getResultList();
 	}
 }

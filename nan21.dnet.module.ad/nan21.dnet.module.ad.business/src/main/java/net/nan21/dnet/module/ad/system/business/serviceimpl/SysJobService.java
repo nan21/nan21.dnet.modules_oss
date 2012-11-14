@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysJobService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJob;
 
-
+/**
+ * Repository functionality for {@link SysJob} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class SysJobService extends AbstractEntityService<SysJob>
-		implements ISysJobService {
- 
+		implements
+			ISysJobService {
+
 	public SysJobService() {
 		super();
 	}
@@ -29,20 +34,22 @@ public class SysJobService extends AbstractEntityService<SysJob>
 	public Class<SysJob> getEntityClass() {
 		return SysJob.class;
 	}
-	
-	public SysJob findByName(String name) {		 
-		return (SysJob) this.em
-			.createNamedQuery(SysJob.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysJob findByName(String name) {
+		return (SysJob) this.em.createNamedQuery(SysJob.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
-	public SysJob findByJclass(String javaClass) {		 
-		return (SysJob) this.em
-			.createNamedQuery(SysJob.NQ_FIND_BY_JCLASS)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJavaClass", javaClass)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public SysJob findByJclass(String javaClass) {
+		return (SysJob) this.em.createNamedQuery(SysJob.NQ_FIND_BY_JCLASS)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJavaClass", javaClass).getSingleResult();
 	}
 }

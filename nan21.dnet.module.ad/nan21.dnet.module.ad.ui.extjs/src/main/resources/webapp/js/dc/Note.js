@@ -87,6 +87,6 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$Edit", {
 	/* ==================== Business functions ==================== */
 	
 	_note_enableFn_: function(dc,record) {
-		return record.phantom || ( record.data.createdBy == getApplication().getSession().user.code );;
+		return record.phantom || ( record.data.createdBy == getApplication().getSession().user.code );
 	}
 });

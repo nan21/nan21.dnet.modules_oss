@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.md.tx.acc.domain.entity.AccDoc;
 import net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine;
@@ -11,16 +12,28 @@ import net.nan21.dnet.module.md.tx.acc.domain.entity.AccOperation;
 
 public class AccDocToAccOperationBD extends AbstractBusinessDelegate {
 
-	public void unPost(AccDoc doc) throws Exception {
+	/**
+	 * Post the given accounting document to great-ledger.
+	 * 
+	 * @param doc
+	 * @throws BusinessException
+	 */
+	public void unPost(AccDoc doc) throws BusinessException {
 		this.em.createQuery(
-				"delete from "+AccOperation.class.getSimpleName()+" t "
-						+ " where t.accDoc.id = :accDocId").setParameter(
-				"accDocId", doc.getId()).executeUpdate();
+				"delete from " + AccOperation.class.getSimpleName() + " t "
+						+ " where t.accDoc.id = :accDocId")
+				.setParameter("accDocId", doc.getId()).executeUpdate();
 		doc.setPosted(false);
 		this.em.merge(doc);
 	}
 
-	public void post(AccDoc doc) throws Exception {
+	/**
+	 * Un-post the given accounting document.
+	 * 
+	 * @param doc
+	 * @throws BusinessException
+	 */
+	public void post(AccDoc doc) throws BusinessException {
 		Collection<AccDocLine> lines = doc.getLines();
 		List<AccOperation> ops = new ArrayList<AccOperation>();
 		AccDocLine hline = null;

@@ -24,89 +24,69 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /**
-	 * Payment methods definition
-	 */
+ * Payment methods definition
+ */
 @NamedQueries({
-	@NamedQuery(
-		name=PaymentTerm.NQ_FIND_BY_ID,
-		query="SELECT e FROM PaymentTerm e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PaymentTerm.NQ_FIND_BY_IDS,
-		query="SELECT e FROM PaymentTerm e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=PaymentTerm.NQ_FIND_BY_NAME,
-		query="SELECT e FROM PaymentTerm e WHERE e.clientId = :pClientId and e.name = :pName",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = PaymentTerm.NQ_FIND_BY_ID, query = "SELECT e FROM PaymentTerm e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PaymentTerm.NQ_FIND_BY_IDS, query = "SELECT e FROM PaymentTerm e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PaymentTerm.NQ_FIND_BY_NAME, query = "SELECT e FROM PaymentTerm e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=PaymentTerm.TABLE_NAME
-	,uniqueConstraints={
-		@UniqueConstraint( 
-			name=PaymentTerm.TABLE_NAME+"_UK1"
-			,columnNames={"CLIENTID","NAME"}
-		)
-	}
-)
+@Table(name = PaymentTerm.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = PaymentTerm.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class PaymentTerm extends AbstractType  {
-	
+public class PaymentTerm extends AbstractType {
+
 	public static final String TABLE_NAME = "MD_PYMNT_TERM";
 	public static final String SEQUENCE_NAME = "MD_PYMNT_TERM_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "PaymentTerm.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "PaymentTerm.findByIds";
-	
+
 	/**
 	 * Named query find by unique key: Name.
 	 */
 	public static final String NQ_FIND_BY_NAME = "PaymentTerm.findByName";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="DAYS", nullable=false)
+
+	@Column(name = "DAYS", nullable = false)
 	@NotNull
 	private Integer days;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Integer getDays() {
 		return this.days;
 	}
-	
+
 	public void setDays(Integer days) {
 		this.days = days;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

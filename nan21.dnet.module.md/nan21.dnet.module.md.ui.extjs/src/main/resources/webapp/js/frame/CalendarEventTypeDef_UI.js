@@ -16,6 +16,7 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.CalendarEventTypeDef_UI", {
 			.addDc("status", new net.nan21.dnet.module.md.activity.dc.CalendarEventStatus({multiEdit:true}))
 			.addDc("priority", new net.nan21.dnet.module.md.activity.dc.CalendarEventPriority({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,6 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.CalendarEventTypeDef_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasStatus", title:"Event status", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasPriority", title:"Event priority", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -44,6 +44,7 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.CalendarEventTypeDef_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasStatus", "statusTlb")
 			.addToolbarTo("canvasPriority", "priorityTlb")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.CalendarEventTypeDef_UI", {
 			.beginToolbar("priorityTlb", {dc: "priority"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Event priority"})
 			.end()
+			;
 	}
 
 });

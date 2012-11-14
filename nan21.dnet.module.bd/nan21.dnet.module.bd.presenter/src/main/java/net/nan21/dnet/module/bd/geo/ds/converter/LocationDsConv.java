@@ -14,54 +14,69 @@ import net.nan21.dnet.module.bd.geo.domain.entity.Location;
 import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 import net.nan21.dnet.module.bd.geo.ds.model.LocationDs;
 
-public class LocationDsConv extends AbstractDsConverter<LocationDs, Location> 
-		implements IDsConverter<LocationDs, Location> {
-    
-    @Override
-    protected void modelToEntityReferences(LocationDs ds, Location e, boolean isInsert) throws Exception {
-    	if( ds.getCountryId() != null  ) {
-    		if (e.getCountry() == null || !e.getCountry().getId().equals(ds.getCountryId()) ) {
-    			e.setCountry( (Country) this.em.find(Country.class, ds.getCountryId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_country_Country(ds, e);
-    	}
-    	if( ds.getRegionId() != null  ) {
-    		if (e.getRegion() == null || !e.getRegion().getId().equals(ds.getRegionId()) ) {
-    			e.setRegion( (Region) this.em.find(Region.class, ds.getRegionId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_region_Region(ds, e);
-    	}
-    }
-    
-    protected void lookup_country_Country(LocationDs ds, Location e ) throws Exception {
-    	if (ds.getCountryCode() != null && !ds.getCountryCode().equals("") ) {
-    		Country x = null;
-    		try { 
-    			x = ((ICountryService)findEntityService(Country.class)).findByCode( ds.getCountryCode() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Country` reference: `countryCode` = " + ds.getCountryCode() + "" );
-    		}
-    		e.setCountry(x); 
-    	} else {
-    		e.setCountry(null);
-    	}
-    }
-    
-    protected void lookup_region_Region(LocationDs ds, Location e ) throws Exception {
-    	if (ds.getCountryId() != null && !ds.getCountryId().equals("")  && ds.getRegionCode() != null && !ds.getRegionCode().equals("") ) {
-    		Region x = null;
-    		try { 
-    			x = ((IRegionService)findEntityService(Region.class)).findByCodeAndCountry( ds.getCountryId(),  ds.getRegionCode() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Region` reference: `countryId` = " + ds.getCountryId() + ", `regionCode` = " + ds.getRegionCode() + "" );
-    		}
-    		e.setRegion(x); 
-    	} else {
-    		e.setRegion(null);
-    	}
-    }
+public class LocationDsConv extends AbstractDsConverter<LocationDs, Location>
+		implements
+			IDsConverter<LocationDs, Location> {
+
+	@Override
+	protected void modelToEntityReferences(LocationDs ds, Location e,
+			boolean isInsert) throws Exception {
+		if (ds.getCountryId() != null) {
+			if (e.getCountry() == null
+					|| !e.getCountry().getId().equals(ds.getCountryId())) {
+				e.setCountry((Country) this.em.find(Country.class,
+						ds.getCountryId()));
+			}
+		} else {
+			this.lookup_country_Country(ds, e);
+		}
+		if (ds.getRegionId() != null) {
+			if (e.getRegion() == null
+					|| !e.getRegion().getId().equals(ds.getRegionId())) {
+				e.setRegion((Region) this.em.find(Region.class,
+						ds.getRegionId()));
+			}
+		} else {
+			this.lookup_region_Region(ds, e);
+		}
+	}
+
+	protected void lookup_country_Country(LocationDs ds, Location e)
+			throws Exception {
+		if (ds.getCountryCode() != null && !ds.getCountryCode().equals("")) {
+			Country x = null;
+			try {
+				x = ((ICountryService) findEntityService(Country.class))
+						.findByCode(ds.getCountryCode());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Country` reference: `countryCode` = "
+								+ ds.getCountryCode() + "");
+			}
+			e.setCountry(x);
+		} else {
+			e.setCountry(null);
+		}
+	}
+
+	protected void lookup_region_Region(LocationDs ds, Location e)
+			throws Exception {
+		if (ds.getCountryId() != null && !ds.getCountryId().equals("")
+				&& ds.getRegionCode() != null && !ds.getRegionCode().equals("")) {
+			Region x = null;
+			try {
+				x = ((IRegionService) findEntityService(Region.class))
+						.findByCodeAndCountry(ds.getCountryId(),
+								ds.getRegionCode());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Region` reference: `countryId` = "
+								+ ds.getCountryId() + ", `regionCode` = "
+								+ ds.getRegionCode() + "");
+			}
+			e.setRegion(x);
+		} else {
+			e.setRegion(null);
+		}
+	}
 }

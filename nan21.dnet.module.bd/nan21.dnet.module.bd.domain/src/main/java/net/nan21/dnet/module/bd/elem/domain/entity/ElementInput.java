@@ -28,100 +28,89 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ElementInput.NQ_FIND_BY_ID,
-		query="SELECT e FROM ElementInput e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ElementInput.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ElementInput e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ElementInput.NQ_FIND_BY_ID, query = "SELECT e FROM ElementInput e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ElementInput.NQ_FIND_BY_IDS, query = "SELECT e FROM ElementInput e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ElementInput.TABLE_NAME
-)
+@Table(name = ElementInput.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class ElementInput extends AbstractAuditable  {
-	
+public class ElementInput extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "BD_ELEM_IN";
 	public static final String SEQUENCE_NAME = "BD_ELEM_IN_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ElementInput.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ElementInput.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ALIAS", nullable=false, length=32)
+
+	@Column(name = "ALIAS", nullable = false, length = 32)
 	@NotBlank
 	private String alias;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Element.class)
-	@JoinColumn(name="ELEMENT_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Element.class)
+	@JoinColumn(name = "ELEMENT_ID", referencedColumnName = "ID")
 	private Element element;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Element.class)
-	@JoinColumn(name="CROSSREFERENCE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Element.class)
+	@JoinColumn(name = "CROSSREFERENCE_ID", referencedColumnName = "ID")
 	private Element crossReference;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getAlias() {
 		return this.alias;
 	}
-	
+
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
-	
+
 	public Element getElement() {
 		return this.element;
 	}
-	
+
 	public void setElement(Element element) {
-		if (element != null ) {
+		if (element != null) {
 			this.__validate_client_context__(element.getClientId());
 		}
 		this.element = element;
 	}
-	
+
 	public Element getCrossReference() {
 		return this.crossReference;
 	}
-	
+
 	public void setCrossReference(Element crossReference) {
-		if (crossReference != null ) {
+		if (crossReference != null) {
 			this.__validate_client_context__(crossReference.getClientId());
 		}
 		this.crossReference = crossReference;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

@@ -11,10 +11,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActAttachmentService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActAttachment;
 
-
+/**
+ * Repository functionality for {@link ActAttachment} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ActAttachmentService extends AbstractEntityService<ActAttachment>
-		implements IActAttachmentService {
- 
+		implements
+			IActAttachmentService {
+
 	public ActAttachmentService() {
 		super();
 	}

@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.employee.domain.entity.LicenseType;
 
-@Ds(entity=LicenseType.class,jpqlWhere=" e.active = true ", sort={@SortField(field=LicenseTypeLovDs.fNAME)})
+@Ds(entity = LicenseType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = LicenseTypeLovDs.fNAME)})
 public class LicenseTypeLovDs extends AbstractTypeLov<LicenseType> {
-
 
 	public LicenseTypeLovDs() {
 		super();
 	}
 
- 	public LicenseTypeLovDs(LicenseType e) {
+	public LicenseTypeLovDs(LicenseType e) {
 		super(e);
 	}
 }

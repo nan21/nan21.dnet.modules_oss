@@ -5,6 +5,7 @@
  */
 package net.nan21.dnet.module.md.tx.fin.business.serviceext;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.md.tx.fin.business.service.IPaymentItemService;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem;
 
@@ -13,12 +14,12 @@ public class PaymentItemService extends
 		implements IPaymentItemService {
 
 	@Override
-	protected void preInsert(PaymentItem e) throws Exception {
+	protected void preInsert(PaymentItem e) throws BusinessException {
 		// this.applyEntryModePreSave(e);
 	}
 
 	@Override
-	protected void preUpdate(PaymentItem e) throws Exception {
+	protected void preUpdate(PaymentItem e) throws BusinessException {
 		// this.applyEntryModePreSave(e);
 	}
 

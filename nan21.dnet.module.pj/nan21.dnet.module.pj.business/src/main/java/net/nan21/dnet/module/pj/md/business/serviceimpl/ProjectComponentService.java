@@ -16,10 +16,17 @@ import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 import net.nan21.dnet.module.pj.md.domain.entity.Project;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectComponent;
 
+/**
+ * Repository functionality for {@link ProjectComponent} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProjectComponentService
+		extends
+			AbstractEntityService<ProjectComponent>
+		implements
+			IProjectComponentService {
 
-public class ProjectComponentService extends AbstractEntityService<ProjectComponent>
-		implements IProjectComponentService {
- 
 	public ProjectComponentService() {
 		super();
 	}
@@ -33,58 +40,85 @@ public class ProjectComponentService extends AbstractEntityService<ProjectCompon
 	public Class<ProjectComponent> getEntityClass() {
 		return ProjectComponent.class;
 	}
-	
-	public ProjectComponent findByName(Project project,String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectComponent findByName(Project project, String name) {
 		return (ProjectComponent) this.em
-			.createNamedQuery(ProjectComponent.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProject", project)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProjectComponent.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProject", project).setParameter("pName", name)
+				.getSingleResult();
 	}
-	
-	public ProjectComponent findByName( Long projectId,String name) {
+
+	/**
+	 * Find by unique key
+	 */
+	public ProjectComponent findByName(Long projectId, String name) {
 		return (ProjectComponent) this.em
-			.createNamedQuery(ProjectComponent.NQ_FIND_BY_NAME_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectId", projectId)
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProjectComponent.NQ_FIND_BY_NAME_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectId", projectId)
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: componentLead
+	 */
 	public List<ProjectComponent> findByComponentLead(Assignable componentLead) {
-		return this.findByComponentLeadId(componentLead.getId()); 
+		return this.findByComponentLeadId(componentLead.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: componentLead.id
+	 */
 	public List<ProjectComponent> findByComponentLeadId(Long componentLeadId) {
 		return (List<ProjectComponent>) this.em
-			.createQuery("select e from ProjectComponent e where e.clientId = :pClientId and e.componentLead.id = :pComponentLeadId", ProjectComponent.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pComponentLeadId", componentLeadId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProjectComponent e where e.clientId = :pClientId and e.componentLead.id = :pComponentLeadId",
+						ProjectComponent.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pComponentLeadId", componentLeadId)
+				.getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: project
+	 */
 	public List<ProjectComponent> findByProject(Project project) {
-		return this.findByProjectId(project.getId()); 
+		return this.findByProjectId(project.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: project.id
+	 */
 	public List<ProjectComponent> findByProjectId(Long projectId) {
 		return (List<ProjectComponent>) this.em
-			.createQuery("select e from ProjectComponent e where e.clientId = :pClientId and e.project.id = :pProjectId", ProjectComponent.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProjectId", projectId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProjectComponent e where e.clientId = :pClientId and e.project.id = :pProjectId",
+						ProjectComponent.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProjectId", projectId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: affectingIssues
+	 */
 	public List<ProjectComponent> findByAffectingIssues(Issue affectingIssues) {
-		return this.findByAffectingIssuesId(affectingIssues.getId()); 
+		return this.findByAffectingIssuesId(affectingIssues.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: affectingIssues.id
+	 */
 	public List<ProjectComponent> findByAffectingIssuesId(Long affectingIssuesId) {
 		return (List<ProjectComponent>) this.em
-			.createQuery("select distinct e from ProjectComponent e, IN (e.affectingIssues) c where e.clientId = :pClientId and c.id = :pAffectingIssuesId", ProjectComponent.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAffectingIssuesId", affectingIssuesId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from ProjectComponent e, IN (e.affectingIssues) c where e.clientId = :pClientId and c.id = :pAffectingIssuesId",
+						ProjectComponent.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAffectingIssuesId", affectingIssuesId)
+				.getResultList();
 	}
 }

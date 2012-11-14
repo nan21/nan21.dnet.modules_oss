@@ -17,10 +17,15 @@ import net.nan21.dnet.module.bd.elem.domain.entity.ElementInput;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementType;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
-
+/**
+ * Repository functionality for {@link Element} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ElementService extends AbstractEntityService<Element>
-		implements IElementService {
- 
+		implements
+			IElementService {
+
 	public ElementService() {
 		super();
 	}
@@ -34,70 +39,102 @@ public class ElementService extends AbstractEntityService<Element>
 	public Class<Element> getEntityClass() {
 		return Element.class;
 	}
-	
-	public Element findByEngine_code(Engine engine,String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public Element findByEngine_code(Engine engine, String code) {
 		return (Element) this.em
-			.createNamedQuery(Element.NQ_FIND_BY_ENGINE_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngine", engine)
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(Element.NQ_FIND_BY_ENGINE_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngine", engine).setParameter("pCode", code)
+				.getSingleResult();
 	}
-	
-	public Element findByEngine_code( Long engineId,String code) {
+
+	/**
+	 * Find by unique key
+	 */
+	public Element findByEngine_code(Long engineId, String code) {
 		return (Element) this.em
-			.createNamedQuery(Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngineId", engineId)
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngineId", engineId)
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: engine
+	 */
 	public List<Element> findByEngine(Engine engine) {
-		return this.findByEngineId(engine.getId()); 
+		return this.findByEngineId(engine.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: engine.id
+	 */
 	public List<Element> findByEngineId(Long engineId) {
 		return (List<Element>) this.em
-			.createQuery("select e from Element e where e.clientId = :pClientId and e.engine.id = :pEngineId", Element.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEngineId", engineId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Element e where e.clientId = :pClientId and e.engine.id = :pEngineId",
+						Element.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEngineId", engineId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: type
+	 */
 	public List<Element> findByType(ElementType type) {
-		return this.findByTypeId(type.getId()); 
+		return this.findByTypeId(type.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: type.id
+	 */
 	public List<Element> findByTypeId(Long typeId) {
 		return (List<Element>) this.em
-			.createQuery("select e from Element e where e.clientId = :pClientId and e.type.id = :pTypeId", Element.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTypeId", typeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Element e where e.clientId = :pClientId and e.type.id = :pTypeId",
+						Element.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTypeId", typeId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: variables
+	 */
 	public List<Element> findByVariables(ElementInput variables) {
-		return this.findByVariablesId(variables.getId()); 
+		return this.findByVariablesId(variables.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: variables.id
+	 */
 	public List<Element> findByVariablesId(Long variablesId) {
 		return (List<Element>) this.em
-			.createQuery("select distinct e from Element e, IN (e.variables) c where e.clientId = :pClientId and c.id = :pVariablesId", Element.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pVariablesId", variablesId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from Element e, IN (e.variables) c where e.clientId = :pClientId and c.id = :pVariablesId",
+						Element.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pVariablesId", variablesId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: formulas
+	 */
 	public List<Element> findByFormulas(ElementFormula formulas) {
-		return this.findByFormulasId(formulas.getId()); 
+		return this.findByFormulasId(formulas.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: formulas.id
+	 */
 	public List<Element> findByFormulasId(Long formulasId) {
 		return (List<Element>) this.em
-			.createQuery("select distinct e from Element e, IN (e.formulas) c where e.clientId = :pClientId and c.id = :pFormulasId", Element.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pFormulasId", formulasId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from Element e, IN (e.formulas) c where e.clientId = :pClientId and c.id = :pFormulasId",
+						Element.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pFormulasId", formulasId).getResultList();
 	}
 }

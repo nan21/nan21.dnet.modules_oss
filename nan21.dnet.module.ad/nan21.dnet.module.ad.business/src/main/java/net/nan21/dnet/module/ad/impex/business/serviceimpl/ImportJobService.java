@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.impex.business.service.IImportJobService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJob;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJobItem;
 
-
+/**
+ * Repository functionality for {@link ImportJob} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ImportJobService extends AbstractEntityService<ImportJob>
-		implements IImportJobService {
- 
+		implements
+			IImportJobService {
+
 	public ImportJobService() {
 		super();
 	}
@@ -31,24 +36,32 @@ public class ImportJobService extends AbstractEntityService<ImportJob>
 	public Class<ImportJob> getEntityClass() {
 		return ImportJob.class;
 	}
-	
-	public ImportJob findByName(String name) {		 
-		return (ImportJob) this.em
-			.createNamedQuery(ImportJob.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public ImportJob findByName(String name) {
+		return (ImportJob) this.em.createNamedQuery(ImportJob.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: items
+	 */
 	public List<ImportJob> findByItems(ImportJobItem items) {
-		return this.findByItemsId(items.getId()); 
+		return this.findByItemsId(items.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: items.id
+	 */
 	public List<ImportJob> findByItemsId(Long itemsId) {
 		return (List<ImportJob>) this.em
-			.createQuery("select distinct e from ImportJob e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId", ImportJob.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pItemsId", itemsId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from ImportJob e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId",
+						ImportJob.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pItemsId", itemsId).getResultList();
 	}
 }

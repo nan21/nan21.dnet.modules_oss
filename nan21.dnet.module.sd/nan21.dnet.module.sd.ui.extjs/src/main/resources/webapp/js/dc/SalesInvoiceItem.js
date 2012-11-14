@@ -46,6 +46,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$CtxList", {
 	extend: "dnet.core.dc.AbstractDcvGrid",
 	alias: "widget.sd_invoice_dc_SalesInvoiceItem$CtxList",
 	_noImport_: true,
+	_noExport_: true,
+	_noPrint_: true,
 
 	_defineColumns_: function() {
 		this._getBuilder_()
@@ -141,7 +143,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$EditForm", {
 					return ;
 				}
 				r.endEdit();
-				this._controller_.doService("onProductChange");
+				this._controller_.doService("onProductChange")
 	},
 	
 	calcNetAmount: function() {
@@ -150,6 +152,6 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$EditForm", {
 				r.beginEdit();
 				r.set("netAmount", r.get("unitPrice") * r.get("quantity"));
 				r.set("taxAmount", "");
-				r.endEdit(); ;
+				r.endEdit(); 
 	}
 });

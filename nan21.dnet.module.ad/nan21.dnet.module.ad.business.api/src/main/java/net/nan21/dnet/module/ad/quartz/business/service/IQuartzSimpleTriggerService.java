@@ -9,6 +9,11 @@ package net.nan21.dnet.module.ad.quartz.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.quartz.domain.entity.QuartzSimpleTrigger;
 
-public interface IQuartzSimpleTriggerService extends IEntityService<QuartzSimpleTrigger> {
-	
+/**
+ * Interface to expose business functions specific for {@link QuartzSimpleTrigger} domain
+ * entity.
+ */
+public interface IQuartzSimpleTriggerService
+		extends
+			IEntityService<QuartzSimpleTrigger> {
 }

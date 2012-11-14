@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.Locations_UI", {
 		this._getBuilder_()
 			.addDc("location", new net.nan21.dnet.module.bd.geo.dc.Location({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.Locations_UI", {
 			.addDcGridView("location", {name:"locationListCtx", xtype:"bd_geo_dc_Location$ListCtx"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.Locations_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["locationFilter", "locationListCtx"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbLocationListCtx")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.Locations_UI", {
 			.beginToolbar("tlbLocationListCtx", {dc: "location"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Addresses"})
 			.end()
+			;
 	}
 
 });

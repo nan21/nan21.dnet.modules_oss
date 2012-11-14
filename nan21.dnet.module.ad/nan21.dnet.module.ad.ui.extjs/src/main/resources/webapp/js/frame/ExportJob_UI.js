@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportJob_UI", {
 			.linkDc("item", "job",{fields:[
 				{childField:"jobId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -37,7 +38,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportJob_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -48,6 +49,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportJob_UI", {
 			.addToolbarTo("canvas1", "tlbJobList")
 			.addToolbarTo("canvas2", "tlbJobEdit")
 			.addToolbarTo("itemEditList", "tlbItemEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -61,6 +63,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportJob_UI", {
 			.beginToolbar("tlbItemEditList", {dc: "item"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Export sets"})
 			.end()
+			;
 	}
 
 	,onBtnRunExport: function() {

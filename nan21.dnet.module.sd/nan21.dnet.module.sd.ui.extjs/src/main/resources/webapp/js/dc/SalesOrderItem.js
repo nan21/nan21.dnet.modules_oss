@@ -178,7 +178,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$EditForm", {
 			return ;
 		}
 		r.endEdit();
-		this._controller_.doService("onProductChange");
+		this._controller_.doService("onProductChange")
 	},
 	
 	calcNetAmount: function() {
@@ -186,6 +186,6 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$EditForm", {
 		r.beginEdit();
 		r.set("netAmount", r.get("unitPrice") * r.get("quantity"));
 		r.set("taxAmount", "");
-		r.endEdit(); ;
+		r.endEdit(); 
 	}
 });

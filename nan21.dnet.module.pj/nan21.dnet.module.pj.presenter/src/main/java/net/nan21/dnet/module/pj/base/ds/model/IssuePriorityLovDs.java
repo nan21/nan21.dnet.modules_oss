@@ -11,26 +11,26 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.pj.base.domain.entity.IssuePriority;
 
-@Ds(entity=IssuePriority.class,jpqlWhere=" e.active = true ", sort={@SortField(field=IssuePriorityLovDs.fSEQUENCENO)})
+@Ds(entity = IssuePriority.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = IssuePriorityLovDs.fSEQUENCENO)})
 public class IssuePriorityLovDs extends AbstractTypeLov<IssuePriority> {
 
- 	public static final String fSEQUENCENO = "sequenceNo";
- 	
- 	@DsField()
- 	private Integer sequenceNo;
+	public static final String fSEQUENCENO = "sequenceNo";
+
+	@DsField()
+	private Integer sequenceNo;
 
 	public IssuePriorityLovDs() {
 		super();
 	}
 
- 	public IssuePriorityLovDs(IssuePriority e) {
+	public IssuePriorityLovDs(IssuePriority e) {
 		super(e);
 	}
-	
+
 	public Integer getSequenceNo() {
 		return this.sequenceNo;
 	}
-	
+
 	public void setSequenceNo(Integer sequenceNo) {
 		this.sequenceNo = sequenceNo;
 	}

@@ -12,18 +12,20 @@ import net.nan21.dnet.module.ad.usr.ds.param.AccessControlDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class AccessControlDsQueryBuilder extends QueryBuilderWithJpql<AccessControlDs,AccessControlDsFilter, AccessControlDsParam> {
-	
+public class AccessControlDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<AccessControlDs, AccessControlDsFilter, AccessControlDsParam> {
+
 	@Override
 	public void setFilter(AccessControlDsFilter filter) {
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params != null && this.params.getWithRoleId() != null) {
- 			addFilterCondition("  e.id in ( select p.id from  AccessControl p, IN (p.roles) c where c.id = :withRoleId )  ");	
- 			addCustomFilterItem("withRoleId",this.params.getWithRoleId());	
- 		}	
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params != null && this.params.getWithRoleId() != null) {
+			addFilterCondition("  e.id in ( select p.id from  AccessControl p, IN (p.roles) c where c.id = :withRoleId )  ");
+			addCustomFilterItem("withRoleId", this.params.getWithRoleId());
+		}
+	}
 }

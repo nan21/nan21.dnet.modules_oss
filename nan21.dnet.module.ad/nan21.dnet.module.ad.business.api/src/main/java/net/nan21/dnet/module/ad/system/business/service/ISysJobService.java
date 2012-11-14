@@ -9,10 +9,19 @@ package net.nan21.dnet.module.ad.system.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJob;
 
+/**
+ * Interface to expose business functions specific for {@link SysJob} domain
+ * entity.
+ */
 public interface ISysJobService extends IEntityService<SysJob> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public SysJob findByName(String name);
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public SysJob findByJclass(String javaClass);
-	
 }

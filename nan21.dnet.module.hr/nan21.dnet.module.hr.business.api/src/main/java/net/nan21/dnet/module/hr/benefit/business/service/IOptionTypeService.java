@@ -9,8 +9,14 @@ package net.nan21.dnet.module.hr.benefit.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.hr.benefit.domain.entity.OptionType;
 
+/**
+ * Interface to expose business functions specific for {@link OptionType} domain
+ * entity.
+ */
 public interface IOptionTypeService extends IEntityService<OptionType> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public OptionType findByName(String name);
-	
 }

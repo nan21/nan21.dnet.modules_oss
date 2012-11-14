@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccItem_UI", {
 			.linkDc("acct", "item",{fields:[
 				{childField:"accItemId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,7 +30,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccItem_UI", {
 			.addDcEditGridView("acct", {name:"acctEditList", xtype:"md_acc_dc_AccItemAcct$CtxEditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -38,6 +39,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccItem_UI", {
 			.addChildrenTo("canvas1", ["itemFilter", "itemEditList", "acctEditList"], ["north", "west", "center"])
 			.addToolbarTo("canvas1", "tlbItemList")
 			.addToolbarTo("acctEditList", "tlbAcctList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -48,6 +50,7 @@ Ext.define("net.nan21.dnet.module.md.acc.frame.AccItem_UI", {
 			.beginToolbar("tlbAcctList", {dc: "acct"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Accounting"})
 			.end()
+			;
 	}
 
 });

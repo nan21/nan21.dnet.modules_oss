@@ -13,18 +13,42 @@ import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProdClassification;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 
-public interface IProdClassificationService extends IEntityService<ProdClassification> {
-	
+/**
+ * Interface to expose business functions specific for {@link ProdClassification} domain
+ * entity.
+ */
+public interface IProdClassificationService
+		extends
+			IEntityService<ProdClassification> {
+
+	/**
+	 * Find by reference: product
+	 */
 	public List<ProdClassification> findByProduct(Product product);
-	
+
+	/**
+	 * Find by ID of reference: product.id
+	 */
 	public List<ProdClassification> findByProductId(Long productId);
-	
-	public List<ProdClassification> findByClassSystem(ClassificationSystem classSystem);
-	
+
+	/**
+	 * Find by reference: classSystem
+	 */
+	public List<ProdClassification> findByClassSystem(
+			ClassificationSystem classSystem);
+
+	/**
+	 * Find by ID of reference: classSystem.id
+	 */
 	public List<ProdClassification> findByClassSystemId(Long classSystemId);
-	
+
+	/**
+	 * Find by reference: classCode
+	 */
 	public List<ProdClassification> findByClassCode(ClassificationItem classCode);
-	
+
+	/**
+	 * Find by ID of reference: classCode.id
+	 */
 	public List<ProdClassification> findByClassCodeId(Long classCodeId);
-	
 }

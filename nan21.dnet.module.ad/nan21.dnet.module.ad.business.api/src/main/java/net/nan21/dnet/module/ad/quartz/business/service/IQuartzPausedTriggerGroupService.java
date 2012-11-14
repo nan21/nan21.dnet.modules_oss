@@ -9,6 +9,11 @@ package net.nan21.dnet.module.ad.quartz.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.quartz.domain.entity.QuartzPausedTriggerGroup;
 
-public interface IQuartzPausedTriggerGroupService extends IEntityService<QuartzPausedTriggerGroup> {
-	
+/**
+ * Interface to expose business functions specific for {@link QuartzPausedTriggerGroup} domain
+ * entity.
+ */
+public interface IQuartzPausedTriggerGroupService
+		extends
+			IEntityService<QuartzPausedTriggerGroup> {
 }

@@ -15,10 +15,17 @@ import net.nan21.dnet.module.hr.training.business.service.IEmployeeCourseService
 import net.nan21.dnet.module.hr.training.domain.entity.Course;
 import net.nan21.dnet.module.hr.training.domain.entity.EmployeeCourse;
 
+/**
+ * Repository functionality for {@link EmployeeCourse} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class EmployeeCourseService
+		extends
+			AbstractEntityService<EmployeeCourse>
+		implements
+			IEmployeeCourseService {
 
-public class EmployeeCourseService extends AbstractEntityService<EmployeeCourse>
-		implements IEmployeeCourseService {
- 
 	public EmployeeCourseService() {
 		super();
 	}
@@ -32,28 +39,42 @@ public class EmployeeCourseService extends AbstractEntityService<EmployeeCourse>
 	public Class<EmployeeCourse> getEntityClass() {
 		return EmployeeCourse.class;
 	}
-	
+
+	/**
+	 * Find by reference: employee
+	 */
 	public List<EmployeeCourse> findByEmployee(Employee employee) {
-		return this.findByEmployeeId(employee.getId()); 
+		return this.findByEmployeeId(employee.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: employee.id
+	 */
 	public List<EmployeeCourse> findByEmployeeId(Long employeeId) {
 		return (List<EmployeeCourse>) this.em
-			.createQuery("select e from EmployeeCourse e where e.clientId = :pClientId and e.employee.id = :pEmployeeId", EmployeeCourse.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pEmployeeId", employeeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from EmployeeCourse e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
+						EmployeeCourse.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pEmployeeId", employeeId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: course
+	 */
 	public List<EmployeeCourse> findByCourse(Course course) {
-		return this.findByCourseId(course.getId()); 
+		return this.findByCourseId(course.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: course.id
+	 */
 	public List<EmployeeCourse> findByCourseId(Long courseId) {
 		return (List<EmployeeCourse>) this.em
-			.createQuery("select e from EmployeeCourse e where e.clientId = :pClientId and e.course.id = :pCourseId", EmployeeCourse.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCourseId", courseId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from EmployeeCourse e where e.clientId = :pClientId and e.course.id = :pCourseId",
+						EmployeeCourse.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCourseId", courseId).getResultList();
 	}
 }

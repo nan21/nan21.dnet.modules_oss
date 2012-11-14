@@ -28,117 +28,106 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=JobCourse.NQ_FIND_BY_ID,
-		query="SELECT e FROM JobCourse e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=JobCourse.NQ_FIND_BY_IDS,
-		query="SELECT e FROM JobCourse e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = JobCourse.NQ_FIND_BY_ID, query = "SELECT e FROM JobCourse e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = JobCourse.NQ_FIND_BY_IDS, query = "SELECT e FROM JobCourse e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=JobCourse.TABLE_NAME
-)
+@Table(name = JobCourse.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class JobCourse extends AbstractAuditable  {
-	
+public class JobCourse extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "HR_JOB_COURSE";
 	public static final String SEQUENCE_NAME = "HR_JOB_COURSE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "JobCourse.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "JobCourse.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="MANDATORY", nullable=false)
+
+	@Column(name = "MANDATORY", nullable = false)
 	@NotNull
 	private Boolean mandatory;
-	
+
 	/** The number of days the course is valid for. 
 				If it is not null this course should be attended by the employee occupyping this position after the specified number of days. 
-			  */
-	@Column(name="VALIDFOR")
+	 */
+	@Column(name = "VALIDFOR")
 	private Integer validFor;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Job.class)
-	@JoinColumn(name="JOB_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Job.class)
+	@JoinColumn(name = "JOB_ID", referencedColumnName = "ID")
 	private Job job;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Course.class)
-	@JoinColumn(name="COURSE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Course.class)
+	@JoinColumn(name = "COURSE_ID", referencedColumnName = "ID")
 	private Course course;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Boolean getMandatory() {
 		return this.mandatory;
 	}
-	
+
 	public void setMandatory(Boolean mandatory) {
 		this.mandatory = mandatory;
 	}
-	
+
 	public Integer getValidFor() {
 		return this.validFor;
 	}
-	
+
 	public void setValidFor(Integer validFor) {
 		this.validFor = validFor;
 	}
-	
+
 	public Job getJob() {
 		return this.job;
 	}
-	
+
 	public void setJob(Job job) {
-		if (job != null ) {
+		if (job != null) {
 			this.__validate_client_context__(job.getClientId());
 		}
 		this.job = job;
 	}
-	
+
 	public Course getCourse() {
 		return this.course;
 	}
-	
+
 	public void setCourse(Course course) {
-		if (course != null ) {
+		if (course != null) {
 			this.__validate_client_context__(course.getClientId());
 		}
 		this.course = course;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getMandatory() == null ) {
-			event.updateAttributeWithObject("mandatory",false);
+
+		if (this.getMandatory() == null) {
+			event.updateAttributeWithObject("mandatory", false);
 		}
 	}
 }

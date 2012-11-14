@@ -11,10 +11,19 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.AuditEntry;
 import net.nan21.dnet.module.ad.system.domain.entity.AuditField;
 
+/**
+ * Interface to expose business functions specific for {@link AuditEntry} domain
+ * entity.
+ */
 public interface IAuditEntryService extends IEntityService<AuditEntry> {
-	
+
+	/**
+	 * Find by reference: auditFields
+	 */
 	public List<AuditEntry> findByAuditFields(AuditField auditFields);
-	
+
+	/**
+	 * Find by ID of reference: auditFields.id
+	 */
 	public List<AuditEntry> findByAuditFieldsId(Long auditFieldsId);
-	
 }

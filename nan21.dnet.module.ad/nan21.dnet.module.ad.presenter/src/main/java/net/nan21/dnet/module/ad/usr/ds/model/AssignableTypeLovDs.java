@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.usr.domain.entity.AssignableType;
 
-@Ds(entity=AssignableType.class,jpqlWhere=" e.active = true ", sort={@SortField(field=AssignableTypeLovDs.fNAME)})
+@Ds(entity = AssignableType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AssignableTypeLovDs.fNAME)})
 public class AssignableTypeLovDs extends AbstractTypeLov<AssignableType> {
-
 
 	public AssignableTypeLovDs() {
 		super();
 	}
 
- 	public AssignableTypeLovDs(AssignableType e) {
+	public AssignableTypeLovDs(AssignableType e) {
 		super(e);
 	}
 }

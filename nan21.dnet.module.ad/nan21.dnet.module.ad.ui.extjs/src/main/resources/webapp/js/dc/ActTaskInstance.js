@@ -53,7 +53,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstance$Filter", {
 	/* ==================== Business functions ==================== */
 	
 	_doQuery_: function() {
-		this._controller_.doQuery();;
+		this._controller_.doQuery();
 	}
 });
 

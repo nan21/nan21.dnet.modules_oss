@@ -11,38 +11,38 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.Menu;
 
-@Ds(entity=Menu.class, sort={@SortField(field=MenuDs.fNAME)})
+@Ds(entity = Menu.class, sort = {@SortField(field = MenuDs.fNAME)})
 public class MenuDs extends AbstractTypeDs<Menu> {
 
- 	public static final String fSEQUENCENO = "sequenceNo";
- 	public static final String fTITLE = "title";
- 	
- 	@DsField()
- 	private Integer sequenceNo;
- 	
- 	@DsField()
- 	private String title;
+	public static final String fSEQUENCENO = "sequenceNo";
+	public static final String fTITLE = "title";
+
+	@DsField()
+	private Integer sequenceNo;
+
+	@DsField()
+	private String title;
 
 	public MenuDs() {
 		super();
 	}
 
- 	public MenuDs(Menu e) {
+	public MenuDs(Menu e) {
 		super(e);
 	}
-	
+
 	public Integer getSequenceNo() {
 		return this.sequenceNo;
 	}
-	
+
 	public void setSequenceNo(Integer sequenceNo) {
 		this.sequenceNo = sequenceNo;
 	}
-	
+
 	public String getTitle() {
 		return this.title;
 	}
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}

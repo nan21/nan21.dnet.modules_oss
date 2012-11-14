@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.job.business.service.IPositionHierarchyService;
 import net.nan21.dnet.module.hr.job.domain.entity.PositionHierarchy;
 
+/**
+ * Repository functionality for {@link PositionHierarchy} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PositionHierarchyService
+		extends
+			AbstractEntityService<PositionHierarchy>
+		implements
+			IPositionHierarchyService {
 
-public class PositionHierarchyService extends AbstractEntityService<PositionHierarchy>
-		implements IPositionHierarchyService {
- 
 	public PositionHierarchyService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class PositionHierarchyService extends AbstractEntityService<PositionHier
 	public Class<PositionHierarchy> getEntityClass() {
 		return PositionHierarchy.class;
 	}
-	
-	public PositionHierarchy findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public PositionHierarchy findByName(String name) {
 		return (PositionHierarchy) this.em
-			.createNamedQuery(PositionHierarchy.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(PositionHierarchy.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

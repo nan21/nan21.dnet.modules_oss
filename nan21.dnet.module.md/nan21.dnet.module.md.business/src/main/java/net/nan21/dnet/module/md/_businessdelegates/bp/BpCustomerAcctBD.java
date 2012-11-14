@@ -2,6 +2,7 @@ package net.nan21.dnet.module.md._businessdelegates.bp;
 
 import javax.persistence.NoResultException;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
@@ -18,8 +19,19 @@ import net.nan21.dnet.module.md.bp.domain.entity.CustomerGroupAcct;
 
 public class BpCustomerAcctBD extends AbstractBusinessDelegate {
 
+	/**
+	 * Find posting account
+	 * 
+	 * @param businessPartner
+	 * @param organization
+	 * @param schema
+	 * @return
+	 * @throws BusinessException
+	 */
 	public String getPostingAcct(BusinessPartner businessPartner,
-			Organization organization, AccSchema schema) throws Exception {
+			Organization organization, AccSchema schema)
+			throws BusinessException {
+
 		IBpAccountService accountService = (IBpAccountService) this
 				.findEntityService(BpAccount.class);
 		BpAccount account = null;
@@ -64,8 +76,17 @@ public class BpCustomerAcctBD extends AbstractBusinessDelegate {
 						+ "`. Specify accounting settings at business partner account level or customer group level.");
 	}
 
+	/**
+	 * Find posting account by account.
+	 * 
+	 * @param accountId
+	 * @param schemaId
+	 * @return
+	 * @throws BusinessException
+	 */
 	protected Account findByAccount(Long accountId, Long schemaId)
-			throws Exception {
+			throws BusinessException {
+
 		IBpAccountAcctService acctService = (IBpAccountAcctService) this
 				.findEntityService(BpAccountAcct.class);
 		BpAccountAcct acct = null;
@@ -77,7 +98,17 @@ public class BpCustomerAcctBD extends AbstractBusinessDelegate {
 		return null;
 	}
 
-	protected Account findByGroup(Long groupId, Long schemaId) throws Exception {
+	/**
+	 * Find posting account by account group.
+	 * 
+	 * @param groupId
+	 * @param schemaId
+	 * @return
+	 * @throws BusinessException
+	 */
+	protected Account findByGroup(Long groupId, Long schemaId)
+			throws BusinessException {
+
 		ICustomerGroupAcctService groupAcctService = (ICustomerGroupAcctService) this
 				.findEntityService(CustomerGroupAcct.class);
 		CustomerGroupAcct groupAcct = groupAcctService.findByGroup_schema(

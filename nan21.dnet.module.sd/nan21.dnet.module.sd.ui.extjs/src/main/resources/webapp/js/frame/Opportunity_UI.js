@@ -27,6 +27,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 			.linkDc("atch", "opportunity",{fields:[
 				{childField:"targetUuid", parentField:"uuid"}, {childField:"targetType", parentField:"entityFQN"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -62,7 +63,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 			.addPanel({name:"eventPanel", title:"Events", layout:"card", activeItem:0})
 			.addPanel({name:"eventEditPanel", layout:"card", activeItem:0})
 			.addPanel({name:"notesPanel", title:"Notes", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -81,6 +82,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 			.addToolbarTo("noteEdit", "tlbNoteEdit")
 			.addToolbarTo("eventList", "tlbCalendarList")
 			.addToolbarTo("eventEditPanel", "tlbCalendarEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -120,6 +122,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 			)
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Event"})
 			.end()
+			;
 	}
 
 	,onBtnCreateEventContinue: function() {

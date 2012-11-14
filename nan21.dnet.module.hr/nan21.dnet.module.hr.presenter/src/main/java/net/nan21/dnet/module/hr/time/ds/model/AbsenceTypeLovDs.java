@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceType;
 
-@Ds(entity=AbsenceType.class,jpqlWhere=" e.active = true ", sort={@SortField(field=AbsenceTypeLovDs.fNAME)})
+@Ds(entity = AbsenceType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AbsenceTypeLovDs.fNAME)})
 public class AbsenceTypeLovDs extends AbstractTypeLov<AbsenceType> {
-
 
 	public AbsenceTypeLovDs() {
 		super();
 	}
 
- 	public AbsenceTypeLovDs(AbsenceType e) {
+	public AbsenceTypeLovDs(AbsenceType e) {
 		super(e);
 	}
 }

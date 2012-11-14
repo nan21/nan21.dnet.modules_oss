@@ -11,12 +11,24 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportJob;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportJobItem;
 
+/**
+ * Interface to expose business functions specific for {@link ExportJob} domain
+ * entity.
+ */
 public interface IExportJobService extends IEntityService<ExportJob> {
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public ExportJob findByName(String name);
-	
+
+	/**
+	 * Find by reference: items
+	 */
 	public List<ExportJob> findByItems(ExportJobItem items);
-	
+
+	/**
+	 * Find by ID of reference: items.id
+	 */
 	public List<ExportJob> findByItemsId(Long itemsId);
-	
 }

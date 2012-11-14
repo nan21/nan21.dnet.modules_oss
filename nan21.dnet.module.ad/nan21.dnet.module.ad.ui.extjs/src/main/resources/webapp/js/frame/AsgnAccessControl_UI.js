@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI", {
 		this._getBuilder_()
 			.addDc("asgnAccess", new net.nan21.dnet.module.ad.usr.dc.AsgnAccessControl({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI", {
 			.addDcEditGridView("asgnAccess", {name:"asgnAccessEditList", xtype:"ad_usr_dc_AsgnAccessControl$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["asgnAccessFilter", "asgnAccessEditList"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbAsgnAccessEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI", {
 			.beginToolbar("tlbAsgnAccessEditList", {dc: "asgnAccess"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "ASGN rules"})
 			.end()
+			;
 	}
 
 });

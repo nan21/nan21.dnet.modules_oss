@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.report.business.service.IDsReportService;
 import net.nan21.dnet.module.ad.report.domain.entity.DsReport;
 import net.nan21.dnet.module.ad.report.domain.entity.Report;
 
-
+/**
+ * Repository functionality for {@link DsReport} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class DsReportService extends AbstractEntityService<DsReport>
-		implements IDsReportService {
- 
+		implements
+			IDsReportService {
+
 	public DsReportService() {
 		super();
 	}
@@ -31,16 +36,23 @@ public class DsReportService extends AbstractEntityService<DsReport>
 	public Class<DsReport> getEntityClass() {
 		return DsReport.class;
 	}
-	
+
+	/**
+	 * Find by reference: report
+	 */
 	public List<DsReport> findByReport(Report report) {
-		return this.findByReportId(report.getId()); 
+		return this.findByReportId(report.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: report.id
+	 */
 	public List<DsReport> findByReportId(Long reportId) {
 		return (List<DsReport>) this.em
-			.createQuery("select e from DsReport e where e.clientId = :pClientId and e.report.id = :pReportId", DsReport.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pReportId", reportId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from DsReport e where e.clientId = :pClientId and e.report.id = :pReportId",
+						DsReport.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pReportId", reportId).getResultList();
 	}
 }

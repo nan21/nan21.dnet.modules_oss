@@ -12,18 +12,42 @@ import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateAverage;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateProvider;
 
-public interface ICurrencyXRateAverageService extends IEntityService<CurrencyXRateAverage> {
-	
-	public List<CurrencyXRateAverage> findByProvider(CurrencyXRateProvider provider);
-	
+/**
+ * Interface to expose business functions specific for {@link CurrencyXRateAverage} domain
+ * entity.
+ */
+public interface ICurrencyXRateAverageService
+		extends
+			IEntityService<CurrencyXRateAverage> {
+
+	/**
+	 * Find by reference: provider
+	 */
+	public List<CurrencyXRateAverage> findByProvider(
+			CurrencyXRateProvider provider);
+
+	/**
+	 * Find by ID of reference: provider.id
+	 */
 	public List<CurrencyXRateAverage> findByProviderId(Long providerId);
-	
+
+	/**
+	 * Find by reference: source
+	 */
 	public List<CurrencyXRateAverage> findBySource(Currency source);
-	
+
+	/**
+	 * Find by ID of reference: source.id
+	 */
 	public List<CurrencyXRateAverage> findBySourceId(Long sourceId);
-	
+
+	/**
+	 * Find by reference: target
+	 */
 	public List<CurrencyXRateAverage> findByTarget(Currency target);
-	
+
+	/**
+	 * Find by ID of reference: target.id
+	 */
 	public List<CurrencyXRateAverage> findByTargetId(Long targetId);
-	
 }

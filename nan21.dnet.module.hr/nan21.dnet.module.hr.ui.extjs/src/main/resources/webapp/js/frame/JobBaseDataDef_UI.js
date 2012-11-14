@@ -17,6 +17,7 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.JobBaseDataDef_UI", {
 			.addDc("wrType", new net.nan21.dnet.module.hr.job.dc.WorkRequirementType({multiEdit:true}))
 			.addDc("wr", new net.nan21.dnet.module.hr.job.dc.WorkRequirement({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,6 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.JobBaseDataDef_UI", {
 			.addPanel({name:"canvasJobType", title:"Job types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasWrType", title:"Work requirement types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasWr", title:"Work requirement", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -50,6 +50,7 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.JobBaseDataDef_UI", {
 			.addToolbarTo("canvasJobType", "tlbJobType")
 			.addToolbarTo("canvasWrType", "tlbWrType")
 			.addToolbarTo("canvasWr", "tlbWr")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -63,6 +64,7 @@ Ext.define("net.nan21.dnet.module.hr.job.frame.JobBaseDataDef_UI", {
 			.beginToolbar("tlbWr", {dc: "wr"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Work requirement"})
 			.end()
+			;
 	}
 
 });

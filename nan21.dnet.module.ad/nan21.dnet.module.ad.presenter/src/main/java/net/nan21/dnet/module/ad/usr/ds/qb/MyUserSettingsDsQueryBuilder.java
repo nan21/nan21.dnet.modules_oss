@@ -11,8 +11,10 @@ import net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDs;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class MyUserSettingsDsQueryBuilder extends QueryBuilderWithJpql<MyUserSettingsDs,MyUserSettingsDs, EmptyParam> {
-	
+public class MyUserSettingsDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<MyUserSettingsDs, MyUserSettingsDs, EmptyParam> {
+
 	@Override
 	public void setFilter(MyUserSettingsDs filter) {
 		filter.setCode(Session.user.get().getUsername());

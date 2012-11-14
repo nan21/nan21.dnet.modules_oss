@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType;
 
-@Ds(entity=WorkRequirementType.class, sort={@SortField(field=WorkRequirementTypeDs.fNAME)})
+@Ds(entity = WorkRequirementType.class, sort = {@SortField(field = WorkRequirementTypeDs.fNAME)})
 public class WorkRequirementTypeDs extends AbstractTypeDs<WorkRequirementType> {
-
 
 	public WorkRequirementTypeDs() {
 		super();
 	}
 
- 	public WorkRequirementTypeDs(WorkRequirementType e) {
+	public WorkRequirementTypeDs(WorkRequirementType e) {
 		super(e);
 	}
 }

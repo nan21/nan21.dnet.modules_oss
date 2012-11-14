@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/ActProcessDefinition", "nan21.dnet.module.ad.ui.extjs/dc/ActTaskInstance", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessDefinitionDs", "nan21.dnet.module.ad.ui.extjs/dc/ActVariable", "nan21.dnet.module.ad.ui.extjs/dc/ActDeployment", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessInstanceHistoryDs", "nan21.dnet.module.ad.ui.extjs/dc/ActProcessInstance", "nan21.dnet.module.ad.ui.extjs/ds/ActTaskInstanceDs", "nan21.dnet.module.ad.ui.extjs/ds/ActTaskInstanceHistoryDs", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessInstanceDs", "nan21.dnet.module.ad.ui.extjs/dc/ActTaskInstanceHistory", "nan21.dnet.module.ad.ui.extjs/ds/ActDeploymentLovDs", "nan21.dnet.module.ad.ui.extjs/lov/ActDeployments", "nan21.dnet.module.ad.ui.extjs/ds/ActDeploymentDs", "nan21.dnet.module.ad.ui.extjs/ds/ActVariableDs", "nan21.dnet.module.ad.ui.extjs/lov/ActProcessDefinitions", "nan21.dnet.module.ad.ui.extjs/dc/ActProcessInstanceHistory", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessDefinitionLovDs"]);
+Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/ActProcessDefinition", "nan21.dnet.module.ad.ui.extjs/dc/ActTaskInstance", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessDefinitionDs", "nan21.dnet.module.ad.ui.extjs/dc/ActVariable", "nan21.dnet.module.ad.ui.extjs/dc/ActDeployment", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessInstanceHistoryDs", "nan21.dnet.module.ad.ui.extjs/dc/ActProcessInstance", "nan21.dnet.module.ad.ui.extjs/ds/ActTaskInstanceDs", "nan21.dnet.module.ad.ui.extjs/ds/ActTaskInstanceHistoryDs", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessInstanceDs", "nan21.dnet.module.ad.ui.extjs/dc/ActTaskInstanceHistory", "nan21.dnet.module.ad.ui.extjs/ds/ActDeploymentLovDs", "nan21.dnet.module.ad.ui.extjs/lov/ActDeployments", "nan21.dnet.module.ad.ui.extjs/ds/ActVariableDs", "nan21.dnet.module.ad.ui.extjs/ds/ActDeploymentDs", "nan21.dnet.module.ad.ui.extjs/lov/ActProcessDefinitions", "nan21.dnet.module.ad.ui.extjs/dc/ActProcessInstanceHistory", "nan21.dnet.module.ad.ui.extjs/ds/ActProcessDefinitionLovDs"]);
 
 Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -30,6 +30,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			.linkDc("dcVar", "dcRunningInstance",{fetchMode:"auto",fields:[
 				{childField:"processInstanceId", parentField:"processInstanceId"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -91,7 +92,6 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			.addPanel({name:"panelRunningTask", title:"Tasks", layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasFinishedInstance", title:"Finished instances", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasDeployment", title:"Deployments", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -113,6 +113,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			.addToolbarTo("canvasRunningInstance", "tlbRunningInstanceList")
 			.addToolbarTo("canvasFinishedInstance", "tlbFinishedInstanceList")
 			.addToolbarTo("canvasDeployment", "tlbDeploymentList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -129,6 +130,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			.beginToolbar("tlbDeploymentList", {dc: "dcDeployment"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Deployments"})
 			.end()
+			;
 	}
 
 	,onBtnKillProcessInstance: function() {

@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.time.business.service.IAbsenceCategoryService;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory;
 
+/**
+ * Repository functionality for {@link AbsenceCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class AbsenceCategoryService
+		extends
+			AbstractEntityService<AbsenceCategory>
+		implements
+			IAbsenceCategoryService {
 
-public class AbsenceCategoryService extends AbstractEntityService<AbsenceCategory>
-		implements IAbsenceCategoryService {
- 
 	public AbsenceCategoryService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class AbsenceCategoryService extends AbstractEntityService<AbsenceCategor
 	public Class<AbsenceCategory> getEntityClass() {
 		return AbsenceCategory.class;
 	}
-	
-	public AbsenceCategory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AbsenceCategory findByName(String name) {
 		return (AbsenceCategory) this.em
-			.createNamedQuery(AbsenceCategory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AbsenceCategory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

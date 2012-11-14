@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductCategory_UI", {
 		this._getBuilder_()
 			.addDc("categ", new net.nan21.dnet.module.md.mm.prod.dc.ProductCategory({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -28,7 +29,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductCategory_UI", {
 						items:[ this._elems_.get("btnAsgnCategories")]}]})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasCateg", title:"Categories", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -36,6 +37,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductCategory_UI", {
 			.addChildrenTo("main", ["canvasCateg"])
 			.addChildrenTo("canvasCateg", ["categFilter", "categEditList"], ["north", "center"])
 			.addToolbarTo("canvasCateg", "tlbCateg")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -43,6 +45,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductCategory_UI", {
 			.beginToolbar("tlbCateg", {dc: "categ"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Categories"})
 			.end()
+			;
 	}
 
 	,onBtnAsgnCategories: function() {

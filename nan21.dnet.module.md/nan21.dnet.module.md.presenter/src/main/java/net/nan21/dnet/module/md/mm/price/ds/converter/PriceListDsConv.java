@@ -12,32 +12,41 @@ import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 import net.nan21.dnet.module.md.mm.price.ds.model.PriceListDs;
 
-public class PriceListDsConv extends AbstractDsConverter<PriceListDs, PriceList> 
-		implements IDsConverter<PriceListDs, PriceList> {
-    
-    @Override
-    protected void modelToEntityReferences(PriceListDs ds, PriceList e, boolean isInsert) throws Exception {
-    	if( ds.getCurrencyId() != null  ) {
-    		if (e.getCurrency() == null || !e.getCurrency().getId().equals(ds.getCurrencyId()) ) {
-    			e.setCurrency( (Currency) this.em.find(Currency.class, ds.getCurrencyId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_currency_Currency(ds, e);
-    	}
-    }
-    
-    protected void lookup_currency_Currency(PriceListDs ds, PriceList e ) throws Exception {
-    	if (ds.getCurrency() != null && !ds.getCurrency().equals("") ) {
-    		Currency x = null;
-    		try { 
-    			x = ((ICurrencyService)findEntityService(Currency.class)).findByCode( ds.getCurrency() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Currency` reference: `currency` = " + ds.getCurrency() + "" );
-    		}
-    		e.setCurrency(x); 
-    	} else {
-    		e.setCurrency(null);
-    	}
-    }
+public class PriceListDsConv
+		extends
+			AbstractDsConverter<PriceListDs, PriceList>
+		implements
+			IDsConverter<PriceListDs, PriceList> {
+
+	@Override
+	protected void modelToEntityReferences(PriceListDs ds, PriceList e,
+			boolean isInsert) throws Exception {
+		if (ds.getCurrencyId() != null) {
+			if (e.getCurrency() == null
+					|| !e.getCurrency().getId().equals(ds.getCurrencyId())) {
+				e.setCurrency((Currency) this.em.find(Currency.class,
+						ds.getCurrencyId()));
+			}
+		} else {
+			this.lookup_currency_Currency(ds, e);
+		}
+	}
+
+	protected void lookup_currency_Currency(PriceListDs ds, PriceList e)
+			throws Exception {
+		if (ds.getCurrency() != null && !ds.getCurrency().equals("")) {
+			Currency x = null;
+			try {
+				x = ((ICurrencyService) findEntityService(Currency.class))
+						.findByCode(ds.getCurrency());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Currency` reference: `currency` = "
+								+ ds.getCurrency() + "");
+			}
+			e.setCurrency(x);
+		} else {
+			e.setCurrency(null);
+		}
+	}
 }

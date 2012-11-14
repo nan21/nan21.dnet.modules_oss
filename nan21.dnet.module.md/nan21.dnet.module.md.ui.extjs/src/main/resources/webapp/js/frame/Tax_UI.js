@@ -19,6 +19,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.Tax_UI", {
 			.linkDc("acct", "tax",{fields:[
 				{childField:"taxId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -31,7 +32,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.Tax_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -42,6 +43,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.Tax_UI", {
 			.addToolbarTo("canvas1", "tlbTaxList")
 			.addToolbarTo("canvas2", "tlbTaxEdit")
 			.addToolbarTo("acctList", "tlbAcctList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -55,6 +57,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.frame.Tax_UI", {
 			.beginToolbar("tlbAcctList", {dc: "acct"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Accounting"})
 			.end()
+			;
 	}
 
 });

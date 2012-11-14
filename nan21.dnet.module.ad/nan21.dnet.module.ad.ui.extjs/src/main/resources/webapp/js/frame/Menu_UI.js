@@ -16,6 +16,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Menu_UI", {
 			.addDc("menu", new net.nan21.dnet.module.ad.usr.dc.Menu({multiEdit:true}))
 			.addDc("menuitem", new net.nan21.dnet.module.ad.usr.dc.MenuItem({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -37,7 +38,6 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Menu_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvasMenu", title:"Menus", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasItem", title:"Menu items", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -53,6 +53,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Menu_UI", {
 			.addChildrenTo("_main_with_toc_",["main","_toc_"]).change("main",{region: "center"})
 			.addToolbarTo("canvasMenu", "tlbMenuEditList")
 			.addToolbarTo("canvasItem", "tlbMenuitemList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -63,6 +64,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Menu_UI", {
 			.beginToolbar("tlbMenuitemList", {dc: "menuitem"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Menu items"})
 			.end()
+			;
 	}
 
 	,onBtnAsgnItemRoles: function() {

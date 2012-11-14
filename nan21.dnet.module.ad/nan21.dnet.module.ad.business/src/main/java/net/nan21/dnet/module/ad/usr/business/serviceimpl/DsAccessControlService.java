@@ -14,10 +14,17 @@ import net.nan21.dnet.module.ad.usr.business.service.IDsAccessControlService;
 import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 import net.nan21.dnet.module.ad.usr.domain.entity.DsAccessControl;
 
+/**
+ * Repository functionality for {@link DsAccessControl} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class DsAccessControlService
+		extends
+			AbstractEntityService<DsAccessControl>
+		implements
+			IDsAccessControlService {
 
-public class DsAccessControlService extends AbstractEntityService<DsAccessControl>
-		implements IDsAccessControlService {
- 
 	public DsAccessControlService() {
 		super();
 	}
@@ -31,34 +38,47 @@ public class DsAccessControlService extends AbstractEntityService<DsAccessContro
 	public Class<DsAccessControl> getEntityClass() {
 		return DsAccessControl.class;
 	}
-	
-	public DsAccessControl findByUnique(AccessControl accessControl,String dsName) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public DsAccessControl findByUnique(AccessControl accessControl,
+			String dsName) {
 		return (DsAccessControl) this.em
-			.createNamedQuery(DsAccessControl.NQ_FIND_BY_UNIQUE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAccessControl", accessControl)
-			.setParameter("pDsName", dsName)
-			.getSingleResult(); 
+				.createNamedQuery(DsAccessControl.NQ_FIND_BY_UNIQUE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAccessControl", accessControl)
+				.setParameter("pDsName", dsName).getSingleResult();
 	}
-	
-	public DsAccessControl findByUnique( Long accessControlId,String dsName) {
+
+	/**
+	 * Find by unique key
+	 */
+	public DsAccessControl findByUnique(Long accessControlId, String dsName) {
 		return (DsAccessControl) this.em
-			.createNamedQuery(DsAccessControl.NQ_FIND_BY_UNIQUE_PRIMITIVE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAccessControlId", accessControlId)
-			.setParameter("pDsName", dsName)
-			.getSingleResult(); 
+				.createNamedQuery(DsAccessControl.NQ_FIND_BY_UNIQUE_PRIMITIVE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAccessControlId", accessControlId)
+				.setParameter("pDsName", dsName).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: accessControl
+	 */
 	public List<DsAccessControl> findByAccessControl(AccessControl accessControl) {
-		return this.findByAccessControlId(accessControl.getId()); 
+		return this.findByAccessControlId(accessControl.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: accessControl.id
+	 */
 	public List<DsAccessControl> findByAccessControlId(Long accessControlId) {
 		return (List<DsAccessControl>) this.em
-			.createQuery("select e from DsAccessControl e where e.clientId = :pClientId and e.accessControl.id = :pAccessControlId", DsAccessControl.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAccessControlId", accessControlId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from DsAccessControl e where e.clientId = :pClientId and e.accessControl.id = :pAccessControlId",
+						DsAccessControl.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAccessControlId", accessControlId)
+				.getResultList();
 	}
 }

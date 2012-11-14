@@ -11,14 +11,31 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.md.bp.domain.entity.CompanyLegalForm;
 
-public interface ICompanyLegalFormService extends IEntityService<CompanyLegalForm> {
-	
-	public CompanyLegalForm findByName(Country country,String name);
-	
-	public CompanyLegalForm findByName( Long countryId,String name);
-	
+/**
+ * Interface to expose business functions specific for {@link CompanyLegalForm} domain
+ * entity.
+ */
+public interface ICompanyLegalFormService
+		extends
+			IEntityService<CompanyLegalForm> {
+
+	/**
+	 * Find by unique key
+	 */
+	public CompanyLegalForm findByName(Country country, String name);
+
+	/**
+	 * Find by unique key
+	 */
+	public CompanyLegalForm findByName(Long countryId, String name);
+
+	/**
+	 * Find by reference: country
+	 */
 	public List<CompanyLegalForm> findByCountry(Country country);
-	
+
+	/**
+	 * Find by ID of reference: country.id
+	 */
 	public List<CompanyLegalForm> findByCountryId(Long countryId);
-	
 }

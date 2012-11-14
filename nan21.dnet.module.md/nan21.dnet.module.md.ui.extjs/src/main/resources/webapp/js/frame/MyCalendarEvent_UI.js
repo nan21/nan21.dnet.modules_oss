@@ -17,6 +17,7 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.MyCalendarEvent_UI", {
 			.addDc("meetingEvnt", new net.nan21.dnet.module.md.activity.dc.Meeting({}))
 			.addDc("taskEvnt", new net.nan21.dnet.module.md.activity.dc.Task({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -35,7 +36,6 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.MyCalendarEvent_UI", {
 			.addPanel({name:"canvasCall", title:"Calls", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasMeeting", title:"Meetings", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasTask", title:"Tasks", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -56,6 +56,7 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.MyCalendarEvent_UI", {
 			.addToolbarTo("meetingEvntEdit", "meetingEvntEditTlb")
 			.addToolbarTo("canvasTask", "taskEvntListTlb")
 			.addToolbarTo("taskEvntEdit", "taskEvntEditTlb")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -78,6 +79,7 @@ Ext.define("net.nan21.dnet.module.md.activity.frame.MyCalendarEvent_UI", {
 			.beginToolbar("taskEvntEditTlb", {dc: "taskEvnt"}).addSave().addNew().addCopy().addCancel()
 			.addReports()
 			.end()
+			;
 	}
 
 });

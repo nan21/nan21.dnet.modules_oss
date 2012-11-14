@@ -14,10 +14,15 @@ import net.nan21.dnet.module.hr.time.business.service.IAbsenceTypeService;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceType;
 
-
+/**
+ * Repository functionality for {@link AbsenceType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AbsenceTypeService extends AbstractEntityService<AbsenceType>
-		implements IAbsenceTypeService {
- 
+		implements
+			IAbsenceTypeService {
+
 	public AbsenceTypeService() {
 		super();
 	}
@@ -31,24 +36,33 @@ public class AbsenceTypeService extends AbstractEntityService<AbsenceType>
 	public Class<AbsenceType> getEntityClass() {
 		return AbsenceType.class;
 	}
-	
-	public AbsenceType findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public AbsenceType findByName(String name) {
 		return (AbsenceType) this.em
-			.createNamedQuery(AbsenceType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(AbsenceType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: category
+	 */
 	public List<AbsenceType> findByCategory(AbsenceCategory category) {
-		return this.findByCategoryId(category.getId()); 
+		return this.findByCategoryId(category.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: category.id
+	 */
 	public List<AbsenceType> findByCategoryId(Long categoryId) {
 		return (List<AbsenceType>) this.em
-			.createQuery("select e from AbsenceType e where e.clientId = :pClientId and e.category.id = :pCategoryId", AbsenceType.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCategoryId", categoryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from AbsenceType e where e.clientId = :pClientId and e.category.id = :pCategoryId",
+						AbsenceType.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCategoryId", categoryId).getResultList();
 	}
 }

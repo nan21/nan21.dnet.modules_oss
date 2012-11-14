@@ -234,7 +234,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$Edit", {
 				} else {
 		            r.set("balanceFunction", "");             
 				}
-				this._doSwitchViews_(r.data.balance);;
+				this._doSwitchViews_(r.data.balance);
 	},
 	
 	_doSwitchViews_: function(balance) {
@@ -242,12 +242,12 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$Edit", {
 					this._showStackedViewElement_("colStack",1);			 
 				} else {
 					this._showStackedViewElement_("colStack",0);	 
-				};
+				}
 	},
 	
 	_afterBind_: function(record) {
 		if (record) {
 					this._doSwitchViews_(record.data.balance);
-				};
+				}
 	}
 });

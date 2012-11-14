@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
 
-@Ds(entity=Uom.class,jpqlWhere=" e.type.category = 'volume' ", sort={@SortField(field=UomVolumeLovDs.fCODE)})
+@Ds(entity = Uom.class, jpqlWhere = " e.type.category = 'volume' ", sort = {@SortField(field = UomVolumeLovDs.fCODE)})
 public class UomVolumeLovDs extends AbstractTypeWithCodeLov<Uom> {
-
 
 	public UomVolumeLovDs() {
 		super();
 	}
 
- 	public UomVolumeLovDs(Uom e) {
+	public UomVolumeLovDs(Uom e) {
 		super(e);
 	}
 }

@@ -132,8 +132,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue$CtxEditLis
 				    ed._dcView_ =  this;
 			    }
 		
-			    return ed;
-			    ;
+			    return ed
 	}
 });
 
@@ -185,6 +184,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue$EditList",
 			    }
 		
 			    return ed;
-			    ;
 	}
 });

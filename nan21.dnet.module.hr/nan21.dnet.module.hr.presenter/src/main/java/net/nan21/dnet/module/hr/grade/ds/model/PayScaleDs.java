@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScale;
 
-@Ds(entity=PayScale.class, sort={@SortField(field=PayScaleDs.fNAME)})
+@Ds(entity = PayScale.class, sort = {@SortField(field = PayScaleDs.fNAME)})
 public class PayScaleDs extends AbstractTypeWithCodeDs<PayScale> {
-
 
 	public PayScaleDs() {
 		super();
 	}
 
- 	public PayScaleDs(PayScale e) {
+	public PayScaleDs(PayScale e) {
 		super(e);
 	}
 }

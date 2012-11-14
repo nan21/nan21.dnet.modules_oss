@@ -17,6 +17,7 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxBaseData_UI", {
 			.addDc("payTerm", new net.nan21.dnet.module.md.base.tx.dc.PaymentTerm({multiEdit:true}))
 			.addDc("delivMtd", new net.nan21.dnet.module.md.base.tx.dc.DeliveryMethod({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -32,7 +33,6 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxBaseData_UI", {
 			.addPanel({name:"canvasPayMtd", title:"Payment methods", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasPayTerm", title:"Payment terms", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasDelivMtd", title:"Delivery methods", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -50,6 +50,7 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxBaseData_UI", {
 			.addToolbarTo("canvasPayMtd", "tlbpayMtd")
 			.addToolbarTo("canvasPayTerm", "tlbpayTerm")
 			.addToolbarTo("canvasDelivMtd", "tlbdelivMtd")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -63,6 +64,7 @@ Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxBaseData_UI", {
 			.beginToolbar("tlbdelivMtd", {dc: "delivMtd"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Delivery methods"})
 			.end()
+			;
 	}
 
 });

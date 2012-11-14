@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/AccSchemaLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.md.ui.extjs/dc/BpClassification", "nan21.dnet.module.md.ui.extjs/dc/BpAccount", "nan21.dnet.module.bd.ui.extjs/dc/CommunicationChannel", "nan21.dnet.module.md.ui.extjs/ds/BpAccountDs", "nan21.dnet.module.md.ui.extjs/ds/CompanyLegalFormLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/lov/AccSchemas", "nan21.dnet.module.bd.ui.extjs/lov/Countries", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.md.ui.extjs/ds/BpAccountAcctDs", "nan21.dnet.module.bd.ui.extjs/ds/CommunicationChannelDs", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.md.ui.extjs/ds/AccountLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.md.ui.extjs/ds/BankLovDs", "nan21.dnet.module.md.ui.extjs/lov/Banks", "nan21.dnet.module.md.ui.extjs/dc/BpBankAccount", "nan21.dnet.module.md.ui.extjs/ds/CustomerGroupLovDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerDs", "nan21.dnet.module.bd.ui.extjs/lov/ClassificationItems", "nan21.dnet.module.bd.ui.extjs/ds/ClassificationItemLovDs", "nan21.dnet.module.md.ui.extjs/ds/ContactDs", "nan21.dnet.module.bd.ui.extjs/lov/CommunicationChannelTypes", "nan21.dnet.module.bd.ui.extjs/lov/ClassificationSystems", "nan21.dnet.module.bd.ui.extjs/ds/CountryLovDs", "nan21.dnet.module.md.ui.extjs/lov/Accounts", "nan21.dnet.module.md.ui.extjs/ds/BpClassificationDs", "nan21.dnet.module.md.ui.extjs/dc/BusinessPartner", "nan21.dnet.module.bd.ui.extjs/ds/RegionLovDs", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.md.ui.extjs/ds/BpBankAccountDs", "nan21.dnet.module.bd.ui.extjs/lov/Regions", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/dc/Contact", "nan21.dnet.module.md.ui.extjs/lov/CompanyLegalForms", "nan21.dnet.module.bd.ui.extjs/dc/Location", "nan21.dnet.module.bd.ui.extjs/ds/CommunicationChannelTypeLovDs", "nan21.dnet.module.bd.ui.extjs/ds/ClassificationSystemLovDs", "nan21.dnet.module.md.ui.extjs/ds/VendorGroupLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.md.ui.extjs/lov/VendorGroup", "nan21.dnet.module.md.ui.extjs/lov/CustomerGroup", "nan21.dnet.module.bd.ui.extjs/ds/LocationDs", "nan21.dnet.module.md.ui.extjs/ds/TxBalanceDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/dc/TxBalance", "nan21.dnet.module.md.ui.extjs/dc/BpAccountAcct", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod"]);
+Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/AccSchemaLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.md.ui.extjs/dc/BpClassification", "nan21.dnet.module.md.ui.extjs/dc/BpAccount", "nan21.dnet.module.bd.ui.extjs/dc/CommunicationChannel", "nan21.dnet.module.md.ui.extjs/ds/CompanyLegalFormLovDs", "nan21.dnet.module.md.ui.extjs/ds/BpAccountDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/lov/AccSchemas", "nan21.dnet.module.bd.ui.extjs/lov/Countries", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.md.ui.extjs/ds/BpAccountAcctDs", "nan21.dnet.module.bd.ui.extjs/ds/CommunicationChannelDs", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.md.ui.extjs/ds/AccountLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.md.ui.extjs/ds/BankLovDs", "nan21.dnet.module.md.ui.extjs/lov/Banks", "nan21.dnet.module.md.ui.extjs/dc/BpBankAccount", "nan21.dnet.module.md.ui.extjs/ds/CustomerGroupLovDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerDs", "nan21.dnet.module.bd.ui.extjs/lov/ClassificationItems", "nan21.dnet.module.bd.ui.extjs/ds/ClassificationItemLovDs", "nan21.dnet.module.md.ui.extjs/ds/ContactDs", "nan21.dnet.module.bd.ui.extjs/lov/CommunicationChannelTypes", "nan21.dnet.module.bd.ui.extjs/lov/ClassificationSystems", "nan21.dnet.module.bd.ui.extjs/ds/CountryLovDs", "nan21.dnet.module.md.ui.extjs/lov/Accounts", "nan21.dnet.module.md.ui.extjs/ds/BpClassificationDs", "nan21.dnet.module.md.ui.extjs/dc/BusinessPartner", "nan21.dnet.module.bd.ui.extjs/ds/RegionLovDs", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.md.ui.extjs/ds/BpBankAccountDs", "nan21.dnet.module.bd.ui.extjs/lov/Regions", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/dc/Contact", "nan21.dnet.module.md.ui.extjs/lov/CompanyLegalForms", "nan21.dnet.module.bd.ui.extjs/dc/Location", "nan21.dnet.module.bd.ui.extjs/ds/CommunicationChannelTypeLovDs", "nan21.dnet.module.bd.ui.extjs/ds/ClassificationSystemLovDs", "nan21.dnet.module.md.ui.extjs/ds/VendorGroupLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.md.ui.extjs/lov/VendorGroup", "nan21.dnet.module.md.ui.extjs/lov/CustomerGroup", "nan21.dnet.module.bd.ui.extjs/ds/LocationDs", "nan21.dnet.module.md.ui.extjs/ds/TxBalanceDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/dc/TxBalance", "nan21.dnet.module.md.ui.extjs/dc/BpAccountAcct", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod"]);
 
 Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -55,6 +55,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 			.linkDc("atch", "bp",{fields:[
 				{childField:"targetUuid", parentField:"uuid"}, {childField:"targetType", parentField:"businessObject"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -102,7 +103,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 			.addPanel({name:"addressEditWrapper", layout:"fit"})
 			.addPanel({name:"accountPanel", title:"Account", layout:"card", activeItem:0})
 			.addPanel({name:"accountEditWrapper", layout:"fit"})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -131,6 +132,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 			.addToolbarTo("balanceList", "tlbBalanceList")
 			.addToolbarTo("noteList", "tlbNoteList")
 			.addToolbarTo("noteEdit", "tlbNoteEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -209,6 +211,7 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 			.beginToolbar("tlbNoteEdit", {dc: "note"}).addSave().addNew().addCancel()
 			.addSeparator().addAutoLoad().addReports()
 			.end()
+			;
 	}
 
 	,onBtnCreateBpContinue: function() {

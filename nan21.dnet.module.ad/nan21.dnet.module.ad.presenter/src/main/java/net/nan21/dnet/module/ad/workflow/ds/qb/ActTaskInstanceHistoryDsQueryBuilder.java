@@ -12,8 +12,10 @@ import net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDs;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class ActTaskInstanceHistoryDsQueryBuilder extends QueryBuilderWithJpql<ActTaskInstanceHistoryDs,ActTaskInstanceHistoryDsFilter, EmptyParam> {
-	
+public class ActTaskInstanceHistoryDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<ActTaskInstanceHistoryDs, ActTaskInstanceHistoryDsFilter, EmptyParam> {
+
 	@Override
 	public void setFilter(ActTaskInstanceHistoryDsFilter filter) {
 		filter.setClientId(Session.user.get().getClientId());

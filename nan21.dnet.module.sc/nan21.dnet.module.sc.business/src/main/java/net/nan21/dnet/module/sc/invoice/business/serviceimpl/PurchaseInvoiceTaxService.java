@@ -15,10 +15,17 @@ import net.nan21.dnet.module.sc.invoice.business.service.IPurchaseInvoiceTaxServ
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceTax;
 
+/**
+ * Repository functionality for {@link PurchaseInvoiceTax} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class PurchaseInvoiceTaxService
+		extends
+			AbstractEntityService<PurchaseInvoiceTax>
+		implements
+			IPurchaseInvoiceTaxService {
 
-public class PurchaseInvoiceTaxService extends AbstractEntityService<PurchaseInvoiceTax>
-		implements IPurchaseInvoiceTaxService {
- 
 	public PurchaseInvoiceTaxService() {
 		super();
 	}
@@ -32,28 +39,45 @@ public class PurchaseInvoiceTaxService extends AbstractEntityService<PurchaseInv
 	public Class<PurchaseInvoiceTax> getEntityClass() {
 		return PurchaseInvoiceTax.class;
 	}
-	
-	public List<PurchaseInvoiceTax> findByPurchaseInvoice(PurchaseInvoice purchaseInvoice) {
-		return this.findByPurchaseInvoiceId(purchaseInvoice.getId()); 
+
+	/**
+	 * Find by reference: purchaseInvoice
+	 */
+	public List<PurchaseInvoiceTax> findByPurchaseInvoice(
+			PurchaseInvoice purchaseInvoice) {
+		return this.findByPurchaseInvoiceId(purchaseInvoice.getId());
 	}
-	
-	public List<PurchaseInvoiceTax> findByPurchaseInvoiceId(Long purchaseInvoiceId) {
+
+	/**
+	 * Find by ID of reference: purchaseInvoice.id
+	 */
+	public List<PurchaseInvoiceTax> findByPurchaseInvoiceId(
+			Long purchaseInvoiceId) {
 		return (List<PurchaseInvoiceTax>) this.em
-			.createQuery("select e from PurchaseInvoiceTax e where e.clientId = :pClientId and e.purchaseInvoice.id = :pPurchaseInvoiceId", PurchaseInvoiceTax.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pPurchaseInvoiceId", purchaseInvoiceId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PurchaseInvoiceTax e where e.clientId = :pClientId and e.purchaseInvoice.id = :pPurchaseInvoiceId",
+						PurchaseInvoiceTax.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pPurchaseInvoiceId", purchaseInvoiceId)
+				.getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: tax
+	 */
 	public List<PurchaseInvoiceTax> findByTax(Tax tax) {
-		return this.findByTaxId(tax.getId()); 
+		return this.findByTaxId(tax.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: tax.id
+	 */
 	public List<PurchaseInvoiceTax> findByTaxId(Long taxId) {
 		return (List<PurchaseInvoiceTax>) this.em
-			.createQuery("select e from PurchaseInvoiceTax e where e.clientId = :pClientId and e.tax.id = :pTaxId", PurchaseInvoiceTax.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pTaxId", taxId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from PurchaseInvoiceTax e where e.clientId = :pClientId and e.tax.id = :pTaxId",
+						PurchaseInvoiceTax.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pTaxId", taxId).getResultList();
 	}
 }

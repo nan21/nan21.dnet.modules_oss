@@ -9,8 +9,16 @@ package net.nan21.dnet.module.pj.base.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskStatus;
 
-public interface IIssueTaskStatusService extends IEntityService<IssueTaskStatus> {
-	
+/**
+ * Interface to expose business functions specific for {@link IssueTaskStatus} domain
+ * entity.
+ */
+public interface IIssueTaskStatusService
+		extends
+			IEntityService<IssueTaskStatus> {
+
+	/**
+	 * Find by unique key
+	 */
 	public IssueTaskStatus findByName(String name);
-	
 }

@@ -11,10 +11,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActDeploymentService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment;
 
-
+/**
+ * Repository functionality for {@link ActDeployment} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ActDeploymentService extends AbstractEntityService<ActDeployment>
-		implements IActDeploymentService {
- 
+		implements
+			IActDeploymentService {
+
 	public ActDeploymentService() {
 		super();
 	}

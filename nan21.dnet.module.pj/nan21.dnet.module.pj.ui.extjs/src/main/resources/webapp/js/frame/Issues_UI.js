@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.pj.ui.extjs/lov/ProjectVersions", "nan21.dnet.module.pj.ui.extjs/ds/ProjectLovDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskCtx", "nan21.dnet.module.pj.ui.extjs/lov/Projects", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.pj.ui.extjs/ds/IssueLinkDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskDs", "nan21.dnet.module.pj.ui.extjs/asgn/IssueAffectedVersions", "nan21.dnet.module.pj.ui.extjs/ds/IssueLinkTypeLovDs", "nan21.dnet.module.pj.ui.extjs/lov/ProjectVersionsReleased", "nan21.dnet.module.pj.ui.extjs/lov/ProjectVersionsPlanned", "nan21.dnet.module.pj.ui.extjs/lov/IssueTypes", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionReleasedLovDs", "nan21.dnet.module.pj.ui.extjs/ds/ProjectMemberLovDs", "nan21.dnet.module.pj.ui.extjs/dc/Issue", "nan21.dnet.module.pj.ui.extjs/lov/IssueStatus", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueTaskTypes", "nan21.dnet.module.pj.ui.extjs/ds/IssueDs", "nan21.dnet.module.pj.ui.extjs/lov/IssuePriorities", "nan21.dnet.module.pj.ui.extjs/ds/ProjectComponentLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.pj.ui.extjs/ds/IssueSeverityLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssuePriorityLovDs", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueSeverities", "nan21.dnet.module.pj.ui.extjs/lov/ProjectComponents", "nan21.dnet.module.pj.ui.extjs/lov/Issues", "nan21.dnet.module.pj.ui.extjs/ds/IssueTypeLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueLovDs", "nan21.dnet.module.pj.ui.extjs/lov/ProjectMembers", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskStatusLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskTypeLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueResolutionLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueTaskStatuses", "nan21.dnet.module.pj.ui.extjs/lov/IssueResolutions", "nan21.dnet.module.pj.ui.extjs/asgn/IssueAffectedComponents", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.pj.ui.extjs/lov/IssueLinkTypes", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionPlannedLovDs", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueStatusLovDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueLink"]);
+Dnet.doImport(["nan21.dnet.module.pj.ui.extjs/lov/ProjectVersions", "nan21.dnet.module.pj.ui.extjs/ds/ProjectLovDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskCtx", "nan21.dnet.module.pj.ui.extjs/lov/Projects", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.pj.ui.extjs/ds/IssueLinkDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskDs", "nan21.dnet.module.pj.ui.extjs/asgn/IssueAffectedVersions", "nan21.dnet.module.pj.ui.extjs/ds/IssueLinkTypeLovDs", "nan21.dnet.module.pj.ui.extjs/lov/ProjectVersionsReleased", "nan21.dnet.module.pj.ui.extjs/lov/ProjectVersionsPlanned", "nan21.dnet.module.pj.ui.extjs/lov/IssueTypes", "nan21.dnet.module.pj.ui.extjs/ds/ProjectMemberLovDs", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionReleasedLovDs", "nan21.dnet.module.pj.ui.extjs/dc/Issue", "nan21.dnet.module.pj.ui.extjs/lov/IssueStatus", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueTaskTypes", "nan21.dnet.module.pj.ui.extjs/ds/IssueDs", "nan21.dnet.module.pj.ui.extjs/lov/IssuePriorities", "nan21.dnet.module.pj.ui.extjs/ds/ProjectComponentLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.pj.ui.extjs/ds/IssueSeverityLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssuePriorityLovDs", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueSeverities", "nan21.dnet.module.pj.ui.extjs/lov/ProjectComponents", "nan21.dnet.module.pj.ui.extjs/lov/Issues", "nan21.dnet.module.pj.ui.extjs/ds/IssueTypeLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueLovDs", "nan21.dnet.module.pj.ui.extjs/lov/ProjectMembers", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskStatusLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskTypeLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueResolutionLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueTaskStatuses", "nan21.dnet.module.pj.ui.extjs/lov/IssueResolutions", "nan21.dnet.module.pj.ui.extjs/asgn/IssueAffectedComponents", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.pj.ui.extjs/lov/IssueLinkTypes", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionPlannedLovDs", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueStatusLovDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueLink"]);
 
 Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -31,6 +31,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			.linkDc("task", "issue",{fields:[
 				{childField:"issueId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -80,7 +81,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			.addPanel({name:"tasksPanel", title:"Tasks", layout:"card", activeItem:0})
 			.addPanel({name:"taskEditWrapper", layout:"fit"})
 			.addPanel({name:"notesPanel", title:"Notes", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -100,6 +101,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			.addToolbarTo("noteEdit", "tlbNoteEdit")
 			.addToolbarTo("taskList", "tlbTaskList")
 			.addToolbarTo("taskEditWrapper", "tlbTaskEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -142,6 +144,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			)
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Task"})
 			.end()
+			;
 	}
 
 	,onBtnAsgnAffectedVersions: function() {
@@ -160,17 +163,17 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 	,onBtnTaskUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueTask_UI";
-		getApplication().showFrameByName("nan21.dnet.module.pj.ui.extjs", "net.nan21.dnet.module.pj.md.frame.IssueTask_UI");
+		getApplication().showFrameByName(bundle, frame);
 	}
 	,onBtnRoadmapUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI";
-		getApplication().showFrameByName("nan21.dnet.module.pj.ui.extjs", "net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI");
+		getApplication().showFrameByName(bundle, frame);
 	}
 	,onBtnChangelogUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI";
-		getApplication().showFrameByName("nan21.dnet.module.pj.ui.extjs", "net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI");
+		getApplication().showFrameByName(bundle, frame);
 	}
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();

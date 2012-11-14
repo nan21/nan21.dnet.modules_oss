@@ -11,10 +11,21 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeWorkExperience;
 
-public interface IEmployeeWorkExperienceService extends IEntityService<EmployeeWorkExperience> {
-	
+/**
+ * Interface to expose business functions specific for {@link EmployeeWorkExperience} domain
+ * entity.
+ */
+public interface IEmployeeWorkExperienceService
+		extends
+			IEntityService<EmployeeWorkExperience> {
+
+	/**
+	 * Find by reference: employee
+	 */
 	public List<EmployeeWorkExperience> findByEmployee(Employee employee);
-	
+
+	/**
+	 * Find by ID of reference: employee.id
+	 */
 	public List<EmployeeWorkExperience> findByEmployeeId(Long employeeId);
-	
 }

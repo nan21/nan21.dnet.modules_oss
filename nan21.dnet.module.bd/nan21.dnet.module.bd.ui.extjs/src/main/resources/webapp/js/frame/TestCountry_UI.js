@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.TestCountry_UI", {
 		this._getBuilder_()
 			.addDc("country", new net.nan21.dnet.module.bd.geo.dc.Country({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -29,7 +30,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.TestCountry_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"gridTabs", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -39,6 +40,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.TestCountry_UI", {
 			.addChildrenTo("gridTabs", ["countryList", "countryEditList"])
 			.addToolbarTo("canvas1", "tlbList")
 			.addToolbarTo("countryEdit", "tlbEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -49,6 +51,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.frame.TestCountry_UI", {
 			.beginToolbar("tlbEdit", {dc: "country"}).addBack().addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Country"})
 			.end()
+			;
 	}
 
 });

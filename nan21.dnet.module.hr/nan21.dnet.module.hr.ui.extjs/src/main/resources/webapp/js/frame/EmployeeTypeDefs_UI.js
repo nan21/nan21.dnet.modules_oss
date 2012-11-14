@@ -18,6 +18,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeTypeDefs_UI", {
 			.addDc("licType", new net.nan21.dnet.module.hr.employee.dc.LicenseType({multiEdit:true}))
 			.addDc("asgnType", new net.nan21.dnet.module.hr.employee.dc.EmploymentType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -36,7 +37,6 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeTypeDefs_UI", {
 			.addPanel({name:"canvasContactRel", title:"Contact relationship", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasLicType", title:"License types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasAsgnType", title:"Employment types", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -56,6 +56,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeTypeDefs_UI", {
 			.addToolbarTo("canvasContactRel", "contactRelTlb")
 			.addToolbarTo("canvasLicType", "licTypeTlb")
 			.addToolbarTo("canvasAsgnType", "asgnTypeTlb")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -72,6 +73,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeTypeDefs_UI", {
 			.beginToolbar("asgnTypeTlb", {dc: "asgnType"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Employment types"})
 			.end()
+			;
 	}
 
 });

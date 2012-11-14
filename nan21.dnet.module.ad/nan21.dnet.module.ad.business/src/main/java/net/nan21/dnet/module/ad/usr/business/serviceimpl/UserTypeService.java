@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.usr.business.service.IUserTypeService;
 import net.nan21.dnet.module.ad.usr.domain.entity.UserType;
 
-
+/**
+ * Repository functionality for {@link UserType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class UserTypeService extends AbstractEntityService<UserType>
-		implements IUserTypeService {
- 
+		implements
+			IUserTypeService {
+
 	public UserTypeService() {
 		super();
 	}
@@ -29,12 +34,13 @@ public class UserTypeService extends AbstractEntityService<UserType>
 	public Class<UserType> getEntityClass() {
 		return UserType.class;
 	}
-	
-	public UserType findByName(String name) {		 
-		return (UserType) this.em
-			.createNamedQuery(UserType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public UserType findByName(String name) {
+		return (UserType) this.em.createNamedQuery(UserType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

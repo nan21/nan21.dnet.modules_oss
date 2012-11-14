@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.UiViewState_UI", {
 		this._getBuilder_()
 			.addDc("viewstate", new net.nan21.dnet.module.ad.system.dc.UiViewState({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -25,7 +26,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.UiViewState_UI", {
 			.addDcFormView("viewstate", {name:"viewstateViewState", height:100, xtype:"ad_system_dc_UiViewState$ViewState"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -33,6 +34,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.UiViewState_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["viewstateFilter", "viewstateList", "viewstateViewState"], ["north", "center", "south"])
 			.addToolbarTo("canvas1", "tlbViewstateList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -41,6 +43,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.UiViewState_UI", {
 			.addDeleteSelected()
 			.addReports().addSeparator().addSeparator().addTitle({text: "View states"})
 			.end()
+			;
 	}
 
 });

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.Attachments_UI", {
 		this._getBuilder_()
 			.addDc("atch", new net.nan21.dnet.module.ad.data.dc.Attachment({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -23,13 +24,14 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.Attachments_UI", {
 			.addDcFilterFormView("atch", {name:"atchFilter", xtype:"ad_data_dc_Attachment$Filter"})
 			.addDcGridView("atch", {name:"atchList", xtype:"ad_data_dc_Attachment$List"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["atchFilter", "atchList"], ["north", "center"])
 			.addToolbarTo("main", "tlbAtchList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -37,6 +39,7 @@ Ext.define("net.nan21.dnet.module.ad.data.frame.Attachments_UI", {
 			.beginToolbar("tlbAtchList", {dc: "atch"}).addQuery().addDeleteSelected()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Attachments"})
 			.end()
+			;
 	}
 
 });

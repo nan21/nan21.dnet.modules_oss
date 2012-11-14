@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.bp.business.service.IBankService;
 import net.nan21.dnet.module.md.bp.domain.entity.Bank;
 
-
+/**
+ * Repository functionality for {@link Bank} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class BankService extends AbstractEntityService<Bank>
-		implements IBankService {
- 
+		implements
+			IBankService {
+
 	public BankService() {
 		super();
 	}
@@ -29,20 +34,22 @@ public class BankService extends AbstractEntityService<Bank>
 	public Class<Bank> getEntityClass() {
 		return Bank.class;
 	}
-	
-	public Bank findByCode(String code) {		 
-		return (Bank) this.em
-			.createNamedQuery(Bank.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Bank findByCode(String code) {
+		return (Bank) this.em.createNamedQuery(Bank.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public Bank findByName(String name) {		 
-		return (Bank) this.em
-			.createNamedQuery(Bank.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public Bank findByName(String name) {
+		return (Bank) this.em.createNamedQuery(Bank.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

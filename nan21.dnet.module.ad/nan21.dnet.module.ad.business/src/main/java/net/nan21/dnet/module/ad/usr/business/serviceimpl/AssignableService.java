@@ -14,10 +14,15 @@ import net.nan21.dnet.module.ad.usr.business.service.IAssignableService;
 import net.nan21.dnet.module.ad.usr.domain.entity.Assignable;
 import net.nan21.dnet.module.ad.usr.domain.entity.AssignableType;
 
-
+/**
+ * Repository functionality for {@link Assignable} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class AssignableService extends AbstractEntityService<Assignable>
-		implements IAssignableService {
- 
+		implements
+			IAssignableService {
+
 	public AssignableService() {
 		super();
 	}
@@ -31,24 +36,34 @@ public class AssignableService extends AbstractEntityService<Assignable>
 	public Class<Assignable> getEntityClass() {
 		return Assignable.class;
 	}
-	
-	public Assignable findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public Assignable findByName(String name) {
 		return (Assignable) this.em
-			.createNamedQuery(Assignable.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(Assignable.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: assignableType
+	 */
 	public List<Assignable> findByAssignableType(AssignableType assignableType) {
-		return this.findByAssignableTypeId(assignableType.getId()); 
+		return this.findByAssignableTypeId(assignableType.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: assignableType.id
+	 */
 	public List<Assignable> findByAssignableTypeId(Long assignableTypeId) {
 		return (List<Assignable>) this.em
-			.createQuery("select e from Assignable e where e.clientId = :pClientId and e.assignableType.id = :pAssignableTypeId", Assignable.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pAssignableTypeId", assignableTypeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from Assignable e where e.clientId = :pClientId and e.assignableType.id = :pAssignableTypeId",
+						Assignable.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pAssignableTypeId", assignableTypeId)
+				.getResultList();
 	}
 }

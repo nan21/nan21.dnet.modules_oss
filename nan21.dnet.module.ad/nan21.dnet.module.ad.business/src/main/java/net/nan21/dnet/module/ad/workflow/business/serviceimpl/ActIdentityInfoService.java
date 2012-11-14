@@ -11,10 +11,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActIdentityInfoService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActIdentityInfo;
 
+/**
+ * Repository functionality for {@link ActIdentityInfo} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ActIdentityInfoService
+		extends
+			AbstractEntityService<ActIdentityInfo>
+		implements
+			IActIdentityInfoService {
 
-public class ActIdentityInfoService extends AbstractEntityService<ActIdentityInfo>
-		implements IActIdentityInfoService {
- 
 	public ActIdentityInfoService() {
 		super();
 	}

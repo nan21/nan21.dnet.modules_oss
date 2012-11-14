@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.pj.md.domain.entity.Project;
 
-@Ds(entity=Project.class,jpqlWhere=" e.active = true ", sort={@SortField(field=ProjectLovDs.fCODE)})
+@Ds(entity = Project.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ProjectLovDs.fCODE)})
 public class ProjectLovDs extends AbstractTypeWithCodeLov<Project> {
-
 
 	public ProjectLovDs() {
 		super();
 	}
 
- 	public ProjectLovDs(Project e) {
+	public ProjectLovDs(Project e) {
 		super(e);
 	}
 }

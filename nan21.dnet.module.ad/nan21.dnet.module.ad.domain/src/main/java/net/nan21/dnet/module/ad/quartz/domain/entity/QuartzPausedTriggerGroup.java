@@ -20,60 +20,57 @@ import org.eclipse.persistence.annotations.ReadOnly;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-})
+@NamedQueries({})
 @Entity
-@Table(
-	name=QuartzPausedTriggerGroup.TABLE_NAME
-)
+@Table(name = QuartzPausedTriggerGroup.TABLE_NAME)
 @ReadOnly
-@Cache(type=CacheType.NONE)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class QuartzPausedTriggerGroup   {
-	
+public class QuartzPausedTriggerGroup {
+
 	public static final String TABLE_NAME = "XT_QRTZ_PAUSED_TRIGGER_GRPS";
 	public static final String SEQUENCE_NAME = "XT_QRTZ_PAUSED_TRIGGER_GRPS_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
-	@Column(name="SCHED_NAME", nullable=false, length=255)
+
+	@Column(name = "SCHED_NAME", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String schedulerName;
-	
-	@Column(name="TRIGGER_GROUP", nullable=false, length=255)
+
+	@Column(name = "TRIGGER_GROUP", nullable = false, length = 255)
 	@NotBlank
 	@Id
 	private String triggerGroup;
-	
+
 	public String getSchedulerName() {
 		return this.schedulerName;
 	}
-	
+
 	public void setSchedulerName(String schedulerName) {
 		this.schedulerName = schedulerName;
 	}
-	
+
 	public String getTriggerGroup() {
 		return this.triggerGroup;
 	}
-	
+
 	public void setTriggerGroup(String triggerGroup) {
 		this.triggerGroup = triggerGroup;
 	}
-	
+
 	@Transient
 	public Long getVersion() {
-		return 1L; 
+		return 1L;
 	}
-	
+
 	public void setVersion(Long version) {
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

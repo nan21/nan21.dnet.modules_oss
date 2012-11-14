@@ -5,6 +5,7 @@
  */
 package net.nan21.dnet.module.md.org.business.serviceext;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
 import net.nan21.dnet.module.md.org.business.service.IFinancialAccountAcctService;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
@@ -20,9 +21,9 @@ public class FinancialAccountAcctService
 	 * account.
 	 */
 	public String getPostingDepositAcct(FinancialAccount financialAccount,
-			AccSchema schema) throws Exception {
-		FinancialAccountAcct acct = this.findByAccount_schema(financialAccount
-				.getId(), schema.getId());
+			AccSchema schema) throws BusinessException {
+		FinancialAccountAcct acct = this.findByAccount_schema(
+				financialAccount.getId(), schema.getId());
 		if (acct != null && acct.getDepositAccount() != null) {
 			if (financialAccount.getAnaliticSegment() != null) {
 				return acct.getDepositAccount().getCode() + "."
@@ -43,9 +44,9 @@ public class FinancialAccountAcctService
 	 * financial account.
 	 */
 	public String getPostingWithdrawalAcct(FinancialAccount financialAccount,
-			AccSchema schema) throws Exception {
-		FinancialAccountAcct acct = this.findByAccount_schema(financialAccount
-				.getId(), schema.getId());
+			AccSchema schema) throws BusinessException {
+		FinancialAccountAcct acct = this.findByAccount_schema(
+				financialAccount.getId(), schema.getId());
 		if (acct != null && acct.getWithdrawalAccount() != null) {
 			if (financialAccount.getAnaliticSegment() != null) {
 				return acct.getWithdrawalAccount().getCode() + "."

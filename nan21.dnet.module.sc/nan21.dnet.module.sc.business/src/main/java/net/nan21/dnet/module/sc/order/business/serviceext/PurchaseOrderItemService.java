@@ -8,6 +8,7 @@ package net.nan21.dnet.module.sc.order.business.serviceext;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.sc._businessdelegates.order.PurchaseTaxBD;
 import net.nan21.dnet.module.sc.order.business.service.IPurchaseOrderItemService;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
@@ -22,12 +23,12 @@ public class PurchaseOrderItemService
 	private List<Long> orderIds;
 
 	@Override
-	protected void postUpdate(PurchaseOrderItem e) throws Exception {
+	protected void postUpdate(PurchaseOrderItem e) throws BusinessException {
 		this.calculateTaxes(e);
 	}
 
 	@Override
-	protected void postInsert(PurchaseOrderItem e) throws Exception {
+	protected void postInsert(PurchaseOrderItem e) throws BusinessException {
 		this.calculateTaxes(e);
 	}
 
@@ -56,7 +57,7 @@ public class PurchaseOrderItemService
 	}
 
 	@Override
-	protected void preDeleteByIds(List<Object> ids) throws Exception {
+	protected void preDeleteByIds(List<Object> ids) throws BusinessException {
 		this.orderIds = new ArrayList<Long>();
 		List<PurchaseOrderItem> items = this.findByIds(ids);
 		for (PurchaseOrderItem item : items) {
@@ -108,7 +109,8 @@ public class PurchaseOrderItemService
 		this.em.merge(order);
 	}
 
-	protected void calculateTaxes(PurchaseOrderItem item) throws Exception {
+	protected void calculateTaxes(PurchaseOrderItem item)
+			throws BusinessException {
 
 		if (item.getTax() != null) {
 			PurchaseTaxBD delegate = this

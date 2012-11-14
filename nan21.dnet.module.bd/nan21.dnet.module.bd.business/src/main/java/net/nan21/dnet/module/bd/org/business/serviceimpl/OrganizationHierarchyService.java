@@ -12,10 +12,17 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.bd.org.business.service.IOrganizationHierarchyService;
 import net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchy;
 
+/**
+ * Repository functionality for {@link OrganizationHierarchy} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class OrganizationHierarchyService
+		extends
+			AbstractEntityService<OrganizationHierarchy>
+		implements
+			IOrganizationHierarchyService {
 
-public class OrganizationHierarchyService extends AbstractEntityService<OrganizationHierarchy>
-		implements IOrganizationHierarchyService {
- 
 	public OrganizationHierarchyService() {
 		super();
 	}
@@ -29,12 +36,14 @@ public class OrganizationHierarchyService extends AbstractEntityService<Organiza
 	public Class<OrganizationHierarchy> getEntityClass() {
 		return OrganizationHierarchy.class;
 	}
-	
-	public OrganizationHierarchy findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public OrganizationHierarchy findByName(String name) {
 		return (OrganizationHierarchy) this.em
-			.createNamedQuery(OrganizationHierarchy.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(OrganizationHierarchy.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

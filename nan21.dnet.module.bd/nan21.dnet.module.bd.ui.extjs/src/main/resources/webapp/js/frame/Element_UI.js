@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.Element_UI", {
 			.linkDc("formula", "elem",{fields:[
 				{childField:"elementId", parentField:"id"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -37,7 +38,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.Element_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsTab", height:220, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			.addPanel({name:"formulaPanel", title:"Formula", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -49,6 +50,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.Element_UI", {
 			.addToolbarTo("canvas1", "tlbElemList")
 			.addToolbarTo("inputList", "tlbInputList")
 			.addToolbarTo("formulaPanel", "tlbFormulaList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -62,6 +64,7 @@ Ext.define("net.nan21.dnet.module.bd.elem.frame.Element_UI", {
 			.beginToolbar("tlbFormulaList", {dc: "formula"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Formula"})
 			.end()
+			;
 	}
 
 });

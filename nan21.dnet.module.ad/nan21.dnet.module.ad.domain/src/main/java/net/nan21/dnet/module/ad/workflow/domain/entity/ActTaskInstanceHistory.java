@@ -36,237 +36,226 @@ import org.hibernate.validator.constraints.NotBlank;
 import net.nan21.dnet.core.api.util.Duration;
 
 @NamedQueries({
-	@NamedQuery(
-		name=ActTaskInstanceHistory.NQ_FIND_BY_ID,
-		query="SELECT e FROM ActTaskInstanceHistory e WHERE  e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=ActTaskInstanceHistory.NQ_FIND_BY_IDS,
-		query="SELECT e FROM ActTaskInstanceHistory e WHERE  e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = ActTaskInstanceHistory.NQ_FIND_BY_ID, query = "SELECT e FROM ActTaskInstanceHistory e WHERE  e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = ActTaskInstanceHistory.NQ_FIND_BY_IDS, query = "SELECT e FROM ActTaskInstanceHistory e WHERE  e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=ActTaskInstanceHistory.TABLE_NAME
-)
-@Cache(type=CacheType.NONE)
+@Table(name = ActTaskInstanceHistory.TABLE_NAME)
+@Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActTaskInstanceHistory  implements IModelWithId {
-	
+public class ActTaskInstanceHistory implements IModelWithId {
+
 	public static final String TABLE_NAME = "ACT_HI_TASKINST";
 	public static final String SEQUENCE_NAME = "ACT_HI_TASKINST_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "ActTaskInstanceHistory.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "ActTaskInstanceHistory.findByIds";
-	
-	@Column(name="ID_", nullable=false, length=64)
+
+	@Column(name = "ID_", nullable = false, length = 64)
 	@NotBlank
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private String id;
-	
-	@Column(name="TASK_DEF_KEY_", length=255)
+
+	@Column(name = "TASK_DEF_KEY_", length = 255)
 	private String taskDefinitionKey;
-	
-	@Column(name="PROC_INST_ID_", length=64)
+
+	@Column(name = "PROC_INST_ID_", length = 64)
 	private String processInstanceId;
-	
-	@Column(name="EXECUTION_ID_", length=255)
+
+	@Column(name = "EXECUTION_ID_", length = 255)
 	private String executionId;
-	
-	@Column(name="NAME_", length=255)
+
+	@Column(name = "NAME_", length = 255)
 	private String name;
-	
-	@Column(name="DESCRIPTION_", length=4000)
+
+	@Column(name = "DESCRIPTION_", length = 4000)
 	private String description;
-	
-	@Column(name="OWNER_", length=32)
+
+	@Column(name = "OWNER_", length = 32)
 	private String owner;
-	
-	@Column(name="ASSIGNEE_", length=32)
+
+	@Column(name = "ASSIGNEE_", length = 32)
 	private String assignee;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="START_TIME_", nullable=false )
+	@Column(name = "START_TIME_", nullable = false)
 	@NotNull
 	private Date startTime;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="END_TIME_" )
+	@Column(name = "END_TIME_")
 	private Date endTime;
-	
-	@Column(name="DURATION_")
+
+	@Column(name = "DURATION_")
 	private Long duration;
-	
-	@Column(name="DELETE_REASON_", length=255)
+
+	@Column(name = "DELETE_REASON_", length = 255)
 	private String deleteReason;
-	
-	@Column(name="PRIORITY_")
+
+	@Column(name = "PRIORITY_")
 	private Long priority;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="DUE_DATE_" )
+	@Column(name = "DUE_DATE_")
 	private Date dueDate;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ActProcessDefinition.class)
-	@JoinColumn(name="PROC_DEF_ID_", referencedColumnName="ID_")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ActProcessDefinition.class)
+	@JoinColumn(name = "PROC_DEF_ID_", referencedColumnName = "ID_")
 	private ActProcessDefinition processDefinition;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=ActTaskInstanceHistory.class)
-	@JoinColumn(name="PARENT_TASK_ID_", referencedColumnName="ID_")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ActTaskInstanceHistory.class)
+	@JoinColumn(name = "PARENT_TASK_ID_", referencedColumnName = "ID_")
 	private ActTaskInstanceHistory parent;
-	
+
 	public String getId() {
 		return this.id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getTaskDefinitionKey() {
 		return this.taskDefinitionKey;
 	}
-	
+
 	public void setTaskDefinitionKey(String taskDefinitionKey) {
 		this.taskDefinitionKey = taskDefinitionKey;
 	}
-	
+
 	public String getProcessInstanceId() {
 		return this.processInstanceId;
 	}
-	
+
 	public void setProcessInstanceId(String processInstanceId) {
 		this.processInstanceId = processInstanceId;
 	}
-	
+
 	public String getExecutionId() {
 		return this.executionId;
 	}
-	
+
 	public void setExecutionId(String executionId) {
 		this.executionId = executionId;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getDescription() {
 		return this.description;
 	}
-	
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public String getOwner() {
 		return this.owner;
 	}
-	
+
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
-	
+
 	public String getAssignee() {
 		return this.assignee;
 	}
-	
+
 	public void setAssignee(String assignee) {
 		this.assignee = assignee;
 	}
-	
+
 	public Date getStartTime() {
 		return this.startTime;
 	}
-	
+
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
-	
+
 	public Date getEndTime() {
 		return this.endTime;
 	}
-	
+
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-	
+
 	public Long getDuration() {
 		return this.duration;
 	}
-	
+
 	public void setDuration(Long duration) {
 		this.duration = duration;
 	}
-	
+
 	@Transient
 	public String getDurationText() {
-		 return Duration.format(this.duration);
+		return Duration.format(this.duration);
 	}
-	
+
 	public void setDurationText(String durationText) {
 	}
-	
+
 	public String getDeleteReason() {
 		return this.deleteReason;
 	}
-	
+
 	public void setDeleteReason(String deleteReason) {
 		this.deleteReason = deleteReason;
 	}
-	
+
 	public Long getPriority() {
 		return this.priority;
 	}
-	
+
 	public void setPriority(Long priority) {
 		this.priority = priority;
 	}
-	
+
 	public Date getDueDate() {
 		return this.dueDate;
 	}
-	
+
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-	
+
 	public ActProcessDefinition getProcessDefinition() {
 		return this.processDefinition;
 	}
-	
+
 	public void setProcessDefinition(ActProcessDefinition processDefinition) {
 		this.processDefinition = processDefinition;
 	}
-	
+
 	public ActTaskInstanceHistory getParent() {
 		return this.parent;
 	}
-	
+
 	public void setParent(ActTaskInstanceHistory parent) {
 		this.parent = parent;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
-	
+
 	}
-	
-	public void aboutToUpdate(DescriptorEvent  event) {
+
+	public void aboutToUpdate(DescriptorEvent event) {
 	}
 }

@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.UserTypes_UI", {
 		this._getBuilder_()
 			.addDc("userType", new net.nan21.dnet.module.ad.usr.dc.UserType({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -24,7 +25,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.UserTypes_UI", {
 			.addDcEditGridView("userType", {name:"listUserType", xtype:"ad_usr_dc_UserType$EditList", frame:true})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -32,6 +33,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.UserTypes_UI", {
 			.addChildrenTo("main", ["canvas1"])
 			.addChildrenTo("canvas1", ["filterUserType", "listUserType"], ["north", "center"])
 			.addToolbarTo("canvas1", "tlbGroupEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.UserTypes_UI", {
 			.beginToolbar("tlbGroupEditList", {dc: "userType"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "User types"})
 			.end()
+			;
 	}
 
 });

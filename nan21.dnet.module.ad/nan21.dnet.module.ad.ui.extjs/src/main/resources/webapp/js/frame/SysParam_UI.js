@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysParam_UI", {
 		this._getBuilder_()
 			.addDc("sysparam", new net.nan21.dnet.module.ad.system.dc.SysParam({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -30,7 +31,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysParam_UI", {
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -40,6 +41,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysParam_UI", {
 			.addChildrenTo("canvas2", ["sysparamEdit"], ["center"])
 			.addToolbarTo("canvas1", "tlbSysparamList")
 			.addToolbarTo("canvas2", "tlbSysparamEdit")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -50,6 +52,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysParam_UI", {
 			.beginToolbar("tlbSysparamEdit", {dc: "sysparam"}).addBack().addSave().addNew().addCopy().addCancel().addPrevRec().addNextRec()
 			.addReports().addSeparator().addSeparator().addTitle({text: "System parameter"})
 			.end()
+			;
 	}
 
 	,onBtnSynchronize: function() {

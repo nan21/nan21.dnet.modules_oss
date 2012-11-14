@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.pj.base.business.service.IIssueSeverityService;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueSeverity;
 
-
+/**
+ * Repository functionality for {@link IssueSeverity} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class IssueSeverityService extends AbstractEntityService<IssueSeverity>
-		implements IIssueSeverityService {
- 
+		implements
+			IIssueSeverityService {
+
 	public IssueSeverityService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class IssueSeverityService extends AbstractEntityService<IssueSeverity>
 	public Class<IssueSeverity> getEntityClass() {
 		return IssueSeverity.class;
 	}
-	
-	public IssueSeverity findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public IssueSeverity findByName(String name) {
 		return (IssueSeverity) this.em
-			.createNamedQuery(IssueSeverity.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(IssueSeverity.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

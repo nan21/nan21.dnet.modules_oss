@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.FinancialAccount_UI", {
 			.linkDc("paymethod", "account",{fields:[
 				{childField:"financialAccountId", parentField:"id"}, {childField:"financialAccountType", parentField:"type"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -37,7 +38,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.FinancialAccount_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"detailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -50,6 +51,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.FinancialAccount_UI", {
 			.addToolbarTo("canvas2", "tlbAccountEdit")
 			.addToolbarTo("acctEditList", "tlbAcctEditList")
 			.addToolbarTo("paymethodEditList", "tlbPaymethodEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -66,6 +68,7 @@ Ext.define("net.nan21.dnet.module.md.org.frame.FinancialAccount_UI", {
 			.beginToolbar("tlbPaymethodEditList", {dc: "paymethod"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Payment methods"})
 			.end()
+			;
 	}
 
 });

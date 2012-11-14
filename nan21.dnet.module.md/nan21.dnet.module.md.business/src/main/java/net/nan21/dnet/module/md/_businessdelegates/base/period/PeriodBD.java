@@ -6,13 +6,20 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.business.service.AbstractBusinessDelegate;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
 
 public class PeriodBD extends AbstractBusinessDelegate {
 
-	public void createMonths(FiscalYear year) throws Exception {
+	/**
+	 * Create monthly periods for the given fiscal year.
+	 * 
+	 * @param year
+	 * @throws BusinessException
+	 */
+	public void createMonths(FiscalYear year) throws BusinessException {
 		Date start = year.getStartDate();
 		Date end = year.getEndDate();
 
@@ -49,7 +56,13 @@ public class PeriodBD extends AbstractBusinessDelegate {
 
 	}
 
-	public void createQuarters(FiscalYear year) throws Exception {
+	/**
+	 * Create quarter periods for the given fiscal year.
+	 * 
+	 * @param year
+	 * @throws BusinessException
+	 */
+	public void createQuarters(FiscalYear year) throws BusinessException {
 		Date start = year.getStartDate();
 		Date end = year.getEndDate();
 
@@ -86,7 +99,13 @@ public class PeriodBD extends AbstractBusinessDelegate {
 		this.findEntityService(FiscalPeriod.class).insert(periods);
 	}
 
-	public void createHalfYears(FiscalYear year) throws Exception {
+	/**
+	 * Create half year periods for the given fiscal year.
+	 * 
+	 * @param year
+	 * @throws BusinessException
+	 */
+	public void createHalfYears(FiscalYear year) throws BusinessException {
 		Date start = year.getStartDate();
 		Date end = year.getEndDate();
 

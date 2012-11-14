@@ -15,10 +15,15 @@ import net.nan21.dnet.module.md.base.tx.business.service.ITxDocTypeService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 
-
+/**
+ * Repository functionality for {@link TxDocType} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class TxDocTypeService extends AbstractEntityService<TxDocType>
-		implements ITxDocTypeService {
- 
+		implements
+			ITxDocTypeService {
+
 	public TxDocTypeService() {
 		super();
 	}
@@ -32,36 +37,51 @@ public class TxDocTypeService extends AbstractEntityService<TxDocType>
 	public Class<TxDocType> getEntityClass() {
 		return TxDocType.class;
 	}
-	
-	public TxDocType findByName(String name) {		 
-		return (TxDocType) this.em
-			.createNamedQuery(TxDocType.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+
+	/**
+	 * Find by unique key
+	 */
+	public TxDocType findByName(String name) {
+		return (TxDocType) this.em.createNamedQuery(TxDocType.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: docSequence
+	 */
 	public List<TxDocType> findByDocSequence(TxDocSequence docSequence) {
-		return this.findByDocSequenceId(docSequence.getId()); 
+		return this.findByDocSequenceId(docSequence.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: docSequence.id
+	 */
 	public List<TxDocType> findByDocSequenceId(Long docSequenceId) {
 		return (List<TxDocType>) this.em
-			.createQuery("select e from TxDocType e where e.clientId = :pClientId and e.docSequence.id = :pDocSequenceId", TxDocType.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pDocSequenceId", docSequenceId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxDocType e where e.clientId = :pClientId and e.docSequence.id = :pDocSequenceId",
+						TxDocType.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pDocSequenceId", docSequenceId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: journal
+	 */
 	public List<TxDocType> findByJournal(AccJournal journal) {
-		return this.findByJournalId(journal.getId()); 
+		return this.findByJournalId(journal.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: journal.id
+	 */
 	public List<TxDocType> findByJournalId(Long journalId) {
 		return (List<TxDocType>) this.em
-			.createQuery("select e from TxDocType e where e.clientId = :pClientId and e.journal.id = :pJournalId", TxDocType.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pJournalId", journalId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from TxDocType e where e.clientId = :pClientId and e.journal.id = :pJournalId",
+						TxDocType.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pJournalId", journalId).getResultList();
 	}
 }

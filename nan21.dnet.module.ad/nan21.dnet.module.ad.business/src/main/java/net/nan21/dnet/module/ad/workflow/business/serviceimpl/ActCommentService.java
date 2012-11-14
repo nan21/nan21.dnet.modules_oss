@@ -11,10 +11,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.workflow.business.service.IActCommentService;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActComment;
 
-
+/**
+ * Repository functionality for {@link ActComment} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class ActCommentService extends AbstractEntityService<ActComment>
-		implements IActCommentService {
- 
+		implements
+			IActCommentService {
+
 	public ActCommentService() {
 		super();
 	}

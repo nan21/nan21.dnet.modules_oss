@@ -13,18 +13,42 @@ import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
 import net.nan21.dnet.module.md.bp.domain.entity.BpClassification;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
-public interface IBpClassificationService extends IEntityService<BpClassification> {
-	
+/**
+ * Interface to expose business functions specific for {@link BpClassification} domain
+ * entity.
+ */
+public interface IBpClassificationService
+		extends
+			IEntityService<BpClassification> {
+
+	/**
+	 * Find by reference: bp
+	 */
 	public List<BpClassification> findByBp(BusinessPartner bp);
-	
+
+	/**
+	 * Find by ID of reference: bp.id
+	 */
 	public List<BpClassification> findByBpId(Long bpId);
-	
-	public List<BpClassification> findByClassSystem(ClassificationSystem classSystem);
-	
+
+	/**
+	 * Find by reference: classSystem
+	 */
+	public List<BpClassification> findByClassSystem(
+			ClassificationSystem classSystem);
+
+	/**
+	 * Find by ID of reference: classSystem.id
+	 */
 	public List<BpClassification> findByClassSystemId(Long classSystemId);
-	
+
+	/**
+	 * Find by reference: classCode
+	 */
 	public List<BpClassification> findByClassCode(ClassificationItem classCode);
-	
+
+	/**
+	 * Find by ID of reference: classCode.id
+	 */
 	public List<BpClassification> findByClassCodeId(Long classCodeId);
-	
 }

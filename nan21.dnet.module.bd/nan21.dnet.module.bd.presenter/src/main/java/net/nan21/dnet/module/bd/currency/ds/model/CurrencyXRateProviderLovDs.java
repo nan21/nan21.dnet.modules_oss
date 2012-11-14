@@ -10,15 +10,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateProvider;
 
-@Ds(entity=CurrencyXRateProvider.class,jpqlWhere=" e.active = true ", sort={@SortField(field=CurrencyXRateProviderLovDs.fCODE)})
-public class CurrencyXRateProviderLovDs extends AbstractTypeWithCodeLov<CurrencyXRateProvider> {
-
+@Ds(entity = CurrencyXRateProvider.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CurrencyXRateProviderLovDs.fCODE)})
+public class CurrencyXRateProviderLovDs
+		extends
+			AbstractTypeWithCodeLov<CurrencyXRateProvider> {
 
 	public CurrencyXRateProviderLovDs() {
 		super();
 	}
 
- 	public CurrencyXRateProviderLovDs(CurrencyXRateProvider e) {
+	public CurrencyXRateProviderLovDs(CurrencyXRateProvider e) {
 		super(e);
 	}
 }

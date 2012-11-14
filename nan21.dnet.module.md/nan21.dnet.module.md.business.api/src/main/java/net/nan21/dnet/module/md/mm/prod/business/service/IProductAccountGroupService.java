@@ -11,14 +11,32 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroup;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroupAcct;
 
-public interface IProductAccountGroupService extends IEntityService<ProductAccountGroup> {
-	
+/**
+ * Interface to expose business functions specific for {@link ProductAccountGroup} domain
+ * entity.
+ */
+public interface IProductAccountGroupService
+		extends
+			IEntityService<ProductAccountGroup> {
+
+	/**
+	 * Find by unique key
+	 */
 	public ProductAccountGroup findByCode(String code);
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public ProductAccountGroup findByName(String name);
-	
-	public List<ProductAccountGroup> findByAccounts(ProductAccountGroupAcct accounts);
-	
+
+	/**
+	 * Find by reference: accounts
+	 */
+	public List<ProductAccountGroup> findByAccounts(
+			ProductAccountGroupAcct accounts);
+
+	/**
+	 * Find by ID of reference: accounts.id
+	 */
 	public List<ProductAccountGroup> findByAccountsId(Long accountsId);
-	
 }

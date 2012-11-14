@@ -31,145 +31,134 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=EmployeeLicense.NQ_FIND_BY_ID,
-		query="SELECT e FROM EmployeeLicense e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=EmployeeLicense.NQ_FIND_BY_IDS,
-		query="SELECT e FROM EmployeeLicense e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = EmployeeLicense.NQ_FIND_BY_ID, query = "SELECT e FROM EmployeeLicense e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = EmployeeLicense.NQ_FIND_BY_IDS, query = "SELECT e FROM EmployeeLicense e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(
-	name=EmployeeLicense.TABLE_NAME
-)
+@Table(name = EmployeeLicense.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class EmployeeLicense extends AbstractAuditable  {
-	
+public class EmployeeLicense extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "HR_EMPL_LICENSE";
 	public static final String SEQUENCE_NAME = "HR_EMPL_LICENSE_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "EmployeeLicense.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "EmployeeLicense.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="DOCUMENTNO", length=255)
+
+	@Column(name = "DOCUMENTNO", length = 255)
 	private String documentNo;
-	
-	@Column(name="ISSUEDBY", length=255)
+
+	@Column(name = "ISSUEDBY", length = 255)
 	private String issuedBy;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDFROM" )
+	@Column(name = "VALIDFROM")
 	private Date validFrom;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="VALIDTO" )
+	@Column(name = "VALIDTO")
 	private Date validTo;
-	
-	@Column(name="NOTES", length=4000)
+
+	@Column(name = "NOTES", length = 4000)
 	private String notes;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Employee.class)
-	@JoinColumn(name="EMPLOYEE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Employee.class)
+	@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "ID")
 	private Employee employee;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=LicenseType.class)
-	@JoinColumn(name="LICENSETYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = LicenseType.class)
+	@JoinColumn(name = "LICENSETYPE_ID", referencedColumnName = "ID")
 	private LicenseType licenseType;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getDocumentNo() {
 		return this.documentNo;
 	}
-	
+
 	public void setDocumentNo(String documentNo) {
 		this.documentNo = documentNo;
 	}
-	
+
 	public String getIssuedBy() {
 		return this.issuedBy;
 	}
-	
+
 	public void setIssuedBy(String issuedBy) {
 		this.issuedBy = issuedBy;
 	}
-	
+
 	public Date getValidFrom() {
 		return this.validFrom;
 	}
-	
+
 	public void setValidFrom(Date validFrom) {
 		this.validFrom = validFrom;
 	}
-	
+
 	public Date getValidTo() {
 		return this.validTo;
 	}
-	
+
 	public void setValidTo(Date validTo) {
 		this.validTo = validTo;
 	}
-	
+
 	public String getNotes() {
 		return this.notes;
 	}
-	
+
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
 	public Employee getEmployee() {
 		return this.employee;
 	}
-	
+
 	public void setEmployee(Employee employee) {
-		if (employee != null ) {
+		if (employee != null) {
 			this.__validate_client_context__(employee.getClientId());
 		}
 		this.employee = employee;
 	}
-	
+
 	public LicenseType getLicenseType() {
 		return this.licenseType;
 	}
-	
+
 	public void setLicenseType(LicenseType licenseType) {
-		if (licenseType != null ) {
+		if (licenseType != null) {
 			this.__validate_client_context__(licenseType.getClientId());
 		}
 		this.licenseType = licenseType;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }

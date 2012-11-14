@@ -7,7 +7,7 @@
 			http://www.springframework.org/schema/context 
 				http://www.springframework.org/schema/context/spring-context.xsd">   
 	<bean id="SalesInvoiceService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.SalesInvoiceService"/>
+		class="net.nan21.dnet.module.sd.invoice.business.serviceext.SalesInvoiceService"/>
 	<bean id="SalesInvoiceItemService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.SalesInvoiceItemService"/>
 	<bean id="SalesInvoiceTaxService" scope="singleton" lazy-init="true"
@@ -15,9 +15,9 @@
 	<bean id="SalesInvoiceItemTaxService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.SalesInvoiceItemTaxService"/>
 	<bean id="PaymentInService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.PaymentInService"/>
+		class="net.nan21.dnet.module.sd.invoice.business.serviceext.PaymentInService"/>
 	<bean id="PaymentInAmountService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.PaymentInAmountService"/>
 	<bean id="SalesTxAmountService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.SalesTxAmountService"/>
+		class="net.nan21.dnet.module.sd.invoice.business.serviceext.SalesTxAmountService"/>
 </beans>

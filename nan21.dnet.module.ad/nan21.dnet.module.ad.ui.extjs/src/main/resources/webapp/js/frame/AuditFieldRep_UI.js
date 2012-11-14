@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.AuditFieldRep_UI", {
 		this._getBuilder_()
 			.addDc("audit", new net.nan21.dnet.module.ad.system.dc.AuditFieldRep({}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -23,13 +24,14 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.AuditFieldRep_UI", {
 			.addDcFilterFormView("audit", {name:"auditFilter", xtype:"ad_system_dc_AuditFieldRep$Filter"})
 			.addDcGridView("audit", {name:"auditList", xtype:"ad_system_dc_AuditFieldRep$List"})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["auditFilter", "auditList"], ["north", "center"])
 			.addToolbarTo("main", "tlbAuditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -37,6 +39,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.AuditFieldRep_UI", {
 			.beginToolbar("tlbAuditList", {dc: "audit"}).addQuery()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Audit trails"})
 			.end()
+			;
 	}
 
 });

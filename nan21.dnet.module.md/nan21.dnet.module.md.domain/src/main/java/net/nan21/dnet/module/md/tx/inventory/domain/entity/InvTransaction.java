@@ -41,210 +41,198 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-	@NamedQuery(
-		name=InvTransaction.NQ_FIND_BY_ID,
-		query="SELECT e FROM InvTransaction e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=InvTransaction.NQ_FIND_BY_IDS,
-		query="SELECT e FROM InvTransaction e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = InvTransaction.NQ_FIND_BY_ID, query = "SELECT e FROM InvTransaction e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = InvTransaction.NQ_FIND_BY_IDS, query = "SELECT e FROM InvTransaction e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="ENTITYTYPE", discriminatorType=DiscriminatorType.STRING, length=32)
-@Table(
-	name=InvTransaction.TABLE_NAME
-)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ENTITYTYPE", discriminatorType = DiscriminatorType.STRING, length = 32)
+@Table(name = InvTransaction.TABLE_NAME)
 @Customizer(InvTransactionEventHandler.class)
-public class InvTransaction extends AbstractAuditable  {
-	
+public class InvTransaction extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "TX_INVT_TX";
 	public static final String SEQUENCE_NAME = "TX_INVT_TX_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "InvTransaction.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "InvTransaction.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ENTITYTYPE", length=32)
+
+	@Column(name = "ENTITYTYPE", length = 32)
 	private String entityType;
-	
-	@Column(name="CODE", nullable=false, length=32)
+
+	@Column(name = "CODE", nullable = false, length = 32)
 	@NotBlank
 	private String code;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="DOCDATE", nullable=false )
+	@Column(name = "DOCDATE", nullable = false)
 	@NotNull
 	private Date docDate;
-	
-	@Column(name="DOCNO", length=255)
+
+	@Column(name = "DOCNO", length = 255)
 	private String docNo;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="EVENTDATE" )
+	@Column(name = "EVENTDATE")
 	private Date eventDate;
-	
-	@Column(name="SOURCE", length=255)
+
+	@Column(name = "SOURCE", length = 255)
 	private String source;
-	
-	@Column(name="CONFIRMED", nullable=false)
+
+	@Column(name = "CONFIRMED", nullable = false)
 	@NotNull
 	private Boolean confirmed;
-	
-	@Column(name="POSTED", nullable=false)
+
+	@Column(name = "POSTED", nullable = false)
 	@NotNull
 	private Boolean posted;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=InvTransactionType.class)
-	@JoinColumn(name="TRANSACTIONTYPE_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = InvTransactionType.class)
+	@JoinColumn(name = "TRANSACTIONTYPE_ID", referencedColumnName = "ID")
 	private InvTransactionType transactionType;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="FROMINVENTORY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "FROMINVENTORY_ID", referencedColumnName = "ID")
 	private Organization fromInventory;
-	
-	@ManyToOne(fetch=FetchType.LAZY, targetEntity=Organization.class)
-	@JoinColumn(name="TOINVENTORY_ID", referencedColumnName="ID")
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
+	@JoinColumn(name = "TOINVENTORY_ID", referencedColumnName = "ID")
 	private Organization toInventory;
-	
-		@OneToMany(fetch=FetchType.LAZY, targetEntity=InvTransactionLine.class, mappedBy="invTransaction"
-	,cascade=CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = InvTransactionLine.class, mappedBy = "invTransaction", cascade = CascadeType.ALL)
 	@CascadeOnDelete
 	private Collection<InvTransactionLine> lines;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getEntityType() {
 		return this.entityType;
 	}
-	
+
 	public void setEntityType(String entityType) {
 		this.entityType = entityType;
 	}
-	
+
 	public String getCode() {
 		return this.code;
 	}
-	
+
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
 	public Date getDocDate() {
 		return this.docDate;
 	}
-	
+
 	public void setDocDate(Date docDate) {
 		this.docDate = docDate;
 	}
-	
+
 	public String getDocNo() {
 		return this.docNo;
 	}
-	
+
 	public void setDocNo(String docNo) {
 		this.docNo = docNo;
 	}
-	
+
 	public Date getEventDate() {
 		return this.eventDate;
 	}
-	
+
 	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
 	}
-	
+
 	public String getSource() {
 		return this.source;
 	}
-	
+
 	public void setSource(String source) {
 		this.source = source;
 	}
-	
+
 	public Boolean getConfirmed() {
 		return this.confirmed;
 	}
-	
+
 	public void setConfirmed(Boolean confirmed) {
 		this.confirmed = confirmed;
 	}
-	
+
 	public Boolean getPosted() {
 		return this.posted;
 	}
-	
+
 	public void setPosted(Boolean posted) {
 		this.posted = posted;
 	}
-	
+
 	public InvTransactionType getTransactionType() {
 		return this.transactionType;
 	}
-	
+
 	public void setTransactionType(InvTransactionType transactionType) {
-		if (transactionType != null ) {
+		if (transactionType != null) {
 			this.__validate_client_context__(transactionType.getClientId());
 		}
 		this.transactionType = transactionType;
 	}
-	
+
 	public Organization getFromInventory() {
 		return this.fromInventory;
 	}
-	
+
 	public void setFromInventory(Organization fromInventory) {
-		if (fromInventory != null ) {
+		if (fromInventory != null) {
 			this.__validate_client_context__(fromInventory.getClientId());
 		}
 		this.fromInventory = fromInventory;
 	}
-	
+
 	public Organization getToInventory() {
 		return this.toInventory;
 	}
-	
+
 	public void setToInventory(Organization toInventory) {
-		if (toInventory != null ) {
+		if (toInventory != null) {
 			this.__validate_client_context__(toInventory.getClientId());
 		}
 		this.toInventory = toInventory;
 	}
-	
+
 	public Collection<InvTransactionLine> getLines() {
 		return this.lines;
 	}
-	
+
 	public void setLines(Collection<InvTransactionLine> lines) {
 		this.lines = lines;
 	}
-	
+
 	public void addToLines(InvTransactionLine e) {
 		if (this.lines == null) {
 			this.lines = new ArrayList<InvTransactionLine>();
@@ -252,18 +240,18 @@ public class InvTransaction extends AbstractAuditable  {
 		e.setInvTransaction(this);
 		this.lines.add(e);
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
-		if (this.getConfirmed() == null ) {
-			event.updateAttributeWithObject("confirmed",false);
+
+		if (this.getConfirmed() == null) {
+			event.updateAttributeWithObject("confirmed", false);
 		}
-		if (this.getPosted() == null ) {
-			event.updateAttributeWithObject("posted",false);
+		if (this.getPosted() == null) {
+			event.updateAttributeWithObject("posted", false);
 		}
-		if (this.getCode() == null || this.getCode().equals("") ) {
-			event.updateAttributeWithObject("code","IT-"+this.getId());
+		if (this.getCode() == null || this.getCode().equals("")) {
+			event.updateAttributeWithObject("code", "IT-" + this.getId());
 		}
 	}
 }

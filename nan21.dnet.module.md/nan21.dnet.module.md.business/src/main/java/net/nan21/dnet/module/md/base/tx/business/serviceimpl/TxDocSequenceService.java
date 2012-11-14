@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.md.base.tx.business.service.ITxDocSequenceService;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence;
 
-
+/**
+ * Repository functionality for {@link TxDocSequence} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class TxDocSequenceService extends AbstractEntityService<TxDocSequence>
-		implements ITxDocSequenceService {
- 
+		implements
+			ITxDocSequenceService {
+
 	public TxDocSequenceService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class TxDocSequenceService extends AbstractEntityService<TxDocSequence>
 	public Class<TxDocSequence> getEntityClass() {
 		return TxDocSequence.class;
 	}
-	
-	public TxDocSequence findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public TxDocSequence findByName(String name) {
 		return (TxDocSequence) this.em
-			.createNamedQuery(TxDocSequence.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(TxDocSequence.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

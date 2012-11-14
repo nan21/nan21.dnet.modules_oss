@@ -12,20 +12,24 @@ import net.nan21.dnet.module.pj.md.ds.param.ProjectVersionDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class ProjectVersionDsQueryBuilder extends QueryBuilderWithJpql<ProjectVersionDs,ProjectVersionDsFilter, ProjectVersionDsParam> {
-	
+public class ProjectVersionDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<ProjectVersionDs, ProjectVersionDsFilter, ProjectVersionDsParam> {
+
 	@Override
 	public void setFilter(ProjectVersionDsFilter filter) {
 		this.filter = filter;
 	}
- 	
- 	@Override
- 	public void beforeBuildWhere() {
- 		if (this.params.getHideReleased() != null && this.params.getHideReleased()==true) {
- 			addFilterCondition("  e.releaseDate is null ");
- 		}
- 		if (this.params.getHideDue()  != null && this.params.getHideDue()==true) {
- 			addFilterCondition("  e.releaseDate is not null ");
- 		}
- 	}
+
+	@Override
+	public void beforeBuildWhere() {
+		if (this.params.getHideReleased() != null
+				&& this.params.getHideReleased() == true) {
+			addFilterCondition("  e.releaseDate is null ");
+		}
+		if (this.params.getHideDue() != null
+				&& this.params.getHideDue() == true) {
+			addFilterCondition("  e.releaseDate is not null ");
+		}
+	}
 }

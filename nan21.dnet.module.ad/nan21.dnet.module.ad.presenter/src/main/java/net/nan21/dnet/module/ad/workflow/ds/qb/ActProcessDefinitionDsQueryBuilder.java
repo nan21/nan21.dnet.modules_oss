@@ -12,8 +12,10 @@ import net.nan21.dnet.module.ad.workflow.ds.param.ActProcessDefinitionDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
-public class ActProcessDefinitionDsQueryBuilder extends QueryBuilderWithJpql<ActProcessDefinitionDs,ActProcessDefinitionDsFilter, ActProcessDefinitionDsParam> {
-	
+public class ActProcessDefinitionDsQueryBuilder
+		extends
+			QueryBuilderWithJpql<ActProcessDefinitionDs, ActProcessDefinitionDsFilter, ActProcessDefinitionDsParam> {
+
 	@Override
 	public void setFilter(ActProcessDefinitionDsFilter filter) {
 		filter.setClientId(Session.user.get().getClientId());

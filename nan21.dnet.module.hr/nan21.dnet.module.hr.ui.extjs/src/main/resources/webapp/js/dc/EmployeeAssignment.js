@@ -286,7 +286,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$Edit", {
 		            r.set("positionCode", "");
 		            r.set("positionName", "");
 				}
-				this._doEnableJobOrPosition_(r.data.assignToPosition);;
+				this._doEnableJobOrPosition_(r.data.assignToPosition);
 	},
 	
 	_doEnableJobOrPosition_: function(enablePosition) {
@@ -298,12 +298,12 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$Edit", {
 					this._getElement_("positionCode").disable();
 					this._getElement_("jobCode").enable();
 		            this._getElement_("org").enable();
-				};
+				}
 	},
 	
 	_afterBind_: function(record) {
 		if (record) {
 					this._doEnableJobOrPosition_(record.data.assignToPosition);
-				};
+				}
 	}
 });

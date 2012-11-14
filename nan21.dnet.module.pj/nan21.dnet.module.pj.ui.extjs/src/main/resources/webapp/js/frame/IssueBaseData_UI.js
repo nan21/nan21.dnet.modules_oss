@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.pj.ui.extjs/ds/IssueTaskTypeDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskStatus", "nan21.dnet.module.pj.ui.extjs/lov/IssueCategories", "nan21.dnet.module.pj.ui.extjs/ds/IssueCategoryLovDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskType", "nan21.dnet.module.pj.ui.extjs/ds/IssueCategoryDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueSeverityDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTypeDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueResolutionDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueLinkTypeDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueSeverity", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskStatusDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueStatusDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueLinkType", "nan21.dnet.module.pj.ui.extjs/ds/IssuePriorityDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueCategory", "nan21.dnet.module.pj.ui.extjs/dc/IssueStatus", "nan21.dnet.module.pj.ui.extjs/dc/IssueResolution", "nan21.dnet.module.pj.ui.extjs/dc/IssueType", "nan21.dnet.module.pj.ui.extjs/dc/IssuePriority"]);
+Dnet.doImport(["nan21.dnet.module.pj.ui.extjs/ds/IssueTaskTypeDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskStatus", "nan21.dnet.module.pj.ui.extjs/lov/IssueCategories", "nan21.dnet.module.pj.ui.extjs/ds/IssueCategoryLovDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskType", "nan21.dnet.module.pj.ui.extjs/ds/IssueCategoryDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueSeverityDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTypeDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueResolutionDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueSeverity", "nan21.dnet.module.pj.ui.extjs/ds/IssueLinkTypeDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskStatusDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueStatusDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueLinkType", "nan21.dnet.module.pj.ui.extjs/ds/IssuePriorityDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueCategory", "nan21.dnet.module.pj.ui.extjs/dc/IssueStatus", "nan21.dnet.module.pj.ui.extjs/dc/IssueResolution", "nan21.dnet.module.pj.ui.extjs/dc/IssueType", "nan21.dnet.module.pj.ui.extjs/dc/IssuePriority"]);
 
 Ext.define("net.nan21.dnet.module.pj.base.frame.IssueBaseData_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.IssueBaseData_UI", {
 			.addDc("tasktype", new net.nan21.dnet.module.pj.base.dc.IssueTaskType({multiEdit:true}))
 			.addDc("taskstatus", new net.nan21.dnet.module.pj.base.dc.IssueTaskStatus({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -56,7 +57,6 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.IssueBaseData_UI", {
 			.addPanel({name:"canvasLinktype", title:"Issue link type", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasTasktype", title:"Task type", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvasTaskstatus", title:"Task status", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			
 			.addPanel({name:"_main_with_toc_", layout:"border", id:Ext.id(), defaults:{split:true}, header:false,
 						listeners:{ activate:{scope:this,fn:function(p){p.doLayout(false,true); this.fireEvent('canvaschange', p);  } }}
 				})
@@ -86,6 +86,7 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.IssueBaseData_UI", {
 			.addToolbarTo("canvasLinktype", "tlbLinktypeEditList")
 			.addToolbarTo("canvasTasktype", "tlbTasktypeEditList")
 			.addToolbarTo("canvasTaskstatus", "tlbTaskstatusEditList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -117,6 +118,7 @@ Ext.define("net.nan21.dnet.module.pj.base.frame.IssueBaseData_UI", {
 			.beginToolbar("tlbTaskstatusEditList", {dc: "taskstatus"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Task status"})
 			.end()
+			;
 	}
 
 });

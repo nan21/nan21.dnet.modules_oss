@@ -14,10 +14,17 @@ import net.nan21.dnet.module.md.mm.prod.business.service.IProductCategoryService
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductCategory;
 
+/**
+ * Repository functionality for {@link ProductCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class ProductCategoryService
+		extends
+			AbstractEntityService<ProductCategory>
+		implements
+			IProductCategoryService {
 
-public class ProductCategoryService extends AbstractEntityService<ProductCategory>
-		implements IProductCategoryService {
- 
 	public ProductCategoryService() {
 		super();
 	}
@@ -31,44 +38,62 @@ public class ProductCategoryService extends AbstractEntityService<ProductCategor
 	public Class<ProductCategory> getEntityClass() {
 		return ProductCategory.class;
 	}
-	
-	public ProductCategory findByCode(String code) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductCategory findByCode(String code) {
 		return (ProductCategory) this.em
-			.createNamedQuery(ProductCategory.NQ_FIND_BY_CODE)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCode", code)
-			.getSingleResult(); 
+				.createNamedQuery(ProductCategory.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
-	
-	public ProductCategory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public ProductCategory findByName(String name) {
 		return (ProductCategory) this.em
-			.createNamedQuery(ProductCategory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(ProductCategory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
-	
+
+	/**
+	 * Find by reference: category
+	 */
 	public List<ProductCategory> findByCategory(ProductCategory category) {
-		return this.findByCategoryId(category.getId()); 
+		return this.findByCategoryId(category.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: category.id
+	 */
 	public List<ProductCategory> findByCategoryId(Long categoryId) {
 		return (List<ProductCategory>) this.em
-			.createQuery("select e from ProductCategory e where e.clientId = :pClientId and e.category.id = :pCategoryId", ProductCategory.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pCategoryId", categoryId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from ProductCategory e where e.clientId = :pClientId and e.category.id = :pCategoryId",
+						ProductCategory.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCategoryId", categoryId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: products
+	 */
 	public List<ProductCategory> findByProducts(Product products) {
-		return this.findByProductsId(products.getId()); 
+		return this.findByProductsId(products.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: products.id
+	 */
 	public List<ProductCategory> findByProductsId(Long productsId) {
 		return (List<ProductCategory>) this.em
-			.createQuery("select distinct e from ProductCategory e, IN (e.products) c where e.clientId = :pClientId and c.id = :pProductsId", ProductCategory.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pProductsId", productsId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select distinct e from ProductCategory e, IN (e.products) c where e.clientId = :pClientId and c.id = :pProductsId",
+						ProductCategory.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pProductsId", productsId).getResultList();
 	}
 }

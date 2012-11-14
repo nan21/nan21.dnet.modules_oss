@@ -15,6 +15,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssuesMnt_UI", {
 		this._getBuilder_()
 			.addDc("issue", new net.nan21.dnet.module.pj.md.dc.IssueMnt({multiEdit:true}))
 	
+			;
 	}
 
 	,_defineElements_: function() {
@@ -25,13 +26,14 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssuesMnt_UI", {
 			.addDcFormView("issue", {name:"issueViewText", title:"Description", height:120, xtype:"pj_md_dc_IssueMnt$EditText", collapsible:true, collapsed:true
 			})
 			.addPanel({name:"main", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["issueFilter", "issueList", "issueViewText"], ["north", "center", "south"])
 			.addToolbarTo("main", "tlbIssueList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssuesMnt_UI", {
 			.beginToolbar("tlbIssueList", {dc: "issue"}).addQuery().addSave().addDeleteSelected().addCancel()
 			.addReports().addSeparator().addSeparator().addTitle({text: "Issue maintenance"})
 			.end()
+			;
 	}
 
 });

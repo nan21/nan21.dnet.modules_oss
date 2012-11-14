@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.pj.base.domain.entity.ProjectCategory;
 
-@Ds(entity=ProjectCategory.class, sort={@SortField(field=ProjectCategoryDs.fNAME)})
+@Ds(entity = ProjectCategory.class, sort = {@SortField(field = ProjectCategoryDs.fNAME)})
 public class ProjectCategoryDs extends AbstractTypeDs<ProjectCategory> {
-
 
 	public ProjectCategoryDs() {
 		super();
 	}
 
- 	public ProjectCategoryDs(ProjectCategory e) {
+	public ProjectCategoryDs(ProjectCategory e) {
 		super(e);
 	}
 }

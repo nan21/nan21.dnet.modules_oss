@@ -9,10 +9,21 @@ package net.nan21.dnet.module.bd.currency.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateProvider;
 
-public interface ICurrencyXRateProviderService extends IEntityService<CurrencyXRateProvider> {
-	
+/**
+ * Interface to expose business functions specific for {@link CurrencyXRateProvider} domain
+ * entity.
+ */
+public interface ICurrencyXRateProviderService
+		extends
+			IEntityService<CurrencyXRateProvider> {
+
+	/**
+	 * Find by unique key
+	 */
 	public CurrencyXRateProvider findByCode(String code);
-	
+
+	/**
+	 * Find by unique key
+	 */
 	public CurrencyXRateProvider findByName(String name);
-	
 }

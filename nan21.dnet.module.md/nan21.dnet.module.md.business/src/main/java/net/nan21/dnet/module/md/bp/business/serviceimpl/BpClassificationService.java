@@ -16,10 +16,17 @@ import net.nan21.dnet.module.md.bp.business.service.IBpClassificationService;
 import net.nan21.dnet.module.md.bp.domain.entity.BpClassification;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
+/**
+ * Repository functionality for {@link BpClassification} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
+public class BpClassificationService
+		extends
+			AbstractEntityService<BpClassification>
+		implements
+			IBpClassificationService {
 
-public class BpClassificationService extends AbstractEntityService<BpClassification>
-		implements IBpClassificationService {
- 
 	public BpClassificationService() {
 		super();
 	}
@@ -33,40 +40,62 @@ public class BpClassificationService extends AbstractEntityService<BpClassificat
 	public Class<BpClassification> getEntityClass() {
 		return BpClassification.class;
 	}
-	
+
+	/**
+	 * Find by reference: bp
+	 */
 	public List<BpClassification> findByBp(BusinessPartner bp) {
-		return this.findByBpId(bp.getId()); 
+		return this.findByBpId(bp.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: bp.id
+	 */
 	public List<BpClassification> findByBpId(Long bpId) {
 		return (List<BpClassification>) this.em
-			.createQuery("select e from BpClassification e where e.clientId = :pClientId and e.bp.id = :pBpId", BpClassification.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pBpId", bpId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from BpClassification e where e.clientId = :pClientId and e.bp.id = :pBpId",
+						BpClassification.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pBpId", bpId).getResultList();
 	}
-	
-	public List<BpClassification> findByClassSystem(ClassificationSystem classSystem) {
-		return this.findByClassSystemId(classSystem.getId()); 
+
+	/**
+	 * Find by reference: classSystem
+	 */
+	public List<BpClassification> findByClassSystem(
+			ClassificationSystem classSystem) {
+		return this.findByClassSystemId(classSystem.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: classSystem.id
+	 */
 	public List<BpClassification> findByClassSystemId(Long classSystemId) {
 		return (List<BpClassification>) this.em
-			.createQuery("select e from BpClassification e where e.clientId = :pClientId and e.classSystem.id = :pClassSystemId", BpClassification.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pClassSystemId", classSystemId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from BpClassification e where e.clientId = :pClientId and e.classSystem.id = :pClassSystemId",
+						BpClassification.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pClassSystemId", classSystemId).getResultList();
 	}
-	
+
+	/**
+	 * Find by reference: classCode
+	 */
 	public List<BpClassification> findByClassCode(ClassificationItem classCode) {
-		return this.findByClassCodeId(classCode.getId()); 
+		return this.findByClassCodeId(classCode.getId());
 	}
-	
+
+	/**
+	 * Find by ID of reference: classCode.id
+	 */
 	public List<BpClassification> findByClassCodeId(Long classCodeId) {
 		return (List<BpClassification>) this.em
-			.createQuery("select e from BpClassification e where e.clientId = :pClientId and e.classCode.id = :pClassCodeId", BpClassification.class)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pClassCodeId", classCodeId)			 	
-			.getResultList(); 
+				.createQuery(
+						"select e from BpClassification e where e.clientId = :pClientId and e.classCode.id = :pClassCodeId",
+						BpClassification.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pClassCodeId", classCodeId).getResultList();
 	}
 }

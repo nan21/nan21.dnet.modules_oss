@@ -12,10 +12,15 @@ import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.hr.skill.business.service.ISkillCategoryService;
 import net.nan21.dnet.module.hr.skill.domain.entity.SkillCategory;
 
-
+/**
+ * Repository functionality for {@link SkillCategory} domain entity. It contains
+ * finder methods based on unique keys as well as reference fields.
+ * 
+ */
 public class SkillCategoryService extends AbstractEntityService<SkillCategory>
-		implements ISkillCategoryService {
- 
+		implements
+			ISkillCategoryService {
+
 	public SkillCategoryService() {
 		super();
 	}
@@ -29,12 +34,14 @@ public class SkillCategoryService extends AbstractEntityService<SkillCategory>
 	public Class<SkillCategory> getEntityClass() {
 		return SkillCategory.class;
 	}
-	
-	public SkillCategory findByName(String name) {		 
+
+	/**
+	 * Find by unique key
+	 */
+	public SkillCategory findByName(String name) {
 		return (SkillCategory) this.em
-			.createNamedQuery(SkillCategory.NQ_FIND_BY_NAME)
-			.setParameter("pClientId", Session.user.get().getClientId())
-			.setParameter("pName", name)
-			.getSingleResult(); 
+				.createNamedQuery(SkillCategory.NQ_FIND_BY_NAME)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pName", name).getSingleResult();
 	}
 }

@@ -31,6 +31,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.PaymentIn_UI", {
 			.linkDc("accDocLine", "payment",{fields:[
 				{childField:"docUuid", parentField:"uuid"}]}
 			)
+			;
 	}
 
 	,_defineElements_: function() {
@@ -60,7 +61,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.PaymentIn_UI", {
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"paymentDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			.addPanel({name:"accDocPanel", title:"Accounting", layout:"border", defaults:{split:true}})
-			
+			;
 	}
 	
 	,_linkElements_: function() {
@@ -76,6 +77,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.PaymentIn_UI", {
 			.addToolbarTo("prodList", "tlbProdList")
 			.addToolbarTo("amountList", "tlbAmountList")
 			.addToolbarTo("accDocLineList", "tlbAccDocLineList")
+			;
 	}
 
 	,_defineToolbars_: function() {
@@ -98,6 +100,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.PaymentIn_UI", {
 			.beginToolbar("tlbAccDocLineList", {dc: "accDocLine"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Accounting"})
 			.end()
+			;
 	}
 
 	,onBtnConfirm: function() {

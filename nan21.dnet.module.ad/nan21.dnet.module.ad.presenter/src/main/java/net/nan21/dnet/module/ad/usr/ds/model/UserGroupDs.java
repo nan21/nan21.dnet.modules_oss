@@ -10,15 +10,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.UserGroup;
 
-@Ds(entity=UserGroup.class, sort={@SortField(field=UserGroupDs.fNAME)})
+@Ds(entity = UserGroup.class, sort = {@SortField(field = UserGroupDs.fNAME)})
 public class UserGroupDs extends AbstractTypeDs<UserGroup> {
-
 
 	public UserGroupDs() {
 		super();
 	}
 
- 	public UserGroupDs(UserGroup e) {
+	public UserGroupDs(UserGroup e) {
 		super(e);
 	}
 }

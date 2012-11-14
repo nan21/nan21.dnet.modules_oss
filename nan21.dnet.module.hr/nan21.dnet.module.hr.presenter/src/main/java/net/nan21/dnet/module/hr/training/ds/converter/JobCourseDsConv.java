@@ -14,54 +14,65 @@ import net.nan21.dnet.module.hr.training.domain.entity.Course;
 import net.nan21.dnet.module.hr.training.domain.entity.JobCourse;
 import net.nan21.dnet.module.hr.training.ds.model.JobCourseDs;
 
-public class JobCourseDsConv extends AbstractDsConverter<JobCourseDs, JobCourse> 
-		implements IDsConverter<JobCourseDs, JobCourse> {
-    
-    @Override
-    protected void modelToEntityReferences(JobCourseDs ds, JobCourse e, boolean isInsert) throws Exception {
-    	if( ds.getJobId() != null  ) {
-    		if (e.getJob() == null || !e.getJob().getId().equals(ds.getJobId()) ) {
-    			e.setJob( (Job) this.em.find(Job.class, ds.getJobId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_job_Job(ds, e);
-    	}
-    	if( ds.getCourseId() != null  ) {
-    		if (e.getCourse() == null || !e.getCourse().getId().equals(ds.getCourseId()) ) {
-    			e.setCourse( (Course) this.em.find(Course.class, ds.getCourseId() ) );
-    		}
-    	}
-    	else {
-    		this.lookup_course_Course(ds, e);
-    	}
-    }
-    
-    protected void lookup_job_Job(JobCourseDs ds, JobCourse e ) throws Exception {
-    	if (ds.getJobCode() != null && !ds.getJobCode().equals("") ) {
-    		Job x = null;
-    		try { 
-    			x = ((IJobService)findEntityService(Job.class)).findByCode( ds.getJobCode() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Job` reference: `jobCode` = " + ds.getJobCode() + "" );
-    		}
-    		e.setJob(x); 
-    	} else {
-    		e.setJob(null);
-    	}
-    }
-    
-    protected void lookup_course_Course(JobCourseDs ds, JobCourse e ) throws Exception {
-    	if (ds.getCourseCode() != null && !ds.getCourseCode().equals("") ) {
-    		Course x = null;
-    		try { 
-    			x = ((ICourseService)findEntityService(Course.class)).findByCode( ds.getCourseCode() );
-    		} catch(javax.persistence.NoResultException exception) {
-    			throw new Exception("Invalid value provided to find `Course` reference: `courseCode` = " + ds.getCourseCode() + "" );
-    		}
-    		e.setCourse(x); 
-    	} else {
-    		e.setCourse(null);
-    	}
-    }
+public class JobCourseDsConv
+		extends
+			AbstractDsConverter<JobCourseDs, JobCourse>
+		implements
+			IDsConverter<JobCourseDs, JobCourse> {
+
+	@Override
+	protected void modelToEntityReferences(JobCourseDs ds, JobCourse e,
+			boolean isInsert) throws Exception {
+		if (ds.getJobId() != null) {
+			if (e.getJob() == null || !e.getJob().getId().equals(ds.getJobId())) {
+				e.setJob((Job) this.em.find(Job.class, ds.getJobId()));
+			}
+		} else {
+			this.lookup_job_Job(ds, e);
+		}
+		if (ds.getCourseId() != null) {
+			if (e.getCourse() == null
+					|| !e.getCourse().getId().equals(ds.getCourseId())) {
+				e.setCourse((Course) this.em.find(Course.class,
+						ds.getCourseId()));
+			}
+		} else {
+			this.lookup_course_Course(ds, e);
+		}
+	}
+
+	protected void lookup_job_Job(JobCourseDs ds, JobCourse e) throws Exception {
+		if (ds.getJobCode() != null && !ds.getJobCode().equals("")) {
+			Job x = null;
+			try {
+				x = ((IJobService) findEntityService(Job.class)).findByCode(ds
+						.getJobCode());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Job` reference: `jobCode` = "
+								+ ds.getJobCode() + "");
+			}
+			e.setJob(x);
+		} else {
+			e.setJob(null);
+		}
+	}
+
+	protected void lookup_course_Course(JobCourseDs ds, JobCourse e)
+			throws Exception {
+		if (ds.getCourseCode() != null && !ds.getCourseCode().equals("")) {
+			Course x = null;
+			try {
+				x = ((ICourseService) findEntityService(Course.class))
+						.findByCode(ds.getCourseCode());
+			} catch (javax.persistence.NoResultException exception) {
+				throw new Exception(
+						"Invalid value provided to find `Course` reference: `courseCode` = "
+								+ ds.getCourseCode() + "");
+			}
+			e.setCourse(x);
+		} else {
+			e.setCourse(null);
+		}
+	}
 }

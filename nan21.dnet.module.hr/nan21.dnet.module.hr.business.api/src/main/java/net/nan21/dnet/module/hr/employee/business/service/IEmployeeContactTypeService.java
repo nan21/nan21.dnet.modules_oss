@@ -9,8 +9,16 @@ package net.nan21.dnet.module.hr.employee.business.service;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactType;
 
-public interface IEmployeeContactTypeService extends IEntityService<EmployeeContactType> {
-	
+/**
+ * Interface to expose business functions specific for {@link EmployeeContactType} domain
+ * entity.
+ */
+public interface IEmployeeContactTypeService
+		extends
+			IEntityService<EmployeeContactType> {
+
+	/**
+	 * Find by unique key
+	 */
 	public EmployeeContactType findByName(String name);
-	
 }

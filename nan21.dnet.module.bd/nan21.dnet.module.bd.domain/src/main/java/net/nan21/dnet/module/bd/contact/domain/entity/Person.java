@@ -31,135 +31,124 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-	@NamedQuery(
-		name=Person.NQ_FIND_BY_ID,
-		query="SELECT e FROM Person e WHERE e.clientId = :pClientId and e.id = :pId ",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-	,@NamedQuery(
-		name=Person.NQ_FIND_BY_IDS,
-		query="SELECT e FROM Person e WHERE e.clientId = :pClientId and e.id in :pIds",
-		hints=@QueryHint(name=QueryHints.BIND_PARAMETERS, value=HintValues.TRUE)
-	)
-})
+		@NamedQuery(name = Person.NQ_FIND_BY_ID, query = "SELECT e FROM Person e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = Person.NQ_FIND_BY_IDS, query = "SELECT e FROM Person e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="ENTITYTYPE", discriminatorType=DiscriminatorType.STRING, length=32)
-@Table(
-	name=Person.TABLE_NAME
-)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ENTITYTYPE", discriminatorType = DiscriminatorType.STRING, length = 32)
+@Table(name = Person.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
-public class Person extends AbstractAuditable  {
-	
+public class Person extends AbstractAuditable {
+
 	public static final String TABLE_NAME = "BD_PERS";
 	public static final String SEQUENCE_NAME = "BD_PERS_SEQ";
-	
+
 	private static final long serialVersionUID = -8865917134914502125L;
-	
+
 	/**
 	 * Named query find by ID.
-	 */ 
+	 */
 	public static final String NQ_FIND_BY_ID = "Person.findById";
-	
+
 	/**
 	 * Named query find by IDs.
-	 */     
+	 */
 	public static final String NQ_FIND_BY_IDS = "Person.findByIds";
-	
+
 	/**
-			 * System generated unique identifier.
-			 */
-	@Column(name="ID", nullable=false)
+	 * System generated unique identifier.
+	 */
+	@Column(name = "ID", nullable = false)
 	@NotNull
 	@Id
-	@GeneratedValue(generator=SEQUENCE_NAME)
+	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
-	
-	@Column(name="ENTITYTYPE", length=32)
+
+	@Column(name = "ENTITYTYPE", length = 32)
 	private String entityType;
-	
-	@Column(name="FIRSTNAME", length=255)
+
+	@Column(name = "FIRSTNAME", length = 255)
 	private String firstName;
-	
-	@Column(name="LASTNAME", length=255)
+
+	@Column(name = "LASTNAME", length = 255)
 	private String lastName;
-	
-	@Column(name="MIDDLENAME", length=255)
+
+	@Column(name = "MIDDLENAME", length = 255)
 	private String middleName;
-	
-	@Column(name="GENDER", length=16)
+
+	@Column(name = "GENDER", length = 16)
 	private String gender;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name="BIRTHDATE" )
+	@Column(name = "BIRTHDATE")
 	private Date birthDate;
-	
+
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getEntityType() {
 		return this.entityType;
 	}
-	
+
 	public void setEntityType(String entityType) {
 		this.entityType = entityType;
 	}
-	
+
 	public String getFirstName() {
 		return this.firstName;
 	}
-	
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
+
 	public String getLastName() {
 		return this.lastName;
 	}
-	
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public String getMiddleName() {
 		return this.middleName;
 	}
-	
+
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-	
+
 	@Transient
 	public String getName() {
-		return this.lastName + " "+ this.firstName; 
+		return this.lastName + " " + this.firstName;
 	}
-	
+
 	public void setName(String name) {
 	}
-	
+
 	public String getGender() {
 		return this.gender;
 	}
-	
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
+
 	public Date getBirthDate() {
 		return this.birthDate;
 	}
-	
+
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	
+
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
-	
+
 	}
 }
