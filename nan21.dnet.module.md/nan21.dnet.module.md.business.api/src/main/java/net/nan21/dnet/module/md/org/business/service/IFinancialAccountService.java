@@ -12,6 +12,7 @@ import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
+import net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod;
 
 /**
  * Interface to expose business functions specific for {@link FinancialAccount} domain
@@ -55,4 +56,14 @@ public interface IFinancialAccountService
 	 * Find by ID of reference: journal.id
 	 */
 	public List<FinancialAccount> findByJournalId(Long journalId);
+
+	/**
+	 * Find by reference: methods
+	 */
+	public List<FinancialAccount> findByMethods(FinancialAccountMethod methods);
+
+	/**
+	 * Find by ID of reference: methods.id
+	 */
+	public List<FinancialAccount> findByMethodsId(Long methodsId);
 }

@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.Uom", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */

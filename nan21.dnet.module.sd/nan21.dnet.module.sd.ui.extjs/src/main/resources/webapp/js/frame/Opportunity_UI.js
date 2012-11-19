@@ -125,20 +125,26 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 			;
 	}
 
+	
 	,onBtnCreateEventContinue: function() {
 		this._getWindow_("wdwEventCreate").close();
+		this._selectEventEditorForm_();
 	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,_whenCreateNewEvent_: function() {	
 		this._getWindow_("wdwEventCreate").show();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 				var url = this._getDc_("atch").getRecord().get("url");
 				window.open(url, "Attachment", "location=1,status=1,scrollbars=1,width=500,height=400");
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -148,12 +154,14 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,_eventRecordChanged_: function(evnt) {
 		
 		    	//if (this._getElement_("eventPanel").getLayout().getActiveItem().name == "eventEditPanel") {
 		    		this._selectEventEditorForm_();
 		    	//}
 	}
+	
 	,_selectEventEditorForm_: function() {
 		
 		    	var rec = this._getDc_("event").getRecord();
@@ -171,6 +179,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 					this._showStackedViewElement_("eventEditPanel", "eventEditTask");
 				}
 	}
+	
 	,_afterDefineDcs_: function() {
 		
 		    	this._getDc_("event").on("afterDoNew", this._whenCreateNewEvent_, this);

@@ -81,6 +81,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportMap_UI", {
 			;
 	}
 
+	
 	,onBtnRunImportMap: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -89,6 +90,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportMap_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnRunImportItem: function() {
 		var s={modal:true, callbacks:{} };
 		try{

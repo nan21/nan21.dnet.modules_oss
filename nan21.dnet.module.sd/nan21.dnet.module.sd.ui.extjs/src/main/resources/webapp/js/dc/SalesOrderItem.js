@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: FilterCtx ================= */

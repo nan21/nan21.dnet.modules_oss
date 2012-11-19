@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.AssetAcct", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= E-GRID: EditListCtx ================= */

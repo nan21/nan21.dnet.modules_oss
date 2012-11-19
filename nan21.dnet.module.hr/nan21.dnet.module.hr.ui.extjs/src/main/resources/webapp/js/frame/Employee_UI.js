@@ -203,9 +203,11 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.Employee_UI", {
 			;
 	}
 
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -215,6 +217,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.Employee_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 					var url = this._getDc_("atch").getRecord().get("url");

@@ -89,10 +89,10 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 			throws BusinessException {
 		AccDoc doc = this.generateAccDocPurchase(invoice, schema);
 		this.em.persist(doc);
-		if (invoice.getSelfPayed()) {
-			doc = this.generateAccDocPayment(invoice, schema);
-			this.em.persist(doc);
-		}
+//		if (invoice.getSelfPayed()) {
+//			doc = this.generateAccDocPayment(invoice, schema);
+//			this.em.persist(doc);
+//		}
 		return null;
 	}
 

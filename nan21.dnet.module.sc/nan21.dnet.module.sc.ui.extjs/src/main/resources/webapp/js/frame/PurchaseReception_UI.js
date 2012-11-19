@@ -67,6 +67,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 			;
 	}
 
+	
 	,onBtnConfirm: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -75,6 +76,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnUnConfirm: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -83,6 +85,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onAfterDefineDcs: function() {
 				 
 				this._getDc_("tx").on("afterDoServiceSuccess", 
@@ -90,6 +93,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI", {
 				
 				this._getDc_("tx").on("recordChange", this._syncReadOnlyStates_, this );
 	}
+	
 	,_syncReadOnlyStates_: function() {
 		
 				var txRec = this._getDc_("tx").getRecord();

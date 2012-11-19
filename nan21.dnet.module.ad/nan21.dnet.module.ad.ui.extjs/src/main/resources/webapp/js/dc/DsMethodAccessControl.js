@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.DsMethodAccessControl", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */

@@ -112,25 +112,36 @@ public class PaymentOutToAccDocBD extends AbstractBusinessDelegate {
 	 */
 	protected AccDoc createHeader(PaymentOut payment, AccSchema schema)
 			throws BusinessException {
+
 		AccDoc accDoc = new AccDoc();
-		accDoc.setPeriod(getPeriodService().getPostingPeriod(
-				payment.getDocDate(), payment.getFromOrg()));
-		accDoc.setDocDate(payment.getDocDate());
-		if (payment.getDocNo() != null) {
-			accDoc.setDocNo(payment.getDocNo());
-		} else {
-			accDoc.setDocNo(payment.getCode());
+
+		try {
+
+			accDoc.setPeriod(getPeriodService().getPostingPeriod(
+					payment.getDocDate(), payment.getFromOrg()));
+			accDoc.setDocDate(payment.getDocDate());
+			if (payment.getDocNo() != null) {
+				accDoc.setDocNo(payment.getDocNo());
+			} else {
+				accDoc.setDocNo(payment.getCode());
+			}
+			accDoc.setOrg(payment.getFromOrg());
+			accDoc.setAccSchema(schema);
+			accDoc.setDocUuid(payment.getUuid());
+			accDoc.setDocType(payment.getPaymentMethod().getDocType());
+			accDoc.setJournal(payment.getPaymentMethod().getDocType()
+					.getJournal());
+			accDoc.setBpartner(payment.getBpartner());
+			accDoc.setDocCurrency(payment.getCurrency());
+			accDoc.setDocAmount(payment.getAmount());
+			accDoc.setDocNetAmount(payment.getAmount());
+			accDoc.setDocTaxAmount(0F);
+		} catch (Exception e) {
+			throw new BusinessException(
+					"Cannot create accounting document from payment `"
+							+ payment.getCode() + "` ", e);
 		}
-		accDoc.setOrg(payment.getFromOrg());
-		accDoc.setAccSchema(schema);
-		accDoc.setDocUuid(payment.getUuid());
-		accDoc.setDocType(payment.getPaymentMethod().getDocType());
-		accDoc.setJournal(payment.getPaymentMethod().getDocType().getJournal());
-		accDoc.setBpartner(payment.getBpartner());
-		accDoc.setDocCurrency(payment.getCurrency());
-		accDoc.setDocAmount(payment.getAmount());
-		accDoc.setDocNetAmount(payment.getAmount());
-		accDoc.setDocTaxAmount(0F);
+
 		return accDoc;
 	}
 

@@ -48,6 +48,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.ProductCategory_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnCategories: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.md.mm.prod.asgn.ProductsOfCategory$Ui ,{dc: "categ", objectIdField: "id"});
 	}

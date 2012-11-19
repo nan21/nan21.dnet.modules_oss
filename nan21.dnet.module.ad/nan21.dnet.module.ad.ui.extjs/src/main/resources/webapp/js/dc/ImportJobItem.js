@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportJobItem", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= E-GRID: CtxEditList ================= */

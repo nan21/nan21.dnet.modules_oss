@@ -6,6 +6,8 @@
 
 package net.nan21.dnet.module.md.org.domain.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -91,6 +94,9 @@ public class FinancialAccount extends AbstractType {
 	@JoinColumn(name = "JOURNAL_ID", referencedColumnName = "ID")
 	private AccJournal journal;
 
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = FinancialAccountMethod.class, mappedBy = "financialAccount")
+	private Collection<FinancialAccountMethod> methods;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -146,6 +152,22 @@ public class FinancialAccount extends AbstractType {
 			this.__validate_client_context__(journal.getClientId());
 		}
 		this.journal = journal;
+	}
+
+	public Collection<FinancialAccountMethod> getMethods() {
+		return this.methods;
+	}
+
+	public void setMethods(Collection<FinancialAccountMethod> methods) {
+		this.methods = methods;
+	}
+
+	public void addToMethods(FinancialAccountMethod e) {
+		if (this.methods == null) {
+			this.methods = new ArrayList<FinancialAccountMethod>();
+		}
+		e.setFinancialAccount(this);
+		this.methods.add(e);
 	}
 
 	public void aboutToInsert(DescriptorEvent event) {

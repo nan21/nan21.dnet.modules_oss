@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */
@@ -58,40 +57,6 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct$Filter", {
 	}});
 
 
-/* ================= E-GRID: EditList ================= */
-
-
-Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct$EditList", {
-	extend: "dnet.core.dc.AbstractDcvEditableGrid",
-	alias: "widget.md_org_dc_FinancialAccountAcct$EditList",
-	
-	_defineColumns_: function() {
-		this._getBuilder_()	
-			.addTextColumn({name:"financialAccount", dataIndex:"financialAccount", width:120,
-					editor:{xtype:"textfield", selectOnFocus:true}})
-			.addLov({name:"accSchema", dataIndex:"accSchema", xtype:"gridcolumn", width:100,
-					editor:{xtype:"md_acc_lovs_AccSchemas", selectOnFocus:true,
-						retFieldMapping: [
-							{lovField:"id", dsField: "accSchemaId"} 
-						]}})
-			.addLov({name:"depositAccount", dataIndex:"depositAccount", xtype:"gridcolumn", width:100,
-					editor:{xtype:"md_acc_lovs_Accounts", selectOnFocus:true,
-						retFieldMapping: [
-							{lovField:"id", dsField: "depositAccountId"} 
-						]}})
-			.addLov({name:"withdrawalAccount", dataIndex:"withdrawalAccount", xtype:"gridcolumn", width:100,
-					editor:{xtype:"md_acc_lovs_Accounts", selectOnFocus:true,
-						retFieldMapping: [
-							{lovField:"id", dsField: "withdrawalAccountId"} 
-						]}})
-			.addNumberColumn({name:"financialAccountId", dataIndex:"financialAccountId", hidden:true, align:"right", width:70, format:"0"})
-			.addNumberColumn({name:"accSchemaId", dataIndex:"accSchemaId", hidden:true, align:"right", width:70, format:"0"})
-			.addNumberColumn({name:"depositAccountId", dataIndex:"depositAccountId", hidden:true, align:"right", width:70, format:"0"})
-			.addNumberColumn({name:"withdrawalAccountId", dataIndex:"withdrawalAccountId", hidden:true, align:"right", width:70, format:"0"})
-			.addDefaults();
-	}});
-
-
 /* ================= E-GRID: CtxEditList ================= */
 
 
@@ -109,13 +74,15 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct$CtxEditList", {
 			.addLov({name:"depositAccount", dataIndex:"depositAccount", xtype:"gridcolumn", width:100,
 					editor:{xtype:"md_acc_lovs_Accounts", selectOnFocus:true,
 						retFieldMapping: [
-							{lovField:"id", dsField: "depositAccountId"} 
+							{lovField:"id", dsField: "depositAccountId"} ,{lovField:"name", dsField: "depositAccountName"} 
 						]}})
+			.addTextColumn({name:"depositAccountName", dataIndex:"depositAccountName", width:200})
 			.addLov({name:"withdrawalAccount", dataIndex:"withdrawalAccount", xtype:"gridcolumn", width:100,
 					editor:{xtype:"md_acc_lovs_Accounts", selectOnFocus:true,
 						retFieldMapping: [
-							{lovField:"id", dsField: "withdrawalAccountId"} 
+							{lovField:"id", dsField: "withdrawalAccountId"} ,{lovField:"name", dsField: "withdrawalAccountName"} 
 						]}})
+			.addTextColumn({name:"withdrawalAccountName", dataIndex:"withdrawalAccountName", width:200})
 			.addNumberColumn({name:"financialAccountId", dataIndex:"financialAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"accSchemaId", dataIndex:"accSchemaId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"depositAccountId", dataIndex:"depositAccountId", hidden:true, align:"right", width:70, format:"0"})

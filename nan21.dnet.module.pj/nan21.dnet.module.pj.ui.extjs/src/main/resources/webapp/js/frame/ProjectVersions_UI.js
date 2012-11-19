@@ -48,6 +48,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.ProjectVersions_UI", {
 			;
 	}
 
+	
 	,onBtnRoadmapUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI";
@@ -64,6 +65,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.ProjectVersions_UI", {
 			}
 		});
 	}
+	
 	,onBtnChangelogUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI";

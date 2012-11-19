@@ -84,9 +84,11 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 			;
 	}
 
+	
 	,onBtnShowCloneWdw: function() {
 		this._getWindow_("wdwClone").show();
 	}
+	
 	,onBtnDoClone: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {

@@ -147,40 +147,50 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnAffectedVersions: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.pj.md.asgn.IssueAffectedVersions$Ui ,{dc: "issue", objectIdField: "id"});
 	}
+	
 	,onBtnAsgnAffectedComps: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.pj.md.asgn.IssueAffectedComponents$Ui ,{dc: "issue", objectIdField: "id"});
 	}
+	
 	,onBtnSaveLink: function() {
 		this._getDc_("link").doSave();
 	}
+	
 	,onBtnCancelLink: function() {
 		this._getDc_("link").doCancel();
 		this._getWindow_("wdwIssueLinkCreate").close();
 	}
+	
 	,onBtnTaskUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueTask_UI";
 		getApplication().showFrameByName(bundle, frame);
 	}
+	
 	,onBtnRoadmapUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI";
 		getApplication().showFrameByName(bundle, frame);
 	}
+	
 	,onBtnChangelogUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI";
 		getApplication().showFrameByName(bundle, frame);
 	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,_whenCreateNewLink_: function() {	
 		this._getWindow_("wdwIssueLinkCreate").show();
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -190,14 +200,17 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Issues_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 				var url = this._getDc_("atch").getRecord().get("url");
 				window.open(url, "Attachment", "location=1,status=1,scrollbars=1,width=500,height=400");
 	}
+	
 	,_afterDefineDcs_: function() {
 		this._getDc_("link").on("afterDoNew", this._whenCreateNewLink_, this);
 	}
+	
 	,_when_called_to_edit_: function(params) {
 		
 				var issue = this._getDc_("issue");

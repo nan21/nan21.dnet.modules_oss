@@ -133,6 +133,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			;
 	}
 
+	
 	,onBtnKillProcessInstance: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -146,6 +147,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnSaveAssignTask: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -166,9 +168,11 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnOpenAsignTaskWindow: function() {
 		this._getWindow_("wdwAssignTask").show();
 	}
+	
 	,doStartProcessInstance: function(result) {
 		var rec = this._getDc_("dcProcess").getRecord() ;
 		var processDefinitionId = result.processDefinitionId;
@@ -190,6 +194,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 				} );
 		}
 	}
+	
 	,doCompleteTask: function(result) {
 		var rec = this._getDc_("dcRunningTask").getRecord() ;
 		var taskId = rec.data.id;
@@ -214,39 +219,49 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI", {
 				} );
 		}
 	}
+	
 	,onBtnStartProcess: function() {
 		var procDefId = this._getDc_("dcProcess").getRecord().data.id;
 		Dnet.doWithGetResult(Dnet.wfProcessDefinitionAPI(procDefId).properties, null, this.doStartProcessInstance, this);
 	}
+	
 	,onBtnCompleteTask: function() {
 		var taskId = this._getDc_("dcRunningTask").getRecord().data.id;
 		Dnet.doWithGetResult(Dnet.wfTaskAPI(taskId).properties, null, this.doCompleteTask, this);
 	}
+	
 	,onBtnGetProcessDefinitionXml: function() {
 		var id = this._getDc_("dcProcess").getRecord().get("id");
 		window.open(Dnet.wfProcessDefinitionAPI(id).xml,"ProcessDefinition","width=550,height=450,scrollbars=1,status=1");
 	}
+	
 	,onBtnGetProcessInstanceXml: function() {
 		var id = this._getDc_("dcRunningInstance").getRecord().get("processId");
 		window.open(Dnet.wfProcessDefinitionAPI(id).xml,"ProcessDefinition","width=550,height=450,scrollbars=1,status=1");
 	}
+	
 	,onBtnGetProcessDefinitionDiagram: function() {
 		var id = this._getDc_("dcProcess").getRecord().get("id");
 		window.open(Dnet.wfProcessDefinitionAPI(id).diagram,"ProcessDiagram","width=550,height=450,scrollbars=1,status=1");
 	}
+	
 	,onBtnGetProcessInstanceDiagram: function() {
 		var id = this._getDc_("dcRunningInstance").getRecord().get("id");
 		window.open(Dnet.wfProcessInstanceAPI(id).diagram,"ProcessDiagram","width=550,height=450,scrollbars=1,status=1");
 	}
+	
 	,onBtnUploadForDeployment: function() {
 		var w=new dnet.core.base.FileUploadWindow({_uploadUrl_:"/nan21.dnet.core.web/upload/deployUploadedWorkflow"});w.show();
 	}
+	
 	,onBtnDeleteDeployment: function() {
 		this.onDeleteDeploymentDelegate(false); 
 	}
+	
 	,onBtnDeleteCascadeDeployment: function() {
 		this.onDeleteDeploymentDelegate(true);
 	}
+	
 	,onDeleteDeploymentDelegate: function(cascade) {
 		var sel = this._getDc_("dcDeployment").getSelectedRecords(); 
 		var ids = "";

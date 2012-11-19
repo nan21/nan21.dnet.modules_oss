@@ -88,9 +88,11 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 			;
 	}
 
+	
 	,onBtnAddProdByCateg: function() {
 		this._getWindow_("wdwVersionCopyProdFromCateg").show();
 	}
+	
 	,onBtnAddProdByCategExec: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -105,6 +107,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onShowCanvas2: function() {
 		this._getElement_("main").getLayout().setActiveItem(1);
 	}

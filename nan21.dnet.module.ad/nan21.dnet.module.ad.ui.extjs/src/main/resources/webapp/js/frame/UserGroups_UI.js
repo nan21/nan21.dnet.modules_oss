@@ -48,6 +48,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.UserGroups_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnUsers: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.UserGroupUsers$Ui ,{dc: "dcGroup", objectIdField: "id"});
 	}

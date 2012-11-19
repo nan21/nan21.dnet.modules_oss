@@ -41,6 +41,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.MyUserSettings_UI", {
 			;
 	}
 
+	
 	,loadCurrentUser: function() {
 		
 		  		var client = this._getDc_('usr');

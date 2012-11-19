@@ -103,6 +103,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			;
 	}
 
+	
 	,onBtnRoadmapUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueRoadmap_UI";
@@ -119,6 +120,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			}
 		});
 	}
+	
 	,onBtnChangelogUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI";
@@ -135,9 +137,11 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 			}
 		});
 	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -147,6 +151,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 				var url = this._getDc_("atch").getRecord().get("url");

@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MyUserSettings", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= EDITOR: Edit ================= */

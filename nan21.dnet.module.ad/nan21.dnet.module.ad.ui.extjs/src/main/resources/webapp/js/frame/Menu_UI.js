@@ -67,9 +67,11 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Menu_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnItemRoles: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.MenuItemRoles$Ui ,{dc: "menuitem", objectIdField: "id"});
 	}
+	
 	,onBtnAsgnMenuRoles: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.MenuRoles$Ui ,{dc: "menu", objectIdField: "id"});
 	}

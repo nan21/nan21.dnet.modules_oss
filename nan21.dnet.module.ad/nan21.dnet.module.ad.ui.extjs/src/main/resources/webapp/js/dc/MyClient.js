@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.MyClient", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= EDITOR: Edit ================= */

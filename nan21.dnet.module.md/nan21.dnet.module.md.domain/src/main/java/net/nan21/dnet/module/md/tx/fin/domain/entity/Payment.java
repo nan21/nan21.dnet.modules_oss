@@ -95,6 +95,10 @@ public class Payment extends AbstractAuditable {
 	@Column(name = "AMOUNT", scale = 2)
 	private Float amount;
 
+	@Column(name = "GENERATED", nullable = false)
+	@NotNull
+	private Boolean generated;
+
 	@Column(name = "CONFIRMED", nullable = false)
 	@NotNull
 	private Boolean confirmed;
@@ -185,6 +189,14 @@ public class Payment extends AbstractAuditable {
 
 	public void setAmount(Float amount) {
 		this.amount = amount;
+	}
+
+	public Boolean getGenerated() {
+		return this.generated;
+	}
+
+	public void setGenerated(Boolean generated) {
+		this.generated = generated;
 	}
 
 	public Boolean getConfirmed() {
@@ -307,6 +319,9 @@ public class Payment extends AbstractAuditable {
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);
 
+		if (this.getGenerated() == null) {
+			event.updateAttributeWithObject("generated", false);
+		}
 		if (this.getConfirmed() == null) {
 			event.updateAttributeWithObject("confirmed", false);
 		}

@@ -57,6 +57,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysJob_UI", {
 			;
 	}
 
+	
 	,onBtnSynchronize: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {

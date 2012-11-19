@@ -33,20 +33,24 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PaymentOut_UI", {
 	,_defineElements_: function() {
 		this._getBuilder_()
 			.addButton({name:"btnConfirm", text:"Confirm", tooltip:"Confirm payment.", iconCls:"icon-action-commit", disabled:true,
-					handler: this.onBtnConfirm, scope:this, stateManager:{name:"selected_one_clean", dc:"payment" , and: function(dc) {return (dc.record && !dc.record.get("confirmed"));}}})
+					handler: this.onBtnConfirm, scope:this, stateManager:{name:"selected_one_clean", dc:"payment" , and: function(dc) {return (dc.record && !dc.record.get("confirmed") && !dc.record.get("generated"));}}})
 			.addButton({name:"btnUnConfirm", text:"Un-Confirm", tooltip:"Un-Confirm payment.", iconCls:"icon-action-rollback", disabled:true,
-					handler: this.onBtnUnConfirm, scope:this, stateManager:{name:"selected_one_clean", dc:"payment" , and: function(dc) {return (dc.record && dc.record.get("confirmed") && !dc.record.get("posted")  );}}})
+					handler: this.onBtnUnConfirm, scope:this, stateManager:{name:"selected_one_clean", dc:"payment" , and: function(dc) {return (dc.record && dc.record.get("confirmed") && !dc.record.get("posted") && !dc.record.get("generated")  );}}})
 			.addButton({name:"btnPost", text:"Post", tooltip:"Post payment to accounting.", iconCls:"icon-action-commit", disabled:true,
 					handler: this.onBtnPost, scope:this, stateManager:{name:"selected_one_clean", dc:"payment" , and: function(dc) {return (dc.record && dc.record.get("confirmed")&& !dc.record.get("posted"));}}})
 			.addButton({name:"btnUnPost", text:"Un-Post", tooltip:"Un-Post payment from accounting.", iconCls:"icon-action-rollback", disabled:true,
 					handler: this.onBtnUnPost, scope:this, stateManager:{name:"selected_one_clean", dc:"payment" , and: function(dc) {return (dc.record && dc.record.get("confirmed") &&  dc.record.get("confirmed") && dc.record.get("posted") );}}})
+			.addButton({name:"btnShowInvoice", text:"Show invoice", tooltip:"Show invoice", disabled:true,
+					handler: this.onBtnShowInvoice, scope:this, stateManager:{name:"selected_one", dc:"amount" , and: function(dc) {return ( !Ext.isEmpty(dc.record.get("invoiceCode")));}}})
 			
 			.addDcFilterFormView("payment", {name:"paymentFilter", height:130, xtype:"sc_invoice_dc_PaymentOut$Filter"})
 			.addDcGridView("payment", {name:"paymentList", xtype:"sc_invoice_dc_PaymentOut$List"})
 			.addDcFormView("payment", {name:"paymentEdit", height:180, xtype:"sc_invoice_dc_PaymentOut$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm"), this._elems_.get("btnPost"), this._elems_.get("btnUnPost")]}]})
-			.addDcGridView("amount", {name:"amountList", title:"Amounts", xtype:"sc_invoice_dc_PaymentOutAmount$List"})
+			.addDcGridView("amount", {name:"amountList", title:"Payed amounts", xtype:"sc_invoice_dc_PaymentOutAmount$List", 
+					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
+						items:[ this._elems_.get("btnShowInvoice")]}]})
 			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})
 			.addDcFilterFormView("accDocLine", {name:"accDocLineFilter", title:"Filter", width:250, xtype:"md_tx_acc_dc_AccDocLineCtx$Filter", collapsible:true, collapsed:true
 			})
@@ -132,6 +136,20 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PaymentOut_UI", {
 		}
 	}
 	
+	,onBtnShowInvoice: function() {
+		var bundle = "nan21.dnet.module.sc.ui.extjs";
+		var frame = "net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoice_UI";
+		getApplication().showFrame(frame,{
+			url:Dnet.buildUiPath(bundle, frame, false),
+			params: {
+			code: this._getDc_("amount").getRecord().get("invoiceCode")
+			},
+			callback: function (params) {
+				this._when_called_to_edit_(params);
+			}
+		});
+	}
+	
 	,openProposalWdw: function() {
 		  
 		var paymentRec = this._getDc_("payment").getRecord();
@@ -150,7 +168,11 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PaymentOut_UI", {
 	,onAfterDefineDcs: function() {
 		  
 		this._getDc_("payment").on("afterDoServiceSuccess", 
-		function() { this._applyStateAllButtons_(); this._getDc_("amount").doQuery();  } , this );
+		function() { 
+			this._applyStateAllButtons_(); 
+			this._getDc_("amount").doQuery();  
+			this._getDc_("accDocLine").doQuery();
+		} , this );
 				
 		this._getDc_("proposal").on("afterDoSaveSuccess", 
 		function() { 

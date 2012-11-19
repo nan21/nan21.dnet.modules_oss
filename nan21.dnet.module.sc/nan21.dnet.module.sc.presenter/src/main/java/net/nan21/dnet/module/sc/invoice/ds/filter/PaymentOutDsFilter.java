@@ -74,6 +74,8 @@ public class PaymentOutDsFilter extends AbstractAuditableDsFilter {
 
 	private Boolean posted;
 
+	private Boolean generated;
+
 	public String getCode() {
 		return this.code;
 	}
@@ -328,5 +330,13 @@ public class PaymentOutDsFilter extends AbstractAuditableDsFilter {
 
 	public void setPosted(Boolean posted) {
 		this.posted = posted;
+	}
+
+	public Boolean getGenerated() {
+		return this.generated;
+	}
+
+	public void setGenerated(Boolean generated) {
+		this.generated = generated;
 	}
 }

@@ -59,19 +59,19 @@
 
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="insert" read-only="false"/>
-			<tx:method name="update" read-only="false"/>
-			<tx:method name="delete*" read-only="false"/>
-			<tx:method name="do*" read-only="false"/>
+			<tx:method name="insert" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="update" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="delete*" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="do*" read-only="false" rollback-for="BusinessException"/>
 		</tx:attributes>
 	</tx:advice>
 
 	<tx:advice id="txAdviceAsgn" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="setup" read-only="false"/>
-			<tx:method name="reset" read-only="false"/>
-			<tx:method name="save" read-only="false"/>
-			<tx:method name="move*" read-only="false"/>
+			<tx:method name="setup" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="reset" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="save" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="move*" read-only="false" rollback-for="BusinessException"/>
 		</tx:attributes>
 	</tx:advice>
 

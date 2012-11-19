@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobCtxParam", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= E-GRID: CtxEditList ================= */

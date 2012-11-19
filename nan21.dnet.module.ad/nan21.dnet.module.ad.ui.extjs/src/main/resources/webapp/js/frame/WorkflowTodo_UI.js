@@ -75,6 +75,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 			;
 	}
 
+	
 	,onBtnClaimTask: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -88,6 +89,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,doCompleteTask: function(result) {
 		
 				var rec = this._getDc_("dcMytask").getRecord() ;
@@ -112,6 +114,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI", {
 						} );
 				}
 	}
+	
 	,onBtnCompleteTask: function() {
 		
 				var taskId = this._getDc_("dcMytask").getRecord().data.id;

@@ -111,16 +111,21 @@ Ext.define("net.nan21.dnet.module.ad.report.frame.Reports_UI", {
 			;
 	}
 
+	
 	,onBtnTestReport: function() {
 		this._getWindow_("wdwTestReport").show();
 		this._getDc_("paramsRt").doQuery();
 	}
+	
 	,onBtnRunReport: function() {
+		this._runReport_();
 	}
+	
 	,onBtnCancelReport: function() {
 		this._getDc_("paramsRt").doCancel();
 		this._getWindow_("wdwTestReport").close();
 	}
+	
 	,_runReport_: function() {
 		var paramsDc = this._getDc_("paramsRt")
 					serverUrl = this._getDc_("rep").record.data.serverUrl;

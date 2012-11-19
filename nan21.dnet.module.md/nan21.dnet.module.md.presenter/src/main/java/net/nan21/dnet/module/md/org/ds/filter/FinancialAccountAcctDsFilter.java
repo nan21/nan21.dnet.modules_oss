@@ -33,6 +33,8 @@ public class FinancialAccountAcctDsFilter extends AbstractAuditableDsFilter {
 
 	private String depositAccount;
 
+	private String depositAccountName;
+
 	private Long withdrawalAccountId;
 
 	private Long withdrawalAccountId_From;
@@ -40,6 +42,8 @@ public class FinancialAccountAcctDsFilter extends AbstractAuditableDsFilter {
 	private Long withdrawalAccountId_To;
 
 	private String withdrawalAccount;
+
+	private String withdrawalAccountName;
 
 	public Long getFinancialAccountId() {
 		return this.financialAccountId;
@@ -137,6 +141,14 @@ public class FinancialAccountAcctDsFilter extends AbstractAuditableDsFilter {
 		this.depositAccount = depositAccount;
 	}
 
+	public String getDepositAccountName() {
+		return this.depositAccountName;
+	}
+
+	public void setDepositAccountName(String depositAccountName) {
+		this.depositAccountName = depositAccountName;
+	}
+
 	public Long getWithdrawalAccountId() {
 		return this.withdrawalAccountId;
 	}
@@ -167,5 +179,13 @@ public class FinancialAccountAcctDsFilter extends AbstractAuditableDsFilter {
 
 	public void setWithdrawalAccount(String withdrawalAccount) {
 		this.withdrawalAccount = withdrawalAccount;
+	}
+
+	public String getWithdrawalAccountName() {
+		return this.withdrawalAccountName;
+	}
+
+	public void setWithdrawalAccountName(String withdrawalAccountName) {
+		this.withdrawalAccountName = withdrawalAccountName;
 	}
 }

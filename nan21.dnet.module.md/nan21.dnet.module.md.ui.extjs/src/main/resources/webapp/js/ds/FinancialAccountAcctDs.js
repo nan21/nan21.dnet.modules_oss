@@ -13,6 +13,7 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs" ,{
 		{name:"createdBy", type:"string"},
 		{name:"depositAccount", type:"string"},
 		{name:"depositAccountId", type:"int", useNull:true},
+		{name:"depositAccountName", type:"string"},
 		{name:"entityFQN", type:"string"},
 		{name:"financialAccount", type:"string"},
 		{name:"financialAccountId", type:"int", useNull:true},
@@ -22,7 +23,8 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true},
 		{name:"withdrawalAccount", type:"string"},
-		{name:"withdrawalAccountId", type:"int", useNull:true}
+		{name:"withdrawalAccountId", type:"int", useNull:true},
+		{name:"withdrawalAccountName", type:"string"}
 	]});
 Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDsFilter" ,{
 	extend: 'Ext.data.Model',
@@ -39,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDsFilter" 
 		{name:"depositAccountId", type:"int", useNull:true},
 		{name:"depositAccountId_From",type:"int", useNull:true},
 		{name:"depositAccountId_To",type:"int", useNull:true},
+		{name:"depositAccountName", type:"string"},
 		{name:"entityFQN", type:"string"},
 		{name:"financialAccount", type:"string"},
 		{name:"financialAccountId", type:"int", useNull:true},
@@ -53,7 +56,8 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDsFilter" 
 		{name:"withdrawalAccount", type:"string"},
 		{name:"withdrawalAccountId", type:"int", useNull:true},
 		{name:"withdrawalAccountId_From",type:"int", useNull:true},
-		{name:"withdrawalAccountId_To",type:"int", useNull:true}
+		{name:"withdrawalAccountId_To",type:"int", useNull:true},
+		{name:"withdrawalAccountName", type:"string"}
 	]
 });
 Ext.define("net.nan21.dnet.module.md.org.ds.param.FinancialAccountAcctDsParam", {

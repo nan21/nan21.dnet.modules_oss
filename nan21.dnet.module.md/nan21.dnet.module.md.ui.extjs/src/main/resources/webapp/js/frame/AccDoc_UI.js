@@ -60,6 +60,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccDoc_UI", {
 			;
 	}
 
+	
 	,onBtnPost: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -68,6 +69,7 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.frame.AccDoc_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnUnPost: function() {
 		var s={modal:true, callbacks:{} };
 		try{

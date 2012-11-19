@@ -26,8 +26,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentInAmount$List", {
 
 	_defineColumns_: function() {
 		this._getBuilder_()
-			.addTextColumn({ name:"invoiceCode", dataIndex:"invoiceCode", width:100})
-			.addTextColumn({ name:"invoiceDocNo", dataIndex:"invoiceDocNo", width:200})
+			.addTextColumn({ name:"invoiceCode", dataIndex:"invoiceCode", width:80})
+			.addTextColumn({ name:"invoiceDocNo", dataIndex:"invoiceDocNo", width:80})
 			.addDateColumn({ name:"invoiceDocDate", dataIndex:"invoiceDocDate", format: Dnet.DATE_FORMAT})
 			.addNumberColumn({ name:"dueAmount", dataIndex:"dueAmount", decimals:2})
 			.addNumberColumn({ name:"payedAmount", dataIndex:"payedAmount", decimals:2})

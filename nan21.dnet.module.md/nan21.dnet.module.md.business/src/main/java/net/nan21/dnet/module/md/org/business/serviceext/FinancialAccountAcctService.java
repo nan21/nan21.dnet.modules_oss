@@ -22,21 +22,26 @@ public class FinancialAccountAcctService
 	 */
 	public String getPostingDepositAcct(FinancialAccount financialAccount,
 			AccSchema schema) throws BusinessException {
-		FinancialAccountAcct acct = this.findByAccount_schema(
-				financialAccount.getId(), schema.getId());
-		if (acct != null && acct.getDepositAccount() != null) {
-			if (financialAccount.getAnaliticSegment() != null) {
-				return acct.getDepositAccount().getCode() + "."
-						+ financialAccount.getAnaliticSegment();
+		try {
+			FinancialAccountAcct acct = this.findByAccount_schema(
+					financialAccount.getId(), schema.getId());
+			if (acct != null && acct.getDepositAccount() != null) {
+				if (financialAccount.getAnaliticSegment() != null) {
+					return acct.getDepositAccount().getCode() + "."
+							+ financialAccount.getAnaliticSegment();
+				}
+				return acct.getDepositAccount().getCode();
 			}
-			return acct.getDepositAccount().getCode();
+			throw new Exception("No posting account found.");
+		} catch (Exception e) {
+			throw new RuntimeException(
+					"No posting account found for financial account `"
+							+ financialAccount.getName()
+							+ "` for accounting schema `"
+							+ schema.getCode()
+							+ "`. Specify accounting settings at financial account level.");
 		}
-		throw new RuntimeException(
-				"No posting account found for financial account `"
-						+ financialAccount.getName()
-						+ "` for accounting schema `"
-						+ schema.getCode()
-						+ "`. Specify accounting settings at financial account level.");
+
 	}
 
 	/**
@@ -45,20 +50,25 @@ public class FinancialAccountAcctService
 	 */
 	public String getPostingWithdrawalAcct(FinancialAccount financialAccount,
 			AccSchema schema) throws BusinessException {
-		FinancialAccountAcct acct = this.findByAccount_schema(
-				financialAccount.getId(), schema.getId());
-		if (acct != null && acct.getWithdrawalAccount() != null) {
-			if (financialAccount.getAnaliticSegment() != null) {
-				return acct.getWithdrawalAccount().getCode() + "."
-						+ financialAccount.getAnaliticSegment();
+		try {
+			FinancialAccountAcct acct = this.findByAccount_schema(
+					financialAccount.getId(), schema.getId());
+			if (acct != null && acct.getWithdrawalAccount() != null) {
+				if (financialAccount.getAnaliticSegment() != null) {
+					return acct.getWithdrawalAccount().getCode() + "."
+							+ financialAccount.getAnaliticSegment();
+				}
+				return acct.getWithdrawalAccount().getCode();
 			}
-			return acct.getWithdrawalAccount().getCode();
+			throw new Exception("No posting account found.");
+		} catch (Exception e) {
+			throw new BusinessException(
+					"No posting account found for financial account `"
+							+ financialAccount.getName()
+							+ "` for accounting schema `"
+							+ schema.getCode()
+							+ "`. Specify accounting settings at financial account level.");
 		}
-		throw new RuntimeException(
-				"No posting account found for financial account `"
-						+ financialAccount.getName()
-						+ "` for accounting schema `"
-						+ schema.getCode()
-						+ "`. Specify accounting settings at financial account level.");
+
 	}
 }

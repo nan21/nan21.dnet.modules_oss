@@ -43,6 +43,7 @@ Ext.define("net.nan21.dnet.module.ad.client.frame.MyClient_UI", {
 			;
 	}
 
+	
 	,loadCurrentClient: function() {	
 		this._getDc_("client").doQuery();
 	}

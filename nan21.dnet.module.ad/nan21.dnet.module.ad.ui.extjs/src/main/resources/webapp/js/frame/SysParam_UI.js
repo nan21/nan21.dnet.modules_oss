@@ -55,6 +55,7 @@ Ext.define("net.nan21.dnet.module.ad.system.frame.SysParam_UI", {
 			;
 	}
 
+	
 	,onBtnSynchronize: function() {
 		var s={modal:true, callbacks:{} };
 		try{

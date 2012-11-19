@@ -145,12 +145,15 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.Product_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnCategories: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.md.mm.prod.asgn.CategoriesOfProduct$Ui ,{dc: "prod", objectIdField: "id"});
 	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -160,6 +163,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.Product_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 				var url = this._getDc_("atch").getRecord().get("url");

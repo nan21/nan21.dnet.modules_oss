@@ -21,8 +21,10 @@ public class FinancialAccountAcctDs
 	public static final String fACCSCHEMA = "accSchema";
 	public static final String fDEPOSITACCOUNTID = "depositAccountId";
 	public static final String fDEPOSITACCOUNT = "depositAccount";
+	public static final String fDEPOSITACCOUNTNAME = "depositAccountName";
 	public static final String fWITHDRAWALACCOUNTID = "withdrawalAccountId";
 	public static final String fWITHDRAWALACCOUNT = "withdrawalAccount";
+	public static final String fWITHDRAWALACCOUNTNAME = "withdrawalAccountName";
 
 	@DsField(join = "left", path = "financialAccount.id")
 	private Long financialAccountId;
@@ -42,11 +44,17 @@ public class FinancialAccountAcctDs
 	@DsField(join = "left", path = "depositAccount.code")
 	private String depositAccount;
 
+	@DsField(noInsert = true, noUpdate = true, join = "left", path = "depositAccount.name")
+	private String depositAccountName;
+
 	@DsField(join = "left", path = "withdrawalAccount.id")
 	private Long withdrawalAccountId;
 
 	@DsField(join = "left", path = "withdrawalAccount.code")
 	private String withdrawalAccount;
+
+	@DsField(noInsert = true, noUpdate = true, join = "left", path = "withdrawalAccount.name")
+	private String withdrawalAccountName;
 
 	public FinancialAccountAcctDs() {
 		super();
@@ -104,6 +112,14 @@ public class FinancialAccountAcctDs
 		this.depositAccount = depositAccount;
 	}
 
+	public String getDepositAccountName() {
+		return this.depositAccountName;
+	}
+
+	public void setDepositAccountName(String depositAccountName) {
+		this.depositAccountName = depositAccountName;
+	}
+
 	public Long getWithdrawalAccountId() {
 		return this.withdrawalAccountId;
 	}
@@ -118,5 +134,13 @@ public class FinancialAccountAcctDs
 
 	public void setWithdrawalAccount(String withdrawalAccount) {
 		this.withdrawalAccount = withdrawalAccount;
+	}
+
+	public String getWithdrawalAccountName() {
+		return this.withdrawalAccountName;
+	}
+
+	public void setWithdrawalAccountName(String withdrawalAccountName) {
+		this.withdrawalAccountName = withdrawalAccountName;
 	}
 }

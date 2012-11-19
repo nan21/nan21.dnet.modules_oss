@@ -49,7 +49,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.PaymentIn_UI", {
 			.addDcFormView("payment", {name:"paymentEdit", height:180, xtype:"sd_invoice_dc_PaymentIn$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm")]}]})
-			.addDcGridView("amount", {name:"amountList", title:"Amounts", xtype:"sd_invoice_dc_PaymentInAmount$List", 
+			.addDcGridView("amount", {name:"amountList", title:"Payed amounts", xtype:"sd_invoice_dc_PaymentInAmount$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowInvoice")]}]})
 			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})

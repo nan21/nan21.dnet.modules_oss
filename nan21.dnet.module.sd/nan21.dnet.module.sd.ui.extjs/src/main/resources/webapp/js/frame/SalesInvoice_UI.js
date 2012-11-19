@@ -85,7 +85,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 			.addDcFormView("item", {name:"itemEdit", xtype:"sd_invoice_dc_SalesInvoiceItem$EditForm"})
 			.addDcGridView("itemTax", {name:"itemTaxList", title:"Item taxes", width:400, xtype:"sd_invoice_dc_SalesInvoiceItemTax$CtxList", collapsible:true, collapsed:true
 			})
-			.addDcGridView("amount", {name:"amountList", width:700, xtype:"sd_invoice_dc_SalesTxAmount$List"})
+			.addDcGridView("amount", {name:"amountList", width:800, xtype:"sd_invoice_dc_SalesTxAmount$List"})
 			.addDcGridView("payedAmount", {name:"payedAmountList", xtype:"sd_invoice_dc_SalesTxAmountPayment$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowPayment")]}]})
@@ -170,7 +170,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Item taxes"})
 			.end()
 			.beginToolbar("tlbAmountList", {dc: "amount"}).addQuery()
-			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Due amounts"})
+			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Receivables"})
 			.end()
 			.beginToolbar("tlbPayedAmountList", {dc: "payedAmount"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Payments"})

@@ -54,15 +54,19 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Role_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnRoleToUsers: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.RolesOfUser$Ui ,{dc: "rol", objectIdField: "id"});
 	}
+	
 	,onBtnAsgnRoleToAccessCtrl: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.RolesOfAccessControl$Ui ,{dc: "rol", objectIdField: "id"});
 	}
+	
 	,onBtnAsgnRoleToMenuItem: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.RoleMenuItems$Ui ,{dc: "rol", objectIdField: "id"});
 	}
+	
 	,onBtnAsgnRoleToMenu: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.RoleMenus$Ui ,{dc: "rol", objectIdField: "id"});
 	}

@@ -70,6 +70,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			;
 	}
 
+	
 	,onBtnOpenPeriod: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -78,6 +79,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnClosePeriod: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -86,6 +88,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnProcessPeriod: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -94,6 +97,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnClearPeriod: function() {
 		var s={modal:true, callbacks:{} };
 		try{

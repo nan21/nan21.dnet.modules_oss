@@ -76,6 +76,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.frame.Asset_UI", {
 			;
 	}
 
+	
 	,onBtnCreateAmortization: function() {
 		
 				Ext.Msg.alert("Missing feature","This function is not implemented yet. However, amortization plan can be created manually.");

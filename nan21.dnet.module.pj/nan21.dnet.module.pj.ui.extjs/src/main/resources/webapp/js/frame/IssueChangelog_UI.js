@@ -49,6 +49,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI", {
 			;
 	}
 
+	
 	,onBtnIssueUi: function() {
 		var bundle = "nan21.dnet.module.pj.ui.extjs";
 		var frame = "net.nan21.dnet.module.pj.md.frame.Issues_UI";
@@ -64,6 +65,7 @@ Ext.define("net.nan21.dnet.module.pj.md.frame.IssueChangelog_UI", {
 			}
 		});
 	}
+	
 	,_when_called_to_query_: function(params) {
 		
 				var issue = this._getDc_("issue");

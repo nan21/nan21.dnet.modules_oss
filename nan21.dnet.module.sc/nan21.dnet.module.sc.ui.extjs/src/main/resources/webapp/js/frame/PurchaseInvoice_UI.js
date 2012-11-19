@@ -73,7 +73,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoice_UI", {
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnConfirmInvoice"), this._elems_.get("btnUnConfirmInvoice"), this._elems_.get("btnPostInvoice"), this._elems_.get("btnUnPostInvoice")]}]})
 			.addDcFormView("inv", {name:"invEditDetails", title:"Details", xtype:"sc_invoice_dc_PurchaseInvoice$EditDetails"})
-			.addDcGridView("amount", {name:"amountList", width:700, xtype:"sc_invoice_dc_PurchaseTxAmount$List"})
+			.addDcGridView("amount", {name:"amountList", width:800, xtype:"sc_invoice_dc_PurchaseTxAmount$List"})
 			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sc_invoice_dc_PurchaseInvoiceTax$List"})
 			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})
 			.addDcFilterFormView("accDocLine", {name:"accDocLineFilter", title:"Filter", width:250, xtype:"md_tx_acc_dc_AccDocLineCtx$Filter", collapsible:true, collapsed:true
@@ -168,7 +168,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoice_UI", {
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Item taxes"})
 			.end()
 			.beginToolbar("tlbAmountList", {dc: "amount"}).addQuery().addSave().addNew().addCopy().addDeleteSelected().addCancel()
-			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Due amounts"})
+			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Payables"})
 			.end()
 			.beginToolbar("tlbPayedAmountList", {dc: "payedAmount"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Payments"})
@@ -264,7 +264,12 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoice_UI", {
 		} , this );
 		
 		this._getDc_("inv").on("afterDoServiceSuccess", 
-		function() { this._applyStateAllButtons_(); this._syncReadOnlyStates_();  } , this );
+		function() { 
+			this._applyStateAllButtons_(); 
+			this._syncReadOnlyStates_();
+			this._getDc_("amount").doQuery();
+			this._getDc_("accDocLine").doQuery();
+		} , this );
 		
 		this._getDc_("inv").on("recordChange", this._syncReadOnlyStates_, this );
 	}

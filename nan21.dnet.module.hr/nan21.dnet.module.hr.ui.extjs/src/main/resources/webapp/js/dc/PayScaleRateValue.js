@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScaleRateValue", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= E-GRID: CtxEditList ================= */

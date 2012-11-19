@@ -90,22 +90,27 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnRoleToAccessCtrl: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.AccessControlRoles$Ui ,{dc: "ctrl", objectIdField: "id"});
 	}
+	
 	,onBtnShowUiAsgnRules: function() {
 		var bundle = "nan21.dnet.module.ad.ui.extjs";
 		var frame = "net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI";
 		getApplication().showFrameByName(bundle, frame);
 	}
+	
 	,onBtnShowUiDsRules: function() {
 		var bundle = "nan21.dnet.module.ad.ui.extjs";
 		var frame = "net.nan21.dnet.module.ad.usr.frame.DsAccessControl_UI";
 		getApplication().showFrameByName(bundle, frame);
 	}
+	
 	,onBtnCopyRules: function() {
 		this._getWindow_("wdwCopyRules").show();
 	}
+	
 	,onBtnCopyRulesExec: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {

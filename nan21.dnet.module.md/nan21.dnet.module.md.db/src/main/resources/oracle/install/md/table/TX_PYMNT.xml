@@ -22,6 +22,8 @@
 			<constraints nullable="false" /></column>
 		<column name="DOCNO" type="varchar2(255)" />
 		<column name="ENTITYTYPE" type="varchar2(32)" />
+		<column name="GENERATED" type="number(1)">
+			<constraints nullable="false" /></column>
 		<column name="ID" type="number(19)">
 			<constraints nullable="false" /></column>
 		<column name="MODIFIEDAT" type="date">

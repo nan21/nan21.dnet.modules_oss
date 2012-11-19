@@ -65,6 +65,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			;
 	}
 
+	
 	,onBtnCreateMonths: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -78,6 +79,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnCreateQuarters: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -91,6 +93,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.frame.FiscalYear_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnCreateHalfYears: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {

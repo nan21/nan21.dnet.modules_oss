@@ -57,6 +57,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportMapItem_UI", {
 			;
 	}
 
+	
 	,onBtnRunImport: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -65,13 +66,16 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportMapItem_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnImportFileShow: function() {
 		this._getWindow_("wdwImportFile").show();
 	}
+	
 	,onBtnImportFileRun: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
 				this._getWindow_("wdwImportFile").close();
+				this.clearImportFileForm();
 			};
 		s.callbacks['successFn'] = successFn;
 		s.callbacks['successScope'] = this;
@@ -86,6 +90,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportMapItem_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,clearImportFileForm: function() {
 		
 				var mapItem = this._getDc_("mapItem");

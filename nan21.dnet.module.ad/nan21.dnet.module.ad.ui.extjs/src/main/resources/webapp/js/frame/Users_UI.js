@@ -68,15 +68,19 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 			;
 	}
 
+	
 	,onBtnAsgnRoles: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.UserRoles$Ui ,{dc: "usr", objectIdField: "id"});
 	}
+	
 	,onBtnAsgnGroups: function() {
 		this.showAsgnWindow(net.nan21.dnet.module.ad.usr.asgn.UserUserGroups$Ui ,{dc: "usr", objectIdField: "id"});
 	}
+	
 	,onBtnChangePassword: function() {
 		this._getWindow_("wdwChangePassword").show();
 	}
+	
 	,onBtnSavePassword: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -90,6 +94,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnCreateAssignable: function() {
 		var s={modal:true, callbacks:{} };
 		try{

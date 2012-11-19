@@ -15,6 +15,7 @@ import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 import net.nan21.dnet.module.md.org.business.service.IFinancialAccountService;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
+import net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod;
 
 /**
  * Repository functionality for {@link FinancialAccount} domain entity. It contains
@@ -106,5 +107,24 @@ public class FinancialAccountService
 						FinancialAccount.class)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJournalId", journalId).getResultList();
+	}
+
+	/**
+	 * Find by reference: methods
+	 */
+	public List<FinancialAccount> findByMethods(FinancialAccountMethod methods) {
+		return this.findByMethodsId(methods.getId());
+	}
+
+	/**
+	 * Find by ID of reference: methods.id
+	 */
+	public List<FinancialAccount> findByMethodsId(Long methodsId) {
+		return (List<FinancialAccount>) this.em
+				.createQuery(
+						"select distinct e from FinancialAccount e, IN (e.methods) c where e.clientId = :pClientId and c.id = :pMethodsId",
+						FinancialAccount.class)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pMethodsId", methodsId).getResultList();
 	}
 }

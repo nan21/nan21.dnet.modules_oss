@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.AccJournal", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */

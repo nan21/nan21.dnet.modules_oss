@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDsField", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= GRID: CtxList ================= */

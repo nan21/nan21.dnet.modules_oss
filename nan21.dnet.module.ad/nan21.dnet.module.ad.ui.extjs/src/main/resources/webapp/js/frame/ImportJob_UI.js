@@ -66,6 +66,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportJob_UI", {
 			;
 	}
 
+	
 	,onBtnRunImport: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -74,6 +75,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.frame.ImportJob_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnRunImportItem: function() {
 		var s={modal:true, callbacks:{} };
 		try{

@@ -77,6 +77,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowDef_UI", {
 			;
 	}
 
+	
 	,onBtnDeploy: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -85,6 +86,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.frame.WorkflowDef_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnGetProcessDiagram: function() {
 		window.open(this._getDc_("dcProcess").doServiceUrl("getDiagram"),"ProcessDiagram","width=500,height=400");
 	}

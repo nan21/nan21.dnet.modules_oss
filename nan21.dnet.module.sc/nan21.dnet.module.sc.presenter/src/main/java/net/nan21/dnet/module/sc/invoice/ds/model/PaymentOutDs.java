@@ -33,6 +33,7 @@ public class PaymentOutDs extends AbstractAuditableDs<PaymentOut> {
 	public static final String fAMOUNT = "amount";
 	public static final String fCONFIRMED = "confirmed";
 	public static final String fPOSTED = "posted";
+	public static final String fGENERATED = "generated";
 
 	@DsField()
 	private String code;
@@ -87,6 +88,9 @@ public class PaymentOutDs extends AbstractAuditableDs<PaymentOut> {
 
 	@DsField()
 	private Boolean posted;
+
+	@DsField()
+	private Boolean generated;
 
 	public PaymentOutDs() {
 		super();
@@ -238,5 +242,13 @@ public class PaymentOutDs extends AbstractAuditableDs<PaymentOut> {
 
 	public void setPosted(Boolean posted) {
 		this.posted = posted;
+	}
+
+	public Boolean getGenerated() {
+		return this.generated;
+	}
+
+	public void setGenerated(Boolean generated) {
+		this.generated = generated;
 	}
 }

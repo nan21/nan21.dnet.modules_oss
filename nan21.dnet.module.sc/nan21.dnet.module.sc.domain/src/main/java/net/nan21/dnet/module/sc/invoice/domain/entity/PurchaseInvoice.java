@@ -79,11 +79,13 @@ public class PurchaseInvoice extends AbstractAuditable {
 	@NotBlank
 	private String code;
 
+	/** Document date */
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DOCDATE", nullable = false)
 	@NotNull
 	private Date docDate;
 
+	/** Document number  */
 	@Column(name = "DOCNO", length = 255)
 	private String docNo;
 

@@ -13,9 +13,14 @@ import org.joda.time.DateTime;
 
 import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
+import net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod;
 import net.nan21.dnet.module.sc._businessdelegates.invoice.PurchaseInvoiceToAccDocBD;
+import net.nan21.dnet.module.sc.invoice.business.service.IPaymentOutAmountService;
+import net.nan21.dnet.module.sc.invoice.business.service.IPaymentOutService;
 import net.nan21.dnet.module.sc.invoice.business.service.IPurchaseInvoiceService;
 import net.nan21.dnet.module.sc.invoice.business.service.IPurchaseTxAmountService;
+import net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOut;
+import net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOutAmount;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseTxAmount;
 
@@ -33,13 +38,50 @@ public class PurchaseInvoiceService
 	 */
 	@Override
 	public void doConfirm(PurchaseInvoice invoice) throws BusinessException {
-		IPurchaseTxAmountService amountsService = (IPurchaseTxAmountService) this
+
+		IPurchaseTxAmountService txAmountsService = (IPurchaseTxAmountService) this
 				.findEntityService(PurchaseTxAmount.class);
-		if (amountsService.findByInvoice(invoice).size() == 0) {
-			List<PurchaseTxAmount> amounts = this.createTxAmounts(invoice);
-			amountsService.insert(amounts);
+
+		List<PurchaseTxAmount> txAmounts = null;
+
+		// create tx-amounts
+		if (txAmountsService.findByInvoice(invoice).size() == 0) {
+			txAmounts = this.createTxAmounts(invoice);
+			txAmountsService.insert(txAmounts);
 		}
 
+		// create payment
+		if (invoice.getSelfPayed().booleanValue() == true) {
+
+			if (invoice.getFromAccount() == null) {
+				throw new BusinessException(
+						"Financial account must be specified for self-payed document `"
+								+ invoice.getCode() + "`");
+			}
+
+			IPaymentOutService paymentService = (IPaymentOutService) this
+					.findEntityService(PaymentOut.class);
+
+			IPaymentOutAmountService paymentAmountsService = (IPaymentOutAmountService) this
+					.findEntityService(PaymentOutAmount.class);
+
+			List<PaymentOutAmount> paymentAmounts = new ArrayList<PaymentOutAmount>();
+
+			PaymentOut payment = this.createPayment(invoice);
+			paymentService.insert(payment);
+
+			PaymentOutAmount pa = new PaymentOutAmount();
+			pa.setPayment(payment);
+			pa.setAmount(payment.getAmount());
+			pa.setTxAmount(txAmounts.get(0));
+			paymentAmounts.add(pa);
+
+			paymentAmountsService.insert(paymentAmounts);
+
+			payment.setConfirmed(true);
+			paymentService.update(payment);
+
+		}
 		invoice.setConfirmed(true);
 		this.getEntityManager().merge(invoice);
 	}
@@ -53,10 +95,25 @@ public class PurchaseInvoiceService
 				.findEntityService(PurchaseTxAmount.class);
 		List<PurchaseTxAmount> amounts = txAmountsService
 				.findByInvoiceId(invoice.getId());
-		txAmountsService.deleteByIds(this.collectIds(amounts));
-		invoice.setConfirmed(false);
-		this.getEntityManager().merge(invoice);
+		List<Object> txAmountIds = this.collectIds(amounts);
+		txAmountsService.deleteByIds(txAmountIds);
 
+		// remove generated payment
+		if (invoice.getSelfPayed().booleanValue() == true) {
+			IPaymentOutService paymentService = (IPaymentOutService) this
+					.findEntityService(PaymentOut.class);
+			List<PaymentOut> payments = this
+					.getEntityManager()
+					.createQuery(
+							"select p from PaymentOut p where p.id in (select e.payment.id from PaymentOutAmount e where e.txAmount.id in :pIds ) ",
+							PaymentOut.class).setParameter("pIds", txAmountIds)
+					.getResultList();
+
+			for (PaymentOut payment : payments) {
+				paymentService.doUnConfirm(payment);
+			}
+			paymentService.deleteByIds(this.collectIds(payments));
+		}
 		invoice.setConfirmed(false);
 		this.getEntityManager().merge(invoice);
 	}
@@ -95,12 +152,41 @@ public class PurchaseInvoiceService
 			txAmount.setDueDate(invoice.getDocDate());
 		}
 
-		// if (invoice.getSelfPayed()) {
-		// txAmount.setDueAmount(0F);
-		// txAmount.setPayedAmount(invoice.getTotalAmount());
-		// }
 		result.add(txAmount);
 		return result;
 	}
 
+	protected PaymentOut createPayment(PurchaseInvoice invoice)
+			throws BusinessException {
+
+		PaymentOut payment = new PaymentOut();
+
+		payment.setBpartner(invoice.getSupplier());
+		payment.setCurrency(invoice.getCurrency());
+		payment.setFromOrg(invoice.getCustomer());
+		payment.setDocDate(invoice.getDocDate());
+		payment.setDocNo(invoice.getDocNo());
+		payment.setAmount(invoice.getTotalAmount());
+		payment.setFromAccount(invoice.getFromAccount());
+		if (invoice.getPaymentMethod() != null) {
+			payment.setPaymentMethod(invoice.getPaymentMethod());
+		} else {
+
+			for (FinancialAccountMethod m : invoice.getFromAccount()
+					.getMethods()) {
+				if (m.getAllowPayOut()) {
+					payment.setPaymentMethod(m.getPayMethod());
+				}
+			}
+			if (payment.getPaymentMethod() == null) {
+				throw new BusinessException("Financial account `"
+						+ invoice.getFromAccount().getName()
+						+ "` doesn't allow out-payment transactions.");
+			}
+		}
+
+		payment.setGenerated(true);
+
+		return payment;
+	}
 }

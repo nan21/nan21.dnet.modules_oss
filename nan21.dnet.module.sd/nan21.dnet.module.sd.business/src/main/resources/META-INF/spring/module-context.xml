@@ -17,7 +17,7 @@
 	<!-- general business specific -->
 
 	<context:property-placeholder
-		properties-ref="net.nan21.dnet.properties" />
+		properties-ref="net.nan21.dnet.properties"/>
 
 	<!-- Default properties -->
 	<osgi-compendium:cm-properties id="net.nan21.dnet.properties"
@@ -31,70 +31,67 @@
 		<prop key="eclipselink.logging.session">true</prop>
 		<prop key="eclipselink.logging.thread">true</prop>
 		<prop key="eclipselink.logging.exceptions">true</prop>
-
+				 
 		<prop key="eclipselink.cache.type.default">SoftWeak</prop>
 		<prop key="eclipselink.cache.size.default">1000</prop>
 		<prop key="eclipselink.cache.shared.default">false</prop>
 		<prop key="eclipselink.flush-clear.cache">DropInvalidate</prop>
-	</osgi-compendium:cm-properties>
+	</osgi-compendium:cm-properties> 
 
 	<context:annotation-config />
 
-	<import resource="emf/mc-emf-${dnet.emf.type}.xml" />
+    <import resource="emf/mc-emf-${dnet.emf.type}.xml"/>
 
-	<bean id="serviceLocator"
-		class="net.nan21.dnet.core.business.service.ServiceLocatorBusiness" />
+  	<bean id="serviceLocator" 
+  		class="net.nan21.dnet.core.business.service.ServiceLocatorBusiness"/>
 
 	<bean id="baseAsgnTxService" scope="prototype"
-		class="net.nan21.dnet.core.business.service.asgn.DefaultAsgnTxService" />
+	  	class="net.nan21.dnet.core.business.service.asgn.DefaultAsgnTxService"/>
 
-	<bean id="entityServiceFactory"
-		class="net.nan21.dnet.core.business.service.entity.EntityServiceFactory" />
+	<bean id="entityServiceFactory" 
+		class="net.nan21.dnet.core.business.service.entity.EntityServiceFactory"/>
 
-	<bean id="asgnTxServiceFactory"
-		class="net.nan21.dnet.core.business.service.asgn.AsgnTxServiceFactory">
-		<property name="name" value="nan21.dnet.module.sd.business" />
-	</bean>
+	<bean id="asgnTxServiceFactory" class="net.nan21.dnet.core.business.service.asgn.AsgnTxServiceFactory">
+		<property name="name" value="nan21.dnet.module.sd.business"/>
+	</bean> 
 
-	<tx:annotation-driven mode="aspectj" />
+	<tx:annotation-driven mode="aspectj"/>
 
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="insert" read-only="false" rollback-for="BusinessException" />
-			<tx:method name="update" read-only="false" rollback-for="BusinessException" />
-			<tx:method name="delete*" read-only="false" rollback-for="BusinessException" />
-			<tx:method name="do*" read-only="false" rollback-for="BusinessException" />
+			<tx:method name="insert" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="update" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="delete*" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="do*" read-only="false" rollback-for="BusinessException"/>
 		</tx:attributes>
 	</tx:advice>
 
 	<tx:advice id="txAdviceAsgn" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="setup" read-only="false" rollback-for="BusinessException" />
-			<tx:method name="reset" read-only="false" rollback-for="BusinessException" />
-			<tx:method name="save" read-only="false" rollback-for="BusinessException" />
-			<tx:method name="move*" read-only="false" rollback-for="BusinessException" />
+			<tx:method name="setup" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="reset" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="save" read-only="false" rollback-for="BusinessException"/>
+			<tx:method name="move*" read-only="false" rollback-for="BusinessException"/>
 		</tx:attributes>
 	</tx:advice>
 
 	<tx:advice id="txAdviceSetupParticipant" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="execute" read-only="false" />
+			<tx:method name="execute" read-only="false"/>
 		</tx:attributes>
 	</tx:advice>
 
 	<aop:config>
-		<aop:pointcut id="entityServiceMethods" expression="bean(*Service)" />
-		<aop:pointcut id="asgnTxServiceMethods" expression="bean(baseAsgnTxService)" />
-		<aop:pointcut id="setupParticipantRun" expression="bean(setupParticipant)" />
-
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="entityServiceMethods" />
-		<aop:advisor advice-ref="txAdviceAsgn" pointcut-ref="asgnTxServiceMethods" />
-		<aop:advisor advice-ref="txAdviceSetupParticipant"
-			pointcut-ref="setupParticipantRun" />
+		<aop:pointcut id="entityServiceMethods" expression="bean(*Service)"/>
+		<aop:pointcut id="asgnTxServiceMethods" expression="bean(baseAsgnTxService)"/>
+		<aop:pointcut id="setupParticipantRun" expression="bean(setupParticipant)"/>
+		 
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="entityServiceMethods"/>
+		<aop:advisor advice-ref="txAdviceAsgn" pointcut-ref="asgnTxServiceMethods"/>
+		<aop:advisor advice-ref="txAdviceSetupParticipant" pointcut-ref="setupParticipantRun"/>
 	</aop:config>
 
-	<bean id="setupParticipant" class="net.nan21.dnet.module.sd._businessdelegates.Setup_SD"
-		scope="singleton">
+	<bean id="setupParticipant" class="net.nan21.dnet.module.sd._businessdelegates.Setup_SD" scope="singleton">
 		<property name="ranking" value="30"></property>
 	</bean>
 
@@ -103,7 +100,7 @@
 
 	<!-- Entity services -->
 
-	<import resource="beans/sd.opportunity.entity.xml" />
-	<import resource="beans/sd.order.entity.xml" />
-	<import resource="beans/sd.invoice.entity.xml" />
+	<import resource="beans/sd.opportunity.entity.xml"/>
+	<import resource="beans/sd.order.entity.xml"/>
+	<import resource="beans/sd.invoice.entity.xml"/>
 </beans>
