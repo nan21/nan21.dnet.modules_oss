@@ -20,15 +20,15 @@ public class PaymentInDsFilter extends AbstractAuditableDsFilter {
 
 	private String docNo;
 
-	private Long payFromId;
+	private Long bpartnerId;
 
-	private Long payFromId_From;
+	private Long bpartnerId_From;
 
-	private Long payFromId_To;
+	private Long bpartnerId_To;
 
-	private String payFromCode;
+	private String bpartnerCode;
 
-	private String payFrom;
+	private String bpartner;
 
 	private Long orgId;
 
@@ -114,44 +114,44 @@ public class PaymentInDsFilter extends AbstractAuditableDsFilter {
 		this.docNo = docNo;
 	}
 
-	public Long getPayFromId() {
-		return this.payFromId;
+	public Long getBpartnerId() {
+		return this.bpartnerId;
 	}
 
-	public Long getPayFromId_From() {
-		return this.payFromId_From;
+	public Long getBpartnerId_From() {
+		return this.bpartnerId_From;
 	}
 
-	public Long getPayFromId_To() {
-		return this.payFromId_To;
+	public Long getBpartnerId_To() {
+		return this.bpartnerId_To;
 	}
 
-	public void setPayFromId(Long payFromId) {
-		this.payFromId = payFromId;
+	public void setBpartnerId(Long bpartnerId) {
+		this.bpartnerId = bpartnerId;
 	}
 
-	public void setPayFromId_From(Long payFromId_From) {
-		this.payFromId_From = payFromId_From;
+	public void setBpartnerId_From(Long bpartnerId_From) {
+		this.bpartnerId_From = bpartnerId_From;
 	}
 
-	public void setPayFromId_To(Long payFromId_To) {
-		this.payFromId_To = payFromId_To;
+	public void setBpartnerId_To(Long bpartnerId_To) {
+		this.bpartnerId_To = bpartnerId_To;
 	}
 
-	public String getPayFromCode() {
-		return this.payFromCode;
+	public String getBpartnerCode() {
+		return this.bpartnerCode;
 	}
 
-	public void setPayFromCode(String payFromCode) {
-		this.payFromCode = payFromCode;
+	public void setBpartnerCode(String bpartnerCode) {
+		this.bpartnerCode = bpartnerCode;
 	}
 
-	public String getPayFrom() {
-		return this.payFrom;
+	public String getBpartner() {
+		return this.bpartner;
 	}
 
-	public void setPayFrom(String payFrom) {
-		this.payFrom = payFrom;
+	public void setBpartner(String bpartner) {
+		this.bpartner = bpartner;
 	}
 
 	public Long getOrgId() {

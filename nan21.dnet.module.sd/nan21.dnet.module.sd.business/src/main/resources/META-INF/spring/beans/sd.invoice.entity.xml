@@ -17,7 +17,7 @@
 	<bean id="PaymentInService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.PaymentInService"/>
 	<bean id="PaymentInAmountService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.PaymentInAmountService"/>
+		class="net.nan21.dnet.module.sd.invoice.business.serviceext.PaymentInAmountService"/>
 	<bean id="SalesTxAmountService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.SalesTxAmountService"/>
 </beans>

@@ -42,6 +42,11 @@ public class SalesInvoiceService
 
 	@Override
 	public void doUnConfirm(SalesInvoice invoice) throws BusinessException {
+		ISalesTxAmountService txAmountsService = (ISalesTxAmountService) this
+				.findEntityService(SalesTxAmount.class);
+		List<SalesTxAmount> amounts = txAmountsService.findByInvoiceId(invoice
+				.getId());
+		txAmountsService.deleteByIds(this.collectIds(amounts));
 		invoice.setConfirmed(false);
 		this.getEntityManager().merge(invoice);
 	}

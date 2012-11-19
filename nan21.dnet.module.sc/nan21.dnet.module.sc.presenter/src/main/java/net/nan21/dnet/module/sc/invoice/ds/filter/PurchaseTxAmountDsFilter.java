@@ -10,11 +10,33 @@ import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDsFilter;
 
 public class PurchaseTxAmountDsFilter extends AbstractAuditableDsFilter {
 
+	private Long orgId;
+
+	private Long orgId_From;
+
+	private Long orgId_To;
+
+	private Long bpartnerId;
+
+	private Long bpartnerId_From;
+
+	private Long bpartnerId_To;
+
 	private Long invoiceId;
 
 	private Long invoiceId_From;
 
 	private Long invoiceId_To;
+
+	private String invoiceCode;
+
+	private String invoiceDocNo;
+
+	private Date invoiceDocDate;
+
+	private Date invoiceDocDate_From;
+
+	private Date invoiceDocDate_To;
 
 	private Long orderId;
 
@@ -28,11 +50,11 @@ public class PurchaseTxAmountDsFilter extends AbstractAuditableDsFilter {
 
 	private Date dueDate_To;
 
-	private Float amount;
+	private Float dueAmount;
 
-	private Float amount_From;
+	private Float dueAmount_From;
 
-	private Float amount_To;
+	private Float dueAmount_To;
 
 	private Float payedAmount;
 
@@ -40,11 +62,11 @@ public class PurchaseTxAmountDsFilter extends AbstractAuditableDsFilter {
 
 	private Float payedAmount_To;
 
-	private Float dueAmount;
+	private Float outstandingAmount;
 
-	private Float dueAmount_From;
+	private Float outstandingAmount_From;
 
-	private Float dueAmount_To;
+	private Float outstandingAmount_To;
 
 	private Long paymentMethodId;
 
@@ -53,6 +75,54 @@ public class PurchaseTxAmountDsFilter extends AbstractAuditableDsFilter {
 	private Long paymentMethodId_To;
 
 	private String paymentMethod;
+
+	public Long getOrgId() {
+		return this.orgId;
+	}
+
+	public Long getOrgId_From() {
+		return this.orgId_From;
+	}
+
+	public Long getOrgId_To() {
+		return this.orgId_To;
+	}
+
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
+	}
+
+	public void setOrgId_From(Long orgId_From) {
+		this.orgId_From = orgId_From;
+	}
+
+	public void setOrgId_To(Long orgId_To) {
+		this.orgId_To = orgId_To;
+	}
+
+	public Long getBpartnerId() {
+		return this.bpartnerId;
+	}
+
+	public Long getBpartnerId_From() {
+		return this.bpartnerId_From;
+	}
+
+	public Long getBpartnerId_To() {
+		return this.bpartnerId_To;
+	}
+
+	public void setBpartnerId(Long bpartnerId) {
+		this.bpartnerId = bpartnerId;
+	}
+
+	public void setBpartnerId_From(Long bpartnerId_From) {
+		this.bpartnerId_From = bpartnerId_From;
+	}
+
+	public void setBpartnerId_To(Long bpartnerId_To) {
+		this.bpartnerId_To = bpartnerId_To;
+	}
 
 	public Long getInvoiceId() {
 		return this.invoiceId;
@@ -76,6 +146,46 @@ public class PurchaseTxAmountDsFilter extends AbstractAuditableDsFilter {
 
 	public void setInvoiceId_To(Long invoiceId_To) {
 		this.invoiceId_To = invoiceId_To;
+	}
+
+	public String getInvoiceCode() {
+		return this.invoiceCode;
+	}
+
+	public void setInvoiceCode(String invoiceCode) {
+		this.invoiceCode = invoiceCode;
+	}
+
+	public String getInvoiceDocNo() {
+		return this.invoiceDocNo;
+	}
+
+	public void setInvoiceDocNo(String invoiceDocNo) {
+		this.invoiceDocNo = invoiceDocNo;
+	}
+
+	public Date getInvoiceDocDate() {
+		return this.invoiceDocDate;
+	}
+
+	public Date getInvoiceDocDate_From() {
+		return this.invoiceDocDate_From;
+	}
+
+	public Date getInvoiceDocDate_To() {
+		return this.invoiceDocDate_To;
+	}
+
+	public void setInvoiceDocDate(Date invoiceDocDate) {
+		this.invoiceDocDate = invoiceDocDate;
+	}
+
+	public void setInvoiceDocDate_From(Date invoiceDocDate_From) {
+		this.invoiceDocDate_From = invoiceDocDate_From;
+	}
+
+	public void setInvoiceDocDate_To(Date invoiceDocDate_To) {
+		this.invoiceDocDate_To = invoiceDocDate_To;
 	}
 
 	public Long getOrderId() {
@@ -126,28 +236,28 @@ public class PurchaseTxAmountDsFilter extends AbstractAuditableDsFilter {
 		this.dueDate_To = dueDate_To;
 	}
 
-	public Float getAmount() {
-		return this.amount;
+	public Float getDueAmount() {
+		return this.dueAmount;
 	}
 
-	public Float getAmount_From() {
-		return this.amount_From;
+	public Float getDueAmount_From() {
+		return this.dueAmount_From;
 	}
 
-	public Float getAmount_To() {
-		return this.amount_To;
+	public Float getDueAmount_To() {
+		return this.dueAmount_To;
 	}
 
-	public void setAmount(Float amount) {
-		this.amount = amount;
+	public void setDueAmount(Float dueAmount) {
+		this.dueAmount = dueAmount;
 	}
 
-	public void setAmount_From(Float amount_From) {
-		this.amount_From = amount_From;
+	public void setDueAmount_From(Float dueAmount_From) {
+		this.dueAmount_From = dueAmount_From;
 	}
 
-	public void setAmount_To(Float amount_To) {
-		this.amount_To = amount_To;
+	public void setDueAmount_To(Float dueAmount_To) {
+		this.dueAmount_To = dueAmount_To;
 	}
 
 	public Float getPayedAmount() {
@@ -174,28 +284,28 @@ public class PurchaseTxAmountDsFilter extends AbstractAuditableDsFilter {
 		this.payedAmount_To = payedAmount_To;
 	}
 
-	public Float getDueAmount() {
-		return this.dueAmount;
+	public Float getOutstandingAmount() {
+		return this.outstandingAmount;
 	}
 
-	public Float getDueAmount_From() {
-		return this.dueAmount_From;
+	public Float getOutstandingAmount_From() {
+		return this.outstandingAmount_From;
 	}
 
-	public Float getDueAmount_To() {
-		return this.dueAmount_To;
+	public Float getOutstandingAmount_To() {
+		return this.outstandingAmount_To;
 	}
 
-	public void setDueAmount(Float dueAmount) {
-		this.dueAmount = dueAmount;
+	public void setOutstandingAmount(Float outstandingAmount) {
+		this.outstandingAmount = outstandingAmount;
 	}
 
-	public void setDueAmount_From(Float dueAmount_From) {
-		this.dueAmount_From = dueAmount_From;
+	public void setOutstandingAmount_From(Float outstandingAmount_From) {
+		this.outstandingAmount_From = outstandingAmount_From;
 	}
 
-	public void setDueAmount_To(Float dueAmount_To) {
-		this.dueAmount_To = dueAmount_To;
+	public void setOutstandingAmount_To(Float outstandingAmount_To) {
+		this.outstandingAmount_To = outstandingAmount_To;
 	}
 
 	public Long getPaymentMethodId() {

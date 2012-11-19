@@ -17,9 +17,9 @@ public class PaymentInDs extends AbstractAuditableDs<PaymentIn> {
 	public static final String fCODE = "code";
 	public static final String fDOCDATE = "docDate";
 	public static final String fDOCNO = "docNo";
-	public static final String fPAYFROMID = "payFromId";
-	public static final String fPAYFROMCODE = "payFromCode";
-	public static final String fPAYFROM = "payFrom";
+	public static final String fBPARTNERID = "bpartnerId";
+	public static final String fBPARTNERCODE = "bpartnerCode";
+	public static final String fBPARTNER = "bpartner";
 	public static final String fORGID = "orgId";
 	public static final String fORG = "org";
 	public static final String fTOACCOUNTID = "toAccountId";
@@ -43,13 +43,13 @@ public class PaymentInDs extends AbstractAuditableDs<PaymentIn> {
 	private String docNo;
 
 	@DsField(join = "left", path = "bpartner.id")
-	private Long payFromId;
+	private Long bpartnerId;
 
 	@DsField(join = "left", path = "bpartner.code")
-	private String payFromCode;
+	private String bpartnerCode;
 
 	@DsField(join = "left", path = "bpartner.name")
-	private String payFrom;
+	private String bpartner;
 
 	@DsField(join = "left", path = "toOrg.id")
 	private Long orgId;
@@ -119,28 +119,28 @@ public class PaymentInDs extends AbstractAuditableDs<PaymentIn> {
 		this.docNo = docNo;
 	}
 
-	public Long getPayFromId() {
-		return this.payFromId;
+	public Long getBpartnerId() {
+		return this.bpartnerId;
 	}
 
-	public void setPayFromId(Long payFromId) {
-		this.payFromId = payFromId;
+	public void setBpartnerId(Long bpartnerId) {
+		this.bpartnerId = bpartnerId;
 	}
 
-	public String getPayFromCode() {
-		return this.payFromCode;
+	public String getBpartnerCode() {
+		return this.bpartnerCode;
 	}
 
-	public void setPayFromCode(String payFromCode) {
-		this.payFromCode = payFromCode;
+	public void setBpartnerCode(String bpartnerCode) {
+		this.bpartnerCode = bpartnerCode;
 	}
 
-	public String getPayFrom() {
-		return this.payFrom;
+	public String getBpartner() {
+		return this.bpartner;
 	}
 
-	public void setPayFrom(String payFrom) {
-		this.payFrom = payFrom;
+	public void setBpartner(String bpartner) {
+		this.bpartner = bpartner;
 	}
 
 	public Long getOrgId() {

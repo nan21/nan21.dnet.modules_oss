@@ -28,6 +28,9 @@ public class PurchaseInvoiceService
 		net.nan21.dnet.module.sc.invoice.business.serviceimpl.PurchaseInvoiceService
 		implements IPurchaseInvoiceService {
 
+	/**
+	 * Confirm document. Generate transaction amounts information.
+	 */
 	@Override
 	public void doConfirm(PurchaseInvoice invoice) throws BusinessException {
 		IPurchaseTxAmountService amountsService = (IPurchaseTxAmountService) this
@@ -41,8 +44,19 @@ public class PurchaseInvoiceService
 		this.getEntityManager().merge(invoice);
 	}
 
+	/**
+	 * Un-confirm document. Remove the transaction amounts information.
+	 */
 	@Override
 	public void doUnConfirm(PurchaseInvoice invoice) throws BusinessException {
+		IPurchaseTxAmountService txAmountsService = (IPurchaseTxAmountService) this
+				.findEntityService(PurchaseTxAmount.class);
+		List<PurchaseTxAmount> amounts = txAmountsService
+				.findByInvoiceId(invoice.getId());
+		txAmountsService.deleteByIds(this.collectIds(amounts));
+		invoice.setConfirmed(false);
+		this.getEntityManager().merge(invoice);
+
 		invoice.setConfirmed(false);
 		this.getEntityManager().merge(invoice);
 	}
@@ -68,8 +82,8 @@ public class PurchaseInvoiceService
 		txAmount.setOrg(invoice.getCustomer());
 		txAmount.setInvoice(invoice);
 		txAmount.setSales(false);
-		txAmount.setDueAmount(invoice.getTotalAmount());
 		txAmount.setAmount(invoice.getTotalAmount());
+		txAmount.setDueAmount(invoice.getTotalAmount());
 		txAmount.setPayedAmount(0F);
 
 		if (paymentTerm != null) {
@@ -81,10 +95,10 @@ public class PurchaseInvoiceService
 			txAmount.setDueDate(invoice.getDocDate());
 		}
 
-		if (invoice.getSelfPayed()) {
-			txAmount.setDueAmount(0F);
-			txAmount.setPayedAmount(invoice.getTotalAmount());
-		}
+		// if (invoice.getSelfPayed()) {
+		// txAmount.setDueAmount(0F);
+		// txAmount.setPayedAmount(invoice.getTotalAmount());
+		// }
 		result.add(txAmount);
 		return result;
 	}

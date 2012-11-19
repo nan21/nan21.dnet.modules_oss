@@ -207,6 +207,21 @@
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDs" />
 	</bean>
 	
+	<!-- ==================== SalesTxAmountPayment ==================== -->
+	
+	<bean id="SalesTxAmountPaymentDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesTxAmountPaymentDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.PaymentInAmount"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="SalesTxAmountPayment" />
+		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentDs" />
+	</bean>
+	
 	<!-- ==================== SalesTxAmount ==================== -->
 	
 	<bean id="SalesTxAmountDsService" scope="singleton" lazy-init="true"
@@ -220,5 +235,21 @@
 	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
 		<property name="name" value="SalesTxAmount" />
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountDs" />
+	</bean>
+	
+	<!-- ==================== SalesTxAmountPaymentProposal ==================== -->
+	
+	<bean id="SalesTxAmountPaymentProposalDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.module.sd.invoice.ds.serviceext.SalesTxAmountPaymentProposalDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesTxAmountPaymentProposalDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount"/>
+		<property name="paramClass" value="net.nan21.dnet.module.sd.invoice.ds.param.SalesTxAmountPaymentProposalDsParam"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="SalesTxAmountPaymentProposal" />
+		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDs" />
 	</bean>
 </beans>

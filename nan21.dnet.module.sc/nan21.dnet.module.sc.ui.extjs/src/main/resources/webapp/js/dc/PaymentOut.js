@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */
@@ -32,9 +31,9 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Filter", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 
 				]})
-			.addLov({xtype:"md_bp_lovs_BusinessPartnersName", name:"payTo", dataIndex:"payTo", anchor:"-20",
+			.addLov({xtype:"md_bp_lovs_BusinessPartnersName", name:"bpartner", dataIndex:"bpartner", anchor:"-20",
 				retFieldMapping: [
-					{lovField:"id", dsField: "payToId"} 
+					{lovField:"id", dsField: "bpartnerId"} 
 				]})
 			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32,
 				retFieldMapping: [
@@ -73,7 +72,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Filter", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
-			.addChildrenTo("col1", ["payTo", "org", "paymentMethod", "fromAccount"])
+			.addChildrenTo("col1", ["bpartner", "org", "paymentMethod", "fromAccount"])
 			.addChildrenTo("col2", ["docNo", "code", "currency"])
 			.addChildrenTo("col3", ["docDate", "amount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
@@ -93,8 +92,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$List", {
 			.addTextColumn({ name:"code", dataIndex:"code", width:80})
 			.addTextColumn({ name:"docNo", dataIndex:"docNo", width:80})
 			.addDateColumn({ name:"docDate", dataIndex:"docDate", format: Dnet.DATE_FORMAT})
-			.addTextColumn({ name:"payToCode", dataIndex:"payToCode", width:100})
-			.addTextColumn({ name:"payTo", dataIndex:"payTo", width:200})
+			.addTextColumn({ name:"bpartnerCode", dataIndex:"bpartnerCode", width:100})
+			.addTextColumn({ name:"bpartner", dataIndex:"bpartner", width:200})
 			.addTextColumn({ name:"org", dataIndex:"org", width:100})
 			.addTextColumn({ name:"fromAccount", dataIndex:"fromAccount", width:120})
 			.addTextColumn({ name:"currency", dataIndex:"currency", width:100})
@@ -102,7 +101,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$List", {
 			.addNumberColumn({ name:"amount", dataIndex:"amount", decimals:2})
 			.addBooleanColumn({ name:"confirmed", dataIndex:"confirmed"})
 			.addBooleanColumn({ name:"posted", dataIndex:"posted"})
-			.addNumberColumn({ name:"payToId", dataIndex:"payToId", hidden:true, width:70, format:"0"})
+			.addNumberColumn({ name:"bpartnerId", dataIndex:"bpartnerId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"orgId", dataIndex:"orgId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
@@ -127,9 +126,9 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 
 				]})
-			.addLov({xtype:"md_bp_lovs_VendorsName", name:"payTo", dataIndex:"payTo", allowBlank:false, anchor:"-20",
+			.addLov({xtype:"md_bp_lovs_VendorsName", name:"bpartner", dataIndex:"bpartner", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
-					{lovField:"bpartnerId", dsField: "payToId"} 
+					{lovField:"bpartnerId", dsField: "bpartnerId"} 
 				]})
 			.addLov({xtype:"md_org_lovs_FinancialAccounts", name:"fromAccount", dataIndex:"fromAccount", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
@@ -162,7 +161,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Edit", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
-			.addChildrenTo("col1", ["org", "payTo", "amount", "currency"])
+			.addChildrenTo("col1", ["org", "bpartner", "amount", "currency"])
 			.addChildrenTo("col2", ["docDate", "docNo", "code"])
 			.addChildrenTo("col3", ["paymentMethod", "fromAccount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])

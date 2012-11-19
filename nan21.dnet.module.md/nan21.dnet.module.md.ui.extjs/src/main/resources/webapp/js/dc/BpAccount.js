@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */
@@ -111,7 +110,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextField({ name:"analiticSegment", dataIndex:"analiticSegment", anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"customer", dataIndex:"customer", anchor:"-20"})
 			.addBooleanField({ name:"vendor", dataIndex:"vendor", anchor:"-20"})
 			.addLov({xtype:"md_bp_lovs_BusinessPartnersCode", name:"businessPartnerCode", dataIndex:"businessPartnerCode", anchor:"-20", maxLength:32,
@@ -130,12 +128,10 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "customerPaymentMethodId"} 
 				]})
-			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", anchor:"-20",
 				retFieldMapping: [
-					{lovField:"id", dsField: "customerPaymentTerm"} 
+					{lovField:"id", dsField: "customerPaymentTermId"} 
 				]})
-			.addTextField({ name:"custAnaliticSegment", dataIndex:"custAnaliticSegment", anchor:"-20", maxLength:32})
 			.addLov({xtype:"md_bp_lovs_VendorGroup", name:"vendorGroup", dataIndex:"vendorGroup", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorGroupId"} 
@@ -144,11 +140,14 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorPaymentMethodId"} 
 				]})
-			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", anchor:"-20",
 				retFieldMapping: [
-					{lovField:"id", dsField: "vendorPaymentTerm"} 
+					{lovField:"id", dsField: "vendorPaymentTermId"} 
 				]})
+			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20", decimals:2})
+			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20", decimals:2})
+			.addTextField({ name:"analiticSegment", dataIndex:"analiticSegment", anchor:"-20", maxLength:32})
+			.addTextField({ name:"custAnaliticSegment", dataIndex:"custAnaliticSegment", anchor:"-20", maxLength:32})
 			.addTextField({ name:"vendAnaliticSegment", dataIndex:"vendAnaliticSegment", anchor:"-20", maxLength:32})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
@@ -181,9 +180,6 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 			/* controls */
 			.addBooleanField({ name:"customer", dataIndex:"customer", anchor:"-20"})
 			.addBooleanField({ name:"vendor", dataIndex:"vendor", anchor:"-20"})
-			.addTextField({ name:"analiticSegment", dataIndex:"analiticSegment", anchor:"-20", maxLength:32})
-			.addTextField({ name:"custAnaliticSegment", dataIndex:"custAnaliticSegment", anchor:"-20", maxLength:32})
-			.addTextField({ name:"vendAnaliticSegment", dataIndex:"vendAnaliticSegment", anchor:"-20", maxLength:32})
 			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 
@@ -196,10 +192,9 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "customerPaymentMethodId"} 
 				]})
-			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"customerPaymentTerm", dataIndex:"customerPaymentTerm", anchor:"-20",
 				retFieldMapping: [
-					{lovField:"id", dsField: "customerPaymentTerm"} 
+					{lovField:"id", dsField: "customerPaymentTermId"} 
 				]})
 			.addLov({xtype:"md_bp_lovs_VendorGroup", name:"vendorGroup", dataIndex:"vendorGroup", anchor:"-20", maxLength:32,
 				retFieldMapping: [
@@ -209,11 +204,15 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "vendorPaymentMethodId"} 
 				]})
-			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20", decimals:2})
 			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"vendorPaymentTerm", dataIndex:"vendorPaymentTerm", anchor:"-20",
 				retFieldMapping: [
-					{lovField:"id", dsField: "vendorPaymentTerm"} 
+					{lovField:"id", dsField: "vendorPaymentTermId"} 
 				]})
+			.addNumberField({name:"customerCreditLimit", dataIndex:"customerCreditLimit", anchor:"-20", decimals:2})
+			.addNumberField({name:"vendorCreditLimit", dataIndex:"vendorCreditLimit", anchor:"-20", decimals:2})
+			.addTextField({ name:"analiticSegment", dataIndex:"analiticSegment", anchor:"-20", maxLength:32})
+			.addTextField({ name:"custAnaliticSegment", dataIndex:"custAnaliticSegment", anchor:"-20", maxLength:32})
+			.addTextField({ name:"vendAnaliticSegment", dataIndex:"vendAnaliticSegment", anchor:"-20", maxLength:32})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

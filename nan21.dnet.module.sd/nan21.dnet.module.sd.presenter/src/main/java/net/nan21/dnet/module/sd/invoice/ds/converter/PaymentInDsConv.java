@@ -66,11 +66,11 @@ public class PaymentInDsConv
 		} else {
 			this.lookup_toOrg_Organization(ds, e);
 		}
-		if (ds.getPayFromId() != null) {
+		if (ds.getBpartnerId() != null) {
 			if (e.getBpartner() == null
-					|| !e.getBpartner().getId().equals(ds.getPayFromId())) {
+					|| !e.getBpartner().getId().equals(ds.getBpartnerId())) {
 				e.setBpartner((BusinessPartner) this.em.find(
-						BusinessPartner.class, ds.getPayFromId()));
+						BusinessPartner.class, ds.getBpartnerId()));
 			}
 		} else {
 			this.lookup_bpartner_BusinessPartner(ds, e);
@@ -151,15 +151,15 @@ public class PaymentInDsConv
 
 	protected void lookup_bpartner_BusinessPartner(PaymentInDs ds, PaymentIn e)
 			throws Exception {
-		if (ds.getPayFrom() != null && !ds.getPayFrom().equals("")) {
+		if (ds.getBpartnerCode() != null && !ds.getBpartnerCode().equals("")) {
 			BusinessPartner x = null;
 			try {
 				x = ((IBusinessPartnerService) findEntityService(BusinessPartner.class))
-						.findByCode(ds.getPayFrom());
+						.findByCode(ds.getBpartnerCode());
 			} catch (javax.persistence.NoResultException exception) {
 				throw new Exception(
-						"Invalid value provided to find `BusinessPartner` reference: `payFrom` = "
-								+ ds.getPayFrom() + "");
+						"Invalid value provided to find `BusinessPartner` reference: `bpartnerCode` = "
+								+ ds.getBpartnerCode() + "");
 			}
 			e.setBpartner(x);
 		} else {

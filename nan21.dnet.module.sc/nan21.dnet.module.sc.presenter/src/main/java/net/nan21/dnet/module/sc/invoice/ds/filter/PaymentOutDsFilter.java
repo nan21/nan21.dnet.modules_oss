@@ -20,15 +20,15 @@ public class PaymentOutDsFilter extends AbstractAuditableDsFilter {
 
 	private String docNo;
 
-	private Long payToId;
+	private Long bpartnerId;
 
-	private Long payToId_From;
+	private Long bpartnerId_From;
 
-	private Long payToId_To;
+	private Long bpartnerId_To;
 
-	private String payToCode;
+	private String bpartnerCode;
 
-	private String payTo;
+	private String bpartner;
 
 	private Long orgId;
 
@@ -114,44 +114,44 @@ public class PaymentOutDsFilter extends AbstractAuditableDsFilter {
 		this.docNo = docNo;
 	}
 
-	public Long getPayToId() {
-		return this.payToId;
+	public Long getBpartnerId() {
+		return this.bpartnerId;
 	}
 
-	public Long getPayToId_From() {
-		return this.payToId_From;
+	public Long getBpartnerId_From() {
+		return this.bpartnerId_From;
 	}
 
-	public Long getPayToId_To() {
-		return this.payToId_To;
+	public Long getBpartnerId_To() {
+		return this.bpartnerId_To;
 	}
 
-	public void setPayToId(Long payToId) {
-		this.payToId = payToId;
+	public void setBpartnerId(Long bpartnerId) {
+		this.bpartnerId = bpartnerId;
 	}
 
-	public void setPayToId_From(Long payToId_From) {
-		this.payToId_From = payToId_From;
+	public void setBpartnerId_From(Long bpartnerId_From) {
+		this.bpartnerId_From = bpartnerId_From;
 	}
 
-	public void setPayToId_To(Long payToId_To) {
-		this.payToId_To = payToId_To;
+	public void setBpartnerId_To(Long bpartnerId_To) {
+		this.bpartnerId_To = bpartnerId_To;
 	}
 
-	public String getPayToCode() {
-		return this.payToCode;
+	public String getBpartnerCode() {
+		return this.bpartnerCode;
 	}
 
-	public void setPayToCode(String payToCode) {
-		this.payToCode = payToCode;
+	public void setBpartnerCode(String bpartnerCode) {
+		this.bpartnerCode = bpartnerCode;
 	}
 
-	public String getPayTo() {
-		return this.payTo;
+	public String getBpartner() {
+		return this.bpartner;
 	}
 
-	public void setPayTo(String payTo) {
-		this.payTo = payTo;
+	public void setBpartner(String bpartner) {
+		this.bpartner = bpartner;
 	}
 
 	public Long getOrgId() {

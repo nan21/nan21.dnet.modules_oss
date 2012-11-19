@@ -166,6 +166,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			;
 	}
 
+	
 	,onBtnConfirmOrder: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -174,6 +175,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnUnConfirmOrder: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -182,12 +184,15 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnCreateInvoice: function() {
 		this._getWindow_("wdwGenInvoice").show();
 	}
+	
 	,onBtnCreateDelivery: function() {
 		this._getWindow_("wdwGenDelivery").show();
 	}
+	
 	,onBtnCreateDeliveryOk: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -201,6 +206,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnCreateInvoiceOk: function() {
 		var s={modal:true, callbacks:{} };
 		var successFn = function(dc,response,serviceName,specs) {
@@ -214,6 +220,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnShowInvoice: function() {
 		var bundle = "nan21.dnet.module.sd.ui.extjs";
 		var frame = "net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI";
@@ -228,6 +235,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			}
 		});
 	}
+	
 	,onBtnShowDelivery: function() {
 		var bundle = "nan21.dnet.module.sd.ui.extjs";
 		var frame = "net.nan21.dnet.module.sd.order.frame.SalesDelivery_UI";
@@ -241,12 +249,15 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 			}
 		});
 	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,notImplemented: function() {
 		alert("This feature is not implemented yet.");
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -256,11 +267,13 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 				var url = this._getDc_("atch").getRecord().get("url");
 				window.open(url, "Attachment", "location=1,status=1,scrollbars=1,width=500,height=400");
 	}
+	
 	,onAfterDefineDcs: function() {
 		
 				this._getDc_("item").on("afterDoSaveSuccess", 
@@ -272,6 +285,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 				
 				this._getDc_("order").on("recordChange", this._syncReadOnlyStates_, this );
 	}
+	
 	,_syncReadOnlyStates_: function() {
 		
 				var orderRec = this._getDc_("order").getRecord();
@@ -287,6 +301,7 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 					}
 				}
 	}
+	
 	,_when_called_to_edit_: function(params) {
 		
 				var order = this._getDc_("order");

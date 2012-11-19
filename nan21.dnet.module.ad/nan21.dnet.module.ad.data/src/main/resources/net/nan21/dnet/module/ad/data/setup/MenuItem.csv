@@ -61,6 +61,7 @@ sequenceNo;name;title;menu;frame;bundle;active;uuid
 10;Currencies_UI;Currencies;;net.nan21.dnet.module.bd.currency.frame.Currencies_UI;nan21.dnet.module.bd.ui.extjs;true;7F316044-9EB2-4164-BC41-B248ADDA0B2F
 20;CurrencyXrateProvider_UI;Currency exchange rate providers;;net.nan21.dnet.module.bd.currency.frame.CurrencyXrateProvider_UI;nan21.dnet.module.bd.ui.extjs;true;920218F8-71C3-4F8D-B5FC-667793A31027
 30;CurrencyXRates_UI;Currency exchange rates;;net.nan21.dnet.module.bd.currency.frame.CurrencyXRates_UI;nan21.dnet.module.bd.ui.extjs;true;B559A2C4-4FF3-471D-827D-E5F44696747D
+10;CustomerAccount_UI;Customer accounts;;net.nan21.dnet.module.sd.account.frame.CustomerAccount_UI;nan21.dnet.module.sd.ui.extjs;true;B552A2C4-4FF3-471D-827D-E5F44696747D
 20;DsAccessControl_UI;Access rights - DS;;net.nan21.dnet.module.ad.usr.frame.DsAccessControl_UI;nan21.dnet.module.ad.ui.extjs;true;E3198FA1-3AE6-4F92-8451-8540C157AC05
 40;DsMethodAccessControl_UI;Access rights - DS method;;net.nan21.dnet.module.ad.usr.frame.DsMethodAccessControl_UI;nan21.dnet.module.ad.ui.extjs;true;A372E0B4-F390-4DFC-8A8C-4B6283B73562
 20;ElementBaseData_UI;Element base data;;net.nan21.dnet.module.bd.elem.frame.ElementBaseData_UI;nan21.dnet.module.bd.ui.extjs;true;8286EB0F-043E-4108-920D-7FB3C73D9B79
@@ -154,8 +155,10 @@ sequenceNo;name;title;menu;frame;bundle;active;uuid
 20;ProjectVersions_UI;Project versions;;net.nan21.dnet.module.pj.md.frame.ProjectVersions_UI;nan21.dnet.module.pj.ui.extjs;true;E0DFA286-B5B7-44A7-BA1F-46C952440F28
 10;PurchaseInvoiceBaseData_UI;Base data(Purchase invoice);;net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoiceBaseData_UI;nan21.dnet.module.sc.ui.extjs;false;B7990429-2077-47D7-A1B7-51DE6A7E51D0
 20;PurchaseInvoice_UI;Invoices;;net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoice_UI;nan21.dnet.module.sc.ui.extjs;true;2321030E-D833-4933-BF1F-D0247523381C
+25;PurchaseInvoiceItems_UI;Invoice items;;net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoiceItems_UI;nan21.dnet.module.sc.ui.extjs;true;2321030E-D933-4933-BF1F-D0247523381C
 10;PurchaseOrderBaseData_UI;Base data(Purchase orders);;net.nan21.dnet.module.sc.order.frame.PurchaseOrderBaseData_UI;nan21.dnet.module.sc.ui.extjs;false;DB1D8EAE-BD64-4254-802E-2F50B3F69A17
 20;PurchaseOrder_UI;Orders;;net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI;nan21.dnet.module.sc.ui.extjs;true;1AFD7042-9B25-4544-B741-D4D1ACB0A8F5
+25;PurchaseOrderItems_UI;Order items;;net.nan21.dnet.module.sc.order.frame.PurchaseOrderItems_UI;nan21.dnet.module.sc.ui.extjs;true;1AF47042-9B25-4544-B741-D4D1ACB0A8F5
 30;PurchaseReception_UI;Goods reception;;net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI;nan21.dnet.module.sc.ui.extjs;true;9DCCB2A7-9851-4395-9EAE-B9A354A3E656
 10;RatingLevel_UI;Rating levels;;net.nan21.dnet.module.hr.skill.frame.RatingLevel_UI;nan21.dnet.module.hr.ui.extjs;true;6EB99647-58FC-4563-9CBA-5EB66899DF6A
 20;RatingScale_UI;Rating scales;;net.nan21.dnet.module.hr.skill.frame.RatingScale_UI;nan21.dnet.module.hr.ui.extjs;true;3C24B694-5F39-4A03-98CE-720D6A2AFD6B
@@ -167,17 +170,21 @@ sequenceNo;name;title;menu;frame;bundle;active;uuid
 30;SalesDelivery_UI;Goods delivery;;net.nan21.dnet.module.sd.order.frame.SalesDelivery_UI;nan21.dnet.module.sd.ui.extjs;true;8F7AA849-89B6-44D9-A83D-979E06D4DEBA
 10;SalesInvoiceBaseData_UI;Base data(Sales invoice);;net.nan21.dnet.module.sd.invoice.frame.SalesInvoiceBaseData_UI;nan21.dnet.module.sd.ui.extjs;false;129B2FE9-8D79-481F-891F-EA7B5AE3DB31
 20;SalesInvoice_UI;Invoices;;net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI;nan21.dnet.module.sd.ui.extjs;true;8CB56668-7FF9-40D6-BA08-D4875FB5B520
+25;SalesInvoiceItems_UI;Invoice items;;net.nan21.dnet.module.sd.invoice.frame.SalesInvoiceItems_UI;nan21.dnet.module.sd.ui.extjs;true;8CB58668-7FF9-40D6-BA08-D4875FB5B520
 10;SalesOrderBaseData_UI;Base data(Sales orders);;net.nan21.dnet.module.sd.order.frame.SalesOrderBaseData_UI;nan21.dnet.module.sd.ui.extjs;false;4E916316-F647-4E61-B7B5-3C75F228CEE3
 20;SalesOrder_UI;Orders;;net.nan21.dnet.module.sd.order.frame.SalesOrder_UI;nan21.dnet.module.sd.ui.extjs;true;5AB899A7-AF35-453A-BC33-FFD1EB6E83B5
+25;SalesOrderItems_UI;Order items;;net.nan21.dnet.module.sd.order.frame.SalesOrderItems_UI;nan21.dnet.module.sd.ui.extjs;true;5AB890A7-AF35-453A-BC33-FFD1EB6E83B5
 30;sc-menu-invoice;Invoices;SC;;;true;2E0E63EF-A4C6-46FC-A8E4-0B5E078BD680
 20;sc-menu-order;Orders;SC;;;true;A8E271C9-8F07-4DC4-AF2C-1C0A40AC2FD1
 40;sc-menu-pay;Payments;SC;;;true;03B73FDF-95A9-4F5A-9C86-C1027829272E
 10;sc-menu-price;Prices;SC;;;true;DA69368D-A599-46F4-9D7B-E1A80DD9E012
+5;sc-menu-account;Vendors;SC;;;true;DA65368D-A599-46F4-9D7B-E1A80DD9E012
 30;sd-menu-invoice;Invoices;SD;;;true;61E7A34F-D843-43B9-AEF4-F41DA761898F
 15;sd-menu-opportunity;Opportunities;SD;;;true;EFC8F59A-170D-447E-818B-9A407EA113E9
 20;sd-menu-order;Orders;SD;;;true;48E1B420-21C5-44FF-A6DE-427B4CEC23AE
 40;sd-menu-pay;Payments;SD;;;true;0E7D54C8-CDB3-4645-B61F-C8D85ABE1C80
 10;sd-menu-price;Prices;SD;;;true;2B99EE2A-7FBE-462D-A989-82485D49493E
+5;sd-menu-account;Customers;SD;;;true;2B89EE2A-7FBE-462D-A989-82485D49493E
 30;SkillType_UI;Competence types;;net.nan21.dnet.module.hr.skill.frame.SkillType_UI;nan21.dnet.module.hr.ui.extjs;true;FA7FE7A7-4FBB-48B9-B479-CE8DFCA6B853
 40;Skill_UI;Competences;;net.nan21.dnet.module.hr.skill.frame.Skill_UI;nan21.dnet.module.hr.ui.extjs;true;47544264-64E0-4D39-8986-E5A0B2C2A71D
 10;StockLocatorTypes_UI;Locator types;;net.nan21.dnet.module.md.org.frame.StockLocatorTypes_UI;nan21.dnet.module.md.ui.extjs;true;0FBA2268-3972-4F74-9A8F-89713427C24A
@@ -201,6 +208,7 @@ sequenceNo;name;title;menu;frame;bundle;active;uuid
 20;UserGroups_UI;User groups;;net.nan21.dnet.module.ad.usr.frame.UserGroups_UI;nan21.dnet.module.ad.ui.extjs;true;19088C5D-BDEB-42DE-9728-750D42D605BA
 10;Users_UI;Users;;net.nan21.dnet.module.ad.usr.frame.Users_UI;nan21.dnet.module.ad.ui.extjs;true;30834776-1AA5-446B-A092-6216E8C87E07
 30;UserTypes_UI;User types;;net.nan21.dnet.module.ad.usr.frame.UserTypes_UI;nan21.dnet.module.ad.ui.extjs;true;63703C10-0349-45E3-A3FE-AA1BAC9F20A5
+10;VendorAccount_UI;Vendor accounts;;net.nan21.dnet.module.sc.account.frame.VendorAccount_UI;nan21.dnet.module.sc.ui.extjs;true;63703C10-0149-45E3-A3FE-AA1BAC9F20A5
 20;WorkflowAdmin_UI;Workflow admin console;;net.nan21.dnet.module.ad.workflow.frame.WorkflowAdmin_UI;nan21.dnet.module.ad.ui.extjs;true;C9A5B68F-058C-4690-A0DA-B116642A0626
 10;WorkflowDef_UI;Workflow definition;;net.nan21.dnet.module.ad.workflow.frame.WorkflowDef_UI;nan21.dnet.module.ad.ui.extjs;false;82F90432-0CB0-4B8F-B32C-C3157018E8CD
 30;WorkflowTodo_UI;Tasks;;net.nan21.dnet.module.ad.workflow.frame.WorkflowTodo_UI;nan21.dnet.module.ad.ui.extjs;true;040E1A18-347D-402A-814D-B68969D62FDF

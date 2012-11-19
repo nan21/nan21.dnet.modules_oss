@@ -14,29 +14,26 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentInAmount", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
-/* ================= E-GRID: CtxEditList ================= */
+/* ================= GRID: List ================= */
 
 
-Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentInAmount$CtxEditList", {
-	extend: "dnet.core.dc.AbstractDcvEditableGrid",
-	alias: "widget.sd_invoice_dc_PaymentInAmount$CtxEditList",
-	
+Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentInAmount$List", {
+	extend: "dnet.core.dc.AbstractDcvGrid",
+	alias: "widget.sd_invoice_dc_PaymentInAmount$List",
+
 	_defineColumns_: function() {
-		this._getBuilder_()	
-			.addTextColumn({name:"invoiceCode", dataIndex:"invoiceCode", width:100})
-			.addTextColumn({name:"invoiceDocNo", dataIndex:"invoiceDocNo", width:200})
-			.addDateColumn({name:"invoiceDocDate", dataIndex:"invoiceDocDate", format: Dnet.DATE_FORMAT
-			})
-			.addNumberColumn({name:"expectedAmount", dataIndex:"expectedAmount", align:"right", decimals:2})
-			.addNumberColumn({name:"payedAmount", dataIndex:"payedAmount", align:"right", decimals:2})
-			.addNumberColumn({name:"dueAmount", dataIndex:"dueAmount", align:"right", decimals:2})
-			.addNumberColumn({name:"amount", dataIndex:"amount", align:"right", decimals:2,
-					editor:{xtype:"numberfield" , decimalPrecision:2}})
-			.addNumberColumn({name:"paymentId", dataIndex:"paymentId", hidden:true, align:"right", width:70, format:"0"})
-			.addNumberColumn({name:"txAmountId", dataIndex:"txAmountId", hidden:true, align:"right", width:70, format:"0"})
+		this._getBuilder_()
+			.addTextColumn({ name:"invoiceCode", dataIndex:"invoiceCode", width:100})
+			.addTextColumn({ name:"invoiceDocNo", dataIndex:"invoiceDocNo", width:200})
+			.addDateColumn({ name:"invoiceDocDate", dataIndex:"invoiceDocDate", format: Dnet.DATE_FORMAT})
+			.addNumberColumn({ name:"dueAmount", dataIndex:"dueAmount", decimals:2})
+			.addNumberColumn({ name:"payedAmount", dataIndex:"payedAmount", decimals:2})
+			.addNumberColumn({ name:"outstandingAmount", dataIndex:"outstandingAmount", decimals:2})
+			.addNumberColumn({ name:"currentPayment", dataIndex:"currentPayment", decimals:2})
+			.addNumberColumn({ name:"paymentId", dataIndex:"paymentId", hidden:true, width:70, format:"0"})
+			.addNumberColumn({ name:"txAmountId", dataIndex:"txAmountId", hidden:true, width:70, format:"0"})
 			.addDefaults();
 	}});

@@ -16,6 +16,10 @@ import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentIn;
  */
 public interface IPaymentInService extends IEntityService<PaymentIn> {
 
+	public void doConfirm(PaymentIn payment) throws BusinessException;
+
+	public void doUnConfirm(PaymentIn payment) throws BusinessException;
+
 	public void doPost(PaymentIn payment) throws BusinessException;
 
 	public void doUnPost(PaymentIn payment) throws BusinessException;

@@ -61,6 +61,7 @@ CsvExport_UI;ad-menu-exp
 Currencies_UI;bd-menu-currency
 CurrencyXrateProvider_UI;bd-menu-currency
 CurrencyXRates_UI;bd-menu-currency
+CustomerAccount_UI;sd-menu-account
 DsAccessControl_UI;ad-menu-acl
 DsMethodAccessControl_UI;ad-menu-acl
 ElementBaseData_UI;bd-menu-elem
@@ -154,8 +155,10 @@ Projects_UI;pj-menu-projects
 ProjectVersions_UI;pj-menu-projects
 PurchaseInvoiceBaseData_UI;sc-menu-invoice
 PurchaseInvoice_UI;sc-menu-invoice
+PurchaseInvoiceItems_UI;sc-menu-invoice
 PurchaseOrderBaseData_UI;sc-menu-order
 PurchaseOrder_UI;sc-menu-order
+PurchaseOrderItems_UI;sc-menu-order
 PurchaseReception_UI;sc-menu-order
 RatingLevel_UI;hr-menu-skill
 RatingScale_UI;hr-menu-skill
@@ -167,8 +170,10 @@ Role_UI;ad-menu-usr
 SalesDelivery_UI;sd-menu-order
 SalesInvoiceBaseData_UI;sd-menu-invoice
 SalesInvoice_UI;sd-menu-invoice
+SalesInvoiceItems_UI;sd-menu-invoice
 SalesOrderBaseData_UI;sd-menu-order
 SalesOrder_UI;sd-menu-order
+SalesOrderItems_UI;sd-menu-order
 sc-menu-invoice;
 sc-menu-order;
 sc-menu-pay;
@@ -201,6 +206,7 @@ UomType_UI;bd-menu-uom
 UserGroups_UI;ad-menu-usr
 Users_UI;ad-menu-usr
 UserTypes_UI;ad-menu-usr
+VendorAccount_UI;sc-menu-account
 WorkflowAdmin_UI;ad-menu-wf
 WorkflowDef_UI;ad-menu-wf
 WorkflowTodo_UI;ad-menu-wf

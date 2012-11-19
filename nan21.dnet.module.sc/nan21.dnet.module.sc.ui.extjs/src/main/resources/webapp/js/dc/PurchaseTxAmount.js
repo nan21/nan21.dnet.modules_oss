@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmount", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */
@@ -29,7 +28,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmount$Filter", {
 		this._getBuilder_()
 			/* controls */
 			.addDateField({name:"dueDate", dataIndex:"dueDate", anchor:"-20", format:Ext.DATE_FORMAT})
-			.addNumberField({name:"amount", dataIndex:"amount", anchor:"-20", decimals:2})
+			.addNumberField({name:"outstandingAmount", dataIndex:"outstandingAmount", anchor:"-20", decimals:2})
 			.addNumberField({name:"payedAmount", dataIndex:"payedAmount", anchor:"-20", decimals:2})
 			.addNumberField({name:"dueAmount", dataIndex:"dueAmount", anchor:"-20", decimals:2})
 			.addTextField({ name:"paymentMethod", dataIndex:"paymentMethod", anchor:"-20"})
@@ -48,31 +47,26 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmount$Filter", {
 	}});
 
 
-/* ================= E-GRID: EditList ================= */
+/* ================= GRID: List ================= */
 
 
-Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmount$EditList", {
-	extend: "dnet.core.dc.AbstractDcvEditableGrid",
-	alias: "widget.sc_invoice_dc_PurchaseTxAmount$EditList",
-	
+Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmount$List", {
+	extend: "dnet.core.dc.AbstractDcvGrid",
+	alias: "widget.sc_invoice_dc_PurchaseTxAmount$List",
+	_noImport_: true,
+
 	_defineColumns_: function() {
-		this._getBuilder_()	
-			.addDateColumn({name:"dueDate", dataIndex:"dueDate", format: Dnet.DATE_FORMAT
-				,editor:{xtype:"datefield", format: Dnet.DATE_FORMAT }
-			})
-			.addLov({name:"paymentMethod", dataIndex:"paymentMethod", xtype:"gridcolumn", width:120,
-					editor:{xtype:"md_base_tx_lovs_PaymentMethodOut", selectOnFocus:true,
-						retFieldMapping: [
-							{lovField:"id", dsField: "paymentMethodId"} 
-						]}})
-			.addNumberColumn({name:"amount", dataIndex:"amount", align:"right", decimals:2,
-					editor:{xtype:"numberfield" , decimalPrecision:2}})
-			.addNumberColumn({name:"payedAmount", dataIndex:"payedAmount", align:"right", decimals:2,
-					editor:{xtype:"numberfield" , decimalPrecision:2}})
-			.addNumberColumn({name:"dueAmount", dataIndex:"dueAmount", align:"right", decimals:2,
-					editor:{xtype:"numberfield" , decimalPrecision:2}})
-			.addNumberColumn({name:"invoiceId", dataIndex:"invoiceId", hidden:true, align:"right", width:70, format:"0"})
-			.addNumberColumn({name:"orderId", dataIndex:"orderId", hidden:true, align:"right", width:70, format:"0"})
-			.addNumberColumn({name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, align:"right", width:70, format:"0"})
+		this._getBuilder_()
+			.addTextColumn({ name:"invoiceCode", dataIndex:"invoiceCode", width:80})
+			.addDateColumn({ name:"invoiceDocDate", dataIndex:"invoiceDocDate", format: Dnet.DATE_FORMAT})
+			.addTextColumn({ name:"invoiceDocNo", dataIndex:"invoiceDocNo", width:80})
+			.addDateColumn({ name:"dueDate", dataIndex:"dueDate", format: Dnet.DATE_FORMAT})
+			.addTextColumn({ name:"paymentMethod", dataIndex:"paymentMethod", width:120})
+			.addNumberColumn({ name:"dueAmount", dataIndex:"dueAmount", decimals:2})
+			.addNumberColumn({ name:"payedAmount", dataIndex:"payedAmount", decimals:2})
+			.addNumberColumn({ name:"outstandingAmount", dataIndex:"outstandingAmount", decimals:2})
+			.addNumberColumn({ name:"invoiceId", dataIndex:"invoiceId", hidden:true, width:70, format:"0"})
+			.addNumberColumn({ name:"orderId", dataIndex:"orderId", hidden:true, width:70, format:"0"})
+			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addDefaults();
 	}});

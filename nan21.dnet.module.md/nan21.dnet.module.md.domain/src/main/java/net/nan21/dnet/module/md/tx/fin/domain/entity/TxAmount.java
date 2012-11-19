@@ -77,14 +77,17 @@ public class TxAmount extends AbstractAuditable {
 	@NotNull
 	private Date dueDate;
 
-	@Column(name = "AMOUNT", scale = 2)
-	private Float amount;
+	/**Total due amount */
+	@Column(name = "DUEAMOUNT", scale = 2)
+	private Float dueAmount;
 
+	/**Total amount payed until now */
 	@Column(name = "PAYEDAMOUNT", scale = 2)
 	private Float payedAmount;
 
-	@Column(name = "DUEAMOUNT", scale = 2)
-	private Float dueAmount;
+	/**The amount remained to be paid. */
+	@Column(name = "AMOUNT", scale = 2)
+	private Float amount;
 
 	@Column(name = "SALES", nullable = false)
 	@NotNull
@@ -134,12 +137,12 @@ public class TxAmount extends AbstractAuditable {
 		this.dueDate = dueDate;
 	}
 
-	public Float getAmount() {
-		return this.amount;
+	public Float getDueAmount() {
+		return this.dueAmount;
 	}
 
-	public void setAmount(Float amount) {
-		this.amount = amount;
+	public void setDueAmount(Float dueAmount) {
+		this.dueAmount = dueAmount;
 	}
 
 	public Float getPayedAmount() {
@@ -150,12 +153,12 @@ public class TxAmount extends AbstractAuditable {
 		this.payedAmount = payedAmount;
 	}
 
-	public Float getDueAmount() {
-		return this.dueAmount;
+	public Float getAmount() {
+		return this.amount;
 	}
 
-	public void setDueAmount(Float dueAmount) {
-		this.dueAmount = dueAmount;
+	public void setAmount(Float amount) {
+		this.amount = amount;
 	}
 
 	public Boolean getSales() {

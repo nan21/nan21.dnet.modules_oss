@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= FILTER: Filter ================= */
@@ -30,9 +29,9 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$Filter", {
 			/* controls */
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addTextField({ name:"docNo", dataIndex:"docNo", anchor:"-20"})
-			.addLov({xtype:"md_bp_lovs_BusinessPartnersName", name:"payFrom", dataIndex:"payFrom", anchor:"-20",
+			.addLov({xtype:"md_bp_lovs_BusinessPartnersName", name:"bpartner", dataIndex:"bpartner", anchor:"-20",
 				retFieldMapping: [
-					{lovField:"id", dsField: "payFromId"} 
+					{lovField:"id", dsField: "bpartnerId"} 
 				]})
 			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", anchor:"-20", maxLength:32,
 				retFieldMapping: [
@@ -73,7 +72,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$Filter", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
-			.addChildrenTo("col1", ["org", "payFrom", "paymentMethod", "toAccount"])
+			.addChildrenTo("col1", ["org", "bpartner", "paymentMethod", "toAccount"])
 			.addChildrenTo("col2", ["docNo", "code", "currency"])
 			.addChildrenTo("col3", ["docDate", "amount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
@@ -90,22 +89,54 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$List", {
 
 	_defineColumns_: function() {
 		this._getBuilder_()
-			.addTextColumn({ name:"code", dataIndex:"code", width:100})
-			.addTextColumn({ name:"docNo", dataIndex:"docNo", width:200})
+			.addTextColumn({ name:"code", dataIndex:"code", width:70})
+			.addTextColumn({ name:"docNo", dataIndex:"docNo", width:70})
 			.addDateColumn({ name:"docDate", dataIndex:"docDate", format: Dnet.DATE_FORMAT})
-			.addTextColumn({ name:"payFromCode", dataIndex:"payFromCode", width:100})
-			.addTextColumn({ name:"payFrom", dataIndex:"payFrom", width:200})
+			.addTextColumn({ name:"bpartnerCode", dataIndex:"bpartnerCode", width:100})
+			.addTextColumn({ name:"bpartner", dataIndex:"bpartner", width:200})
 			.addTextColumn({ name:"org", dataIndex:"org", width:100})
 			.addTextColumn({ name:"currency", dataIndex:"currency", width:100})
 			.addTextColumn({ name:"paymentMethod", dataIndex:"paymentMethod", width:120})
 			.addNumberColumn({ name:"amount", dataIndex:"amount", decimals:2})
 			.addBooleanColumn({ name:"confirmed", dataIndex:"confirmed"})
 			.addBooleanColumn({ name:"posted", dataIndex:"posted"})
-			.addNumberColumn({ name:"payFromId", dataIndex:"payFromId", hidden:true, width:70, format:"0"})
+			.addNumberColumn({ name:"bpartnerId", dataIndex:"bpartnerId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"orgId", dataIndex:"orgId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
+	}});
+
+
+/* ================= EDITOR: ViewInfo ================= */
+
+
+Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$ViewInfo", {
+	extend: "dnet.core.dc.AbstractDcvEditForm",
+	alias: "widget.sd_invoice_dc_PaymentIn$ViewInfo",
+
+	_defineElements_: function() {
+		this._getBuilder_()
+			/* controls */
+			.addDisplayFieldText({ name:"bpartner", dataIndex:"bpartner", anchor:"-20"})
+			.addDisplayFieldNumber({ name:"amount", dataIndex:"amount", anchor:"-20", decimals:2 })
+			.addDisplayFieldText({ name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32})
+			/* containers */
+			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
+					autoScroll:true, padding:"0 30 5 0"})
+			.addPanel({ name:"col1", width:300, layout:"form"})
+			.addPanel({ name:"col2", width:150, layout:"form"})
+			.addPanel({ name:"col3", width:150, layout:"form"})
+		;
+	},
+
+	_linkElements_: function() {
+		this._getBuilder_()
+			.addChildrenTo("main", ["col1", "col2", "col3"])
+			.addChildrenTo("col1", ["bpartner"])
+			.addChildrenTo("col2", ["amount"])
+			.addChildrenTo("col3", ["currency"])
+		;
 	}});
 
 
@@ -127,9 +158,9 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 
 				]})
-			.addLov({xtype:"md_bp_lovs_CustomersName", name:"payFrom", dataIndex:"payFrom", allowBlank:false, anchor:"-20",
+			.addLov({xtype:"md_bp_lovs_CustomersName", name:"bpartner", dataIndex:"bpartner", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
-					{lovField:"bpartnerId", dsField: "payFromId"} 
+					{lovField:"bpartnerId", dsField: "bpartnerId"} ,{lovField:"code", dsField: "bpartnerCode"} 
 				]})
 			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
@@ -161,7 +192,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.PaymentIn$Edit", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
-			.addChildrenTo("col1", ["org", "payFrom", "amount", "currency"])
+			.addChildrenTo("col1", ["org", "bpartner", "amount", "currency"])
 			.addChildrenTo("col2", ["docDate", "docNo", "code"])
 			.addChildrenTo("col3", ["paymentMethod", "toAccount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])

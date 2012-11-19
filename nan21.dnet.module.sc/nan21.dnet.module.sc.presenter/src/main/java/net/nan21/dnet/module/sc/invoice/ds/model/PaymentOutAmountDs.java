@@ -15,17 +15,25 @@ import net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOutAmount;
 public class PaymentOutAmountDs extends AbstractAuditableDs<PaymentOutAmount> {
 
 	public static final String fPAYMENTID = "paymentId";
+	public static final String fORGID = "orgId";
+	public static final String fBPARTNERID = "bpartnerId";
 	public static final String fTXAMOUNTID = "txAmountId";
 	public static final String fINVOICECODE = "invoiceCode";
 	public static final String fINVOICEDOCNO = "invoiceDocNo";
 	public static final String fINVOICEDOCDATE = "invoiceDocDate";
-	public static final String fEXPECTEDAMOUNT = "expectedAmount";
-	public static final String fPAYEDAMOUNT = "payedAmount";
 	public static final String fDUEAMOUNT = "dueAmount";
-	public static final String fAMOUNT = "amount";
+	public static final String fPAYEDAMOUNT = "payedAmount";
+	public static final String fOUTSTANDINGAMOUNT = "outstandingAmount";
+	public static final String fCURRENTPAYMENT = "currentPayment";
 
 	@DsField(join = "left", path = "payment.id")
 	private Long paymentId;
+
+	@DsField(join = "left", path = "payment.toOrg.id")
+	private Long orgId;
+
+	@DsField(join = "left", path = "payment.bpartner.id")
+	private Long bpartnerId;
 
 	@DsField(join = "left", path = "txAmount.id")
 	private Long txAmountId;
@@ -39,17 +47,17 @@ public class PaymentOutAmountDs extends AbstractAuditableDs<PaymentOutAmount> {
 	@DsField(join = "left", path = "txAmount.invoice.docDate")
 	private Date invoiceDocDate;
 
-	@DsField(join = "left", path = "txAmount.amount")
-	private Float expectedAmount;
+	@DsField(join = "left", path = "txAmount.dueAmount")
+	private Float dueAmount;
 
 	@DsField(join = "left", path = "txAmount.payedAmount")
 	private Float payedAmount;
 
-	@DsField(join = "left", path = "txAmount.dueAmount")
-	private Float dueAmount;
+	@DsField(join = "left", path = "txAmount.amount")
+	private Float outstandingAmount;
 
-	@DsField()
-	private Float amount;
+	@DsField(path = "amount")
+	private Float currentPayment;
 
 	public PaymentOutAmountDs() {
 		super();
@@ -65,6 +73,22 @@ public class PaymentOutAmountDs extends AbstractAuditableDs<PaymentOutAmount> {
 
 	public void setPaymentId(Long paymentId) {
 		this.paymentId = paymentId;
+	}
+
+	public Long getOrgId() {
+		return this.orgId;
+	}
+
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
+	}
+
+	public Long getBpartnerId() {
+		return this.bpartnerId;
+	}
+
+	public void setBpartnerId(Long bpartnerId) {
+		this.bpartnerId = bpartnerId;
 	}
 
 	public Long getTxAmountId() {
@@ -99,12 +123,12 @@ public class PaymentOutAmountDs extends AbstractAuditableDs<PaymentOutAmount> {
 		this.invoiceDocDate = invoiceDocDate;
 	}
 
-	public Float getExpectedAmount() {
-		return this.expectedAmount;
+	public Float getDueAmount() {
+		return this.dueAmount;
 	}
 
-	public void setExpectedAmount(Float expectedAmount) {
-		this.expectedAmount = expectedAmount;
+	public void setDueAmount(Float dueAmount) {
+		this.dueAmount = dueAmount;
 	}
 
 	public Float getPayedAmount() {
@@ -115,19 +139,19 @@ public class PaymentOutAmountDs extends AbstractAuditableDs<PaymentOutAmount> {
 		this.payedAmount = payedAmount;
 	}
 
-	public Float getDueAmount() {
-		return this.dueAmount;
+	public Float getOutstandingAmount() {
+		return this.outstandingAmount;
 	}
 
-	public void setDueAmount(Float dueAmount) {
-		this.dueAmount = dueAmount;
+	public void setOutstandingAmount(Float outstandingAmount) {
+		this.outstandingAmount = outstandingAmount;
 	}
 
-	public Float getAmount() {
-		return this.amount;
+	public Float getCurrentPayment() {
+		return this.currentPayment;
 	}
 
-	public void setAmount(Float amount) {
-		this.amount = amount;
+	public void setCurrentPayment(Float currentPayment) {
+		this.currentPayment = currentPayment;
 	}
 }

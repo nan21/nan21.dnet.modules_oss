@@ -16,6 +16,18 @@ public class PaymentOutAmountDsFilter extends AbstractAuditableDsFilter {
 
 	private Long paymentId_To;
 
+	private Long orgId;
+
+	private Long orgId_From;
+
+	private Long orgId_To;
+
+	private Long bpartnerId;
+
+	private Long bpartnerId_From;
+
+	private Long bpartnerId_To;
+
 	private Long txAmountId;
 
 	private Long txAmountId_From;
@@ -32,11 +44,11 @@ public class PaymentOutAmountDsFilter extends AbstractAuditableDsFilter {
 
 	private Date invoiceDocDate_To;
 
-	private Float expectedAmount;
+	private Float dueAmount;
 
-	private Float expectedAmount_From;
+	private Float dueAmount_From;
 
-	private Float expectedAmount_To;
+	private Float dueAmount_To;
 
 	private Float payedAmount;
 
@@ -44,17 +56,17 @@ public class PaymentOutAmountDsFilter extends AbstractAuditableDsFilter {
 
 	private Float payedAmount_To;
 
-	private Float dueAmount;
+	private Float outstandingAmount;
 
-	private Float dueAmount_From;
+	private Float outstandingAmount_From;
 
-	private Float dueAmount_To;
+	private Float outstandingAmount_To;
 
-	private Float amount;
+	private Float currentPayment;
 
-	private Float amount_From;
+	private Float currentPayment_From;
 
-	private Float amount_To;
+	private Float currentPayment_To;
 
 	public Long getPaymentId() {
 		return this.paymentId;
@@ -78,6 +90,54 @@ public class PaymentOutAmountDsFilter extends AbstractAuditableDsFilter {
 
 	public void setPaymentId_To(Long paymentId_To) {
 		this.paymentId_To = paymentId_To;
+	}
+
+	public Long getOrgId() {
+		return this.orgId;
+	}
+
+	public Long getOrgId_From() {
+		return this.orgId_From;
+	}
+
+	public Long getOrgId_To() {
+		return this.orgId_To;
+	}
+
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
+	}
+
+	public void setOrgId_From(Long orgId_From) {
+		this.orgId_From = orgId_From;
+	}
+
+	public void setOrgId_To(Long orgId_To) {
+		this.orgId_To = orgId_To;
+	}
+
+	public Long getBpartnerId() {
+		return this.bpartnerId;
+	}
+
+	public Long getBpartnerId_From() {
+		return this.bpartnerId_From;
+	}
+
+	public Long getBpartnerId_To() {
+		return this.bpartnerId_To;
+	}
+
+	public void setBpartnerId(Long bpartnerId) {
+		this.bpartnerId = bpartnerId;
+	}
+
+	public void setBpartnerId_From(Long bpartnerId_From) {
+		this.bpartnerId_From = bpartnerId_From;
+	}
+
+	public void setBpartnerId_To(Long bpartnerId_To) {
+		this.bpartnerId_To = bpartnerId_To;
 	}
 
 	public Long getTxAmountId() {
@@ -144,28 +204,28 @@ public class PaymentOutAmountDsFilter extends AbstractAuditableDsFilter {
 		this.invoiceDocDate_To = invoiceDocDate_To;
 	}
 
-	public Float getExpectedAmount() {
-		return this.expectedAmount;
+	public Float getDueAmount() {
+		return this.dueAmount;
 	}
 
-	public Float getExpectedAmount_From() {
-		return this.expectedAmount_From;
+	public Float getDueAmount_From() {
+		return this.dueAmount_From;
 	}
 
-	public Float getExpectedAmount_To() {
-		return this.expectedAmount_To;
+	public Float getDueAmount_To() {
+		return this.dueAmount_To;
 	}
 
-	public void setExpectedAmount(Float expectedAmount) {
-		this.expectedAmount = expectedAmount;
+	public void setDueAmount(Float dueAmount) {
+		this.dueAmount = dueAmount;
 	}
 
-	public void setExpectedAmount_From(Float expectedAmount_From) {
-		this.expectedAmount_From = expectedAmount_From;
+	public void setDueAmount_From(Float dueAmount_From) {
+		this.dueAmount_From = dueAmount_From;
 	}
 
-	public void setExpectedAmount_To(Float expectedAmount_To) {
-		this.expectedAmount_To = expectedAmount_To;
+	public void setDueAmount_To(Float dueAmount_To) {
+		this.dueAmount_To = dueAmount_To;
 	}
 
 	public Float getPayedAmount() {
@@ -192,51 +252,51 @@ public class PaymentOutAmountDsFilter extends AbstractAuditableDsFilter {
 		this.payedAmount_To = payedAmount_To;
 	}
 
-	public Float getDueAmount() {
-		return this.dueAmount;
+	public Float getOutstandingAmount() {
+		return this.outstandingAmount;
 	}
 
-	public Float getDueAmount_From() {
-		return this.dueAmount_From;
+	public Float getOutstandingAmount_From() {
+		return this.outstandingAmount_From;
 	}
 
-	public Float getDueAmount_To() {
-		return this.dueAmount_To;
+	public Float getOutstandingAmount_To() {
+		return this.outstandingAmount_To;
 	}
 
-	public void setDueAmount(Float dueAmount) {
-		this.dueAmount = dueAmount;
+	public void setOutstandingAmount(Float outstandingAmount) {
+		this.outstandingAmount = outstandingAmount;
 	}
 
-	public void setDueAmount_From(Float dueAmount_From) {
-		this.dueAmount_From = dueAmount_From;
+	public void setOutstandingAmount_From(Float outstandingAmount_From) {
+		this.outstandingAmount_From = outstandingAmount_From;
 	}
 
-	public void setDueAmount_To(Float dueAmount_To) {
-		this.dueAmount_To = dueAmount_To;
+	public void setOutstandingAmount_To(Float outstandingAmount_To) {
+		this.outstandingAmount_To = outstandingAmount_To;
 	}
 
-	public Float getAmount() {
-		return this.amount;
+	public Float getCurrentPayment() {
+		return this.currentPayment;
 	}
 
-	public Float getAmount_From() {
-		return this.amount_From;
+	public Float getCurrentPayment_From() {
+		return this.currentPayment_From;
 	}
 
-	public Float getAmount_To() {
-		return this.amount_To;
+	public Float getCurrentPayment_To() {
+		return this.currentPayment_To;
 	}
 
-	public void setAmount(Float amount) {
-		this.amount = amount;
+	public void setCurrentPayment(Float currentPayment) {
+		this.currentPayment = currentPayment;
 	}
 
-	public void setAmount_From(Float amount_From) {
-		this.amount_From = amount_From;
+	public void setCurrentPayment_From(Float currentPayment_From) {
+		this.currentPayment_From = currentPayment_From;
 	}
 
-	public void setAmount_To(Float amount_To) {
-		this.amount_To = amount_To;
+	public void setCurrentPayment_To(Float currentPayment_To) {
+		this.currentPayment_To = currentPayment_To;
 	}
 }

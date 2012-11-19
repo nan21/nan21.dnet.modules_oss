@@ -14,8 +14,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItemTax", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}
-});
+	}});
 
 
 /* ================= GRID: CtxList ================= */

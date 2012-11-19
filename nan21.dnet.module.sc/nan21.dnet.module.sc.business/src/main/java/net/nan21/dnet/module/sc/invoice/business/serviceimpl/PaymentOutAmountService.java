@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
-import net.nan21.dnet.module.sc.invoice.business.service.IPaymentOutAmountService;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOutAmount;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseTxAmount;
 
@@ -21,9 +20,7 @@ import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseTxAmount;
  */
 public class PaymentOutAmountService
 		extends
-			AbstractEntityService<PaymentOutAmount>
-		implements
-			IPaymentOutAmountService {
+			AbstractEntityService<PaymentOutAmount> {
 
 	public PaymentOutAmountService() {
 		super();

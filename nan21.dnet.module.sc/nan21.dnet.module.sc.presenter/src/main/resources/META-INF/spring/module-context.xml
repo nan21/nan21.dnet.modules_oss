@@ -12,16 +12,16 @@
 
 	<!-- general presenter specific -->
 
-	<context:load-time-weaver aspectj-weaving="on"/>
+	<context:load-time-weaver aspectj-weaving="on" />
 	<context:annotation-config />
 
-	<bean id="dsServiceFactory" 
-			class="net.nan21.dnet.core.presenter.service.ds.DsServiceFactory">
+	<bean id="dsServiceFactory"
+		class="net.nan21.dnet.core.presenter.service.ds.DsServiceFactory">
 		<property name="entityServiceFactories" ref="osgiEntityServiceFactories"></property>
 	</bean>
 
 	<bean id="asgnServiceFactory"
-			class="net.nan21.dnet.core.presenter.service.asgn.AsgnServiceFactory">
+		class="net.nan21.dnet.core.presenter.service.asgn.AsgnServiceFactory">
 		<property name="asgnTxServiceFactories" ref="osgiAsgnTxServiceFactories"></property>
 	</bean>
 
@@ -29,14 +29,15 @@
 		<property name="entityServiceFactories" ref="osgiEntityServiceFactories"></property>
 	</bean>
 
-	<bean id="dsDefinitions" class="net.nan21.dnet.core.presenter.model.DsDefinitions"/>
+	<bean id="dsDefinitions" class="net.nan21.dnet.core.presenter.model.DsDefinitions" />
 
-	<bean id="serviceLocator" class="net.nan21.dnet.core.presenter.service.ServiceLocator"/>
+	<bean id="serviceLocator" class="net.nan21.dnet.core.presenter.service.ServiceLocator" />
 
-	 <!-- module presenter specific -->
+	<!-- module presenter specific -->
 
-	<!-- Presenter services -->  
+	<!-- Presenter services -->
 
-	<import resource="beans/sc.order.ds.xml"/>	
-	<import resource="beans/sc.invoice.ds.xml"/>
+	<import resource="beans/sc.account.ds.xml" />
+	<import resource="beans/sc.order.ds.xml" />
+	<import resource="beans/sc.invoice.ds.xml" />
 </beans>

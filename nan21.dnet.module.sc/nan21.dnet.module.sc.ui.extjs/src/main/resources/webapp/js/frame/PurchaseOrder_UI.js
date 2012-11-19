@@ -135,6 +135,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 			;
 	}
 
+	
 	,onBtnConfirm: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -143,6 +144,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onBtnUnConfirm: function() {
 		var s={modal:true, callbacks:{} };
 		try{
@@ -151,9 +153,11 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 			dnet.base.DcExceptions.showMessage(e);
 		}
 	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -163,11 +167,13 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 				var url = this._getDc_("atch").getRecord().get("url");
 				window.open(url, "Attachment", "location=1,status=1,scrollbars=1,width=500,height=400");
 	}
+	
 	,onAfterDefineDcs: function() {
 		
 				this._getDc_("item").on("afterDoSaveSuccess", 
@@ -181,6 +187,7 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 				this._getDc_("order").on("recordChange", this._syncReadOnlyStates_, this );
 				
 	}
+	
 	,_syncReadOnlyStates_: function() {
 		
 				var orderRec = this._getDc_("order").getRecord();
@@ -195,6 +202,19 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 						itemsDc.setReadOnly(false);
 					}
 				}
+	}
+	
+	,_when_called_to_edit_: function(params) {
+		
+		var order = this._getDc_("order");
+		if (order.isDirty()) {
+			this._alert_dirty_();
+			return;
+		}
+		order.doClearQuery();
+		order.setFilterValue("code", params.code );
+		order.doQuery();
+		this._showStackedViewElement_("main",1);
 	}
 	,_afterDefineDcs_: function() {
 		this.onAfterDefineDcs();

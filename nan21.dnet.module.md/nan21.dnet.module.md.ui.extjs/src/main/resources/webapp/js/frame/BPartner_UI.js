@@ -214,17 +214,24 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 			;
 	}
 
+	
 	,onBtnCreateBpContinue: function() {
 		this._getWindow_("wdwBpCreate").close();
+		this._selectBpEditorForm_();
 	}
+	
 	,onBtnShowAccounts: function() {
+		this.onBtnShowAccounts();
 	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
+	
 	,_whenCreateNewBp_: function() {	
 		this._getWindow_("wdwBpCreate").show();
 	}
+	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
 		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
@@ -234,17 +241,21 @@ Ext.define("net.nan21.dnet.module.md.bp.frame.BPartner_UI", {
 		    		_succesCallbackScope_: this
 		    	});w.show();
 	}
+	
 	,_afterDefineDcs_: function() {
 		this._getDc_("bp").on("afterDoNew", this._whenCreateNewBp_, this);
 	}
+	
 	,_selectBpEditorForm_: function() {
 		this._getElement_("bpEdit").onRecordChange();
 	}
+	
 	,onBtnViewAttachment: function() {
 		
 				var url = this._getDc_("atch").getRecord().get("url");
 				window.open(url, "Attachment", "location=1,status=1,scrollbars=1,width=500,height=400");
 	}
+	
 	,onBtnShowAccounts: function() {
 		this._showStackedViewElement_("accountPanel", "acctEditList")
 	}
