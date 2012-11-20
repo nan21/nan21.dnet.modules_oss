@@ -73,20 +73,24 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoice_UI", {
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnConfirmInvoice"), this._elems_.get("btnUnConfirmInvoice"), this._elems_.get("btnPostInvoice"), this._elems_.get("btnUnPostInvoice")]}]})
 			.addDcFormView("inv", {name:"invEditDetails", title:"Details", xtype:"sc_invoice_dc_PurchaseInvoice$EditDetails"})
-			.addDcGridView("amount", {name:"amountList", width:800, xtype:"sc_invoice_dc_PurchaseTxAmount$List"})
 			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sc_invoice_dc_PurchaseInvoiceTax$List"})
+			.addDcGridView("amount", {name:"amountList", width:800, xtype:"sc_invoice_dc_PurchaseTxAmount$List"})
+			.addDcGridView("payedAmount", {name:"payedAmountList", xtype:"sc_invoice_dc_PurchaseTxAmountPayment$List", 
+					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
+						items:[ this._elems_.get("btnShowPayment")]}]})
+			.addPanel({name:"amountsPanel", title:"Payment info", layout:"border", defaults:{split:true}})
 			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})
 			.addDcFilterFormView("accDocLine", {name:"accDocLineFilter", title:"Filter", width:250, xtype:"md_tx_acc_dc_AccDocLineCtx$Filter", collapsible:true, collapsed:true
 			})
+			.addPanel({name:"accDocPanel", title:"Accounting", layout:"border", defaults:{split:true}})
 			.addDcFilterFormView("item", {name:"itemFilter", title:"Filter", width:250, xtype:"sc_invoice_dc_PurchaseInvoiceItem$FilterCtx", collapsible:true, collapsed:true
 			})
 			.addDcGridView("item", {name:"itemList", xtype:"sc_invoice_dc_PurchaseInvoiceItem$CtxList"})
 			.addDcFormView("item", {name:"itemEdit", xtype:"sc_invoice_dc_PurchaseInvoiceItem$EditForm"})
 			.addDcGridView("itemTax", {name:"itemTaxList", title:"Item taxes", width:400, xtype:"sc_invoice_dc_PurchaseInvoiceItemTax$CtxList", collapsible:true, collapsed:true
 			})
-			.addDcGridView("payedAmount", {name:"payedAmountList", xtype:"sc_invoice_dc_PurchaseTxAmountPayment$List", 
-					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnShowPayment")]}]})
+			.addPanel({name:"itemsPanel", layout:"card", activeItem:0})
+			.addPanel({name:"linesPanel", title:"Items", layout:"border", defaults:{split:true}})
 			.addDcGridView("note", {name:"noteList", width:550, xtype:"ad_data_dc_Note$List"})
 			.addDcFormView("note", {name:"noteEdit", xtype:"ad_data_dc_Note$Edit"})
 			.addDcEditGridView("atch", {name:"atchEditList", title:"Attachments", xtype:"ad_data_dc_Attachment$CtxEditList", frame:true, 
@@ -96,25 +100,21 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PurchaseInvoice_UI", {
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"invDetailsTab", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
-			.addPanel({name:"accDocPanel", title:"Accounting", layout:"border", defaults:{split:true}})
-			.addPanel({name:"linesPanel", title:"Items", layout:"border", defaults:{split:true}})
 			.addPanel({name:"notesPanel", title:"Notes", layout:"border", defaults:{split:true}})
-			.addPanel({name:"amountsPanel", title:"Payment info", layout:"border", defaults:{split:true}})
-			.addPanel({name:"itemsPanel", layout:"card", activeItem:0})
 			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
+			.addChildrenTo("amountsPanel", ["amountList", "payedAmountList"], ["west", "center"])
+			.addChildrenTo("accDocPanel", ["accDocLineFilter", "accDocLineList"], ["west", "center"])
+			.addChildrenTo("itemsPanel", ["itemList", "itemEdit"])
+			.addChildrenTo("linesPanel", ["itemFilter", "itemsPanel", "itemTaxList"], ["west", "center", "east"])
 			.addChildrenTo("main", ["canvas1", "canvas2"])
 			.addChildrenTo("canvas1", ["invFilter", "invList"], ["north", "center"])
 			.addChildrenTo("canvas2", ["invEditMain", "invDetailsTab"], ["north", "center"])
 			.addChildrenTo("invDetailsTab", ["invEditDetails", "linesPanel", "taxList", "amountsPanel", "accDocPanel", "atchEditList", "notesPanel"])
-			.addChildrenTo("accDocPanel", ["accDocLineFilter", "accDocLineList"], ["west", "center"])
-			.addChildrenTo("linesPanel", ["itemFilter", "itemsPanel", "itemTaxList"], ["west", "center", "east"])
 			.addChildrenTo("notesPanel", ["noteList", "noteEdit"], ["west", "center"])
-			.addChildrenTo("amountsPanel", ["amountList", "payedAmountList"], ["west", "center"])
-			.addChildrenTo("itemsPanel", ["itemList", "itemEdit"])
 			.addToolbarTo("canvas1", "tlbInvList")
 			.addToolbarTo("canvas2", "tlbInvEdit")
 			.addToolbarTo("taxList", "tlbTaxList")

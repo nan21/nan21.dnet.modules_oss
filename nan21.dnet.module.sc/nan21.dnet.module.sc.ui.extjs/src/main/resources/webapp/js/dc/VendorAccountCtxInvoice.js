@@ -17,12 +17,53 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxInvoice", {
 	}});
 
 
+/* ================= FILTER: Filter ================= */
+
+
+Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxInvoice$Filter", {
+	extend: "dnet.core.dc.AbstractDcvFilterPropGrid",
+	alias: "widget.sc_account_dc_VendorAccountCtxInvoice$Filter",
+
+	_defineElements_: function() {
+		this._getBuilder_()
+			/* controls */
+			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
+			.addTextField({ name:"docNo", dataIndex:"docNo", anchor:"-20"})
+			.addLov({xtype:"md_base_tx_lovs_TxDocTypesPI", name:"docType", dataIndex:"docType", anchor:"-20",
+				editor:{_fqn_:"net.nan21.dnet.module.md.base.tx.lovs.TxDocTypesPI", selectOnFocus:true,
+					retFieldMapping: [
+						{lovField:"id", dsField: "docTypeId"} 
+					]}})
+			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32,
+				editor:{_fqn_:"net.nan21.dnet.module.bd.currency.lovs.Currencies", selectOnFocus:true,
+					retFieldMapping: [
+						{lovField:"id", dsField: "currencyId"} 
+					]}})
+			.addLov({xtype:"md_base_tx_lovs_PaymentMethodOut", name:"paymentMethod", dataIndex:"paymentMethod", anchor:"-20",
+				editor:{_fqn_:"net.nan21.dnet.module.md.base.tx.lovs.PaymentMethodOut", selectOnFocus:true,
+					retFieldMapping: [
+						{lovField:"id", dsField: "paymentMethodId"} 
+					]}})
+			.addLov({xtype:"md_base_tx_lovs_PaymentTerm", name:"paymentTerm", dataIndex:"paymentTerm", anchor:"-20",
+				editor:{_fqn_:"net.nan21.dnet.module.md.base.tx.lovs.PaymentTerm", selectOnFocus:true,
+					retFieldMapping: [
+						{lovField:"id", dsField: "paymentTermId"} 
+					]}})
+			.addBooleanField({ name:"confirmed", dataIndex:"confirmed", anchor:"-20"})
+			.addBooleanField({ name:"posted", dataIndex:"posted", anchor:"-20"})
+		;
+	},
+
+});
+
+
 /* ================= GRID: List ================= */
 
 
 Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxInvoice$List", {
 	extend: "dnet.core.dc.AbstractDcvGrid",
 	alias: "widget.sc_account_dc_VendorAccountCtxInvoice$List",
+	_noImport_: true,
 
 	_defineColumns_: function() {
 		this._getBuilder_()

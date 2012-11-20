@@ -17,12 +17,48 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxPayment", {
 	}});
 
 
+/* ================= FILTER: Filter ================= */
+
+
+Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxPayment$Filter", {
+	extend: "dnet.core.dc.AbstractDcvFilterPropGrid",
+	alias: "widget.sc_account_dc_VendorAccountCtxPayment$Filter",
+
+	_defineElements_: function() {
+		this._getBuilder_()
+			/* controls */
+			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", width:80, maxLength:32})
+			.addTextField({ name:"docNo", dataIndex:"docNo", width:80})
+			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currency", dataIndex:"currency", anchor:"-20", maxLength:32,
+				editor:{_fqn_:"net.nan21.dnet.module.bd.currency.lovs.Currencies", selectOnFocus:true,
+					retFieldMapping: [
+						{lovField:"id", dsField: "currencyId"} 
+					]}})
+			.addLov({xtype:"md_base_tx_lovs_PaymentMethodOut", name:"paymentMethod", dataIndex:"paymentMethod", anchor:"-20",
+				editor:{_fqn_:"net.nan21.dnet.module.md.base.tx.lovs.PaymentMethodOut", selectOnFocus:true,
+					retFieldMapping: [
+						{lovField:"id", dsField: "paymentMethodId"} 
+					]}})
+			.addLov({xtype:"md_org_lovs_FinancialAccounts", name:"fromAccount", dataIndex:"fromAccount", anchor:"-20",
+				editor:{_fqn_:"net.nan21.dnet.module.md.org.lovs.FinancialAccounts", selectOnFocus:true,
+					retFieldMapping: [
+						{lovField:"id", dsField: "fromAccountId"} 
+					]}})
+			.addBooleanField({ name:"confirmed", dataIndex:"confirmed", anchor:"-20"})
+			.addBooleanField({ name:"posted", dataIndex:"posted", anchor:"-20"})
+		;
+	},
+
+});
+
+
 /* ================= GRID: List ================= */
 
 
 Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxPayment$List", {
 	extend: "dnet.core.dc.AbstractDcvGrid",
 	alias: "widget.sc_account_dc_VendorAccountCtxPayment$List",
+	_noImport_: true,
 
 	_defineColumns_: function() {
 		this._getBuilder_()

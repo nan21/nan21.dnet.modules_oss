@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.sc.ui.extjs/ds/PurchaseInvoiceDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccount", "nan21.dnet.module.sc.ui.extjs/ds/VendorAccountDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseTxAmount", "nan21.dnet.module.sc.ui.extjs/ds/PaymentOutAmountDs", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxPayment", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseTxAmountDs", "nan21.dnet.module.md.ui.extjs/ds/VendorGroupLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PaymentOutAmount", "nan21.dnet.module.md.ui.extjs/lov/VendorGroup", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PaymentOutDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxInvoice", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxOrder", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs"]);
+Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypePOLovDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPI", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseInvoiceDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodOutLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseTxAmount", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPO", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxPayment", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseTxAmountPaymentDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseTxAmountDs", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodLovDs", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxInvoice", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxOrder", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/FinancialAccountLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseTxAmountPayment", "nan21.dnet.module.md.ui.extjs/lov/FinancialAccounts", "nan21.dnet.module.md.ui.extjs/lov/PriceListPurchase", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccount", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypePILovDs", "nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", "nan21.dnet.module.sc.ui.extjs/ds/VendorAccountDs", "nan21.dnet.module.md.ui.extjs/ds/VendorGroupLovDs", "nan21.dnet.module.md.ui.extjs/lov/VendorGroup", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PaymentOutDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/ds/PriceListPurchaseLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodOut"]);
 
 Ext.define("net.nan21.dnet.module.sc.account.frame.VendorAccount_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -15,18 +15,18 @@ Ext.define("net.nan21.dnet.module.sc.account.frame.VendorAccount_UI", {
 		this._getBuilder_()
 			.addDc("account", new net.nan21.dnet.module.sc.account.dc.VendorAccount({}))
 			.addDc("txAmount", new net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmount({}))
+			.addDc("payAmount", new net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmountPayment({}))
 			.addDc("payment", new net.nan21.dnet.module.sc.account.dc.VendorAccountCtxPayment({}))
-			.addDc("payAmount", new net.nan21.dnet.module.sc.invoice.dc.PaymentOutAmount({}))
 			.addDc("invoice", new net.nan21.dnet.module.sc.account.dc.VendorAccountCtxInvoice({}))
 			.addDc("order", new net.nan21.dnet.module.sc.account.dc.VendorAccountCtxOrder({}))
 	
 			.linkDc("txAmount", "account",{fields:[
 				{childField:"bpartnerId", parentField:"businessPartnerId"}, {childField:"orgId", parentField:"orgId"}]}
 			)
-			.linkDc("payment", "account",{fields:[
-				{childField:"bpartnerId", parentField:"businessPartnerId"}, {childField:"orgId", parentField:"orgId"}]}
+			.linkDc("payAmount", "txAmount",{fields:[
+				{childField:"txAmountId", parentField:"id"}]}
 			)
-			.linkDc("payAmount", "account",{fields:[
+			.linkDc("payment", "account",{fields:[
 				{childField:"bpartnerId", parentField:"businessPartnerId"}, {childField:"orgId", parentField:"orgId"}]}
 			)
 			.linkDc("invoice", "account",{fields:[
@@ -48,22 +48,37 @@ Ext.define("net.nan21.dnet.module.sc.account.frame.VendorAccount_UI", {
 					handler: this.onBtnShowPayment, scope:this, stateManager:{name:"selected_one", dc:"payment" }})
 			.addButton({name:"btnShowInvoice2", text:"Show invoice", tooltip:"Show invoice", disabled:true,
 					handler: this.onBtnShowInvoice2, scope:this, stateManager:{name:"selected_one", dc:"txAmount" , and: function(dc) {return ( !Ext.isEmpty(dc.record.get("invoiceCode")));}}})
+			.addButton({name:"btnShowPayment2", text:"Show payment", tooltip:"Show payment", disabled:true,
+					handler: this.onBtnShowPayment2, scope:this, stateManager:{name:"selected_one", dc:"payAmount" }})
 			
 			.addDcFilterFormView("account", {name:"accountFilter", xtype:"sc_account_dc_VendorAccount$Filter"})
 			.addDcGridView("account", {name:"accountList", xtype:"sc_account_dc_VendorAccount$List"})
 			.addDcFormView("account", {name:"accountEdit", xtype:"sc_account_dc_VendorAccount$Edit"})
-			.addDcGridView("txAmount", {name:"txAmountList", title:"Receivables", xtype:"sc_invoice_dc_PurchaseTxAmount$List", 
+			.addDcGridView("txAmount", {name:"txAmountList", width:800, xtype:"sc_invoice_dc_PurchaseTxAmount$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowInvoice2")]}]})
-			.addDcGridView("invoice", {name:"invoiceList", title:"Invoices", xtype:"sc_account_dc_VendorAccountCtxInvoice$List", 
+			.addDcGridView("payAmount", {name:"payAmountList", xtype:"sc_invoice_dc_PurchaseTxAmountPayment$List", 
+					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
+						items:[ this._elems_.get("btnShowPayment2")]}]})
+			.addPanel({name:"amountsPanel", title:"Payables", layout:"border", defaults:{split:true}})
+			.addDcFilterFormView("invoice", {name:"invoiceFilter", title:"Filter", width:300, xtype:"sc_account_dc_VendorAccountCtxInvoice$Filter", collapsible:true
+			})
+			.addDcGridView("invoice", {name:"invoiceList", xtype:"sc_account_dc_VendorAccountCtxInvoice$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowInvoice")]}]})
-			.addDcGridView("order", {name:"orderList", title:"Purchase orders", xtype:"sc_account_dc_VendorAccountCtxOrder$List", 
+			.addPanel({name:"invoicePanel", title:"Invoices", layout:"border", defaults:{split:true}})
+			.addDcFilterFormView("order", {name:"orderFilter", title:"Filter", width:300, xtype:"sc_account_dc_VendorAccountCtxOrder$Filter", collapsible:true
+			})
+			.addDcGridView("order", {name:"orderList", xtype:"sc_account_dc_VendorAccountCtxOrder$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowOrder")]}]})
-			.addDcGridView("payment", {name:"paymentList", title:"Payments", xtype:"sc_account_dc_VendorAccountCtxPayment$List", 
+			.addPanel({name:"orderPanel", title:"Purchase orders", layout:"border", defaults:{split:true}})
+			.addDcFilterFormView("payment", {name:"paymentFilter", title:"Filter", width:300, xtype:"sc_account_dc_VendorAccountCtxPayment$Filter", collapsible:true
+			})
+			.addDcGridView("payment", {name:"paymentList", xtype:"sc_account_dc_VendorAccountCtxPayment$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowPayment")]}]})
+			.addPanel({name:"paymentPanel", title:"Payments", layout:"border", defaults:{split:true}})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
 			.addPanel({name:"canvas2", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
@@ -73,16 +88,21 @@ Ext.define("net.nan21.dnet.module.sc.account.frame.VendorAccount_UI", {
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
+			.addChildrenTo("amountsPanel", ["txAmountList", "payAmountList"], ["west", "center"])
+			.addChildrenTo("invoicePanel", ["invoiceFilter", "invoiceList"], ["west", "center"])
+			.addChildrenTo("orderPanel", ["orderFilter", "orderList"], ["west", "center"])
+			.addChildrenTo("paymentPanel", ["paymentFilter", "paymentList"], ["west", "center"])
 			.addChildrenTo("main", ["canvas1", "canvas2"])
 			.addChildrenTo("canvas1", ["accountFilter", "accountList"], ["north", "center"])
 			.addChildrenTo("canvas2", ["accountEdit", "accountDetailsTab"], ["north", "center"])
-			.addChildrenTo("accountDetailsTab", ["txAmountList", "paymentList", "invoiceList", "orderList"])
+			.addChildrenTo("accountDetailsTab", ["amountsPanel", "orderPanel", "invoicePanel", "paymentPanel"])
 			.addToolbarTo("canvas1", "tlbAccountList")
 			.addToolbarTo("canvas2", "tlbAccountEdit")
 			.addToolbarTo("txAmountList", "tlbTxAmountsList")
-			.addToolbarTo("paymentList", "tlbPaymentsList")
-			.addToolbarTo("invoiceList", "tlbInvoicesList")
+			.addToolbarTo("payAmountList", "tlbPayAmountList")
 			.addToolbarTo("orderList", "tlbOrdersList")
+			.addToolbarTo("invoiceList", "tlbInvoicesList")
+			.addToolbarTo("paymentList", "tlbPaymentsList")
 			;
 	}
 
@@ -97,14 +117,17 @@ Ext.define("net.nan21.dnet.module.sc.account.frame.VendorAccount_UI", {
 			.beginToolbar("tlbTxAmountsList", {dc: "txAmount"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Payables"})
 			.end()
-			.beginToolbar("tlbPaymentsList", {dc: "payment"}).addQuery()
+			.beginToolbar("tlbPayAmountList", {dc: "payAmount"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Payments"})
+			.end()
+			.beginToolbar("tlbOrdersList", {dc: "order"}).addQuery()
+			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Purchase orders"})
 			.end()
 			.beginToolbar("tlbInvoicesList", {dc: "invoice"}).addQuery()
 			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Invoices"})
 			.end()
-			.beginToolbar("tlbOrdersList", {dc: "order"}).addQuery()
-			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Purchase orders"})
+			.beginToolbar("tlbPaymentsList", {dc: "payment"}).addQuery()
+			.addSeparator().addAutoLoad().addReports().addSeparator().addSeparator().addTitle({text: "Payments"})
 			.end()
 			;
 	}
@@ -159,6 +182,20 @@ Ext.define("net.nan21.dnet.module.sc.account.frame.VendorAccount_UI", {
 			url:Dnet.buildUiPath(bundle, frame, false),
 			params: {
 			code: this._getDc_("txAmount").getRecord().get("invoiceCode")
+			},
+			callback: function (params) {
+				this._when_called_to_edit_(params);
+			}
+		});
+	}
+	
+	,onBtnShowPayment2: function() {
+		var bundle = "nan21.dnet.module.sc.ui.extjs";
+		var frame = "net.nan21.dnet.module.sc.invoice.frame.PaymentOut_UI";
+		getApplication().showFrame(frame,{
+			url:Dnet.buildUiPath(bundle, frame, false),
+			params: {
+			code: this._getDc_("payAmount").getRecord().get("paymentCode")
 			},
 			callback: function (params) {
 				this._when_called_to_edit_(params);

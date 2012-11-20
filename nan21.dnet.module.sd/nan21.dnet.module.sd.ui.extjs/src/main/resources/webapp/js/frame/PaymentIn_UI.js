@@ -43,7 +43,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.PaymentIn_UI", {
 			.addButton({name:"btnShowInvoice", text:"Show invoice", tooltip:"Show invoice", disabled:true,
 					handler: this.onBtnShowInvoice, scope:this, stateManager:{name:"selected_one", dc:"amount" , and: function(dc) {return ( !Ext.isEmpty(dc.record.get("invoiceCode")));}}})
 			
-			.addDcFilterFormView("payment", {name:"paymentFilter", height:130, xtype:"sd_invoice_dc_PaymentIn$Filter"})
+			.addDcFilterFormView("payment", {name:"paymentFilter", xtype:"sd_invoice_dc_PaymentIn$Filter"})
 			.addDcGridView("payment", {name:"paymentList", xtype:"sd_invoice_dc_PaymentIn$List"})
 			.addDcFormView("payment", {name:"paymentInfo", xtype:"sd_invoice_dc_PaymentIn$ViewInfo"})
 			.addDcFormView("payment", {name:"paymentEdit", height:180, xtype:"sd_invoice_dc_PaymentIn$Edit", 

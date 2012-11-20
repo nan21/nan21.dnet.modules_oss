@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/CustomerGroupLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesTxAmountDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.sd.ui.extjs/dc/PaymentInAmount", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxInvoice", "nan21.dnet.module.sd.ui.extjs/ds/PaymentInDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.md.ui.extjs/lov/CustomerGroup", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccount", "nan21.dnet.module.sd.ui.extjs/ds/PaymentInAmountDs", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxOrder", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.sd.ui.extjs/ds/CustomerAccountDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmount", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxPayment"]);
+Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.md.ui.extjs/ds/CustomerGroupLovDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesTxAmountDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSOLovDs", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxInvoice", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodIn", "nan21.dnet.module.md.ui.extjs/ds/PriceListSalesLovDs", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodLovDs", "nan21.dnet.module.md.ui.extjs/lov/PriceListSales", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/FinancialAccountLovDs", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxPayment", "nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmount", "nan21.dnet.module.md.ui.extjs/lov/FinancialAccounts", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSO", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSI", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceDs", "nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", "nan21.dnet.module.sd.ui.extjs/dc/PaymentInAmount", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSILovDs", "nan21.dnet.module.sd.ui.extjs/ds/PaymentInDs", "nan21.dnet.module.md.ui.extjs/lov/CustomerGroup", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxOrder", "nan21.dnet.module.sd.ui.extjs/ds/PaymentInAmountDs", "nan21.dnet.module.sd.ui.extjs/dc/CustomerAccount", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.sd.ui.extjs/ds/CustomerAccountDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodInLovDs"]);
 
 Ext.define("net.nan21.dnet.module.sd.account.frame.CustomerAccount_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -55,15 +55,24 @@ Ext.define("net.nan21.dnet.module.sd.account.frame.CustomerAccount_UI", {
 			.addDcGridView("txAmount", {name:"txAmountList", title:"Receivables", xtype:"sd_invoice_dc_SalesTxAmount$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowInvoice2")]}]})
-			.addDcGridView("invoice", {name:"invoiceList", title:"Invoices", xtype:"sd_account_dc_CustomerAccountCtxInvoice$List", 
+			.addDcFilterFormView("invoice", {name:"invoiceFilter", title:"Filter", width:300, xtype:"sd_account_dc_CustomerAccountCtxInvoice$Filter", collapsible:true
+			})
+			.addDcGridView("invoice", {name:"invoiceList", xtype:"sd_account_dc_CustomerAccountCtxInvoice$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowInvoice")]}]})
-			.addDcGridView("order", {name:"orderList", title:"Sales orders", xtype:"sd_account_dc_CustomerAccountCtxOrder$List", 
+			.addPanel({name:"invoicePanel", title:"Invoices", layout:"border", defaults:{split:true}})
+			.addDcFilterFormView("order", {name:"orderFilter", title:"Filter", width:300, xtype:"sd_account_dc_CustomerAccountCtxOrder$Filter", collapsible:true
+			})
+			.addDcGridView("order", {name:"orderList", xtype:"sd_account_dc_CustomerAccountCtxOrder$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowOrder")]}]})
-			.addDcGridView("payment", {name:"paymentList", title:"Payments", xtype:"sd_account_dc_CustomerAccountCtxPayment$List", 
+			.addPanel({name:"orderPanel", title:"Sales orders", layout:"border", defaults:{split:true}})
+			.addDcFilterFormView("payment", {name:"paymentFilter", title:"Filter", width:300, xtype:"sd_account_dc_CustomerAccountCtxPayment$Filter", collapsible:true
+			})
+			.addDcGridView("payment", {name:"paymentList", xtype:"sd_account_dc_CustomerAccountCtxPayment$List", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnShowPayment")]}]})
+			.addPanel({name:"paymentPanel", title:"Payments", layout:"border", defaults:{split:true}})
 			.addDcGridView("payAmount", {name:"payAmountList", title:"Payment distribution", xtype:"sd_invoice_dc_PaymentInAmount$List"})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
@@ -74,10 +83,13 @@ Ext.define("net.nan21.dnet.module.sd.account.frame.CustomerAccount_UI", {
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
+			.addChildrenTo("invoicePanel", ["invoiceFilter", "invoiceList"], ["west", "center"])
+			.addChildrenTo("orderPanel", ["orderFilter", "orderList"], ["west", "center"])
+			.addChildrenTo("paymentPanel", ["paymentFilter", "paymentList"], ["west", "center"])
 			.addChildrenTo("main", ["canvas1", "canvas2"])
 			.addChildrenTo("canvas1", ["accountFilter", "accountList"], ["north", "center"])
 			.addChildrenTo("canvas2", ["accountEdit", "accountDetailsTab"], ["north", "center"])
-			.addChildrenTo("accountDetailsTab", ["txAmountList", "paymentList", "invoiceList", "orderList"])
+			.addChildrenTo("accountDetailsTab", ["txAmountList", "orderPanel", "invoicePanel", "paymentPanel"])
 			.addToolbarTo("canvas1", "tlbAccountList")
 			.addToolbarTo("canvas2", "tlbAccountEdit")
 			.addToolbarTo("txAmountList", "tlbTxAmountsList")

@@ -78,7 +78,7 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccount$List", {
 	_defineColumns_: function() {
 		this._getBuilder_()
 			.addTextColumn({ name:"org", dataIndex:"org", width:100})
-			.addTextColumn({ name:"businessPartnerCode", dataIndex:"businessPartnerCode", hidden:true, width:100})
+			.addTextColumn({ name:"businessPartnerCode", dataIndex:"businessPartnerCode", width:100})
 			.addTextColumn({ name:"businessPartnerName", dataIndex:"businessPartnerName", width:200})
 			.addTextColumn({ name:"analiticSegment", dataIndex:"analiticSegment", width:100})
 			.addTextColumn({ name:"customerGroup", dataIndex:"customerGroup", width:100})

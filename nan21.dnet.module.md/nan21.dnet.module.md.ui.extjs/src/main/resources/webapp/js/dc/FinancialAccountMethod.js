@@ -67,8 +67,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountMethod$EditList", {
 						retFieldMapping: [
 							{lovField:"id", dsField: "payMethodId"} 
 						]}})
-			.addBooleanColumn({name:"allowPayIn", dataIndex:"allowPayIn"})
-			.addBooleanColumn({name:"allowPayOut", dataIndex:"allowPayOut"})
+			.addBooleanColumn({name:"allowPayIn", dataIndex:"allowPayIn", width:90})
+			.addBooleanColumn({name:"allowPayOut", dataIndex:"allowPayOut", width:90})
 			.addNumberColumn({name:"financialAccountId", dataIndex:"financialAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"payMethodId", dataIndex:"payMethodId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
@@ -92,8 +92,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountMethod$CtxEditList",
 						filterFieldMapping: [
 							{lovField:"type",dsField: "financialAccountType"} 
 						]}})
-			.addBooleanColumn({name:"allowPayIn", dataIndex:"allowPayIn"})
-			.addBooleanColumn({name:"allowPayOut", dataIndex:"allowPayOut"})
+			.addBooleanColumn({name:"allowPayIn", dataIndex:"allowPayIn", width:90})
+			.addBooleanColumn({name:"allowPayOut", dataIndex:"allowPayOut", width:90})
 			.addNumberColumn({name:"financialAccountId", dataIndex:"financialAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"payMethodId", dataIndex:"payMethodId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();

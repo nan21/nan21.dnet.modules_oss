@@ -43,7 +43,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PaymentOut_UI", {
 			.addButton({name:"btnShowInvoice", text:"Show invoice", tooltip:"Show invoice", disabled:true,
 					handler: this.onBtnShowInvoice, scope:this, stateManager:{name:"selected_one", dc:"amount" , and: function(dc) {return ( !Ext.isEmpty(dc.record.get("invoiceCode")));}}})
 			
-			.addDcFilterFormView("payment", {name:"paymentFilter", height:130, xtype:"sc_invoice_dc_PaymentOut$Filter"})
+			.addDcFilterFormView("payment", {name:"paymentFilter", xtype:"sc_invoice_dc_PaymentOut$Filter"})
 			.addDcGridView("payment", {name:"paymentList", xtype:"sc_invoice_dc_PaymentOut$List"})
 			.addDcFormView("payment", {name:"paymentEdit", height:180, xtype:"sc_invoice_dc_PaymentOut$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
