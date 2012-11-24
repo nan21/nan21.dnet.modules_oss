@@ -10,22 +10,41 @@ import net.nan21.dnet.module.sd.order.ds.param.SalesOrderDsParam;
 
 public class SalesOrderPD extends AbstractPresenterBaseService {
 
+	/**
+	 * Confirm document.<BR>
+	 * Delegate to the proper business service.
+	 * 
+	 * @param ds
+	 * @throws Exception
+	 */
 	public void confirm(SalesOrderDs ds) throws Exception {
-		ISalesOrderService service = ((ISalesOrderService) this
+		ISalesOrderService srv = ((ISalesOrderService) this
 				.findEntityService(SalesOrder.class));
-		SalesOrder e = service.findById(ds.getId());
-		e.setConfirmed(true);
-		service.update(e);
+		SalesOrder e = srv.findById(ds.getId());
+		srv.doConfirm(e);
 	}
 
+	/**
+	 * Un-Confirm document.<BR>
+	 * Delegate to the proper business service.
+	 * 
+	 * @param ds
+	 * @throws Exception
+	 */
 	public void unConfirm(SalesOrderDs ds) throws Exception {
-		ISalesOrderService service = ((ISalesOrderService) this
+		ISalesOrderService srv = ((ISalesOrderService) this
 				.findEntityService(SalesOrder.class));
-		SalesOrder e = service.findById(ds.getId());
-		e.setConfirmed(false);
-		service.update(e);
+		SalesOrder e = srv.findById(ds.getId());
+		srv.doUnConfirm(e);
 	}
 
+	/**
+	 * Generate invoice from the given sales order.
+	 * 
+	 * @param ds
+	 * @param params
+	 * @throws Exception
+	 */
 	public void generateInvoice(SalesOrderDs ds, SalesOrderDsParam params)
 			throws Exception {
 		ISalesOrderService service = ((ISalesOrderService) this
@@ -36,6 +55,13 @@ public class SalesOrderPD extends AbstractPresenterBaseService {
 		service.doGenerateInvoice(e, docType);
 	}
 
+	/**
+	 * Generate delivery document from the given sales order.
+	 * 
+	 * @param ds
+	 * @param params
+	 * @throws Exception
+	 */
 	public void generateDelivery(SalesOrderDs ds, SalesOrderDsParam params)
 			throws Exception {
 		ISalesOrderService service = ((ISalesOrderService) this
@@ -48,6 +74,22 @@ public class SalesOrderPD extends AbstractPresenterBaseService {
 		SalesOrder e = service.findById(ds.getId());
 		service.doGenerateDelivery(e, docType, txType,
 				params.getDelivEventData());
+	}
+
+	/**
+	 * Copy lines from another document. Delegate to the proper business
+	 * service.
+	 * 
+	 * @param ds
+	 * @param params
+	 * @throws Exception
+	 */
+	public void copyLines(SalesOrderDs ds, SalesOrderDsParam params)
+			throws Exception {
+		ISalesOrderService srv = ((ISalesOrderService) this
+				.findEntityService(SalesOrder.class));
+		SalesOrder e = srv.findById(ds.getId());
+		srv.doCopyLines(e, params.getCopyFromId());
 	}
 
 }

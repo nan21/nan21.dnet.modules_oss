@@ -7,6 +7,7 @@
 package net.nan21.dnet.module.sc.order.business.service;
 
 import java.util.List;
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
@@ -24,6 +25,18 @@ import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem;
  * entity.
  */
 public interface IPurchaseOrderService extends IEntityService<PurchaseOrder> {
+
+	public void doConfirm(PurchaseOrder order) throws BusinessException;
+
+	public void doUnConfirm(PurchaseOrder order) throws BusinessException;
+
+	public void doCopyLines(PurchaseOrder target, Long sourceId)
+			throws BusinessException;
+
+	/**
+	 * Find by unique key
+	 */
+	public PurchaseOrder findByCode(String code);
 
 	/**
 	 * Find by reference: docType

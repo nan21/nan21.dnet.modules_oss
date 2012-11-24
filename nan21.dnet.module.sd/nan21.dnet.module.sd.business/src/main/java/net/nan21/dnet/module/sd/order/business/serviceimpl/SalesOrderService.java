@@ -46,6 +46,16 @@ public class SalesOrderService extends AbstractEntityService<SalesOrder> {
 	}
 
 	/**
+	 * Find by unique key
+	 */
+	public SalesOrder findByCode(String code) {
+		return (SalesOrder) this.em
+				.createNamedQuery(SalesOrder.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
+	}
+
+	/**
 	 * Find by reference: docType
 	 */
 	public List<SalesOrder> findByDocType(TxDocType docType) {

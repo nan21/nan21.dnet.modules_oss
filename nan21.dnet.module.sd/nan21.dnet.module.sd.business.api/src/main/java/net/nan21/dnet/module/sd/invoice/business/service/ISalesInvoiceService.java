@@ -37,6 +37,14 @@ public interface ISalesInvoiceService extends IEntityService<SalesInvoice> {
 
 	public void doUnPost(SalesInvoice invoice) throws BusinessException;
 
+	public void doCopyLines(SalesInvoice target, Long sourceId)
+			throws BusinessException;
+
+	/**
+	 * Find by unique key
+	 */
+	public SalesInvoice findByCode(String code);
+
 	/**
 	 * Find by reference: priceList
 	 */

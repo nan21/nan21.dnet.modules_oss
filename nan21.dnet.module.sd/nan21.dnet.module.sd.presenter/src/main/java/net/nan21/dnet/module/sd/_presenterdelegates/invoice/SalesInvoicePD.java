@@ -4,6 +4,7 @@ import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.sd.invoice.business.service.ISalesInvoiceService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoice;
 import net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDs;
+import net.nan21.dnet.module.sd.invoice.ds.param.SalesInvoiceDsParam;
 
 public class SalesInvoicePD extends AbstractPresenterBaseService {
 
@@ -61,6 +62,22 @@ public class SalesInvoicePD extends AbstractPresenterBaseService {
 				.findEntityService(SalesInvoice.class));
 		SalesInvoice e = srv.findById(ds.getId());
 		srv.doUnPost(e);
+	}
+
+	/**
+	 * Copy lines from another document. Delegate to the proper business
+	 * service.
+	 * 
+	 * @param ds
+	 * @param params
+	 * @throws Exception
+	 */
+	public void copyLines(SalesInvoiceDs ds, SalesInvoiceDsParam params)
+			throws Exception {
+		ISalesInvoiceService srv = ((ISalesInvoiceService) this
+				.findEntityService(SalesInvoice.class));
+		SalesInvoice e = srv.findById(ds.getId());
+		srv.doCopyLines(e, params.getCopyFromId());
 	}
 
 }

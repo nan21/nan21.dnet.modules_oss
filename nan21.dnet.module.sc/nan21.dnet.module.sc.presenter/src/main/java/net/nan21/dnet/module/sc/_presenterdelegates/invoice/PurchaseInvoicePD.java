@@ -4,6 +4,7 @@ import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.sc.invoice.business.service.IPurchaseInvoiceService;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice;
 import net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceDs;
+import net.nan21.dnet.module.sc.invoice.ds.param.PurchaseInvoiceDsParam;
 
 public class PurchaseInvoicePD extends AbstractPresenterBaseService {
 
@@ -63,4 +64,11 @@ public class PurchaseInvoicePD extends AbstractPresenterBaseService {
 		srv.doUnPost(e);
 	}
 
+	public void copyLines(PurchaseInvoiceDs ds, PurchaseInvoiceDsParam params)
+			throws Exception {
+		IPurchaseInvoiceService srv = ((IPurchaseInvoiceService) this
+				.findEntityService(PurchaseInvoice.class));
+		PurchaseInvoice e = srv.findById(ds.getId());
+		srv.doCopyLines(e, params.getCopyFromId());
+	}
 }

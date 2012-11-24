@@ -46,6 +46,12 @@
 						<constructor-arg name="reloadFromEntity" value="true" />
 					</bean>
 				</entry>
+				<entry key="copyLines">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesOrderPD"/>
+						<constructor-arg name="methodName" value="copyLines" />
+					</bean>
+				</entry>
 			</map>
 		</property>
 	</bean>
@@ -59,8 +65,24 @@
 				<value type="java.lang.String">generateDelivery</value>
 				<value type="java.lang.String">confirm</value>
 				<value type="java.lang.String">unConfirm</value>
+				<value type="java.lang.String">copyLines</value>
 			</list>
 		</property>
+	</bean>
+	
+	<!-- ==================== SalesOrderLov ==================== -->
+	
+	<bean id="SalesOrderLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrder"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="SalesOrderLov" />
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs" />
 	</bean>
 	
 	<!-- ==================== SalesOrderItem ==================== -->

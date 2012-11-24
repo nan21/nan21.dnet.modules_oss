@@ -14,6 +14,7 @@
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.filter.PurchaseInvoiceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice"/>
+		<property name="paramClass" value="net.nan21.dnet.module.sc.invoice.ds.param.PurchaseInvoiceDsParam"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.invoice.ds.converter.PurchaseInvoiceDsConv" />
 		<property name="rpcData" >
 			<map>
@@ -45,6 +46,12 @@
 						<constructor-arg name="reloadFromEntity" value="true" />
 					</bean>
 				</entry>
+				<entry key="copyLines">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sc._presenterdelegates.invoice.PurchaseInvoicePD"/>
+						<constructor-arg name="methodName" value="copyLines" />
+					</bean>
+				</entry>
 			</map>
 		</property>
 	</bean>
@@ -58,8 +65,24 @@
 				<value type="java.lang.String">unConfirm</value>
 				<value type="java.lang.String">post</value>
 				<value type="java.lang.String">unPost</value>
+				<value type="java.lang.String">copyLines</value>
 			</list>
 		</property>
+	</bean>
+	
+	<!-- ==================== PurchaseInvoiceLov ==================== -->
+	
+	<bean id="PurchaseInvoiceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceLovDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="PurchaseInvoiceLov" />
+		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceLovDs" />
 	</bean>
 	
 	<!-- ==================== PurchaseInvoiceItem ==================== -->

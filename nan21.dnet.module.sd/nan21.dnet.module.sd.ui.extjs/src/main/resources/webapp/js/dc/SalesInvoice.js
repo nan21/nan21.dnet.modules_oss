@@ -125,6 +125,32 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$List", {
 	}});
 
 
+/* ================= EDITOR: CopyLinesForm ================= */
+
+
+Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$CopyLinesForm", {
+	extend: "dnet.core.dc.AbstractDcvEditForm",
+	alias: "widget.sd_invoice_dc_SalesInvoice$CopyLinesForm",
+
+	_defineElements_: function() {
+		this._getBuilder_()
+			/* controls */
+			.addLov({xtype:"sd_invoice_lovs_SalesInvoice", name:"copyFrom", paramIndex:"copyFrom", allowBlank:false, anchor:"-20",
+				retFieldMapping: [
+					{lovField:"id", dsParam: "copyFromId"} 
+				]})
+			/* containers */
+			.addPanel({ name:"main", autoScroll:true, layout:"form"})
+		;
+	},
+
+	_linkElements_: function() {
+		this._getBuilder_()
+			.addChildrenTo("main", ["copyFrom"])
+		;
+	}});
+
+
 /* ================= EDITOR: EditMain ================= */
 
 

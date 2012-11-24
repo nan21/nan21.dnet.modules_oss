@@ -18,7 +18,6 @@ import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
-import net.nan21.dnet.module.sc.order.business.service.IPurchaseOrderService;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem;
 
@@ -27,9 +26,7 @@ import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem;
  * finder methods based on unique keys as well as reference fields.
  * 
  */
-public class PurchaseOrderService extends AbstractEntityService<PurchaseOrder>
-		implements
-			IPurchaseOrderService {
+public class PurchaseOrderService extends AbstractEntityService<PurchaseOrder> {
 
 	public PurchaseOrderService() {
 		super();
@@ -43,6 +40,16 @@ public class PurchaseOrderService extends AbstractEntityService<PurchaseOrder>
 	@Override
 	public Class<PurchaseOrder> getEntityClass() {
 		return PurchaseOrder.class;
+	}
+
+	/**
+	 * Find by unique key
+	 */
+	public PurchaseOrder findByCode(String code) {
+		return (PurchaseOrder) this.em
+				.createNamedQuery(PurchaseOrder.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
 	}
 
 	/**

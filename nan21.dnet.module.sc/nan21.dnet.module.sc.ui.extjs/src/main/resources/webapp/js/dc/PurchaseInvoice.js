@@ -117,6 +117,32 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$List", {
 	}});
 
 
+/* ================= EDITOR: CopyLinesForm ================= */
+
+
+Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$CopyLinesForm", {
+	extend: "dnet.core.dc.AbstractDcvEditForm",
+	alias: "widget.sc_invoice_dc_PurchaseInvoice$CopyLinesForm",
+
+	_defineElements_: function() {
+		this._getBuilder_()
+			/* controls */
+			.addLov({xtype:"sc_invoice_lovs_PurchaseInvoice", name:"copyFrom", paramIndex:"copyFrom", allowBlank:false, anchor:"-20",
+				retFieldMapping: [
+					{lovField:"id", dsParam: "copyFromId"} 
+				]})
+			/* containers */
+			.addPanel({ name:"main", autoScroll:true, layout:"form"})
+		;
+	},
+
+	_linkElements_: function() {
+		this._getBuilder_()
+			.addChildrenTo("main", ["copyFrom"])
+		;
+	}});
+
+
 /* ================= EDITOR: EditMain ================= */
 
 

@@ -46,6 +46,16 @@ public class PurchaseInvoiceService
 	}
 
 	/**
+	 * Find by unique key
+	 */
+	public PurchaseInvoice findByCode(String code) {
+		return (PurchaseInvoice) this.em
+				.createNamedQuery(PurchaseInvoice.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
+	}
+
+	/**
 	 * Find by reference: docType
 	 */
 	public List<PurchaseInvoice> findByDocType(TxDocType docType) {

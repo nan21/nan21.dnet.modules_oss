@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/AccSchemaLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.sd.ui.extjs/ds/SalesTxAmountDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoiceItemTax", "nan21.dnet.module.md.ui.extjs/ds/PriceListSalesLovDs", "nan21.dnet.module.md.ui.extjs/ds/TaxApplicableLovDs", "nan21.dnet.module.md.ui.extjs/ds/CustomerLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoiceItem", "nan21.dnet.module.md.ui.extjs/lov/AccSchemas", "nan21.dnet.module.md.ui.extjs/dc/AccDocLineCtx", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.sd.ui.extjs/ds/SalesTxAmountPaymentDs", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoiceTax", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSILovDs", "nan21.dnet.module.bd.ui.extjs/ds/LocationToBillLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceTaxDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceItemTaxDs", "nan21.dnet.module.md.ui.extjs/lov/BpContacts", "nan21.dnet.module.md.ui.extjs/lov/TaxApplicables", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceItemDs", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/CustomersName", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/lov/Products", "nan21.dnet.module.bd.ui.extjs/lov/LocationsToBill", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodIn", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoice", "nan21.dnet.module.md.ui.extjs/lov/PriceListSales", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmount", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSI", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceDs", "nan21.dnet.module.md.ui.extjs/ds/AccDocLineCtxDs", "nan21.dnet.module.md.ui.extjs/ds/BpContactLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmountPayment", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodInLovDs"]);
+Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/AccSchemaLovDs", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.sd.ui.extjs/ds/SalesTxAmountDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoiceItemTax", "nan21.dnet.module.md.ui.extjs/ds/PriceListSalesLovDs", "nan21.dnet.module.md.ui.extjs/ds/TaxApplicableLovDs", "nan21.dnet.module.md.ui.extjs/ds/CustomerLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/lov/AccSchemas", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoiceItem", "nan21.dnet.module.md.ui.extjs/dc/AccDocLineCtx", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceLovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesTxAmountPaymentDs", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoiceTax", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSILovDs", "nan21.dnet.module.bd.ui.extjs/ds/LocationToBillLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.sd.ui.extjs/lov/SalesInvoice", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceTaxDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceItemTaxDs", "nan21.dnet.module.md.ui.extjs/lov/BpContacts", "nan21.dnet.module.md.ui.extjs/lov/TaxApplicables", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceItemDs", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/CustomersName", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/lov/Products", "nan21.dnet.module.bd.ui.extjs/lov/LocationsToBill", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodIn", "nan21.dnet.module.sd.ui.extjs/dc/SalesInvoice", "nan21.dnet.module.md.ui.extjs/lov/PriceListSales", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmount", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSI", "nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceDs", "nan21.dnet.module.md.ui.extjs/ds/AccDocLineCtxDs", "nan21.dnet.module.md.ui.extjs/ds/BpContactLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmountPayment", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodInLovDs"]);
 
 Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -15,7 +15,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 		this._getBuilder_()
 			.addDc("inv", new net.nan21.dnet.module.sd.invoice.dc.SalesInvoice({}))
 			.addDc("tax", new net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceTax({}))
-			.addDc("item", new net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem({multiEdit:true}))
+			.addDc("item", new net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem({}))
 			.addDc("itemTax", new net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItemTax({}))
 			.addDc("amount", new net.nan21.dnet.module.sd.invoice.dc.SalesTxAmount({}))
 			.addDc("payedAmount", new net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountPayment({}))
@@ -68,13 +68,22 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 					handler: this.onBtnShowOrder, scope:this, stateManager:{name:"selected_one", dc:"inv" , and: function(dc) {return (dc.record && dc.record.get("salesOrderId"));}}})
 			.addButton({name:"btnShowPayment", text:"Show payment document", tooltip:"Show the payment document", disabled:true,
 					handler: this.onBtnShowPayment, scope:this, stateManager:{name:"selected_one", dc:"payedAmount" }})
+			.addButton({name:"btnShowCopyLines", text:"Copy lines", tooltip:"Copy lines from invoice", disabled:true,
+					handler: this.onBtnShowCopyLines, scope:this, stateManager:{name:"record_is_clean", dc:"inv" , and: function(dc) {return (dc.record && !dc.record.get("confirmed"));}}})
+			.addButton({name:"btnDoCopyLines", text:"Execute", tooltip:"Execute", disabled:false,
+					handler: this.onBtnDoCopyLines, scope:this})
 			
 			.addDcFilterFormView("inv", {name:"invFilter", xtype:"sd_invoice_dc_SalesInvoice$Filter"})
 			.addDcGridView("inv", {name:"invList", xtype:"sd_invoice_dc_SalesInvoice$List"})
 			.addDcFormView("inv", {name:"invEditMain", xtype:"sd_invoice_dc_SalesInvoice$EditMain", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirmInvoice"), this._elems_.get("btnUnConfirmInvoice"), this._elems_.get("btnPostInvoice"), this._elems_.get("btnUnPostInvoice"), this._elems_.get("btnShowOrder")]}]})
+						items:[ this._elems_.get("btnConfirmInvoice"), this._elems_.get("btnUnConfirmInvoice"), this._elems_.get("btnPostInvoice"), this._elems_.get("btnUnPostInvoice"), this._elems_.get("btnShowOrder"), this._elems_.get("btnShowCopyLines")]}]})
 			.addDcFormView("inv", {name:"invEditDetails", title:"Details", xtype:"sd_invoice_dc_SalesInvoice$EditDetails"})
+			.addDcFormView("inv", {name:"invCopyLinesForm", width:400, xtype:"sd_invoice_dc_SalesInvoice$CopyLinesForm"})
+			.addWindow({name:"wdwCopyLines", title:"Copy lines from invoice", closeAction:'hide', resizable:true, layout:"fit", modal:true,
+				items:[this._elems_.get("invCopyLinesForm")], 
+						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
+							items:[ this._elems_.get("btnDoCopyLines")]}]})
 			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sd_invoice_dc_SalesInvoiceTax$List"})
 			.addDcGridView("accDocLine", {name:"accDocLineList", xtype:"md_tx_acc_dc_AccDocLineCtx$List"})
 			.addDcFilterFormView("accDocLine", {name:"accDocLineFilter", title:"Filter", width:250, xtype:"md_tx_acc_dc_AccDocLineCtx$Filter", collapsible:true, collapsed:true
@@ -253,6 +262,31 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 		});
 	}
 	
+	,onBtnShowCopyLines: function() {
+		this._getWindow_("wdwCopyLines").show();
+	}
+	
+	,onBtnDoCopyLines: function() {
+		var s={modal:true, callbacks:{} };
+		var successFn = function(dc,response,serviceName,specs) {
+				this._getDc_("item").doQuery();
+				this._getDc_("inv").doReloadRecord();
+				this._getWindow_("wdwCopyLines").close();
+			};
+		s.callbacks['successFn'] = successFn;
+		s.callbacks['successScope'] = this;
+		var failureFn = function(dc,response,serviceName,specs) {
+				this._getWindow_("wdwCopyLines").close();
+			}; 
+		s.callbacks['failureFn'] = failureFn;
+		s.callbacks['failureScope'] = this;
+		try{
+			this._getDc_("inv").doService("copyLines", s);
+		}catch(e){
+			dnet.base.DcExceptions.showMessage(e);
+		}
+	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
@@ -275,15 +309,15 @@ Ext.define("net.nan21.dnet.module.sd.invoice.frame.SalesInvoice_UI", {
 	
 	,onAfterDefineDcs: function() {
 		
-				this._getDc_("item").on("afterDoSaveSuccess", 
-				function() {
-					this._getDc_("inv").doRefreshCurrent();
-				} , this );
-				
-				this._getDc_("inv").on("afterDoServiceSuccess", 
-				function() { this._applyStateAllButtons_(); this._syncReadOnlyStates_();  } , this );
-				
-				this._getDc_("inv").on("recordChange", this._syncReadOnlyStates_, this );
+		this._getDc_("item").on("afterDoCommitSuccess", 
+		function() {
+			this._getDc_("inv").doReloadRecord();
+		} , this );
+		
+		this._getDc_("inv").on("afterDoServiceSuccess", 
+		function() { this._applyStateAllButtons_(); this._syncReadOnlyStates_();  } , this );
+		
+		this._getDc_("inv").on("recordChange", this._syncReadOnlyStates_, this );
 	}
 	
 	,_syncReadOnlyStates_: function() {

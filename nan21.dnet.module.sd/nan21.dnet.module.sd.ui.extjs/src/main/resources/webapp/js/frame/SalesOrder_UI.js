@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/lov/CarrierOrganizations", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrderItemTax", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/PriceListSalesLovDs", "nan21.dnet.module.md.ui.extjs/ds/TaxApplicableLovDs", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodLovDs", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSOInvOutLovDs", "nan21.dnet.module.md.ui.extjs/ds/CustomerLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrder", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionTypeLovDs", "nan21.dnet.module.md.ui.extjs/lov/InvTransactionTypes", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSILovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderTaxDs", "nan21.dnet.module.bd.ui.extjs/ds/LocationToBillLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LocationToShipLovDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrderTax", "nan21.dnet.module.md.ui.extjs/lov/TaxApplicables", "nan21.dnet.module.md.ui.extjs/lov/BpContacts", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderItemDs", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs", "nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/CustomersName", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderItemTaxDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSOLovDs", "nan21.dnet.module.md.ui.extjs/lov/Products", "nan21.dnet.module.bd.ui.extjs/ds/CarrierOrganizationLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LocationsToBill", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodIn", "nan21.dnet.module.md.ui.extjs/lov/PriceListSales", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.bd.ui.extjs/lov/LocationsToShip", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSO", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSI", "nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", "nan21.dnet.module.md.ui.extjs/ds/BpContactLovDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSOInvOut", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrderItem", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodInLovDs"]);
+Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/lov/CarrierOrganizations", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.sd.ui.extjs/lov/SalesOrder", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrderItemTax", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/TaxApplicableLovDs", "nan21.dnet.module.md.ui.extjs/ds/PriceListSalesLovDs", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodLovDs", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSOInvOutLovDs", "nan21.dnet.module.md.ui.extjs/ds/CustomerLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrder", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionTypeLovDs", "nan21.dnet.module.md.ui.extjs/lov/InvTransactionTypes", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSILovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderTaxDs", "nan21.dnet.module.bd.ui.extjs/ds/LocationToBillLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LocationToShipLovDs", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrderTax", "nan21.dnet.module.md.ui.extjs/lov/TaxApplicables", "nan21.dnet.module.md.ui.extjs/lov/BpContacts", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderItemDs", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs", "nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/CustomersName", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderItemTaxDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypeSOLovDs", "nan21.dnet.module.md.ui.extjs/lov/Products", "nan21.dnet.module.bd.ui.extjs/ds/CarrierOrganizationLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LocationsToBill", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodIn", "nan21.dnet.module.md.ui.extjs/lov/PriceListSales", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.bd.ui.extjs/lov/LocationsToShip", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSO", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSI", "nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", "nan21.dnet.module.md.ui.extjs/ds/BpContactLovDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSOInvOut", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.sd.ui.extjs/dc/SalesOrderItem", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.sd.ui.extjs/ds/SalesOrderLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodInLovDs"]);
 
 Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -60,12 +60,21 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 					handler: this.onBtnShowInvoice, scope:this, stateManager:{name:"selected_one", dc:"order" , and: function(dc) {return (dc.record && dc.record.get("invoiced"));}}})
 			.addButton({name:"btnShowDelivery", text:"Show delivery", tooltip:"Show the delivery note linked to this sales order", disabled:true,
 					handler: this.onBtnShowDelivery, scope:this, stateManager:{name:"selected_one", dc:"order" , and: function(dc) {return (dc.record && dc.record.get("delivered"));}}})
+			.addButton({name:"btnShowCopyLines", text:"Copy lines", tooltip:"Copy lines from order", disabled:true,
+					handler: this.onBtnShowCopyLines, scope:this, stateManager:{name:"record_is_clean", dc:"order" , and: function(dc) {return (dc.record && !dc.record.get("confirmed"));}}})
+			.addButton({name:"btnDoCopyLines", text:"Execute", tooltip:"Execute", disabled:false,
+					handler: this.onBtnDoCopyLines, scope:this})
 			
 			.addDcFilterFormView("order", {name:"orderFilter", height:170, xtype:"sd_order_dc_SalesOrder$Filter"})
 			.addDcGridView("order", {name:"orderList", xtype:"sd_order_dc_SalesOrder$List"})
 			.addDcFormView("order", {name:"orderEditMain", height:200, xtype:"sd_order_dc_SalesOrder$EditMain", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirmOrder"), this._elems_.get("btnUnConfirmOrder"), this._elems_.get("btnCreateInvoice"), this._elems_.get("btnShowInvoice"), this._elems_.get("btnCreateDelivery"), this._elems_.get("btnShowDelivery")]}]})
+						items:[ this._elems_.get("btnConfirmOrder"), this._elems_.get("btnUnConfirmOrder"), this._elems_.get("btnCreateInvoice"), this._elems_.get("btnShowInvoice"), this._elems_.get("btnCreateDelivery"), this._elems_.get("btnShowDelivery"), this._elems_.get("btnShowCopyLines")]}]})
+			.addDcFormView("order", {name:"orderCopyLinesForm", width:400, xtype:"sd_order_dc_SalesOrder$CopyLinesForm"})
+			.addWindow({name:"wdwCopyLines", title:"Copy lines from order", closeAction:'hide', resizable:true, layout:"fit", modal:true,
+				items:[this._elems_.get("orderCopyLinesForm")], 
+						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
+							items:[ this._elems_.get("btnDoCopyLines")]}]})
 			.addDcGridView("tax", {name:"taxList", title:"Taxes", xtype:"sd_order_dc_SalesOrderTax$List"})
 			.addDcFormView("order", {name:"orderGenDelivery", xtype:"sd_order_dc_SalesOrder$FrmGenDelivery"})
 			.addDcFormView("order", {name:"orderGenInvoice", xtype:"sd_order_dc_SalesOrder$FrmGenInvoice"})
@@ -250,6 +259,31 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 		});
 	}
 	
+	,onBtnShowCopyLines: function() {
+		this._getWindow_("wdwCopyLines").show();
+	}
+	
+	,onBtnDoCopyLines: function() {
+		var s={modal:true, callbacks:{} };
+		var successFn = function(dc,response,serviceName,specs) {
+				this._getDc_("item").doQuery();
+				this._getDc_("order").doReloadRecord();
+				this._getWindow_("wdwCopyLines").close();
+			};
+		s.callbacks['successFn'] = successFn;
+		s.callbacks['successScope'] = this;
+		var failureFn = function(dc,response,serviceName,specs) {
+				this._getWindow_("wdwCopyLines").close();
+			}; 
+		s.callbacks['failureFn'] = failureFn;
+		s.callbacks['failureScope'] = this;
+		try{
+			this._getDc_("order").doService("copyLines", s);
+		}catch(e){
+			dnet.base.DcExceptions.showMessage(e);
+		}
+	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
@@ -260,60 +294,60 @@ Ext.define("net.nan21.dnet.module.sd.order.frame.SalesOrder_UI", {
 	
 	,onBtnUploadAttachment: function() {
 		var w=new dnet.core.base.FileUploadWindow({
-		    		_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
-		    		_p1Value_: this._getDc_("atch").getRecord().get("id"),
-		    		_uploadUrl_:"/nan21.dnet.core.web/upload/adDataAttachment",
-		    		_succesCallbackFn_ : this.onUploadSuccess,
-		    		_succesCallbackScope_: this
-		    	});w.show();
+			_nameFieldValue_: this._getDc_("atch").getRecord().get("name"),
+			_p1Value_: this._getDc_("atch").getRecord().get("id"),
+			_uploadUrl_:"/nan21.dnet.core.web/upload/adDataAttachment",
+			_succesCallbackFn_ : this.onUploadSuccess,
+			_succesCallbackScope_: this
+		});w.show();
 	}
 	
 	,onBtnViewAttachment: function() {
 		
-				var url = this._getDc_("atch").getRecord().get("url");
-				window.open(url, "Attachment", "location=1,status=1,scrollbars=1,width=500,height=400");
+		var url = this._getDc_("atch").getRecord().get("url");
+		window.open(url, "Attachment", "location=1,status=1,scrollbars=1,width=500,height=400");
 	}
 	
 	,onAfterDefineDcs: function() {
 		
-				this._getDc_("item").on("afterDoSaveSuccess", 
-				function() {
-					this._getDc_("order").doRefreshCurrent();
-				} , this );
-				this._getDc_("order").on("afterDoServiceSuccess", 
-				function() { this._applyStateAllButtons_();this._syncReadOnlyStates_(); } , this );
-				
-				this._getDc_("order").on("recordChange", this._syncReadOnlyStates_, this );
+		this._getDc_("item").on("afterDoCommitSuccess", 
+		function() {
+			this._getDc_("order").doReloadRecord();
+		} , this );
+		this._getDc_("order").on("afterDoServiceSuccess", 
+		function() { this._applyStateAllButtons_();this._syncReadOnlyStates_(); } , this );
+		
+		this._getDc_("order").on("recordChange", this._syncReadOnlyStates_, this );
 	}
 	
 	,_syncReadOnlyStates_: function() {
 		
-				var orderRec = this._getDc_("order").getRecord();
-				if (!orderRec) { return; }
-				var itemsDc = this._getDc_("item");
-				if (orderRec.get("confirmed")) {
-					if (!itemsDc.isReadOnly()) {
-						itemsDc.setReadOnly(true);
-					}
-				} else {
-					if (itemsDc.isReadOnly()) {
-						itemsDc.setReadOnly(false);
-					}
-				}
+		var orderRec = this._getDc_("order").getRecord();
+		if (!orderRec) { return; }
+		var itemsDc = this._getDc_("item");
+		if (orderRec.get("confirmed")) {
+			if (!itemsDc.isReadOnly()) {
+				itemsDc.setReadOnly(true);
+			}
+		} else {
+			if (itemsDc.isReadOnly()) {
+				itemsDc.setReadOnly(false);
+			}
+		}
 	}
 	
 	,_when_called_to_edit_: function(params) {
 		
-				var order = this._getDc_("order");
-				if (order.isDirty()) {
-					this._alert_dirty_();
-					return;
-				}
-				order.doClearQuery();
-				//order.setFilterValue("id", params.id );
-				order.setFilterValue("code", params.code );
-				order.doQuery();
-				this._showStackedViewElement_("main",1);
+		var order = this._getDc_("order");
+		if (order.isDirty()) {
+			this._alert_dirty_();
+			return;
+		}
+		order.doClearQuery();
+		//order.setFilterValue("id", params.id );
+		order.setFilterValue("code", params.code );
+		order.doQuery();
+		this._showStackedViewElement_("main",1);
 	}
 	,_afterDefineDcs_: function() {
 		this.onAfterDefineDcs();

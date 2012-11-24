@@ -31,12 +31,24 @@ import net.nan21.dnet.module.sd.order.domain.entity.SalesOrderTax;
  */
 public interface ISalesOrderService extends IEntityService<SalesOrder> {
 
+	public void doConfirm(SalesOrder order) throws BusinessException;
+
+	public void doUnConfirm(SalesOrder order) throws BusinessException;
+
+	public void doCopyLines(SalesOrder target, Long sourceId)
+			throws BusinessException;
+
 	public void doGenerateInvoice(SalesOrder salesOrder, TxDocType invDocType)
 			throws BusinessException;
 
 	public void doGenerateDelivery(SalesOrder salesOrder,
 			TxDocType deliveryDocType, InvTransactionType delivTxType,
 			Date delivEventDate) throws BusinessException;
+
+	/**
+	 * Find by unique key
+	 */
+	public SalesOrder findByCode(String code);
 
 	/**
 	 * Find by reference: docType

@@ -14,6 +14,7 @@ import org.joda.time.DateTime;
 import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod;
+import net.nan21.dnet.module.sc._businessdelegates.invoice.PurchaseInvoiceCreateLines;
 import net.nan21.dnet.module.sc._businessdelegates.invoice.PurchaseInvoiceToAccDocBD;
 import net.nan21.dnet.module.sc.invoice.business.service.IPaymentOutAmountService;
 import net.nan21.dnet.module.sc.invoice.business.service.IPaymentOutService;
@@ -189,4 +190,12 @@ public class PurchaseInvoiceService
 
 		return payment;
 	}
+
+	@Override
+	public void doCopyLines(PurchaseInvoice target, Long sourceId)
+			throws BusinessException {
+		this.getBusinessDelegate(PurchaseInvoiceCreateLines.class).copyLines(
+				target, sourceId);
+	}
+
 }

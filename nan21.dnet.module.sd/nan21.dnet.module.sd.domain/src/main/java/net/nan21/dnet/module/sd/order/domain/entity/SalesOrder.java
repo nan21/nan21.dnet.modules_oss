@@ -25,6 +25,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
@@ -47,9 +48,11 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
 		@NamedQuery(name = SalesOrder.NQ_FIND_BY_ID, query = "SELECT e FROM SalesOrder e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SalesOrder.NQ_FIND_BY_IDS, query = "SELECT e FROM SalesOrder e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+		@NamedQuery(name = SalesOrder.NQ_FIND_BY_IDS, query = "SELECT e FROM SalesOrder e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SalesOrder.NQ_FIND_BY_CODE, query = "SELECT e FROM SalesOrder e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(name = SalesOrder.TABLE_NAME)
+@Table(name = SalesOrder.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SalesOrder.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "CODE"})})
 @Customizer(SalesOrderEventHandler.class)
 public class SalesOrder extends AbstractAuditable {
 
@@ -67,6 +70,11 @@ public class SalesOrder extends AbstractAuditable {
 	 * Named query find by IDs.
 	 */
 	public static final String NQ_FIND_BY_IDS = "SalesOrder.findByIds";
+
+	/**
+	 * Named query find by unique key: Code.
+	 */
+	public static final String NQ_FIND_BY_CODE = "SalesOrder.findByCode";
 
 	/**
 	 * System generated unique identifier.

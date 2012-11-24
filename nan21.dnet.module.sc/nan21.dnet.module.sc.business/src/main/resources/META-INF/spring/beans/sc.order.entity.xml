@@ -7,7 +7,7 @@
 			http://www.springframework.org/schema/context 
 				http://www.springframework.org/schema/context/spring-context.xsd">   
 	<bean id="PurchaseOrderService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.sc.order.business.serviceimpl.PurchaseOrderService"/>
+		class="net.nan21.dnet.module.sc.order.business.serviceext.PurchaseOrderService"/>
 	<bean id="PurchaseOrderItemService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sc.order.business.serviceext.PurchaseOrderItemService"/>
 	<bean id="PurchaseOrderTaxService" scope="singleton" lazy-init="true"

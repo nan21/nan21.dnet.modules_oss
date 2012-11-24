@@ -89,10 +89,10 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 			throws BusinessException {
 		AccDoc doc = this.generateAccDocPurchase(invoice, schema);
 		this.em.persist(doc);
-//		if (invoice.getSelfPayed()) {
-//			doc = this.generateAccDocPayment(invoice, schema);
-//			this.em.persist(doc);
-//		}
+		// if (invoice.getSelfPayed()) {
+		// doc = this.generateAccDocPayment(invoice, schema);
+		// this.em.persist(doc);
+		// }
 		return null;
 	}
 
@@ -278,6 +278,8 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 
 		return acct.getPurchaseAccount();
 	}
+
+	/* ==================== SERVICE LOCATOR HELPERS ====================== */
 
 	protected IBusinessPartnerService getBpService() throws BusinessException {
 		if (this.bpService == null) {

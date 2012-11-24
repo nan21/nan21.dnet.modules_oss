@@ -181,6 +181,8 @@ Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderDsFilter" ,{
 Ext.define("net.nan21.dnet.module.sd.order.ds.param.SalesOrderDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 
+		{name:"copyFrom", type:"string"},
+		{name:"copyFromId", type:"int", useNull:true},
 		{name:"delivDocType", type:"string"},
 		{name:"delivDocTypeId", type:"int", useNull:true},
 		{name:"delivEventData", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},

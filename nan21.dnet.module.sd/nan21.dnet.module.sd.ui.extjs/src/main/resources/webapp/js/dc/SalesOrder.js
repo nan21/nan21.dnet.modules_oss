@@ -141,6 +141,32 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$List", {
 	}});
 
 
+/* ================= EDITOR: CopyLinesForm ================= */
+
+
+Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$CopyLinesForm", {
+	extend: "dnet.core.dc.AbstractDcvEditForm",
+	alias: "widget.sd_order_dc_SalesOrder$CopyLinesForm",
+
+	_defineElements_: function() {
+		this._getBuilder_()
+			/* controls */
+			.addLov({xtype:"sd_order_lovs_SalesOrder", name:"copyFrom", paramIndex:"copyFrom", allowBlank:false, anchor:"-20",
+				retFieldMapping: [
+					{lovField:"id", dsParam: "copyFromId"} 
+				]})
+			/* containers */
+			.addPanel({ name:"main", autoScroll:true, layout:"form"})
+		;
+	},
+
+	_linkElements_: function() {
+		this._getBuilder_()
+			.addChildrenTo("main", ["copyFrom"])
+		;
+	}});
+
+
 /* ================= EDITOR: FrmGenDelivery ================= */
 
 

@@ -25,6 +25,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
@@ -45,9 +46,11 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
 		@NamedQuery(name = PurchaseInvoice.NQ_FIND_BY_ID, query = "SELECT e FROM PurchaseInvoice e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = PurchaseInvoice.NQ_FIND_BY_IDS, query = "SELECT e FROM PurchaseInvoice e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+		@NamedQuery(name = PurchaseInvoice.NQ_FIND_BY_IDS, query = "SELECT e FROM PurchaseInvoice e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = PurchaseInvoice.NQ_FIND_BY_CODE, query = "SELECT e FROM PurchaseInvoice e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
-@Table(name = PurchaseInvoice.TABLE_NAME)
+@Table(name = PurchaseInvoice.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = PurchaseInvoice.TABLE_NAME
+		+ "_UK1", columnNames = {"CLIENTID", "CODE"})})
 @Customizer(PurchaseInvoiceEventHandler.class)
 public class PurchaseInvoice extends AbstractAuditable {
 
@@ -65,6 +68,11 @@ public class PurchaseInvoice extends AbstractAuditable {
 	 * Named query find by IDs.
 	 */
 	public static final String NQ_FIND_BY_IDS = "PurchaseInvoice.findByIds";
+
+	/**
+	 * Named query find by unique key: Code.
+	 */
+	public static final String NQ_FIND_BY_CODE = "PurchaseInvoice.findByCode";
 
 	/**
 	 * System generated unique identifier.

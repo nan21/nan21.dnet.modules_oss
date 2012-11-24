@@ -46,6 +46,16 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	}
 
 	/**
+	 * Find by unique key
+	 */
+	public SalesInvoice findByCode(String code) {
+		return (SalesInvoice) this.em
+				.createNamedQuery(SalesInvoice.NQ_FIND_BY_CODE)
+				.setParameter("pClientId", Session.user.get().getClientId())
+				.setParameter("pCode", code).getSingleResult();
+	}
+
+	/**
 	 * Find by reference: priceList
 	 */
 	public List<SalesInvoice> findByPriceList(PriceList priceList) {

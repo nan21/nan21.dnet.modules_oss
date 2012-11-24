@@ -13,6 +13,7 @@ import org.joda.time.DateTime;
 
 import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
+import net.nan21.dnet.module.sd._businessdelegates.invoice.SalesInvoiceCreateLines;
 import net.nan21.dnet.module.sd._businessdelegates.invoice.SalesInvoiceToAccDocBD;
 import net.nan21.dnet.module.sd.invoice.business.service.ISalesInvoiceService;
 import net.nan21.dnet.module.sd.invoice.business.service.ISalesTxAmountService;
@@ -30,13 +31,14 @@ public class SalesInvoiceService
 
 	@Override
 	public void doConfirm(SalesInvoice invoice) throws BusinessException {
-		invoice.setConfirmed(true);
+
 		ISalesTxAmountService amountsService = (ISalesTxAmountService) this
 				.findEntityService(SalesTxAmount.class);
 		if (amountsService.findByInvoice(invoice).size() == 0) {
 			List<SalesTxAmount> amounts = this.createTxAmounts(invoice);
 			amountsService.insert(amounts);
 		}
+		invoice.setConfirmed(true);
 		this.getEntityManager().merge(invoice);
 	}
 
@@ -84,5 +86,14 @@ public class SalesInvoiceService
 			result.add(txAmount);
 		}
 		return result;
+	}
+
+	@Override
+	public void doCopyLines(SalesInvoice target, Long sourceId)
+			throws BusinessException {
+
+		this.getBusinessDelegate(SalesInvoiceCreateLines.class).copyLines(
+				target, sourceId);
+
 	}
 }

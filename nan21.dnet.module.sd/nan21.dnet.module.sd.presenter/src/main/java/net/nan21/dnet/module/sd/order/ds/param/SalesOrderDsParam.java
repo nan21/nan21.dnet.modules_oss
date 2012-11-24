@@ -17,6 +17,8 @@ public class SalesOrderDsParam extends EmptyParam {
 	public static final String fDELIVEVENTDATA = "delivEventData";
 	public static final String fINVDOCTYPEID = "invDocTypeId";
 	public static final String fINVDOCTYPE = "invDocType";
+	public static final String fCOPYFROMID = "copyFromId";
+	public static final String fCOPYFROM = "copyFrom";
 
 	private Long delivDocTypeId;
 
@@ -31,6 +33,10 @@ public class SalesOrderDsParam extends EmptyParam {
 	private Long invDocTypeId;
 
 	private String invDocType;
+
+	private Long copyFromId;
+
+	private String copyFrom;
 
 	public Long getDelivDocTypeId() {
 		return this.delivDocTypeId;
@@ -86,5 +92,21 @@ public class SalesOrderDsParam extends EmptyParam {
 
 	public void setInvDocType(String invDocType) {
 		this.invDocType = invDocType;
+	}
+
+	public Long getCopyFromId() {
+		return this.copyFromId;
+	}
+
+	public void setCopyFromId(Long copyFromId) {
+		this.copyFromId = copyFromId;
+	}
+
+	public String getCopyFrom() {
+		return this.copyFrom;
+	}
+
+	public void setCopyFrom(String copyFrom) {
+		this.copyFrom = copyFrom;
 	}
 }

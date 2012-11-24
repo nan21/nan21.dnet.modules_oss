@@ -132,5 +132,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDsFilter" ,{
 Ext.define("net.nan21.dnet.module.sd.invoice.ds.param.SalesInvoiceDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 
+		{name:"copyFrom", type:"string"},
+		{name:"copyFromId", type:"int", useNull:true}
 	]
 });

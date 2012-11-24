@@ -37,6 +37,14 @@ public interface IPurchaseInvoiceService
 
 	public void doUnPost(PurchaseInvoice invoice) throws BusinessException;
 
+	public void doCopyLines(PurchaseInvoice target, Long sourceId)
+			throws BusinessException;
+
+	/**
+	 * Find by unique key
+	 */
+	public PurchaseInvoice findByCode(String code);
+
 	/**
 	 * Find by reference: docType
 	 */

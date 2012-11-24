@@ -60,6 +60,10 @@
     	<addPrimaryKey tableName="SD_INV" constraintName="PK_SD_INV" columnNames="ID" />
     </changeSet>
 
+	<changeSet author="amathe" id="UK-1">
+		<addUniqueConstraint tableName="SD_INV" constraintName="UK_SD_INV1" columnNames="CLIENTID, CODE" />
+	</changeSet>
+
 	<changeSet author="amathe" id="SEQ">
 		<insert tableName="SEQUENCE">
 		    <column name="SEQ_NAME" value="SD_INV_SEQ"/>

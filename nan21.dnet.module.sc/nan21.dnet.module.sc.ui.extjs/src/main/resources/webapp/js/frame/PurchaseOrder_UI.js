@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/TxDocTypePOLovDs", "nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodOutLovDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPO", "nan21.dnet.module.md.ui.extjs/lov/Products", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/TaxApplicableLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderItemTaxDs", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodLovDs", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/VendorLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/lov/PriceListPurchase", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderItemDs", "nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.md.ui.extjs/lov/VendorsName", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrderItemTax", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrderItem", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/ds/PriceListPurchaseLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/lov/TaxApplicables", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodOut", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrder"]);
+Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/TxDocTypePOLovDs", "nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodOutLovDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPO", "nan21.dnet.module.md.ui.extjs/lov/Products", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderLovDs", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/TaxApplicableLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderItemTaxDs", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodLovDs", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/VendorLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/lov/PriceListPurchase", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderItemDs", "nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.sc.ui.extjs/lov/PurchaseOrder", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.md.ui.extjs/lov/VendorsName", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrderItemTax", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrderItem", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/ds/PriceListPurchaseLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/lov/TaxApplicables", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodOut", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrder"]);
 
 Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 	extend: "dnet.core.ui.AbstractUi",
@@ -44,13 +44,22 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 					handler: this.onBtnConfirm, scope:this, stateManager:{name:"selected_one_clean", dc:"order" , and: function(dc) {return (dc.record && !dc.record.get("confirmed"));}}})
 			.addButton({name:"btnUnConfirm", text:"Un-Confirm", tooltip:"Un-Confirm order.", iconCls:"icon-action-rollback", disabled:true,
 					handler: this.onBtnUnConfirm, scope:this, stateManager:{name:"selected_one_clean", dc:"order" , and: function(dc) {return (dc.record && dc.record.get("confirmed") );}}})
+			.addButton({name:"btnShowCopyLines", text:"Copy lines", tooltip:"Copy lines from order", disabled:true,
+					handler: this.onBtnShowCopyLines, scope:this, stateManager:{name:"record_is_clean", dc:"order" , and: function(dc) {return (dc.record && !dc.record.get("confirmed"));}}})
+			.addButton({name:"btnDoCopyLines", text:"Execute", tooltip:"Execute", disabled:false,
+					handler: this.onBtnDoCopyLines, scope:this})
 			
 			.addDcFilterFormView("order", {name:"orderFilter", height:160, xtype:"sc_order_dc_PurchaseOrder$Filter"})
 			.addDcGridView("order", {name:"orderList", xtype:"sc_order_dc_PurchaseOrder$List"})
 			.addDcFormView("order", {name:"orderEdit", height:200, xtype:"sc_order_dc_PurchaseOrder$EditMain", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
-						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm")]}]})
+						items:[ this._elems_.get("btnConfirm"), this._elems_.get("btnUnConfirm"), this._elems_.get("btnShowCopyLines")]}]})
 			.addDcFormView("order", {name:"orderEditDetails", title:"Details", xtype:"sc_order_dc_PurchaseOrder$EditDetails"})
+			.addDcFormView("order", {name:"orderCopyLinesForm", width:400, xtype:"sc_order_dc_PurchaseOrder$CopyLinesForm"})
+			.addWindow({name:"wdwCopyLines", title:"Copy lines from order", closeAction:'hide', resizable:true, layout:"fit", modal:true,
+				items:[this._elems_.get("orderCopyLinesForm")], 
+						dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
+							items:[ this._elems_.get("btnDoCopyLines")]}]})
 			.addDcFilterFormView("item", {name:"itemFilter", title:"Filter", width:250, xtype:"sc_order_dc_PurchaseOrderItem$FilterCtx", collapsible:true, collapsed:true
 			})
 			.addDcGridView("item", {name:"itemList", xtype:"sc_order_dc_PurchaseOrderItem$CtxList"})
@@ -154,6 +163,31 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 		}
 	}
 	
+	,onBtnShowCopyLines: function() {
+		this._getWindow_("wdwCopyLines").show();
+	}
+	
+	,onBtnDoCopyLines: function() {
+		var s={modal:true, callbacks:{} };
+		var successFn = function(dc,response,serviceName,specs) {
+				this._getDc_("item").doQuery();
+				this._getDc_("order").doReloadRecord();
+				this._getWindow_("wdwCopyLines").close();
+			};
+		s.callbacks['successFn'] = successFn;
+		s.callbacks['successScope'] = this;
+		var failureFn = function(dc,response,serviceName,specs) {
+				this._getWindow_("wdwCopyLines").close();
+			}; 
+		s.callbacks['failureFn'] = failureFn;
+		s.callbacks['failureScope'] = this;
+		try{
+			this._getDc_("order").doService("copyLines", s);
+		}catch(e){
+			dnet.base.DcExceptions.showMessage(e);
+		}
+	}
+	
 	,onUploadSuccess: function() {	
 		this._getDc_("atch").doQuery();
 	}
@@ -176,15 +210,15 @@ Ext.define("net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI", {
 	
 	,onAfterDefineDcs: function() {
 		
-				this._getDc_("item").on("afterDoSaveSuccess", 
-				function() {
-					this._getDc_("order").doRefreshCurrent();
-				} , this );
-				
-				this._getDc_("order").on("afterDoServiceSuccess", 
-				function() { this._applyStateAllButtons_(); this._syncReadOnlyStates_();  } , this );
-				
-				this._getDc_("order").on("recordChange", this._syncReadOnlyStates_, this );
+		this._getDc_("item").on("afterDoCommitSuccess", 
+		function() {
+			this._getDc_("order").doReloadRecord();
+		} , this );
+		
+		this._getDc_("order").on("afterDoServiceSuccess", 
+		function() { this._applyStateAllButtons_(); this._syncReadOnlyStates_();  } , this );
+		
+		this._getDc_("order").on("recordChange", this._syncReadOnlyStates_, this );
 				
 	}
 	
