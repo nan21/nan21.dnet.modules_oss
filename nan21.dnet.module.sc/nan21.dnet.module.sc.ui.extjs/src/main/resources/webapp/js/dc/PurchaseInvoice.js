@@ -170,7 +170,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditMain", {
 				]})
 			.addLov({xtype:"md_bp_lovs_VendorsName", name:"supplier", dataIndex:"supplier", noUpdate:true, allowBlank:false, anchor:"-20",
 				retFieldMapping: [
-					{lovField:"bpartnerId", dsField: "supplierId"} 
+					{lovField:"bpartnerId", dsField: "supplierId"} ,{lovField:"paymentMethod", dsField: "paymentMethod"} ,{lovField:"paymentMethodId", dsField: "paymentMethodId"} ,{lovField:"paymentTerm", dsField: "paymentTerm"} ,{lovField:"paymentTermId", dsField: "paymentTermId"} 
 				],
 				filterFieldMapping: [
 					{lovField:"orgId",dsField: "customerId"} 

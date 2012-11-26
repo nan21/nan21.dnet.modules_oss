@@ -174,7 +174,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$EditMain", {
 				]})
 			.addLov({xtype:"md_bp_lovs_CustomersName", name:"customer", dataIndex:"customer", noUpdate:true, allowBlank:false, anchor:"-20",
 				retFieldMapping: [
-					{lovField:"bpartnerId", dsField: "customerId"} 
+					{lovField:"bpartnerId", dsField: "customerId"} ,{lovField:"paymentMethod", dsField: "paymentMethod"} ,{lovField:"paymentMethodId", dsField: "paymentMethodId"} ,{lovField:"paymentTerm", dsField: "paymentTerm"} ,{lovField:"paymentTermId", dsField: "paymentTermId"} 
 				],
 				filterFieldMapping: [
 					{lovField:"orgId",dsField: "supplierId"} 

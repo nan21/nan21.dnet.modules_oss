@@ -18,6 +18,10 @@ public class CustomerLovDs extends AbstractAuditableLov<BpAccount> {
 	public static final String fNAME = "name";
 	public static final String fORGID = "orgId";
 	public static final String fORG = "org";
+	public static final String fPAYMENTMETHODID = "paymentMethodId";
+	public static final String fPAYMENTMETHOD = "paymentMethod";
+	public static final String fPAYMENTTERMID = "paymentTermId";
+	public static final String fPAYMENTTERM = "paymentTerm";
 
 	@DsField(join = "left", path = "bpartner.id")
 	private Long bpartnerId;
@@ -33,6 +37,18 @@ public class CustomerLovDs extends AbstractAuditableLov<BpAccount> {
 
 	@DsField(join = "left", path = "org.code")
 	private String org;
+
+	@DsField(join = "left", path = "custPaymentMethod.id")
+	private Long paymentMethodId;
+
+	@DsField(join = "left", path = "custPaymentMethod.name")
+	private String paymentMethod;
+
+	@DsField(join = "left", path = "custPaymentTerm.id")
+	private Long paymentTermId;
+
+	@DsField(join = "left", path = "custPaymentTerm.name")
+	private String paymentTerm;
 
 	public CustomerLovDs() {
 		super();
@@ -80,5 +96,37 @@ public class CustomerLovDs extends AbstractAuditableLov<BpAccount> {
 
 	public void setOrg(String org) {
 		this.org = org;
+	}
+
+	public Long getPaymentMethodId() {
+		return this.paymentMethodId;
+	}
+
+	public void setPaymentMethodId(Long paymentMethodId) {
+		this.paymentMethodId = paymentMethodId;
+	}
+
+	public String getPaymentMethod() {
+		return this.paymentMethod;
+	}
+
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+
+	public Long getPaymentTermId() {
+		return this.paymentTermId;
+	}
+
+	public void setPaymentTermId(Long paymentTermId) {
+		this.paymentTermId = paymentTermId;
+	}
+
+	public String getPaymentTerm() {
+		return this.paymentTerm;
+	}
+
+	public void setPaymentTerm(String paymentTerm) {
+		this.paymentTerm = paymentTerm;
 	}
 }
