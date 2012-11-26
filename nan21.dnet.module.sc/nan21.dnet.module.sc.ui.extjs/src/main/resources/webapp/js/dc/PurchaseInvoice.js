@@ -127,7 +127,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$CopyLinesForm", 
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addLov({xtype:"sc_invoice_lovs_PurchaseInvoice", name:"copyFrom", paramIndex:"copyFrom", allowBlank:false, anchor:"-20",
+			.addLov({xtype:"sc_invoice_lovs_PurchaseInvoice", name:"copyFrom", paramIndex:"copyFrom", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsParam: "copyFromId"} 
 				]})

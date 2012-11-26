@@ -151,7 +151,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$CopyLinesForm", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addLov({xtype:"sd_order_lovs_SalesOrder", name:"copyFrom", paramIndex:"copyFrom", allowBlank:false, anchor:"-20",
+			.addLov({xtype:"sd_order_lovs_SalesOrder", name:"copyFrom", paramIndex:"copyFrom", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsParam: "copyFromId"} 
 				]})
