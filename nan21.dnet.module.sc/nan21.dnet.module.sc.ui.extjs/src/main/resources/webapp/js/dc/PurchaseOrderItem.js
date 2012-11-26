@@ -115,6 +115,9 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$EditForm", {
 			.addLov({xtype:"md_mm_prod_lovs_ProductsWithUom", name:"productCode", dataIndex:"productCode", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "productId"} ,{lovField:"name", dsField: "productName"} ,{lovField:"uom", dsField: "uomCode"} ,{lovField:"uomId", dsField: "uomId"} 
+				],
+				filterFieldMapping: [
+					{lovField:"purchase",value: "true"} 
 				]})
 			.addDisplayFieldText({ name:"productName", dataIndex:"productName", anchor:"-20"})
 			.addNumberField({name:"quantity", dataIndex:"quantity", allowBlank:false, anchor:"-20", decimals:2,listeners:{

@@ -116,6 +116,9 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$EditForm", {
 			.addLov({xtype:"md_mm_prod_lovs_ProductsWithUom", name:"productCode", dataIndex:"productCode", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "productId"} ,{lovField:"name", dsField: "productName"} ,{lovField:"uom", dsField: "uomCode"} ,{lovField:"uomId", dsField: "uomId"} 
+				],
+				filterFieldMapping: [
+					{lovField:"sale",value: "true"} 
 				]})
 			.addHiddenField({ name:"productId", dataIndex:"productId", anchor:"-20",listeners:{
 				change:{scope:this, fn:this.onProductChange}

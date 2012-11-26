@@ -16,12 +16,20 @@ public class ProductWithUomLovDs extends AbstractTypeWithCodeLov<Product> {
 
 	public static final String fUOMID = "uomId";
 	public static final String fUOM = "uom";
+	public static final String fSALE = "sale";
+	public static final String fPURCHASE = "purchase";
 
 	@DsField(join = "left", path = "defaultUom.id")
 	private Long uomId;
 
 	@DsField(join = "left", path = "defaultUom.code")
 	private String uom;
+
+	@DsField()
+	private Boolean sale;
+
+	@DsField()
+	private Boolean purchase;
 
 	public ProductWithUomLovDs() {
 		super();
@@ -45,5 +53,21 @@ public class ProductWithUomLovDs extends AbstractTypeWithCodeLov<Product> {
 
 	public void setUom(String uom) {
 		this.uom = uom;
+	}
+
+	public Boolean getSale() {
+		return this.sale;
+	}
+
+	public void setSale(Boolean sale) {
+		this.sale = sale;
+	}
+
+	public Boolean getPurchase() {
+		return this.purchase;
+	}
+
+	public void setPurchase(Boolean purchase) {
+		this.purchase = purchase;
 	}
 }
