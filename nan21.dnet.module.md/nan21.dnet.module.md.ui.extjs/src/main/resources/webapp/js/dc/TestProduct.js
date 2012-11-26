@@ -41,6 +41,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Filter", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "attributeSetId"} 
 				]})
+			.addDisplayFieldNumber({ name:"productCategoryId", paramIndex:"productCategoryId", anchor:"-20" })
 			.addLov({xtype:"md_mm_prod_lovs_ProductCategories", name:"productCategory", paramIndex:"productCategory", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsParam: "productCategoryId"} 
@@ -49,17 +50,19 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Filter", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:210, layout:"form"})
-			.addPanel({ name:"col2", width:150, layout:"form", defaults:{labelAlign:"right", labelWidth:70}})
-			.addPanel({ name:"col3", width:250, layout:"form"})
+			.addPanel({ name:"col2", width:210, layout:"form"})
+			.addPanel({ name:"col3", width:170, layout:"form", defaults:{labelAlign:"right", labelWidth:100}})
+			.addPanel({ name:"col4", width:250, layout:"form", defaults:{labelAlign:"right", labelWidth:120}})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2", "col3"])
-			.addChildrenTo("col1", ["name", "code", "manufacturerCode", "manufacturerProductNo"])
-			.addChildrenTo("col2", ["storable", "active", "showInCatalog"])
-			.addChildrenTo("col3", ["attributeSet", "productCategory"])
+			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
+			.addChildrenTo("col1", ["name", "code"])
+			.addChildrenTo("col2", ["manufacturerCode", "manufacturerProductNo"])
+			.addChildrenTo("col3", ["storable", "active", "showInCatalog"])
+			.addChildrenTo("col4", ["attributeSet", "productCategory", "productCategoryId"])
 		;
 	}});
 
@@ -249,21 +252,27 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Edit", {
 				]})
 			.addTextField({ name:"iconUrl", dataIndex:"iconUrl", anchor:"-20"})
 			.addTextField({ name:"imageUrl", dataIndex:"imageUrl", anchor:"-20"})
+			.addLov({xtype:"md_mm_prod_lovs_ProductCategories", name:"productCategory", paramIndex:"productCategory", anchor:"-20",
+				retFieldMapping: [
+					{lovField:"id", dsParam: "productCategoryId"} 
+				]})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
 			.addPanel({ name:"col2", width:250, layout:"form"})
 			.addPanel({ name:"col3", width:300, layout:"form"})
+			.addPanel({ name:"col4", width:300, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2", "col3"])
+			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
 			.addChildrenTo("col1", ["name", "code", "defaultUomCode", "attributeSet", "manufacturerCode", "manufacturerProductNo"])
 			.addChildrenTo("col2", ["storable", "weight", "weightUomCode", "volume", "volumeUomCode", "dimWidth", "dimHeight", "dimDepth", "dimUomCode"])
 			.addChildrenTo("col3", ["active", "showInCatalog", "iconUrl", "imageUrl"])
+			.addChildrenTo("col4", ["productCategory"])
 		;
 	}});
 
@@ -272,7 +281,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Edit", {
 
 
 Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$EditPG", {
-	extend: "dnet.core.dc.AbstractDcvFilterPropGrid",
+	extend: "dnet.core.dc.AbstractDcvEditPropGrid",
 	alias: "widget.md_mm_prod_dc_TestProduct$EditPG",
 
 	_defineElements_: function() {

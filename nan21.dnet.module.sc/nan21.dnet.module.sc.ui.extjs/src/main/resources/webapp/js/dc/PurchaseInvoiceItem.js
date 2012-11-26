@@ -123,10 +123,10 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["row1", "row2"])
-			.addChildrenTo("row1", ["col1", "col5"])
+			.addChildrenTo("row1", ["col1", "col2"])
 			.addChildrenTo("col1", ["productCode", "productName", "entryMode"])
 			.addChildrenTo("col5", ["description"])
-			.addChildrenTo("row2", ["col3", "col4", "col2"])
+			.addChildrenTo("row2", ["col3", "col4", "col5"])
 			.addChildrenTo("col3", ["quantity", "uomCode", "tax"])
 			.addChildrenTo("col4", ["unitPrice", "docLineNetAmount", "docLineTaxAmount", "docLineAmount"])
 			.addChildrenTo("col2", ["netAmount", "taxAmount", "lineAmount"])

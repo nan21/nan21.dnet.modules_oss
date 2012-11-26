@@ -107,10 +107,11 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$EditForm", {
 				]})
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			/* containers */
-			.addPanel({ name:"main", autoScroll:true})
-			.addPanel({ name:"row1", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
-			.addPanel({ name:"col1", width:400, layout:"form"})
+			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
+					autoScroll:true, padding:"0 30 5 0"})
+			.addPanel({ name:"col1"})
 			.addPanel({ name:"col4", width:400, layout:"form"})
+			.addPanel({ name:"row1", width:400, layout:"form"})
 			.addPanel({ name:"row2", layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}}})
 			.addPanel({ name:"col2", width:250, layout:"form"})
 			.addPanel({ name:"col3", width:250, layout:"form"})
@@ -119,10 +120,10 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$EditForm", {
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["row1", "row2"])
-			.addChildrenTo("row1", ["col1", "col4"])
-			.addChildrenTo("col1", ["productId", "productCode", "productName"])
+			.addChildrenTo("main", ["col1", "col4"])
+			.addChildrenTo("col1", ["row1", "row2"])
 			.addChildrenTo("col4", ["description"])
+			.addChildrenTo("row1", ["productId", "productCode", "productName"])
 			.addChildrenTo("row2", ["col2", "col3"])
 			.addChildrenTo("col2", ["quantity", "uomCode", "unitPrice", "tax"])
 			.addChildrenTo("col3", ["netAmount", "taxAmount", "lineAmount"])
