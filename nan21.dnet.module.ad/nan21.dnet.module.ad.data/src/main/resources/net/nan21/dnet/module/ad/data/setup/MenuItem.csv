@@ -160,6 +160,7 @@ sequenceNo;name;title;menu;frame;bundle;active;uuid
 20;PurchaseOrder_UI;Orders;;net.nan21.dnet.module.sc.order.frame.PurchaseOrder_UI;nan21.dnet.module.sc.ui.extjs;true;1AFD7042-9B25-4544-B741-D4D1ACB0A8F5
 25;PurchaseOrderItems_UI;Order items;;net.nan21.dnet.module.sc.order.frame.PurchaseOrderItems_UI;nan21.dnet.module.sc.ui.extjs;true;1AF47042-9B25-4544-B741-D4D1ACB0A8F5
 30;PurchaseReception_UI;Goods reception;;net.nan21.dnet.module.sc.order.frame.PurchaseReception_UI;nan21.dnet.module.sc.ui.extjs;true;9DCCB2A7-9851-4395-9EAE-B9A354A3E656
+30;PurchaseTxAmount_UI;Payables;;net.nan21.dnet.module.sc.invoice.frame.PurchaseTxAmount_UI;nan21.dnet.module.sc.ui.extjs;true;2AF47042-9B25-4544-B741-D4D1ACB0A8F5
 10;RatingLevel_UI;Rating levels;;net.nan21.dnet.module.hr.skill.frame.RatingLevel_UI;nan21.dnet.module.hr.ui.extjs;true;6EB99647-58FC-4563-9CBA-5EB66899DF6A
 20;RatingScale_UI;Rating scales;;net.nan21.dnet.module.hr.skill.frame.RatingScale_UI;nan21.dnet.module.hr.ui.extjs;true;3C24B694-5F39-4A03-98CE-720D6A2AFD6B
 40;RegionMD_UI;Region with details;;net.nan21.dnet.module.bd.geo.frame.RegionMD_UI;nan21.dnet.module.bd.ui.extjs;true;71051557-54A7-43B2-95C1-D3A6432E1B4B
@@ -174,6 +175,7 @@ sequenceNo;name;title;menu;frame;bundle;active;uuid
 10;SalesOrderBaseData_UI;Base data(Sales orders);;net.nan21.dnet.module.sd.order.frame.SalesOrderBaseData_UI;nan21.dnet.module.sd.ui.extjs;false;4E916316-F647-4E61-B7B5-3C75F228CEE3
 20;SalesOrder_UI;Orders;;net.nan21.dnet.module.sd.order.frame.SalesOrder_UI;nan21.dnet.module.sd.ui.extjs;true;5AB899A7-AF35-453A-BC33-FFD1EB6E83B5
 25;SalesOrderItems_UI;Order items;;net.nan21.dnet.module.sd.order.frame.SalesOrderItems_UI;nan21.dnet.module.sd.ui.extjs;true;5AB890A7-AF35-453A-BC33-FFD1EB6E83B5
+30;SalesTxAmount_UI;Receivables;;net.nan21.dnet.module.sd.invoice.frame.SalesTxAmount_UI;nan21.dnet.module.sd.ui.extjs;true;59B890A7-AF35-453A-BC33-FFD1EB6E83B5
 30;sc-menu-invoice;Invoices;SC;;;true;2E0E63EF-A4C6-46FC-A8E4-0B5E078BD680
 20;sc-menu-order;Orders;SC;;;true;A8E271C9-8F07-4DC4-AF2C-1C0A40AC2FD1
 40;sc-menu-pay;Payments;SC;;;true;03B73FDF-95A9-4F5A-9C86-C1027829272E

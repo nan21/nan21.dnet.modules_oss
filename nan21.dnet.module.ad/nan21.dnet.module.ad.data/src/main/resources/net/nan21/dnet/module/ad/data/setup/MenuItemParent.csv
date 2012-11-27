@@ -160,6 +160,7 @@ PurchaseOrderBaseData_UI;sc-menu-order
 PurchaseOrder_UI;sc-menu-order
 PurchaseOrderItems_UI;sc-menu-order
 PurchaseReception_UI;sc-menu-order
+PurchaseTxAmount_UI;sc-menu-invoice
 RatingLevel_UI;hr-menu-skill
 RatingScale_UI;hr-menu-skill
 RegionMD_UI;bd-menu-geo
@@ -174,6 +175,7 @@ SalesInvoiceItems_UI;sd-menu-invoice
 SalesOrderBaseData_UI;sd-menu-order
 SalesOrder_UI;sd-menu-order
 SalesOrderItems_UI;sd-menu-order
+SalesTxAmount_UI;sd-menu-invoice
 sc-menu-invoice;
 sc-menu-order;
 sc-menu-pay;
