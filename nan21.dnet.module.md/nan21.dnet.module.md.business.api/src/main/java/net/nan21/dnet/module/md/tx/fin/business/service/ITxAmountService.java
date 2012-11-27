@@ -8,6 +8,7 @@ package net.nan21.dnet.module.md.tx.fin.business.service;
 
 import java.util.List;
 import net.nan21.dnet.core.api.service.IEntityService;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
@@ -48,4 +49,14 @@ public interface ITxAmountService extends IEntityService<TxAmount> {
 	 * Find by ID of reference: paymentMethod.id
 	 */
 	public List<TxAmount> findByPaymentMethodId(Long paymentMethodId);
+
+	/**
+	 * Find by reference: currency
+	 */
+	public List<TxAmount> findByCurrency(Currency currency);
+
+	/**
+	 * Find by ID of reference: currency.id
+	 */
+	public List<TxAmount> findByCurrencyId(Long currencyId);
 }

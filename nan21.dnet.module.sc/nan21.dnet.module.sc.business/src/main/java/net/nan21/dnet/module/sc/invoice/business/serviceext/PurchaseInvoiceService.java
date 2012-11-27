@@ -139,6 +139,7 @@ public class PurchaseInvoiceService
 		txAmount.setBpartner(invoice.getSupplier());
 		txAmount.setOrg(invoice.getCustomer());
 		txAmount.setInvoice(invoice);
+		txAmount.setCurrency(invoice.getCurrency());
 		txAmount.setSales(false);
 		txAmount.setAmount(invoice.getTotalAmount());
 		txAmount.setDueAmount(invoice.getTotalAmount());

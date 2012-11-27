@@ -34,6 +34,8 @@
 			<constraints nullable="false" /></column>
 		<column name="BPARTNER_ID" type="number(19)">
 			<constraints nullable="false" /></column>
+		<column name="CURRENCY_ID" type="number(19)">
+			<constraints  /></column>
 		<column name="ORG_ID" type="number(19)">
 			<constraints nullable="false" /></column>
 		<column name="PAYMENTMETHOD_ID" type="number(19)">

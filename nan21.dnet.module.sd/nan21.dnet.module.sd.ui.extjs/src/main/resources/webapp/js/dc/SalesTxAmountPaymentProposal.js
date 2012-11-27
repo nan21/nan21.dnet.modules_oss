@@ -71,7 +71,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountPaymentProposal$Fil
 			.addDisplayFieldText({ name:"businessPartner", paramIndex:"businessPartner", anchor:"-20"})
 			.addDisplayFieldNumber({ name:"receivedAmount", paramIndex:"receivedAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addDisplayFieldNumber({ name:"unAllocatedAmount", paramIndex:"unAllocatedAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
-			.addDisplayFieldText({ name:"currency", paramIndex:"currency", anchor:"-20", fieldCls:"displayfield important-field", maxLength:32})
+			.addDisplayFieldText({ name:"currency", paramIndex:"paymentCurrency", anchor:"-20", fieldCls:"displayfield important-field", maxLength:32})
 			.addDateField({name:"dueDate_From", dataIndex:"dueDate_From", emptyText:"From" })
 			.addDateField({name:"dueDate_To", dataIndex:"dueDate_To", emptyText:"To" })
 			.addFieldContainer({name: "dueDate", fieldLabel:"Due Date"})

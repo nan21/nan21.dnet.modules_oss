@@ -5,8 +5,16 @@
 
 	<changeSet author="nan21" id="1">
 		<addColumn tableName="TX_PYMNT">
-			<column name="GENERATED" type="number(19)" defaultValue="0">
+			<column name="GENERATED" type="number(0)" defaultValue="0">
 				<constraints nullable="false"/>
+			</column>
+		</addColumn>
+	</changeSet>
+
+	<changeSet author="nan21" id="2">
+		<addColumn tableName="TX_AMNT">
+			<column name="CURRENCY_ID" type="number(19)">
+				<constraints nullable="true"/>
 			</column>
 		</addColumn>
 	</changeSet>

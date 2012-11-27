@@ -12,7 +12,7 @@ public class SalesTxAmountPaymentProposalDsParam extends EmptyParam {
 	public static final String fBUSINESSPARTNER = "businessPartner";
 	public static final String fRECEIVEDAMOUNT = "receivedAmount";
 	public static final String fUNALLOCATEDAMOUNT = "unAllocatedAmount";
-	public static final String fCURRENCY = "currency";
+	public static final String fPAYMENTCURRENCY = "paymentCurrency";
 	public static final String fPAYMENTID = "paymentId";
 
 	private String businessPartner;
@@ -21,7 +21,7 @@ public class SalesTxAmountPaymentProposalDsParam extends EmptyParam {
 
 	private Float unAllocatedAmount;
 
-	private String currency;
+	private String paymentCurrency;
 
 	private Long paymentId;
 
@@ -49,12 +49,12 @@ public class SalesTxAmountPaymentProposalDsParam extends EmptyParam {
 		this.unAllocatedAmount = unAllocatedAmount;
 	}
 
-	public String getCurrency() {
-		return this.currency;
+	public String getPaymentCurrency() {
+		return this.paymentCurrency;
 	}
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
+	public void setPaymentCurrency(String paymentCurrency) {
+		this.paymentCurrency = paymentCurrency;
 	}
 
 	public Long getPaymentId() {

@@ -160,7 +160,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.frame.PaymentOut_UI", {
 		proposalDc.setParamValue("receivedAmount", paymentRec.get("amount"));
 		proposalDc.setParamValue("unAllocatedAmount", 0);
 		
-		proposalDc.setParamValue("currency", paymentRec.get("currency"));
+		proposalDc.setFilterValue("currencyId", paymentRec.get("currencyId"));
+		proposalDc.setParamValue("paymentCurrency", paymentRec.get("currency"));
 		proposalDc.doCancel();
 		proposalDc.doQuery();
 	}

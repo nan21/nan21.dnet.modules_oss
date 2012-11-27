@@ -27,6 +27,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
@@ -112,6 +113,10 @@ public class TxAmount extends AbstractAuditable {
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PaymentMethod.class)
 	@JoinColumn(name = "PAYMENTMETHOD_ID", referencedColumnName = "ID")
 	private PaymentMethod paymentMethod;
+
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Currency.class)
+	@JoinColumn(name = "CURRENCY_ID", referencedColumnName = "ID")
+	private Currency currency;
 
 	public Long getId() {
 		return this.id;
@@ -216,6 +221,17 @@ public class TxAmount extends AbstractAuditable {
 			this.__validate_client_context__(paymentMethod.getClientId());
 		}
 		this.paymentMethod = paymentMethod;
+	}
+
+	public Currency getCurrency() {
+		return this.currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		if (currency != null) {
+			this.__validate_client_context__(currency.getClientId());
+		}
+		this.currency = currency;
 	}
 
 	public void aboutToInsert(DescriptorEvent event) {

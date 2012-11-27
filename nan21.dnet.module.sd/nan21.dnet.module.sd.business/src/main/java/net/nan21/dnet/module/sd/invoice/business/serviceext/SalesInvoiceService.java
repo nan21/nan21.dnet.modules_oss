@@ -76,6 +76,7 @@ public class SalesInvoiceService
 			txAmount.setOrg(invoice.getSupplier());
 			txAmount.setInvoice(invoice);
 			txAmount.setSales(true);
+			txAmount.setCurrency(invoice.getCurrency());
 			txAmount.setPaymentMethod(invoice.getPaymentMethod());
 			txAmount.setDueDate(dueDate.toDate());
 

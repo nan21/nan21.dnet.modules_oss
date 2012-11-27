@@ -26,6 +26,8 @@ public class SalesTxAmountPaymentProposalDs
 	public static final String fORDERCODE = "orderCode";
 	public static final String fORDERDOCDATE = "orderDocDate";
 	public static final String fORDERDOCNO = "orderDocNo";
+	public static final String fCURRENCYID = "currencyId";
+	public static final String fCURRENCY = "currency";
 	public static final String fDUEDATE = "dueDate";
 	public static final String fDUEAMOUNT = "dueAmount";
 	public static final String fPAYEDAMOUNT = "payedAmount";
@@ -64,6 +66,12 @@ public class SalesTxAmountPaymentProposalDs
 
 	@DsField(join = "left", path = "order.docNo")
 	private String orderDocNo;
+
+	@DsField(join = "left", path = "currency.id")
+	private Long currencyId;
+
+	@DsField(join = "left", path = "currency.code")
+	private String currency;
 
 	@DsField()
 	private Date dueDate;
@@ -175,6 +183,22 @@ public class SalesTxAmountPaymentProposalDs
 
 	public void setOrderDocNo(String orderDocNo) {
 		this.orderDocNo = orderDocNo;
+	}
+
+	public Long getCurrencyId() {
+		return this.currencyId;
+	}
+
+	public void setCurrencyId(Long currencyId) {
+		this.currencyId = currencyId;
+	}
+
+	public String getCurrency() {
+		return this.currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 
 	public Date getDueDate() {
