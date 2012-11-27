@@ -24,6 +24,7 @@ import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
@@ -140,6 +141,14 @@ public class TxAmount extends AbstractAuditable {
 
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
+	}
+
+	@Transient
+	public Integer getDueInDays() {
+		return (int) ((this.dueDate.getTime() - (new Date()).getTime()) / 86400000);
+	}
+
+	public void setDueInDays(Integer dueInDays) {
 	}
 
 	public Float getDueAmount() {

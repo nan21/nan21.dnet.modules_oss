@@ -8,10 +8,11 @@ package net.nan21.dnet.module.sc.order.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
 
-@Ds(entity = PurchaseOrder.class)
+@Ds(entity = PurchaseOrder.class, sort = {@SortField(field = PurchaseOrderDs.fDOCDATE, desc = true)})
 public class PurchaseOrderDs extends AbstractAuditableDs<PurchaseOrder> {
 
 	public static final String fCODE = "code";

@@ -5,7 +5,7 @@
 
 	<changeSet author="nan21" id="1">
 		<addColumn tableName="TX_PYMNT">
-			<column name="GENERATED" type="int(0)" defaultValue="0">
+			<column name="GENERATED" type="int(1)" defaultValue="0">
 				<constraints nullable="false"/>
 			</column>
 		</addColumn>

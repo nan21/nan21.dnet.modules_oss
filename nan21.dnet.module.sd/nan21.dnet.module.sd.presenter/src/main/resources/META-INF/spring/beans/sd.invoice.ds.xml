@@ -245,6 +245,22 @@
 		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentDs" />
 	</bean>
 	
+	<!-- ==================== SalesTxAmountOverview ==================== -->
+	
+	<bean id="SalesTxAmountOverviewDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountOverviewDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.invoice.ds.filter.SalesTxAmountOverviewDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount"/>
+		<property name="paramClass" value="net.nan21.dnet.module.sd.invoice.ds.param.SalesTxAmountOverviewDsParam"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
+		<property name="name" value="SalesTxAmountOverview" />
+		<property name="modelClass" value="net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountOverviewDs" />
+	</bean>
+	
 	<!-- ==================== SalesTxAmount ==================== -->
 	
 	<bean id="SalesTxAmountDsService" scope="singleton" lazy-init="true"
