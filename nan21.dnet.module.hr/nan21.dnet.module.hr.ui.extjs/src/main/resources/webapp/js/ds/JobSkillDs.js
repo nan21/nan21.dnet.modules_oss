@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -22,7 +23,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.JobSkillDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.JobSkillDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"competence", type:"string"},
@@ -50,10 +52,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.JobSkillDsFilter" ,{
 		{name:"requiredLevelId_From",type:"int", useNull:true},
 		{name:"requiredLevelId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.param.JobSkillDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

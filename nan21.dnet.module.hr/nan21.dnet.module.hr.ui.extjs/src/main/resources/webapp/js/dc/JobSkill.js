@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.JobSkill", {
 
 	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs",
 	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.JobSkillDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.skill.ds.param.JobSkillDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -45,4 +45,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.JobSkill$CtxEditList", {
 							{lovField:"ratingScaleId",dsField: "ratingScaleId"} 
 						]}})
 			.addDefaults();
-	}});
+	}
+});

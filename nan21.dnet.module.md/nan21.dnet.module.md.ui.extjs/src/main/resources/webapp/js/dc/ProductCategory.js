@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductCategory", {
 
 	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryDs",
 	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.prod.ds.param.ProductCategoryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -45,7 +45,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductCategory$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["folder", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -68,4 +69,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductCategory$EditList", {
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

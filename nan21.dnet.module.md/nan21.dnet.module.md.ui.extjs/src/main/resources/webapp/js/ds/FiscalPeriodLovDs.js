@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -14,7 +15,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDs" ,{
 		{name:"year", type:"string"},
 		{name:"yearId", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -25,10 +27,5 @@ Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDsFilte
 		{name:"yearId", type:"int", useNull:true},
 		{name:"yearId_From",type:"int", useNull:true},
 		{name:"yearId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.base.period.ds.param.FiscalPeriodLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

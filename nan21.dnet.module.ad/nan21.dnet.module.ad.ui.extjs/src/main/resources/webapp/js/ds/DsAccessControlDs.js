@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accessControl", type:"string"},
@@ -25,7 +26,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accessControl", type:"string"},
@@ -50,10 +52,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDsFilter" ,{
 		{name:"queryAllowed", type:"boolean", useNull:true},
 		{name:"updateAllowed", type:"boolean", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.usr.ds.param.DsAccessControlDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

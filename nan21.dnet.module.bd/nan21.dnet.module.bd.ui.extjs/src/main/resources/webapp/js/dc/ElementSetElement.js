@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementSetElement", {
 
 	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementSetElementDs",
 	filterModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementSetElementDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.elem.ds.param.ElementSetElementDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -49,7 +49,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementSetElement$Filter", {
 			.addChildrenTo("col1", ["elementSet"])
 			.addChildrenTo("col2", ["element"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -76,7 +77,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementSetElement$EditList", {
 			.addNumberColumn({name:"engineId", dataIndex:"engineId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"elementId", dataIndex:"elementId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -102,4 +104,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementSetElement$CtxEditList", {
 			.addNumberColumn({name:"engineId", dataIndex:"engineId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"elementId", dataIndex:"elementId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

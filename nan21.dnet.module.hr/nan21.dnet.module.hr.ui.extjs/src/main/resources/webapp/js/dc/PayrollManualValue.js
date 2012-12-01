@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollManualValue", {
 
 	recordModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDs",
 	filterModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.payroll.ds.param.PayrollManualValueDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -71,7 +71,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollManualValue$Filter", {
 			.addChildrenTo("col2", ["type", "employeeName"])
 			.addChildrenTo("col3", ["periodStart", "periodEnd"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -101,4 +102,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollManualValue$EditList", {
 			.addNumberColumn({name:"employeeId", dataIndex:"employeeId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"elementId", dataIndex:"elementId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

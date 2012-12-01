@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -22,7 +23,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"competence", type:"string"},
@@ -50,10 +52,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDsFilter" ,{
 		{name:"requiredLevelId_From",type:"int", useNull:true},
 		{name:"requiredLevelId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.param.PositionSkillDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

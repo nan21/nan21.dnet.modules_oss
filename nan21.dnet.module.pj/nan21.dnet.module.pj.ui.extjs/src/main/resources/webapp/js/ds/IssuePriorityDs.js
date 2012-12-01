@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDs" ,{
+
+Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -44,10 +46,5 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDsFilter" ,{
 		{name:"sequenceNo_From",type:"int", useNull:true},
 		{name:"sequenceNo_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.pj.base.ds.param.IssuePriorityDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity", {
 
 	recordModel: "net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDs",
 	filterModel: "net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.opportunity.ds.param.OpportunityDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -70,7 +70,8 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity$Filter", {
 			.addChildrenTo("col1", ["name", "account", "assignedTo", "status", "priority"])
 			.addChildrenTo("col2", ["salesStage", "leadSource", "resultReason"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -99,7 +100,8 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity$List", {
 			.addNumberColumn({ name:"assignedToId", dataIndex:"assignedToId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"accountId", dataIndex:"accountId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -167,4 +169,5 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity$Edit", {
 			.addChildrenTo("col2", ["assignedTo", "status", "priority", "leadSource", "campaign", "probability", "resultReason"])
 			.addChildrenTo("col3", ["description", "resultNote"])
 		;
-	}});
+	}
+});

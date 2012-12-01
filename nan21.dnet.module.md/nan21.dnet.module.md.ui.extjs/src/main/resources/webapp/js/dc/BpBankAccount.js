@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpBankAccount", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.BpBankAccountDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.BpBankAccountDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.BpBankAccountDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -51,4 +51,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpBankAccount$CtxEditList", {
 			.addNumberColumn({name:"bankId", dataIndex:"bankId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"currencyId", dataIndex:"currencyId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

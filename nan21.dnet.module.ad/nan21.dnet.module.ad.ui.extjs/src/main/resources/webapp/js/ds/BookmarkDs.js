@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -33,7 +34,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -64,10 +66,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDsFilter" ,{
 		{name:"sequenceNo_To",type:"int", useNull:true},
 		{name:"title", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.usr.ds.param.BookmarkDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

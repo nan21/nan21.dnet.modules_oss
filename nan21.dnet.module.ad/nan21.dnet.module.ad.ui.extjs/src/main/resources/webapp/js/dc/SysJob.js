@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJob", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysJobDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -43,7 +43,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJob$Filter", {
 			.addChildrenTo("col1", ["name"])
 			.addChildrenTo("col2", ["javaClass"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: List ================= */
@@ -63,4 +64,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJob$List", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

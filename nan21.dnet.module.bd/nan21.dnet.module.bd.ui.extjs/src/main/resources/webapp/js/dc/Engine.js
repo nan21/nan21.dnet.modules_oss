@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Engine", {
 
 	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.EngineDs",
 	filterModel: "net.nan21.dnet.module.bd.elem.ds.model.EngineDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.elem.ds.param.EngineDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -46,7 +46,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Engine$Filter", {
 			.addChildrenTo("col1", ["name", "type"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -66,4 +67,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Engine$EditList", {
 					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, allowBlank:false, triggerAction:'all', forceSelection:true, store:[ "payroll", "accounting"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

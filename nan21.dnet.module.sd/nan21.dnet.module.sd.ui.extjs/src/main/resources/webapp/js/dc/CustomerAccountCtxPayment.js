@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccountCtxPayment", {
 
 	recordModel: "net.nan21.dnet.module.sd.invoice.ds.model.PaymentInDs",
 	filterModel: "net.nan21.dnet.module.sd.invoice.ds.model.PaymentInDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.invoice.ds.param.PaymentInDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,8 +47,7 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccountCtxPayment$Filter
 			.addBooleanField({ name:"confirmed", dataIndex:"confirmed", anchor:"-20"})
 			.addBooleanField({ name:"posted", dataIndex:"posted", anchor:"-20"})
 		;
-	},
-
+	}
 });
 
 
@@ -78,4 +77,5 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccountCtxPayment$List",
 			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

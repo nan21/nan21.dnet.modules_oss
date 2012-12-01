@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -14,7 +15,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceLovDs" ,{
 		{name:"supplier", type:"string"},
 		{name:"totalAmount", type:"float", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"code", type:"string"},
@@ -25,10 +27,5 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceLovDsFilter" ,
 		{name:"totalAmount", type:"float", useNull:true},
 		{name:"totalAmount_From",type:"float", useNull:true},
 		{name:"totalAmount_To",type:"float", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.param.SalesInvoiceLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

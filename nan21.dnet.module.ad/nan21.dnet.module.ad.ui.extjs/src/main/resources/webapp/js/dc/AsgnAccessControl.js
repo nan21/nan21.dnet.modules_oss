@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AsgnAccessControl", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.AsgnAccessControlDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.AsgnAccessControlDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.AsgnAccessControlDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -50,7 +50,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AsgnAccessControl$Filter", {
 			.addChildrenTo("col1", ["accessControl", "dsName"])
 			.addChildrenTo("col2", ["queryAllowed", "updateAllowed"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -74,7 +75,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AsgnAccessControl$EditList", {
 			.addBooleanColumn({name:"updateAllowed", dataIndex:"updateAllowed"})
 			.addNumberColumn({name:"accessControlId", dataIndex:"accessControlId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -95,4 +97,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AsgnAccessControl$CtxEditList", {
 			.addBooleanColumn({name:"updateAllowed", dataIndex:"updateAllowed"})
 			.addNumberColumn({name:"accessControlId", dataIndex:"accessControlId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

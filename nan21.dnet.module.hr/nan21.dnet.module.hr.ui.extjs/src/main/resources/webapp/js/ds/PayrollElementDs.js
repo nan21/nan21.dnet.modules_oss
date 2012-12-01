@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accItem", type:"string"},
@@ -40,7 +41,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accItem", type:"string"},
@@ -83,10 +85,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDsFilter" ,{
 		{name:"typeId_From",type:"int", useNull:true},
 		{name:"typeId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.param.PayrollElementDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

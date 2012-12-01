@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvBalance", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDs",
 	filterModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.inventory.ds.param.InvBalanceDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -57,7 +57,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvBalance$Filter", {
 			.addChildrenTo("col1", ["subInventory", "locator"])
 			.addChildrenTo("col2", ["item", "uom"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -80,7 +81,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvBalance$List", {
 			.addNumberColumn({ name:"itemId", dataIndex:"itemId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"uomId", dataIndex:"uomId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxListProduct ================= */
@@ -104,7 +106,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvBalance$CtxListProduct",
 			.addNumberColumn({ name:"itemId", dataIndex:"itemId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"uomId", dataIndex:"uomId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= FILTER: CtxFilterProduct ================= */
@@ -131,6 +134,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvBalance$CtxFilterProduct
 						{lovField:"subInventoryId",dsField: "subInventoryId"} 
 					]}})
 		;
-	},
-
+	}
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccount", {
 
 	recordModel: "net.nan21.dnet.module.sd.account.ds.model.CustomerAccountDs",
 	filterModel: "net.nan21.dnet.module.sd.account.ds.model.CustomerAccountDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.account.ds.param.CustomerAccountDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -65,7 +65,8 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccount$Filter", {
 			.addChildrenTo("col2", ["customerGroup", "paymentMethod", "paymentTerm"])
 			.addChildrenTo("col3", ["analiticSegment", "custAnaliticSegment"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -91,7 +92,8 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccount$List", {
 			.addNumberColumn({ name:"customerGroupId", dataIndex:"customerGroupId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -143,4 +145,5 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccount$Edit", {
 			.addChildrenTo("col2", ["customerGroup", "paymentMethod", "paymentTerm"])
 			.addChildrenTo("col3", ["creditLimit", "analiticSegment", "custAnaliticSegment"])
 		;
-	}});
+	}
+});

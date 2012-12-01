@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Meeting", {
 
 	recordModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarMeetingDs",
 	filterModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarMeetingDsFilter",
-	paramModel: "net.nan21.dnet.module.md.activity.ds.param.MyCalendarMeetingDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -60,7 +60,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Meeting$Filter", {
 			.addChildrenTo("col3", ["startDate", "endDate"])
 			.addChildrenTo("col4", ["bpartnerCode"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -83,7 +84,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Meeting$List", {
 			.addNumberColumn({ name:"priorityId", dataIndex:"priorityId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"priorityName", dataIndex:"priorityName", width:100})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -111,7 +113,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Meeting$EditList", {
 			.addTextColumn({name:"statusName", dataIndex:"statusName", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -158,4 +161,5 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Meeting$Edit", {
 			.addChildrenTo("col2", ["bpartnerCode", "statusName", "priorityName"])
 			.addChildrenTo("row2", ["notes"])
 		;
-	}});
+	}
+});

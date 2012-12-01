@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueChangelog", {
 
 	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueChangelogDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueChangelogDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.md.ds.param.IssueChangelogDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -68,7 +68,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueChangelog$Filter", {
 			.addChildrenTo("col2", ["type", "status"])
 			.addChildrenTo("col3", ["fixedInVersionDate"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -90,4 +91,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueChangelog$List", {
 			.addTextColumn({ name:"type", dataIndex:"type", width:120})
 			.addNumberColumn({ name:"projectId", dataIndex:"projectId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

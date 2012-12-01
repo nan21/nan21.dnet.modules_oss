@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -116,7 +117,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Filter", {
 			.addChildrenTo("col4", ["affectedComponent", "affectedVersion", "resolution"])
 			.addChildrenTo("col5", ["reportedVersion", "targetVersion", "fixedInVersion"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -151,7 +153,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$List", {
 			.addNumberColumn({ name:"projectId", dataIndex:"projectId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"assigneeId", dataIndex:"assigneeId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -246,7 +249,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$Edit", {
 			.addChildrenTo("col4", ["reportedVersion", "targetVersion", "fixedInVersion"])
 			.addChildrenTo("col5", ["dueDate", "resolutionDate", "businessValue", "clarity", "estimatedEffort"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditText ================= */
@@ -269,7 +273,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$EditText", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["description"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: ViewDescription ================= */
@@ -292,7 +297,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$ViewDescription", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["description"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: View ================= */
@@ -351,4 +357,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Issue$View", {
 			.addChildrenTo("col4", ["reportedVersion", "targetVersion", "fixedInVersion"])
 			.addChildrenTo("col5", ["dueDate", "resolutionDate", "businessValue", "clarity", "estimatedEffort"])
 		;
-	}});
+	}
+});

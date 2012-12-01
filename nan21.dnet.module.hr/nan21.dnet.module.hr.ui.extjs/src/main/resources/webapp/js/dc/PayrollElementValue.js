@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElementValue", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -75,7 +76,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElementValue$Filter", {
 			.addChildrenTo("col2", ["type", "elementSet", "employeeName"])
 			.addChildrenTo("col3", ["periodStart", "periodEnd"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -102,7 +104,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElementValue$List", {
 			.addNumberColumn({ name:"employeeId", dataIndex:"employeeId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"elementId", dataIndex:"elementId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxListBalance ================= */
@@ -124,7 +127,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElementValue$CtxListBalan
 			.addNumberColumn({ name:"employeeId", dataIndex:"employeeId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"elementId", dataIndex:"elementId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -149,4 +153,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElementValue$EditList", {
 			.addNumberColumn({name:"employeeId", dataIndex:"employeeId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"elementId", dataIndex:"elementId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"assignee", type:"string"},
@@ -23,7 +24,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs" ,{
 		{name:"startTime", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"taskKey", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"assignee", type:"string"},
@@ -53,6 +55,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDsFilter" 
 		{name:"taskKey", type:"string"}
 	]
 });
+
 Ext.define("net.nan21.dnet.module.ad.workflow.ds.param.ActTaskInstanceDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.currency.dc.Currency", {
 
 	recordModel: "net.nan21.dnet.module.bd.currency.ds.model.CurrencyDs",
 	filterModel: "net.nan21.dnet.module.bd.currency.ds.model.CurrencyDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.currency.ds.param.CurrencyDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.bd.currency.dc.Currency$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -71,4 +72,5 @@ Ext.define("net.nan21.dnet.module.bd.currency.dc.Currency$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

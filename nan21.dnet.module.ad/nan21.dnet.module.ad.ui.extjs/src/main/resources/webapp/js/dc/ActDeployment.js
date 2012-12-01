@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActDeployment", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +45,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActDeployment$Filter", {
 			.addChildrenTo("col1", ["name"])
 			.addChildrenTo("col2", ["from", "to"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -59,4 +61,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActDeployment$List", {
 			.addTextColumn({ name:"name", dataIndex:"name", width:300})
 			.addDateColumn({ name:"deployTime", dataIndex:"deployTime", width:150, format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});

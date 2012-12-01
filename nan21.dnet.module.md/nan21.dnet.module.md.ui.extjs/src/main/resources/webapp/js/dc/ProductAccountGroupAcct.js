@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroupAcct", {
 
 	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupAcctDs",
 	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupAcctDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.prod.ds.param.ProductAccountGroupAcctDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroupAcct$Filter",
 			.addChildrenTo("col1", ["group", "accSchema"])
 			.addChildrenTo("col2", ["expenseAccount", "revenueAccount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -88,4 +89,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroupAcct$CtxEditL
 			.addNumberColumn({name:"expenseAccountId", dataIndex:"expenseAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"revenueAccountId", dataIndex:"revenueAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

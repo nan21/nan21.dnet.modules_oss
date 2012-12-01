@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExportField", {
 
 	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportFieldDs",
 	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportFieldDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.impex.ds.param.CsvExportFieldDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -40,4 +40,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExportField$CtxEditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"csvExportId", dataIndex:"csvExportId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

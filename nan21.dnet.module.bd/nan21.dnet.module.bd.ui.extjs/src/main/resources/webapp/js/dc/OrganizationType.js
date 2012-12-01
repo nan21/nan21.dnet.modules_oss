@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationType", {
 
 	recordModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationTypeDs",
 	filterModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.org.ds.param.OrganizationTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationType$Filter", {
 			.addChildrenTo("col1", ["name", "active", "external"])
 			.addChildrenTo("col2", ["legalEntity", "inventory", "carrier"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -73,4 +74,5 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationType$EditList", {
 			.addTextColumn({name:"description", dataIndex:"description", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

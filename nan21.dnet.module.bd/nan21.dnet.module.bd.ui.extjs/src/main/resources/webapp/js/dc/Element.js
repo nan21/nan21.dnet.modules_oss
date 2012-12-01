@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Element", {
 
 	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementDs",
 	filterModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.elem.ds.param.ElementDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -63,7 +63,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Element$Filter", {
 			.addChildrenTo("col2", ["engine", "type"])
 			.addChildrenTo("col3", ["dataType", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -84,4 +85,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.Element$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addTextColumn({ name:"notes", dataIndex:"notes", width:200})
 			.addDefaults();
-	}});
+	}
+});

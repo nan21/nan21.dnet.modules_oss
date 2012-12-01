@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.CalendarEventStatus", {
 
 	recordModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventStatusDs",
 	filterModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventStatusDsFilter",
-	paramModel: "net.nan21.dnet.module.md.activity.ds.param.CalendarEventStatusDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.CalendarEventStatus$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "eventType", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -62,4 +63,5 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.CalendarEventStatus$EditList", 
 					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "call", "meeting", "task"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

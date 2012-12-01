@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroup", {
 
 	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupDs",
 	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.prod.ds.param.ProductAccountGroupDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroup$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -64,4 +65,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroup$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderTax", {
 
 	recordModel: "net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs",
 	filterModel: "net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.order.ds.param.SalesOrderTaxDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -32,4 +32,5 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderTax$List", {
 			.addNumberColumn({ name:"taxId", dataIndex:"taxId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"salesOrderId", dataIndex:"salesOrderId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

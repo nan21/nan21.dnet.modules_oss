@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementInput", {
 
 	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementInputDs",
 	filterModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementInputDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.elem.ds.param.ElementInputDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -57,7 +57,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementInput$Filter", {
 			.addChildrenTo("col1", ["engine", "element"])
 			.addChildrenTo("col2", ["reference", "alias"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -94,7 +95,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementInput$EditList", {
 			.addNumberColumn({name:"elementId", dataIndex:"elementId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"referenceId", dataIndex:"referenceId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -117,7 +119,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementInput$CtxEditList", {
 			.addNumberColumn({name:"elementId", dataIndex:"elementId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"referenceId", dataIndex:"referenceId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -135,4 +138,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementInput$CtxList", {
 			.addNumberColumn({ name:"elementId", dataIndex:"elementId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"referenceId", dataIndex:"referenceId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

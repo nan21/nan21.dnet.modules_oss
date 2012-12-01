@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Position", {
 
 	recordModel: "net.nan21.dnet.module.hr.job.ds.model.PositionDs",
 	filterModel: "net.nan21.dnet.module.hr.job.ds.model.PositionDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.job.ds.param.PositionDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -52,7 +52,8 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Position$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["jobCode", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -71,7 +72,8 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Position$List", {
 			.addTextColumn({ name:"jobCode", dataIndex:"jobCode", width:150})
 			.addTextColumn({ name:"org", dataIndex:"org", width:150})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -110,4 +112,5 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Position$Edit", {
 			.addChildrenTo("col1", ["name", "code", "org", "jobCode", "active"])
 			.addChildrenTo("col2", ["notes"])
 		;
-	}});
+	}
+});

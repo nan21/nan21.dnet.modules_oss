@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItemOverview", {
 
 	recordModel: "net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceItemOverviewDs",
 	filterModel: "net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceItemOverviewDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.invoice.ds.param.SalesInvoiceItemOverviewDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -73,7 +73,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItemOverview$Filter"
 			.addChildrenTo("col3", ["docDate", "productCode"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -107,7 +108,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItemOverview$List", 
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"taxId", dataIndex:"taxId", hidden:true, width:70})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: DocView ================= */
@@ -147,4 +149,5 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItemOverview$DocView
 			.addChildrenTo("col3", ["docType", "docCode"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
 		;
-	}});
+	}
+});

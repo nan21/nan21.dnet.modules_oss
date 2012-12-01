@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentMethod", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs",
 	filterModel: "net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tx.ds.param.PaymentMethodDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -50,7 +50,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentMethod$Filter", {
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["docType", "type"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -75,4 +76,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentMethod$EditList", {
 					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "bank", "cash"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

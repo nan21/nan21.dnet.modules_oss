@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.DsMethodAccessControl", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.DsMethodAccessControlDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.DsMethodAccessControlDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.DsMethodAccessControlDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.DsMethodAccessControl$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["accessControl", "dsName"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -70,7 +71,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.DsMethodAccessControl$EditList", {
 						]}})
 			.addNumberColumn({name:"accessControlId", dataIndex:"accessControlId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -93,4 +95,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.DsMethodAccessControl$CtxEditList", 
 						]}})
 			.addNumberColumn({name:"accessControlId", dataIndex:"accessControlId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

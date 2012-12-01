@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CityDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CityDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CityDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CityDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CityDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -52,10 +54,5 @@ Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CityDsFilter" ,{
 		{name:"regionId_From",type:"int", useNull:true},
 		{name:"regionId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.geo.ds.param.CityDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

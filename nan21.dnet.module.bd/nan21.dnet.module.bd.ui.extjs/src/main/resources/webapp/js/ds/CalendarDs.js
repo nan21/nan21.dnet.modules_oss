@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.org.ds.model.CalendarDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.org.ds.model.CalendarDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -23,7 +24,8 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.CalendarDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.bd.org.ds.model.CalendarDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.org.ds.model.CalendarDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -40,10 +42,5 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.CalendarDsFilter" ,{
 		{name:"modifiedBy", type:"string"},
 		{name:"name", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.org.ds.param.CalendarDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

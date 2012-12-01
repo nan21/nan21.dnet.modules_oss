@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItem", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs",
 	filterModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.fin.ds.param.PaymentItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -45,7 +45,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItem$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["accItem", "product", "uom"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -68,7 +69,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItem$List", {
 			.addNumberColumn({ name:"accItemId", dataIndex:"accItemId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditListAccItem ================= */
@@ -90,7 +92,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItem$CtxEditListAccItem", 
 			.addNumberColumn({name:"paymentId", dataIndex:"paymentId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"accItemId", dataIndex:"accItemId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditListProduct ================= */
@@ -125,7 +128,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItem$CtxEditListProduct", 
 			.addNumberColumn({name:"uomId", dataIndex:"uomId", hidden:true, align:"right", width:70, format:"0",
 					editor:{xtype:"numberfield" , decimalPrecision:2}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -158,4 +162,5 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItem$Edit", {
 			.addChildrenTo("col1", ["accItem", "product"])
 			.addChildrenTo("col2", ["uom", "quantity", "unitPrice", "amount"])
 		;
-	}});
+	}
+});

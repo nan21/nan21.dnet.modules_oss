@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -15,7 +16,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDs" ,{
 		{name:"name", type:"string"},
 		{name:"salesList", type:"boolean"}
 	]});
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -27,10 +29,5 @@ Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDsFilter
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"},
 		{name:"salesList", type:"boolean", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.param.PriceListSalesLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

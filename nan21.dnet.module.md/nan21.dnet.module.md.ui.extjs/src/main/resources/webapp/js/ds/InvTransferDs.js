@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -30,7 +31,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"code", type:"string"},
@@ -68,10 +70,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDsFilter" 
 		{name:"transactionTypeId_From",type:"int", useNull:true},
 		{name:"transactionTypeId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.param.InvTransferDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpClassification", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.BpClassificationDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.BpClassificationDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.BpClassificationDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpClassification$Filter", {
 			.addChildrenTo("col1", ["businessPartner"])
 			.addChildrenTo("col2", ["classificationSystem", "classificationCode"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -78,4 +79,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpClassification$CtxEditList", {
 			.addNumberColumn({name:"classSystemId", dataIndex:"classificationSystemId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"classCodeId", dataIndex:"classificationId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

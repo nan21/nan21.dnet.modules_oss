@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDs" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"bpartnerId", type:"int", useNull:true},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"bpartnerId", type:"int", useNull:true},
@@ -70,10 +72,5 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInAmountDsFilter" ,
 		{name:"txAmountId_From",type:"int", useNull:true},
 		{name:"txAmountId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.param.PaymentInAmountDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

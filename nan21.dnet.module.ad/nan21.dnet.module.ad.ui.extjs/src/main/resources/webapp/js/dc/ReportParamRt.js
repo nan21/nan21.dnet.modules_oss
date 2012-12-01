@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportParamRt", {
 
 	recordModel: "net.nan21.dnet.module.ad.report.ds.model.ReportParamRtDs",
 	filterModel: "net.nan21.dnet.module.ad.report.ds.model.ReportParamRtDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.report.ds.param.ReportParamRtDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: TestRt ================= */
@@ -61,4 +61,5 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportParamRt$TestRt", {
 		
 			    return ed;
 	}
+
 });

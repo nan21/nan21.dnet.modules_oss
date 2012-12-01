@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.MyClient", {
 
 	recordModel: "net.nan21.dnet.module.ad.client.ds.model.MyClientDs",
 	filterModel: "net.nan21.dnet.module.ad.client.ds.model.MyClientDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.client.ds.param.MyClientDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -50,4 +50,5 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.MyClient$Edit", {
 			.addChildrenTo("col1", ["name", "code", "notes", "adminRole"])
 			.addChildrenTo("col3", ["createdAt", "modifiedAt", "createdBy", "modifiedBy"])
 		;
-	}});
+	}
+});

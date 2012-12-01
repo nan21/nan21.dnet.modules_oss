@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportJobItem", {
 
 	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportJobItemDs",
 	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportJobItemDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.impex.ds.param.ImportJobItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -40,7 +40,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportJobItem$CtxEditList", {
 			.addNumberColumn({name:"mapId", dataIndex:"mapId", hidden:true, align:"right", width:70, format:"0",
 					editor:{xtype:"numberfield" , decimalPrecision:2}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: ListCtxMap ================= */
@@ -58,4 +59,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportJobItem$ListCtxMap", {
 			.addNumberColumn({ name:"jobId", dataIndex:"jobId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"mapId", dataIndex:"mapId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

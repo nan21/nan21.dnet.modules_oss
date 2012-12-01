@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.org.dc.SubInventory", {
 
 	recordModel: "net.nan21.dnet.module.md.org.ds.model.SubInventoryDs",
 	filterModel: "net.nan21.dnet.module.md.org.ds.model.SubInventoryDsFilter",
-	paramModel: "net.nan21.dnet.module.md.org.ds.param.SubInventoryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.SubInventory$Filter", {
 			.addChildrenTo("col1", ["name", "inventory"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -65,7 +66,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.SubInventory$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addNumberColumn({ name:"inventoryId", dataIndex:"inventoryId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -99,4 +101,5 @@ Ext.define("net.nan21.dnet.module.md.org.dc.SubInventory$Edit", {
 			.addChildrenTo("col1", ["name", "description", "inventory"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});

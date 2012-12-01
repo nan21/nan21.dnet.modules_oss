@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScaleRate", {
 
 	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDs",
 	filterModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.grade.ds.param.PayScaleRateDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -50,7 +50,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScaleRate$Filter", {
 			.addChildrenTo("col1", ["name", "payScaleCode"])
 			.addChildrenTo("col2", ["currencyCode"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -71,7 +72,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScaleRate$List", {
 			.addNumberColumn({ name:"payScaleId", dataIndex:"payScaleId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -109,4 +111,5 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScaleRate$Edit", {
 			.addChildrenTo("col1", ["name", "payScaleCode", "currencyCode"])
 			.addChildrenTo("col2", ["description", "active"])
 		;
-	}});
+	}
+});

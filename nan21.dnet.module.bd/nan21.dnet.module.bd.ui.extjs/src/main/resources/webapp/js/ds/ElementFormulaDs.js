@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDs" ,{
 		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -62,10 +64,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDsFilter" ,{
 		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"validTo_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"validTo_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.elem.ds.param.ElementFormulaDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

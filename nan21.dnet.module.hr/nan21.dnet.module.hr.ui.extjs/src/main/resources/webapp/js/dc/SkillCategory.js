@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.SkillCategory", {
 
 	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs",
 	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.skill.ds.param.SkillCategoryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.SkillCategory$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -59,4 +60,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.SkillCategory$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

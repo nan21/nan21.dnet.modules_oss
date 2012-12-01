@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDs" ,{
 		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -54,10 +56,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDsFilter" 
 		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"validTo_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"validTo_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.employee.ds.param.EmployeeLicenseDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

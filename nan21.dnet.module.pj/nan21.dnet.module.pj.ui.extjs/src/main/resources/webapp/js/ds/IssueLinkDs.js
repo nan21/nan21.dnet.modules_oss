@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.pj.md.ds.model.IssueLinkDs" ,{
+
+Ext.define("net.nan21.dnet.module.pj.md.ds.model.IssueLinkDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.pj.md.ds.model.IssueLinkDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.pj.md.ds.model.IssueLinkDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.pj.md.ds.model.IssueLinkDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -52,10 +54,5 @@ Ext.define("net.nan21.dnet.module.pj.md.ds.model.IssueLinkDsFilter" ,{
 		{name:"targetIssueId_To",type:"int", useNull:true},
 		{name:"targetSummary", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.pj.md.ds.param.IssueLinkDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +45,8 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["systemClient"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -66,7 +68,8 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$List", {
 			.addBooleanColumn({ name:"systemClient", dataIndex:"systemClient"})
 			.addTextColumn({ name:"adminRole", dataIndex:"adminRole", hidden:true, width:100})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -100,7 +103,8 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Edit", {
 			.addChildrenTo("col1", ["name", "code", "notes", "systemClient"])
 			.addChildrenTo("col2", ["defaultImportPath", "defaultExportPath", "tempPath"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Create ================= */
@@ -146,4 +150,5 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Create", {
 	_shouldValidate_: function() {
 		return this._controller_.record.phantom;
 	}
+
 });

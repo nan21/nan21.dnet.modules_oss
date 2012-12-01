@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysParamDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysParamDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysParamDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -46,7 +46,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["value"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -64,7 +65,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$List", {
 			.addTextColumn({ name:"description", dataIndex:"description", hidden:true, width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -95,4 +97,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$Edit", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["code", "name", "description", "active", "value"])
 		;
-	}});
+	}
+});

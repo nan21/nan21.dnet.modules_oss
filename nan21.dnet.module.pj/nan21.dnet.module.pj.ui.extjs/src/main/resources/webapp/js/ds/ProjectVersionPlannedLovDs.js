@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -14,7 +15,8 @@ Ext.define("net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDs" ,{
 		{name:"planDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"projectId", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -27,10 +29,5 @@ Ext.define("net.nan21.dnet.module.pj.md.ds.model.ProjectVersionPlannedLovDsFilte
 		{name:"projectId", type:"int", useNull:true},
 		{name:"projectId_From",type:"int", useNull:true},
 		{name:"projectId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.pj.md.ds.param.ProjectVersionPlannedLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

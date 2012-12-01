@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.Absence", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -59,7 +60,8 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.Absence$Filter", {
 			.addChildrenTo("col1", ["employee", "type", "reason"])
 			.addChildrenTo("col2", ["from", "to", "posted"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -83,7 +85,8 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.Absence$List", {
 			.addNumberColumn({ name:"typeId", dataIndex:"typeId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"reasonId", dataIndex:"reasonId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -130,4 +133,5 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.Absence$Edit", {
 			.addChildrenTo("col2", ["eventDate", "hours"])
 			.addChildrenTo("col3", ["notes"])
 		;
-	}});
+	}
+});

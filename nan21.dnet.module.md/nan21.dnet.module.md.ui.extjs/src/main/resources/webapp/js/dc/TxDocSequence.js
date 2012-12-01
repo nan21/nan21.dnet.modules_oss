@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocSequence", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDs",
 	filterModel: "net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tx.ds.param.TxDocSequenceDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocSequence$Filter", {
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["prefix", "suffix"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -77,4 +78,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocSequence$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"nextNo", dataIndex:"nextNo", align:"right"})
 			.addDefaults();
-	}});
+	}
+});

@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstance", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,6 +55,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstance$Filter", {
 	_doQuery_: function() {
 		this._controller_.doQuery();
 	}
+
 });
 
 
@@ -79,7 +81,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstance$List", {
 			.addNumberColumn({ name:"priority", dataIndex:"priority", hidden:true, width:70, format:"0"})
 			.addDateColumn({ name:"dueDate", dataIndex:"dueDate", hidden:true, format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: AssignForm ================= */
@@ -102,4 +105,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstance$AssignForm", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["assignee"])
 		;
-	}});
+	}
+});

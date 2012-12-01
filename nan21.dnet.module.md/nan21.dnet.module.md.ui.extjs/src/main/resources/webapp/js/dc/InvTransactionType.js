@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionType", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDs",
 	filterModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.inventory.ds.param.InvTransactionTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -49,7 +49,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionType$Filter",
 			.addChildrenTo("col1", ["name", "docType"])
 			.addChildrenTo("col2", ["active", "hasFromInventory", "hasToInventory"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -75,4 +76,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionType$EditList
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"docTypeId", dataIndex:"docTypeId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

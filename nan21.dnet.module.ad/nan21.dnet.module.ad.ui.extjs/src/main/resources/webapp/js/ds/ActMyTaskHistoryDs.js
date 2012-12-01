@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDs" ,{
 		{name:"startTime", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"taskKey", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"deleteReason", type:"string"},
@@ -53,10 +55,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDsFilter"
 		{name:"startTime_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"startTime_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"taskKey", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.param.ActMyTaskHistoryDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

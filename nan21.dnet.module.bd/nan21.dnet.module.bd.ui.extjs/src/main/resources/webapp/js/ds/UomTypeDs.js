@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomTypeDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomTypeDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -42,10 +44,5 @@ Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomTypeDsFilter" ,{
 		{name:"modifiedBy", type:"string"},
 		{name:"name", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.uom.ds.param.UomTypeDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

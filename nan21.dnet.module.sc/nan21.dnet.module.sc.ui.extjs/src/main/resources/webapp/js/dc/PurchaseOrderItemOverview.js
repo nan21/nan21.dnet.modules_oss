@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItemOverview", {
 
 	recordModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs",
 	filterModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDsFilter",
-	paramModel: "net.nan21.dnet.module.sc.order.ds.param.PurchaseOrderItemOverviewDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -72,7 +72,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItemOverview$Filter",
 			.addChildrenTo("col3", ["docDate", "productCode"])
 			.addChildrenTo("col4", ["confirmed"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -106,7 +107,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItemOverview$List", {
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"taxId", dataIndex:"taxId", hidden:true, width:70})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: DocView ================= */
@@ -145,4 +147,5 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItemOverview$DocView"
 			.addChildrenTo("col3", ["docType", "docCode"])
 			.addChildrenTo("col4", ["confirmed"])
 		;
-	}});
+	}
+});

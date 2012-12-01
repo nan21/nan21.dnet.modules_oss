@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollBalanceValue", {
 
 	recordModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollBalanceValueDs",
 	filterModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollBalanceValueDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.payroll.ds.param.PayrollBalanceValueDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -75,7 +75,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollBalanceValue$Filter", {
 			.addChildrenTo("col2", ["type", "sourceElement", "accItem"])
 			.addChildrenTo("col3", ["periodStart", "periodEnd"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -99,4 +100,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollBalanceValue$List", {
 			.addNumberColumn({ name:"periodId", dataIndex:"periodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"elementId", dataIndex:"elementId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

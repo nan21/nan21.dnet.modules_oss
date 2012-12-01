@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.AccJournal", {
 
 	recordModel: "net.nan21.dnet.module.md.acc.ds.model.AccJournalDs",
 	filterModel: "net.nan21.dnet.module.md.acc.ds.model.AccJournalDsFilter",
-	paramModel: "net.nan21.dnet.module.md.acc.ds.param.AccJournalDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.AccJournal$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -57,7 +58,8 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.AccJournal$List", {
 			.addTextColumn({ name:"description", dataIndex:"description", width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -75,7 +77,8 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.AccJournal$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -103,4 +106,5 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.AccJournal$Edit", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "description", "active"])
 		;
-	}});
+	}
+});

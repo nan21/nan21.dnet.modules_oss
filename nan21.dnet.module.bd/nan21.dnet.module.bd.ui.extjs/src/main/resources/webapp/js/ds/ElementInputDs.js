@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementInputDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementInputDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"alias", type:"string"},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementInputDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementInputDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementInputDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"alias", type:"string"},
@@ -60,10 +62,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementInputDsFilter" ,{
 		{name:"sequenceNo_From",type:"int", useNull:true},
 		{name:"sequenceNo_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.elem.ds.param.ElementInputDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

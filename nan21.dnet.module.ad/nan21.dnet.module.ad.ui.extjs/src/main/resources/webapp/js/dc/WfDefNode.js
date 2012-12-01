@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefNode", {
 
 	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeDs",
 	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.WfDefNodeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -41,4 +41,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefNode$CtxEditList", {
 			.addBooleanColumn({name:"startWithPrevious", dataIndex:"startWithPrevious"})
 			.addNumberColumn({name:"processId", dataIndex:"processId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

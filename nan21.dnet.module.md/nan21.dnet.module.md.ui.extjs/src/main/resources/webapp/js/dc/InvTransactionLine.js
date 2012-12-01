@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionLineDs",
 	filterModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionLineDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.inventory.ds.param.InvTransactionLineDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -49,7 +49,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine$Filter",
 			.addChildrenTo("col2", ["fromSubInventory", "fromLocator"])
 			.addChildrenTo("col3", ["toSubInventory", "toLocator"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -78,7 +79,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine$List", {
 			.addNumberColumn({ name:"toSubInventoryId", dataIndex:"toSubInventoryId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"toLocatorId", dataIndex:"toLocatorId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -142,7 +144,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine$EditList
 			.addNumberColumn({name:"toSubInventoryId", dataIndex:"toSubInventoryId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"toLocatorId", dataIndex:"toLocatorId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditListFrom ================= */
@@ -188,7 +191,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine$EditList
 			.addNumberColumn({name:"fromSubInventoryId", dataIndex:"fromSubInventoryId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"fromLocatorId", dataIndex:"fromLocatorId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditListTo ================= */
@@ -234,7 +238,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine$EditList
 			.addNumberColumn({name:"toSubInventoryId", dataIndex:"toSubInventoryId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"toLocatorId", dataIndex:"toLocatorId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CtxFormView ================= */
@@ -263,4 +268,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransactionLine$CtxFormV
 			.addChildrenTo("col1", ["item"])
 			.addChildrenTo("col2", ["quantity"])
 		;
-	}});
+	}
+});

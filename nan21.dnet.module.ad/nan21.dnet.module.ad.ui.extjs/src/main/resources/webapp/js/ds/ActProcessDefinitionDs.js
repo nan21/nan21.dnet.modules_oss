@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"category", type:"string"},
@@ -18,7 +19,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDs" ,
 		{name:"procDefVersion", type:"int", useNull:true},
 		{name:"resourceName", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"category", type:"string"},
@@ -35,6 +37,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDsFil
 		{name:"resourceName", type:"string"}
 	]
 });
+
 Ext.define("net.nan21.dnet.module.ad.workflow.ds.param.ActProcessDefinitionDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 

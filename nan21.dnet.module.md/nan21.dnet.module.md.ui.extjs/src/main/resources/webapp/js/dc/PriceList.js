@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceList", {
 
 	recordModel: "net.nan21.dnet.module.md.mm.price.ds.model.PriceListDs",
 	filterModel: "net.nan21.dnet.module.md.mm.price.ds.model.PriceListDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.price.ds.param.PriceListDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterH ================= */
@@ -51,7 +51,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceList$FilterH", {
 			.addChildrenTo("col2", ["salesList"])
 			.addChildrenTo("col3", ["isDefault", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -77,4 +78,5 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceList$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"currencyId", dataIndex:"currencyId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

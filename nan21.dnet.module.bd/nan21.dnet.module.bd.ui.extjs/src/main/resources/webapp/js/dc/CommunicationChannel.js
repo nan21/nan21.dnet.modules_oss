@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.contact.dc.CommunicationChannel", {
 
 	recordModel: "net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelDs",
 	filterModel: "net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.contact.ds.param.CommunicationChannelDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -44,4 +44,5 @@ Ext.define("net.nan21.dnet.module.bd.contact.dc.CommunicationChannel$EditList", 
 			.addTextColumn({name:"targetType", dataIndex:"targetType", hidden:true, width:150})
 			.addNumberColumn({name:"typeId", dataIndex:"typeId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

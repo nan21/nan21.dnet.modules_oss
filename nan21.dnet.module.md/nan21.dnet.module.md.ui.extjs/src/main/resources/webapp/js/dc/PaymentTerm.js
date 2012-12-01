@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentTerm", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDs",
 	filterModel: "net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tx.ds.param.PaymentTermDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentTerm$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -61,4 +62,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.PaymentTerm$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

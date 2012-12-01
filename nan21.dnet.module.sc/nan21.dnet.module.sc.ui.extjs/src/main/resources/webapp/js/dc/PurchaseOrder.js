@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -96,7 +97,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$Filter", {
 			.addChildrenTo("col3", ["docDate", "totalAmount", "totalNetAmount"])
 			.addChildrenTo("col4", ["confirmed"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -126,7 +128,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$List", {
 			.addNumberColumn({ name:"deliveryMethodId", dataIndex:"deliveryMethodId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"deliveryMethod", dataIndex:"deliveryMethod", hidden:true, width:120})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CopyLinesForm ================= */
@@ -152,7 +155,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$CopyLinesForm", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["copyFrom"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditMain ================= */
@@ -234,6 +238,7 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditMain", {
 					 	this._applyStates_(dc.record);
 					 } , this )
 	}
+
 });
 
 
@@ -302,4 +307,5 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditDetails", {
 				 	this._applyStates_(dc.record);
 				 } , this )
 	}
+
 });

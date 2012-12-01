@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"bpartnerId", type:"int", useNull:true},
@@ -18,7 +19,8 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorLovDs" ,{
 		{name:"paymentTerm", type:"string"},
 		{name:"paymentTermId", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"bpartnerId", type:"int", useNull:true},
@@ -39,10 +41,5 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorLovDsFilter" ,{
 		{name:"paymentTermId", type:"int", useNull:true},
 		{name:"paymentTermId_From",type:"int", useNull:true},
 		{name:"paymentTermId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.bp.ds.param.VendorLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

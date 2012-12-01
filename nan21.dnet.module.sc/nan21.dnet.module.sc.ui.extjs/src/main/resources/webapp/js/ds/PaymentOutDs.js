@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDs" ,{
+
+Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"amount", type:"float", useNull:true},
@@ -35,7 +36,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"amount", type:"float", useNull:true},
@@ -82,10 +84,5 @@ Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDsFilter" ,{
 		{name:"paymentMethodType", type:"string"},
 		{name:"posted", type:"boolean", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.sc.invoice.ds.param.PaymentOutDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

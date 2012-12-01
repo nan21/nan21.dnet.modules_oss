@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.City", {
 
 	recordModel: "net.nan21.dnet.module.bd.geo.ds.model.CityDs",
 	filterModel: "net.nan21.dnet.module.bd.geo.ds.model.CityDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.geo.ds.param.CityDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.City$Filter", {
 			.addChildrenTo("col1", ["name"])
 			.addChildrenTo("col2", ["countryCode"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -67,7 +68,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.City$List", {
 			.addNumberColumn({ name:"countryId", dataIndex:"countryId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"regionId", dataIndex:"regionId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -89,4 +91,5 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.City$CtxEditList", {
 			.addNumberColumn({name:"countryId", dataIndex:"countryId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"regionId", dataIndex:"regionId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

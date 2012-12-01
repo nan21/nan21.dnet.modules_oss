@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -85,7 +86,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$Filter", {
 			.addChildrenTo("col3", ["docDate", "totalAmount", "totalNetAmount"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -114,7 +116,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$List", {
 			.addNumberColumn({ name:"customerId", dataIndex:"customerId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"supplierId", dataIndex:"supplierId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CopyLinesForm ================= */
@@ -140,7 +143,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$CopyLinesForm", 
 		this._getBuilder_()
 			.addChildrenTo("main", ["copyFrom"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditMain ================= */
@@ -216,6 +220,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditMain", {
 					 	this._applyStates_(dc.record);
 					 } , this )
 	}
+
 });
 
 
@@ -310,4 +315,5 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditDetails", {
 					this._doEnableFromAccount_(record.data.selfPayed);
 				}
 	}
+
 });

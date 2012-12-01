@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDs" ,{
+
+Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransaction
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -62,10 +64,5 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransaction
 		{name:"transactionTypeId_From",type:"int", useNull:true},
 		{name:"transactionTypeId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.sc.order.ds.param.PurchaseInventoryTransactionDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

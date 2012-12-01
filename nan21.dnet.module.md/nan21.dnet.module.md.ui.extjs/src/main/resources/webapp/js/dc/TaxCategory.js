@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxCategory", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxCategoryDs",
 	filterModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxCategoryDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tax.ds.param.TaxCategoryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxCategory$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -59,4 +60,5 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxCategory$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

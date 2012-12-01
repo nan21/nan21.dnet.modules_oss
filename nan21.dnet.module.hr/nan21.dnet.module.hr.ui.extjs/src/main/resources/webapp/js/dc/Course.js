@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.Course", {
 
 	recordModel: "net.nan21.dnet.module.hr.training.ds.model.CourseDs",
 	filterModel: "net.nan21.dnet.module.hr.training.ds.model.CourseDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.training.ds.param.CourseDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.Course$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["type", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -69,7 +70,8 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.Course$List", {
 			.addTextColumn({ name:"intendedAudience", dataIndex:"intendedAudience", hidden:true, width:200})
 			.addTextColumn({ name:"requirements", dataIndex:"requirements", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -105,4 +107,5 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.Course$Edit", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "code", "type", "deliveredCompetences", "intendedAudience", "requirements", "active"])
 		;
-	}});
+	}
+});

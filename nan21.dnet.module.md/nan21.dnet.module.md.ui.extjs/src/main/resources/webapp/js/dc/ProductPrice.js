@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPrice", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +55,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPrice$Filter", {
 			.addChildrenTo("col1", ["product", "productCategory"])
 			.addChildrenTo("col2", ["uom"])
 		;
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -84,8 +86,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPrice$FilterCtx", {
 						{lovField:"id", dsField: "uomId"} 
 					]}})
 		;
-	},
-
+	}
 });
 
 
@@ -113,4 +114,5 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPrice$EditList", {
 					editor:{xtype:"numberfield" , decimalPrecision:2}})
 			.addNumberColumn({name:"productId", dataIndex:"productId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

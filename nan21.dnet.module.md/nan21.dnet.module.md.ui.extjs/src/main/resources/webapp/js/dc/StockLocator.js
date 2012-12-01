@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.org.dc.StockLocator", {
 
 	recordModel: "net.nan21.dnet.module.md.org.ds.model.StockLocatorDs",
 	filterModel: "net.nan21.dnet.module.md.org.ds.model.StockLocatorDsFilter",
-	paramModel: "net.nan21.dnet.module.md.org.ds.param.StockLocatorDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.StockLocator$Filter", {
 			.addChildrenTo("col1", ["name", "subInventory", "locatorType"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -73,4 +74,5 @@ Ext.define("net.nan21.dnet.module.md.org.dc.StockLocator$CtxEditList", {
 			.addNumberColumn({name:"subInventoryId", dataIndex:"subInventoryId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"locatorTypeId", dataIndex:"locatorTypeId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

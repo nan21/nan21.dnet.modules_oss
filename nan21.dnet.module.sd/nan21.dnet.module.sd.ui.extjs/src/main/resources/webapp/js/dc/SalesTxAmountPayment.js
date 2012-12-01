@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountPayment", {
 
 	recordModel: "net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentDs",
 	filterModel: "net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.invoice.ds.param.SalesTxAmountPaymentDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -34,4 +34,5 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountPayment$List", {
 			.addNumberColumn({ name:"paymentId", dataIndex:"paymentId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"txAmountId", dataIndex:"txAmountId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

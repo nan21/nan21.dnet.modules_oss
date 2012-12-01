@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -12,17 +13,13 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDs" ,{
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
 		{name:"description", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.param.RatingScaleLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

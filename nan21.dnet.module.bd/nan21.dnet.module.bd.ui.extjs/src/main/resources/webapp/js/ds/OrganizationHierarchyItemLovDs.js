@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -12,7 +13,8 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDs
 		{name:"org", type:"string"},
 		{name:"orgId", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"hierarchyId", type:"int", useNull:true},
@@ -23,10 +25,5 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDs
 		{name:"orgId", type:"int", useNull:true},
 		{name:"orgId_From",type:"int", useNull:true},
 		{name:"orgId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.org.ds.param.OrganizationHierarchyItemLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

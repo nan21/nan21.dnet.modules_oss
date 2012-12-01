@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportJob", {
 
 	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportJobDs",
 	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportJobDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.impex.ds.param.ExportJobDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportJob$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -57,7 +58,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportJob$List", {
 			.addTextColumn({ name:"description", dataIndex:"description", width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -87,4 +89,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportJob$Edit", {
 			.addChildrenTo("col1", ["name", "description"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.QualificationSkill", {
 
 	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs",
 	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.skill.ds.param.QualificationSkillDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -44,4 +44,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.QualificationSkill$CtxEditList", {
 							{lovField:"ratingScaleId",dsField: "ratingScaleId"} 
 						]}})
 			.addDefaults();
-	}});
+	}
+});

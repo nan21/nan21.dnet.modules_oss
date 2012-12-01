@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportParam", {
 
 	recordModel: "net.nan21.dnet.module.ad.report.ds.model.ReportParamDs",
 	filterModel: "net.nan21.dnet.module.ad.report.ds.model.ReportParamDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.report.ds.param.ReportParamDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -46,4 +46,5 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportParam$CtxEditList", {
 			.addTextColumn({name:"notes", dataIndex:"notes", hidden:true, width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

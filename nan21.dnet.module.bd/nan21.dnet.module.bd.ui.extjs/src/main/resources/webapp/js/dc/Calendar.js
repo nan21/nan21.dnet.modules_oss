@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Calendar", {
 
 	recordModel: "net.nan21.dnet.module.bd.org.ds.model.CalendarDs",
 	filterModel: "net.nan21.dnet.module.bd.org.ds.model.CalendarDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.org.ds.param.CalendarDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Calendar$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -57,7 +58,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Calendar$List", {
 			.addTextColumn({ name:"description", dataIndex:"description", width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -75,4 +77,5 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Calendar$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

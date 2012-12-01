@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDs" ,{
 		{name:"vendorPurchaseAccountId", type:"int", useNull:true},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -64,10 +66,5 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDsFilter" ,{
 		{name:"vendorPurchaseAccountId", type:"int", useNull:true},
 		{name:"vendorPurchaseAccountId_From",type:"int", useNull:true},
 		{name:"vendorPurchaseAccountId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.bp.ds.param.BpAccountAcctDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

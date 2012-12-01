@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxPayment", {
 
 	recordModel: "net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDs",
 	filterModel: "net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDsFilter",
-	paramModel: "net.nan21.dnet.module.sc.invoice.ds.param.PaymentOutDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,8 +47,7 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxPayment$Filter",
 			.addBooleanField({ name:"confirmed", dataIndex:"confirmed", anchor:"-20"})
 			.addBooleanField({ name:"posted", dataIndex:"posted", anchor:"-20"})
 		;
-	},
-
+	}
 });
 
 
@@ -79,4 +78,5 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxPayment$List", {
 			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

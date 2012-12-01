@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -28,7 +29,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -54,10 +56,5 @@ Ext.define("net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDsFilter" ,{
 		{name:"payScaleId_To",type:"int", useNull:true},
 		{name:"payScaleName", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.grade.ds.param.PayScaleRateDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

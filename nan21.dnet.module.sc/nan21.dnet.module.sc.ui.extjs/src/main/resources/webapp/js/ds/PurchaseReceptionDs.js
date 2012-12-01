@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDs" ,{
+
+Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"carrier", type:"string"},
@@ -34,7 +35,8 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDs" ,{
 		{name:"warehouse", type:"string"},
 		{name:"warehouseId", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"carrier", type:"string"},
@@ -80,10 +82,5 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDsFilter" ,
 		{name:"warehouseId", type:"int", useNull:true},
 		{name:"warehouseId_From",type:"int", useNull:true},
 		{name:"warehouseId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.sc.order.ds.param.PurchaseReceptionDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

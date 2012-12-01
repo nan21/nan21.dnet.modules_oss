@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs" ,{
+
+Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -34,7 +35,8 @@ Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs" ,{
 		{field: "quantity", type: 'presence'},
 		{field: "unitPrice", type: 'presence'}
 	]});
-Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -80,10 +82,5 @@ Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDsFilter" ,{
 		{name:"uomId_From",type:"int", useNull:true},
 		{name:"uomId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.sd.order.ds.param.SalesOrderItemDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

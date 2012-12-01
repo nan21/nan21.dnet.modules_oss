@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysTimer", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysTimerDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysTimerDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysTimerDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -63,7 +63,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysTimer$Filter", {
 			.addChildrenTo("col2", ["type", "repeatIntervalType"])
 			.addChildrenTo("col3", ["startTime", "endTime", "jobCtx"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxListJob ================= */
@@ -86,7 +87,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysTimer$CtxListJob", {
 			.addNumberColumn({ name:"repeatInterval", dataIndex:"repeatInterval", hidden:true})
 			.addTextColumn({ name:"repeatIntervalType", dataIndex:"repeatIntervalType", hidden:true, width:60})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -110,7 +112,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysTimer$List", {
 			.addNumberColumn({ name:"repeatInterval", dataIndex:"repeatInterval", hidden:true})
 			.addTextColumn({ name:"repeatIntervalType", dataIndex:"repeatIntervalType", hidden:true, width:60})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -162,4 +165,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysTimer$Edit", {
 		var r = this._getController_().getRecord();		 
 				this._setFieldsVisibleState_(["cronExpression","repeatCount","repeatInterval","repeatIntervalType"], r);
 	}
+
 });

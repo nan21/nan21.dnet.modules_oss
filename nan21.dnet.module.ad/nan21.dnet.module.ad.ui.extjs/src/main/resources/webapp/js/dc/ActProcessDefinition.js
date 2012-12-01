@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessDefinition", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -51,7 +52,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessDefinition$Filter", {
 			.addChildrenTo("col2", ["category", "resourceName"])
 			.addChildrenTo("col3", ["deployment"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -69,4 +71,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessDefinition$List", {
 			.addTextColumn({ name:"resourceName", dataIndex:"resourceName", width:200})
 			.addTextColumn({ name:"diagramResourceName", dataIndex:"diagramResourceName", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});

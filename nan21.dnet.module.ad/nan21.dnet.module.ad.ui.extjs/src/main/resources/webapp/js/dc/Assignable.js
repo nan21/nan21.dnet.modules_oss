@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Assignable", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.AssignableDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.AssignableDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.AssignableDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Assignable$Filter", {
 			.addChildrenTo("col1", ["name", "userCode"])
 			.addChildrenTo("col2", ["type", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -72,4 +73,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Assignable$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"typeId", dataIndex:"typeId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

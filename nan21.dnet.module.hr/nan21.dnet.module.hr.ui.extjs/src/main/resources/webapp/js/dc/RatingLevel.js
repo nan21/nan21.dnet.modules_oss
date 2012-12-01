@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingLevel", {
 
 	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.RatingLevelDs",
 	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.RatingLevelDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.skill.ds.param.RatingLevelDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingLevel$Filter", {
 			.addChildrenTo("col1", ["name", "ratingScale"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -70,7 +71,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingLevel$CtxEditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"ratingScaleId", dataIndex:"ratingScaleId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -96,4 +98,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingLevel$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"ratingScaleId", dataIndex:"ratingScaleId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

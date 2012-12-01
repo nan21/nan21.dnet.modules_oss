@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPriceReport", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -68,7 +69,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPriceReport$Filter", {
 			.addChildrenTo("col2", ["product", "productCategory"])
 			.addChildrenTo("col3", ["validAt", "price"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -89,4 +91,5 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.ProductPriceReport$List", {
 			.addTextColumn({ name:"priceListVersion", dataIndex:"priceListVersion", width:120})
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

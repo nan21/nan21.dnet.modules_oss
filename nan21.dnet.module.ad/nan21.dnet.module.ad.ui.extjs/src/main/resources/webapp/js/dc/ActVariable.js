@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActVariable", {
 
 	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs",
 	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.ActVariableDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -35,4 +35,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActVariable$List", {
 			.addTextColumn({ name:"processInstanceId", dataIndex:"processInstanceId", hidden:true, width:200})
 			.addTextColumn({ name:"executionId", dataIndex:"executionId", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});

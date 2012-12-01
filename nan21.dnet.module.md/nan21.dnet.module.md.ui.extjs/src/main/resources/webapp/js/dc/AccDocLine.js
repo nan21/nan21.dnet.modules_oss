@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDocLine", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineDs",
 	filterModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.acc.ds.param.AccDocLineDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -43,7 +43,8 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDocLine$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["dbAccount", "crAccount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -62,4 +63,5 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDocLine$List", {
 			.addNumberColumn({ name:"crAmount", dataIndex:"crAmount", width:90, decimals:2})
 			.addNumberColumn({ name:"accDocId", dataIndex:"accDocId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

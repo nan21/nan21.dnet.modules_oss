@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseInventoryTransaction", {
 
 	recordModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDs",
 	filterModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDsFilter",
-	paramModel: "net.nan21.dnet.module.sc.order.ds.param.PurchaseInventoryTransactionDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -55,7 +55,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseInventoryTransaction$Filte
 			.addChildrenTo("col1", ["supplier"])
 			.addChildrenTo("col2", ["transactionType", "fromInventory", "toInventory"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -79,7 +80,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseInventoryTransaction$List"
 			.addTextColumn({ name:"toInventory", dataIndex:"toInventory", width:100})
 			.addDateColumn({ name:"eventDate", dataIndex:"eventDate", format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -123,4 +125,5 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseInventoryTransaction$Edit"
 			.addChildrenTo("col1", ["supplier", "transactionType"])
 			.addChildrenTo("col2", ["fromInventory", "toInventory", "eventDate"])
 		;
-	}});
+	}
+});

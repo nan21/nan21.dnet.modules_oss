@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessInstanceHistory", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -51,7 +52,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessInstanceHistory$Filte
 			.addChildrenTo("col2", ["startTime", "endTime"])
 			.addChildrenTo("col3", ["startedBy", "id"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -76,4 +78,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessInstanceHistory$List"
 			.addTextColumn({ name:"endAction", dataIndex:"endAction", width:100})
 			.addTextColumn({ name:"deleteReason", dataIndex:"deleteReason", width:100})
 			.addDefaults();
-	}});
+	}
+});

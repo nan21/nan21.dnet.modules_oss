@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.AttachmentType", {
 
 	recordModel: "net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs",
 	filterModel: "net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.data.ds.param.AttachmentTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.AttachmentType$Filter", {
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["category", "useInContext"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -74,4 +75,5 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.AttachmentType$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

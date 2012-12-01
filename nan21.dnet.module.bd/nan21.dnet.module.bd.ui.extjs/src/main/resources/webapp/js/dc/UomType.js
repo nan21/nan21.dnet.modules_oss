@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomType", {
 
 	recordModel: "net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs",
 	filterModel: "net.nan21.dnet.module.bd.uom.ds.model.UomTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.uom.ds.param.UomTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -46,7 +46,8 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomType$Filter", {
 			.addChildrenTo("col1", ["name", "category"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -66,4 +67,5 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomType$EditList", {
 					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, triggerAction:'all', forceSelection:true, store:[ "length", "mass", "volume", "other"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

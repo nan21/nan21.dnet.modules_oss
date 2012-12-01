@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Role", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.RoleDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.RoleDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.RoleDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Role$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -59,4 +60,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Role$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

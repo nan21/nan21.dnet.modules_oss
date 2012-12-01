@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchy", {
 
 	recordModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyDs",
 	filterModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.org.ds.param.OrganizationHierarchyDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchy$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -59,7 +60,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchy$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addTextColumn({ name:"description", dataIndex:"description", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -83,7 +85,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchy$EditList", {
 			.addTextColumn({name:"description", dataIndex:"description", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -115,4 +118,5 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchy$Edit", {
 			.addChildrenTo("col1", ["name", "description"])
 			.addChildrenTo("col2", ["startDate", "endDate", "active"])
 		;
-	}});
+	}
+});

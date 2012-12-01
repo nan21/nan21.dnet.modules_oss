@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Amortization", {
 
 	recordModel: "net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs",
 	filterModel: "net.nan21.dnet.module.fi.asset.ds.model.AmortizationDsFilter",
-	paramModel: "net.nan21.dnet.module.fi.asset.ds.param.AmortizationDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -60,7 +60,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Amortization$Filter", {
 			.addChildrenTo("col1", ["org", "currency", "periodType"])
 			.addChildrenTo("col2", ["assetCategory", "postingDate"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -84,7 +85,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Amortization$List", {
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"orgId", dataIndex:"orgId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditListCtxAsset ================= */
@@ -109,4 +111,5 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Amortization$EditListCtxAsset", {
 			.addNumberColumn({name:"orgId", dataIndex:"orgId", hidden:true, align:"right", width:70, format:"0",
 					editor:{xtype:"numberfield" , decimalPrecision:2}})
 			.addDefaults();
-	}});
+	}
+});

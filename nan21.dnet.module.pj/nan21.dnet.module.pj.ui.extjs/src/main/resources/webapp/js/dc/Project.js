@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Project", {
 
 	recordModel: "net.nan21.dnet.module.pj.md.ds.model.ProjectDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.ProjectDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.md.ds.param.ProjectDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -53,7 +53,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Project$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["type", "projectLead"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -75,7 +76,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Project$List", {
 			.addNumberColumn({ name:"typeId", dataIndex:"typeId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"projectLeadId", dataIndex:"projectLeadId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -117,4 +119,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Project$Edit", {
 			.addChildrenTo("col2", ["active", "isPublic"])
 			.addChildrenTo("col3", ["notes"])
 		;
-	}});
+	}
+});

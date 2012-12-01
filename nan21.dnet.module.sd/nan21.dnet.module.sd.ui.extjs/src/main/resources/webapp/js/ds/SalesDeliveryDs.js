@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs" ,{
+
+Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"carrier", type:"string"},
@@ -38,7 +39,8 @@ Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs" ,{
 		{name:"warehouse", type:"string"},
 		{name:"warehouseId", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"carrier", type:"string"},
@@ -92,10 +94,5 @@ Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDsFilter" ,{
 		{name:"warehouseId", type:"int", useNull:true},
 		{name:"warehouseId_From",type:"int", useNull:true},
 		{name:"warehouseId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.sd.order.ds.param.SalesDeliveryDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

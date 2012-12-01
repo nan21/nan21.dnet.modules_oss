@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -21,7 +22,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs"
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -46,10 +48,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDsF
 		{name:"toDate_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"toDate_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.employee.ds.param.EmployeeWorkExperienceDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

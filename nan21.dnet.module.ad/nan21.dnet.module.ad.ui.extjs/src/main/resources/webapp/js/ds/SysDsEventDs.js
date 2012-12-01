@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDsEventDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDsEventDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -19,7 +20,8 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDsEventDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDsEventDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDsEventDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -38,10 +40,5 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDsEventDsFilter" ,{
 		{name:"modifiedBy", type:"string"},
 		{name:"name", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.system.ds.param.SysDsEventDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

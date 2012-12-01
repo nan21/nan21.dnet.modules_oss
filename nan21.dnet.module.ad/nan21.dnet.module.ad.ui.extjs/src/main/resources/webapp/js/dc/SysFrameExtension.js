@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysFrameExtension", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysFrameExtensionDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -45,7 +45,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysFrameExtension$Filter", {
 			.addChildrenTo("col1", ["frameFQN", "fileLocation"])
 			.addChildrenTo("col2", ["relativePath", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -68,4 +69,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysFrameExtension$EditList", {
 			.addTextColumn({name:"description", dataIndex:"description", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

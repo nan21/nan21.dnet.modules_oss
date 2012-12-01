@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.org.ds.model.StockLocatorDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.StockLocatorDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.StockLocatorDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.md.org.ds.model.StockLocatorDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.StockLocatorDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -52,10 +54,5 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.StockLocatorDsFilter" ,{
 		{name:"subInventoryId_From",type:"int", useNull:true},
 		{name:"subInventoryId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.org.ds.param.StockLocatorDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

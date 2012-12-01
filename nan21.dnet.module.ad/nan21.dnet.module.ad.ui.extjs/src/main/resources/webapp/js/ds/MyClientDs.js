@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.client.ds.model.MyClientDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.client.ds.model.MyClientDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"adminRole", type:"string"},
@@ -20,7 +21,8 @@ Ext.define("net.nan21.dnet.module.ad.client.ds.model.MyClientDs" ,{
 		{name:"notes", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.ad.client.ds.model.MyClientDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.client.ds.model.MyClientDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"adminRole", type:"string"},
@@ -39,10 +41,5 @@ Ext.define("net.nan21.dnet.module.ad.client.ds.model.MyClientDsFilter" ,{
 		{name:"modifiedBy", type:"string"},
 		{name:"name", type:"string"},
 		{name:"notes", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.client.ds.param.MyClientDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

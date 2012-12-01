@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.Employee", {
 
 	recordModel: "net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs",
 	filterModel: "net.nan21.dnet.module.hr.employee.ds.model.EmployeeDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.employee.ds.param.EmployeeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.Employee$Filter", {
 			.addChildrenTo("col1", ["employerCode", "firstName", "lastName", "code"])
 			.addChildrenTo("col2", ["gender", "maritalStatus"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -79,7 +80,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.Employee$List", {
 			.addTextColumn({ name:"citizenshipCode", dataIndex:"citizenshipCode", hidden:true, width:100})
 			.addDateColumn({ name:"birthdate", dataIndex:"birthdate", format: Dnet.DATE_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditMain ================= */
@@ -123,7 +125,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.Employee$EditMain", {
 			.addChildrenTo("col2", ["employerCode", "code"])
 			.addChildrenTo("col3", ["gender", "birthdate", "maritalStatus"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditOther ================= */
@@ -159,4 +162,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.Employee$EditOther", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["citizenshipCode", "passportNo", "ssnNo", "sinNo", "officeEmail", "currentHireDate", "firstHireDate"])
 		;
-	}});
+	}
+});

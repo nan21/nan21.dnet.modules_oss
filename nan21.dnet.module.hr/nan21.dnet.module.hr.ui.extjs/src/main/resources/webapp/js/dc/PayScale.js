@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScale", {
 
 	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScaleDs",
 	filterModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScaleDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.grade.ds.param.PayScaleDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScale$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -61,7 +62,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScale$List", {
 			.addTextColumn({ name:"notes", dataIndex:"notes", width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -92,4 +94,5 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScale$Edit", {
 			.addChildrenTo("col1", ["name", "code", "active"])
 			.addChildrenTo("col2", ["notes"])
 		;
-	}});
+	}
+});

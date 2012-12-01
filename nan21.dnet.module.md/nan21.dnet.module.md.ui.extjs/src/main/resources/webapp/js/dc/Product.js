@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -67,7 +68,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$Filter", {
 			.addChildrenTo("col4", ["attributeSet", "productCategory"])
 			.addChildrenTo("col5", ["manufacturerCode", "manufacturerProductNo"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -106,7 +108,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$List", {
 			.addNumberColumn({ name:"volumeUomId", dataIndex:"volumeUomId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"dimUomId", dataIndex:"dimUomId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CtxFormName ================= */
@@ -129,7 +132,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$CtxFormName", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["name"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -180,7 +184,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$Edit", {
 			.addChildrenTo("col2", ["manufacturerCode", "manufacturerProductNo"])
 			.addChildrenTo("col3", ["active", "showInCatalog", "sale", "purchase"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditInfo ================= */
@@ -231,4 +236,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$EditInfo", {
 			.addChildrenTo("col2", ["dimWidth", "dimHeight", "dimDepth", "dimUomCode"])
 			.addChildrenTo("col3", ["iconUrl", "imageUrl"])
 		;
-	}});
+	}
+});

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -14,7 +15,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs" ,{
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -25,10 +27,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDsFilter"
 		{name:"engineId_To",type:"int", useNull:true},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.param.PayrollElementLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

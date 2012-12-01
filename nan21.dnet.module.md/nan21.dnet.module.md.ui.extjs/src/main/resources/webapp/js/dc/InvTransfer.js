@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransfer", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDs",
 	filterModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransferDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.inventory.ds.param.InvTransferDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -69,7 +69,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransfer$Filter", {
 			.addChildrenTo("col3", ["eventDate", "docDate"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -94,7 +95,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransfer$List", {
 			.addNumberColumn({ name:"fromInventoryId", dataIndex:"fromInventoryId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"toInventoryId", dataIndex:"toInventoryId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -141,4 +143,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvTransfer$Edit", {
 			.addChildrenTo("col2", ["docDate", "docNo", "code", "eventDate"])
 			.addChildrenTo("col3", ["confirmed", "posted"])
 		;
-	}});
+	}
+});

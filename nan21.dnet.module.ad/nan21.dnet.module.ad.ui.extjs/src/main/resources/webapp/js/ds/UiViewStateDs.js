@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -20,7 +21,8 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.ad.system.ds.model.UiViewStateDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.system.ds.model.UiViewStateDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"cmp", type:"string"},
@@ -38,10 +40,5 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.UiViewStateDsFilter" ,{
 		{name:"name", type:"string"},
 		{name:"stateValue", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.system.ds.param.UiViewStateDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -22,7 +23,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -50,10 +52,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDsFilter" 
 		{name:"skillId_From",type:"int", useNull:true},
 		{name:"skillId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.param.QualificationSkillDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

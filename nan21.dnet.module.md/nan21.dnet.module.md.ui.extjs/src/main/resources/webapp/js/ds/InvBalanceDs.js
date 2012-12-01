@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -28,7 +29,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -66,10 +68,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvBalanceDsFilter" ,
 		{name:"uomId_From",type:"int", useNull:true},
 		{name:"uomId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.param.InvBalanceDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMap", {
 
 	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportMapDs",
 	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportMapDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.impex.ds.param.ExportMapDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMap$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -58,7 +59,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMap$List", {
 			.addTextColumn({ name:"path", dataIndex:"path", width:120})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -89,4 +91,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMap$Edit", {
 			.addChildrenTo("col1", ["name", "path", "active"])
 			.addChildrenTo("col2", ["description"])
 		;
-	}});
+	}
+});

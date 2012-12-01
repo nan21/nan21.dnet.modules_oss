@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.UserGroup", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.UserGroupDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.UserGroupDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.UserGroupDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.UserGroup$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -60,4 +61,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.UserGroup$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

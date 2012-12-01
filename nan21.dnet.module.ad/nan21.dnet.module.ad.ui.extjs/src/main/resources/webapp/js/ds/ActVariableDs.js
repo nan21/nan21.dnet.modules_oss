@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"doubleValue", type:"float", useNull:true},
@@ -15,7 +16,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs" ,{
 		{name:"textValue2", type:"string"},
 		{name:"type", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"doubleValue", type:"float", useNull:true},
@@ -30,10 +32,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDsFilter" ,{
 		{name:"textValue", type:"string"},
 		{name:"textValue2", type:"string"},
 		{name:"type", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.param.ActVariableDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

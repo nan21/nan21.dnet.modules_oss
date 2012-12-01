@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -48,10 +50,5 @@ Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDsFilter" ,{
 		{name:"uploadPath", type:"string"},
 		{name:"useInContext", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.data.ds.param.AttachmentTypeDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

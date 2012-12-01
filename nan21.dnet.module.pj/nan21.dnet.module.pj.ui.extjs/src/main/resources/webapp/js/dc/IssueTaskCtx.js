@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTaskCtx", {
 
 	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueTaskDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueTaskDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.md.ds.param.IssueTaskDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -57,7 +57,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTaskCtx$Filter", {
 				{layout:"anchor", border:false, items:[this._elems_.get("type")]},{layout:"anchor", border:false, items:[this._elems_.get("status")]},{layout:"anchor", border:false, items:[this._elems_.get("assignee")]}
 			 ])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -78,7 +79,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTaskCtx$List", {
 			.addNumberColumn({ name:"statusId", dataIndex:"statusId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"assigneeId", dataIndex:"assigneeId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -122,4 +124,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTaskCtx$Edit", {
 			.addChildrenTo("col1", ["type", "assignee", "status", "code"])
 			.addChildrenTo("col2", ["description"])
 		;
-	}});
+	}
+});

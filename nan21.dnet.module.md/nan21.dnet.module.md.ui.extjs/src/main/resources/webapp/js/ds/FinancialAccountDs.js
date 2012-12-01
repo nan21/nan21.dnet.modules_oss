@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -31,7 +32,8 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -62,10 +64,5 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountDsFilter" ,{
 		{name:"orgId_To",type:"int", useNull:true},
 		{name:"type", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.org.ds.param.FinancialAccountDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

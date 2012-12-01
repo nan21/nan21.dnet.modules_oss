@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Attachment", {
 
 	recordModel: "net.nan21.dnet.module.ad.data.ds.model.AttachmentDs",
 	filterModel: "net.nan21.dnet.module.ad.data.ds.model.AttachmentDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.data.ds.param.AttachmentDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Attachment$Filter", {
 			.addChildrenTo("col1", ["name", "type"])
 			.addChildrenTo("col2", ["targetType", "targetUuid"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -79,7 +80,8 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Attachment$CtxEditList", {
 			.addTextColumn({name:"targetUuid", dataIndex:"targetUuid", hidden:true, width:100,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -98,4 +100,5 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Attachment$List", {
 			.addTextColumn({ name:"targetType", dataIndex:"targetType", hidden:true, width:150})
 			.addTextColumn({ name:"targetUuid", dataIndex:"targetUuid", hidden:true, width:100})
 			.addDefaults();
-	}});
+	}
+});

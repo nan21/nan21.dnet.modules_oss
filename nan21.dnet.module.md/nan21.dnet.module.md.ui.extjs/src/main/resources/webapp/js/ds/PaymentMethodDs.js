@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -26,7 +27,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -48,10 +50,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDsFilter" ,{
 		{name:"name", type:"string"},
 		{name:"type", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.param.PaymentMethodDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

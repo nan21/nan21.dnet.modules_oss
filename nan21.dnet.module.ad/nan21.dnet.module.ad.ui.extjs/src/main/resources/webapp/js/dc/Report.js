@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.Report", {
 
 	recordModel: "net.nan21.dnet.module.ad.report.ds.model.ReportDs",
 	filterModel: "net.nan21.dnet.module.ad.report.ds.model.ReportDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.report.ds.param.ReportDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -51,7 +51,8 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.Report$Filter", {
 			.addChildrenTo("col2", ["reportServer", "contextPath"])
 			.addChildrenTo("col3", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -71,7 +72,8 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.Report$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addNumberColumn({ name:"reportServerId", dataIndex:"reportServerId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -107,4 +109,5 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.Report$Edit", {
 			.addChildrenTo("col1", ["name", "code", "reportServer", "contextPath", "active"])
 			.addChildrenTo("col2", ["notes"])
 		;
-	}});
+	}
+});

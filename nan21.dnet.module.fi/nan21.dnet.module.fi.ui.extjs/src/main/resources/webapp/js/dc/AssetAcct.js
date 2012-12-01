@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.AssetAcct", {
 
 	recordModel: "net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDs",
 	filterModel: "net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDsFilter",
-	paramModel: "net.nan21.dnet.module.fi.asset.ds.param.AssetAcctDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditListCtx ================= */
@@ -46,4 +46,5 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.AssetAcct$EditListCtx", {
 			.addNumberColumn({name:"deprecAccountId", dataIndex:"deprecAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"acmlDeprecAccountId", dataIndex:"acmlDeprecAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

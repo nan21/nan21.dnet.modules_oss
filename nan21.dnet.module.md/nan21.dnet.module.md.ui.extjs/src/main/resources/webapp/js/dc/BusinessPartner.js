@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.BusinessPartnerDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.BusinessPartnerDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.BusinessPartnerDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -67,7 +67,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Filter", {
 			.addChildrenTo("col3", ["firstName", "lastName", "gender"])
 			.addChildrenTo("col4", ["companyName", "registrationNo", "legalForm"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -94,7 +95,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$List", {
 			.addTextColumn({ name:"registrationNo", dataIndex:"registrationNo", width:80})
 			.addDateColumn({ name:"registrationDate", dataIndex:"registrationDate", width:80, format: Dnet.DATE_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Create ================= */
@@ -119,7 +121,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Create", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["type"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -235,4 +238,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Edit", {
 					}
 				}
 	}
+
 });

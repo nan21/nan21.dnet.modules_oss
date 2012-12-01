@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs" ,{
+
+Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"amount", type:"float", useNull:true},
@@ -29,7 +30,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AmortizationDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AmortizationDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"amount", type:"float", useNull:true},
@@ -70,10 +72,5 @@ Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AmortizationDsFilter" ,{
 		{name:"postingDate_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"postingDate_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.fi.asset.ds.param.AmortizationDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut", {
 
 	recordModel: "net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDs",
 	filterModel: "net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDsFilter",
-	paramModel: "net.nan21.dnet.module.sc.invoice.ds.param.PaymentOutDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -78,7 +78,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Filter", {
 			.addChildrenTo("col3", ["docDate", "amount"])
 			.addChildrenTo("col4", ["generated", "confirmed", "posted"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -108,7 +109,8 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$List", {
 			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -187,4 +189,5 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PaymentOut$Edit", {
 					 	this._applyStates_(dc.record);
 					 } , this )
 	}
+
 });

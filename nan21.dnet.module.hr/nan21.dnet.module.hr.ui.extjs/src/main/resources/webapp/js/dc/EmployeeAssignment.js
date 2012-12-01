@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -71,7 +72,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$Filter", {
 			.addChildrenTo("col2", ["type", "payroll", "validAt"])
 			.addChildrenTo("col3", ["job", "position", "name"])
 		;
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -91,8 +93,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$FilterCtx", 
 					]}})
 			.addDateField({name:"validAt", dataIndex:"validFrom", anchor:"-20", format:Ext.DATE_FORMAT})
 		;
-	},
-
+	}
 });
 
 
@@ -118,7 +119,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$List", {
 			.addTextColumn({ name:"jobCode", dataIndex:"jobCode", width:100})
 			.addTextColumn({ name:"jobName", dataIndex:"jobName", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -149,7 +151,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$CtxList", {
 			.addNumberColumn({ name:"posOrgId", dataIndex:"posOrgId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"orgId", dataIndex:"orgId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxListJobPos ================= */
@@ -175,7 +178,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$CtxListJobPo
 			.addNumberColumn({ name:"payrollId", dataIndex:"payrollId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"orgId", dataIndex:"orgId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditEmployee ================= */
@@ -204,7 +208,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$EditEmployee
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -305,4 +310,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeAssignment$Edit", {
 					this._doEnableJobOrPosition_(record.data.assignToPosition);
 				}
 	}
+
 });

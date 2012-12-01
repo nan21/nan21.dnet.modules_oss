@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.BpAccountDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.BpAccountDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.BpAccountDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -62,7 +62,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Filter", {
 			.addChildrenTo("col2", ["customerGroup", "vendorGroup"])
 			.addChildrenTo("col3", ["analiticSegment", "custAnaliticSegment", "vendAnaliticSegment"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -97,7 +98,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$List", {
 			.addNumberColumn({ name:"customerPaymentMethodId", dataIndex:"customerPaymentMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"vendorPaymentMethodId", dataIndex:"vendorPaymentMethodId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -165,7 +167,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$Edit", {
 			.addChildrenTo("col2", ["customerGroup", "customerPaymentMethod", "customerCreditLimit", "customerPaymentTerm", "custAnaliticSegment"])
 			.addChildrenTo("col3", ["vendorGroup", "vendorPaymentMethod", "vendorCreditLimit", "vendorPaymentTerm", "vendAnaliticSegment"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditCtx ================= */
@@ -229,4 +232,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpAccount$EditCtx", {
 			.addChildrenTo("col2", ["customerGroup", "customerPaymentMethod", "customerCreditLimit", "customerPaymentTerm", "custAnaliticSegment"])
 			.addChildrenTo("col3", ["vendorGroup", "vendorPaymentMethod", "vendorCreditLimit", "vendorPaymentTerm", "vendAnaliticSegment"])
 		;
-	}});
+	}
+});

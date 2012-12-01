@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.UiViewState", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.UiViewStateDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.UiViewStateDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -46,7 +46,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.UiViewState$Filter", {
 			.addChildrenTo("col1", ["name", "cmpType"])
 			.addChildrenTo("col2", ["cmp"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -63,7 +64,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.UiViewState$List", {
 			.addTextColumn({ name:"cmp", dataIndex:"cmp", width:400})
 			.addTextColumn({ name:"stateValue", dataIndex:"stateValue", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: ViewState ================= */
@@ -86,4 +88,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.UiViewState$ViewState", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["stateValue"])
 		;
-	}});
+	}
+});

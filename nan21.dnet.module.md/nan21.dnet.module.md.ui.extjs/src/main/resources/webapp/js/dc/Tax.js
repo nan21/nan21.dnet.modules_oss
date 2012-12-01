@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.Tax", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxDs",
 	filterModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tax.ds.param.TaxDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -52,7 +52,8 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.Tax$Filter", {
 			.addChildrenTo("col1", ["name", "category", "parentTax"])
 			.addChildrenTo("col2", ["summary", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -74,7 +75,8 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.Tax$List", {
 			.addNumberColumn({ name:"categoryId", dataIndex:"categoryId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"parentTaxId", dataIndex:"parentTaxId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -117,4 +119,5 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.Tax$Edit", {
 			.addChildrenTo("col1", ["name", "category", "description"])
 			.addChildrenTo("col2", ["summary", "active", "rate", "parentTax"])
 		;
-	}});
+	}
+});

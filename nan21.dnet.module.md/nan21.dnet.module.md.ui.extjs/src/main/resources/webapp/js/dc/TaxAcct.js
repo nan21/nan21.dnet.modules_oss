@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxAcct", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDs",
 	filterModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tax.ds.param.TaxAcctDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -57,7 +57,8 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxAcct$Filter", {
 			.addChildrenTo("col1", ["tax", "accSchema"])
 			.addChildrenTo("col2", ["salesAccount", "purchaseAccount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -97,4 +98,5 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxAcct$CtxEditList", {
 			.addNumberColumn({name:"salesAccountId", dataIndex:"salesAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"purchaseAccountId", dataIndex:"purchaseAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

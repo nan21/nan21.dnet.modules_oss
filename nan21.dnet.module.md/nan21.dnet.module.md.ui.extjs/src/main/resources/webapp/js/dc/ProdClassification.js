@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProdClassification", {
 
 	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProdClassificationDs",
 	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProdClassificationDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.prod.ds.param.ProdClassificationDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProdClassification$Filter", {
 			.addChildrenTo("col1", ["productCode"])
 			.addChildrenTo("col2", ["classificationSystem", "classificationCode"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -78,4 +79,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProdClassification$CtxEditList",
 			.addNumberColumn({name:"classSystemId", dataIndex:"classificationSystemId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"classCodeId", dataIndex:"classificationId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

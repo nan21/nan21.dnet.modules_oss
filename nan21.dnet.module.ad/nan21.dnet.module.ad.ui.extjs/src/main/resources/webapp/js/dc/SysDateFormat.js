@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDateFormat", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysDateFormatDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDateFormat$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -72,4 +73,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDateFormat$EditList", {
 			.addTextColumn({name:"javaDateTimeFormat", dataIndex:"javaDateTimeFormat", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"allDay", type:"boolean"},
@@ -37,7 +38,8 @@ Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"allDay", type:"boolean", useNull:true},
@@ -88,10 +90,5 @@ Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDsFilter" 
 		{name:"targetType", type:"string"},
 		{name:"url", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.activity.ds.param.MyCalendarEventDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

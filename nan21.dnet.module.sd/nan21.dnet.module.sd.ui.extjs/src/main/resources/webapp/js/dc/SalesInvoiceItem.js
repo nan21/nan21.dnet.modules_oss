@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem", {
 
 	recordModel: "net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceItemDs",
 	filterModel: "net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceItemDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.invoice.ds.param.SalesInvoiceItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -33,8 +33,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$FilterCtx", {
 						{lovField:"id", dsField: "productId"} 
 					]}})
 		;
-	},
-
+	}
 });
 
 
@@ -64,7 +63,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$CtxList", {
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"taxId", dataIndex:"taxId", hidden:true, width:70})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditForm ================= */
@@ -157,4 +157,5 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoiceItem$EditForm", {
 				r.set("taxAmount", "");
 				r.endEdit(); 
 	}
+
 });

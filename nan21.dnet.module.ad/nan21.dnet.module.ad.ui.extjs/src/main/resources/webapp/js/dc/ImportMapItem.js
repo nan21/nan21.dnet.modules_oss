@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItem", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -51,7 +52,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItem$Filter", {
 			.addChildrenTo("col2", ["path", "fileName"])
 			.addChildrenTo("col3", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -81,7 +83,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItem$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= FILTER: ImportFileForm ================= */
@@ -106,4 +109,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItem$ImportFileForm", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["importFileLocation", "importDataSource", "importUkFieldName"])
 		;
-	}});
+	}
+});

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.attr.dc.AttributeSetAttribute", {
 
 	recordModel: "net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDs",
 	filterModel: "net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.attr.ds.param.AttributeSetAttributeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -50,7 +50,8 @@ Ext.define("net.nan21.dnet.module.bd.attr.dc.AttributeSetAttribute$Filter", {
 			.addChildrenTo("col1", ["set", "attribute"])
 			.addChildrenTo("col2", ["inDescription"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -74,7 +75,8 @@ Ext.define("net.nan21.dnet.module.bd.attr.dc.AttributeSetAttribute$CtxEditList",
 			.addBooleanColumn({name:"inDescription", dataIndex:"inDescription"})
 			.addNumberColumn({name:"setId", dataIndex:"setId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -102,4 +104,5 @@ Ext.define("net.nan21.dnet.module.bd.attr.dc.AttributeSetAttribute$EditList", {
 			.addNumberColumn({name:"setId", dataIndex:"setId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"attributeId", dataIndex:"attributeId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

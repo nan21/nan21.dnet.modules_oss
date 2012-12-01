@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomConversion", {
 
 	recordModel: "net.nan21.dnet.module.bd.uom.ds.model.UomConversionDs",
 	filterModel: "net.nan21.dnet.module.bd.uom.ds.model.UomConversionDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.uom.ds.param.UomConversionDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -50,7 +50,8 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomConversion$Filter", {
 			.addChildrenTo("col1", ["sourceCode", "targetCode"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -78,7 +79,8 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomConversion$EditList", {
 					editor:{xtype:"numberfield" , decimalPrecision:6}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -102,4 +104,5 @@ Ext.define("net.nan21.dnet.module.bd.uom.dc.UomConversion$CtxEditList", {
 					editor:{xtype:"numberfield" , decimalPrecision:6}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

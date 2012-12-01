@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefProcess", {
 
 	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefProcessDs",
 	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefProcessDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.WfDefProcessDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefProcess$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -57,7 +58,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefProcess$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addTextColumn({ name:"description", dataIndex:"description", width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -87,4 +89,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefProcess$Edit", {
 			.addChildrenTo("col1", ["name", "description"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});

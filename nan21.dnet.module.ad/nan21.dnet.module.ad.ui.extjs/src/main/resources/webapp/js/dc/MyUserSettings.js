@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MyUserSettings", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.MyUserSettingsDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -53,4 +53,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MyUserSettings$Edit", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["dateFormat", "decimalSeparator", "thousandSeparator"])
 		;
-	}});
+	}
+});

@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -113,7 +114,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$Filter", {
 			.addChildrenTo("col4", ["affectedComponent", "affectedVersion", "resolution"])
 			.addChildrenTo("col5", ["reportedVersion", "targetVersion", "fixedInVersion"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -195,7 +197,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$EditList", {
 			.addNumberColumn({name:"clarity", dataIndex:"clarity", hidden:true, align:"right", width:80,
 					editor:{xtype:"numberfield" , decimalPrecision:2}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: ViewText ================= */
@@ -218,7 +221,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$ViewText", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["description"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditText ================= */
@@ -241,4 +245,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueMnt$EditText", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["description"])
 		;
-	}});
+	}
+});

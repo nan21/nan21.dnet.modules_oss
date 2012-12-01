@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -14,7 +15,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLov
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -25,10 +27,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeLov
 		{name:"docTypeId_To",type:"int", useNull:true},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.param.InvTransactionTypeLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

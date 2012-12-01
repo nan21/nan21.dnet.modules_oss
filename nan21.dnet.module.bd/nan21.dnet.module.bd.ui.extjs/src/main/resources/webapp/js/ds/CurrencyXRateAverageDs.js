@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -25,7 +26,8 @@ Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDs" ,
 		{name:"value", type:"float", useNull:true},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -60,10 +62,5 @@ Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDsFil
 		{name:"value", type:"float", useNull:true},
 		{name:"value_From",type:"float", useNull:true},
 		{name:"value_To",type:"float", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.currency.ds.param.CurrencyXRateAverageDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

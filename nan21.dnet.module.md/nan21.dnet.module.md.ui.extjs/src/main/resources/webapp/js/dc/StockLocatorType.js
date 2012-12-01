@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.org.dc.StockLocatorType", {
 
 	recordModel: "net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDs",
 	filterModel: "net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.md.org.ds.param.StockLocatorTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.StockLocatorType$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -59,4 +60,5 @@ Ext.define("net.nan21.dnet.module.md.org.dc.StockLocatorType$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

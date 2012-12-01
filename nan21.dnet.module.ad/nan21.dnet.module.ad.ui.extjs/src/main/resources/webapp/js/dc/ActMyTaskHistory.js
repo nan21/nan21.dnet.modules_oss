@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActMyTaskHistory", {
 
 	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDs",
 	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.ActMyTaskHistoryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActMyTaskHistory$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -61,4 +62,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActMyTaskHistory$List", {
 			.addNumberColumn({ name:"priority", dataIndex:"priority", hidden:true, width:70, format:"0"})
 			.addDateColumn({ name:"dueDate", dataIndex:"dueDate", format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});

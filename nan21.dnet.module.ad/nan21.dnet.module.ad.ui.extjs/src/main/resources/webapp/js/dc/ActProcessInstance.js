@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessInstance", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -51,7 +52,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessInstance$Filter", {
 			.addChildrenTo("col2", ["from", "to"])
 			.addChildrenTo("col3", ["startedBy", "id"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -70,4 +72,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActProcessInstance$List", {
 			.addTextColumn({ name:"startedBy", dataIndex:"startedBy", width:100})
 			.addTextColumn({ name:"startAction", dataIndex:"startAction", width:100})
 			.addDefaults();
-	}});
+	}
+});

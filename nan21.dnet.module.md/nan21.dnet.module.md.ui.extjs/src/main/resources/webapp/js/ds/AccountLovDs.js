@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchemaId", type:"int", useNull:true},
@@ -13,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDs" ,{
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchemaId", type:"int", useNull:true},
@@ -23,10 +25,5 @@ Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDsFilter" ,{
 		{name:"code", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.acc.ds.param.AccountLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

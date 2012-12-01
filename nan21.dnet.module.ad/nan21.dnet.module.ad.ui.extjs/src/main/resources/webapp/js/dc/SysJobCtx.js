@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobCtx", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysJobCtxDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobCtx$Filter", {
 			.addChildrenTo("col1", ["name", "jobAlias"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -64,4 +65,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobCtx$EditList", {
 					editor:{xtype:"ad_system_lovs_SysJob", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

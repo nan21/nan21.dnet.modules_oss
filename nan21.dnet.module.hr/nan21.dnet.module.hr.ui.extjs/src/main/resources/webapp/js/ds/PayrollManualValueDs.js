@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -34,7 +35,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDs" ,{
 		{name:"value", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -82,10 +84,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDsFilter
 		{name:"typeId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"},
 		{name:"value", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.payroll.ds.param.PayrollManualValueDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

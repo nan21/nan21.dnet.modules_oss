@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstanceHistory", {
 
 	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDs",
 	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.ActTaskInstanceHistoryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstanceHistory$Filter",
 		this._getBuilder_()
 			.addChildrenTo("main", ["id", "processDefinitionId", "taskDefinitionKey", "processInstanceId", "executionId", "name", "description", "assignee"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -70,7 +71,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstanceHistory$List", {
 			.addNumberColumn({ name:"priority", dataIndex:"priority", hidden:true, width:70, format:"0"})
 			.addDateColumn({ name:"dueDate", dataIndex:"dueDate", hidden:true, format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: AssignForm ================= */
@@ -93,4 +95,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstanceHistory$AssignFo
 		this._getBuilder_()
 			.addChildrenTo("main", ["assignee"])
 		;
-	}});
+	}
+});

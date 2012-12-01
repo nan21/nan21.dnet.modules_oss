@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -13,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDs" ,{
 		{name:"name", type:"string"},
 		{name:"type", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -21,10 +23,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDsFilte
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"},
 		{name:"type", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.param.PaymentMethodOutLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

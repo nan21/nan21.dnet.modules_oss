@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"allowPayIn", type:"boolean"},
@@ -23,7 +24,8 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"allowPayIn", type:"boolean", useNull:true},
@@ -48,10 +50,5 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDsFilter
 		{name:"payMethodId_From",type:"int", useNull:true},
 		{name:"payMethodId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.org.ds.param.FinancialAccountMethodDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

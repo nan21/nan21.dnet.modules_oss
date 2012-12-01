@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.DeliveryMethod", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs",
 	filterModel: "net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tx.ds.param.DeliveryMethodDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -45,7 +45,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.DeliveryMethod$Filter", {
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["delivery", "externalCourier"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -65,4 +66,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.DeliveryMethod$EditList", {
 			.addBooleanColumn({name:"externalCourier", dataIndex:"externalCourier"})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

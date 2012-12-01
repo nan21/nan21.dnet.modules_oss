@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MenuItem", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.MenuItemDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.MenuItemDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.MenuItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -59,7 +59,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MenuItem$Filter", {
 			.addChildrenTo("col2", ["active", "separatorBefore", "separatorAfter"])
 			.addChildrenTo("col3", ["menu", "menuItem", "iconUrl"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -81,7 +82,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MenuItem$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addTextColumn({ name:"description", dataIndex:"description", width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -122,7 +124,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MenuItem$EditList", {
 			.addTextColumn({name:"iconUrl", dataIndex:"iconUrl", hidden:true, width:100,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -165,4 +168,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.MenuItem$Edit", {
 			.addChildrenTo("col1", ["name", "title", "separatorBefore", "separatorAfter", "iconUrl", "active"])
 			.addChildrenTo("col2", ["menu", "menuItem", "frame", "bundle"])
 		;
-	}});
+	}
+});

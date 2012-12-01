@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.Grade", {
 
 	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.GradeDs",
 	filterModel: "net.nan21.dnet.module.hr.grade.ds.model.GradeDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.grade.ds.param.GradeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.Grade$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -64,4 +65,5 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.Grade$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

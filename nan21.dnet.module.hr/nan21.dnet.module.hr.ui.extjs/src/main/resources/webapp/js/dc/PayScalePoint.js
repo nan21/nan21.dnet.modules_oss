@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScalePoint", {
 
 	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDs",
 	filterModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.grade.ds.param.PayScalePointDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -34,4 +34,5 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScalePoint$CtxEditList", {
 			.addTextColumn({name:"code", dataIndex:"code", width:100,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

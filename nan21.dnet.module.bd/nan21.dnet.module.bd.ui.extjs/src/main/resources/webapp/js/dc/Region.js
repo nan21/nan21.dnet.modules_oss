@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Region", {
 
 	recordModel: "net.nan21.dnet.module.bd.geo.ds.model.RegionDs",
 	filterModel: "net.nan21.dnet.module.bd.geo.ds.model.RegionDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.geo.ds.param.RegionDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -51,7 +51,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Region$Filter", {
 			.addChildrenTo("col2", ["countryCode", "iso"])
 			.addChildrenTo("col3", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -71,7 +72,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Region$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addNumberColumn({ name:"countryId", dataIndex:"countryId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditListContext ================= */
@@ -97,7 +99,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Region$EditListContext", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"countryId", dataIndex:"countryId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -126,7 +129,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Region$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"countryId", dataIndex:"countryId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -164,4 +168,5 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Region$Edit", {
 			.addChildrenTo("col2", ["countryCode", "iso", "active"])
 			.addChildrenTo("col3", ["notes"])
 		;
-	}});
+	}
+});

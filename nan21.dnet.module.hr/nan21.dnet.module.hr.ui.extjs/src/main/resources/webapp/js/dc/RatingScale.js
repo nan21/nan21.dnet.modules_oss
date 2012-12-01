@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingScale", {
 
 	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.RatingScaleDs",
 	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.RatingScaleDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.skill.ds.param.RatingScaleDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -43,7 +43,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingScale$Filter", {
 			.addChildrenTo("col1", ["name"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -62,7 +63,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingScale$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -78,7 +80,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingScale$List", {
 			.addTextColumn({ name:"description", dataIndex:"description", width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -108,4 +111,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.RatingScale$Edit", {
 			.addChildrenTo("col1", ["name", "description"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.AuditFieldRep", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.AuditFieldRepDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -49,7 +49,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.AuditFieldRep$Filter", {
 			.addChildrenTo("col1", ["sourceFQN", "sourceId", "operation"])
 			.addChildrenTo("col2", ["fieldName", "oldValue", "newValue"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -68,4 +69,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.AuditFieldRep$List", {
 			.addTextColumn({ name:"oldValue", dataIndex:"oldValue", width:200})
 			.addTextColumn({ name:"newValue", dataIndex:"newValue", width:200})
 			.addDefaults();
-	}});
+	}
+});

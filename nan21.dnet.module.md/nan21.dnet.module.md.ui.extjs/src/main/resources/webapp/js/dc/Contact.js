@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Contact", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.ContactDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.ContactDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.ContactDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Contact$Filter", {
 			.addChildrenTo("col1", ["firstName", "lastName"])
 			.addChildrenTo("col2", ["bpartnerCode", "gender"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -68,7 +69,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Contact$List", {
 			.addTextColumn({ name:"position", dataIndex:"position", width:200})
 			.addDateColumn({ name:"birthdate", dataIndex:"birthdate", format: Dnet.DATE_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -95,7 +97,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Contact$CtxEditList", {
 				,editor:{xtype:"datefield", format: Dnet.DATE_FORMAT }
 			})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -133,4 +136,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Contact$Edit", {
 			.addChildrenTo("col2", ["gender", "birthdate"])
 			.addChildrenTo("col3", ["bpartnerCode", "position"])
 		;
-	}});
+	}
+});

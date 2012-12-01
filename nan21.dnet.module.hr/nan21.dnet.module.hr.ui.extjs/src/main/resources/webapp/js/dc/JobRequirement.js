@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.JobRequirement", {
 
 	recordModel: "net.nan21.dnet.module.hr.job.ds.model.JobRequirementDs",
 	filterModel: "net.nan21.dnet.module.hr.job.ds.model.JobRequirementDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.job.ds.param.JobRequirementDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -38,4 +38,5 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.JobRequirement$CtxEditList", {
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

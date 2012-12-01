@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementCategory", {
 
 	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDs",
 	filterModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.elem.ds.param.ElementCategoryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementCategory$Filter", {
 			.addChildrenTo("col1", ["name", "engine"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -70,4 +71,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementCategory$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"attribute", type:"string"},
@@ -22,7 +23,8 @@ Ext.define("net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"attribute", type:"string"},
@@ -48,10 +50,5 @@ Ext.define("net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDsFilter
 		{name:"setId_From",type:"int", useNull:true},
 		{name:"setId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.attr.ds.param.AttributeSetAttributeDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

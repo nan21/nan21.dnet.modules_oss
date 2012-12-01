@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvOperation", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvOperationDs",
 	filterModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvOperationDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.inventory.ds.param.InvOperationDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -76,7 +76,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvOperation$Filter", {
 			.addChildrenTo("col2", ["inventory", "subInventory", "locator"])
 			.addChildrenTo("col3", ["direction", "transactionId", "transactionLineId"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -106,4 +107,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvOperation$List", {
 			.addNumberColumn({ name:"transactionId", dataIndex:"transactionId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"transactionLineId", dataIndex:"transactionLineId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

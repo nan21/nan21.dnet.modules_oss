@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.Payroll", {
 
 	recordModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollDs",
 	filterModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.payroll.ds.param.PayrollDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -46,7 +46,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.Payroll$Filter", {
 			.addChildrenTo("col1", ["name", "periodType"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -64,7 +65,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.Payroll$List", {
 			.addTextColumn({ name:"engine", dataIndex:"engine", width:120})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -101,4 +103,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.Payroll$Edit", {
 			.addChildrenTo("col1", ["name", "periodType", "engine", "active"])
 			.addChildrenTo("col2", ["description"])
 		;
-	}});
+	}
+});

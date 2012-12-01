@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -20,7 +21,8 @@ Ext.define("net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -42,10 +44,5 @@ Ext.define("net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDsFilter" ,
 		{name:"requirementId_From",type:"int", useNull:true},
 		{name:"requirementId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.job.ds.param.PositionRequirementDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

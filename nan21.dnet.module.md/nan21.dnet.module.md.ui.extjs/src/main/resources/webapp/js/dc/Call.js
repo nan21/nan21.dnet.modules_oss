@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Call", {
 
 	recordModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarCallDs",
 	filterModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarCallDsFilter",
-	paramModel: "net.nan21.dnet.module.md.activity.ds.param.MyCalendarCallDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -67,7 +67,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Call$Filter", {
 			.addChildrenTo("col3", ["startDate", "endDate"])
 			.addChildrenTo("col4", ["bpartnerCode", "contact"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -88,7 +89,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Call$List", {
 			.addTextColumn({ name:"bpartnerCode", dataIndex:"bpartnerCode", width:100})
 			.addTextColumn({ name:"contact", dataIndex:"contact", width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -114,7 +116,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Call$EditList", {
 			.addTextColumn({name:"statusName", dataIndex:"statusName", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -165,4 +168,5 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Call$Edit", {
 			.addChildrenTo("col2", ["bpartnerCode", "contact"])
 			.addChildrenTo("row2", ["notes"])
 		;
-	}});
+	}
+});

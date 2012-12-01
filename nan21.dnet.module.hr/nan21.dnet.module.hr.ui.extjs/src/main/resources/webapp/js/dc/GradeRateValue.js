@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.GradeRateValue", {
 
 	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.GradeRateValueDs",
 	filterModel: "net.nan21.dnet.module.hr.grade.ds.model.GradeRateValueDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.grade.ds.param.GradeRateValueDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList4GradeRate ================= */
@@ -48,4 +48,5 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.GradeRateValue$CtxEditList4GradeRa
 				,editor:{xtype:"datefield", format: Dnet.DATE_FORMAT }
 			})
 			.addDefaults();
-	}});
+	}
+});

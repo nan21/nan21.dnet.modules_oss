@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDs" ,{
+
+Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -54,10 +56,5 @@ Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDsFilter" ,
 		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"modifiedBy", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.fi.asset.ds.param.AssetCategoryAcctDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

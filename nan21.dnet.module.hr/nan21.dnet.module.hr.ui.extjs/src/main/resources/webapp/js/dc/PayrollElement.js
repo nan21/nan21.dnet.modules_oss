@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement", {
 
 	recordModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs",
 	filterModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.payroll.ds.param.PayrollElementDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -67,7 +67,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$Filter", {
 			.addChildrenTo("col2", ["engine", "type", "dataType"])
 			.addChildrenTo("col3", ["balance", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -93,7 +94,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active", width:70})
 			.addTextColumn({ name:"notes", dataIndex:"notes", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -149,7 +151,8 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$EditList", {
 			.addTextColumn({name:"notes", dataIndex:"notes", hidden:true, width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -249,4 +252,5 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$Edit", {
 					this._doSwitchViews_(record.data.balance);
 				}
 	}
+
 });

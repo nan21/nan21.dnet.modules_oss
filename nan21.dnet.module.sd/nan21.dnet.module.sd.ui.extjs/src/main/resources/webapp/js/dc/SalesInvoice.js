@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -92,7 +93,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$Filter", {
 			.addChildrenTo("col4", ["docDate", "totalAmount", "totalNetAmount"])
 			.addChildrenTo("col5", ["confirmed", "posted"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -122,7 +124,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$List", {
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"salesOrderId", dataIndex:"salesOrderId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CopyLinesForm ================= */
@@ -148,7 +151,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$CopyLinesForm", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["copyFrom"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditMain ================= */
@@ -212,19 +216,18 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$EditMain", {
 	/* ==================== Business functions ==================== */
 	
 	_beforeApplyStates_: function(record) {
-		
-					if (record.get("confirmed") || record.get("posted") ) {
-						this._disableAllFields_();
-						return false;
-					}
+		if (record.get("confirmed") || record.get("posted") ) {
+			this._disableAllFields_();
+			return false;
+		}
 	},
 	
 	_endDefine_: function() {
-		
-					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
-					 	this._applyStates_(dc.record);
-					 } , this )
+		this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
+		 	this._applyStates_(dc.record);
+		 } , this )
 	}
+
 });
 
 
@@ -287,17 +290,16 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesInvoice$EditDetails", {
 	/* ==================== Business functions ==================== */
 	
 	_beforeApplyStates_: function(record) {
-		
-					if (record.get("confirmed") || record.get("posted") ) {
-						this._disableAllFields_();
-						return false;
-					}
+		if (record.get("confirmed") || record.get("posted") ) {
+			this._disableAllFields_();
+			return false;
+		}
 	},
 	
 	_endDefine_: function() {
-		
-					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
-					 	this._applyStates_(dc.record);
-					 } , this )
+		this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
+		 	this._applyStates_(dc.record);
+		 } , this )
 	}
+
 });

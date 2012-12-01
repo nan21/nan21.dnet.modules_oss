@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CompanyLegalForm", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.CompanyLegalFormDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.CompanyLegalFormDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.CompanyLegalFormDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CompanyLegalForm$Filter", {
 			.addChildrenTo("col1", ["name", "country"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -71,4 +72,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CompanyLegalForm$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"countryId", dataIndex:"countryId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

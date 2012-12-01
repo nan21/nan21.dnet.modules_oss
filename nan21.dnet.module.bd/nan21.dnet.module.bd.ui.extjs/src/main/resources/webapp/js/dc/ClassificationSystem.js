@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.standards.dc.ClassificationSystem", {
 
 	recordModel: "net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemDs",
 	filterModel: "net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.standards.ds.param.ClassificationSystemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.bd.standards.dc.ClassificationSystem$Filter", 
 			.addChildrenTo("col1", ["code", "name", "useInContext"])
 			.addChildrenTo("col2", ["active", "internal"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -71,4 +72,5 @@ Ext.define("net.nan21.dnet.module.bd.standards.dc.ClassificationSystem$EditList"
 			.addBooleanColumn({name:"internal", dataIndex:"internal"})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

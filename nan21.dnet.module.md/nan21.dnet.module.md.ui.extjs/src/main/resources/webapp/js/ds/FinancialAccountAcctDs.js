@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -26,7 +27,8 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs" ,{
 		{name:"withdrawalAccountId", type:"int", useNull:true},
 		{name:"withdrawalAccountName", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -58,10 +60,5 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDsFilter" 
 		{name:"withdrawalAccountId_From",type:"int", useNull:true},
 		{name:"withdrawalAccountId_To",type:"int", useNull:true},
 		{name:"withdrawalAccountName", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.org.ds.param.FinancialAccountAcctDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

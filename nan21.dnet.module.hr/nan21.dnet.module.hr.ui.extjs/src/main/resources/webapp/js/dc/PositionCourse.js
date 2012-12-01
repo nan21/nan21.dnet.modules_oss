@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.PositionCourse", {
 
 	recordModel: "net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs",
 	filterModel: "net.nan21.dnet.module.hr.training.ds.model.PositionCourseDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.training.ds.param.PositionCourseDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -37,7 +37,8 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.PositionCourse$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["courseName"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: PositionCtxEditList ================= */
@@ -63,7 +64,8 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.PositionCourse$PositionCtxEditL
 			.addNumberColumn({name:"positionId", dataIndex:"positionId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"courseId", dataIndex:"courseId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CourseCtxEditList ================= */
@@ -89,4 +91,5 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.PositionCourse$CourseCtxEditLis
 			.addNumberColumn({name:"positionId", dataIndex:"positionId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"courseId", dataIndex:"courseId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

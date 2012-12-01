@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.DsReportUsage", {
 
 	recordModel: "net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs",
 	filterModel: "net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.report.ds.param.DsReportUsageDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -35,4 +35,5 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.DsReportUsage$CtxEditList", {
 			.addTextColumn({name:"toolbarKey", dataIndex:"toolbarKey", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

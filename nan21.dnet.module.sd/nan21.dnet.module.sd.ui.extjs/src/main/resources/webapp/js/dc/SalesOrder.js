@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -98,7 +99,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$Filter", {
 			.addChildrenTo("col3", ["docDate", "totalAmount", "totalNetAmount"])
 			.addChildrenTo("col4", ["confirmed", "invoiced", "delivered"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -138,7 +140,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$List", {
 			.addNumberColumn({ name:"deliveryMethodId", dataIndex:"deliveryMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"priceListId", dataIndex:"priceListId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CopyLinesForm ================= */
@@ -164,7 +167,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$CopyLinesForm", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["copyFrom"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: FrmGenDelivery ================= */
@@ -198,7 +202,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$FrmGenDelivery", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["delivDocType", "delivTxType", "delivEventDate"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: FrmGenInvoice ================= */
@@ -224,7 +229,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$FrmGenInvoice", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["invDocType"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditMain ================= */
@@ -306,6 +312,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditMain", {
 		 	this._applyStates_(dc.record);
 		 } , this )
 	}
+
 });
 
 
@@ -414,4 +421,5 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditDetails", {
 			this._applyStates_(dc.record);
 		} , this )
 	}
+
 });

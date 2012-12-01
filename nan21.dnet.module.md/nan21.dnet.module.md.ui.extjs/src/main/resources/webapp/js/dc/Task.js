@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Task", {
 
 	recordModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarTaskDs",
 	filterModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarTaskDsFilter",
-	paramModel: "net.nan21.dnet.module.md.activity.ds.param.MyCalendarTaskDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -60,7 +60,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Task$Filter", {
 			.addChildrenTo("col3", ["startDate", "endDate"])
 			.addChildrenTo("col4", ["bpartnerCode"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -84,7 +85,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Task$List", {
 			.addTextColumn({ name:"priorityName", dataIndex:"priorityName", width:100})
 			.addDateColumn({ name:"dueDate", dataIndex:"dueDate", format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -116,7 +118,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Task$EditList", {
 			.addTextColumn({name:"priorityName", dataIndex:"priorityName", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -161,4 +164,5 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Task$Edit", {
 			.addChildrenTo("col2", ["bpartnerCode", "statusName", "priorityName", "dueDate"])
 			.addChildrenTo("row2", ["notes"])
 		;
-	}});
+	}
+});

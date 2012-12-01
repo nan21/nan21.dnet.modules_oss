@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.currency.dc.CurrencyXRate", {
 
 	recordModel: "net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateDs",
 	filterModel: "net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.currency.ds.param.CurrencyXRateDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.bd.currency.dc.CurrencyXRate$Filter", {
 			.addChildrenTo("col1", ["sourceCode", "targetCode"])
 			.addChildrenTo("col2", ["providerCode", "validAt"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -88,4 +89,5 @@ Ext.define("net.nan21.dnet.module.bd.currency.dc.CurrencyXRate$EditList", {
 							{lovField:"id", dsField: "providerId"} 
 						]}})
 			.addDefaults();
-	}});
+	}
+});

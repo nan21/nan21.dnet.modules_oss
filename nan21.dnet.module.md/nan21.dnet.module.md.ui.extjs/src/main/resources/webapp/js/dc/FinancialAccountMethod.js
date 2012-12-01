@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountMethod", {
 
 	recordModel: "net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDs",
 	filterModel: "net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDsFilter",
-	paramModel: "net.nan21.dnet.module.md.org.ds.param.FinancialAccountMethodDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountMethod$Filter", {
 			.addChildrenTo("col1", ["financialAccount", "payMethod"])
 			.addChildrenTo("col2", ["allowPayIn", "allowPayOut"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -72,7 +73,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountMethod$EditList", {
 			.addNumberColumn({name:"financialAccountId", dataIndex:"financialAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"payMethodId", dataIndex:"payMethodId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -97,4 +99,5 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountMethod$CtxEditList",
 			.addNumberColumn({name:"financialAccountId", dataIndex:"financialAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"payMethodId", dataIndex:"payMethodId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

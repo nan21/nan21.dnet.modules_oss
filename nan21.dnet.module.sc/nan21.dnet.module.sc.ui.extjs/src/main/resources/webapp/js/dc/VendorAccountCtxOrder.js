@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxOrder", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -66,8 +67,7 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxOrder$Filter", {
 					]}})
 			.addBooleanField({ name:"confirmed", dataIndex:"confirmed", anchor:"-20"})
 		;
-	},
-
+	}
 });
 
 
@@ -99,4 +99,5 @@ Ext.define("net.nan21.dnet.module.sc.account.dc.VendorAccountCtxOrder$List", {
 			.addNumberColumn({ name:"deliveryMethodId", dataIndex:"deliveryMethodId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"deliveryMethod", dataIndex:"deliveryMethod", hidden:true, width:120})
 			.addDefaults();
-	}});
+	}
+});

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -22,7 +23,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -48,10 +50,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDsFilter" 
 		{name:"targetId_From",type:"int", useNull:true},
 		{name:"targetId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.param.WfDefTransitionDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

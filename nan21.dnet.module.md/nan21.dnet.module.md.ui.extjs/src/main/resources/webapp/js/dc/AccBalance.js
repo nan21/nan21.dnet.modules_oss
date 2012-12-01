@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccBalance", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDs",
 	filterModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.acc.ds.param.AccBalanceDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -64,7 +64,8 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccBalance$Filter", {
 			.addChildrenTo("col2", ["account"])
 			.addChildrenTo("col3", ["initialAmount", "amount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -83,4 +84,5 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccBalance$List", {
 			.addNumberColumn({ name:"initialAmount", dataIndex:"initialAmount", decimals:2})
 			.addNumberColumn({ name:"amount", dataIndex:"amount", decimals:2})
 			.addDefaults();
-	}});
+	}
+});

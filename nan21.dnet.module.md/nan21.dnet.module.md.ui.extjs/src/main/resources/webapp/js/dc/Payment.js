@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.Payment", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs",
 	filterModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.fin.ds.param.PaymentDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -85,7 +85,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.Payment$Filter", {
 			.addChildrenTo("col3", ["currency", "confirmed", "posted"])
 			.addChildrenTo("col4", ["docDate", "amount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -118,4 +119,5 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.Payment$List", {
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"businessPartnerd", dataIndex:"businessPartnerId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

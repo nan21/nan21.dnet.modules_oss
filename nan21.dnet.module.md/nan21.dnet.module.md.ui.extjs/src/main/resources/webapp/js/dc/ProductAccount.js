@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccount", {
 
 	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountDs",
 	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.prod.ds.param.ProductAccountDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -51,7 +51,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccount$Filter", {
 			.addChildrenTo("col1", ["org", "productCode"])
 			.addChildrenTo("col2", ["groupCode", "analiticSegment"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -81,7 +82,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccount$EditList", {
 			.addNumberColumn({name:"groupId", dataIndex:"groupId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"productId", dataIndex:"productId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -109,4 +111,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccount$CtxEditList", {
 			.addNumberColumn({name:"groupId", dataIndex:"groupId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"productId", dataIndex:"productId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

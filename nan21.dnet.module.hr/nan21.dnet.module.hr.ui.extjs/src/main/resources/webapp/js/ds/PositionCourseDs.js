@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs" ,{
 		{name:"validFor", type:"int", useNull:true},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.training.ds.model.PositionCourseDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.training.ds.model.PositionCourseDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"courseCode", type:"string"},
@@ -52,10 +54,5 @@ Ext.define("net.nan21.dnet.module.hr.training.ds.model.PositionCourseDsFilter" ,
 		{name:"validFor", type:"int", useNull:true},
 		{name:"validFor_From",type:"int", useNull:true},
 		{name:"validFor_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.training.ds.param.PositionCourseDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

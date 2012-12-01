@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalYear", {
 
 	recordModel: "net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDs",
 	filterModel: "net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.period.ds.param.FiscalYearDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalYear$Filter", {
 			.addChildrenTo("col1", ["code", "name"])
 			.addChildrenTo("col2", ["calendar", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -68,7 +69,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalYear$List", {
 			.addTextColumn({ name:"notes", dataIndex:"notes", width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -99,7 +101,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalYear$EditList", {
 						]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -136,4 +139,5 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalYear$Edit", {
 			.addChildrenTo("col1", ["name", "code", "notes"])
 			.addChildrenTo("col2", ["calendar", "startDate", "endDate", "active"])
 		;
-	}});
+	}
+});

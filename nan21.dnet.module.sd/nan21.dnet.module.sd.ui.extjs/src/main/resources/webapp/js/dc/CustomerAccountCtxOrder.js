@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccountCtxOrder", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -68,8 +69,7 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccountCtxOrder$Filter",
 			.addBooleanField({ name:"invoiced", dataIndex:"invoiced", anchor:"-20"})
 			.addBooleanField({ name:"delivered", dataIndex:"delivered", anchor:"-20"})
 		;
-	},
-
+	}
 });
 
 
@@ -111,4 +111,5 @@ Ext.define("net.nan21.dnet.module.sd.account.dc.CustomerAccountCtxOrder$List", {
 			.addNumberColumn({ name:"deliveryMethodId", dataIndex:"deliveryMethodId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"priceListId", dataIndex:"priceListId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDataSource", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysDataSourceDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDataSource$Filter", {
 			.addChildrenTo("col1", ["name", "model"])
 			.addChildrenTo("col2", ["isAsgn"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -62,4 +63,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDataSource$List", {
 			.addBooleanColumn({ name:"isAsgn", dataIndex:"isAsgn"})
 			.addTextColumn({ name:"description", dataIndex:"description", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -21,7 +22,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistory
 		{name:"startTime", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"startedBy", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"deleteReason", type:"string"},
@@ -47,6 +49,7 @@ Ext.define("net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistory
 		{name:"startedBy", type:"string"}
 	]
 });
+
 Ext.define("net.nan21.dnet.module.ad.workflow.ds.param.ActProcessInstanceHistoryDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 

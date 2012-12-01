@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -27,7 +28,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDs"
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -50,10 +52,5 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDsF
 		{name:"modifiedBy", type:"string"},
 		{name:"name", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.param.InvTransactionTypeDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

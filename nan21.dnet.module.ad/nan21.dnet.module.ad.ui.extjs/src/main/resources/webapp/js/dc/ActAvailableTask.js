@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActAvailableTask", {
 
 	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActAvailableTaskDs",
 	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActAvailableTaskDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.ActAvailableTaskDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -40,7 +40,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActAvailableTask$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -59,4 +60,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActAvailableTask$List", {
 			.addNumberColumn({ name:"priority", dataIndex:"priority", hidden:true})
 			.addDateColumn({ name:"dueDate", dataIndex:"dueDate", format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});

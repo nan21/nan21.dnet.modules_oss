@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.Account", {
 
 	recordModel: "net.nan21.dnet.module.md.acc.ds.model.AccountDs",
 	filterModel: "net.nan21.dnet.module.md.acc.ds.model.AccountDsFilter",
-	paramModel: "net.nan21.dnet.module.md.acc.ds.param.AccountDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -52,7 +52,8 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.Account$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["accSchema", "type"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -73,7 +74,8 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.Account$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addNumberColumn({ name:"accSchemaId", dataIndex:"accSchemaId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -104,7 +106,8 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.Account$EditList", {
 			.addNumberColumn({name:"accSchemaId", dataIndex:"accSchemaId", hidden:true, align:"right", width:70, format:"0",
 					editor:{xtype:"numberfield" , decimalPrecision:2}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -140,4 +143,5 @@ Ext.define("net.nan21.dnet.module.md.acc.dc.Account$Edit", {
 			.addChildrenTo("col1", ["name", "code", "active", "notes"])
 			.addChildrenTo("col2", ["accSchema", "type", "summary"])
 		;
-	}});
+	}
+});

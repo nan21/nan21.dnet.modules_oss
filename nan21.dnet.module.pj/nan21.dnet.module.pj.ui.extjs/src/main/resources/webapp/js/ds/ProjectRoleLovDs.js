@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.pj.base.ds.model.ProjectRoleLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.pj.base.ds.model.ProjectRoleLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -12,17 +13,13 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.ProjectRoleLovDs" ,{
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.pj.base.ds.model.ProjectRoleLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.pj.base.ds.model.ProjectRoleLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
 		{name:"description", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.pj.base.ds.param.ProjectRoleLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportServer", {
 
 	recordModel: "net.nan21.dnet.module.ad.report.ds.model.ReportServerDs",
 	filterModel: "net.nan21.dnet.module.ad.report.ds.model.ReportServerDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.report.ds.param.ReportServerDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportServer$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -61,4 +62,5 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.ReportServer$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

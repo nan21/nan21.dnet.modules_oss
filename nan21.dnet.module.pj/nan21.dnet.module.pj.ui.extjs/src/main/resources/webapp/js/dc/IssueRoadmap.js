@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueRoadmap", {
 
 	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueRoadmapDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueRoadmapDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.md.ds.param.IssueRoadmapDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -68,7 +68,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueRoadmap$Filter", {
 			.addChildrenTo("col2", ["type", "status"])
 			.addChildrenTo("col3", ["targetVersionDate"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -91,4 +92,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueRoadmap$List", {
 			.addTextColumn({ name:"type", dataIndex:"type", width:120})
 			.addNumberColumn({ name:"projectId", dataIndex:"projectId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

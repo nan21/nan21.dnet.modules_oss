@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceTax", {
 
 	recordModel: "net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceTaxDs",
 	filterModel: "net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceTaxDsFilter",
-	paramModel: "net.nan21.dnet.module.sc.invoice.ds.param.PurchaseInvoiceTaxDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -32,4 +32,5 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceTax$List", {
 			.addNumberColumn({ name:"taxId", dataIndex:"taxId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"purchaseInvoiceId", dataIndex:"purchaseInvoiceId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

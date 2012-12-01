@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Location", {
 
 	recordModel: "net.nan21.dnet.module.bd.geo.ds.model.LocationDs",
 	filterModel: "net.nan21.dnet.module.bd.geo.ds.model.LocationDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.geo.ds.param.LocationDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -61,7 +61,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Location$Filter", {
 			.addChildrenTo("col2", ["billing", "mailing", "shipping", "active"])
 			.addChildrenTo("col3", ["targetType", "targetUuid"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: ListCtx ================= */
@@ -88,7 +89,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Location$ListCtx", {
 			.addTextColumn({ name:"targetType", dataIndex:"targetType", hidden:true, width:150})
 			.addTextColumn({ name:"targetUuid", dataIndex:"targetUuid", hidden:true, width:100})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditCtx ================= */
@@ -135,4 +137,5 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Location$EditCtx", {
 			.addChildrenTo("col2", ["adress", "notes"])
 			.addChildrenTo("col3", ["billing", "mailing", "shipping", "active"])
 		;
-	}});
+	}
+});

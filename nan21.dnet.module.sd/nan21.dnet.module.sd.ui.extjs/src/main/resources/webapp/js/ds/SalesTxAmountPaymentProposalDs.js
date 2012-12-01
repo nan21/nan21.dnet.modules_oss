@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDs" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"bpartnerId", type:"int", useNull:true},
@@ -36,7 +37,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentPropos
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"bpartnerId", type:"int", useNull:true},
@@ -100,6 +102,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentPropos
 		{name:"uuid", type:"string"}
 	]
 });
+
 Ext.define("net.nan21.dnet.module.sd.invoice.ds.param.SalesTxAmountPaymentProposalDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"amount", type:"float", useNull:true},
@@ -36,7 +37,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"amount", type:"float", useNull:true},
@@ -88,10 +90,5 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDsFilter" ,{
 		{name:"toOrgId_From",type:"int", useNull:true},
 		{name:"toOrgId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.tx.fin.ds.param.PaymentDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

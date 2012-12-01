@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysTimerDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysTimerDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -32,7 +33,8 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysTimerDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysTimerDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysTimerDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -68,10 +70,5 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysTimerDsFilter" ,{
 		{name:"startTime_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"type", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.system.ds.param.SysTimerDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeWorkExperience", {
 
 	recordModel: "net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs",
 	filterModel: "net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.employee.ds.param.EmployeeWorkExperienceDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -38,4 +38,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmployeeWorkExperience$EditList
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem", {
 
 	recordModel: "net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs",
 	filterModel: "net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.order.ds.param.SalesOrderItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -33,8 +33,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$FilterCtx", {
 						{lovField:"id", dsField: "productId"} 
 					]}})
 		;
-	},
-
+	}
 });
 
 
@@ -73,7 +72,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$CtxEditList", {
 			.addNumberColumn({name:"salesOrderId", dataIndex:"salesOrderId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"productId", dataIndex:"productId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -100,7 +100,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$CtxList", {
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"taxId", dataIndex:"taxId", hidden:true, width:70})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditForm ================= */
@@ -191,4 +192,5 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$EditForm", {
 		r.set("taxAmount", "");
 		r.endEdit(); 
 	}
+
 });

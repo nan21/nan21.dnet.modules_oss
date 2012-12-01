@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.AbsenceType", {
 
 	recordModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs",
 	filterModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.time.ds.param.AbsenceTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.AbsenceType$Filter", {
 			.addChildrenTo("col1", ["name", "category"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -70,4 +71,5 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.AbsenceType$EditList", {
 						]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

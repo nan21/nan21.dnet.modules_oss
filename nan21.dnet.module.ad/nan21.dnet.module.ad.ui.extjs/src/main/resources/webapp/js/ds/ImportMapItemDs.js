@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -52,6 +54,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDsFilter" ,{
 		{name:"uuid", type:"string"}
 	]
 });
+
 Ext.define("net.nan21.dnet.module.ad.impex.ds.param.ImportMapItemDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Job", {
 
 	recordModel: "net.nan21.dnet.module.hr.job.ds.model.JobDs",
 	filterModel: "net.nan21.dnet.module.hr.job.ds.model.JobDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.job.ds.param.JobDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Job$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["type", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -66,7 +67,8 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Job$List", {
 			.addTextColumn({ name:"type", dataIndex:"type", width:120})
 			.addTextColumn({ name:"notes", dataIndex:"notes", width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -86,7 +88,8 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Job$EditList", {
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -121,4 +124,5 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Job$Edit", {
 			.addChildrenTo("col1", ["name", "code", "type", "active"])
 			.addChildrenTo("col2", ["notes"])
 		;
-	}});
+	}
+});

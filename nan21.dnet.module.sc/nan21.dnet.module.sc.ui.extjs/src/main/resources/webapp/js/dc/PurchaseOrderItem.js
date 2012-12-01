@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem", {
 
 	recordModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemDs",
 	filterModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemDsFilter",
-	paramModel: "net.nan21.dnet.module.sc.order.ds.param.PurchaseOrderItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -33,8 +33,7 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$FilterCtx", {
 						{lovField:"id", dsField: "productId"} 
 					]}})
 		;
-	},
-
+	}
 });
 
 
@@ -68,7 +67,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$CtxEditList", {
 			.addNumberColumn({name:"purchaseOrderId", dataIndex:"purchaseOrderId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"productId", dataIndex:"productId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -95,7 +95,8 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$CtxList", {
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addTextColumn({ name:"taxId", dataIndex:"taxId", hidden:true, width:70})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditForm ================= */
@@ -188,4 +189,5 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$EditForm", {
 				r.set("taxAmount", "");
 				r.endEdit(); 
 	}
+
 });

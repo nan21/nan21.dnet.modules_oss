@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueLink", {
 
 	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueLinkDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueLinkDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.md.ds.param.IssueLinkDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueLink$Filter", {
 				{layout:"anchor", border:false, items:[this._elems_.get("linkType")]},{layout:"anchor", border:false, items:[this._elems_.get("sourceIssue")]},{layout:"anchor", border:false, items:[this._elems_.get("targetIssue")]}
 			 ])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -74,7 +75,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueLink$CtxList", {
 			.addTextColumn({ name:"targetIssue", dataIndex:"targetIssue", width:60})
 			.addTextColumn({ name:"targetSummary", dataIndex:"targetSummary", width:150})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CtxCreate ================= */
@@ -104,4 +106,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueLink$CtxCreate", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["linkType", "targetIssue"])
 		;
-	}});
+	}
+});

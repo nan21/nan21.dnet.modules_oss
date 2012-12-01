@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetDs" ,{
+
+Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -48,7 +49,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -115,10 +117,5 @@ Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetDsFilter" ,{
 		{name:"residualValue_To",type:"float", useNull:true},
 		{name:"uuid", type:"string"},
 		{name:"withDepreciation", type:"boolean", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.fi.asset.ds.param.AssetDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

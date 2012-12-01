@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"birthDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -24,7 +25,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"birthDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -52,10 +54,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDsFilter" 
 		{name:"relationshipId_From",type:"int", useNull:true},
 		{name:"relationshipId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.employee.ds.param.EmployeeContactDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

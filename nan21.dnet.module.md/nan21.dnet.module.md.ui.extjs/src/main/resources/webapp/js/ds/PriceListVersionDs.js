@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -28,7 +29,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs" ,{
 		{field: "validFrom", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]});
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -58,6 +60,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDsFilter"
 		{name:"validFrom_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT}
 	]
 });
+
 Ext.define("net.nan21.dnet.module.md.mm.price.ds.param.PriceListVersionDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 

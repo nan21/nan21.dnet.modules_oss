@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset", {
 
 	recordModel: "net.nan21.dnet.module.fi.asset.ds.model.AssetDs",
 	filterModel: "net.nan21.dnet.module.fi.asset.ds.model.AssetDsFilter",
-	paramModel: "net.nan21.dnet.module.fi.asset.ds.param.AssetDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -58,7 +58,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$Filter", {
 			.addChildrenTo("col2", ["org", "category", "productCode"])
 			.addChildrenTo("col3", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -90,7 +91,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$List", {
 			.addNumberColumn({ name:"categoryId", dataIndex:"categoryId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"productId", dataIndex:"productId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -136,7 +138,8 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$Edit", {
 			.addChildrenTo("col2", ["category", "productCode", "productName"])
 			.addChildrenTo("col3", ["notes"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditDeprec ================= */
@@ -222,4 +225,5 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$EditDeprec", {
 		var r = this._getController_().getRecord();		 
 				this._setFieldsEnabledState_(["periodPercenatge","periodValue" ], r);
 	}
+
 });

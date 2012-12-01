@@ -55,6 +55,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountPaymentProposal", {
 		});
 		this.setParamValue("unAllocatedAmount",this.getParamValue("receivedAmount") - u);
 	}
+
 });
 
 
@@ -98,7 +99,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountPaymentProposal$Fil
 			.addChildrenTo("col1", ["businessPartner", "currency", "receivedAmount", "unAllocatedAmount"])
 			.addChildrenTo("col2", ["paymentMethod", "dueDate", "dueAmount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -147,4 +149,5 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountPaymentProposal$Edi
 		r.set("remainingAmount", r.get("outstandingAmount") - r.get("currentPayment"));
 		this._controller_.updateUnusedAmount();
 	}
+
 });

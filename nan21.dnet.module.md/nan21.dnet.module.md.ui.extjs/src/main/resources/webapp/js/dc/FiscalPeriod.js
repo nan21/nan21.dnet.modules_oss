@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod", {
 
 	recordModel: "net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs",
 	filterModel: "net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.period.ds.param.FiscalPeriodDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$Filter", {
 			.addChildrenTo("col2", ["year", "type"])
 			.addChildrenTo("col3", ["posting", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -75,8 +76,7 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$FilterCtx", {
 			.addBooleanField({ name:"posting", dataIndex:"posting", anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 		;
-	},
-
+	}
 });
 
 
@@ -99,7 +99,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$List", {
 			.addBooleanColumn({ name:"posting", dataIndex:"posting"})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -133,7 +134,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$EditList", {
 			.addBooleanColumn({name:"posting", dataIndex:"posting"})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -161,7 +163,8 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$CtxEditList", {
 			.addBooleanColumn({name:"posting", dataIndex:"posting"})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -204,4 +207,5 @@ Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod$Edit", {
 			.addChildrenTo("col2", ["year", "startDate", "endDate", "type"])
 			.addChildrenTo("col3", ["posting", "active"])
 		;
-	}});
+	}
+});

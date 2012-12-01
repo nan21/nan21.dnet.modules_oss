@@ -4,10 +4,14 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
 	<changeSet author="nan21" id="1">
-		<modifyColumn tableName="SD_PYMNT_AMNT">
-			<column name="TXAMOUNT_ID" type="bigint(19)">
-				<constraints nullable="true"/>
-			</column>
-		</modifyColumn>
+		<dropNotNullConstraint tableName="SD_PYMNT_AMNT" columnName="TXAMOUNT_ID"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="2">
+		<addUniqueConstraint constraintName="UK_SD_INV1" tableName="SD_INV" columnNames="CLIENTID, CODE"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="3">
+		<addUniqueConstraint constraintName="UK_SD_ORD1" tableName="SD_ORD" columnNames="CLIENTID, CODE"/>
 	</changeSet>
 </databaseChangeLog>

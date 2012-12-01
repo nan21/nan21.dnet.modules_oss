@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountOverview", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -75,7 +76,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountOverview$Filter", {
 			.addChildrenTo("col2", ["dueAmount", "payedAmount", "outstandingAmount"])
 			.addChildrenTo("col3", ["paymentMethod", "dueDate"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -104,4 +106,5 @@ Ext.define("net.nan21.dnet.module.sd.invoice.dc.SalesTxAmountOverview$List", {
 			.addNumberColumn({ name:"orderId", dataIndex:"orderId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"paymentMethodId", dataIndex:"paymentMethodId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

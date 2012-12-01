@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -25,7 +26,8 @@ Ext.define("net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -46,10 +48,5 @@ Ext.define("net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDsFilter" ,{
 		{name:"modifiedBy", type:"string"},
 		{name:"name", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.time.ds.param.AbsenceTypeDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.OpportunityPriority", {
 
 	recordModel: "net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityPriorityDs",
 	filterModel: "net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityPriorityDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.opportunity.ds.param.OpportunityPriorityDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.OpportunityPriority$Filter",
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -61,4 +62,5 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.OpportunityPriority$EditList
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

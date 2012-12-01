@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent", {
 
 	recordModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDs",
 	filterModel: "net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDsFilter",
-	paramModel: "net.nan21.dnet.module.md.activity.ds.param.MyCalendarEventDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -58,7 +58,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$Filter", {
 			.addChildrenTo("col1", ["subject", "eventType", "statusName", "priorityName", "bpartnerCode", "createdBy", "notes", "location", "url", "reminder"])
 			.addChildrenTo("col2", ["subject", "eventType", "statusName", "priorityName", "bpartnerCode", "createdBy", "notes", "location", "url", "reminder"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -78,7 +79,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$List", {
 			.addTextColumn({ name:"priorityName", dataIndex:"priorityName", width:120})
 			.addTextColumn({ name:"reminder", dataIndex:"reminder", width:100})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Create ================= */
@@ -103,7 +105,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$Create", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["eventType"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditCall ================= */
@@ -153,7 +156,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$EditCall", {
 			.addChildrenTo("col2", ["statusName", "priorityName", "contact"])
 			.addChildrenTo("row3", ["notes"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditMeeting ================= */
@@ -206,7 +210,8 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$EditMeeting", {
 			.addChildrenTo("col3", ["location"])
 			.addChildrenTo("row3", ["notes"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditTask ================= */
@@ -249,4 +254,5 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$EditTask", {
 			.addChildrenTo("col2", ["statusName", "priorityName"])
 			.addChildrenTo("row3", ["notes"])
 		;
-	}});
+	}
+});

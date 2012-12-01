@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -64,7 +65,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Filter", {
 			.addChildrenTo("col3", ["storable", "active", "showInCatalog"])
 			.addChildrenTo("col4", ["attributeSet", "productCategory", "productCategoryId"])
 		;
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterPG ================= */
@@ -100,8 +102,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$FilterPG", {
 						{lovField:"id", dsParam: "productCategoryId"} 
 					]}})
 		;
-	},
-
+	}
 });
 
 
@@ -139,7 +140,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$List", {
 			.addTextColumn({ name:"iconUrl", dataIndex:"iconUrl", hidden:true, width:100})
 			.addTextColumn({ name:"imageUrl", dataIndex:"imageUrl", hidden:true, width:100})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -200,7 +202,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$EditList", {
 			.addTextColumn({name:"imageUrl", dataIndex:"imageUrl", hidden:true, width:100,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -274,7 +277,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$Edit", {
 			.addChildrenTo("col3", ["active", "showInCatalog", "iconUrl", "imageUrl"])
 			.addChildrenTo("col4", ["productCategory"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditPG ================= */
@@ -334,6 +338,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.TestProduct$EditPG", {
 			.addTextField({ name:"iconUrl", dataIndex:"iconUrl", anchor:"-20"})
 			.addTextField({ name:"imageUrl", dataIndex:"imageUrl", anchor:"-20"})
 		;
-	},
-
+	}
 });

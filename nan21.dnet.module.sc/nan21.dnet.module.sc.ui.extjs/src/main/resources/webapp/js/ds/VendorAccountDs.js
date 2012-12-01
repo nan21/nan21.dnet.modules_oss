@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sc.account.ds.model.VendorAccountDs" ,{
+
+Ext.define("net.nan21.dnet.module.sc.account.ds.model.VendorAccountDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"analiticSegment", type:"string"},
@@ -31,7 +32,8 @@ Ext.define("net.nan21.dnet.module.sc.account.ds.model.VendorAccountDs" ,{
 		{name:"vendorGroupId", type:"int", useNull:true},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sc.account.ds.model.VendorAccountDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sc.account.ds.model.VendorAccountDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"analiticSegment", type:"string"},
@@ -72,10 +74,5 @@ Ext.define("net.nan21.dnet.module.sc.account.ds.model.VendorAccountDsFilter" ,{
 		{name:"vendorGroupId", type:"int", useNull:true},
 		{name:"vendorGroupId_From",type:"int", useNull:true},
 		{name:"vendorGroupId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.sc.account.ds.param.VendorAccountDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

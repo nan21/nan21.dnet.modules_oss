@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -26,7 +27,8 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -58,10 +60,5 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDsFilter" ,{
 		{name:"salesAccountId_To",type:"int", useNull:true},
 		{name:"salesAccountName", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.bp.ds.param.CustomerGroupAcctDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

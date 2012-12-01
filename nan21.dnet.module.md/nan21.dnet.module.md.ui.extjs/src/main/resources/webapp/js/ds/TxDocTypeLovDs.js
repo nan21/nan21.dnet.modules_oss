@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -13,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDs" ,{
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -21,10 +23,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDsFilter" ,{
 		{name:"description", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.base.tx.ds.param.TxDocTypeLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

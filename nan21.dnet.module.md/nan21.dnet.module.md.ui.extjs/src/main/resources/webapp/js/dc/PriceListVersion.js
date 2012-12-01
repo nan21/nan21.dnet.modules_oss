@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +48,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion$Filter", {
 			.addChildrenTo("col1", ["name", "priceList"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -69,7 +71,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion$CtxEditList", 
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"priceListId", dataIndex:"priceListId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -96,7 +99,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"priceListId", dataIndex:"priceListId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CtxView ================= */
@@ -127,7 +131,8 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion$CtxView", {
 			.addChildrenTo("col1", ["name", "priceList"])
 			.addChildrenTo("col2", ["validFrom", "currency"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CopyProductsFromCategory ================= */
@@ -153,4 +158,5 @@ Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion$CopyProductsFr
 		this._getBuilder_()
 			.addChildrenTo("main", ["productCategory"])
 		;
-	}});
+	}
+});

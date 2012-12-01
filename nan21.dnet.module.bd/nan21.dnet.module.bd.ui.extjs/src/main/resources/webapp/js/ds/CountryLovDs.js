@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CountryLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CountryLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -12,17 +13,13 @@ Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CountryLovDs" ,{
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
 	]});
-Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CountryLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.bd.geo.ds.model.CountryLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
 		{name:"code", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.bd.geo.ds.param.CountryLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

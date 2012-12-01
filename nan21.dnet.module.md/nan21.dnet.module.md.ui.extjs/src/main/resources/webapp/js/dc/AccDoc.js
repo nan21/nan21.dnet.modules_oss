@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDoc", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccDocDs",
 	filterModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccDocDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.acc.ds.param.AccDocDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -91,7 +91,8 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDoc$Filter", {
 			.addChildrenTo("col3", ["docDate", "docAmount"])
 			.addChildrenTo("col4", ["dbAmount", "crAmount", "difference"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -122,4 +123,5 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccDoc$List", {
 			.addNumberColumn({ name:"bpartnerId", dataIndex:"bpartnerId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"periodId", dataIndex:"periodId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

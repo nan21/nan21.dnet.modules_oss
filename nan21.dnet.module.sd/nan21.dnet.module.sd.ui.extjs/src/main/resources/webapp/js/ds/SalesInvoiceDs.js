@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDs" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"billToContact", type:"string"},
@@ -52,7 +53,8 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDs" ,{
 	validations: [
 		{field: "docDate", type: 'presence'}
 	]});
-Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"billToContact", type:"string"},
@@ -129,6 +131,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDsFilter" ,{
 		{name:"uuid", type:"string"}
 	]
 });
+
 Ext.define("net.nan21.dnet.module.sd.invoice.ds.param.SalesInvoiceDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 

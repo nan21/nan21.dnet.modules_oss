@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs" ,{
+
+Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -44,7 +45,8 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs"
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"confirmed", type:"boolean", useNull:true},
@@ -114,10 +116,5 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDsF
 		{name:"uomId_From",type:"int", useNull:true},
 		{name:"uomId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.sc.order.ds.param.PurchaseOrderItemOverviewDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

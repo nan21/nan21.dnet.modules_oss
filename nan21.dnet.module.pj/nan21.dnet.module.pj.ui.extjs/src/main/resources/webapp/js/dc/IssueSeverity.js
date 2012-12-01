@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.pj.base.dc.IssueSeverity", {
 
 	recordModel: "net.nan21.dnet.module.pj.base.ds.model.IssueSeverityDs",
 	filterModel: "net.nan21.dnet.module.pj.base.ds.model.IssueSeverityDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.base.ds.param.IssueSeverityDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.pj.base.dc.IssueSeverity$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -61,4 +62,5 @@ Ext.define("net.nan21.dnet.module.pj.base.dc.IssueSeverity$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

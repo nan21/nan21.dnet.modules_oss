@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobParam", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobParamDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobParamDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysJobParamDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxList ================= */
@@ -34,4 +34,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobParam$CtxList", {
 			.addTextColumn({name:"dataType", dataIndex:"dataType", width:150,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

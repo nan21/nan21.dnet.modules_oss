@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.contact.dc.CommunicationChannelType", {
 
 	recordModel: "net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelTypeDs",
 	filterModel: "net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.contact.ds.param.CommunicationChannelTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -46,7 +46,8 @@ Ext.define("net.nan21.dnet.module.bd.contact.dc.CommunicationChannelType$Filter"
 			.addChildrenTo("col1", ["name", "type"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -66,4 +67,5 @@ Ext.define("net.nan21.dnet.module.bd.contact.dc.CommunicationChannelType$EditLis
 					editor:{xtype:"combo", mode: 'local', selectOnFocus:true, allowBlank:false, triggerAction:'all', forceSelection:true, store:[ "email", "messenger", "phone", "url", "other"]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

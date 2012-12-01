@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -26,7 +27,8 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDs" ,{
 		{name:"vendorGroupId", type:"int", useNull:true},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -58,10 +60,5 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDsFilter" ,{
 		{name:"vendorGroupId", type:"int", useNull:true},
 		{name:"vendorGroupId_From",type:"int", useNull:true},
 		{name:"vendorGroupId_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.bp.ds.param.VendorGroupAcctDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

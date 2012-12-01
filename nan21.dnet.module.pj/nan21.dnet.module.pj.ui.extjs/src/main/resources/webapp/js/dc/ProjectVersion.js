@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectVersion", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -55,7 +56,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectVersion$Filter", {
 			.addChildrenTo("col1", ["project", "name", "active"])
 			.addChildrenTo("col2", ["planDate", "releaseDate"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -86,7 +88,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectVersion$EditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"projectId", dataIndex:"projectId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -112,4 +115,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectVersion$CtxEditList", {
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"projectId", dataIndex:"projectId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

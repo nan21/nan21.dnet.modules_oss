@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct", {
 
 	recordModel: "net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs",
 	filterModel: "net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDsFilter",
-	paramModel: "net.nan21.dnet.module.md.org.ds.param.FinancialAccountAcctDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct$Filter", {
 			.addChildrenTo("col1", ["financialAccount", "accSchema"])
 			.addChildrenTo("col2", ["depositAccount", "withdrawalAccount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -88,4 +89,5 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccountAcct$CtxEditList", {
 			.addNumberColumn({name:"depositAccountId", dataIndex:"depositAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"withdrawalAccountId", dataIndex:"withdrawalAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

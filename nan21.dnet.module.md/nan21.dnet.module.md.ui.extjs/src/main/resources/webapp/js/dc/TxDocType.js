@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocType", {
 
 	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs",
 	filterModel: "net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.md.base.tx.ds.param.TxDocTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -50,7 +50,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocType$Filter", {
 			.addChildrenTo("col1", ["name", "active"])
 			.addChildrenTo("col2", ["category", "journal"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -75,4 +76,5 @@ Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocType$EditList", {
 						]}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectMember", {
 
 	recordModel: "net.nan21.dnet.module.pj.md.ds.model.ProjectMemberDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.ProjectMemberDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.md.ds.param.ProjectMemberDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +44,8 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectMember$Filter", {
 			.addChildrenTo("col1", ["project"])
 			.addChildrenTo("col2", ["role", "member"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -71,4 +72,5 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.ProjectMember$CtxEditList", {
 			.addNumberColumn({name:"roleId", dataIndex:"roleId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"memberId", dataIndex:"memberId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

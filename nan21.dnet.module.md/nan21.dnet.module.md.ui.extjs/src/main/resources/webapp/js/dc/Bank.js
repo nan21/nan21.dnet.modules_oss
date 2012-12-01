@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Bank", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.BankDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.BankDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.BankDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -45,7 +45,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Bank$Filter", {
 			.addChildrenTo("col1", ["name", "code"])
 			.addChildrenTo("col2", ["swiftCode", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -67,4 +68,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.Bank$EditList", {
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

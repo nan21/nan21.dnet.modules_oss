@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.job.ds.model.JobDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.job.ds.model.JobDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -28,7 +29,8 @@ Ext.define("net.nan21.dnet.module.hr.job.ds.model.JobDs" ,{
 	validations: [
 		{field: "name", type: 'presence'}
 	]});
-Ext.define("net.nan21.dnet.module.hr.job.ds.model.JobDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.job.ds.model.JobDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -57,10 +59,5 @@ Ext.define("net.nan21.dnet.module.hr.job.ds.model.JobDsFilter" ,{
 		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"validTo_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"validTo_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.job.ds.param.JobDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

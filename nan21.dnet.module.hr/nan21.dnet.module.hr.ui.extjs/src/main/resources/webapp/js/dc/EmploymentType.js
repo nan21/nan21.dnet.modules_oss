@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmploymentType", {
 
 	recordModel: "net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeDs",
 	filterModel: "net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.employee.ds.param.EmploymentTypeDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmploymentType$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -59,4 +60,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.EmploymentType$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

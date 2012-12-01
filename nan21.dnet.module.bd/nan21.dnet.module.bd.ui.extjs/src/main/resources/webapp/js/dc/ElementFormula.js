@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula", {
 
 	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDs",
 	filterModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementFormulaDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.elem.ds.param.ElementFormulaDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -64,7 +64,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$Filter", {
 			.addChildrenTo("col1", ["engine", "element"])
 			.addChildrenTo("col2", ["validFrom", "validTo", "sequenceNo"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -101,7 +102,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$EditList", {
 			.addTextColumn({name:"expression", dataIndex:"expression", hidden:true, width:200})
 			.addNumberColumn({name:"elementId", dataIndex:"elementId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -120,7 +122,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$CtxEditList", {
 				,editor:{xtype:"datefield", format: Dnet.DATE_FORMAT }
 			})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -135,7 +138,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$CtxList", {
 			.addDateColumn({ name:"validFrom", dataIndex:"validFrom", format: Dnet.DATE_FORMAT})
 			.addDateColumn({ name:"validTo", dataIndex:"validTo", format: Dnet.DATE_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditExpression ================= */
@@ -158,7 +162,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$EditExpression", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["expression"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: ViewExpression ================= */
@@ -181,4 +186,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementFormula$ViewExpression", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["expression"])
 		;
-	}});
+	}
+});

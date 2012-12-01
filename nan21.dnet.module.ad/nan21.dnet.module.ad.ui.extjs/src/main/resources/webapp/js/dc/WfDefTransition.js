@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefTransition", {
 
 	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs",
 	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.WfDefTransitionDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -38,7 +38,8 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefTransition$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["source", "target"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -60,4 +61,5 @@ Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefTransition$CtxEditList", {
 			.addTextColumn({name:"target", dataIndex:"target", width:120,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

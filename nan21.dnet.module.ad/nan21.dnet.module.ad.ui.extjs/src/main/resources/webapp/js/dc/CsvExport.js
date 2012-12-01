@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExport", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -44,7 +45,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExport$Filter", {
 			.addChildrenTo("col1", ["name", "dataSource"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -65,7 +67,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExport$EditList", {
 					editor:{xtype:"ad_system_lovs_SysDataSource", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Clone ================= */
@@ -88,4 +91,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExport$Clone", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["cloneName"])
 		;
-	}});
+	}
+});

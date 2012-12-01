@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -59,7 +60,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User$Filter", {
 			.addChildrenTo("col2", ["accountType", "withRole", "inGroup"])
 			.addChildrenTo("col3", ["active", "locked"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -81,7 +83,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User$List", {
 			.addTextColumn({ name:"dateFormat", dataIndex:"dateFormat", hidden:true, width:120})
 			.addTextColumn({ name:"notes", dataIndex:"notes", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -127,7 +130,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User$Edit", {
 			.addChildrenTo("col1", ["name", "code", "accountType", "notes", "active", "locked"])
 			.addChildrenTo("col2", ["dateFormat", "decimalSeparator", "thousandSeparator"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: ChangePasswordForm ================= */
@@ -151,4 +155,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User$ChangePasswordForm", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["newPassword", "confirmPassword"])
 		;
-	}});
+	}
+});

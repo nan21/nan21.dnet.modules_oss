@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Menu", {
 
 	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.MenuDs",
 	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.MenuDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.usr.ds.param.MenuDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Menu$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["name", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -63,4 +64,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.Menu$EditList", {
 			.addTextColumn({name:"description", dataIndex:"description", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});

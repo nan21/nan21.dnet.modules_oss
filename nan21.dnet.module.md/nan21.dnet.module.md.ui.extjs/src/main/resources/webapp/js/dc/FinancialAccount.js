@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccount", {
 
 	recordModel: "net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs",
 	filterModel: "net.nan21.dnet.module.md.org.ds.model.FinancialAccountDsFilter",
-	paramModel: "net.nan21.dnet.module.md.org.ds.param.FinancialAccountDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -61,7 +61,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccount$Filter", {
 			.addChildrenTo("col2", ["org", "journal"])
 			.addChildrenTo("col3", ["currency", "analiticSegment", "active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -84,7 +85,8 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccount$List", {
 			.addNumberColumn({ name:"orgId", dataIndex:"orgId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -132,4 +134,5 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccount$Edit", {
 			.addChildrenTo("col2", ["org", "type", "currency", "journal"])
 			.addChildrenTo("col3", ["analiticSegment", "active"])
 		;
-	}});
+	}
+});

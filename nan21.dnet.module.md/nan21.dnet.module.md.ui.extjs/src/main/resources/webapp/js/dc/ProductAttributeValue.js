@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue", {
 
 	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAttributeValueDs",
 	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAttributeValueDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.prod.ds.param.ProductAttributeValueDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -57,7 +57,8 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue$Filter", {
 			.addChildrenTo("col1", ["productCode", "attribute", "category"])
 			.addChildrenTo("col2", ["dataType", "value"])
 		;
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -81,8 +82,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue$FilterCtx"
 						{lovField:"id", dsField: "categoryId"} 
 					]}})
 		;
-	},
-
+	}
 });
 
 
@@ -133,6 +133,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue$CtxEditLis
 		
 			    return ed
 	}
+
 });
 
 
@@ -184,4 +185,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAttributeValue$EditList",
 		
 			    return ed;
 	}
+
 });

@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDs" ,{
+
+Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -13,7 +14,8 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDs" ,{
 		{name:"name", type:"string"},
 		{name:"sequenceNo", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -23,10 +25,5 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDsFilter" ,{
 		{name:"sequenceNo", type:"int", useNull:true},
 		{name:"sequenceNo_From",type:"int", useNull:true},
 		{name:"sequenceNo_To",type:"int", useNull:true}
-	]
-});
-Ext.define("net.nan21.dnet.module.pj.base.ds.param.IssueSeverityLovDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

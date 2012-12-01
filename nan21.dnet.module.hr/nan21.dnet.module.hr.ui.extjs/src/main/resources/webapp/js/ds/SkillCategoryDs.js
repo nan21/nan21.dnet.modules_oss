@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
@@ -23,7 +24,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean", useNull:true},
@@ -40,10 +42,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDsFilter" ,{
 		{name:"modifiedBy", type:"string"},
 		{name:"name", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.hr.skill.ds.param.SkillCategoryDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

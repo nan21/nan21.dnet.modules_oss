@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDsEvent", {
 
 	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysDsEventDs",
 	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysDsEventDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.system.ds.param.SysDsEventDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -28,4 +28,5 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysDsEvent$CtxList", {
 		this._getBuilder_()
 			.addTextColumn({ name:"name", dataIndex:"name", width:100})
 			.addDefaults();
-	}});
+	}
+});

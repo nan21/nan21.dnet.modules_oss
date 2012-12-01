@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs" ,{
+
+Ext.define("net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"clientId", type:"int", useNull:true},
@@ -22,7 +23,8 @@ Ext.define("net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
@@ -46,10 +48,5 @@ Ext.define("net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDsFilter" ,{
 		{name:"reportId_To",type:"int", useNull:true},
 		{name:"toolbarKey", type:"string"},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.ad.report.ds.param.DsReportUsageDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

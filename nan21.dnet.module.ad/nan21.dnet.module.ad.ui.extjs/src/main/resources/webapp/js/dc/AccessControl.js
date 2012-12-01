@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AccessControl", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +48,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AccessControl$Filter", {
 			.addChildrenTo("col1", ["name", "withRole"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -66,7 +68,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AccessControl$EditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: CopyRulesFromSource ================= */
@@ -95,4 +98,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.AccessControl$CopyRulesFromSource", 
 		this._getBuilder_()
 			.addChildrenTo("main", ["copyFrom", "skipDs", "skipAsgn", "resetRules"])
 		;
-	}});
+	}
+});

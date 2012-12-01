@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchyItem", {
 
 	recordModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemDs",
 	filterModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.org.ds.param.OrganizationHierarchyItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -43,4 +43,5 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchyItem$CtxEditLis
 			.addNumberColumn({name:"hierarchyId", dataIndex:"hierarchyId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"orgId", dataIndex:"orgId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

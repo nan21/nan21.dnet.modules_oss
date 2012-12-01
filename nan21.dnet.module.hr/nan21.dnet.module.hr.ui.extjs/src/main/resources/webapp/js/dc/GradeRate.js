@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.GradeRate", {
 
 	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.GradeRateDs",
 	filterModel: "net.nan21.dnet.module.hr.grade.ds.model.GradeRateDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.grade.ds.param.GradeRateDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -47,7 +47,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.GradeRate$Filter", {
 			.addChildrenTo("col1", ["name", "currencyCode"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -65,7 +66,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.GradeRate$List", {
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addTextColumn({ name:"description", dataIndex:"description", width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -99,4 +101,5 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.GradeRate$Edit", {
 			.addChildrenTo("col1", ["name", "currencyCode", "active"])
 			.addChildrenTo("col2", ["description"])
 		;
-	}});
+	}
+});

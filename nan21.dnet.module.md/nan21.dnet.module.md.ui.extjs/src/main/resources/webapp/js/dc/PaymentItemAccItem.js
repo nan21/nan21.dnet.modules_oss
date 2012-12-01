@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItemAccItem", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDs",
 	filterModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.fin.ds.param.PaymentItemAccItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -41,7 +41,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItemAccItem$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["accItem"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -58,7 +59,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItemAccItem$List", {
 			.addNumberColumn({ name:"paymentId", dataIndex:"paymentId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"accItemId", dataIndex:"accItemId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditListAccItem ================= */
@@ -80,4 +82,5 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItemAccItem$CtxEditListAcc
 			.addNumberColumn({name:"paymentId", dataIndex:"paymentId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"accItemId", dataIndex:"accItemId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

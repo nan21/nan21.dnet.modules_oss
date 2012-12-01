@@ -14,7 +14,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItemCtx", {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -32,8 +33,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItemCtx$Filter", {
 			.addTextField({ name:"fileName", dataIndex:"fileName", anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 		;
-	},
-
+	}
 });
 
 
@@ -58,4 +58,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItemCtx$CtxEditList", {
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});

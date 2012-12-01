@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.EmployeeSkill", {
 
 	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.EmployeeSkillDs",
 	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.EmployeeSkillDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.skill.ds.param.EmployeeSkillDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -40,7 +40,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.EmployeeSkill$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["createdBy", "modifiedBy", "skill", "skillLevel"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -69,4 +70,5 @@ Ext.define("net.nan21.dnet.module.hr.skill.dc.EmployeeSkill$EditList", {
 							{lovField:"ratingScaleId",dsField: "ratingScaleId"} 
 						]}})
 			.addDefaults();
-	}});
+	}
+});

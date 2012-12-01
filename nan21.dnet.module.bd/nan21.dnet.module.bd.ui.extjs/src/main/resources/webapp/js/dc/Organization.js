@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Organization", {
 
 	recordModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationDs",
 	filterModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.org.ds.param.OrganizationDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Organization$Filter", {
 			.addChildrenTo("col2", ["type", "calendar"])
 			.addChildrenTo("col3", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -75,7 +76,8 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Organization$List", {
 			.addBooleanColumn({ name:"valid", dataIndex:"valid"})
 			.addTextColumn({ name:"notes", dataIndex:"notes", hidden:true, width:200})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -115,4 +117,5 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Organization$Edit", {
 			.addChildrenTo("col1", ["name", "code", "notes"])
 			.addChildrenTo("col2", ["type", "calendar", "active", "valid"])
 		;
-	}});
+	}
+});

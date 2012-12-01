@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDs" ,{
+
+Ext.define("net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"account", type:"string"},
@@ -46,7 +47,8 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDs" ,{
 		{field: "name", type: 'presence'}
 	]
 });
-Ext.define("net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"account", type:"string"},
@@ -108,10 +110,5 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDsFilter" ,
 		{name:"statusId_From",type:"int", useNull:true},
 		{name:"statusId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.sd.opportunity.ds.param.OpportunityDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.VendorGroupAcct", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.VendorGroupAcctDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.VendorGroupAcct$Filter", {
 			.addChildrenTo("col1", ["vendorGroup", "accSchema"])
 			.addChildrenTo("col2", ["purchaseAccount", "prepayAccount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -90,7 +91,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.VendorGroupAcct$EditList", {
 			.addNumberColumn({name:"purchaseAccountId", dataIndex:"purchaseAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"prepayAccountId", dataIndex:"prepayAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -124,4 +126,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.VendorGroupAcct$CtxEditList", {
 			.addNumberColumn({name:"purchaseAccountId", dataIndex:"purchaseAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"prepayAccountId", dataIndex:"prepayAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

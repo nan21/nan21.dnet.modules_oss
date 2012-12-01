@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesDelivery", {
 
 	recordModel: "net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs",
 	filterModel: "net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDsFilter",
-	paramModel: "net.nan21.dnet.module.sd.order.ds.param.SalesDeliveryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -74,7 +74,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesDelivery$Filter", {
 			.addChildrenTo("col3", ["docDate", "eventDate"])
 			.addChildrenTo("col4", ["confirmed", "posted"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -102,7 +103,8 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesDelivery$List", {
 			.addNumberColumn({ name:"customerId", dataIndex:"customerId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"carrierId", dataIndex:"carrierId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -172,4 +174,5 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesDelivery$Edit", {
 					 	this._applyStates_(dc.record);
 					 } , this )
 	}
+
 });

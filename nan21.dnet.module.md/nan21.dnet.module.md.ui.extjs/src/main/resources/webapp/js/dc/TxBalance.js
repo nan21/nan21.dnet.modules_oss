@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.TxBalance", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDs",
 	filterModel: "net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.fin.ds.param.TxBalanceDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.TxBalance$Filter", {
 			.addChildrenTo("col1", ["businessPartner", "organization", "currency"])
 			.addChildrenTo("col2", ["amount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -68,7 +69,8 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.TxBalance$List", {
 			.addNumberColumn({ name:"organizationId", dataIndex:"organizationId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= GRID: CtxList ================= */
@@ -87,4 +89,5 @@ Ext.define("net.nan21.dnet.module.md.tx.fin.dc.TxBalance$CtxList", {
 			.addNumberColumn({ name:"organizationId", dataIndex:"organizationId", hidden:true, width:70, format:"0"})
 			.addNumberColumn({ name:"currencyId", dataIndex:"currencyId", hidden:true, width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

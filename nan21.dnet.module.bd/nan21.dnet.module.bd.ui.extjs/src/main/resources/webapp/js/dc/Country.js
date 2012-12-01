@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country", {
 
 	recordModel: "net.nan21.dnet.module.bd.geo.ds.model.CountryDs",
 	filterModel: "net.nan21.dnet.module.bd.geo.ds.model.CountryDsFilter",
-	paramModel: "net.nan21.dnet.module.bd.geo.ds.param.CountryDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -48,7 +48,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$Filter", {
 			.addChildrenTo("col2", ["iso2", "iso3"])
 			.addChildrenTo("col3", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterPG ================= */
@@ -66,8 +67,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$FilterPG", {
 			.addTextField({ name:"iso2", dataIndex:"iso2", anchor:"-20", maxLength:2, caseRestriction:"uppercase"})
 			.addTextField({ name:"iso3", dataIndex:"iso3", anchor:"-20", maxLength:3, caseRestriction:"uppercase"})
 		;
-	},
-
+	}
 });
 
 
@@ -88,7 +88,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$List", {
 			.addBooleanColumn({ name:"hasRegions", dataIndex:"hasRegions"})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -114,7 +115,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$EditList", {
 			.addTextColumn({name:"notes", dataIndex:"notes", width:200,
 					editor:{xtype:"textfield", selectOnFocus:true}})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -152,14 +154,15 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$Edit", {
 			.addChildrenTo("col1", ["name", "code", "notes"])
 			.addChildrenTo("col2", ["iso2", "iso3", "active", "hasRegions"])
 		;
-	}});
+	}
+});
 
 
 /* ================= EDITOR: EditPG ================= */
 
 
 Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$EditPG", {
-	extend: "dnet.core.dc.AbstractDcvFilterPropGrid",
+	extend: "dnet.core.dc.AbstractDcvEditPropGrid",
 	alias: "widget.bd_geo_dc_Country$EditPG",
 
 	_defineElements_: function() {
@@ -178,6 +181,5 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$EditPG", {
 			.addTextField({ name:"createdBy", _sharedLabel_:true, dataIndex:"createdBy", disabled:true , anchor:"-20", maxLength:32})
 			.addTextField({ name:"modifiedBy", _sharedLabel_:true, dataIndex:"modifiedBy", disabled:true , anchor:"-20", maxLength:32})
 		;
-	},
-
+	}
 });

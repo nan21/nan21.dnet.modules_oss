@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CustomerGroupAcct", {
 
 	recordModel: "net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDs",
 	filterModel: "net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDsFilter",
-	paramModel: "net.nan21.dnet.module.md.bp.ds.param.CustomerGroupAcctDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -54,7 +54,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CustomerGroupAcct$Filter", {
 			.addChildrenTo("col1", ["accSchema"])
 			.addChildrenTo("col2", ["custGroup", "accSchema", "salesAccount", "prepayAccount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditList ================= */
@@ -90,7 +91,8 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CustomerGroupAcct$EditList", {
 			.addNumberColumn({name:"salesAccountId", dataIndex:"salesAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"prepayAccountId", dataIndex:"prepayAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: CtxEditList ================= */
@@ -124,4 +126,5 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.CustomerGroupAcct$CtxEditList", {
 			.addNumberColumn({name:"salesAccountId", dataIndex:"salesAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addNumberColumn({name:"prepayAccountId", dataIndex:"prepayAccountId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});

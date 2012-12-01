@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note", {
 
 	recordModel: "net.nan21.dnet.module.ad.data.ds.model.NoteDs",
 	filterModel: "net.nan21.dnet.module.ad.data.ds.model.NoteDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.data.ds.param.NoteDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -40,7 +40,8 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$Filter", {
 			.addChildrenTo("main", ["col1"])
 			.addChildrenTo("col1", ["modifiedBy"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -58,7 +59,8 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$List", {
 			.addTextColumn({ name:"createdBy", dataIndex:"createdBy", width:100})
 			.addDateColumn({ name:"createdAt", dataIndex:"createdAt", format: Dnet.DATETIME_FORMAT})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= EDITOR: Edit ================= */
@@ -88,4 +90,5 @@ Ext.define("net.nan21.dnet.module.ad.data.dc.Note$Edit", {
 	_note_enableFn_: function(dc,record) {
 		return record.phantom || ( record.data.createdBy == getApplication().getSession().user.code );
 	}
+
 });

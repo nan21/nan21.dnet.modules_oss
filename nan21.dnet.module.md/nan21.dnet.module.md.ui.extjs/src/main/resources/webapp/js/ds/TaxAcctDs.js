@@ -1,9 +1,10 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
-Ext.define("net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDs" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -29,7 +30,8 @@ Ext.define("net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDs" ,{
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	]});
-Ext.define("net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDsFilter" ,{
+
+Ext.define("net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDsFilter", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"accSchema", type:"string"},
@@ -66,10 +68,5 @@ Ext.define("net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDsFilter" ,{
 		{name:"taxId_From",type:"int", useNull:true},
 		{name:"taxId_To",type:"int", useNull:true},
 		{name:"uuid", type:"string"}
-	]
-});
-Ext.define("net.nan21.dnet.module.md.base.tax.ds.param.TaxAcctDsParam", {
-	extend: 'Ext.data.Model',
-	fields: [ 
 	]
 });

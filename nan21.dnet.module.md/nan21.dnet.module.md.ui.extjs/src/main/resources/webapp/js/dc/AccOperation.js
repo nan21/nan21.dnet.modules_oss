@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccOperation", {
 
 	recordModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccOperationDs",
 	filterModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccOperationDsFilter",
-	paramModel: "net.nan21.dnet.module.md.tx.acc.ds.param.AccOperationDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -74,7 +74,8 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccOperation$Filter", {
 			.addChildrenTo("col2", ["docNo", "dbAccount", "crAccount"])
 			.addChildrenTo("col3", ["eventDate", "dbAmount", "crAmount"])
 		;
-	}});
+	}
+});
 
 
 /* ================= GRID: List ================= */
@@ -97,4 +98,5 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccOperation$List", {
 			.addNumberColumn({ name:"dbAmount", dataIndex:"dbAmount", width:80, decimals:2})
 			.addNumberColumn({ name:"crAmount", dataIndex:"crAmount", width:80, decimals:2})
 			.addDefaults();
-	}});
+	}
+});

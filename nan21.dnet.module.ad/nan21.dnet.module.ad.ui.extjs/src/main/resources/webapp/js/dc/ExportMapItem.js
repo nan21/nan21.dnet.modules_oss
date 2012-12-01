@@ -8,13 +8,13 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMapItem", {
 
 	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportMapItemDs",
 	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportMapItemDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.impex.ds.param.ExportMapItemDsParam",
 
 	constructor : function(config) {
         config = config || {};
         Ext.apply(this, config);
         this.callParent();
-	}});
+	}
+});
 
 
 /* ================= FILTER: Filter ================= */
@@ -45,7 +45,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMapItem$Filter", {
 			.addChildrenTo("col1", ["exportMap", "csvExport"])
 			.addChildrenTo("col2", ["active"])
 		;
-	}});
+	}
+});
 
 
 /* ================= FILTER: FilterCtx ================= */
@@ -62,8 +63,7 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMapItem$FilterCtx", {
 			.addTextField({ name:"fileName", dataIndex:"fileName", anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 		;
-	},
-
+	}
 });
 
 
@@ -91,7 +91,8 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMapItem$EditListCtxExpMap", 
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"csvExportId", dataIndex:"csvExportId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
 
 
 /* ================= E-GRID: EditListCtxCsvExp ================= */
@@ -118,4 +119,5 @@ Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMapItem$EditListCtxCsvExp", 
 			.addBooleanColumn({name:"active", dataIndex:"active"})
 			.addNumberColumn({name:"csvExportId", dataIndex:"csvExportId", hidden:true, align:"right", width:70, format:"0"})
 			.addDefaults();
-	}});
+	}
+});
