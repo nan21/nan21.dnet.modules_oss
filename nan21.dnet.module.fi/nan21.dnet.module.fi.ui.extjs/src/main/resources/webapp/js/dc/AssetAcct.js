@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.fi.asset.dc.AssetAcct", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDs",
-	filterModel: "net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDs"
 });
 
 

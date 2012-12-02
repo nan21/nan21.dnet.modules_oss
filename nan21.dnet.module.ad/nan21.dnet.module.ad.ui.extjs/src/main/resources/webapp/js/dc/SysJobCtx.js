@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.system.dc.SysJobCtx", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs",
-	filterModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs"
 });
 
 

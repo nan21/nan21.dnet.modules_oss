@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.report.dc.DsReportParam", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.report.ds.model.DsReportParamDs",
-	filterModel: "net.nan21.dnet.module.ad.report.ds.model.DsReportParamDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.report.ds.model.DsReportParamDs"
 });
 
 

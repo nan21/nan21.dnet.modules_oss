@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.org.dc.StockLocatorType", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDs",
-	filterModel: "net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDs"
 });
 
 

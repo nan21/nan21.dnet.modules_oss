@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.base.tx.dc.TxDocType", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs",
-	filterModel: "net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs"
 });
 
 

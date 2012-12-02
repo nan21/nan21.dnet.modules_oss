@@ -12,14 +12,5 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryLovDs", {
 		{name:"code", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"code", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"}
 	]
 });

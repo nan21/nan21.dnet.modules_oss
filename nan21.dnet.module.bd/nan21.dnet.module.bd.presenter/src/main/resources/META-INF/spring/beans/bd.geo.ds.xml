@@ -12,7 +12,7 @@
 	<bean id="CountryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.CountryDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Country"/>
 	</bean>
 	
@@ -41,7 +41,7 @@
 	<bean id="RegionDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.RegionDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Region"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.geo.ds.converter.RegionDsConv" />
 	</bean>
@@ -71,7 +71,7 @@
 	<bean id="CityDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CityDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.CityDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.CityDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.City"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.geo.ds.converter.CityDsConv" />
 	</bean>
@@ -86,7 +86,7 @@
 	<bean id="LocationDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.filter.LocationDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Location"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.geo.ds.converter.LocationDsConv" />
 	</bean>

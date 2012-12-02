@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.hr.job.dc.Job", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.job.ds.model.JobDs",
-	filterModel: "net.nan21.dnet.module.hr.job.ds.model.JobDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.hr.job.ds.model.JobDs"
 });
 
 

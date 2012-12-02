@@ -6,18 +6,17 @@
 package net.nan21.dnet.module.ad.usr.ds.qb;
 
 import net.nan21.dnet.core.presenter.action.QueryBuilderWithJpql;
-import net.nan21.dnet.module.ad.usr.ds.filter.UserDsFilter;
 import net.nan21.dnet.module.ad.usr.ds.model.UserDs;
-import net.nan21.dnet.module.ad.usr.ds.param.UserDsParam;
+import net.nan21.dnet.module.ad.usr.ds.model.UserDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
 public class UserDsQueryBuilder
 		extends
-			QueryBuilderWithJpql<UserDs, UserDsFilter, UserDsParam> {
+			QueryBuilderWithJpql<UserDs, UserDs, UserDsParam> {
 
 	@Override
-	public void setFilter(UserDsFilter filter) {
+	public void setFilter(UserDs filter) {
 		this.filter = filter;
 	}
 

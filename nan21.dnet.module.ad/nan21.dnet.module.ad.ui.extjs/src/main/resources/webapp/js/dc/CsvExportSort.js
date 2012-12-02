@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExportSort", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportSortDs",
-	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportSortDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportSortDs"
 });
 
 

@@ -6,15 +6,8 @@
 Ext.define("net.nan21.dnet.module.pj.md.dc.Issue", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueDs",
-	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueDsFilter",
-	paramModel: "net.nan21.dnet.module.pj.md.ds.param.IssueDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	paramModel: "net.nan21.dnet.module.pj.md.ds.model.IssueDsParam",
+	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueDs"
 });
 
 

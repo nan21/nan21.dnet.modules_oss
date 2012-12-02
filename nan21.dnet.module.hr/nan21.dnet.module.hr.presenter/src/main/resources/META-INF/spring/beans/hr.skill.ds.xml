@@ -12,7 +12,7 @@
 	<bean id="RatingScaleDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingScaleDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.RatingScaleDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingScaleDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingScale"/>
 	</bean>
 	
@@ -41,7 +41,7 @@
 	<bean id="RatingLevelDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingLevelDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.RatingLevelDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingLevelDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.skill.ds.converter.RatingLevelDsConv" />
 	</bean>
@@ -71,7 +71,7 @@
 	<bean id="SkillCategoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.SkillCategoryDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillCategory"/>
 	</bean>
 	
@@ -100,7 +100,7 @@
 	<bean id="SkillTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.SkillTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillType"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.skill.ds.converter.SkillTypeDsConv" />
 	</bean>
@@ -130,7 +130,7 @@
 	<bean id="SkillDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.SkillDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Skill"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.skill.ds.converter.SkillDsConv" />
 	</bean>
@@ -160,7 +160,7 @@
 	<bean id="QualificationDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.QualificationDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Qualification"/>
 	</bean>
 	
@@ -189,7 +189,7 @@
 	<bean id="QualificationSkillDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.QualificationSkillDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.QualificationSkill"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.skill.ds.converter.QualificationSkillDsConv" />
 	</bean>
@@ -204,7 +204,7 @@
 	<bean id="JobSkillDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.JobSkillDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.JobSkill"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.skill.ds.converter.JobSkillDsConv" />
 	</bean>
@@ -219,7 +219,7 @@
 	<bean id="PositionSkillDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.PositionSkillDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.PositionSkill"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.skill.ds.converter.PositionSkillDsConv" />
 	</bean>
@@ -234,7 +234,7 @@
 	<bean id="EmployeeSkillDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.EmployeeSkillDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.filter.EmployeeSkillDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.skill.ds.model.EmployeeSkillDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.EmployeeSkill"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.skill.ds.converter.EmployeeSkillDsConv" />
 	</bean>

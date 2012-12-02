@@ -12,9 +12,9 @@
 	<bean id="ClientDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.module.ad.client.ds.serviceext.ClientDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.client.ds.model.ClientDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.client.ds.filter.ClientDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.ad.client.ds.model.ClientDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.client.domain.entity.Client"/>
-		<property name="paramClass" value="net.nan21.dnet.module.ad.client.ds.param.ClientDsParam"/>
+		<property name="paramClass" value="net.nan21.dnet.module.ad.client.ds.model.ClientDsParam"/>
 	</bean>
 	
 	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >

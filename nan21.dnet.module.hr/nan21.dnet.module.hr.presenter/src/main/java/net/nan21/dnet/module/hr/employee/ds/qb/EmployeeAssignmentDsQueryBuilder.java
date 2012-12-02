@@ -6,18 +6,17 @@
 package net.nan21.dnet.module.hr.employee.ds.qb;
 
 import net.nan21.dnet.core.presenter.action.QueryBuilderWithJpql;
-import net.nan21.dnet.module.hr.employee.ds.filter.EmployeeAssignmentDsFilter;
 import net.nan21.dnet.module.hr.employee.ds.model.EmployeeAssignmentDs;
-import net.nan21.dnet.module.hr.employee.ds.param.EmployeeAssignmentDsParam;
+import net.nan21.dnet.module.hr.employee.ds.model.EmployeeAssignmentDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
 public class EmployeeAssignmentDsQueryBuilder
 		extends
-			QueryBuilderWithJpql<EmployeeAssignmentDs, EmployeeAssignmentDsFilter, EmployeeAssignmentDsParam> {
+			QueryBuilderWithJpql<EmployeeAssignmentDs, EmployeeAssignmentDs, EmployeeAssignmentDsParam> {
 
 	@Override
-	public void setFilter(EmployeeAssignmentDsFilter filter) {
+	public void setFilter(EmployeeAssignmentDs filter) {
 		this.filter = filter;
 	}
 

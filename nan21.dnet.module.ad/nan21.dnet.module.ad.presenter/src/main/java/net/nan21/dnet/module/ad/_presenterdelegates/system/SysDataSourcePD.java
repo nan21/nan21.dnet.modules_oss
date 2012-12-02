@@ -15,12 +15,12 @@ import net.nan21.dnet.module.ad.system.business.service.ISysDataSourceService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsField;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsService;
-import net.nan21.dnet.module.ad.system.ds.filter.SysDataSourceDsFilter;
+import net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDs;
 
 public class SysDataSourcePD extends AbstractPresenterBaseService {
 
 	@SuppressWarnings("unchecked")
-	public void synchronizeCatalog(SysDataSourceDsFilter ds) throws Exception {
+	public void synchronizeCatalog(SysDataSourceDs filter) throws Exception {
 		List<IDsDefinitions> list = (List<IDsDefinitions>) this
 				.getApplicationContext().getBean("osgiDsDefinitions");
 		ISysDataSourceService srv = (ISysDataSourceService) this

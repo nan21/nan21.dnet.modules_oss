@@ -12,7 +12,7 @@
 	<bean id="CourseCategoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.CourseCategoryDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseCategory"/>
 	</bean>
 	
@@ -41,7 +41,7 @@
 	<bean id="CourseTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.CourseTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseType"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.CourseTypeDsConv" />
 	</bean>
@@ -71,7 +71,7 @@
 	<bean id="CourseDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.CourseDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.Course"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.CourseDsConv" />
 	</bean>
@@ -101,7 +101,7 @@
 	<bean id="JobCourseDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.JobCourseDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.JobCourseDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.JobCourseDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.JobCourse"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.JobCourseDsConv" />
 	</bean>
@@ -116,7 +116,7 @@
 	<bean id="PositionCourseDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.filter.PositionCourseDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.PositionCourse"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.PositionCourseDsConv" />
 	</bean>

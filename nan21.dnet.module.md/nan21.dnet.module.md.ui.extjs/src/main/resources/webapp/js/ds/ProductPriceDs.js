@@ -24,42 +24,10 @@ Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceDs", {
 		{name:"uomId", type:"int", useNull:true},
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
-	]});
-
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdBy", type:"string"},
-		{name:"entityFQN", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedBy", type:"string"},
-		{name:"price", type:"float", useNull:true},
-		{name:"price_From",type:"float", useNull:true},
-		{name:"price_To",type:"float", useNull:true},
-		{name:"priceListVersion", type:"string"},
-		{name:"priceListVersionId", type:"int", useNull:true},
-		{name:"priceListVersionId_From",type:"int", useNull:true},
-		{name:"priceListVersionId_To",type:"int", useNull:true},
-		{name:"product", type:"string"},
-		{name:"productId", type:"int", useNull:true},
-		{name:"productId_From",type:"int", useNull:true},
-		{name:"productId_To",type:"int", useNull:true},
-		{name:"productName", type:"string"},
-		{name:"uom", type:"string"},
-		{name:"uomId", type:"int", useNull:true},
-		{name:"uomId_From",type:"int", useNull:true},
-		{name:"uomId_To",type:"int", useNull:true},
-		{name:"uuid", type:"string"}
 	]
 });
 
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.param.ProductPriceDsParam", {
+Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceDsParam", {
 	extend: 'Ext.data.Model',
 	fields: [ 
 		{name:"productCategory", type:"string"},

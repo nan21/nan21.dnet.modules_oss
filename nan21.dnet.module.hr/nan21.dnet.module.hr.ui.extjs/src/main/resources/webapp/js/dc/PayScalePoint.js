@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.hr.grade.dc.PayScalePoint", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDs",
-	filterModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDs"
 });
 
 

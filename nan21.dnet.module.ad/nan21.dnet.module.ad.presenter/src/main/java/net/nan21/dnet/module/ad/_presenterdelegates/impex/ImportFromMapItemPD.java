@@ -6,9 +6,8 @@ import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.impex.business.service.IImportMapItemService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
-import net.nan21.dnet.module.ad.impex.ds.filter.ImportMapItemDsFilter;
 import net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDs;
-import net.nan21.dnet.module.ad.impex.ds.param.ImportMapItemDsParam;
+import net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDsParam;
 
 public class ImportFromMapItemPD extends AbstractPresenterBaseService {
 
@@ -50,7 +49,7 @@ public class ImportFromMapItemPD extends AbstractPresenterBaseService {
 		}
 	}
 
-	public void importFile(ImportMapItemDsFilter ds, ImportMapItemDsParam params)
+	public void importFile(ImportMapItemDs filter, ImportMapItemDsParam params)
 			throws Exception {
 		String fileName = params.getImportFileLocation();
 		String dsName = params.getImportDataSource() + "Ds";

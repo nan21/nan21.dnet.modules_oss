@@ -8,19 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.api.session.Session;
 
-import net.nan21.dnet.module.ad.data.ds.filter.AttachmentDsFilter;
 import net.nan21.dnet.module.ad.data.ds.model.AttachmentDs;
-
-import net.nan21.dnet.module.md.mm.prod.ds.filter.ProductAttributeValueDsFilter;
-import net.nan21.dnet.module.md.mm.prod.ds.filter.ProductCategoryDsFilter;
-import net.nan21.dnet.module.md.mm.prod.ds.filter.ProductDsFilter;
-import net.nan21.dnet.module.md.mm.prod.ds.filter.ProductManufacturerDsFilter;
 
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductAttributeValueDs;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryDs;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs;
-import net.nan21.dnet.module.md.mm.prod.ds.param.ProductDsParam;
+import net.nan21.dnet.module.md.mm.prod.ds.model.ProductDsParam;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,11 +26,11 @@ public class ProductController extends AbstractWebController {
 
 	protected List<ProductCategoryDs> getCategories() throws Exception {
 
-		IDsService<ProductCategoryDs, ProductCategoryDsFilter, ?> service = this
+		IDsService<ProductCategoryDs, ProductCategoryDs, ?> service = this
 				.getServiceLocator().findDsService(
 						ProductCategoryDs.class.getSimpleName());
 
-		ProductCategoryDsFilter filter = new ProductCategoryDsFilter();
+		ProductCategoryDs filter = new ProductCategoryDs();
 		filter.setActive(true);
 		filter.setClientId(Session.user.get().getClientId());
 
@@ -45,11 +39,11 @@ public class ProductController extends AbstractWebController {
 
 	protected List<ProductManufacturerDs> getManufacturers() throws Exception {
 
-		IDsService<ProductManufacturerDs, ProductManufacturerDsFilter, ?> service = this
+		IDsService<ProductManufacturerDs, ProductManufacturerDs, ?> service = this
 				.getServiceLocator().findDsService(
 						ProductManufacturerDs.class.getSimpleName());
 
-		ProductManufacturerDsFilter filter = new ProductManufacturerDsFilter();
+		ProductManufacturerDs filter = new ProductManufacturerDs();
 		filter.setActive(true);
 		filter.setClientId(Session.user.get().getClientId());
 
@@ -98,10 +92,10 @@ public class ProductController extends AbstractWebController {
 		try {
 			this.prepareRequest(request, response);
 
-			IDsService<ProductDs, ProductDsFilter, ProductDsParam> service = this
+			IDsService<ProductDs, ProductDs, ProductDsParam> service = this
 					.getServiceLocator().findDsService(ProductDs.class);
 
-			ProductDsFilter filter = new ProductDsFilter();
+			ProductDs filter = new ProductDs();
 			filter.setActive(true);
 			filter.setShowInCatalog(true);
 			filter.setClientId(Session.user.get().getClientId());
@@ -150,7 +144,7 @@ public class ProductController extends AbstractWebController {
 		try {
 			this.prepareRequest(request, response);
 
-			IDsService<ProductDs, ProductDsFilter, ?> productService = this
+			IDsService<ProductDs, ProductDs, ?> productService = this
 					.getServiceLocator().findDsService(ProductDs.class);
 			ProductDs product = (ProductDs) productService.findById(request
 					.getParameter("id"));
@@ -161,11 +155,11 @@ public class ProductController extends AbstractWebController {
 
 			// attributes
 
-			IDsService<ProductAttributeValueDs, ProductAttributeValueDsFilter, Object> attributesService = this
+			IDsService<ProductAttributeValueDs, ProductAttributeValueDs, Object> attributesService = this
 					.getServiceLocator().findDsService(
 							ProductAttributeValueDs.class);
 
-			ProductAttributeValueDsFilter attributesFilter = new ProductAttributeValueDsFilter();
+			ProductAttributeValueDs attributesFilter = new ProductAttributeValueDs();
 			attributesFilter.setProductId(product.getId());
 
 			List<ProductAttributeValueDs> attributes = attributesService
@@ -179,9 +173,9 @@ public class ProductController extends AbstractWebController {
 
 			// attachments
 
-			IDsService<AttachmentDs, AttachmentDsFilter, ?> attachmentsService = this
+			IDsService<AttachmentDs, AttachmentDs, ?> attachmentsService = this
 					.getServiceLocator().findDsService(AttachmentDs.class);
-			AttachmentDsFilter attachmentsFilter = new AttachmentDsFilter();
+			AttachmentDs attachmentsFilter = new AttachmentDs();
 			attachmentsFilter.setTargetType(product.getEntityFQN());
 			attachmentsFilter.setTargetUuid(product.getUuid());
 			List<AttachmentDs> attachments = attachmentsService.find(

@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.sd.opportunity.dc.OpportunityResultReason", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityResultReasonDs",
-	filterModel: "net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityResultReasonDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityResultReasonDs"
 });
 
 

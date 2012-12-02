@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.usr.dc.MenuItem", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.MenuItemDs",
-	filterModel: "net.nan21.dnet.module.ad.usr.ds.model.MenuItemDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.usr.ds.model.MenuItemDs"
 });
 
 

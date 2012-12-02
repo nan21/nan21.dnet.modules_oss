@@ -13,15 +13,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLovDs", {
 		{name:"id", type:"int", useNull:true},
 		{name:"lastName", type:"string"},
 		{name:"name", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"code", type:"string"},
-		{name:"firstName", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"lastName", type:"string"},
-		{name:"name", type:"string"}
 	]
 });

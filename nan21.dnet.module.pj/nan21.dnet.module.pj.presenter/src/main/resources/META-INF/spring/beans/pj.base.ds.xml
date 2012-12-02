@@ -12,7 +12,7 @@
 	<bean id="ProjectCategoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectCategoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.ProjectCategoryDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.ProjectCategory"/>
 	</bean>
 	
@@ -41,7 +41,7 @@
 	<bean id="ProjectRoleDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectRoleDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.ProjectRoleDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectRoleDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.ProjectRole"/>
 	</bean>
 	
@@ -70,7 +70,7 @@
 	<bean id="ProjectTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.ProjectTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.ProjectType"/>
 		<property name="converterClass" value="net.nan21.dnet.module.pj.base.ds.converter.ProjectTypeDsConv" />
 	</bean>
@@ -100,7 +100,7 @@
 	<bean id="ProjectStatusDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectStatusDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.ProjectStatusDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectStatusDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.ProjectStatus"/>
 	</bean>
 	
@@ -114,7 +114,7 @@
 	<bean id="ProjectStatusLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectStatusLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.ProjectStatusLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.ProjectStatusLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.ProjectStatus"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -129,7 +129,7 @@
 	<bean id="IssueCategoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueCategoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueCategoryDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueCategory"/>
 	</bean>
 	
@@ -143,7 +143,7 @@
 	<bean id="IssueCategoryLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueCategoryLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueCategoryLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueCategory"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -158,7 +158,7 @@
 	<bean id="IssueTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueType"/>
 		<property name="converterClass" value="net.nan21.dnet.module.pj.base.ds.converter.IssueTypeDsConv" />
 	</bean>
@@ -173,7 +173,7 @@
 	<bean id="IssueTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTypeLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -188,7 +188,7 @@
 	<bean id="IssueStatusDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueStatusDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueStatusDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueStatusDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueStatus"/>
 	</bean>
 	
@@ -202,7 +202,7 @@
 	<bean id="IssueStatusLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueStatusLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueStatusLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueStatusLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueStatus"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -217,7 +217,7 @@
 	<bean id="IssueSeverityDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueSeverityDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueSeverityDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueSeverityDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueSeverity"/>
 	</bean>
 	
@@ -231,7 +231,7 @@
 	<bean id="IssueSeverityLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueSeverityLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueSeverity"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -246,7 +246,7 @@
 	<bean id="IssuePriorityDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssuePriorityDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssuePriority"/>
 	</bean>
 	
@@ -260,7 +260,7 @@
 	<bean id="IssuePriorityLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssuePriorityLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssuePriorityLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssuePriorityLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssuePriority"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -275,7 +275,7 @@
 	<bean id="IssueResolutionDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueResolutionDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueResolutionDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueResolutionDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueResolution"/>
 	</bean>
 	
@@ -289,7 +289,7 @@
 	<bean id="IssueResolutionLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueResolutionLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueResolutionLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueResolutionLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueResolution"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -304,7 +304,7 @@
 	<bean id="IssueTextTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTextTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTextTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTextTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueTextType"/>
 	</bean>
 	
@@ -318,7 +318,7 @@
 	<bean id="IssueTextTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTextTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTextTypeLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTextTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueTextType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -333,7 +333,7 @@
 	<bean id="IssueLinkTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueLinkTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueLinkTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueLinkTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueLinkType"/>
 	</bean>
 	
@@ -347,7 +347,7 @@
 	<bean id="IssueLinkTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueLinkTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueLinkTypeLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueLinkTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueLinkType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -362,7 +362,7 @@
 	<bean id="IssueTaskTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTaskTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueTaskType"/>
 	</bean>
 	
@@ -376,7 +376,7 @@
 	<bean id="IssueTaskTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTaskTypeLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueTaskType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -391,7 +391,7 @@
 	<bean id="IssueTaskStatusDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskStatusDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTaskStatusDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskStatusDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueTaskStatus"/>
 	</bean>
 	
@@ -405,7 +405,7 @@
 	<bean id="IssueTaskStatusLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskStatusLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.filter.IssueTaskStatusLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.pj.base.ds.model.IssueTaskStatusLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.pj.base.domain.entity.IssueTaskStatus"/>
 		<property name="readOnly" value="true" />
 	</bean>

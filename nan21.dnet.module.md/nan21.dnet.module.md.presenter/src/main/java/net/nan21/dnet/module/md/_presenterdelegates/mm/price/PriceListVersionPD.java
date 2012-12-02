@@ -8,7 +8,7 @@ import net.nan21.dnet.module.md.mm.price.business.service.IProductPriceService;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 import net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice;
 import net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs;
-import net.nan21.dnet.module.md.mm.price.ds.param.PriceListVersionDsParam;
+import net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDsParam;
 import net.nan21.dnet.module.md.mm.prod.business.service.IProductService;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 

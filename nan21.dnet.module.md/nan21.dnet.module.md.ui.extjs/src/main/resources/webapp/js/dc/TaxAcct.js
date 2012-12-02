@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.base.tax.dc.TaxAcct", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDs",
-	filterModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.base.tax.ds.model.TaxAcctDs"
 });
 
 

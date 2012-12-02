@@ -6,14 +6,8 @@
 Ext.define("net.nan21.dnet.module.md.tx.acc.dc.AccOperation", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccOperationDs",
 	filterModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccOperationDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.tx.acc.ds.model.AccOperationDs"
 });
 
 

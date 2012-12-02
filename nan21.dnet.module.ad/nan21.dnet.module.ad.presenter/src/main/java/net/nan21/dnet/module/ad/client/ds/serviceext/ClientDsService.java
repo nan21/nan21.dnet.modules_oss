@@ -14,18 +14,16 @@ import net.nan21.dnet.core.presenter.service.ds.AbstractEntityDsService;
 import net.nan21.dnet.module.ad.client.business.service.IClientService;
 import net.nan21.dnet.module.ad.client.domain.entity.Client;
 
-import net.nan21.dnet.module.ad.client.ds.filter.ClientDsFilter;
 import net.nan21.dnet.module.ad.client.ds.model.ClientDs;
-import net.nan21.dnet.module.ad.client.ds.param.ClientDsParam;
+import net.nan21.dnet.module.ad.client.ds.model.ClientDsParam;
 
-public class ClientDsService
-		extends
-		AbstractEntityDsService<ClientDs, ClientDsFilter, ClientDsParam, Client>
-		implements IDsService<ClientDs, ClientDsFilter, ClientDsParam> {
+public class ClientDsService extends
+		AbstractEntityDsService<ClientDs, ClientDs, ClientDsParam, Client>
+		implements IDsService<ClientDs, ClientDs, ClientDsParam> {
 
 	@Override
 	public List<ClientDs> find(
-			IQueryBuilder<ClientDs, ClientDsFilter, ClientDsParam> builder)
+			IQueryBuilder<ClientDs, ClientDs, ClientDsParam> builder)
 			throws Exception {
 		if (!Session.params.get().isSystemClient()) {
 			builder.getFilter().setId(Session.user.get().getClientId());

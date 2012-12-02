@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.activity.dc.CalendarEventStatus", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventStatusDs",
-	filterModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventStatusDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventStatusDs"
 });
 
 

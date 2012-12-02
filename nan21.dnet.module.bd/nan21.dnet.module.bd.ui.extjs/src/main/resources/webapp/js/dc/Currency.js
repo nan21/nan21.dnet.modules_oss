@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.bd.currency.dc.Currency", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.bd.currency.ds.model.CurrencyDs",
-	filterModel: "net.nan21.dnet.module.bd.currency.ds.model.CurrencyDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.bd.currency.ds.model.CurrencyDs"
 });
 
 

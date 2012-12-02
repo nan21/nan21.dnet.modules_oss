@@ -6,14 +6,8 @@
 Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseReception", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDs",
 	filterModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDs"
 });
 
 
@@ -159,17 +153,17 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseReception$Edit", {
 	
 	_beforeApplyStates_: function(record) {
 		
-					if (record.get("confirmed") || record.get("posted") ) {
-						this._disableAllFields_();
-						return false;
-					}
+		if (record.get("confirmed") || record.get("posted") ) {
+			this._disableAllFields_();
+			return false;
+		}
 	},
 	
 	_endDefine_: function() {
 		
-					this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
-					 	this._applyStates_(dc.record);
-					 } , this )
+		this._controller_.on("afterDoServiceSuccess", function(dc, response, name, options) {
+		 	this._applyStates_(dc.record);
+		 } , this )
 	}
 
 });

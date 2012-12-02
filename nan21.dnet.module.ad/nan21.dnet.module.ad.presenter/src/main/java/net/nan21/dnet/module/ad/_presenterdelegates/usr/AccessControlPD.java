@@ -10,7 +10,7 @@ import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 import net.nan21.dnet.module.ad.usr.domain.entity.AsgnAccessControl;
 import net.nan21.dnet.module.ad.usr.domain.entity.DsAccessControl;
 import net.nan21.dnet.module.ad.usr.ds.model.AccessControlDs;
-import net.nan21.dnet.module.ad.usr.ds.param.AccessControlDsParam;
+import net.nan21.dnet.module.ad.usr.ds.model.AccessControlDsParam;
 
 public class AccessControlPD extends AbstractPresenterBaseService {
 

@@ -7,8 +7,6 @@ import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.core.api.ui.extjs.IExtensionContentProvider;
 import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportParam;
-import net.nan21.dnet.module.ad.report.ds.filter.DsReportParamRtDsFilter;
-import net.nan21.dnet.module.ad.report.ds.filter.DsReportUsageRtDsFilter;
 import net.nan21.dnet.module.ad.report.ds.model.DsReportParamRtDs;
 import net.nan21.dnet.module.ad.report.ds.model.DsReportUsageRtDs;
 
@@ -28,15 +26,15 @@ public class ExtensionProviderReports extends AbstractPresenterBaseService
 
 		// TODO: for production mode use a cache
 
-		IDsService<DsReportUsageRtDs, DsReportUsageRtDsFilter, ?> srv = this
+		IDsService<DsReportUsageRtDs, DsReportUsageRtDs, ?> srv = this
 				.findDsService("DsReportUsageRtDs");
-		DsReportUsageRtDsFilter filter = new DsReportUsageRtDsFilter();
+		DsReportUsageRtDs filter = new DsReportUsageRtDs();
 		filter.setFrameName(targetFrame);
 		List<DsReportUsageRtDs> reports = srv.find(filter);
 
-		IDsService<DsReportParamRtDs, DsReportParamRtDsFilter, ?> srvParam = this
+		IDsService<DsReportParamRtDs, DsReportParamRtDs, ?> srvParam = this
 				.findDsService("DsReportParamRtDs");
-		DsReportParamRtDsFilter filterParam = new DsReportParamRtDsFilter();
+		DsReportParamRtDs filterParam = new DsReportParamRtDs();
 
 		IEntityService<ReportParam> rpsrv = this
 				.findEntityService(ReportParam.class);

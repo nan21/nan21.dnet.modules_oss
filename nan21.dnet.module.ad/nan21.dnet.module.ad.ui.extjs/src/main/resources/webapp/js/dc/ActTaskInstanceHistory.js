@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstanceHistory", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDs",
-	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDs"
 });
 
 

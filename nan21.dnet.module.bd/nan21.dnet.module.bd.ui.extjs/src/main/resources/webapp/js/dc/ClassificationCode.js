@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.bd.standards.dc.ClassificationCode", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemDs",
-	filterModel: "net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemDs"
 });
 
 

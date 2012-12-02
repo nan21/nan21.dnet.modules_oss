@@ -14,18 +14,5 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderLovDs", {
 		{name:"id", type:"int", useNull:true},
 		{name:"supplier", type:"string"},
 		{name:"totalAmount", type:"float", useNull:true}
-	]});
-
-Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"code", type:"string"},
-		{name:"currency", type:"string"},
-		{name:"docNo", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"supplier", type:"string"},
-		{name:"totalAmount", type:"float", useNull:true},
-		{name:"totalAmount_From",type:"float", useNull:true},
-		{name:"totalAmount_To",type:"float", useNull:true}
 	]
 });

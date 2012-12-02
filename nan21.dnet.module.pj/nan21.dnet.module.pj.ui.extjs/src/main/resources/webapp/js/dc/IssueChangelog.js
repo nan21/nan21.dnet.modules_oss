@@ -6,14 +6,8 @@
 Ext.define("net.nan21.dnet.module.pj.md.dc.IssueChangelog", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueChangelogDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueChangelogDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueChangelogDs"
 });
 
 

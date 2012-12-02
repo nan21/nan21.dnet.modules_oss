@@ -6,18 +6,17 @@
 package net.nan21.dnet.module.ad.workflow.ds.qb;
 
 import net.nan21.dnet.core.presenter.action.QueryBuilderWithJpql;
-import net.nan21.dnet.module.ad.workflow.ds.filter.ActDeploymentDsFilter;
 import net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDs;
-import net.nan21.dnet.module.ad.workflow.ds.param.ActDeploymentDsParam;
+import net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
 public class ActDeploymentDsQueryBuilder
 		extends
-			QueryBuilderWithJpql<ActDeploymentDs, ActDeploymentDsFilter, ActDeploymentDsParam> {
+			QueryBuilderWithJpql<ActDeploymentDs, ActDeploymentDs, ActDeploymentDsParam> {
 
 	@Override
-	public void setFilter(ActDeploymentDsFilter filter) {
+	public void setFilter(ActDeploymentDs filter) {
 		filter.setClientId(Session.user.get().getClientId());
 		this.filter = filter;
 	}

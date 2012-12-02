@@ -12,7 +12,7 @@
 	<bean id="CustomerAccountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.account.ds.model.CustomerAccountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.account.ds.filter.CustomerAccountDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.account.ds.model.CustomerAccountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpAccount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sd.account.ds.converter.CustomerAccountDsConv" />
 	</bean>

@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.hr.skill.dc.SkillCategory", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs",
-	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs"
 });
 
 

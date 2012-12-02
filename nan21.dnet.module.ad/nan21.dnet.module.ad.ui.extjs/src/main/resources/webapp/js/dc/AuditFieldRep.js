@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.system.dc.AuditFieldRep", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDs",
-	filterModel: "net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDs"
 });
 
 

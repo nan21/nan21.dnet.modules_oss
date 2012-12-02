@@ -12,7 +12,7 @@
 	<bean id="PaymentMethodDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.PaymentMethodDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.base.tx.ds.converter.PaymentMethodDsConv" />
 	</bean>
@@ -72,7 +72,7 @@
 	<bean id="PaymentTermDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.PaymentTermDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm"/>
 	</bean>
 	
@@ -101,7 +101,7 @@
 	<bean id="DeliveryMethodDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.DeliveryMethodDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod"/>
 	</bean>
 	
@@ -130,7 +130,7 @@
 	<bean id="TxDocTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.TxDocTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.base.tx.ds.converter.TxDocTypeDsConv" />
 	</bean>
@@ -280,7 +280,7 @@
 	<bean id="TxDocSequenceDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.filter.TxDocSequenceDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence"/>
 	</bean>
 	

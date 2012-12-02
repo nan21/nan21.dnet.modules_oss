@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.hr.skill.dc.PositionSkill", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs",
-	filterModel: "net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs"
 });
 
 

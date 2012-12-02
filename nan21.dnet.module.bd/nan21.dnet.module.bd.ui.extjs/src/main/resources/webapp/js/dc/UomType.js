@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.bd.uom.dc.UomType", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs",
-	filterModel: "net.nan21.dnet.module.bd.uom.ds.model.UomTypeDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs"
 });
 
 

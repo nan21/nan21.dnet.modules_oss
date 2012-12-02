@@ -6,18 +6,17 @@
 package net.nan21.dnet.module.pj.md.ds.qb;
 
 import net.nan21.dnet.core.presenter.action.QueryBuilderWithJpql;
-import net.nan21.dnet.module.pj.md.ds.filter.IssueDsFilter;
 import net.nan21.dnet.module.pj.md.ds.model.IssueDs;
-import net.nan21.dnet.module.pj.md.ds.param.IssueDsParam;
+import net.nan21.dnet.module.pj.md.ds.model.IssueDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
 public class IssueDsQueryBuilder
 		extends
-			QueryBuilderWithJpql<IssueDs, IssueDsFilter, IssueDsParam> {
+			QueryBuilderWithJpql<IssueDs, IssueDs, IssueDsParam> {
 
 	@Override
-	public void setFilter(IssueDsFilter filter) {
+	public void setFilter(IssueDs filter) {
 		this.filter = filter;
 	}
 

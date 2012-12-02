@@ -6,15 +6,8 @@
 Ext.define("net.nan21.dnet.module.md.mm.price.dc.PriceListVersion", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs",
-	filterModel: "net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDsFilter",
-	paramModel: "net.nan21.dnet.module.md.mm.price.ds.param.PriceListVersionDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	paramModel: "net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDsParam",
+	recordModel: "net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs"
 });
 
 

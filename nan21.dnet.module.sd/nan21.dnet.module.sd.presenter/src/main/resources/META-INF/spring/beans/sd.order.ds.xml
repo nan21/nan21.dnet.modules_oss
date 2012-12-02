@@ -12,9 +12,9 @@
 	<bean id="SalesOrderDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrder"/>
-		<property name="paramClass" value="net.nan21.dnet.module.sd.order.ds.param.SalesOrderDsParam"/>
+		<property name="paramClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDsParam"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sd.order.ds.converter.SalesOrderDsConv" />
 		<property name="rpcData" >
 			<map>
@@ -90,7 +90,7 @@
 	<bean id="SalesOrderItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderItemDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sd.order.ds.converter.SalesOrderItemDsConv" />
 		<property name="rpcData" >
@@ -120,7 +120,7 @@
 	<bean id="SalesOrderItemOverviewDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderItemOverviewDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -135,7 +135,7 @@
 	<bean id="SalesOrderItemTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderItemTaxDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItemTax"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -150,7 +150,7 @@
 	<bean id="SalesOrderTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesOrderTaxDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderTax"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -165,7 +165,7 @@
 	<bean id="SalesDeliveryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.filter.SalesDeliveryDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesInventoryTransaction"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sd.order.ds.converter.SalesDeliveryDsConv" />
 		<property name="rpcData" >

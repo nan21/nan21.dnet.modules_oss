@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportJobItem", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportJobItemDs",
-	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportJobItemDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportJobItemDs"
 });
 
 

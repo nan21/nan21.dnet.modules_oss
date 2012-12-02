@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.activity.dc.CalendarEventPriority", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventPriorityDs",
-	filterModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventPriorityDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.activity.ds.model.CalendarEventPriorityDs"
 });
 
 

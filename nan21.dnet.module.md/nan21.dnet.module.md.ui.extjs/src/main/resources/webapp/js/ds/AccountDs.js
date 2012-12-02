@@ -30,32 +30,5 @@ Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountDs", {
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-});
 
-Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"accSchema", type:"string"},
-		{name:"accSchemaId", type:"int", useNull:true},
-		{name:"accSchemaId_From",type:"int", useNull:true},
-		{name:"accSchemaId_To",type:"int", useNull:true},
-		{name:"active", type:"boolean", useNull:true},
-		{name:"code", type:"string"},
-		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdBy", type:"string"},
-		{name:"description", type:"string"},
-		{name:"entityFQN", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedBy", type:"string"},
-		{name:"name", type:"string"},
-		{name:"notes", type:"string"},
-		{name:"summary", type:"boolean", useNull:true},
-		{name:"type", type:"string"},
-		{name:"uuid", type:"string"}
-	]
 });

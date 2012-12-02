@@ -12,7 +12,7 @@
 	<bean id="CalendarDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.org.ds.model.CalendarDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.filter.CalendarDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.model.CalendarDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.org.domain.entity.Calendar"/>
 	</bean>
 	
@@ -41,7 +41,7 @@
 	<bean id="OrganizationTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.filter.OrganizationTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.org.domain.entity.OrganizationType"/>
 	</bean>
 	
@@ -70,7 +70,7 @@
 	<bean id="OrganizationDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.filter.OrganizationDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.org.domain.entity.Organization"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.org.ds.converter.OrganizationDsConv" />
 	</bean>
@@ -175,7 +175,7 @@
 	<bean id="OrganizationHierarchyDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.filter.OrganizationHierarchyDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchy"/>
 	</bean>
 	
@@ -189,7 +189,7 @@
 	<bean id="OrganizationHierarchyLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.filter.OrganizationHierarchyLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchy"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -204,7 +204,7 @@
 	<bean id="OrganizationHierarchyItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.filter.OrganizationHierarchyItemDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchyItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.org.ds.converter.OrganizationHierarchyItemDsConv" />
 	</bean>
@@ -219,7 +219,7 @@
 	<bean id="OrganizationHierarchyItemLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.filter.OrganizationHierarchyItemLovDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchyItem"/>
 		<property name="readOnly" value="true" />
 	</bean>

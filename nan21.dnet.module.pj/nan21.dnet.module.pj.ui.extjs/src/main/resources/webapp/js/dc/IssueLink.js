@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.pj.md.dc.IssueLink", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueLinkDs",
-	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueLinkDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueLinkDs"
 });
 
 

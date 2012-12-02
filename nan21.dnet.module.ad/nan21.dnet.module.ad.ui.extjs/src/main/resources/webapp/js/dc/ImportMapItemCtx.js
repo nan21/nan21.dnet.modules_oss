@@ -6,15 +6,8 @@
 Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMapItemCtx", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDs",
-	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.impex.ds.param.ImportMapItemDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	paramModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDsParam",
+	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDs"
 });
 
 

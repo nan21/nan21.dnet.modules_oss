@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.data.dc.AttachmentType", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs",
-	filterModel: "net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs"
 });
 
 

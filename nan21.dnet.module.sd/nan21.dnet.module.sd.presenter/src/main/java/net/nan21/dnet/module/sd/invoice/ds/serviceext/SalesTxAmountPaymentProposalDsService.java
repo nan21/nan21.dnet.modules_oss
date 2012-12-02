@@ -17,9 +17,9 @@ import net.nan21.dnet.module.sd.invoice.business.service.IPaymentInService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentIn;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentInAmount;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount;
-import net.nan21.dnet.module.sd.invoice.ds.filter.SalesTxAmountPaymentProposalDsFilter;
+import net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDsFilter;
 import net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDs;
-import net.nan21.dnet.module.sd.invoice.ds.param.SalesTxAmountPaymentProposalDsParam;
+import net.nan21.dnet.module.sd.invoice.ds.model.SalesTxAmountPaymentProposalDsParam;
 
 public class SalesTxAmountPaymentProposalDsService
 		extends

@@ -8,7 +8,6 @@ import net.nan21.dnet.core.api.ui.extjs.ExtensionFile;
 import net.nan21.dnet.core.api.ui.extjs.IExtensionProvider;
 import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 
-import net.nan21.dnet.module.ad.system.ds.filter.SysFrameExtensionDsFilter;
 import net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs;
 
 public class ExtensionProviderScriptFromDb extends AbstractPresenterBaseService
@@ -19,9 +18,9 @@ public class ExtensionProviderScriptFromDb extends AbstractPresenterBaseService
 
 		List<ExtensionFile> files = new ArrayList<ExtensionFile>();
 
-		IDsService<SysFrameExtensionDs, SysFrameExtensionDsFilter, ?> srv = this
+		IDsService<SysFrameExtensionDs, SysFrameExtensionDs, ?> srv = this
 				.findDsService("SysFrameExtensionDs");
-		SysFrameExtensionDsFilter filter = new SysFrameExtensionDsFilter();
+		SysFrameExtensionDs filter = new SysFrameExtensionDs();
 		filter.setFrameFQN(targetFrame);
 		filter.setActive(true);
 		List<SysFrameExtensionDs> extensions = srv.find(filter);

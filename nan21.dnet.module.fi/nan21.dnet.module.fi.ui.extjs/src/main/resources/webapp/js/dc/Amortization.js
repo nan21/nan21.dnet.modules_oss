@@ -6,14 +6,8 @@
 Ext.define("net.nan21.dnet.module.fi.asset.dc.Amortization", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs",
 	filterModel: "net.nan21.dnet.module.fi.asset.ds.model.AmortizationDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs"
 });
 
 

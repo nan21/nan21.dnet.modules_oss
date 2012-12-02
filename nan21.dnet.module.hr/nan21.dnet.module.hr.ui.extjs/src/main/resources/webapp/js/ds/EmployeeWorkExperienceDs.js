@@ -21,32 +21,5 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs"
 		{name:"toDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
-	]});
-
-Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdBy", type:"string"},
-		{name:"employeeId", type:"int", useNull:true},
-		{name:"employeeId_From",type:"int", useNull:true},
-		{name:"employeeId_To",type:"int", useNull:true},
-		{name:"entityFQN", type:"string"},
-		{name:"fromDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"fromDate_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"fromDate_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"id", type:"int", useNull:true},
-		{name:"institute", type:"string"},
-		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedBy", type:"string"},
-		{name:"notes", type:"string"},
-		{name:"toDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"toDate_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"toDate_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"uuid", type:"string"}
 	]
 });

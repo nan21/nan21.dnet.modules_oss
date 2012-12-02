@@ -1,0 +1,37 @@
+/* 
+ * DNet eBusiness Suite
+ * Copyright: Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
+ */
+package net.nan21.dnet.module.sc.order.ds.model;
+import java.util.Date;
+import net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs;
+
+/**
+ * Helper filter object to run query by example with range values.
+ *
+ */
+public class PurchaseOrderItemOverviewDsFilter
+		extends
+			PurchaseOrderItemOverviewDs {
+
+	private Date docDate_From;
+
+	private Date docDate_To;
+
+	public Date getDocDate_From() {
+		return this.docDate_From;
+	}
+
+	public Date getDocDate_To() {
+		return this.docDate_To;
+	}
+
+	public void setDocDate_From(Date docDate_From) {
+		this.docDate_From = docDate_From;
+	}
+
+	public void setDocDate_To(Date docDate_To) {
+		this.docDate_To = docDate_To;
+	}
+}

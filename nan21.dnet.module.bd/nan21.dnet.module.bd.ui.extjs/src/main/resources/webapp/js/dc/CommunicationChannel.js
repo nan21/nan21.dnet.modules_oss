@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.bd.contact.dc.CommunicationChannel", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelDs",
-	filterModel: "net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelDs"
 });
 
 

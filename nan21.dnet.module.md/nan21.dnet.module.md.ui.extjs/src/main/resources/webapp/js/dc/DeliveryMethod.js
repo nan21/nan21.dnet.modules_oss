@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.base.tx.dc.DeliveryMethod", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs",
-	filterModel: "net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs"
 });
 
 

@@ -6,7 +6,7 @@ import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportField;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportSort;
 import net.nan21.dnet.module.ad.impex.ds.model.CsvExportDs;
-import net.nan21.dnet.module.ad.impex.ds.param.CsvExportDsParam;
+import net.nan21.dnet.module.ad.impex.ds.model.CsvExportDsParam;
 
 public class ImpexUtilPD extends AbstractPresenterBaseService {
 
@@ -14,9 +14,11 @@ public class ImpexUtilPD extends AbstractPresenterBaseService {
 			throws Exception {
 		ICsvExportService srv = (ICsvExportService) this
 				.findEntityService(CsvExport.class);
-		CsvExport source = srv.getEntityManager().createQuery(
-				"  select e from " + CsvExport.class.getSimpleName()
-						+ " e where e.id = :id   ", CsvExport.class)
+		CsvExport source = srv
+				.getEntityManager()
+				.createQuery(
+						"  select e from " + CsvExport.class.getSimpleName()
+								+ " e where e.id = :id   ", CsvExport.class)
 				.setParameter("id", ds.getId()).getSingleResult();
 
 		CsvExport target = new CsvExport();

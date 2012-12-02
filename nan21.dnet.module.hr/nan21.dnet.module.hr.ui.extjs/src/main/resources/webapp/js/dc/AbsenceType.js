@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.hr.time.dc.AbsenceType", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs",
-	filterModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs"
 });
 
 

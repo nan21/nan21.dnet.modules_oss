@@ -6,18 +6,17 @@
 package net.nan21.dnet.module.md.mm.price.ds.qb;
 
 import net.nan21.dnet.core.presenter.action.QueryBuilderWithJpql;
-import net.nan21.dnet.module.md.mm.price.ds.filter.ProductPriceReportDsFilter;
 import net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceReportDs;
-import net.nan21.dnet.module.md.mm.price.ds.param.ProductPriceReportDsParam;
+import net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceReportDsParam;
 
 import net.nan21.dnet.core.api.session.Session;
 
 public class ProductPriceReportDsQueryBuilder
 		extends
-			QueryBuilderWithJpql<ProductPriceReportDs, ProductPriceReportDsFilter, ProductPriceReportDsParam> {
+			QueryBuilderWithJpql<ProductPriceReportDs, ProductPriceReportDs, ProductPriceReportDsParam> {
 
 	@Override
-	public void setFilter(ProductPriceReportDsFilter filter) {
+	public void setFilter(ProductPriceReportDs filter) {
 		this.filter = filter;
 	}
 

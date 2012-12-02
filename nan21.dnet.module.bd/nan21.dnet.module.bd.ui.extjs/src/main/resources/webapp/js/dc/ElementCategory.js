@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.bd.elem.dc.ElementCategory", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDs",
-	filterModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDs"
 });
 
 

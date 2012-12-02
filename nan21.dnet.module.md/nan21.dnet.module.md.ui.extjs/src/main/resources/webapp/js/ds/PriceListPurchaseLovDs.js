@@ -15,19 +15,5 @@ Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListPurchaseLovDs", 
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"},
 		{name:"salesList", type:"boolean"}
-	]});
-
-Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListPurchaseLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"currency", type:"string"},
-		{name:"currencyId", type:"int", useNull:true},
-		{name:"currencyId_From",type:"int", useNull:true},
-		{name:"currencyId_To",type:"int", useNull:true},
-		{name:"description", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"},
-		{name:"salesList", type:"boolean", useNull:true}
 	]
 });

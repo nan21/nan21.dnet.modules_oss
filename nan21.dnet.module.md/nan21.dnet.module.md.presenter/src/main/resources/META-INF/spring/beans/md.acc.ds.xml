@@ -12,7 +12,7 @@
 	<bean id="AccSchemaDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccSchemaDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccSchema"/>
 	</bean>
 	
@@ -41,7 +41,7 @@
 	<bean id="AccountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccountDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.Account"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.acc.ds.converter.AccountDsConv" />
 	</bean>
@@ -71,7 +71,7 @@
 	<bean id="AccItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccItemDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccItem"/>
 	</bean>
 	
@@ -100,7 +100,7 @@
 	<bean id="AccItemAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccItemAcctDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccItemAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.acc.ds.converter.AccItemAcctDsConv" />
 	</bean>
@@ -115,7 +115,7 @@
 	<bean id="AccJournalDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.filter.AccJournalDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccJournal"/>
 	</bean>
 	

@@ -12,9 +12,9 @@
 	<bean id="PurchaseOrderDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseOrderDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder"/>
-		<property name="paramClass" value="net.nan21.dnet.module.sc.order.ds.param.PurchaseOrderDsParam"/>
+		<property name="paramClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDsParam"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.order.ds.converter.PurchaseOrderDsConv" />
 		<property name="rpcData" >
 			<map>
@@ -74,7 +74,7 @@
 	<bean id="PurchaseOrderItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseOrderItemDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.order.ds.converter.PurchaseOrderItemDsConv" />
 		<property name="rpcData" >
@@ -104,7 +104,7 @@
 	<bean id="PurchaseOrderItemOverviewDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseOrderItemOverviewDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -119,7 +119,7 @@
 	<bean id="PurchaseOrderItemTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseOrderItemTaxDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItemTax"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -134,7 +134,7 @@
 	<bean id="PurchaseOrderTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseOrderTaxDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderTax"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -149,7 +149,7 @@
 	<bean id="PurchaseInventoryTransactionDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseInventoryTransactionDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseInventoryTransaction"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.order.ds.converter.PurchaseInventoryTransactionDsConv" />
 	</bean>
@@ -164,7 +164,7 @@
 	<bean id="PurchaseReceptionDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.filter.PurchaseReceptionDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseInventoryTransaction"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.order.ds.converter.PurchaseReceptionDsConv" />
 		<property name="rpcData" >

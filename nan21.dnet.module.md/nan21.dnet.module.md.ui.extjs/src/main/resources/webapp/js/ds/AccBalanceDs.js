@@ -25,40 +25,15 @@ Ext.define("net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDs", {
 		{name:"periodId", type:"int", useNull:true},
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
-	]});
+	]
+});
 
-Ext.define("net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDsFilter", {
-	extend: 'Ext.data.Model',
+Dnet.createFilterModelFromRecordModel({
+	recordModelFqn: "net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDs",
 	fields: [
-		{name:"accSchema", type:"string"},
-		{name:"accSchemaId", type:"int", useNull:true},
-		{name:"accSchemaId_From",type:"int", useNull:true},
-		{name:"accSchemaId_To",type:"int", useNull:true},
-		{name:"account", type:"string"},
-		{name:"amount", type:"float", useNull:true},
 		{name:"amount_From",type:"float", useNull:true},
 		{name:"amount_To",type:"float", useNull:true},
-		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdBy", type:"string"},
-		{name:"entityFQN", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"initialAmount", type:"float", useNull:true},
 		{name:"initialAmount_From",type:"float", useNull:true},
-		{name:"initialAmount_To",type:"float", useNull:true},
-		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedBy", type:"string"},
-		{name:"org", type:"string"},
-		{name:"orgId", type:"int", useNull:true},
-		{name:"orgId_From",type:"int", useNull:true},
-		{name:"orgId_To",type:"int", useNull:true},
-		{name:"period", type:"string"},
-		{name:"periodId", type:"int", useNull:true},
-		{name:"periodId_From",type:"int", useNull:true},
-		{name:"periodId_To",type:"int", useNull:true},
-		{name:"uuid", type:"string"}
+		{name:"initialAmount_To",type:"float", useNull:true}
 	]
 });

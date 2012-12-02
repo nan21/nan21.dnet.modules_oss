@@ -6,15 +6,8 @@
 Ext.define("net.nan21.dnet.module.hr.time.dc.Absence", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceDs",
-	filterModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceDsFilter",
-	paramModel: "net.nan21.dnet.module.hr.time.ds.param.AbsenceDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	paramModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceDsParam",
+	recordModel: "net.nan21.dnet.module.hr.time.ds.model.AbsenceDs"
 });
 
 

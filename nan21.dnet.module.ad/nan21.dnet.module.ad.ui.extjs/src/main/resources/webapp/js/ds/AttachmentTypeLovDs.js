@@ -13,15 +13,5 @@ Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeLovDs", {
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"},
 		{name:"useInContext", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"description", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"},
-		{name:"useInContext", type:"string"}
 	]
 });

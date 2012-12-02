@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.impex.dc.ExportMap", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportMapDs",
-	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportMapDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ExportMapDs"
 });
 
 

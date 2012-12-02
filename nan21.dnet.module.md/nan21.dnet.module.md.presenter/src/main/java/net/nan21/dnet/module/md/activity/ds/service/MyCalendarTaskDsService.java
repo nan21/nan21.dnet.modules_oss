@@ -9,14 +9,13 @@ import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.presenter.model.EmptyParam;
 import net.nan21.dnet.core.presenter.service.ds.AbstractEntityDsService;
 import net.nan21.dnet.module.md.activity.domain.entity.CalendarEvent;
-import net.nan21.dnet.module.md.activity.ds.filter.MyCalendarTaskDsFilter;
 import net.nan21.dnet.module.md.activity.ds.model.MyCalendarTaskDs;
 
 public class MyCalendarTaskDsService
 		extends
-			AbstractEntityDsService<MyCalendarTaskDs, MyCalendarTaskDsFilter, EmptyParam, CalendarEvent>
+			AbstractEntityDsService<MyCalendarTaskDs, MyCalendarTaskDs, EmptyParam, CalendarEvent>
 		implements
-			IDsService<MyCalendarTaskDs, MyCalendarTaskDsFilter, EmptyParam> {
+			IDsService<MyCalendarTaskDs, MyCalendarTaskDs, EmptyParam> {
 
 	@Override
 	public void preInsert(MyCalendarTaskDs ds, EmptyParam params) {

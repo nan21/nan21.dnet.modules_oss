@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.base.period.dc.FiscalPeriod", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs",
-	filterModel: "net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs"
 });
 
 

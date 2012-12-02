@@ -14,18 +14,5 @@ Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDs", {
 		{name:"name", type:"string"},
 		{name:"year", type:"string"},
 		{name:"yearId", type:"int", useNull:true}
-	]});
-
-Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"code", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"},
-		{name:"year", type:"string"},
-		{name:"yearId", type:"int", useNull:true},
-		{name:"yearId_From",type:"int", useNull:true},
-		{name:"yearId_To",type:"int", useNull:true}
 	]
 });

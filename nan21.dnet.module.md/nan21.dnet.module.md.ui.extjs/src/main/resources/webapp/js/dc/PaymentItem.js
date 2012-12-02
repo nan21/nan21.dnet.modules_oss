@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.tx.fin.dc.PaymentItem", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs",
-	filterModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs"
 });
 
 

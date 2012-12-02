@@ -25,42 +25,5 @@ Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDs", 
 		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"value", type:"float", useNull:true},
 		{name:"version", type:"int", useNull:true}
-	]});
-
-Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdBy", type:"string"},
-		{name:"entityFQN", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedBy", type:"string"},
-		{name:"providerCode", type:"string"},
-		{name:"providerId", type:"int", useNull:true},
-		{name:"providerId_From",type:"int", useNull:true},
-		{name:"providerId_To",type:"int", useNull:true},
-		{name:"sourceCode", type:"string"},
-		{name:"sourceId", type:"int", useNull:true},
-		{name:"sourceId_From",type:"int", useNull:true},
-		{name:"sourceId_To",type:"int", useNull:true},
-		{name:"targetCode", type:"string"},
-		{name:"targetId", type:"int", useNull:true},
-		{name:"targetId_From",type:"int", useNull:true},
-		{name:"targetId_To",type:"int", useNull:true},
-		{name:"uuid", type:"string"},
-		{name:"validFrom", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"validFrom_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"validFrom_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"validTo_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"validTo_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"value", type:"float", useNull:true},
-		{name:"value_From",type:"float", useNull:true},
-		{name:"value_To",type:"float", useNull:true}
 	]
 });

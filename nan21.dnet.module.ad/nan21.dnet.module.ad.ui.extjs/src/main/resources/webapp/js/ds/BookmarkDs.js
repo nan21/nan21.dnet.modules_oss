@@ -33,38 +33,5 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDs", {
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-});
 
-Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"bundle", type:"string"},
-		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"createdBy", type:"string"},
-		{name:"description", type:"string"},
-		{name:"entityFQN", type:"string"},
-		{name:"frame", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"leafNode", type:"boolean", useNull:true},
-		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_From",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedAt_To",type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
-		{name:"modifiedBy", type:"string"},
-		{name:"name", type:"string"},
-		{name:"owner", type:"string"},
-		{name:"parent", type:"string"},
-		{name:"parentId", type:"int", useNull:true},
-		{name:"parentId_From",type:"int", useNull:true},
-		{name:"parentId_To",type:"int", useNull:true},
-		{name:"separatorAfter", type:"boolean", useNull:true},
-		{name:"separatorBefore", type:"boolean", useNull:true},
-		{name:"sequenceNo", type:"int", useNull:true},
-		{name:"sequenceNo_From",type:"int", useNull:true},
-		{name:"sequenceNo_To",type:"int", useNull:true},
-		{name:"title", type:"string"},
-		{name:"uuid", type:"string"}
-	]
 });

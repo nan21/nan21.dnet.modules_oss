@@ -13,15 +13,5 @@ Ext.define("net.nan21.dnet.module.bd.elem.ds.model.EngineLovDs", {
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"},
 		{name:"type", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.bd.elem.ds.model.EngineLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"description", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"},
-		{name:"type", type:"string"}
 	]
 });

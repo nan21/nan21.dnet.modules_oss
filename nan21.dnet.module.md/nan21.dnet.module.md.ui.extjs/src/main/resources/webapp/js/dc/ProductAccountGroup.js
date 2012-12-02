@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductAccountGroup", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupDs",
-	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupDs"
 });
 
 

@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollPeriod", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs",
-	filterModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs"
 });
 
 

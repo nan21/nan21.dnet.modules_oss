@@ -10,7 +10,7 @@ import net.nan21.dnet.module.ad.usr.business.service.IUserService;
 import net.nan21.dnet.module.ad.usr.domain.entity.Assignable;
 import net.nan21.dnet.module.ad.usr.domain.entity.User;
 import net.nan21.dnet.module.ad.usr.ds.model.UserDs;
-import net.nan21.dnet.module.ad.usr.ds.param.UserDsParam;
+import net.nan21.dnet.module.ad.usr.ds.model.UserDsParam;
 
 public class UserPD extends AbstractPresenterBaseService {
 	public void changePassword(UserDs ds, UserDsParam params) throws Exception {

@@ -12,14 +12,5 @@ Ext.define("net.nan21.dnet.module.hr.job.ds.model.WorkRequirementLovDs", {
 		{name:"description", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.hr.job.ds.model.WorkRequirementLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"description", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"}
 	]
 });

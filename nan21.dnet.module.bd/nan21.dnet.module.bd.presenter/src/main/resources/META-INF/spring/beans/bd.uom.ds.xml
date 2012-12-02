@@ -12,7 +12,7 @@
 	<bean id="UomTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.filter.UomTypeDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.UomType"/>
 	</bean>
 	
@@ -41,7 +41,7 @@
 	<bean id="UomDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.filter.UomDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.Uom"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.uom.ds.converter.UomDsConv" />
 	</bean>
@@ -116,7 +116,7 @@
 	<bean id="UomConversionDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomConversionDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.filter.UomConversionDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomConversionDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.UomConversion"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.uom.ds.converter.UomConversionDsConv" />
 	</bean>

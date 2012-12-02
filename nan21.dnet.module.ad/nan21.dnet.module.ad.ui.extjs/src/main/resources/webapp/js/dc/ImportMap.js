@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.impex.dc.ImportMap", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportMapDs",
-	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportMapDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.ImportMapDs"
 });
 
 

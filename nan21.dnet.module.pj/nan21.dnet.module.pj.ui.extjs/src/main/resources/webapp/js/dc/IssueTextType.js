@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.pj.base.dc.IssueTextType", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.pj.base.ds.model.IssueTextTypeDs",
-	filterModel: "net.nan21.dnet.module.pj.base.ds.model.IssueTextTypeDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.pj.base.ds.model.IssueTextTypeDs"
 });
 
 

@@ -12,7 +12,7 @@
 	<bean id="CalendarEventPriorityDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.activity.ds.model.CalendarEventPriorityDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.filter.CalendarEventPriorityDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.model.CalendarEventPriorityDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.activity.domain.entity.CalendarEventPriority"/>
 	</bean>
 	
@@ -71,7 +71,7 @@
 	<bean id="CalendarEventStatusDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.activity.ds.model.CalendarEventStatusDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.filter.CalendarEventStatusDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.model.CalendarEventStatusDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.activity.domain.entity.CalendarEventStatus"/>
 	</bean>
 	
@@ -130,7 +130,7 @@
 	<bean id="MyCalendarCallDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.module.md.activity.ds.service.MyCalendarCallDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarCallDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.filter.MyCalendarCallDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarCallDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.activity.domain.entity.CalendarEvent"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.activity.ds.qb.MyCalendarCallDsQueryBuilder" />
 		<property name="converterClass" value="net.nan21.dnet.module.md.activity.ds.converter.MyCalendarCallDsConv" />
@@ -146,7 +146,7 @@
 	<bean id="MyCalendarMeetingDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.module.md.activity.ds.service.MyCalendarMeetingDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarMeetingDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.filter.MyCalendarMeetingDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarMeetingDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.activity.domain.entity.CalendarEvent"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.activity.ds.qb.MyCalendarMeetingDsQueryBuilder" />
 		<property name="converterClass" value="net.nan21.dnet.module.md.activity.ds.converter.MyCalendarMeetingDsConv" />
@@ -162,7 +162,7 @@
 	<bean id="MyCalendarTaskDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.module.md.activity.ds.service.MyCalendarTaskDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarTaskDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.filter.MyCalendarTaskDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarTaskDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.activity.domain.entity.CalendarEvent"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.activity.ds.qb.MyCalendarTaskDsQueryBuilder" />
 		<property name="converterClass" value="net.nan21.dnet.module.md.activity.ds.converter.MyCalendarTaskDsConv" />
@@ -178,7 +178,7 @@
 	<bean id="MyCalendarEventDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.filter.MyCalendarEventDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.activity.ds.model.MyCalendarEventDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.activity.domain.entity.CalendarEvent"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.activity.ds.qb.MyCalendarEventDsQueryBuilder" />
 		<property name="converterClass" value="net.nan21.dnet.module.md.activity.ds.converter.MyCalendarEventDsConv" />

@@ -12,14 +12,5 @@ Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomMassLovDs", {
 		{name:"code", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomMassLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"code", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"}
 	]
 });

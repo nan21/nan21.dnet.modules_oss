@@ -6,7 +6,7 @@ import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType;
 import net.nan21.dnet.module.sd.order.business.service.ISalesOrderService;
 import net.nan21.dnet.module.sd.order.domain.entity.SalesOrder;
 import net.nan21.dnet.module.sd.order.ds.model.SalesOrderDs;
-import net.nan21.dnet.module.sd.order.ds.param.SalesOrderDsParam;
+import net.nan21.dnet.module.sd.order.ds.model.SalesOrderDsParam;
 
 public class SalesOrderPD extends AbstractPresenterBaseService {
 

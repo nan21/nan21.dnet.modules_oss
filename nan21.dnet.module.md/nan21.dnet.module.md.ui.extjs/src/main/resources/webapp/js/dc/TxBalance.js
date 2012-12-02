@@ -6,14 +6,8 @@
 Ext.define("net.nan21.dnet.module.md.tx.fin.dc.TxBalance", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDs",
 	filterModel: "net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDs"
 });
 
 

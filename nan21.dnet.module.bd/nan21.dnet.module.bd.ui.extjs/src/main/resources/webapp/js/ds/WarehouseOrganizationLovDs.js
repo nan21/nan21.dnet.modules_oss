@@ -13,15 +13,5 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.WarehouseOrganizationLovDs", {
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"},
 		{name:"warehouse", type:"boolean"}
-	]});
-
-Ext.define("net.nan21.dnet.module.bd.org.ds.model.WarehouseOrganizationLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"code", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"},
-		{name:"warehouse", type:"boolean", useNull:true}
 	]
 });

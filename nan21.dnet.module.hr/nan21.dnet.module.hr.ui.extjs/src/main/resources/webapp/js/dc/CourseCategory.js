@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.hr.training.dc.CourseCategory", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.hr.training.ds.model.CourseCategoryDs",
-	filterModel: "net.nan21.dnet.module.hr.training.ds.model.CourseCategoryDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.hr.training.ds.model.CourseCategoryDs"
 });
 
 

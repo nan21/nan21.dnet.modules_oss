@@ -6,14 +6,8 @@
 Ext.define("net.nan21.dnet.module.pj.md.dc.IssueRoadmap", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueRoadmapDs",
 	filterModel: "net.nan21.dnet.module.pj.md.ds.model.IssueRoadmapDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.pj.md.ds.model.IssueRoadmapDs"
 });
 
 

@@ -12,7 +12,7 @@
 	<bean id="FiscalYearDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.filter.FiscalYearDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.base.period.ds.converter.FiscalYearDsConv" />
 		<property name="rpcData" >
@@ -71,7 +71,7 @@
 	<bean id="FiscalPeriodDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.filter.FiscalPeriodDsFilter"/>
+		<property name="filterClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.base.period.ds.converter.FiscalPeriodDsConv" />
 	</bean>

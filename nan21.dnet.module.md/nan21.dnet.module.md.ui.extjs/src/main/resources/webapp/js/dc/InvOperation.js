@@ -6,14 +6,8 @@
 Ext.define("net.nan21.dnet.module.md.tx.inventory.dc.InvOperation", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvOperationDs",
 	filterModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvOperationDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.tx.inventory.ds.model.InvOperationDs"
 });
 
 

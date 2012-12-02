@@ -6,15 +6,8 @@
 Ext.define("net.nan21.dnet.module.ad.impex.dc.CsvExport", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportDs",
-	filterModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.impex.ds.param.CsvExportDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	paramModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportDsParam",
+	recordModel: "net.nan21.dnet.module.ad.impex.ds.model.CsvExportDs"
 });
 
 

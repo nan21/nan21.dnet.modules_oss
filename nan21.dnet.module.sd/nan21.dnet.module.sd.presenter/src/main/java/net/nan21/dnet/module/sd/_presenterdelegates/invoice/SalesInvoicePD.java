@@ -4,7 +4,7 @@ import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.sd.invoice.business.service.ISalesInvoiceService;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoice;
 import net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDs;
-import net.nan21.dnet.module.sd.invoice.ds.param.SalesInvoiceDsParam;
+import net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceDsParam;
 
 public class SalesInvoicePD extends AbstractPresenterBaseService {
 

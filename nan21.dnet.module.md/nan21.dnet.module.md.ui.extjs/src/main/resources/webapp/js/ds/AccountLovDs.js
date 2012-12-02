@@ -13,17 +13,5 @@ Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDs", {
 		{name:"code", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.md.acc.ds.model.AccountLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"accSchemaId", type:"int", useNull:true},
-		{name:"accSchemaId_From",type:"int", useNull:true},
-		{name:"accSchemaId_To",type:"int", useNull:true},
-		{name:"active", type:"boolean", useNull:true},
-		{name:"code", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"}
 	]
 });

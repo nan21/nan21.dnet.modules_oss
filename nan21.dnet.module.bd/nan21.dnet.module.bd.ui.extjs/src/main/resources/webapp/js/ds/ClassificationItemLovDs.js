@@ -13,17 +13,5 @@ Ext.define("net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDs"
 		{name:"code", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}
-	]});
-
-Ext.define("net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"classSystemId", type:"int", useNull:true},
-		{name:"classSystemId_From",type:"int", useNull:true},
-		{name:"classSystemId_To",type:"int", useNull:true},
-		{name:"code", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"}
 	]
 });

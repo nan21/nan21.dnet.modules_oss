@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs",
-	filterModel: "net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs"
 });
 
 

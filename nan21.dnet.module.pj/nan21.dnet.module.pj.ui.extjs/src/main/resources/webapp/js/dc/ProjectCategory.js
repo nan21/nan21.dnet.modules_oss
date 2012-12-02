@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.pj.base.dc.ProjectCategory", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.pj.base.ds.model.ProjectCategoryDs",
-	filterModel: "net.nan21.dnet.module.pj.base.ds.model.ProjectCategoryDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.pj.base.ds.model.ProjectCategoryDs"
 });
 
 

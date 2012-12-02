@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderTax", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderTaxDs",
-	filterModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderTaxDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderTaxDs"
 });
 
 

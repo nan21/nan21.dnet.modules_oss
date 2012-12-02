@@ -5,7 +5,6 @@ import java.util.List;
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.api.ui.extjs.IExtensionContentProvider;
 import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
-import net.nan21.dnet.module.ad.usr.ds.filter.MenuRtLovDsFilter;
 import net.nan21.dnet.module.ad.usr.ds.model.MenuRtLovDs;
 
 public class ExtensionProviderMainMenu extends AbstractPresenterBaseService
@@ -19,8 +18,9 @@ public class ExtensionProviderMainMenu extends AbstractPresenterBaseService
 	}
 
 	protected void addNavigationTreeMenus(StringBuffer sb) throws Exception {
-		IDsService<MenuRtLovDs, MenuRtLovDsFilter, ?> srv = this.findDsService("MenuRtLovDs");
-		List<MenuRtLovDs> menus = srv.find(new MenuRtLovDsFilter());
+		IDsService<MenuRtLovDs, MenuRtLovDs, ?> srv = this
+				.findDsService("MenuRtLovDs");
+		List<MenuRtLovDs> menus = srv.find(new MenuRtLovDs());
 		int i = 0;
 		sb.append("Dnet.navigationTreeMenus = [");
 		for (MenuRtLovDs menu : menus) {

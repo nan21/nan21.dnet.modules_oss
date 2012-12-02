@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.org.dc.SubInventory", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.org.ds.model.SubInventoryDs",
-	filterModel: "net.nan21.dnet.module.md.org.ds.model.SubInventoryDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.org.ds.model.SubInventoryDs"
 });
 
 

@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchyItem", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemDs",
-	filterModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyItemDs"
 });
 
 

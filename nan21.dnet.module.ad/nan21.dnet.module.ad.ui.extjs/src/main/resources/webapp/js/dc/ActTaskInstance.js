@@ -6,15 +6,8 @@
 Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActTaskInstance", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs",
-	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.ActTaskInstanceDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	paramModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDsParam",
+	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs"
 });
 
 

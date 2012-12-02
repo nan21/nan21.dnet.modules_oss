@@ -6,15 +6,8 @@
 Ext.define("net.nan21.dnet.module.ad.workflow.dc.ActDeployment", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDs",
-	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDsFilter",
-	paramModel: "net.nan21.dnet.module.ad.workflow.ds.param.ActDeploymentDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	paramModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDsParam",
+	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDs"
 });
 
 

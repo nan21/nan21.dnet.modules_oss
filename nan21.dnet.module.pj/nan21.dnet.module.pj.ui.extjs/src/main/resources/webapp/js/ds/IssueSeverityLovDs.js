@@ -13,17 +13,5 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDs", {
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"},
 		{name:"sequenceNo", type:"int", useNull:true}
-	]});
-
-Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueSeverityLovDsFilter", {
-	extend: 'Ext.data.Model',
-	fields: [
-		{name:"active", type:"boolean", useNull:true},
-		{name:"description", type:"string"},
-		{name:"id", type:"int", useNull:true},
-		{name:"name", type:"string"},
-		{name:"sequenceNo", type:"int", useNull:true},
-		{name:"sequenceNo_From",type:"int", useNull:true},
-		{name:"sequenceNo_To",type:"int", useNull:true}
 	]
 });

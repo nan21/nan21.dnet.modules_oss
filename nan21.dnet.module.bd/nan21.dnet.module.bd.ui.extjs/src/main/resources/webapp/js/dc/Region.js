@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.bd.geo.dc.Region", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.bd.geo.ds.model.RegionDs",
-	filterModel: "net.nan21.dnet.module.bd.geo.ds.model.RegionDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.bd.geo.ds.model.RegionDs"
 });
 
 

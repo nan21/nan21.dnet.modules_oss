@@ -4,7 +4,7 @@ import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.sc.order.business.service.IPurchaseOrderService;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
 import net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDs;
-import net.nan21.dnet.module.sc.order.ds.param.PurchaseOrderDsParam;
+import net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDsParam;
 
 public class PurchaseOrderPD extends AbstractPresenterBaseService {
 

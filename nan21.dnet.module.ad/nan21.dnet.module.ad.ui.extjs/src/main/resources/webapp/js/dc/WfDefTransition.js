@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.ad.workflow.dc.WfDefTransition", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs",
-	filterModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs"
 });
 
 

@@ -7,17 +7,16 @@ package net.nan21.dnet.module.ad.workflow.ds.qb;
 
 import net.nan21.dnet.core.presenter.action.QueryBuilderWithJpql;
 import net.nan21.dnet.core.presenter.model.EmptyParam;
-import net.nan21.dnet.module.ad.workflow.ds.filter.ActMyTaskDsFilter;
 import net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskDs;
 
 import net.nan21.dnet.core.api.session.Session;
 
 public class ActMyTaskDsQueryBuilder
 		extends
-			QueryBuilderWithJpql<ActMyTaskDs, ActMyTaskDsFilter, EmptyParam> {
+			QueryBuilderWithJpql<ActMyTaskDs, ActMyTaskDs, EmptyParam> {
 
 	@Override
-	public void setFilter(ActMyTaskDsFilter filter) {
+	public void setFilter(ActMyTaskDs filter) {
 		filter.setClientId(Session.user.get().getClientId());
 		filter.setOwner(Session.user.get().getUsername());
 		this.filter = filter;

@@ -6,14 +6,7 @@
 Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductManufacturer", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs",
-	filterModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDsFilter",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	}
+	recordModel: "net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs"
 });
 
 

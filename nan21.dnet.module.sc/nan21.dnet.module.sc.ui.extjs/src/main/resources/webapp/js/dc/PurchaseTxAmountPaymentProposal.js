@@ -6,15 +6,9 @@
 Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseTxAmountPaymentProposal", {
 	extend: "dnet.core.dc.AbstractDc",
 
-	recordModel: "net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountPaymentProposalDs",
 	filterModel: "net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountPaymentProposalDsFilter",
-	paramModel: "net.nan21.dnet.module.sc.invoice.ds.param.PurchaseTxAmountPaymentProposalDsParam",
-
-	constructor : function(config) {
-        config = config || {};
-        Ext.apply(this, config);
-        this.callParent();
-	},
+	paramModel: "net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountPaymentProposalDsParam",
+	recordModel: "net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountPaymentProposalDs",
 	
 	/* ==================== Business functions ==================== */
 	
