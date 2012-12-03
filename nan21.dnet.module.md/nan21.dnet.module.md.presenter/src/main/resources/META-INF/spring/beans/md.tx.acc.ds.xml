@@ -40,7 +40,6 @@
 	<bean id="AccDocLineDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -50,7 +49,6 @@
 	<bean id="AccDocLineCtxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineCtxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineCtxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine"/>
 		<property name="readOnly" value="true" />
 	</bean>

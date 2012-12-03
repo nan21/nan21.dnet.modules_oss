@@ -12,7 +12,6 @@
 	<bean id="ClassificationSystemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem"/>
 	</bean>
 	
@@ -21,7 +20,6 @@
 	<bean id="ClassificationSystemLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -31,7 +29,6 @@
 	<bean id="ClassificationItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.standards.ds.converter.ClassificationItemDsConv" />
 	</bean>
@@ -41,7 +38,6 @@
 	<bean id="ClassificationItemLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem"/>
 		<property name="readOnly" value="true" />
 	</bean>

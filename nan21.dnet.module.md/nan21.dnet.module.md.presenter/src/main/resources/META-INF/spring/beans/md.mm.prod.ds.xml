@@ -12,7 +12,6 @@
 	<bean id="ProductCategoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductCategory"/>
 	</bean>
 	
@@ -21,7 +20,6 @@
 	<bean id="ProductCategoryLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductCategory"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -31,7 +29,6 @@
 	<bean id="ProductManufacturerDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer"/>
 	</bean>
 	
@@ -40,7 +37,6 @@
 	<bean id="ProductManufacturerLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -50,7 +46,6 @@
 	<bean id="ProductDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.Product"/>
 		<property name="paramClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductDsParam"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.mm.prod.ds.qb.ProductDsQueryBuilder" />
@@ -62,7 +57,6 @@
 	<bean id="ProductLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.Product"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -72,7 +66,6 @@
 	<bean id="ProductWithUomLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductWithUomLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductWithUomLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.Product"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -82,7 +75,6 @@
 	<bean id="ProductAccountGroupDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroup"/>
 	</bean>
 	
@@ -91,7 +83,6 @@
 	<bean id="ProductAccountGroupLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroup"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -101,7 +92,6 @@
 	<bean id="ProductAccountGroupAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountGroupAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroupAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.mm.prod.ds.converter.ProductAccountGroupAcctDsConv" />
 	</bean>
@@ -111,7 +101,6 @@
 	<bean id="ProductAccountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.mm.prod.ds.converter.ProductAccountDsConv" />
 	</bean>
@@ -121,7 +110,6 @@
 	<bean id="ProductAccountAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAccountAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.mm.prod.ds.converter.ProductAccountAcctDsConv" />
 	</bean>
@@ -131,7 +119,6 @@
 	<bean id="ProductAttributeValueDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAttributeValueDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductAttributeValueDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAttributeValue"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.mm.prod.ds.converter.ProductAttributeValueDsConv" />
 	</bean>
@@ -141,7 +128,6 @@
 	<bean id="ProdClassificationDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProdClassificationDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProdClassificationDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProdClassification"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.mm.prod.ds.converter.ProdClassificationDsConv" />
 	</bean>

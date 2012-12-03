@@ -22,7 +22,6 @@
 	<bean id="PaymentItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemDsConv" />
 	</bean>
@@ -32,7 +31,6 @@
 	<bean id="PaymentItemProductDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemProductDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemProductDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemProductDsConv" />
 	</bean>
@@ -42,7 +40,6 @@
 	<bean id="PaymentItemAccItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemAccItemDsConv" />
 	</bean>

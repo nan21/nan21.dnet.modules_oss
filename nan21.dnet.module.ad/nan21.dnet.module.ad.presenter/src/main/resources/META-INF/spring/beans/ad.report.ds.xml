@@ -12,7 +12,6 @@
 	<bean id="ReportServerDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportServer"/>
 	</bean>
 	
@@ -21,7 +20,6 @@
 	<bean id="ReportServerLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportServer"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -31,7 +29,6 @@
 	<bean id="ReportDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.Report"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.report.ds.converter.ReportDsConv" />
 	</bean>
@@ -41,7 +38,6 @@
 	<bean id="ReportLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.Report"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -51,7 +47,6 @@
 	<bean id="ReportParamDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.report.ds.converter.ReportParamDsConv" />
 	</bean>
@@ -61,7 +56,6 @@
 	<bean id="ReportParamRtDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamRtDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamRtDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -71,7 +65,6 @@
 	<bean id="ReportParamLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -81,7 +74,6 @@
 	<bean id="DsReportDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReport"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.report.ds.converter.DsReportDsConv" />
 	</bean>
@@ -91,7 +83,6 @@
 	<bean id="DsReportParamDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportParam"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.report.ds.converter.DsReportParamDsConv" />
 	</bean>
@@ -101,7 +92,6 @@
 	<bean id="DsReportUsageDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.report.ds.converter.DsReportUsageDsConv" />
 	</bean>
@@ -111,7 +101,6 @@
 	<bean id="DsReportUsageRtDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageRtDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageRtDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -121,7 +110,6 @@
 	<bean id="DsReportParamRtDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamRtDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamRtDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportParam"/>
 		<property name="readOnly" value="true" />
 	</bean>

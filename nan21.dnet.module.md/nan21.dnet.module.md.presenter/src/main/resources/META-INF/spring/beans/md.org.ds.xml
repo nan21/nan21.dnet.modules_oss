@@ -12,7 +12,6 @@
 	<bean id="FinancialAccountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.org.ds.converter.FinancialAccountDsConv" />
 	</bean>
@@ -22,7 +21,6 @@
 	<bean id="FinancialAccountLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccount"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -32,7 +30,6 @@
 	<bean id="FinancialAccountAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccountAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.org.ds.converter.FinancialAccountAcctDsConv" />
 	</bean>
@@ -42,7 +39,6 @@
 	<bean id="FinancialAccountMethodDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.FinancialAccountMethodDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.org.ds.converter.FinancialAccountMethodDsConv" />
 	</bean>
@@ -52,7 +48,6 @@
 	<bean id="SubInventoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.SubInventoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.SubInventoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.SubInventory"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.org.ds.converter.SubInventoryDsConv" />
 	</bean>
@@ -62,7 +57,6 @@
 	<bean id="SubInventoryLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.SubInventoryLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.SubInventoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.SubInventory"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -72,7 +66,6 @@
 	<bean id="StockLocatorTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocatorType"/>
 	</bean>
 	
@@ -81,7 +74,6 @@
 	<bean id="StockLocatorTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocatorType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -91,7 +83,6 @@
 	<bean id="StockLocatorDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocator"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.org.ds.converter.StockLocatorDsConv" />
 	</bean>
@@ -101,7 +92,6 @@
 	<bean id="StockLocatorLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.org.ds.model.StockLocatorLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.org.domain.entity.StockLocator"/>
 		<property name="readOnly" value="true" />
 	</bean>

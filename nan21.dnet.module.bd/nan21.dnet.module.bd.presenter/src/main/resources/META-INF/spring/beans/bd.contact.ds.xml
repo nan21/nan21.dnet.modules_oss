@@ -12,7 +12,6 @@
 	<bean id="CommunicationChannelTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType"/>
 	</bean>
 	
@@ -21,7 +20,6 @@
 	<bean id="CommunicationChannelTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -31,7 +29,6 @@
 	<bean id="CommunicationChannelDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannel"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.contact.ds.converter.CommunicationChannelDsConv" />
 	</bean>

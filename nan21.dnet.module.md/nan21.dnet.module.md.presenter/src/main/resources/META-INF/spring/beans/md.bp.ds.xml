@@ -12,7 +12,6 @@
 	<bean id="BusinessPartnerDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BusinessPartnerDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BusinessPartnerDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.BusinessPartnerDsConv" />
 	</bean>
@@ -22,7 +21,6 @@
 	<bean id="BusinessPartnerLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BusinessPartnerLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BusinessPartnerLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -32,7 +30,6 @@
 	<bean id="CustomerLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpAccount"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -42,7 +39,6 @@
 	<bean id="VendorLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpAccount"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -52,7 +48,6 @@
 	<bean id="ContactDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.ContactDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.ContactDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.Contact"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.ContactDsConv" />
 	</bean>
@@ -62,7 +57,6 @@
 	<bean id="ContactLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.ContactLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.ContactLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.Contact"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -72,7 +66,6 @@
 	<bean id="BpContactLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BpContactLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BpContactLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.Contact"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -82,7 +75,6 @@
 	<bean id="BpBankAccountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BpBankAccountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BpBankAccountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpBankAccount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.BpBankAccountDsConv" />
 	</bean>
@@ -92,7 +84,6 @@
 	<bean id="BpBankAccountLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BpBankAccountLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BpBankAccountLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpBankAccount"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -102,7 +93,6 @@
 	<bean id="BpAccountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BpAccountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BpAccountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpAccount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.BpAccountDsConv" />
 	</bean>
@@ -112,7 +102,6 @@
 	<bean id="BpAccountAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BpAccountAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpAccountAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.BpAccountAcctDsConv" />
 	</bean>
@@ -122,7 +111,6 @@
 	<bean id="BpClassificationDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BpClassificationDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BpClassificationDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpClassification"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.BpClassificationDsConv" />
 	</bean>
@@ -132,7 +120,6 @@
 	<bean id="CustomerGroupDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerGroupDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerGroupDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.CustomerGroup"/>
 	</bean>
 	
@@ -141,7 +128,6 @@
 	<bean id="CustomerGroupLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerGroupLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerGroupLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.CustomerGroup"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -151,7 +137,6 @@
 	<bean id="CustomerGroupAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.CustomerGroupAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.CustomerGroupAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.CustomerGroupAcctDsConv" />
 	</bean>
@@ -161,7 +146,6 @@
 	<bean id="VendorGroupDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorGroupDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorGroupDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.VendorGroup"/>
 	</bean>
 	
@@ -170,7 +154,6 @@
 	<bean id="VendorGroupLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorGroupLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorGroupLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.VendorGroup"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -180,7 +163,6 @@
 	<bean id="VendorGroupAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.VendorGroupAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.VendorGroupAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.VendorGroupAcctDsConv" />
 	</bean>
@@ -190,7 +172,6 @@
 	<bean id="BankDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BankDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BankDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.Bank"/>
 	</bean>
 	
@@ -199,7 +180,6 @@
 	<bean id="BankLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.BankLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.BankLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.Bank"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -209,7 +189,6 @@
 	<bean id="CompanyLegalFormDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.CompanyLegalFormDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.CompanyLegalFormDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.CompanyLegalForm"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.bp.ds.converter.CompanyLegalFormDsConv" />
 	</bean>
@@ -219,7 +198,6 @@
 	<bean id="CompanyLegalFormLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.bp.ds.model.CompanyLegalFormLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.md.bp.ds.model.CompanyLegalFormLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.CompanyLegalForm"/>
 		<property name="readOnly" value="true" />
 	</bean>

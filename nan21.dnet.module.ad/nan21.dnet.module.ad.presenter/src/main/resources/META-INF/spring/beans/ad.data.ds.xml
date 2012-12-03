@@ -12,7 +12,6 @@
 	<bean id="NoteDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.NoteDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.model.NoteDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.Note"/>
 	</bean>
 	
@@ -21,7 +20,6 @@
 	<bean id="AttachmentTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.AttachmentType"/>
 	</bean>
 	
@@ -30,7 +28,6 @@
 	<bean id="AttachmentTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.AttachmentType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -40,7 +37,6 @@
 	<bean id="AttachmentDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.Attachment"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.data.ds.converter.AttachmentDsConv" />
 	</bean>

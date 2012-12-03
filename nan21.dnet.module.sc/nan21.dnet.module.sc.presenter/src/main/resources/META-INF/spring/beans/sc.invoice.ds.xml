@@ -61,7 +61,6 @@
 	<bean id="PurchaseInvoiceLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -71,7 +70,6 @@
 	<bean id="PurchaseInvoiceItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.invoice.ds.converter.PurchaseInvoiceItemDsConv" />
 		<property name="rpcData" >
@@ -101,7 +99,6 @@
 	<bean id="PurchaseInvoiceItemTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceItemTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceItemTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceItemTax"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -111,7 +108,6 @@
 	<bean id="PurchaseInvoiceTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceTax"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -163,7 +159,6 @@
 	<bean id="PaymentOutAmountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutAmountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutAmountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOutAmount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.invoice.ds.converter.PaymentOutAmountDsConv" />
 	</bean>
@@ -173,7 +168,6 @@
 	<bean id="PurchaseTxAmountPaymentDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountPaymentDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountPaymentDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOutAmount"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -194,7 +188,6 @@
 	<bean id="PurchaseTxAmountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.invoice.ds.model.PurchaseTxAmountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseTxAmount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.invoice.ds.converter.PurchaseTxAmountDsConv" />
 	</bean>

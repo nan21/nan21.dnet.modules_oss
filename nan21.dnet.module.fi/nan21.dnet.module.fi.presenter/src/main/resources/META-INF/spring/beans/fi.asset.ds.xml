@@ -12,7 +12,6 @@
 	<bean id="AssetCategoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory"/>
 	</bean>
 	
@@ -21,7 +20,6 @@
 	<bean id="AssetCategoryLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -31,7 +29,6 @@
 	<bean id="AssetCategoryAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategoryAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.fi.asset.ds.converter.AssetCategoryAcctDsConv" />
 	</bean>
@@ -41,7 +38,6 @@
 	<bean id="AssetDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.Asset"/>
 		<property name="converterClass" value="net.nan21.dnet.module.fi.asset.ds.converter.AssetDsConv" />
 	</bean>
@@ -51,7 +47,6 @@
 	<bean id="AssetAcctDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.fi.asset.ds.converter.AssetAcctDsConv" />
 	</bean>

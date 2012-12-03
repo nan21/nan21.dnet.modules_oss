@@ -12,7 +12,6 @@
 	<bean id="VendorAccountDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sc.account.ds.model.VendorAccountDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sc.account.ds.model.VendorAccountDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.bp.domain.entity.BpAccount"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.account.ds.converter.VendorAccountDsConv" />
 	</bean>

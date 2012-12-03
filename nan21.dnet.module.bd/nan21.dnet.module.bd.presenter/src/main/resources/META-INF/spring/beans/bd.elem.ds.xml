@@ -12,7 +12,6 @@
 	<bean id="EngineDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.EngineDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.EngineDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Engine"/>
 	</bean>
 	
@@ -21,7 +20,6 @@
 	<bean id="EngineLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.EngineLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.EngineLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Engine"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -31,7 +29,6 @@
 	<bean id="ElementCategoryDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementCategory"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.elem.ds.converter.ElementCategoryDsConv" />
 	</bean>
@@ -41,7 +38,6 @@
 	<bean id="ElementCategoryLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementCategory"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -51,7 +47,6 @@
 	<bean id="ElementTypeDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementTypeDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementType"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.elem.ds.converter.ElementTypeDsConv" />
 	</bean>
@@ -61,7 +56,6 @@
 	<bean id="ElementTypeLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementTypeLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementType"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -71,7 +65,6 @@
 	<bean id="ElementDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Element"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -81,7 +74,6 @@
 	<bean id="ElementLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.Element"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -91,7 +83,6 @@
 	<bean id="ElementInputDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementInputDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementInputDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementInput"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.elem.ds.converter.ElementInputDsConv" />
 	</bean>
@@ -111,7 +102,6 @@
 	<bean id="ElementSetDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementSet"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.elem.ds.converter.ElementSetDsConv" />
 	</bean>
@@ -121,7 +111,6 @@
 	<bean id="ElementSetLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementSet"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -131,7 +120,6 @@
 	<bean id="ElementSetElementDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetElementDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.bd.elem.ds.model.ElementSetElementDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.elem.domain.entity.ElementSetElement"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.elem.ds.converter.ElementSetElementDsConv" />
 	</bean>

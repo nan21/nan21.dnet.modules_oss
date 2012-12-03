@@ -61,7 +61,6 @@
 	<bean id="SalesOrderLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrder"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -71,7 +70,6 @@
 	<bean id="SalesOrderItemDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sd.order.ds.converter.SalesOrderItemDsConv" />
 		<property name="rpcData" >
@@ -101,7 +99,6 @@
 	<bean id="SalesOrderItemTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItemTax"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -111,7 +108,6 @@
 	<bean id="SalesOrderTaxDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderTax"/>
 		<property name="readOnly" value="true" />
 	</bean>

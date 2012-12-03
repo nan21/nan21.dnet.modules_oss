@@ -12,7 +12,6 @@
 	<bean id="PayrollElementDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.payroll.ds.converter.PayrollElementDsConv" />
 	</bean>
@@ -22,7 +21,6 @@
 	<bean id="PayrollElementLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -32,7 +30,6 @@
 	<bean id="PayrollElementSourceLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementSourceLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementSourceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -42,7 +39,6 @@
 	<bean id="PayrollElementBalanceLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementBalanceLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementBalanceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -84,7 +80,6 @@
 	<bean id="PayrollDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.Payroll"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.payroll.ds.converter.PayrollDsConv" />
 	</bean>
@@ -94,7 +89,6 @@
 	<bean id="PayrollLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.Payroll"/>
 		<property name="readOnly" value="true" />
 	</bean>
@@ -104,7 +98,6 @@
 	<bean id="PayrollPeriodDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.payroll.ds.converter.PayrollPeriodDsConv" />
 		<property name="rpcData" >
@@ -146,7 +139,6 @@
 	<bean id="PayrollPeriodLovDsService" scope="singleton" lazy-init="true"
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodLovDs"/>
-		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod"/>
 		<property name="readOnly" value="true" />
 	</bean>
