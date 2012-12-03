@@ -56,20 +56,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SalesOrder" />
-		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">generateInvoice</value>
-				<value type="java.lang.String">generateDelivery</value>
-				<value type="java.lang.String">confirm</value>
-				<value type="java.lang.String">unConfirm</value>
-				<value type="java.lang.String">copyLines</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== SalesOrderLov ==================== -->
 	
 	<bean id="SalesOrderLovDsService" scope="singleton" lazy-init="true"
@@ -78,11 +64,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrder"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SalesOrderLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs" />
 	</bean>
 	
 	<!-- ==================== SalesOrderItem ==================== -->
@@ -105,16 +86,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SalesOrderItem" />
-		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">onProductChange</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== SalesOrderItemOverview ==================== -->
 	
 	<bean id="SalesOrderItemOverviewDsService" scope="singleton" lazy-init="true"
@@ -123,11 +94,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SalesOrderItemOverview" />
-		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDs" />
 	</bean>
 	
 	<!-- ==================== SalesOrderItemTax ==================== -->
@@ -140,11 +106,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SalesOrderItemTax" />
-		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemTaxDs" />
-	</bean>
-	
 	<!-- ==================== SalesOrderTax ==================== -->
 	
 	<bean id="SalesOrderTaxDsService" scope="singleton" lazy-init="true"
@@ -153,11 +114,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderTax"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SalesOrderTax" />
-		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs" />
 	</bean>
 	
 	<!-- ==================== SalesDelivery ==================== -->
@@ -199,19 +155,6 @@
 					</bean>
 				</entry>
 			</map>
-		</property>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SalesDelivery" />
-		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">confirm</value>
-				<value type="java.lang.String">unConfirm</value>
-				<value type="java.lang.String">post</value>
-				<value type="java.lang.String">unPost</value>
-			</list>
 		</property>
 	</bean>
 </beans>

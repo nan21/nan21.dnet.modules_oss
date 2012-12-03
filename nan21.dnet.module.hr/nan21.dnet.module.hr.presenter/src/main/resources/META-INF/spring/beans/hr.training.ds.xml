@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseCategory"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CourseCategory" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryDs" />
-	</bean>
-	
 	<!-- ==================== CourseCategoryLov ==================== -->
 	
 	<bean id="CourseCategoryLovDsService" scope="singleton" lazy-init="true"
@@ -29,11 +24,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseCategory"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CourseCategoryLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseCategoryLovDs" />
 	</bean>
 	
 	<!-- ==================== CourseType ==================== -->
@@ -46,11 +36,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.CourseTypeDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CourseType" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeDs" />
-	</bean>
-	
 	<!-- ==================== CourseTypeLov ==================== -->
 	
 	<bean id="CourseTypeLovDsService" scope="singleton" lazy-init="true"
@@ -59,11 +44,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.CourseType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CourseTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseTypeLovDs" />
 	</bean>
 	
 	<!-- ==================== Course ==================== -->
@@ -76,11 +56,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.CourseDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Course" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseDs" />
-	</bean>
-	
 	<!-- ==================== CourseLov ==================== -->
 	
 	<bean id="CourseLovDsService" scope="singleton" lazy-init="true"
@@ -89,11 +64,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.Course"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CourseLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.CourseLovDs" />
 	</bean>
 	
 	<!-- ==================== JobCourse ==================== -->
@@ -106,11 +76,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.JobCourseDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="JobCourse" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.JobCourseDs" />
-	</bean>
-	
 	<!-- ==================== PositionCourse ==================== -->
 	
 	<bean id="PositionCourseDsService" scope="singleton" lazy-init="true"
@@ -119,10 +84,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.training.domain.entity.PositionCourse"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.training.ds.converter.PositionCourseDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PositionCourse" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.training.ds.model.PositionCourseDs" />
 	</bean>
 </beans>

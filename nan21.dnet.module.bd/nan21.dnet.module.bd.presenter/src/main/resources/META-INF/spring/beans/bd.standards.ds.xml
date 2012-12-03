@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ClassificationSystem" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemDs" />
-	</bean>
-	
 	<!-- ==================== ClassificationSystemLov ==================== -->
 	
 	<bean id="ClassificationSystemLovDsService" scope="singleton" lazy-init="true"
@@ -29,11 +24,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ClassificationSystemLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationSystemLovDs" />
 	</bean>
 	
 	<!-- ==================== ClassificationItem ==================== -->
@@ -46,11 +36,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.bd.standards.ds.converter.ClassificationItemDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ClassificationItem" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemDs" />
-	</bean>
-	
 	<!-- ==================== ClassificationItemLov ==================== -->
 	
 	<bean id="ClassificationItemLovDsService" scope="singleton" lazy-init="true"
@@ -59,10 +44,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ClassificationItemLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.standards.ds.model.ClassificationItemLovDs" />
 	</bean>
 </beans>

@@ -19,12 +19,7 @@
 		<property name="rightItemIdField" value="CATEGORIES_ID"/>
 		<property name="rightObjectIdField" value="PRODUCTS_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.md.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="CategoriesOfProduct"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.asgn.CategoriesOfProductAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== ProductsOfCategory ==================== -->
 	
@@ -38,10 +33,5 @@
 		<property name="rightItemIdField" value="PRODUCTS_ID"/>
 		<property name="rightObjectIdField" value="CATEGORIES_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.md.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="ProductsOfCategory"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.asgn.ProductsOfCategoryAsgn"/>
-	</bean>
+	</bean>		
 </beans>

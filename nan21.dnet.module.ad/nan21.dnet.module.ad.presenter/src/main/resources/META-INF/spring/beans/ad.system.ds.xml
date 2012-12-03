@@ -26,16 +26,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysParam" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysParamDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">refreshSysConfig</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== SysJob ==================== -->
 	
 	<bean id="SysJobDsService" scope="singleton" lazy-init="true"
@@ -55,16 +45,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysJob" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">synchronizeCatalog</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== SysJobLov ==================== -->
 	
 	<bean id="SysJobLovDsService" scope="singleton" lazy-init="true"
@@ -73,11 +53,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJob"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysJobLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobLovDs" />
 	</bean>
 	
 	<!-- ==================== SysJobParam ==================== -->
@@ -90,11 +65,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.system.ds.converter.SysJobParamDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysJobParam" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobParamDs" />
-	</bean>
-	
 	<!-- ==================== SysJobParamLov ==================== -->
 	
 	<bean id="SysJobParamLovDsService" scope="singleton" lazy-init="true"
@@ -105,11 +75,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysJobParamLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobParamLovDs" />
-	</bean>
-	
 	<!-- ==================== SysJobCtx ==================== -->
 	
 	<bean id="SysJobCtxDsService" scope="singleton" lazy-init="true"
@@ -117,11 +82,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysJobCtx" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs" />
 	</bean>
 	
 	<!-- ==================== SysJobCtxLov ==================== -->
@@ -134,11 +94,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysJobCtxLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxLovDs" />
-	</bean>
-	
 	<!-- ==================== SysJobCtxParam ==================== -->
 	
 	<bean id="SysJobCtxParamDsService" scope="singleton" lazy-init="true"
@@ -147,11 +102,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxParamDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtxParam"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.system.ds.converter.SysJobCtxParamDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysJobCtxParam" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxParamDs" />
 	</bean>
 	
 	<!-- ==================== SysTimer ==================== -->
@@ -164,11 +114,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.system.ds.converter.SysTimerDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysTimer" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerDs" />
-	</bean>
-	
 	<!-- ==================== SysTimerLov ==================== -->
 	
 	<bean id="SysTimerLovDsService" scope="singleton" lazy-init="true"
@@ -177,11 +122,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysTimer"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysTimerLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerLovDs" />
 	</bean>
 	
 	<!-- ==================== SysDataSource ==================== -->
@@ -203,16 +143,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDataSource" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">synchronizeCatalog</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== SysDataSourceLov ==================== -->
 	
 	<bean id="SysDataSourceLovDsService" scope="singleton" lazy-init="true"
@@ -221,11 +151,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDataSourceLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceLovDs" />
 	</bean>
 	
 	<!-- ==================== SysDataSourceDsLov ==================== -->
@@ -238,11 +163,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDataSourceDsLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDsLovDs" />
-	</bean>
-	
 	<!-- ==================== SysDataSourceAsgnLov ==================== -->
 	
 	<bean id="SysDataSourceAsgnLovDsService" scope="singleton" lazy-init="true"
@@ -251,11 +171,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceAsgnLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDataSourceAsgnLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceAsgnLovDs" />
 	</bean>
 	
 	<!-- ==================== SysDsField ==================== -->
@@ -268,11 +183,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.system.ds.converter.SysDsFieldDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDsField" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldDs" />
-	</bean>
-	
 	<!-- ==================== SysDsFieldLov ==================== -->
 	
 	<bean id="SysDsFieldLovDsService" scope="singleton" lazy-init="true"
@@ -281,11 +191,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsField"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDsFieldLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldLovDs" />
 	</bean>
 	
 	<!-- ==================== SysDsService ==================== -->
@@ -298,11 +203,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.system.ds.converter.SysDsServiceDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDsService" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceDs" />
-	</bean>
-	
 	<!-- ==================== SysDsServiceLov ==================== -->
 	
 	<bean id="SysDsServiceLovDsService" scope="singleton" lazy-init="true"
@@ -311,11 +211,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsService"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDsServiceLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceLovDs" />
 	</bean>
 	
 	<!-- ==================== SysDsEvent ==================== -->
@@ -328,11 +223,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.system.ds.converter.SysDsEventDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDsEvent" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventDs" />
-	</bean>
-	
 	<!-- ==================== SysDsEventLov ==================== -->
 	
 	<bean id="SysDsEventLovDsService" scope="singleton" lazy-init="true"
@@ -341,11 +231,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDsEventLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventLovDs" />
 	</bean>
 	
 	<!-- ==================== SysFrameExtension ==================== -->
@@ -357,11 +242,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysFrameExtension"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysFrameExtension" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs" />
-	</bean>
-	
 	<!-- ==================== SysDateFormat ==================== -->
 	
 	<bean id="SysDateFormatDsService" scope="singleton" lazy-init="true"
@@ -369,11 +249,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDateFormat" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDs" />
 	</bean>
 	
 	<!-- ==================== SysDateFormatLov ==================== -->
@@ -386,11 +261,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="SysDateFormatLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatLovDs" />
-	</bean>
-	
 	<!-- ==================== UiViewState ==================== -->
 	
 	<bean id="UiViewStateDsService" scope="singleton" lazy-init="true"
@@ -398,11 +268,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.UiViewState"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UiViewState" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs" />
 	</bean>
 	
 	<!-- ==================== UiViewStateRTLov ==================== -->
@@ -416,11 +281,6 @@
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.system.ds.qbext.UiViewStateRTLovDsQueryBuilder" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UiViewStateRTLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateRTLovDs" />
-	</bean>
-	
 	<!-- ==================== AuditFieldRep ==================== -->
 	
 	<bean id="AuditFieldRepDsService" scope="singleton" lazy-init="true"
@@ -429,10 +289,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.AuditField"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AuditFieldRep" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDs" />
 	</bean>
 </beans>

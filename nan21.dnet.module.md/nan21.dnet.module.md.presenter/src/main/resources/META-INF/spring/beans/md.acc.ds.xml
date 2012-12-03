@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccSchema"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccSchema" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaDs" />
-	</bean>
-	
 	<!-- ==================== AccSchemaLov ==================== -->
 	
 	<bean id="AccSchemaLovDsService" scope="singleton" lazy-init="true"
@@ -29,11 +24,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccSchema"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccSchemaLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccSchemaLovDs" />
 	</bean>
 	
 	<!-- ==================== Account ==================== -->
@@ -46,11 +36,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.md.acc.ds.converter.AccountDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Account" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccountDs" />
-	</bean>
-	
 	<!-- ==================== AccountLov ==================== -->
 	
 	<bean id="AccountLovDsService" scope="singleton" lazy-init="true"
@@ -61,11 +46,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccountLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccountLovDs" />
-	</bean>
-	
 	<!-- ==================== AccItem ==================== -->
 	
 	<bean id="AccItemDsService" scope="singleton" lazy-init="true"
@@ -73,11 +53,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccItem"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccItem" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemDs" />
 	</bean>
 	
 	<!-- ==================== AccItemLov ==================== -->
@@ -90,11 +65,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccItemLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemLovDs" />
-	</bean>
-	
 	<!-- ==================== AccItemAcct ==================== -->
 	
 	<bean id="AccItemAcctDsService" scope="singleton" lazy-init="true"
@@ -103,11 +73,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemAcctDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccItemAcct"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.acc.ds.converter.AccItemAcctDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccItemAcct" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccItemAcctDs" />
 	</bean>
 	
 	<!-- ==================== AccJournal ==================== -->
@@ -119,11 +84,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccJournal"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccJournal" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalDs" />
-	</bean>
-	
 	<!-- ==================== AccJournalLov ==================== -->
 	
 	<bean id="AccJournalLovDsService" scope="singleton" lazy-init="true"
@@ -132,10 +92,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.acc.domain.entity.AccJournal"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccJournalLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.acc.ds.model.AccJournalLovDs" />
 	</bean>
 </beans>

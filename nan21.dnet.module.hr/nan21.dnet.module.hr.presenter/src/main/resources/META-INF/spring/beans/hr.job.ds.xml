@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WorkRequirementType" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeDs" />
-	</bean>
-	
 	<!-- ==================== WorkRequirementTypeLov ==================== -->
 	
 	<bean id="WorkRequirementTypeLovDsService" scope="singleton" lazy-init="true"
@@ -29,11 +24,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WorkRequirementTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeLovDs" />
 	</bean>
 	
 	<!-- ==================== WorkRequirement ==================== -->
@@ -46,11 +36,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.job.ds.converter.WorkRequirementDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WorkRequirement" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementDs" />
-	</bean>
-	
 	<!-- ==================== WorkRequirementLov ==================== -->
 	
 	<bean id="WorkRequirementLovDsService" scope="singleton" lazy-init="true"
@@ -61,11 +46,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WorkRequirementLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementLovDs" />
-	</bean>
-	
 	<!-- ==================== JobType ==================== -->
 	
 	<bean id="JobTypeDsService" scope="singleton" lazy-init="true"
@@ -73,11 +53,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobType"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="JobType" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeDs" />
 	</bean>
 	
 	<!-- ==================== JobTypeLov ==================== -->
@@ -90,11 +65,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="JobTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeLovDs" />
-	</bean>
-	
 	<!-- ==================== Job ==================== -->
 	
 	<bean id="JobDsService" scope="singleton" lazy-init="true"
@@ -103,11 +73,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.JobDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Job"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.job.ds.converter.JobDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Job" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobDs" />
 	</bean>
 	
 	<!-- ==================== JobLov ==================== -->
@@ -120,11 +85,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="JobLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobLovDs" />
-	</bean>
-	
 	<!-- ==================== JobRequirement ==================== -->
 	
 	<bean id="JobRequirementDsService" scope="singleton" lazy-init="true"
@@ -133,11 +93,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.JobRequirementDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobRequirement"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.job.ds.converter.JobRequirementDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="JobRequirement" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobRequirementDs" />
 	</bean>
 	
 	<!-- ==================== Position ==================== -->
@@ -150,11 +105,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.job.ds.converter.PositionDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Position" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionDs" />
-	</bean>
-	
 	<!-- ==================== PositionLov ==================== -->
 	
 	<bean id="PositionLovDsService" scope="singleton" lazy-init="true"
@@ -165,11 +115,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PositionLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionLovDs" />
-	</bean>
-	
 	<!-- ==================== PositionRequirement ==================== -->
 	
 	<bean id="PositionRequirementDsService" scope="singleton" lazy-init="true"
@@ -178,10 +123,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.PositionRequirement"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.job.ds.converter.PositionRequirementDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PositionRequirement" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDs" />
 	</bean>
 </beans>

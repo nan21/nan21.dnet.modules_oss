@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Country"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Country" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryDs" />
-	</bean>
-	
 	<!-- ==================== CountryLov ==================== -->
 	
 	<bean id="CountryLovDsService" scope="singleton" lazy-init="true"
@@ -29,11 +24,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Country"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CountryLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CountryLovDs" />
 	</bean>
 	
 	<!-- ==================== Region ==================== -->
@@ -46,11 +36,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.bd.geo.ds.converter.RegionDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Region" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionDs" />
-	</bean>
-	
 	<!-- ==================== RegionLov ==================== -->
 	
 	<bean id="RegionLovDsService" scope="singleton" lazy-init="true"
@@ -59,11 +44,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Region"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="RegionLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.RegionLovDs" />
 	</bean>
 	
 	<!-- ==================== City ==================== -->
@@ -76,11 +56,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.bd.geo.ds.converter.CityDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="City" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.CityDs" />
-	</bean>
-	
 	<!-- ==================== Location ==================== -->
 	
 	<bean id="LocationDsService" scope="singleton" lazy-init="true"
@@ -89,11 +64,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Location"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.geo.ds.converter.LocationDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Location" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationDs" />
 	</bean>
 	
 	<!-- ==================== LocationLov ==================== -->
@@ -106,11 +76,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="LocationLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationLovDs" />
-	</bean>
-	
 	<!-- ==================== LocationToBillLov ==================== -->
 	
 	<bean id="LocationToBillLovDsService" scope="singleton" lazy-init="true"
@@ -121,11 +86,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="LocationToBillLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationToBillLovDs" />
-	</bean>
-	
 	<!-- ==================== LocationToShipLov ==================== -->
 	
 	<bean id="LocationToShipLovDsService" scope="singleton" lazy-init="true"
@@ -134,10 +94,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationToShipLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.geo.domain.entity.Location"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="LocationToShipLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.geo.ds.model.LocationToShipLovDs" />
 	</bean>
 </beans>

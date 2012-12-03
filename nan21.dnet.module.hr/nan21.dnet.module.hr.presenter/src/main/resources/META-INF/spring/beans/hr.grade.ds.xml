@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.Grade"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Grade" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeDs" />
-	</bean>
-	
 	<!-- ==================== GradeLov ==================== -->
 	
 	<bean id="GradeLovDsService" scope="singleton" lazy-init="true"
@@ -29,11 +24,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.Grade"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="GradeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeLovDs" />
 	</bean>
 	
 	<!-- ==================== GradeRate ==================== -->
@@ -46,11 +36,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.grade.ds.converter.GradeRateDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="GradeRate" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateDs" />
-	</bean>
-	
 	<!-- ==================== GradeRateLov ==================== -->
 	
 	<bean id="GradeRateLovDsService" scope="singleton" lazy-init="true"
@@ -59,11 +44,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.GradeRate"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="GradeRateLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateLovDs" />
 	</bean>
 	
 	<!-- ==================== GradeRateValue ==================== -->
@@ -76,11 +56,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.grade.ds.converter.GradeRateValueDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="GradeRateValue" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.GradeRateValueDs" />
-	</bean>
-	
 	<!-- ==================== PayScale ==================== -->
 	
 	<bean id="PayScaleDsService" scope="singleton" lazy-init="true"
@@ -88,11 +63,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScale"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PayScale" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleDs" />
 	</bean>
 	
 	<!-- ==================== PayScaleLov ==================== -->
@@ -105,11 +75,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PayScaleLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleLovDs" />
-	</bean>
-	
 	<!-- ==================== PayScalePoint ==================== -->
 	
 	<bean id="PayScalePointDsService" scope="singleton" lazy-init="true"
@@ -118,11 +83,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.grade.ds.converter.PayScalePointDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PayScalePoint" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScalePointDs" />
 	</bean>
 	
 	<!-- ==================== PayScalePointLov ==================== -->
@@ -135,11 +95,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PayScalePointLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScalePointLovDs" />
-	</bean>
-	
 	<!-- ==================== PayScaleRate ==================== -->
 	
 	<bean id="PayScaleRateDsService" scope="singleton" lazy-init="true"
@@ -150,11 +105,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.grade.ds.converter.PayScaleRateDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PayScaleRate" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateDs" />
-	</bean>
-	
 	<!-- ==================== PayScaleRateValue ==================== -->
 	
 	<bean id="PayScaleRateValueDsService" scope="singleton" lazy-init="true"
@@ -163,10 +113,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateValueDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRateValue"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.grade.ds.converter.PayScaleRateValueDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PayScaleRateValue" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.grade.ds.model.PayScaleRateValueDs" />
 	</bean>
 </beans>

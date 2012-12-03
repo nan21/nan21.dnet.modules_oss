@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.bd.currency.domain.entity.Currency"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Currency" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyDs" />
-	</bean>
-	
 	<!-- ==================== CurrencyLov ==================== -->
 	
 	<bean id="CurrencyLovDsService" scope="singleton" lazy-init="true"
@@ -31,11 +26,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CurrencyLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyLovDs" />
-	</bean>
-	
 	<!-- ==================== CurrencyXRateProvider ==================== -->
 	
 	<bean id="CurrencyXRateProviderDsService" scope="singleton" lazy-init="true"
@@ -43,11 +33,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateProviderDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateProviderDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateProvider"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CurrencyXRateProvider" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateProviderDs" />
 	</bean>
 	
 	<!-- ==================== CurrencyXRateProviderLov ==================== -->
@@ -60,11 +45,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CurrencyXRateProviderLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateProviderLovDs" />
-	</bean>
-	
 	<!-- ==================== CurrencyXRate ==================== -->
 	
 	<bean id="CurrencyXRateDsService" scope="singleton" lazy-init="true"
@@ -75,11 +55,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.bd.currency.ds.converter.CurrencyXRateDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CurrencyXRate" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateDs" />
-	</bean>
-	
 	<!-- ==================== CurrencyXRateAverage ==================== -->
 	
 	<bean id="CurrencyXRateAverageDsService" scope="singleton" lazy-init="true"
@@ -88,10 +63,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateAverage"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.currency.ds.converter.CurrencyXRateAverageDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="CurrencyXRateAverage" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateAverageDs" />
 	</bean>
 </beans>

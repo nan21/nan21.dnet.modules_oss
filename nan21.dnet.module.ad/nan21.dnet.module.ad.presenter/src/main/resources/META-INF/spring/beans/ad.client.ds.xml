@@ -17,11 +17,6 @@
 		<property name="paramClass" value="net.nan21.dnet.module.ad.client.ds.model.ClientDsParam"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Client" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.client.ds.model.ClientDs" />
-	</bean>
-	
 	<!-- ==================== MyClient ==================== -->
 	
 	<bean id="MyClientDsService" scope="singleton" lazy-init="true"
@@ -30,10 +25,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.client.ds.model.MyClientDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.client.domain.entity.Client"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.client.ds.qb.MyClientDsQueryBuilder" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="MyClient" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.client.ds.model.MyClientDs" />
 	</bean>
 </beans>

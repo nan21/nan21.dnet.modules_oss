@@ -19,11 +19,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActDeployment" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDs" />
-	</bean>
-	
 	<!-- ==================== ActDeploymentLov ==================== -->
 	
 	<bean id="ActDeploymentLovDsService" scope="singleton" lazy-init="true"
@@ -33,11 +28,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActDeploymentLovDsQueryBuilder" />
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActDeploymentLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentLovDs" />
 	</bean>
 	
 	<!-- ==================== ActProcessDefinition ==================== -->
@@ -74,18 +64,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActProcessDefinition" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">serviceStartProcess</value>
-				<value type="java.lang.String">getDiagram</value>
-				<value type="java.lang.String">getStartForm</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== ActProcessDefinitionLov ==================== -->
 	
 	<bean id="ActProcessDefinitionLovDsService" scope="singleton" lazy-init="true"
@@ -95,11 +73,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActProcessDefinitionLovDsQueryBuilder" />
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActProcessDefinitionLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionLovDs" />
 	</bean>
 	
 	<!-- ==================== ActProcessInstance ==================== -->
@@ -124,16 +97,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActProcessInstance" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">killProcessInstance</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== ActProcessInstanceHistory ==================== -->
 	
 	<bean id="ActProcessInstanceHistoryDsService" scope="singleton" lazy-init="true"
@@ -144,11 +107,6 @@
 		<property name="paramClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDsParam"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActProcessInstanceHistoryDsQueryBuilder" />
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActProcessInstanceHistory" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDs" />
 	</bean>
 	
 	<!-- ==================== ActTaskInstance ==================== -->
@@ -179,17 +137,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActTaskInstance" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">assignTask</value>
-				<value type="java.lang.String">completeTask</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== ActVariable ==================== -->
 	
 	<bean id="ActVariableDsService" scope="singleton" lazy-init="true"
@@ -198,11 +145,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActVariable"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActVariable" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs" />
 	</bean>
 	
 	<!-- ==================== ActTaskInstanceHistory ==================== -->
@@ -214,11 +156,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActTaskInstanceHistoryDsQueryBuilder" />
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActTaskInstanceHistory" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDs" />
 	</bean>
 	
 	<!-- ==================== ActMyTask ==================== -->
@@ -242,16 +179,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActMyTask" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">completeTask</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== ActMyTaskHistory ==================== -->
 	
 	<bean id="ActMyTaskHistoryDsService" scope="singleton" lazy-init="true"
@@ -261,11 +188,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActMyTaskHistoryDsQueryBuilder" />
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActMyTaskHistory" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDs" />
 	</bean>
 	
 	<!-- ==================== ActAvailableTask ==================== -->
@@ -286,16 +208,6 @@
 					</bean>
 				</entry>
 			</map>
-		</property>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ActAvailableTask" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActAvailableTaskDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">assignTask</value>
-			</list>
 		</property>
 	</bean>
 	
@@ -324,17 +236,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WfDefProcess" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefProcessDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">deployProcess</value>
-				<value type="java.lang.String">getDiagram</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== WfDefNode ==================== -->
 	
 	<bean id="WfDefNodeDsService" scope="singleton" lazy-init="true"
@@ -343,11 +244,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.workflow.ds.converter.WfDefNodeDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WfDefNode" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeDs" />
 	</bean>
 	
 	<!-- ==================== WfDefNodeField ==================== -->
@@ -360,11 +256,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.workflow.ds.converter.WfDefNodeFieldDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WfDefNodeField" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeFieldDs" />
-	</bean>
-	
 	<!-- ==================== WfDefTransition ==================== -->
 	
 	<bean id="WfDefTransitionDsService" scope="singleton" lazy-init="true"
@@ -373,10 +264,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefTransition"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.workflow.ds.converter.WfDefTransitionDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="WfDefTransition" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs" />
 	</bean>
 </beans>

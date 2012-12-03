@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.UomType"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UomType" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomTypeDs" />
-	</bean>
-	
 	<!-- ==================== UomTypeLov ==================== -->
 	
 	<bean id="UomTypeLovDsService" scope="singleton" lazy-init="true"
@@ -29,11 +24,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.UomType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UomTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomTypeLovDs" />
 	</bean>
 	
 	<!-- ==================== Uom ==================== -->
@@ -46,11 +36,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.bd.uom.ds.converter.UomDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Uom" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomDs" />
-	</bean>
-	
 	<!-- ==================== UomLov ==================== -->
 	
 	<bean id="UomLovDsService" scope="singleton" lazy-init="true"
@@ -59,11 +44,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.Uom"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UomLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomLovDs" />
 	</bean>
 	
 	<!-- ==================== UomMassLov ==================== -->
@@ -76,11 +56,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UomMassLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomMassLovDs" />
-	</bean>
-	
 	<!-- ==================== UomLengthLov ==================== -->
 	
 	<bean id="UomLengthLovDsService" scope="singleton" lazy-init="true"
@@ -89,11 +64,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomLengthLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.Uom"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UomLengthLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomLengthLovDs" />
 	</bean>
 	
 	<!-- ==================== UomVolumeLov ==================== -->
@@ -106,11 +76,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UomVolumeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomVolumeLovDs" />
-	</bean>
-	
 	<!-- ==================== UomConversion ==================== -->
 	
 	<bean id="UomConversionDsService" scope="singleton" lazy-init="true"
@@ -119,10 +84,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomConversionDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.uom.domain.entity.UomConversion"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.uom.ds.converter.UomConversionDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UomConversion" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.uom.ds.model.UomConversionDs" />
 	</bean>
 </beans>

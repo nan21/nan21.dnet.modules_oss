@@ -17,11 +17,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.employee.ds.converter.EmployeeDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Employee" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs" />
-	</bean>
-	
 	<!-- ==================== EmployeeLov ==================== -->
 	
 	<bean id="EmployeeLovDsService" scope="singleton" lazy-init="true"
@@ -30,11 +25,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.Employee"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLovDs" />
 	</bean>
 	
 	<!-- ==================== EmployeeAssignment ==================== -->
@@ -49,11 +39,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.employee.ds.converter.EmployeeAssignmentDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeAssignment" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeAssignmentDs" />
-	</bean>
-	
 	<!-- ==================== EmployeeContact ==================== -->
 	
 	<bean id="EmployeeContactDsService" scope="singleton" lazy-init="true"
@@ -62,11 +47,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContact"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.employee.ds.converter.EmployeeContactDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeContact" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDs" />
 	</bean>
 	
 	<!-- ==================== EmployeeEducation ==================== -->
@@ -79,11 +59,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.employee.ds.converter.EmployeeEducationDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeEducation" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeEducationDs" />
-	</bean>
-	
 	<!-- ==================== EmployeeWorkExperience ==================== -->
 	
 	<bean id="EmployeeWorkExperienceDsService" scope="singleton" lazy-init="true"
@@ -92,11 +67,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeWorkExperience"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.employee.ds.converter.EmployeeWorkExperienceDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeWorkExperience" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs" />
 	</bean>
 	
 	<!-- ==================== EmployeeLicense ==================== -->
@@ -109,11 +79,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.hr.employee.ds.converter.EmployeeLicenseDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeLicense" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDs" />
-	</bean>
-	
 	<!-- ==================== EducationType ==================== -->
 	
 	<bean id="EducationTypeDsService" scope="singleton" lazy-init="true"
@@ -121,11 +86,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EducationType"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EducationType" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeDs" />
 	</bean>
 	
 	<!-- ==================== EducationTypeLov ==================== -->
@@ -138,11 +98,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EducationTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeLovDs" />
-	</bean>
-	
 	<!-- ==================== LicenseType ==================== -->
 	
 	<bean id="LicenseTypeDsService" scope="singleton" lazy-init="true"
@@ -150,11 +105,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.LicenseType"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="LicenseType" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeDs" />
 	</bean>
 	
 	<!-- ==================== LicenseTypeLov ==================== -->
@@ -167,11 +117,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="LicenseTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeLovDs" />
-	</bean>
-	
 	<!-- ==================== EmployeeContactRelationship ==================== -->
 	
 	<bean id="EmployeeContactRelationshipDsService" scope="singleton" lazy-init="true"
@@ -179,11 +124,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactRelationship"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeContactRelationship" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipDs" />
 	</bean>
 	
 	<!-- ==================== EmployeeContactRelationshipLov ==================== -->
@@ -196,11 +136,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmployeeContactRelationshipLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipLovDs" />
-	</bean>
-	
 	<!-- ==================== EmploymentType ==================== -->
 	
 	<bean id="EmploymentTypeDsService" scope="singleton" lazy-init="true"
@@ -208,11 +143,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmploymentType" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeDs" />
 	</bean>
 	
 	<!-- ==================== EmploymentTypeLov ==================== -->
@@ -223,10 +153,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="EmploymentTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeLovDs" />
 	</bean>
 </beans>

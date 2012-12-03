@@ -17,11 +17,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.md.mm.price.ds.converter.PriceListDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PriceList" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListDs" />
-	</bean>
-	
 	<!-- ==================== PriceListLov ==================== -->
 	
 	<bean id="PriceListLovDsService" scope="singleton" lazy-init="true"
@@ -30,11 +25,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PriceListLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListLovDs" />
 	</bean>
 	
 	<!-- ==================== PriceListSalesLov ==================== -->
@@ -47,11 +37,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PriceListSalesLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDs" />
-	</bean>
-	
 	<!-- ==================== PriceListPurchaseLov ==================== -->
 	
 	<bean id="PriceListPurchaseLovDsService" scope="singleton" lazy-init="true"
@@ -60,11 +45,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListPurchaseLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PriceListPurchaseLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListPurchaseLovDs" />
 	</bean>
 	
 	<!-- ==================== PriceListVersion ==================== -->
@@ -94,17 +74,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PriceListVersion" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">addProductsFromCategory</value>
-				<value type="java.lang.String">addProductsFromPriceListVersion</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== PriceListVersionLov ==================== -->
 	
 	<bean id="PriceListVersionLovDsService" scope="singleton" lazy-init="true"
@@ -113,11 +82,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PriceListVersionLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionLovDs" />
 	</bean>
 	
 	<!-- ==================== ProductPrice ==================== -->
@@ -132,11 +96,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.md.mm.price.ds.converter.ProductPriceDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ProductPrice" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceDs" />
-	</bean>
-	
 	<!-- ==================== ProductPriceReport ==================== -->
 	
 	<bean id="ProductPriceReportDsService" scope="singleton" lazy-init="true"
@@ -147,10 +106,5 @@
 		<property name="paramClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceReportDsParam"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.mm.price.ds.qb.ProductPriceReportDsQueryBuilder" />
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="ProductPriceReport" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceReportDs" />
 	</bean>
 </beans>

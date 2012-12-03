@@ -16,11 +16,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory"/>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AttributeCategory" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeCategoryDs" />
-	</bean>
-	
 	<!-- ==================== AttributeCategoryLov ==================== -->
 	
 	<bean id="AttributeCategoryLovDsService" scope="singleton" lazy-init="true"
@@ -31,11 +26,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AttributeCategoryLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeCategoryLovDs" />
-	</bean>
-	
 	<!-- ==================== AttributeSet ==================== -->
 	
 	<bean id="AttributeSetDsService" scope="singleton" lazy-init="true"
@@ -43,11 +33,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AttributeSet" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetDs" />
 	</bean>
 	
 	<!-- ==================== AttributeSetLov ==================== -->
@@ -60,11 +45,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AttributeSetLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetLovDs" />
-	</bean>
-	
 	<!-- ==================== Attribute ==================== -->
 	
 	<bean id="AttributeDsService" scope="singleton" lazy-init="true"
@@ -73,11 +53,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.Attribute"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.attr.ds.converter.AttributeDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Attribute" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeDs" />
 	</bean>
 	
 	<!-- ==================== AttributeLov ==================== -->
@@ -90,11 +65,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AttributeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeLovDs" />
-	</bean>
-	
 	<!-- ==================== AttributeSetAttribute ==================== -->
 	
 	<bean id="AttributeSetAttributeDsService" scope="singleton" lazy-init="true"
@@ -103,10 +73,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.bd.attr.domain.entity.AttributeSetAttribute"/>
 		<property name="converterClass" value="net.nan21.dnet.module.bd.attr.ds.converter.AttributeSetAttributeDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AttributeSetAttribute" />
-		<property name="modelClass" value="net.nan21.dnet.module.bd.attr.ds.model.AttributeSetAttributeDs" />
 	</bean>
 </beans>

@@ -42,18 +42,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseOrder" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">confirm</value>
-				<value type="java.lang.String">unConfirm</value>
-				<value type="java.lang.String">copyLines</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== PurchaseOrderLov ==================== -->
 	
 	<bean id="PurchaseOrderLovDsService" scope="singleton" lazy-init="true"
@@ -62,11 +50,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseOrderLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderLovDs" />
 	</bean>
 	
 	<!-- ==================== PurchaseOrderItem ==================== -->
@@ -89,16 +72,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseOrderItem" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">onProductChange</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== PurchaseOrderItemOverview ==================== -->
 	
 	<bean id="PurchaseOrderItemOverviewDsService" scope="singleton" lazy-init="true"
@@ -107,11 +80,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrderItem"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseOrderItemOverview" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemOverviewDs" />
 	</bean>
 	
 	<!-- ==================== PurchaseOrderItemTax ==================== -->
@@ -124,11 +92,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseOrderItemTax" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderItemTaxDs" />
-	</bean>
-	
 	<!-- ==================== PurchaseOrderTax ==================== -->
 	
 	<bean id="PurchaseOrderTaxDsService" scope="singleton" lazy-init="true"
@@ -139,11 +102,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseOrderTax" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderTaxDs" />
-	</bean>
-	
 	<!-- ==================== PurchaseInventoryTransaction ==================== -->
 	
 	<bean id="PurchaseInventoryTransactionDsService" scope="singleton" lazy-init="true"
@@ -152,11 +110,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.sc.order.domain.entity.PurchaseInventoryTransaction"/>
 		<property name="converterClass" value="net.nan21.dnet.module.sc.order.ds.converter.PurchaseInventoryTransactionDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseInventoryTransaction" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseInventoryTransactionDs" />
 	</bean>
 	
 	<!-- ==================== PurchaseReception ==================== -->
@@ -198,19 +151,6 @@
 					</bean>
 				</entry>
 			</map>
-		</property>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PurchaseReception" />
-		<property name="modelClass" value="net.nan21.dnet.module.sc.order.ds.model.PurchaseReceptionDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">confirm</value>
-				<value type="java.lang.String">unConfirm</value>
-				<value type="java.lang.String">post</value>
-				<value type="java.lang.String">unPost</value>
-			</list>
 		</property>
 	</bean>
 </beans>

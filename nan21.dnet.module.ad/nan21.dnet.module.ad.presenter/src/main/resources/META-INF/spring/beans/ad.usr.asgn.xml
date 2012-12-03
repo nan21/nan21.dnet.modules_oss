@@ -19,12 +19,7 @@
 		<property name="rightItemIdField" value="ROLES_ID"/>
 		<property name="rightObjectIdField" value="USERS_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="UserRoles"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.UserRolesAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== RolesOfUser ==================== -->
 	
@@ -38,12 +33,7 @@
 		<property name="rightItemIdField" value="USERS_ID"/>
 		<property name="rightObjectIdField" value="ROLES_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="RolesOfUser"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RolesOfUserAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== UserUserGroups ==================== -->
 	
@@ -57,12 +47,7 @@
 		<property name="rightItemIdField" value="GROUPS_ID"/>
 		<property name="rightObjectIdField" value="USERS_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="UserUserGroups"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.UserUserGroupsAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== UserGroupUsers ==================== -->
 	
@@ -76,12 +61,7 @@
 		<property name="rightItemIdField" value="USERS_ID"/>
 		<property name="rightObjectIdField" value="GROUPS_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="UserGroupUsers"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.UserGroupUsersAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== AccessControlRoles ==================== -->
 	
@@ -95,12 +75,7 @@
 		<property name="rightItemIdField" value="ROLES_ID"/>
 		<property name="rightObjectIdField" value="ACCESSCONTROLS_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="AccessControlRoles"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.AccessControlRolesAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== RolesOfAccessControl ==================== -->
 	
@@ -114,12 +89,7 @@
 		<property name="rightItemIdField" value="ACCESSCONTROLS_ID"/>
 		<property name="rightObjectIdField" value="ROLES_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="RolesOfAccessControl"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RolesOfAccessControlAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== MenuItemRoles ==================== -->
 	
@@ -133,12 +103,7 @@
 		<property name="rightItemIdField" value="ROLES_ID"/>
 		<property name="rightObjectIdField" value="MENUITEMS_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="MenuItemRoles"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.MenuItemRolesAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== RoleMenuItems ==================== -->
 	
@@ -152,12 +117,7 @@
 		<property name="rightItemIdField" value="MENUITEMS_ID"/>
 		<property name="rightObjectIdField" value="ROLES_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="RoleMenuItems"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RoleMenuItemsAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== MenuRoles ==================== -->
 	
@@ -171,12 +131,7 @@
 		<property name="rightItemIdField" value="ROLES_ID"/>
 		<property name="rightObjectIdField" value="MENUS_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="MenuRoles"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.MenuRolesAsgn"/>
-	</bean>
+	</bean>		
 	
 	<!-- ==================== RoleMenus ==================== -->
 	
@@ -190,10 +145,5 @@
 		<property name="rightItemIdField" value="MENUS_ID"/>
 		<property name="rightObjectIdField" value="ROLES_ID"/>
 		<property name="asgnTxFactoryName" value="nan21.dnet.module.ad.business"/>
-	</bean>
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition">
-		<property name="name" value="RoleMenus"/>
-		<property name="asgn" value="true"/>
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.asgn.RoleMenusAsgn"/>
-	</bean>
+	</bean>		
 </beans>

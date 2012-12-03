@@ -17,11 +17,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.md.base.tx.ds.converter.PaymentMethodDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentMethod" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs" />
-	</bean>
-	
 	<!-- ==================== PaymentMethodLov ==================== -->
 	
 	<bean id="PaymentMethodLovDsService" scope="singleton" lazy-init="true"
@@ -30,11 +25,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentMethodLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodLovDs" />
 	</bean>
 	
 	<!-- ==================== PaymentMethodInLov ==================== -->
@@ -47,11 +37,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentMethodInLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodInLovDs" />
-	</bean>
-	
 	<!-- ==================== PaymentMethodOutLov ==================== -->
 	
 	<bean id="PaymentMethodOutLovDsService" scope="singleton" lazy-init="true"
@@ -62,11 +47,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentMethodOutLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodOutLovDs" />
-	</bean>
-	
 	<!-- ==================== PaymentTerm ==================== -->
 	
 	<bean id="PaymentTermDsService" scope="singleton" lazy-init="true"
@@ -74,11 +54,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentTerm" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermDs" />
 	</bean>
 	
 	<!-- ==================== PaymentTermLov ==================== -->
@@ -91,11 +66,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentTermLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.PaymentTermLovDs" />
-	</bean>
-	
 	<!-- ==================== DeliveryMethod ==================== -->
 	
 	<bean id="DeliveryMethodDsService" scope="singleton" lazy-init="true"
@@ -103,11 +73,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="DeliveryMethod" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodDs" />
 	</bean>
 	
 	<!-- ==================== DeliveryMethodLov ==================== -->
@@ -120,11 +85,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="DeliveryMethodLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.DeliveryMethodLovDs" />
-	</bean>
-	
 	<!-- ==================== TxDocType ==================== -->
 	
 	<bean id="TxDocTypeDsService" scope="singleton" lazy-init="true"
@@ -133,11 +93,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.base.tx.ds.converter.TxDocTypeDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocType" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeDs" />
 	</bean>
 	
 	<!-- ==================== TxDocTypeLov ==================== -->
@@ -150,11 +105,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeLovDs" />
-	</bean>
-	
 	<!-- ==================== TxDocTypeSOLov ==================== -->
 	
 	<bean id="TxDocTypeSOLovDsService" scope="singleton" lazy-init="true"
@@ -163,11 +113,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSOLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypeSOLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSOLovDs" />
 	</bean>
 	
 	<!-- ==================== TxDocTypeSOInvOutLov ==================== -->
@@ -180,11 +125,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypeSOInvOutLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSOInvOutLovDs" />
-	</bean>
-	
 	<!-- ==================== TxDocTypeSILov ==================== -->
 	
 	<bean id="TxDocTypeSILovDsService" scope="singleton" lazy-init="true"
@@ -193,11 +133,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSILovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypeSILov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeSILovDs" />
 	</bean>
 	
 	<!-- ==================== TxDocTypePOLov ==================== -->
@@ -210,11 +145,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypePOLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePOLovDs" />
-	</bean>
-	
 	<!-- ==================== TxDocTypePOInvInLov ==================== -->
 	
 	<bean id="TxDocTypePOInvInLovDsService" scope="singleton" lazy-init="true"
@@ -223,11 +153,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePOInvInLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypePOInvInLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePOInvInLovDs" />
 	</bean>
 	
 	<!-- ==================== TxDocTypePILov ==================== -->
@@ -240,11 +165,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypePILov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePILovDs" />
-	</bean>
-	
 	<!-- ==================== TxDocTypeInvInOutLov ==================== -->
 	
 	<bean id="TxDocTypeInvInOutLovDsService" scope="singleton" lazy-init="true"
@@ -253,11 +173,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeInvInOutLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypeInvInOutLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypeInvInOutLovDs" />
 	</bean>
 	
 	<!-- ==================== TxDocTypePayLov ==================== -->
@@ -270,11 +185,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocTypePayLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocTypePayLovDs" />
-	</bean>
-	
 	<!-- ==================== TxDocSequence ==================== -->
 	
 	<bean id="TxDocSequenceDsService" scope="singleton" lazy-init="true"
@@ -282,11 +192,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocSequence" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceDs" />
 	</bean>
 	
 	<!-- ==================== TxDocSequenceLov ==================== -->
@@ -297,10 +202,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxDocSequenceLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.base.tx.ds.model.TxDocSequenceLovDs" />
 	</bean>
 </beans>

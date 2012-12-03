@@ -35,17 +35,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccDoc" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">post</value>
-				<value type="java.lang.String">unPost</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== AccDocLine ==================== -->
 	
 	<bean id="AccDocLineDsService" scope="singleton" lazy-init="true"
@@ -54,11 +43,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccDocLine" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineDs" />
 	</bean>
 	
 	<!-- ==================== AccDocLineCtx ==================== -->
@@ -71,11 +55,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccDocLineCtx" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccDocLineCtxDs" />
-	</bean>
-	
 	<!-- ==================== AccOperation ==================== -->
 	
 	<bean id="AccOperationDsService" scope="singleton" lazy-init="true"
@@ -86,11 +65,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccOperation" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccOperationDs" />
-	</bean>
-	
 	<!-- ==================== AccBalance ==================== -->
 	
 	<bean id="AccBalanceDsService" scope="singleton" lazy-init="true"
@@ -99,10 +73,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.acc.domain.entity.AccBalance"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccBalance" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.acc.ds.model.AccBalanceDs" />
 	</bean>
 </beans>

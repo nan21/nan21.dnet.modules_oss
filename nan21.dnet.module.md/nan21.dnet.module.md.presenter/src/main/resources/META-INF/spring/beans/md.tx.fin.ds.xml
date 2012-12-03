@@ -17,11 +17,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Payment" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentDs" />
-	</bean>
-	
 	<!-- ==================== PaymentItem ==================== -->
 	
 	<bean id="PaymentItemDsService" scope="singleton" lazy-init="true"
@@ -30,11 +25,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentItem" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemDs" />
 	</bean>
 	
 	<!-- ==================== PaymentItemProduct ==================== -->
@@ -47,11 +37,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemProductDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentItemProduct" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemProductDs" />
-	</bean>
-	
 	<!-- ==================== PaymentItemAccItem ==================== -->
 	
 	<bean id="PaymentItemAccItemDsService" scope="singleton" lazy-init="true"
@@ -62,11 +47,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.md.tx.fin.ds.converter.PaymentItemAccItemDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="PaymentItemAccItem" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.PaymentItemAccItemDs" />
-	</bean>
-	
 	<!-- ==================== TxBalance ==================== -->
 	
 	<bean id="TxBalanceDsService" scope="singleton" lazy-init="true"
@@ -75,10 +55,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDsFilter"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.tx.fin.domain.entity.TxBalance"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="TxBalance" />
-		<property name="modelClass" value="net.nan21.dnet.module.md.tx.fin.ds.model.TxBalanceDs" />
 	</bean>
 </beans>

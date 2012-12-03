@@ -35,17 +35,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="User" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">changePassword</value>
-				<value type="java.lang.String">createAssignableResource</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== MyUserSettings ==================== -->
 	
 	<bean id="MyUserSettingsDsService" scope="singleton" lazy-init="true"
@@ -55,11 +44,6 @@
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.User"/>
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.usr.ds.qb.MyUserSettingsDsQueryBuilder" />
 		<property name="converterClass" value="net.nan21.dnet.module.ad.usr.ds.converter.MyUserSettingsDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="MyUserSettings" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDs" />
 	</bean>
 	
 	<!-- ==================== UserLov ==================== -->
@@ -72,11 +56,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UserLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserLovDs" />
-	</bean>
-	
 	<!-- ==================== UserType ==================== -->
 	
 	<bean id="UserTypeDsService" scope="singleton" lazy-init="true"
@@ -84,11 +63,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.UserType"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UserType" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserTypeDs" />
 	</bean>
 	
 	<!-- ==================== UserTypeLov ==================== -->
@@ -101,11 +75,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UserTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserTypeLovDs" />
-	</bean>
-	
 	<!-- ==================== UserGroup ==================== -->
 	
 	<bean id="UserGroupDsService" scope="singleton" lazy-init="true"
@@ -113,11 +82,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserGroupDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserGroupDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.UserGroup"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UserGroup" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserGroupDs" />
 	</bean>
 	
 	<!-- ==================== UserGroupLov ==================== -->
@@ -130,11 +94,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="UserGroupLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.UserGroupLovDs" />
-	</bean>
-	
 	<!-- ==================== Role ==================== -->
 	
 	<bean id="RoleDsService" scope="singleton" lazy-init="true"
@@ -142,11 +101,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.RoleDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.RoleDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Role" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.RoleDs" />
 	</bean>
 	
 	<!-- ==================== RoleLov ==================== -->
@@ -159,11 +113,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="RoleLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.RoleLovDs" />
-	</bean>
-	
 	<!-- ==================== RolesOfUserLov ==================== -->
 	
 	<bean id="RolesOfUserLovDsService" scope="singleton" lazy-init="true"
@@ -172,11 +121,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.RolesOfUserLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Role"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="RolesOfUserLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.RolesOfUserLovDs" />
 	</bean>
 	
 	<!-- ==================== AccessControl ==================== -->
@@ -200,16 +144,6 @@
 		</property>
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccessControl" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AccessControlDs" />
-		<property name="serviceMethods" >
-			<list>
-				<value type="java.lang.String">copyRulesFromAccessControl</value>
-			</list>
-		</property>
-	</bean>
-	
 	<!-- ==================== AccessControlLov ==================== -->
 	
 	<bean id="AccessControlLovDsService" scope="singleton" lazy-init="true"
@@ -218,11 +152,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.AccessControlLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AccessControl"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AccessControlLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AccessControlLovDs" />
 	</bean>
 	
 	<!-- ==================== DsMethodAccessControl ==================== -->
@@ -235,11 +164,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.usr.ds.converter.DsMethodAccessControlDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="DsMethodAccessControl" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.DsMethodAccessControlDs" />
-	</bean>
-	
 	<!-- ==================== DsAccessControl ==================== -->
 	
 	<bean id="DsAccessControlDsService" scope="singleton" lazy-init="true"
@@ -248,11 +172,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.DsAccessControl"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.usr.ds.converter.DsAccessControlDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="DsAccessControl" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.DsAccessControlDs" />
 	</bean>
 	
 	<!-- ==================== AsgnAccessControl ==================== -->
@@ -265,11 +184,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.usr.ds.converter.AsgnAccessControlDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AsgnAccessControl" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AsgnAccessControlDs" />
-	</bean>
-	
 	<!-- ==================== Menu ==================== -->
 	
 	<bean id="MenuDsService" scope="singleton" lazy-init="true"
@@ -277,11 +191,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Menu"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Menu" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuDs" />
 	</bean>
 	
 	<!-- ==================== MenuRtLov ==================== -->
@@ -294,11 +203,6 @@
 		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.usr.ds.qbext.MenuRtLovDsQueryBuilder" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="MenuRtLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuRtLovDs" />
-	</bean>
-	
 	<!-- ==================== MenuLov ==================== -->
 	
 	<bean id="MenuLovDsService" scope="singleton" lazy-init="true"
@@ -306,11 +210,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Menu"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="MenuLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuLovDs" />
 	</bean>
 	
 	<!-- ==================== MenuItem ==================== -->
@@ -321,11 +220,6 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.MenuItem"/>
 		<property name="converterClass" value="net.nan21.dnet.module.ad.usr.ds.converter.MenuItemDsConv" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="MenuItem" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemDs" />
 	</bean>
 	
 	<!-- ==================== MenuItemRtLov ==================== -->
@@ -339,11 +233,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="MenuItemRtLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemRtLovDs" />
-	</bean>
-	
 	<!-- ==================== MenuItemLov ==================== -->
 	
 	<bean id="MenuItemLovDsService" scope="singleton" lazy-init="true"
@@ -351,11 +240,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemLovDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.MenuItem"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="MenuItemLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.MenuItemLovDs" />
 	</bean>
 	
 	<!-- ==================== Bookmark ==================== -->
@@ -368,11 +252,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.usr.ds.converter.BookmarkDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Bookmark" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.BookmarkDs" />
-	</bean>
-	
 	<!-- ==================== BookmarkRtLov ==================== -->
 	
 	<bean id="BookmarkRtLovDsService" scope="singleton" lazy-init="true"
@@ -383,11 +262,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="BookmarkRtLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.BookmarkRtLovDs" />
-	</bean>
-	
 	<!-- ==================== AssignableType ==================== -->
 	
 	<bean id="AssignableTypeDsService" scope="singleton" lazy-init="true"
@@ -395,11 +269,6 @@
 		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableTypeDs"/>
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableTypeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.AssignableType"/>
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AssignableType" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableTypeDs" />
 	</bean>
 	
 	<!-- ==================== AssignableTypeLov ==================== -->
@@ -412,11 +281,6 @@
 		<property name="readOnly" value="true" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AssignableTypeLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableTypeLovDs" />
-	</bean>
-	
 	<!-- ==================== Assignable ==================== -->
 	
 	<bean id="AssignableDsService" scope="singleton" lazy-init="true"
@@ -427,11 +291,6 @@
 		<property name="converterClass" value="net.nan21.dnet.module.ad.usr.ds.converter.AssignableDsConv" />
 	</bean>
 	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="Assignable" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableDs" />
-	</bean>
-	
 	<!-- ==================== AssignableLov ==================== -->
 	
 	<bean id="AssignableLovDsService" scope="singleton" lazy-init="true"
@@ -440,10 +299,5 @@
 		<property name="filterClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableLovDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.usr.domain.entity.Assignable"/>
 		<property name="readOnly" value="true" />
-	</bean>
-	
-	<bean class="net.nan21.dnet.core.presenter.model.DsDefinition" >
-		<property name="name" value="AssignableLov" />
-		<property name="modelClass" value="net.nan21.dnet.module.ad.usr.ds.model.AssignableLovDs" />
 	</bean>
 </beans>
