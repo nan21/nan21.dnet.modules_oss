@@ -37,7 +37,7 @@ public class PurchaseInvoiceService
 
 	public PurchaseInvoiceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class PurchaseInvoiceService
 	 * Find by unique key
 	 */
 	public PurchaseInvoice findByCode(String code) {
-		return (PurchaseInvoice) this.em
+		return (PurchaseInvoice) this.getEntityManager()
 				.createNamedQuery(PurchaseInvoice.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -66,7 +66,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: docType.id
 	 */
 	public List<PurchaseInvoice> findByDocTypeId(Long docTypeId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.docType.id = :pDocTypeId",
 						PurchaseInvoice.class)
@@ -85,7 +86,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: supplier.id
 	 */
 	public List<PurchaseInvoice> findBySupplierId(Long supplierId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.supplier.id = :pSupplierId",
 						PurchaseInvoice.class)
@@ -104,7 +106,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: customer.id
 	 */
 	public List<PurchaseInvoice> findByCustomerId(Long customerId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.customer.id = :pCustomerId",
 						PurchaseInvoice.class)
@@ -123,7 +126,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: currency.id
 	 */
 	public List<PurchaseInvoice> findByCurrencyId(Long currencyId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						PurchaseInvoice.class)
@@ -142,7 +146,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: paymentMethod.id
 	 */
 	public List<PurchaseInvoice> findByPaymentMethodId(Long paymentMethodId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId",
 						PurchaseInvoice.class)
@@ -162,7 +167,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: paymentTerm.id
 	 */
 	public List<PurchaseInvoice> findByPaymentTermId(Long paymentTermId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.paymentTerm.id = :pPaymentTermId",
 						PurchaseInvoice.class)
@@ -181,7 +187,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: fromAccount.id
 	 */
 	public List<PurchaseInvoice> findByFromAccountId(Long fromAccountId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.fromAccount.id = :pFromAccountId",
 						PurchaseInvoice.class)
@@ -200,7 +207,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: purchaseOrder.id
 	 */
 	public List<PurchaseInvoice> findByPurchaseOrderId(Long purchaseOrderId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoice e where e.clientId = :pClientId and e.purchaseOrder.id = :pPurchaseOrderId",
 						PurchaseInvoice.class)
@@ -220,7 +228,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: lines.id
 	 */
 	public List<PurchaseInvoice> findByLinesId(Long linesId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from PurchaseInvoice e, IN (e.lines) c where e.clientId = :pClientId and c.id = :pLinesId",
 						PurchaseInvoice.class)
@@ -239,7 +248,8 @@ public class PurchaseInvoiceService
 	 * Find by ID of reference: taxes.id
 	 */
 	public List<PurchaseInvoice> findByTaxesId(Long taxesId) {
-		return (List<PurchaseInvoice>) this.em
+		return (List<PurchaseInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from PurchaseInvoice e, IN (e.taxes) c where e.clientId = :pClientId and c.id = :pTaxesId",
 						PurchaseInvoice.class)

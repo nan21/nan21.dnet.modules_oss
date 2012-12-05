@@ -32,7 +32,7 @@ public class PurchaseInventoryTransactionService
 
 	public PurchaseInventoryTransactionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class PurchaseInventoryTransactionService
 	 * Find by ID of reference: supplier.id
 	 */
 	public List<PurchaseInventoryTransaction> findBySupplierId(Long supplierId) {
-		return (List<PurchaseInventoryTransaction>) this.em
+		return (List<PurchaseInventoryTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInventoryTransaction e where e.clientId = :pClientId and e.supplier.id = :pSupplierId",
 						PurchaseInventoryTransaction.class)
@@ -73,7 +74,8 @@ public class PurchaseInventoryTransactionService
 	 */
 	public List<PurchaseInventoryTransaction> findByPurchaseOrderId(
 			Long purchaseOrderId) {
-		return (List<PurchaseInventoryTransaction>) this.em
+		return (List<PurchaseInventoryTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInventoryTransaction e where e.clientId = :pClientId and e.purchaseOrder.id = :pPurchaseOrderId",
 						PurchaseInventoryTransaction.class)

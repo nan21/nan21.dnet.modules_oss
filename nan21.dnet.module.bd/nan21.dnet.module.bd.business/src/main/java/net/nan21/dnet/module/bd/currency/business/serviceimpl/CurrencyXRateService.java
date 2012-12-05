@@ -31,7 +31,7 @@ public class CurrencyXRateService extends AbstractEntityService<CurrencyXRate>
 
 	public CurrencyXRateService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class CurrencyXRateService extends AbstractEntityService<CurrencyXRate>
 	 */
 	public CurrencyXRate findByValid(CurrencyXRateProvider provider,
 			Currency source, Currency target, Date validAt) {
-		return (CurrencyXRate) this.em
+		return (CurrencyXRate) this.getEntityManager()
 				.createNamedQuery(CurrencyXRate.NQ_FIND_BY_VALID)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProvider", provider)
@@ -58,7 +58,7 @@ public class CurrencyXRateService extends AbstractEntityService<CurrencyXRate>
 	 */
 	public CurrencyXRate findByValid(Long providerId, Long sourceId,
 			Long targetId, Date validAt) {
-		return (CurrencyXRate) this.em
+		return (CurrencyXRate) this.getEntityManager()
 				.createNamedQuery(CurrencyXRate.NQ_FIND_BY_VALID_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProviderId", providerId)
@@ -78,7 +78,8 @@ public class CurrencyXRateService extends AbstractEntityService<CurrencyXRate>
 	 * Find by ID of reference: provider.id
 	 */
 	public List<CurrencyXRate> findByProviderId(Long providerId) {
-		return (List<CurrencyXRate>) this.em
+		return (List<CurrencyXRate>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CurrencyXRate e where e.clientId = :pClientId and e.provider.id = :pProviderId",
 						CurrencyXRate.class)
@@ -97,7 +98,8 @@ public class CurrencyXRateService extends AbstractEntityService<CurrencyXRate>
 	 * Find by ID of reference: source.id
 	 */
 	public List<CurrencyXRate> findBySourceId(Long sourceId) {
-		return (List<CurrencyXRate>) this.em
+		return (List<CurrencyXRate>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CurrencyXRate e where e.clientId = :pClientId and e.source.id = :pSourceId",
 						CurrencyXRate.class)
@@ -116,7 +118,8 @@ public class CurrencyXRateService extends AbstractEntityService<CurrencyXRate>
 	 * Find by ID of reference: target.id
 	 */
 	public List<CurrencyXRate> findByTargetId(Long targetId) {
-		return (List<CurrencyXRate>) this.em
+		return (List<CurrencyXRate>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CurrencyXRate e where e.clientId = :pClientId and e.target.id = :pTargetId",
 						CurrencyXRate.class)

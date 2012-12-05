@@ -32,7 +32,7 @@ public class OrganizationHierarchyItemService
 
 	public OrganizationHierarchyItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class OrganizationHierarchyItemService
 	 * Find by ID of reference: hierarchy.id
 	 */
 	public List<OrganizationHierarchyItem> findByHierarchyId(Long hierarchyId) {
-		return (List<OrganizationHierarchyItem>) this.em
+		return (List<OrganizationHierarchyItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from OrganizationHierarchyItem e where e.clientId = :pClientId and e.hierarchy.id = :pHierarchyId",
 						OrganizationHierarchyItem.class)
@@ -71,7 +72,8 @@ public class OrganizationHierarchyItemService
 	 * Find by ID of reference: org.id
 	 */
 	public List<OrganizationHierarchyItem> findByOrgId(Long orgId) {
-		return (List<OrganizationHierarchyItem>) this.em
+		return (List<OrganizationHierarchyItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from OrganizationHierarchyItem e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						OrganizationHierarchyItem.class)
@@ -90,7 +92,8 @@ public class OrganizationHierarchyItemService
 	 * Find by ID of reference: parent.id
 	 */
 	public List<OrganizationHierarchyItem> findByParentId(Long parentId) {
-		return (List<OrganizationHierarchyItem>) this.em
+		return (List<OrganizationHierarchyItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from OrganizationHierarchyItem e where e.clientId = :pClientId and e.parent.id = :pParentId",
 						OrganizationHierarchyItem.class)

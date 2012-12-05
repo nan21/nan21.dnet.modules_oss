@@ -29,7 +29,7 @@ public class ClassificationSystemService
 
 	public ClassificationSystemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ClassificationSystemService
 	 * Find by unique key
 	 */
 	public ClassificationSystem findByCode(String code) {
-		return (ClassificationSystem) this.em
+		return (ClassificationSystem) this.getEntityManager()
 				.createNamedQuery(ClassificationSystem.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -51,7 +51,7 @@ public class ClassificationSystemService
 	 * Find by unique key
 	 */
 	public ClassificationSystem findByName(String name) {
-		return (ClassificationSystem) this.em
+		return (ClassificationSystem) this.getEntityManager()
 				.createNamedQuery(ClassificationSystem.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

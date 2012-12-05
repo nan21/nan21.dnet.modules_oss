@@ -31,7 +31,7 @@ public class ProductSubstituteService
 
 	public ProductSubstituteService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class ProductSubstituteService
 	 * Find by ID of reference: refProduct.id
 	 */
 	public List<ProductSubstitute> findByRefProductId(Long refProductId) {
-		return (List<ProductSubstitute>) this.em
+		return (List<ProductSubstitute>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductSubstitute e where e.clientId = :pClientId and e.refProduct.id = :pRefProductId",
 						ProductSubstitute.class)
@@ -69,7 +70,8 @@ public class ProductSubstituteService
 	 * Find by ID of reference: equivalence.id
 	 */
 	public List<ProductSubstitute> findByEquivalenceId(Long equivalenceId) {
-		return (List<ProductSubstitute>) this.em
+		return (List<ProductSubstitute>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductSubstitute e where e.clientId = :pClientId and e.equivalence.id = :pEquivalenceId",
 						ProductSubstitute.class)

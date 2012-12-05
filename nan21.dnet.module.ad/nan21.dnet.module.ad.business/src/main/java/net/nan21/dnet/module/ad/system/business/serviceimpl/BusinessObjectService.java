@@ -29,7 +29,7 @@ public class BusinessObjectService
 
 	public BusinessObjectService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class BusinessObjectService
 	 * Find by unique key
 	 */
 	public BusinessObject findByName(String name) {
-		return (BusinessObject) this.em
+		return (BusinessObject) this.getEntityManager()
 				.createNamedQuery(BusinessObject.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

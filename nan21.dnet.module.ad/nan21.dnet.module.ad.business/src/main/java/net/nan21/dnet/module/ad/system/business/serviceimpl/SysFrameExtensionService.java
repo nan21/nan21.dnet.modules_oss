@@ -29,7 +29,7 @@ public class SysFrameExtensionService
 
 	public SysFrameExtensionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class SysFrameExtensionService
 	 * Find by unique key
 	 */
 	public SysFrameExtension findByName(String frameFQN, String fileLocation) {
-		return (SysFrameExtension) this.em
+		return (SysFrameExtension) this.getEntityManager()
 				.createNamedQuery(SysFrameExtension.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pFrameFQN", frameFQN)

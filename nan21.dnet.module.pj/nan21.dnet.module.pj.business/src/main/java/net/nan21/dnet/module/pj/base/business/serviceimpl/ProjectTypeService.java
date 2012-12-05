@@ -31,7 +31,7 @@ public class ProjectTypeService extends AbstractEntityService<ProjectType>
 
 	public ProjectTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class ProjectTypeService extends AbstractEntityService<ProjectType>
 	 * Find by unique key
 	 */
 	public ProjectType findByName(String name) {
-		return (ProjectType) this.em
+		return (ProjectType) this.getEntityManager()
 				.createNamedQuery(ProjectType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -60,7 +60,8 @@ public class ProjectTypeService extends AbstractEntityService<ProjectType>
 	 * Find by ID of reference: category.id
 	 */
 	public List<ProjectType> findByCategoryId(Long categoryId) {
-		return (List<ProjectType>) this.em
+		return (List<ProjectType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProjectType e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						ProjectType.class)
@@ -79,7 +80,8 @@ public class ProjectTypeService extends AbstractEntityService<ProjectType>
 	 * Find by ID of reference: projectRoles.id
 	 */
 	public List<ProjectType> findByProjectRolesId(Long projectRolesId) {
-		return (List<ProjectType>) this.em
+		return (List<ProjectType>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ProjectType e, IN (e.projectRoles) c where e.clientId = :pClientId and c.id = :pProjectRolesId",
 						ProjectType.class)
@@ -99,7 +101,8 @@ public class ProjectTypeService extends AbstractEntityService<ProjectType>
 	 * Find by ID of reference: itemTypes.id
 	 */
 	public List<ProjectType> findByItemTypesId(Long itemTypesId) {
-		return (List<ProjectType>) this.em
+		return (List<ProjectType>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ProjectType e, IN (e.itemTypes) c where e.clientId = :pClientId and c.id = :pItemTypesId",
 						ProjectType.class)

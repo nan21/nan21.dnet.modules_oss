@@ -31,7 +31,7 @@ public class VendorGroupService extends AbstractEntityService<VendorGroup>
 
 	public VendorGroupService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class VendorGroupService extends AbstractEntityService<VendorGroup>
 	 * Find by unique key
 	 */
 	public VendorGroup findByCode(String code) {
-		return (VendorGroup) this.em
+		return (VendorGroup) this.getEntityManager()
 				.createNamedQuery(VendorGroup.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -53,7 +53,7 @@ public class VendorGroupService extends AbstractEntityService<VendorGroup>
 	 * Find by unique key
 	 */
 	public VendorGroup findByName(String name) {
-		return (VendorGroup) this.em
+		return (VendorGroup) this.getEntityManager()
 				.createNamedQuery(VendorGroup.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -70,7 +70,8 @@ public class VendorGroupService extends AbstractEntityService<VendorGroup>
 	 * Find by ID of reference: paymentMethod.id
 	 */
 	public List<VendorGroup> findByPaymentMethodId(Long paymentMethodId) {
-		return (List<VendorGroup>) this.em
+		return (List<VendorGroup>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from VendorGroup e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId",
 						VendorGroup.class)
@@ -90,7 +91,8 @@ public class VendorGroupService extends AbstractEntityService<VendorGroup>
 	 * Find by ID of reference: paymentTerm.id
 	 */
 	public List<VendorGroup> findByPaymentTermId(Long paymentTermId) {
-		return (List<VendorGroup>) this.em
+		return (List<VendorGroup>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from VendorGroup e where e.clientId = :pClientId and e.paymentTerm.id = :pPaymentTermId",
 						VendorGroup.class)
@@ -109,7 +111,8 @@ public class VendorGroupService extends AbstractEntityService<VendorGroup>
 	 * Find by ID of reference: accounts.id
 	 */
 	public List<VendorGroup> findByAccountsId(Long accountsId) {
-		return (List<VendorGroup>) this.em
+		return (List<VendorGroup>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from VendorGroup e, IN (e.accounts) c where e.clientId = :pClientId and c.id = :pAccountsId",
 						VendorGroup.class)

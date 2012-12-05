@@ -29,7 +29,7 @@ public class ExportMapService extends AbstractEntityService<ExportMap>
 
 	public ExportMapService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class ExportMapService extends AbstractEntityService<ExportMap>
 	 * Find by unique key
 	 */
 	public ExportMap findByName(String name) {
-		return (ExportMap) this.em.createNamedQuery(ExportMap.NQ_FIND_BY_NAME)
+		return (ExportMap) this.getEntityManager()
+				.createNamedQuery(ExportMap.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class ExportMapService extends AbstractEntityService<ExportMap>
 	 * Find by ID of reference: items.id
 	 */
 	public List<ExportMap> findByItemsId(Long itemsId) {
-		return (List<ExportMap>) this.em
+		return (List<ExportMap>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ExportMap e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId",
 						ExportMap.class)

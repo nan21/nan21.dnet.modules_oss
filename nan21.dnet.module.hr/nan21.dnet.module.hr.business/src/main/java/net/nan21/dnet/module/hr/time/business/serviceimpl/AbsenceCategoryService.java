@@ -29,7 +29,7 @@ public class AbsenceCategoryService
 
 	public AbsenceCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class AbsenceCategoryService
 	 * Find by unique key
 	 */
 	public AbsenceCategory findByName(String name) {
-		return (AbsenceCategory) this.em
+		return (AbsenceCategory) this.getEntityManager()
 				.createNamedQuery(AbsenceCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

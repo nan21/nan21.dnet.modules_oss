@@ -32,14 +32,6 @@ public class ClientDsService extends
 	}
 
 	@Override
-	protected void onInsert(ClientDs ds, Client e, ClientDsParam params)
-			throws Exception {
-		((IClientService) this.getEntityService()).doInsertWithUserAccounts(e,
-				params.getAdminUserCode(), params.getAdminUserName(),
-				params.getAdminPassword());
-	}
-
-	@Override
 	protected void onInsert(List<ClientDs> list, List<Client> entities,
 			ClientDsParam params) throws Exception {
 		IClientService srv = (IClientService) this.getEntityService();

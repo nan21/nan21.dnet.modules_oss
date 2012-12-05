@@ -29,7 +29,7 @@ public class EmployeeContactTypeService
 
 	public EmployeeContactTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class EmployeeContactTypeService
 	 * Find by unique key
 	 */
 	public EmployeeContactType findByName(String name) {
-		return (EmployeeContactType) this.em
+		return (EmployeeContactType) this.getEntityManager()
 				.createNamedQuery(EmployeeContactType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

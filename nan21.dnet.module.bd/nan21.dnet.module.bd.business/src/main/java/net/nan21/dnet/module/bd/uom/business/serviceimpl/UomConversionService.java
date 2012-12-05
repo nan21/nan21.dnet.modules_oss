@@ -29,7 +29,7 @@ public class UomConversionService extends AbstractEntityService<UomConversion>
 
 	public UomConversionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class UomConversionService extends AbstractEntityService<UomConversion>
 	 * Find by ID of reference: source.id
 	 */
 	public List<UomConversion> findBySourceId(Long sourceId) {
-		return (List<UomConversion>) this.em
+		return (List<UomConversion>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from UomConversion e where e.clientId = :pClientId and e.source.id = :pSourceId",
 						UomConversion.class)
@@ -67,7 +68,8 @@ public class UomConversionService extends AbstractEntityService<UomConversion>
 	 * Find by ID of reference: target.id
 	 */
 	public List<UomConversion> findByTargetId(Long targetId) {
-		return (List<UomConversion>) this.em
+		return (List<UomConversion>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from UomConversion e where e.clientId = :pClientId and e.target.id = :pTargetId",
 						UomConversion.class)

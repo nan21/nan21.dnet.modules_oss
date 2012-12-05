@@ -29,7 +29,7 @@ public class PaymentItemService extends AbstractEntityService<PaymentItem> {
 
 	public PaymentItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class PaymentItemService extends AbstractEntityService<PaymentItem> {
 	 * Find by ID of reference: payment.id
 	 */
 	public List<PaymentItem> findByPaymentId(Long paymentId) {
-		return (List<PaymentItem>) this.em
+		return (List<PaymentItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PaymentItem e where e.clientId = :pClientId and e.payment.id = :pPaymentId",
 						PaymentItem.class)
@@ -67,7 +68,8 @@ public class PaymentItemService extends AbstractEntityService<PaymentItem> {
 	 * Find by ID of reference: accItem.id
 	 */
 	public List<PaymentItem> findByAccItemId(Long accItemId) {
-		return (List<PaymentItem>) this.em
+		return (List<PaymentItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PaymentItem e where e.clientId = :pClientId and e.accItem.id = :pAccItemId",
 						PaymentItem.class)
@@ -86,7 +88,8 @@ public class PaymentItemService extends AbstractEntityService<PaymentItem> {
 	 * Find by ID of reference: product.id
 	 */
 	public List<PaymentItem> findByProductId(Long productId) {
-		return (List<PaymentItem>) this.em
+		return (List<PaymentItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PaymentItem e where e.clientId = :pClientId and e.product.id = :pProductId",
 						PaymentItem.class)
@@ -105,7 +108,8 @@ public class PaymentItemService extends AbstractEntityService<PaymentItem> {
 	 * Find by ID of reference: uom.id
 	 */
 	public List<PaymentItem> findByUomId(Long uomId) {
-		return (List<PaymentItem>) this.em
+		return (List<PaymentItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PaymentItem e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						PaymentItem.class)

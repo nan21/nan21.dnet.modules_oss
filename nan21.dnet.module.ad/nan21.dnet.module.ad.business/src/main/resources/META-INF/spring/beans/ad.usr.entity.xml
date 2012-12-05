@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"	 
+	xmlns:int="http://www.springframework.org/schema/integration"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans.xsd
 			http://www.springframework.org/schema/context 
-				http://www.springframework.org/schema/context/spring-context.xsd">   
+				http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/integration
+				http://www.springframework.org/schema/integration/spring-integration.xsd">
+
 	<bean id="UserTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.UserTypeService"/>
+
 	<bean id="UserService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceext.UserService"/>
+
 	<bean id="UserGroupService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.UserGroupService"/>
+
 	<bean id="RoleService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.RoleService"/>
+
 	<bean id="AccessControlService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.AccessControlService"/>
+
 	<bean id="DsMethodAccessControlService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.DsMethodAccessControlService"/>
+
 	<bean id="DsAccessControlService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.DsAccessControlService"/>
+
 	<bean id="AsgnAccessControlService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.AsgnAccessControlService"/>
+
 	<bean id="MenuService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.MenuService"/>
+
 	<bean id="MenuItemService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.MenuItemService"/>
+
 	<bean id="BookmarkService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.BookmarkService"/>
+
 	<bean id="AssignableTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.AssignableTypeService"/>
+
 	<bean id="AssignableService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.usr.business.serviceimpl.AssignableService"/>
 </beans>

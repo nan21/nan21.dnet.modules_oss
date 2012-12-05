@@ -35,7 +35,7 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 
 	public BpAccountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by unique key
 	 */
 	public BpAccount findByBp_org(BusinessPartner bpartner, Organization org) {
-		return (BpAccount) this.em
+		return (BpAccount) this.getEntityManager()
 				.createNamedQuery(BpAccount.NQ_FIND_BY_BP_ORG)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pBpartner", bpartner).setParameter("pOrg", org)
@@ -58,7 +58,7 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by unique key
 	 */
 	public BpAccount findByBp_org(Long bpartnerId, Long orgId) {
-		return (BpAccount) this.em
+		return (BpAccount) this.getEntityManager()
 				.createNamedQuery(BpAccount.NQ_FIND_BY_BP_ORG_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pBpartnerId", bpartnerId)
@@ -76,7 +76,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<BpAccount> findByBpartnerId(Long bpartnerId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						BpAccount.class)
@@ -95,7 +96,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: org.id
 	 */
 	public List<BpAccount> findByOrgId(Long orgId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						BpAccount.class)
@@ -114,7 +116,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: custGroup.id
 	 */
 	public List<BpAccount> findByCustGroupId(Long custGroupId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.custGroup.id = :pCustGroupId",
 						BpAccount.class)
@@ -134,7 +137,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: custPaymentMethod.id
 	 */
 	public List<BpAccount> findByCustPaymentMethodId(Long custPaymentMethodId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.custPaymentMethod.id = :pCustPaymentMethodId",
 						BpAccount.class)
@@ -154,7 +158,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: custPaymentTerm.id
 	 */
 	public List<BpAccount> findByCustPaymentTermId(Long custPaymentTermId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.custPaymentTerm.id = :pCustPaymentTermId",
 						BpAccount.class)
@@ -175,7 +180,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: custDeliveryMethod.id
 	 */
 	public List<BpAccount> findByCustDeliveryMethodId(Long custDeliveryMethodId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.custDeliveryMethod.id = :pCustDeliveryMethodId",
 						BpAccount.class)
@@ -195,7 +201,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: vendGroup.id
 	 */
 	public List<BpAccount> findByVendGroupId(Long vendGroupId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.vendGroup.id = :pVendGroupId",
 						BpAccount.class)
@@ -215,7 +222,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: vendPaymentMethod.id
 	 */
 	public List<BpAccount> findByVendPaymentMethodId(Long vendPaymentMethodId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.vendPaymentMethod.id = :pVendPaymentMethodId",
 						BpAccount.class)
@@ -235,7 +243,8 @@ public class BpAccountService extends AbstractEntityService<BpAccount>
 	 * Find by ID of reference: vendPaymentTerm.id
 	 */
 	public List<BpAccount> findByVendPaymentTermId(Long vendPaymentTermId) {
-		return (List<BpAccount>) this.em
+		return (List<BpAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpAccount e where e.clientId = :pClientId and e.vendPaymentTerm.id = :pVendPaymentTermId",
 						BpAccount.class)

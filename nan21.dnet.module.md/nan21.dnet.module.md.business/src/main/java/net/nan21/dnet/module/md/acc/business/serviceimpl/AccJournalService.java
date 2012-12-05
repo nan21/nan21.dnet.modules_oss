@@ -27,7 +27,7 @@ public class AccJournalService extends AbstractEntityService<AccJournal>
 
 	public AccJournalService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class AccJournalService extends AbstractEntityService<AccJournal>
 	 * Find by unique key
 	 */
 	public AccJournal findByName(String name) {
-		return (AccJournal) this.em
+		return (AccJournal) this.getEntityManager()
 				.createNamedQuery(AccJournal.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

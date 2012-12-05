@@ -29,7 +29,7 @@ public class OrganizationTypeService
 
 	public OrganizationTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class OrganizationTypeService
 	 * Find by unique key
 	 */
 	public OrganizationType findByName(String name) {
-		return (OrganizationType) this.em
+		return (OrganizationType) this.getEntityManager()
 				.createNamedQuery(OrganizationType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

@@ -29,7 +29,7 @@ public class AssignableTypeService
 
 	public AssignableTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class AssignableTypeService
 	 * Find by unique key
 	 */
 	public AssignableType findByName(String name) {
-		return (AssignableType) this.em
+		return (AssignableType) this.getEntityManager()
 				.createNamedQuery(AssignableType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

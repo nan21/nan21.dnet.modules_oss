@@ -29,7 +29,7 @@ public class IssueResolutionService
 
 	public IssueResolutionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class IssueResolutionService
 	 * Find by unique key
 	 */
 	public IssueResolution findByName(String name) {
-		return (IssueResolution) this.em
+		return (IssueResolution) this.getEntityManager()
 				.createNamedQuery(IssueResolution.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

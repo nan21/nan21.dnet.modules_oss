@@ -27,7 +27,7 @@ public class SalesTxAmountService extends AbstractEntityService<SalesTxAmount> {
 
 	public SalesTxAmountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -46,7 +46,8 @@ public class SalesTxAmountService extends AbstractEntityService<SalesTxAmount> {
 	 * Find by ID of reference: order.id
 	 */
 	public List<SalesTxAmount> findByOrderId(Long orderId) {
-		return (List<SalesTxAmount>) this.em
+		return (List<SalesTxAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesTxAmount e where e.clientId = :pClientId and e.order.id = :pOrderId",
 						SalesTxAmount.class)
@@ -65,7 +66,8 @@ public class SalesTxAmountService extends AbstractEntityService<SalesTxAmount> {
 	 * Find by ID of reference: invoice.id
 	 */
 	public List<SalesTxAmount> findByInvoiceId(Long invoiceId) {
-		return (List<SalesTxAmount>) this.em
+		return (List<SalesTxAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesTxAmount e where e.clientId = :pClientId and e.invoice.id = :pInvoiceId",
 						SalesTxAmount.class)

@@ -43,12 +43,14 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 	 */
 	public void unPost(PurchaseInvoice invoice) throws BusinessException {
 		try {
-			this.em.createQuery(
-					"delete from AccDoc t " + " where t.docUuid = :invoiceUuid")
+			this.getEntityManager()
+					.createQuery(
+							"delete from AccDoc t "
+									+ " where t.docUuid = :invoiceUuid")
 					.setParameter("invoiceUuid", invoice.getUuid())
 					.executeUpdate();
 			invoice.setPosted(false);
-			this.em.merge(invoice);
+			this.getEntityManager().merge(invoice);
 		} catch (Exception e) {
 			if (e.getCause() != null
 					&& e.getCause() instanceof SQLIntegrityConstraintViolationException) {
@@ -81,17 +83,17 @@ public class PurchaseInvoiceToAccDocBD extends AbstractBusinessDelegate {
 			result.add(doc);
 		}
 		invoice.setPosted(true);
-		this.em.merge(invoice);
+		this.getEntityManager().merge(invoice);
 		return result;
 	}
 
 	protected AccDoc generateAccDoc(PurchaseInvoice invoice, AccSchema schema)
 			throws BusinessException {
 		AccDoc doc = this.generateAccDocPurchase(invoice, schema);
-		this.em.persist(doc);
+		this.getEntityManager().persist(doc);
 		// if (invoice.getSelfPayed()) {
 		// doc = this.generateAccDocPayment(invoice, schema);
-		// this.em.persist(doc);
+		// this.getEntityManager().persist(doc);
 		// }
 		return null;
 	}

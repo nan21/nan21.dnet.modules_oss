@@ -33,7 +33,7 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 
 	public AccDocService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: org.id
 	 */
 	public List<AccDoc> findByOrgId(Long orgId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDoc e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						AccDoc.class)
@@ -71,7 +72,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<AccDoc> findByAccSchemaId(Long accSchemaId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDoc e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						AccDoc.class)
@@ -90,7 +92,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: period.id
 	 */
 	public List<AccDoc> findByPeriodId(Long periodId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDoc e where e.clientId = :pClientId and e.period.id = :pPeriodId",
 						AccDoc.class)
@@ -109,7 +112,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: journal.id
 	 */
 	public List<AccDoc> findByJournalId(Long journalId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDoc e where e.clientId = :pClientId and e.journal.id = :pJournalId",
 						AccDoc.class)
@@ -128,7 +132,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<AccDoc> findByBpartnerId(Long bpartnerId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDoc e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						AccDoc.class)
@@ -147,7 +152,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: docCurrency.id
 	 */
 	public List<AccDoc> findByDocCurrencyId(Long docCurrencyId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDoc e where e.clientId = :pClientId and e.docCurrency.id = :pDocCurrencyId",
 						AccDoc.class)
@@ -166,7 +172,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: docType.id
 	 */
 	public List<AccDoc> findByDocTypeId(Long docTypeId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDoc e where e.clientId = :pClientId and e.docType.id = :pDocTypeId",
 						AccDoc.class)
@@ -185,7 +192,8 @@ public class AccDocService extends AbstractEntityService<AccDoc> {
 	 * Find by ID of reference: lines.id
 	 */
 	public List<AccDoc> findByLinesId(Long linesId) {
-		return (List<AccDoc>) this.em
+		return (List<AccDoc>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from AccDoc e, IN (e.lines) c where e.clientId = :pClientId and c.id = :pLinesId",
 						AccDoc.class)

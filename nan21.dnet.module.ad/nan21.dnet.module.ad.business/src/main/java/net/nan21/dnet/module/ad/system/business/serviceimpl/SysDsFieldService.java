@@ -29,7 +29,7 @@ public class SysDsFieldService extends AbstractEntityService<SysDsField>
 
 	public SysDsFieldService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class SysDsFieldService extends AbstractEntityService<SysDsField>
 	 * Find by unique key
 	 */
 	public SysDsField findByName(SysDataSource dataSource, String name) {
-		return (SysDsField) this.em
+		return (SysDsField) this.getEntityManager()
 				.createNamedQuery(SysDsField.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSource", dataSource)
@@ -52,7 +52,7 @@ public class SysDsFieldService extends AbstractEntityService<SysDsField>
 	 * Find by unique key
 	 */
 	public SysDsField findByName(Long dataSourceId, String name) {
-		return (SysDsField) this.em
+		return (SysDsField) this.getEntityManager()
 				.createNamedQuery(SysDsField.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSourceId", dataSourceId)
@@ -70,7 +70,8 @@ public class SysDsFieldService extends AbstractEntityService<SysDsField>
 	 * Find by ID of reference: dataSource.id
 	 */
 	public List<SysDsField> findByDataSourceId(Long dataSourceId) {
-		return (List<SysDsField>) this.em
+		return (List<SysDsField>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysDsField e where e.clientId = :pClientId and e.dataSource.id = :pDataSourceId",
 						SysDsField.class)

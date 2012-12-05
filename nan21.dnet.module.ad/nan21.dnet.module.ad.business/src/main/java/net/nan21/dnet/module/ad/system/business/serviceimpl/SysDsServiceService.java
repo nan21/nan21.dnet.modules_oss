@@ -29,7 +29,7 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 
 	public SysDsServiceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 	 * Find by unique key
 	 */
 	public SysDsService findByName(SysDataSource dataSource, String name) {
-		return (SysDsService) this.em
+		return (SysDsService) this.getEntityManager()
 				.createNamedQuery(SysDsService.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSource", dataSource)
@@ -52,7 +52,7 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 	 * Find by unique key
 	 */
 	public SysDsService findByName(Long dataSourceId, String name) {
-		return (SysDsService) this.em
+		return (SysDsService) this.getEntityManager()
 				.createNamedQuery(SysDsService.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSourceId", dataSourceId)
@@ -70,7 +70,8 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 	 * Find by ID of reference: dataSource.id
 	 */
 	public List<SysDsService> findByDataSourceId(Long dataSourceId) {
-		return (List<SysDsService>) this.em
+		return (List<SysDsService>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysDsService e where e.clientId = :pClientId and e.dataSource.id = :pDataSourceId",
 						SysDsService.class)

@@ -30,7 +30,7 @@ public class ActProcessDefinitionService
 
 	public ActProcessDefinitionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class ActProcessDefinitionService
 	 * Find by ID of reference: deployment.id
 	 */
 	public List<ActProcessDefinition> findByDeploymentId(String deploymentId) {
-		return (List<ActProcessDefinition>) this.em
+		return (List<ActProcessDefinition>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ActProcessDefinition e where  e.deployment.id = :pDeploymentId",
 						ActProcessDefinition.class)

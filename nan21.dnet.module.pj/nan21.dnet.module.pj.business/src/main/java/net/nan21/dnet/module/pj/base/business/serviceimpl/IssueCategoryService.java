@@ -27,7 +27,7 @@ public class IssueCategoryService extends AbstractEntityService<IssueCategory>
 
 	public IssueCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IssueCategoryService extends AbstractEntityService<IssueCategory>
 	 * Find by unique key
 	 */
 	public IssueCategory findByName(String name) {
-		return (IssueCategory) this.em
+		return (IssueCategory) this.getEntityManager()
 				.createNamedQuery(IssueCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

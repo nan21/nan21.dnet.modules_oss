@@ -29,7 +29,7 @@ public class ElementInputService extends AbstractEntityService<ElementInput>
 
 	public ElementInputService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class ElementInputService extends AbstractEntityService<ElementInput>
 	 * Find by ID of reference: element.id
 	 */
 	public List<ElementInput> findByElementId(Long elementId) {
-		return (List<ElementInput>) this.em
+		return (List<ElementInput>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementInput e where e.clientId = :pClientId and e.element.id = :pElementId",
 						ElementInput.class)
@@ -67,7 +68,8 @@ public class ElementInputService extends AbstractEntityService<ElementInput>
 	 * Find by ID of reference: crossReference.id
 	 */
 	public List<ElementInput> findByCrossReferenceId(Long crossReferenceId) {
-		return (List<ElementInput>) this.em
+		return (List<ElementInput>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementInput e where e.clientId = :pClientId and e.crossReference.id = :pCrossReferenceId",
 						ElementInput.class)

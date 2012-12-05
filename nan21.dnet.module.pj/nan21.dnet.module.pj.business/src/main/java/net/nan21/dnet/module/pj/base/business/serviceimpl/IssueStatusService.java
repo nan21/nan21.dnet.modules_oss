@@ -27,7 +27,7 @@ public class IssueStatusService extends AbstractEntityService<IssueStatus>
 
 	public IssueStatusService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IssueStatusService extends AbstractEntityService<IssueStatus>
 	 * Find by unique key
 	 */
 	public IssueStatus findByName(String name) {
-		return (IssueStatus) this.em
+		return (IssueStatus) this.getEntityManager()
 				.createNamedQuery(IssueStatus.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

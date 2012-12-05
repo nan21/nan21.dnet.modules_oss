@@ -29,7 +29,7 @@ public class AttachmentTypeService
 
 	public AttachmentTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class AttachmentTypeService
 	 * Find by unique key
 	 */
 	public AttachmentType findByName(String name) {
-		return (AttachmentType) this.em
+		return (AttachmentType) this.getEntityManager()
 				.createNamedQuery(AttachmentType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

@@ -26,7 +26,7 @@ public class ActDeploymentService extends AbstractEntityService<ActDeployment>
 
 	public ActDeploymentService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

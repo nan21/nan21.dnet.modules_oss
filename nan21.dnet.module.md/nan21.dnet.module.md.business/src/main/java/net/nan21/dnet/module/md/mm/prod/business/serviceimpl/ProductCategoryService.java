@@ -31,7 +31,7 @@ public class ProductCategoryService
 
 	public ProductCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class ProductCategoryService
 	 * Find by unique key
 	 */
 	public ProductCategory findByCode(String code) {
-		return (ProductCategory) this.em
+		return (ProductCategory) this.getEntityManager()
 				.createNamedQuery(ProductCategory.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -53,7 +53,7 @@ public class ProductCategoryService
 	 * Find by unique key
 	 */
 	public ProductCategory findByName(String name) {
-		return (ProductCategory) this.em
+		return (ProductCategory) this.getEntityManager()
 				.createNamedQuery(ProductCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -70,7 +70,8 @@ public class ProductCategoryService
 	 * Find by ID of reference: category.id
 	 */
 	public List<ProductCategory> findByCategoryId(Long categoryId) {
-		return (List<ProductCategory>) this.em
+		return (List<ProductCategory>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductCategory e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						ProductCategory.class)
@@ -89,7 +90,8 @@ public class ProductCategoryService
 	 * Find by ID of reference: products.id
 	 */
 	public List<ProductCategory> findByProductsId(Long productsId) {
-		return (List<ProductCategory>) this.em
+		return (List<ProductCategory>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ProductCategory e, IN (e.products) c where e.clientId = :pClientId and c.id = :pProductsId",
 						ProductCategory.class)

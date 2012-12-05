@@ -29,7 +29,7 @@ public class AbsenceTypeService extends AbstractEntityService<AbsenceType>
 
 	public AbsenceTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class AbsenceTypeService extends AbstractEntityService<AbsenceType>
 	 * Find by unique key
 	 */
 	public AbsenceType findByName(String name) {
-		return (AbsenceType) this.em
+		return (AbsenceType) this.getEntityManager()
 				.createNamedQuery(AbsenceType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -58,7 +58,8 @@ public class AbsenceTypeService extends AbstractEntityService<AbsenceType>
 	 * Find by ID of reference: category.id
 	 */
 	public List<AbsenceType> findByCategoryId(Long categoryId) {
-		return (List<AbsenceType>) this.em
+		return (List<AbsenceType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AbsenceType e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						AbsenceType.class)

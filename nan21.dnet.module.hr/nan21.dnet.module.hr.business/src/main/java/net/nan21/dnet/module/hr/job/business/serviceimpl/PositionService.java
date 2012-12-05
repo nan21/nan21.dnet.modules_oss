@@ -31,7 +31,7 @@ public class PositionService extends AbstractEntityService<Position>
 
 	public PositionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,8 @@ public class PositionService extends AbstractEntityService<Position>
 	 * Find by unique key
 	 */
 	public Position findByCode(String code) {
-		return (Position) this.em.createNamedQuery(Position.NQ_FIND_BY_CODE)
+		return (Position) this.getEntityManager()
+				.createNamedQuery(Position.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -52,7 +53,8 @@ public class PositionService extends AbstractEntityService<Position>
 	 * Find by unique key
 	 */
 	public Position findByName(String name) {
-		return (Position) this.em.createNamedQuery(Position.NQ_FIND_BY_NAME)
+		return (Position) this.getEntityManager()
+				.createNamedQuery(Position.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -68,7 +70,8 @@ public class PositionService extends AbstractEntityService<Position>
 	 * Find by ID of reference: org.id
 	 */
 	public List<Position> findByOrgId(Long orgId) {
-		return (List<Position>) this.em
+		return (List<Position>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Position e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						Position.class)
@@ -87,7 +90,8 @@ public class PositionService extends AbstractEntityService<Position>
 	 * Find by ID of reference: job.id
 	 */
 	public List<Position> findByJobId(Long jobId) {
-		return (List<Position>) this.em
+		return (List<Position>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Position e where e.clientId = :pClientId and e.job.id = :pJobId",
 						Position.class)
@@ -106,7 +110,8 @@ public class PositionService extends AbstractEntityService<Position>
 	 * Find by ID of reference: location.id
 	 */
 	public List<Position> findByLocationId(Long locationId) {
-		return (List<Position>) this.em
+		return (List<Position>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Position e where e.clientId = :pClientId and e.location.id = :pLocationId",
 						Position.class)

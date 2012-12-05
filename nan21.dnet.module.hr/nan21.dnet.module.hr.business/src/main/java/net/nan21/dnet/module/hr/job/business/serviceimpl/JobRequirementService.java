@@ -32,7 +32,7 @@ public class JobRequirementService
 
 	public JobRequirementService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class JobRequirementService
 	 * Find by ID of reference: job.id
 	 */
 	public List<JobRequirement> findByJobId(Long jobId) {
-		return (List<JobRequirement>) this.em
+		return (List<JobRequirement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from JobRequirement e where e.clientId = :pClientId and e.job.id = :pJobId",
 						JobRequirement.class)
@@ -70,7 +71,8 @@ public class JobRequirementService
 	 * Find by ID of reference: requirement.id
 	 */
 	public List<JobRequirement> findByRequirementId(Long requirementId) {
-		return (List<JobRequirement>) this.em
+		return (List<JobRequirement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from JobRequirement e where e.clientId = :pClientId and e.requirement.id = :pRequirementId",
 						JobRequirement.class)

@@ -28,7 +28,7 @@ public class ActTaskService extends AbstractEntityService<ActTask>
 
 	public ActTaskService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class ActTaskService extends AbstractEntityService<ActTask>
 	 * Find by ID of reference: processDefinition.id
 	 */
 	public List<ActTask> findByProcessDefinitionId(String processDefinitionId) {
-		return (List<ActTask>) this.em
+		return (List<ActTask>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ActTask e where  e.processDefinition.id = :pProcessDefinitionId",
 						ActTask.class)
@@ -67,7 +68,8 @@ public class ActTaskService extends AbstractEntityService<ActTask>
 	 * Find by ID of reference: parent.id
 	 */
 	public List<ActTask> findByParentId(String parentId) {
-		return (List<ActTask>) this.em
+		return (List<ActTask>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ActTask e where  e.parent.id = :pParentId",
 						ActTask.class).setParameter("pParentId", parentId)

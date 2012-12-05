@@ -29,7 +29,7 @@ public class ImportJobService extends AbstractEntityService<ImportJob>
 
 	public ImportJobService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class ImportJobService extends AbstractEntityService<ImportJob>
 	 * Find by unique key
 	 */
 	public ImportJob findByName(String name) {
-		return (ImportJob) this.em.createNamedQuery(ImportJob.NQ_FIND_BY_NAME)
+		return (ImportJob) this.getEntityManager()
+				.createNamedQuery(ImportJob.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class ImportJobService extends AbstractEntityService<ImportJob>
 	 * Find by ID of reference: items.id
 	 */
 	public List<ImportJob> findByItemsId(Long itemsId) {
-		return (List<ImportJob>) this.em
+		return (List<ImportJob>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ImportJob e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId",
 						ImportJob.class)

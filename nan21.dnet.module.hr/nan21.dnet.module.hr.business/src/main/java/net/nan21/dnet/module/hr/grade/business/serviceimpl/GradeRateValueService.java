@@ -32,7 +32,7 @@ public class GradeRateValueService
 
 	public GradeRateValueService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class GradeRateValueService
 	 * Find by ID of reference: gradeRate.id
 	 */
 	public List<GradeRateValue> findByGradeRateId(Long gradeRateId) {
-		return (List<GradeRateValue>) this.em
+		return (List<GradeRateValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradeRateValue e where e.clientId = :pClientId and e.gradeRate.id = :pGradeRateId",
 						GradeRateValue.class)
@@ -70,7 +71,8 @@ public class GradeRateValueService
 	 * Find by ID of reference: grade.id
 	 */
 	public List<GradeRateValue> findByGradeId(Long gradeId) {
-		return (List<GradeRateValue>) this.em
+		return (List<GradeRateValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradeRateValue e where e.clientId = :pClientId and e.grade.id = :pGradeId",
 						GradeRateValue.class)

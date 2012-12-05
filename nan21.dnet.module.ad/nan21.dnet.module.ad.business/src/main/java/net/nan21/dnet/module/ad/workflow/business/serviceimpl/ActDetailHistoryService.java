@@ -30,7 +30,7 @@ public class ActDetailHistoryService
 
 	public ActDetailHistoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class ActDetailHistoryService
 	 * Find by ID of reference: byteArray.id
 	 */
 	public List<ActDetailHistory> findByByteArrayId(String byteArrayId) {
-		return (List<ActDetailHistory>) this.em
+		return (List<ActDetailHistory>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ActDetailHistory e where  e.byteArray.id = :pByteArrayId",
 						ActDetailHistory.class)

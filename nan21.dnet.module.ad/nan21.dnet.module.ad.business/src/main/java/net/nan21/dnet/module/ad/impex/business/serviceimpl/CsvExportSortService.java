@@ -29,7 +29,7 @@ public class CsvExportSortService extends AbstractEntityService<CsvExportSort>
 
 	public CsvExportSortService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class CsvExportSortService extends AbstractEntityService<CsvExportSort>
 	 * Find by ID of reference: csvExport.id
 	 */
 	public List<CsvExportSort> findByCsvExportId(Long csvExportId) {
-		return (List<CsvExportSort>) this.em
+		return (List<CsvExportSort>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CsvExportSort e where e.clientId = :pClientId and e.csvExport.id = :pCsvExportId",
 						CsvExportSort.class)

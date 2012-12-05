@@ -28,7 +28,7 @@ public class QuartzSimpleTriggerService
 
 	public QuartzSimpleTriggerService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

@@ -32,7 +32,7 @@ public class FiscalPeriodStatusService
 
 	public FiscalPeriodStatusService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class FiscalPeriodStatusService
 	 */
 	public FiscalPeriodStatus findByOrg_period(Organization org,
 			FiscalPeriod period) {
-		return (FiscalPeriodStatus) this.em
+		return (FiscalPeriodStatus) this.getEntityManager()
 				.createNamedQuery(FiscalPeriodStatus.NQ_FIND_BY_ORG_PERIOD)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pOrg", org).setParameter("pPeriod", period)
@@ -56,7 +56,8 @@ public class FiscalPeriodStatusService
 	 * Find by unique key
 	 */
 	public FiscalPeriodStatus findByOrg_period(Long orgId, Long periodId) {
-		return (FiscalPeriodStatus) this.em
+		return (FiscalPeriodStatus) this
+				.getEntityManager()
 				.createNamedQuery(
 						FiscalPeriodStatus.NQ_FIND_BY_ORG_PERIOD_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -75,7 +76,8 @@ public class FiscalPeriodStatusService
 	 * Find by ID of reference: period.id
 	 */
 	public List<FiscalPeriodStatus> findByPeriodId(Long periodId) {
-		return (List<FiscalPeriodStatus>) this.em
+		return (List<FiscalPeriodStatus>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FiscalPeriodStatus e where e.clientId = :pClientId and e.period.id = :pPeriodId",
 						FiscalPeriodStatus.class)
@@ -94,7 +96,8 @@ public class FiscalPeriodStatusService
 	 * Find by ID of reference: org.id
 	 */
 	public List<FiscalPeriodStatus> findByOrgId(Long orgId) {
-		return (List<FiscalPeriodStatus>) this.em
+		return (List<FiscalPeriodStatus>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FiscalPeriodStatus e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						FiscalPeriodStatus.class)

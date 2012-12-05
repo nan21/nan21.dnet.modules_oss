@@ -13,12 +13,16 @@ import net.nan21.dnet.module.ad.usr.ds.model.UserDs;
 import net.nan21.dnet.module.ad.usr.ds.model.UserDsParam;
 
 public class UserPD extends AbstractPresenterBaseService {
+
 	public void changePassword(UserDs ds, UserDsParam params) throws Exception {
+
 		String newPassword = params.getNewPassword();
 		String confPassword = params.getConfirmPassword();
+
 		if (newPassword == null || newPassword.equals("")) {
 			throw new Exception("Password must not be empty!");
 		}
+
 		if (!newPassword.equals(confPassword)) {
 			throw new Exception("New password is not confirmed correctly !");
 		}
@@ -39,9 +43,8 @@ public class UserPD extends AbstractPresenterBaseService {
 			a.setActive(true);
 			a.setName(ds.getName());
 			a.setUserCode(ds.getCode());
-			srv.insert(a);
-		} else {
-
+			list.add(a);
+			srv.insert(list);
 		}
 
 	}

@@ -29,7 +29,7 @@ public class SysDsEventService extends AbstractEntityService<SysDsEvent>
 
 	public SysDsEventService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class SysDsEventService extends AbstractEntityService<SysDsEvent>
 	 * Find by unique key
 	 */
 	public SysDsEvent findByName(SysDataSource dataSource, String eventType) {
-		return (SysDsEvent) this.em
+		return (SysDsEvent) this.getEntityManager()
 				.createNamedQuery(SysDsEvent.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSource", dataSource)
@@ -52,7 +52,7 @@ public class SysDsEventService extends AbstractEntityService<SysDsEvent>
 	 * Find by unique key
 	 */
 	public SysDsEvent findByName(Long dataSourceId, String eventType) {
-		return (SysDsEvent) this.em
+		return (SysDsEvent) this.getEntityManager()
 				.createNamedQuery(SysDsEvent.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSourceId", dataSourceId)
@@ -70,7 +70,8 @@ public class SysDsEventService extends AbstractEntityService<SysDsEvent>
 	 * Find by ID of reference: dataSource.id
 	 */
 	public List<SysDsEvent> findByDataSourceId(Long dataSourceId) {
-		return (List<SysDsEvent>) this.em
+		return (List<SysDsEvent>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysDsEvent e where e.clientId = :pClientId and e.dataSource.id = :pDataSourceId",
 						SysDsEvent.class)

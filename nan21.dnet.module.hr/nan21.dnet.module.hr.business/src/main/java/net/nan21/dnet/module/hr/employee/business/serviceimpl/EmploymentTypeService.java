@@ -29,7 +29,7 @@ public class EmploymentTypeService
 
 	public EmploymentTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class EmploymentTypeService
 	 * Find by unique key
 	 */
 	public EmploymentType findByName(String name) {
-		return (EmploymentType) this.em
+		return (EmploymentType) this.getEntityManager()
 				.createNamedQuery(EmploymentType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

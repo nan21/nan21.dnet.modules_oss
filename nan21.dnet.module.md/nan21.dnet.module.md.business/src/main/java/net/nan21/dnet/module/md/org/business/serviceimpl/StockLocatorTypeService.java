@@ -29,7 +29,7 @@ public class StockLocatorTypeService
 
 	public StockLocatorTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class StockLocatorTypeService
 	 * Find by unique key
 	 */
 	public StockLocatorType findByName(String name) {
-		return (StockLocatorType) this.em
+		return (StockLocatorType) this.getEntityManager()
 				.createNamedQuery(StockLocatorType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

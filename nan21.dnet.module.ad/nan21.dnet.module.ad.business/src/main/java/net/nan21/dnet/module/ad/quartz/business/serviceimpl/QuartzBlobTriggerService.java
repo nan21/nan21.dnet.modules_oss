@@ -28,7 +28,7 @@ public class QuartzBlobTriggerService
 
 	public QuartzBlobTriggerService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

@@ -19,12 +19,13 @@ public class AccDocToAccOperationBD extends AbstractBusinessDelegate {
 	 * @throws BusinessException
 	 */
 	public void unPost(AccDoc doc) throws BusinessException {
-		this.em.createQuery(
-				"delete from " + AccOperation.class.getSimpleName() + " t "
-						+ " where t.accDoc.id = :accDocId")
+		this.getEntityManager()
+				.createQuery(
+						"delete from " + AccOperation.class.getSimpleName()
+								+ " t " + " where t.accDoc.id = :accDocId")
 				.setParameter("accDocId", doc.getId()).executeUpdate();
 		doc.setPosted(false);
-		this.em.merge(doc);
+		this.getEntityManager().merge(doc);
 	}
 
 	/**

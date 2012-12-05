@@ -32,7 +32,7 @@ public class ElementSetElementService
 
 	public ElementSetElementService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class ElementSetElementService
 	 */
 	public ElementSetElement findBySet_elem(ElementSet elementSet,
 			Element element) {
-		return (ElementSetElement) this.em
+		return (ElementSetElement) this.getEntityManager()
 				.createNamedQuery(ElementSetElement.NQ_FIND_BY_SET_ELEM)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pElementSet", elementSet)
@@ -56,7 +56,8 @@ public class ElementSetElementService
 	 * Find by unique key
 	 */
 	public ElementSetElement findBySet_elem(Long elementSetId, Long elementId) {
-		return (ElementSetElement) this.em
+		return (ElementSetElement) this
+				.getEntityManager()
 				.createNamedQuery(
 						ElementSetElement.NQ_FIND_BY_SET_ELEM_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -75,7 +76,8 @@ public class ElementSetElementService
 	 * Find by ID of reference: elementSet.id
 	 */
 	public List<ElementSetElement> findByElementSetId(Long elementSetId) {
-		return (List<ElementSetElement>) this.em
+		return (List<ElementSetElement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementSetElement e where e.clientId = :pClientId and e.elementSet.id = :pElementSetId",
 						ElementSetElement.class)
@@ -94,7 +96,8 @@ public class ElementSetElementService
 	 * Find by ID of reference: element.id
 	 */
 	public List<ElementSetElement> findByElementId(Long elementId) {
-		return (List<ElementSetElement>) this.em
+		return (List<ElementSetElement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementSetElement e where e.clientId = :pClientId and e.element.id = :pElementId",
 						ElementSetElement.class)

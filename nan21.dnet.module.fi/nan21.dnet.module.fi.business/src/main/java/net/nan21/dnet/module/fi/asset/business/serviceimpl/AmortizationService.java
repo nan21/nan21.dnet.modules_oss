@@ -30,7 +30,7 @@ public class AmortizationService extends AbstractEntityService<Amortization>
 
 	public AmortizationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class AmortizationService extends AbstractEntityService<Amortization>
 	 * Find by unique key
 	 */
 	public Amortization findByAmort(Asset asset, Date postingDate) {
-		return (Amortization) this.em
+		return (Amortization) this.getEntityManager()
 				.createNamedQuery(Amortization.NQ_FIND_BY_AMORT)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAsset", asset)
@@ -53,7 +53,7 @@ public class AmortizationService extends AbstractEntityService<Amortization>
 	 * Find by unique key
 	 */
 	public Amortization findByAmort(Long assetId, Date postingDate) {
-		return (Amortization) this.em
+		return (Amortization) this.getEntityManager()
 				.createNamedQuery(Amortization.NQ_FIND_BY_AMORT_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAssetId", assetId)
@@ -71,7 +71,8 @@ public class AmortizationService extends AbstractEntityService<Amortization>
 	 * Find by ID of reference: asset.id
 	 */
 	public List<Amortization> findByAssetId(Long assetId) {
-		return (List<Amortization>) this.em
+		return (List<Amortization>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Amortization e where e.clientId = :pClientId and e.asset.id = :pAssetId",
 						Amortization.class)

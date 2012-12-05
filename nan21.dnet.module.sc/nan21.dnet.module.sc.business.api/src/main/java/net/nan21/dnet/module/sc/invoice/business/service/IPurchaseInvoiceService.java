@@ -40,6 +40,8 @@ public interface IPurchaseInvoiceService
 	public void doCopyLines(PurchaseInvoice target, Long sourceId)
 			throws BusinessException;
 
+	public void calculateAmounts(Long invoiceId) throws BusinessException;
+
 	/**
 	 * Find by unique key
 	 */

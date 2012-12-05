@@ -32,7 +32,7 @@ public class SalesInvoiceTaxService
 
 	public SalesInvoiceTaxService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class SalesInvoiceTaxService
 	 * Find by ID of reference: salesInvoice.id
 	 */
 	public List<SalesInvoiceTax> findBySalesInvoiceId(Long salesInvoiceId) {
-		return (List<SalesInvoiceTax>) this.em
+		return (List<SalesInvoiceTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoiceTax e where e.clientId = :pClientId and e.salesInvoice.id = :pSalesInvoiceId",
 						SalesInvoiceTax.class)
@@ -71,7 +72,8 @@ public class SalesInvoiceTaxService
 	 * Find by ID of reference: tax.id
 	 */
 	public List<SalesInvoiceTax> findByTaxId(Long taxId) {
-		return (List<SalesInvoiceTax>) this.em
+		return (List<SalesInvoiceTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoiceTax e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						SalesInvoiceTax.class)

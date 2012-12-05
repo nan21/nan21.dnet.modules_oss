@@ -33,7 +33,7 @@ public class EmployeeContactService
 
 	public EmployeeContactService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class EmployeeContactService
 	 * Find by ID of reference: employee.id
 	 */
 	public List<EmployeeContact> findByEmployeeId(Long employeeId) {
-		return (List<EmployeeContact>) this.em
+		return (List<EmployeeContact>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeContact e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						EmployeeContact.class)
@@ -71,7 +72,8 @@ public class EmployeeContactService
 	 * Find by ID of reference: type.id
 	 */
 	public List<EmployeeContact> findByTypeId(Long typeId) {
-		return (List<EmployeeContact>) this.em
+		return (List<EmployeeContact>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeContact e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						EmployeeContact.class)
@@ -91,7 +93,8 @@ public class EmployeeContactService
 	 * Find by ID of reference: relationship.id
 	 */
 	public List<EmployeeContact> findByRelationshipId(Long relationshipId) {
-		return (List<EmployeeContact>) this.em
+		return (List<EmployeeContact>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeContact e where e.clientId = :pClientId and e.relationship.id = :pRelationshipId",
 						EmployeeContact.class)

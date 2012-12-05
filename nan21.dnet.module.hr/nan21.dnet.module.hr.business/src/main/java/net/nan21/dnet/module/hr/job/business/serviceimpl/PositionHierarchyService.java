@@ -29,7 +29,7 @@ public class PositionHierarchyService
 
 	public PositionHierarchyService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class PositionHierarchyService
 	 * Find by unique key
 	 */
 	public PositionHierarchy findByName(String name) {
-		return (PositionHierarchy) this.em
+		return (PositionHierarchy) this.getEntityManager()
 				.createNamedQuery(PositionHierarchy.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

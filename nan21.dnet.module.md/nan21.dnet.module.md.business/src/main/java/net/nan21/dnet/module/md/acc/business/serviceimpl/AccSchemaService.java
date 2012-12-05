@@ -27,7 +27,7 @@ public class AccSchemaService extends AbstractEntityService<AccSchema>
 
 	public AccSchemaService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class AccSchemaService extends AbstractEntityService<AccSchema>
 	 * Find by unique key
 	 */
 	public AccSchema findByCode(String code) {
-		return (AccSchema) this.em.createNamedQuery(AccSchema.NQ_FIND_BY_CODE)
+		return (AccSchema) this.getEntityManager()
+				.createNamedQuery(AccSchema.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class AccSchemaService extends AbstractEntityService<AccSchema>
 	 * Find by unique key
 	 */
 	public AccSchema findByName(String name) {
-		return (AccSchema) this.em.createNamedQuery(AccSchema.NQ_FIND_BY_NAME)
+		return (AccSchema) this.getEntityManager()
+				.createNamedQuery(AccSchema.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

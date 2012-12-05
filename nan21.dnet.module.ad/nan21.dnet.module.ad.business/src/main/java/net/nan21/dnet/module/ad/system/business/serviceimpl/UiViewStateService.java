@@ -26,7 +26,7 @@ public class UiViewStateService extends AbstractEntityService<UiViewState>
 
 	public UiViewStateService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

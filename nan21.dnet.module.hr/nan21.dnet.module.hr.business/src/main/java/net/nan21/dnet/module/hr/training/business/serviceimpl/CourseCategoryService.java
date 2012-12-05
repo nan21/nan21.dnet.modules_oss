@@ -29,7 +29,7 @@ public class CourseCategoryService
 
 	public CourseCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CourseCategoryService
 	 * Find by unique key
 	 */
 	public CourseCategory findByName(String name) {
-		return (CourseCategory) this.em
+		return (CourseCategory) this.getEntityManager()
 				.createNamedQuery(CourseCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

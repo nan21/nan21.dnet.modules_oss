@@ -1,5 +1,8 @@
 package net.nan21.dnet.module.ad._presenterdelegates.impex;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.impex.business.service.ICsvExportService;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
@@ -12,6 +15,7 @@ public class ImpexUtilPD extends AbstractPresenterBaseService {
 
 	public void cloneCsvExport(CsvExportDs ds, CsvExportDsParam params)
 			throws Exception {
+
 		ICsvExportService srv = (ICsvExportService) this
 				.findEntityService(CsvExport.class);
 		CsvExport source = srv
@@ -48,6 +52,8 @@ public class ImpexUtilPD extends AbstractPresenterBaseService {
 			}
 		}
 
-		srv.insert(target);
+		List<CsvExport> list = new ArrayList<CsvExport>();
+		list.add(target);
+		srv.insert(list);
 	}
 }

@@ -29,7 +29,7 @@ public class ElementSetService extends AbstractEntityService<ElementSet>
 
 	public ElementSetService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ElementSetService extends AbstractEntityService<ElementSet>
 	 * Find by unique key
 	 */
 	public ElementSet findByEngine_name(Engine engine, String name) {
-		return (ElementSet) this.em
+		return (ElementSet) this.getEntityManager()
 				.createNamedQuery(ElementSet.NQ_FIND_BY_ENGINE_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngine", engine).setParameter("pName", name)
@@ -52,7 +52,7 @@ public class ElementSetService extends AbstractEntityService<ElementSet>
 	 * Find by unique key
 	 */
 	public ElementSet findByEngine_name(Long engineId, String name) {
-		return (ElementSet) this.em
+		return (ElementSet) this.getEntityManager()
 				.createNamedQuery(ElementSet.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngineId", engineId)
@@ -70,7 +70,8 @@ public class ElementSetService extends AbstractEntityService<ElementSet>
 	 * Find by ID of reference: engine.id
 	 */
 	public List<ElementSet> findByEngineId(Long engineId) {
-		return (List<ElementSet>) this.em
+		return (List<ElementSet>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementSet e where e.clientId = :pClientId and e.engine.id = :pEngineId",
 						ElementSet.class)

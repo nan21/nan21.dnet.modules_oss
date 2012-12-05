@@ -29,7 +29,7 @@ public class TaxService extends AbstractEntityService<Tax>
 
 	public TaxService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class TaxService extends AbstractEntityService<Tax>
 	 * Find by unique key
 	 */
 	public Tax findByName(String name) {
-		return (Tax) this.em.createNamedQuery(Tax.NQ_FIND_BY_NAME)
+		return (Tax) this.getEntityManager()
+				.createNamedQuery(Tax.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class TaxService extends AbstractEntityService<Tax>
 	 * Find by ID of reference: category.id
 	 */
 	public List<Tax> findByCategoryId(Long categoryId) {
-		return (List<Tax>) this.em
+		return (List<Tax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Tax e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						Tax.class)
@@ -76,7 +78,8 @@ public class TaxService extends AbstractEntityService<Tax>
 	 * Find by ID of reference: parentTax.id
 	 */
 	public List<Tax> findByParentTaxId(Long parentTaxId) {
-		return (List<Tax>) this.em
+		return (List<Tax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Tax e where e.clientId = :pClientId and e.parentTax.id = :pParentTaxId",
 						Tax.class)
@@ -95,7 +98,8 @@ public class TaxService extends AbstractEntityService<Tax>
 	 * Find by ID of reference: children.id
 	 */
 	public List<Tax> findByChildrenId(Long childrenId) {
-		return (List<Tax>) this.em
+		return (List<Tax>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Tax e, IN (e.children) c where e.clientId = :pClientId and c.id = :pChildrenId",
 						Tax.class)

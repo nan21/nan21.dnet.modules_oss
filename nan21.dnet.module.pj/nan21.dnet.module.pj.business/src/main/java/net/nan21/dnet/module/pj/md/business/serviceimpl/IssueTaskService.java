@@ -32,7 +32,7 @@ public class IssueTaskService extends AbstractEntityService<IssueTask>
 
 	public IssueTaskService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class IssueTaskService extends AbstractEntityService<IssueTask>
 	 * Find by ID of reference: issue.id
 	 */
 	public List<IssueTask> findByIssueId(Long issueId) {
-		return (List<IssueTask>) this.em
+		return (List<IssueTask>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueTask e where e.clientId = :pClientId and e.issue.id = :pIssueId",
 						IssueTask.class)
@@ -70,7 +71,8 @@ public class IssueTaskService extends AbstractEntityService<IssueTask>
 	 * Find by ID of reference: type.id
 	 */
 	public List<IssueTask> findByTypeId(Long typeId) {
-		return (List<IssueTask>) this.em
+		return (List<IssueTask>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueTask e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						IssueTask.class)
@@ -89,7 +91,8 @@ public class IssueTaskService extends AbstractEntityService<IssueTask>
 	 * Find by ID of reference: status.id
 	 */
 	public List<IssueTask> findByStatusId(Long statusId) {
-		return (List<IssueTask>) this.em
+		return (List<IssueTask>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueTask e where e.clientId = :pClientId and e.status.id = :pStatusId",
 						IssueTask.class)
@@ -108,7 +111,8 @@ public class IssueTaskService extends AbstractEntityService<IssueTask>
 	 * Find by ID of reference: assignee.id
 	 */
 	public List<IssueTask> findByAssigneeId(Long assigneeId) {
-		return (List<IssueTask>) this.em
+		return (List<IssueTask>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueTask e where e.clientId = :pClientId and e.assignee.id = :pAssigneeId",
 						IssueTask.class)

@@ -29,7 +29,7 @@ public class BusinessPartnerService
 
 	public BusinessPartnerService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class BusinessPartnerService
 	 * Find by unique key
 	 */
 	public BusinessPartner findByCode(String code) {
-		return (BusinessPartner) this.em
+		return (BusinessPartner) this.getEntityManager()
 				.createNamedQuery(BusinessPartner.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -58,7 +58,8 @@ public class BusinessPartnerService
 	 * Find by ID of reference: country.id
 	 */
 	public List<BusinessPartner> findByCountryId(Long countryId) {
-		return (List<BusinessPartner>) this.em
+		return (List<BusinessPartner>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BusinessPartner e where e.clientId = :pClientId and e.country.id = :pCountryId",
 						BusinessPartner.class)
@@ -77,7 +78,8 @@ public class BusinessPartnerService
 	 * Find by ID of reference: legalForm.id
 	 */
 	public List<BusinessPartner> findByLegalFormId(Long legalFormId) {
-		return (List<BusinessPartner>) this.em
+		return (List<BusinessPartner>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BusinessPartner e where e.clientId = :pClientId and e.legalForm.id = :pLegalFormId",
 						BusinessPartner.class)

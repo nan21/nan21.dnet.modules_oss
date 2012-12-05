@@ -27,7 +27,7 @@ public class TaxCategoryService extends AbstractEntityService<TaxCategory>
 
 	public TaxCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class TaxCategoryService extends AbstractEntityService<TaxCategory>
 	 * Find by unique key
 	 */
 	public TaxCategory findByName(String name) {
-		return (TaxCategory) this.em
+		return (TaxCategory) this.getEntityManager()
 				.createNamedQuery(TaxCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

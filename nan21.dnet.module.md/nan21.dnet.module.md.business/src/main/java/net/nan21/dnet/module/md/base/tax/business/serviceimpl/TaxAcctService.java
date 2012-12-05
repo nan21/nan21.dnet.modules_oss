@@ -31,7 +31,7 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 
 	public TaxAcctService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 	 * Find by unique key
 	 */
 	public TaxAcct findByTax_schema(Tax tax, AccSchema accSchema) {
-		return (TaxAcct) this.em
+		return (TaxAcct) this.getEntityManager()
 				.createNamedQuery(TaxAcct.NQ_FIND_BY_TAX_SCHEMA)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pTax", tax)
@@ -54,7 +54,7 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 	 * Find by unique key
 	 */
 	public TaxAcct findByTax_schema(Long taxId, Long accSchemaId) {
-		return (TaxAcct) this.em
+		return (TaxAcct) this.getEntityManager()
 				.createNamedQuery(TaxAcct.NQ_FIND_BY_TAX_SCHEMA_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pTaxId", taxId)
@@ -72,7 +72,8 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 	 * Find by ID of reference: tax.id
 	 */
 	public List<TaxAcct> findByTaxId(Long taxId) {
-		return (List<TaxAcct>) this.em
+		return (List<TaxAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TaxAcct e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						TaxAcct.class)
@@ -91,7 +92,8 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<TaxAcct> findByAccSchemaId(Long accSchemaId) {
-		return (List<TaxAcct>) this.em
+		return (List<TaxAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TaxAcct e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						TaxAcct.class)
@@ -110,7 +112,8 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 	 * Find by ID of reference: salesAccount.id
 	 */
 	public List<TaxAcct> findBySalesAccountId(Long salesAccountId) {
-		return (List<TaxAcct>) this.em
+		return (List<TaxAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TaxAcct e where e.clientId = :pClientId and e.salesAccount.id = :pSalesAccountId",
 						TaxAcct.class)
@@ -130,7 +133,8 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 	 * Find by ID of reference: purchaseAccount.id
 	 */
 	public List<TaxAcct> findByPurchaseAccountId(Long purchaseAccountId) {
-		return (List<TaxAcct>) this.em
+		return (List<TaxAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TaxAcct e where e.clientId = :pClientId and e.purchaseAccount.id = :pPurchaseAccountId",
 						TaxAcct.class)
@@ -150,7 +154,8 @@ public class TaxAcctService extends AbstractEntityService<TaxAcct>
 	 * Find by ID of reference: nonDeductAccount.id
 	 */
 	public List<TaxAcct> findByNonDeductAccountId(Long nonDeductAccountId) {
-		return (List<TaxAcct>) this.em
+		return (List<TaxAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TaxAcct e where e.clientId = :pClientId and e.nonDeductAccount.id = :pNonDeductAccountId",
 						TaxAcct.class)

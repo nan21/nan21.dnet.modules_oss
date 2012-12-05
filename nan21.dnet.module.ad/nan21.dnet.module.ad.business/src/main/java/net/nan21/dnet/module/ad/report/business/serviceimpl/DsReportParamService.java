@@ -30,7 +30,7 @@ public class DsReportParamService extends AbstractEntityService<DsReportParam>
 
 	public DsReportParamService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class DsReportParamService extends AbstractEntityService<DsReportParam>
 	 * Find by ID of reference: dsReport.id
 	 */
 	public List<DsReportParam> findByDsReportId(Long dsReportId) {
-		return (List<DsReportParam>) this.em
+		return (List<DsReportParam>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from DsReportParam e where e.clientId = :pClientId and e.dsReport.id = :pDsReportId",
 						DsReportParam.class)
@@ -68,7 +69,8 @@ public class DsReportParamService extends AbstractEntityService<DsReportParam>
 	 * Find by ID of reference: reportParam.id
 	 */
 	public List<DsReportParam> findByReportParamId(Long reportParamId) {
-		return (List<DsReportParam>) this.em
+		return (List<DsReportParam>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from DsReportParam e where e.clientId = :pClientId and e.reportParam.id = :pReportParamId",
 						DsReportParam.class)

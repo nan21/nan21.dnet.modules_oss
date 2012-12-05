@@ -27,7 +27,7 @@ public class LicenseTypeService extends AbstractEntityService<LicenseType>
 
 	public LicenseTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class LicenseTypeService extends AbstractEntityService<LicenseType>
 	 * Find by unique key
 	 */
 	public LicenseType findByName(String name) {
-		return (LicenseType) this.em
+		return (LicenseType) this.getEntityManager()
 				.createNamedQuery(LicenseType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

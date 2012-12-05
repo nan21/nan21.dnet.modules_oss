@@ -31,7 +31,7 @@ public class ElementCategoryService
 
 	public ElementCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class ElementCategoryService
 	 * Find by unique key
 	 */
 	public ElementCategory findByEngine_name(Engine engine, String name) {
-		return (ElementCategory) this.em
+		return (ElementCategory) this.getEntityManager()
 				.createNamedQuery(ElementCategory.NQ_FIND_BY_ENGINE_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngine", engine).setParameter("pName", name)
@@ -54,7 +54,8 @@ public class ElementCategoryService
 	 * Find by unique key
 	 */
 	public ElementCategory findByEngine_name(Long engineId, String name) {
-		return (ElementCategory) this.em
+		return (ElementCategory) this
+				.getEntityManager()
 				.createNamedQuery(
 						ElementCategory.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -73,7 +74,8 @@ public class ElementCategoryService
 	 * Find by ID of reference: engine.id
 	 */
 	public List<ElementCategory> findByEngineId(Long engineId) {
-		return (List<ElementCategory>) this.em
+		return (List<ElementCategory>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementCategory e where e.clientId = :pClientId and e.engine.id = :pEngineId",
 						ElementCategory.class)

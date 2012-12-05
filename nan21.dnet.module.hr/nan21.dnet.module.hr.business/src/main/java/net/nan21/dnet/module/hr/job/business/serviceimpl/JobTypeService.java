@@ -27,7 +27,7 @@ public class JobTypeService extends AbstractEntityService<JobType>
 
 	public JobTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class JobTypeService extends AbstractEntityService<JobType>
 	 * Find by unique key
 	 */
 	public JobType findByName(String name) {
-		return (JobType) this.em.createNamedQuery(JobType.NQ_FIND_BY_NAME)
+		return (JobType) this.getEntityManager()
+				.createNamedQuery(JobType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

@@ -29,7 +29,7 @@ public class JobService extends AbstractEntityService<Job>
 
 	public JobService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class JobService extends AbstractEntityService<Job>
 	 * Find by unique key
 	 */
 	public Job findByCode(String code) {
-		return (Job) this.em.createNamedQuery(Job.NQ_FIND_BY_CODE)
+		return (Job) this.getEntityManager()
+				.createNamedQuery(Job.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -50,7 +51,8 @@ public class JobService extends AbstractEntityService<Job>
 	 * Find by unique key
 	 */
 	public Job findByName(String name) {
-		return (Job) this.em.createNamedQuery(Job.NQ_FIND_BY_NAME)
+		return (Job) this.getEntityManager()
+				.createNamedQuery(Job.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -66,7 +68,8 @@ public class JobService extends AbstractEntityService<Job>
 	 * Find by ID of reference: jobType.id
 	 */
 	public List<Job> findByJobTypeId(Long jobTypeId) {
-		return (List<Job>) this.em
+		return (List<Job>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Job e where e.clientId = :pClientId and e.jobType.id = :pJobTypeId",
 						Job.class)

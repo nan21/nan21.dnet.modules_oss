@@ -60,8 +60,8 @@ public class ProductPriceService
 				+ " and pp.priceListVersion.validFrom <= :pValidAt "
 				+ " order by pp.priceListVersion.validFrom desc ";
 
-		List<ProductPrice> results = (List<ProductPrice>) this.em
-				.createQuery(eql, ProductPrice.class)
+		List<ProductPrice> results = (List<ProductPrice>) this
+				.getEntityManager().createQuery(eql, ProductPrice.class)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProductId", productId)
 				.setParameter("pPriceListId", priceListId)

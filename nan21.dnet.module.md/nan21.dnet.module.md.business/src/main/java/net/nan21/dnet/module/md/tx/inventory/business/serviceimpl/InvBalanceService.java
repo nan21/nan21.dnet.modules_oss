@@ -32,7 +32,7 @@ public class InvBalanceService extends AbstractEntityService<InvBalance>
 
 	public InvBalanceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class InvBalanceService extends AbstractEntityService<InvBalance>
 	 * Find by ID of reference: subInventory.id
 	 */
 	public List<InvBalance> findBySubInventoryId(Long subInventoryId) {
-		return (List<InvBalance>) this.em
+		return (List<InvBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvBalance e where e.clientId = :pClientId and e.subInventory.id = :pSubInventoryId",
 						InvBalance.class)
@@ -71,7 +72,8 @@ public class InvBalanceService extends AbstractEntityService<InvBalance>
 	 * Find by ID of reference: locator.id
 	 */
 	public List<InvBalance> findByLocatorId(Long locatorId) {
-		return (List<InvBalance>) this.em
+		return (List<InvBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvBalance e where e.clientId = :pClientId and e.locator.id = :pLocatorId",
 						InvBalance.class)
@@ -90,7 +92,8 @@ public class InvBalanceService extends AbstractEntityService<InvBalance>
 	 * Find by ID of reference: item.id
 	 */
 	public List<InvBalance> findByItemId(Long itemId) {
-		return (List<InvBalance>) this.em
+		return (List<InvBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvBalance e where e.clientId = :pClientId and e.item.id = :pItemId",
 						InvBalance.class)
@@ -109,7 +112,8 @@ public class InvBalanceService extends AbstractEntityService<InvBalance>
 	 * Find by ID of reference: uom.id
 	 */
 	public List<InvBalance> findByUomId(Long uomId) {
-		return (List<InvBalance>) this.em
+		return (List<InvBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvBalance e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						InvBalance.class)

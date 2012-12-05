@@ -26,109 +26,108 @@ import net.nan21.dnet.module.ad.impex.domain.entity.ImportMap;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProperty;
 
-public class Setup_AD extends AbstractBusinessSetupParticipant
-implements ISetupParticipant {
- 
+public class Setup_AD extends AbstractBusinessSetupParticipant implements
+		ISetupParticipant {
+
 	private static final String PARAM_CLIENT_CODE = "clientCode";
 	private static final String PARAM_CLIENT_NAME = "clientName";
-	
+
 	private static final String PARAM_USER_CODE = "userCode";
 	private static final String PARAM_USER_NAME = "userName";
 	private static final String PARAM_USER_PASSWORD = "userPassword";
-  
+
 	private static final String PARAM_WORKSPACE_PATH = "workspacePath";
-  
-	
+
 	@Override
 	protected void onExecute() throws Exception {
- 
-		SetupTask task = (SetupTask)tasks.get(0);
-		 
-		Map<String, ISetupTaskParam> paramMap = task.getParamsAsMap(); 
+
+		SetupTask task = (SetupTask) tasks.get(0);
+
+		Map<String, ISetupTaskParam> paramMap = task.getParamsAsMap();
 		String workspacePath = paramMap.get(PARAM_WORKSPACE_PATH).getValue();
 		String clientCode = paramMap.get(PARAM_CLIENT_CODE).getValue();
 		String clientName = paramMap.get(PARAM_CLIENT_NAME).getValue();
-		
-		String defaultImportPath = workspacePath+"/"+clientCode+"/import";
-		String defaultExportPath = workspacePath+"/"+clientCode+"/export";
-		String defaultTempPath = workspacePath+"/"+clientCode+"/temp";
-		
+
+		String defaultImportPath = workspacePath + "/" + clientCode + "/import";
+		String defaultExportPath = workspacePath + "/" + clientCode + "/export";
+		String defaultTempPath = workspacePath + "/" + clientCode + "/temp";
+
 		Client client = new Client();
 		client.setCode(clientCode);
-		client.setName(clientName);		
-		client.setAdminRole(ClientBD.ROLE_ADMIN);			
+		client.setName(clientName);
+		client.setAdminRole(ClientBD.ROLE_ADMIN);
 		client.setDefaultImportPath(defaultImportPath);
 		client.setDefaultExportPath(defaultExportPath);
 		client.setTempPath(defaultTempPath);
 		client.setSystemClient(true);
-		
-		//this.em.persist(client);
-		  
-		this.getBusinessDelegate(ClientBD.class).createAdminUser(client, 
-				paramMap.get(PARAM_USER_CODE).getValue(), 
-				paramMap.get(PARAM_USER_NAME).getValue(), 
+
+		// this.getEntityManager().persist(client);
+
+		this.getBusinessDelegate(ClientBD.class).createAdminUser(client,
+				paramMap.get(PARAM_USER_CODE).getValue(),
+				paramMap.get(PARAM_USER_NAME).getValue(),
 				paramMap.get(PARAM_USER_PASSWORD).getValue());
-		
+
 		// run in context of the client
 		net.nan21.dnet.core.api.session.User su = Session.user.get();
-		net.nan21.dnet.core.api.session.User newUser = new 
-			net.nan21.dnet.core.api.session.User(su.getUsername(), su.getUsername(), "", false, false, false, true, client.getCode(), client.getId(), null, null, null, null, null); 
-		 
+		net.nan21.dnet.core.api.session.User newUser = new net.nan21.dnet.core.api.session.User(
+				su.getUsername(), su.getUsername(), "", false, false, false,
+				true, client.getCode(), client.getId(), null, null, null, null,
+				null);
+
 		Session.user.set(newUser);
-		
+
 		// add activiti default data
 		ActProperty p = new ActProperty();
-		p.setName("schema.version");		
+		p.setName("schema.version");
 		p.setValue("5.9");
 		p.setRevision(1);
-		this.em.persist(p);
-		
+		this.getEntityManager().persist(p);
+
 		p = new ActProperty();
-		p.setName("schema.history");		
+		p.setName("schema.history");
 		p.setValue("create(5.9)");
 		p.setRevision(1);
-		this.em.persist(p);
-		
+		this.getEntityManager().persist(p);
+
 		p = new ActProperty();
-		p.setName("next.dbid");		
+		p.setName("next.dbid");
 		p.setValue("1");
 		p.setRevision(1);
-		this.em.persist(p);
-		 
+		this.getEntityManager().persist(p);
+
 		p = new ActProperty();
-		p.setName("historyLevel");		
+		p.setName("historyLevel");
 		p.setValue("2");
 		p.setRevision(1);
-		this.em.persist(p);
-		
+		this.getEntityManager().persist(p);
+
 		reqisterInitialDataImports(defaultImportPath);
-				
+
 		this.tasks.clear();
-		
+
 		this.tasks = null;
 	}
-	
-	
-	
+
 	@Override
-	protected void init() {		
+	protected void init() {
 		this.targetName = "DNet-AD";
-		this.createTasks();		 
+		this.createTasks();
 	}
 
- 
 	private void createTasks() {
 		this.tasks = new ArrayList<ISetupTask>();
-		Long i = (Long)this.em.createQuery("select count(e) from Client e").getResultList().get(0);
-		if (i>0) {
-			return ;
-		}		
+		Long i = (Long) this.getEntityManager()
+				.createQuery("select count(e) from Client e").getResultList()
+				.get(0);
+		if (i > 0) {
+			return;
+		}
 		SetupTask task = new SetupTask();
 		task.setId("1");
 		task.setTitle("Create default client and administrator user account");
 		task.setDescription("Initialize the administation module. Create a default client and administrator user account. ");
-		
-		
+
 		SetupTaskParam param = new SetupTaskParam();
 		param.setName(PARAM_CLIENT_CODE);
 		param.setTitle("Client code");
@@ -139,7 +138,7 @@ implements ISetupParticipant {
 		param.setValue(param.getDefaultValue());
 		param.setRequired(true);
 		task.addToParams(param);
-		
+
 		param = new SetupTaskParam();
 		param.setName(PARAM_CLIENT_NAME);
 		param.setTitle("Client name");
@@ -150,7 +149,7 @@ implements ISetupParticipant {
 		param.setValue(param.getDefaultValue());
 		param.setRequired(true);
 		task.addToParams(param);
-		
+
 		param = new SetupTaskParam();
 		param.setName(PARAM_USER_CODE);
 		param.setTitle("Administrator code");
@@ -161,8 +160,7 @@ implements ISetupParticipant {
 		param.setValue(param.getDefaultValue());
 		param.setRequired(true);
 		task.addToParams(param);
-		
-		
+
 		param = new SetupTaskParam();
 		param.setName(PARAM_USER_NAME);
 		param.setTitle("Administrator name");
@@ -173,8 +171,7 @@ implements ISetupParticipant {
 		param.setValue(param.getDefaultValue());
 		param.setRequired(true);
 		task.addToParams(param);
-		
-		
+
 		param = new SetupTaskParam();
 		param.setName(PARAM_USER_PASSWORD);
 		param.setTitle("Administrator password");
@@ -184,8 +181,7 @@ implements ISetupParticipant {
 		param.setDefaultValue("");
 		param.setRequired(true);
 		task.addToParams(param);
- 
-		
+
 		param = new SetupTaskParam();
 		param.setName(PARAM_WORKSPACE_PATH);
 		param.setTitle("Workspace path");
@@ -196,73 +192,75 @@ implements ISetupParticipant {
 		param.setValue(param.getDefaultValue());
 		param.setRequired(true);
 		task.addToParams(param);
-		  
+
 		tasks.add(task);
 	}
-	
+
 	private void reqisterInitialDataImports(String importPath) throws Exception {
-		 
-		List<IInitDataProviderFactory> dataProviderFactories = this.getDataProviderFactories();
-		
+
+		List<IInitDataProviderFactory> dataProviderFactories = this
+				.getDataProviderFactories();
+
 		ImportJob importJobDemoData = new ImportJob();
 		importJobDemoData.setActive(true);
 		importJobDemoData.setName("Initial demo data");
-		
+
 		ImportJob importJobSetupData = new ImportJob();
 		importJobSetupData.setActive(true);
 		importJobSetupData.setName("Initial setup data");
-		
-		for( IInitDataProviderFactory f: dataProviderFactories) {
+
+		for (IInitDataProviderFactory f : dataProviderFactories) {
 			IInitDataProvider dp = f.createProvider();
 			List<InitData> list = dp.getList();
-			for (InitData initData: list) {
-				
-				
-				
+			for (InitData initData : list) {
+
 				ImportMap importMap = new ImportMap();
 				importMap.setName(initData.getName());
-				importMap.setDescription("File-set to load "+initData.getName()+ " initial data.");
+				importMap.setDescription("File-set to load "
+						+ initData.getName() + " initial data.");
 				importMap.setActive(true);
-				
-				for(InitDataItem initDataItem: initData.getItems()) {
+
+				for (InitDataItem initDataItem : initData.getItems()) {
 					ImportMapItem importMapItem = new ImportMapItem();
 					importMapItem.setActive(true);
 					importMapItem.setDataSourceName(initDataItem.getDsName());
-					importMapItem.setFileName(initDataItem.getDestPath()+"/"+initDataItem.getFile().getName());
-					importMapItem.setSequenceNo(Integer.parseInt(initDataItem.getSequence()));
+					importMapItem.setFileName(initDataItem.getDestPath() + "/"
+							+ initDataItem.getFile().getName());
+					importMapItem.setSequenceNo(Integer.parseInt(initDataItem
+							.getSequence()));
 					importMapItem.setUkFieldName(initDataItem.getUkFieldName());
 					importMapItem.setImportMap(importMap);
 					importMap.addToItems(importMapItem);
-					String path = importPath+"/"+initDataItem.getDestPath();
-					 (new File(path)).mkdirs();
-					 
-					File dest =  new File(path+"/"+initDataItem.getFile().getName());
-					
+					String path = importPath + "/" + initDataItem.getDestPath();
+					(new File(path)).mkdirs();
+
+					File dest = new File(path + "/"
+							+ initDataItem.getFile().getName());
+
 					FileCopyUtils.copy(initDataItem.getFile(), dest);
 				}
-				this.em.persist(importMap);
-				
-				ImportJobItem importJobItem = new ImportJobItem(); 
+				this.getEntityManager().persist(importMap);
+
+				ImportJobItem importJobItem = new ImportJobItem();
 				importJobItem.setActive(true);
 				importJobItem.setMap(importMap);
-				importJobItem.setSequenceNo(Integer.parseInt(initData.getSequence()));
-				
+				importJobItem.setSequenceNo(Integer.parseInt(initData
+						.getSequence()));
+
 				if (initData.isMandatory()) {
-					importJobItem.setJob(importJobSetupData);				
+					importJobItem.setJob(importJobSetupData);
 					importJobSetupData.addToItems(importJobItem);
 				} else {
-					importJobItem.setJob(importJobDemoData);				
+					importJobItem.setJob(importJobDemoData);
 					importJobDemoData.addToItems(importJobItem);
 				}
 
-				
 			}
 		}
-		
-		this.em.persist(importJobSetupData);
-		this.em.persist(importJobDemoData);
-		  
+
+		this.getEntityManager().persist(importJobSetupData);
+		this.getEntityManager().persist(importJobDemoData);
+
 	}
- 
- 
+
 }

@@ -28,7 +28,7 @@ public class ActByteArrayService extends AbstractEntityService<ActByteArray>
 
 	public ActByteArrayService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -47,7 +47,8 @@ public class ActByteArrayService extends AbstractEntityService<ActByteArray>
 	 * Find by ID of reference: deployment.id
 	 */
 	public List<ActByteArray> findByDeploymentId(String deploymentId) {
-		return (List<ActByteArray>) this.em
+		return (List<ActByteArray>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ActByteArray e where  e.deployment.id = :pDeploymentId",
 						ActByteArray.class)

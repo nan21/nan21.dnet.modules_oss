@@ -26,7 +26,7 @@ public class ActCommentService extends AbstractEntityService<ActComment>
 
 	public ActCommentService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

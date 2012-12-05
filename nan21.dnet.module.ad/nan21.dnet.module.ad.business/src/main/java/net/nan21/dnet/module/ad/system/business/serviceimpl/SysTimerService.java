@@ -26,7 +26,7 @@ public class SysTimerService extends AbstractEntityService<SysTimer> {
 
 	public SysTimerService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -38,7 +38,8 @@ public class SysTimerService extends AbstractEntityService<SysTimer> {
 	 * Find by unique key
 	 */
 	public SysTimer findByName(SysJobCtx jobCtx, String name) {
-		return (SysTimer) this.em.createNamedQuery(SysTimer.NQ_FIND_BY_NAME)
+		return (SysTimer) this.getEntityManager()
+				.createNamedQuery(SysTimer.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJobCtx", jobCtx).setParameter("pName", name)
 				.getSingleResult();
@@ -48,7 +49,7 @@ public class SysTimerService extends AbstractEntityService<SysTimer> {
 	 * Find by unique key
 	 */
 	public SysTimer findByName(Long jobCtxId, String name) {
-		return (SysTimer) this.em
+		return (SysTimer) this.getEntityManager()
 				.createNamedQuery(SysTimer.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJobCtxId", jobCtxId)
@@ -66,7 +67,8 @@ public class SysTimerService extends AbstractEntityService<SysTimer> {
 	 * Find by ID of reference: jobCtx.id
 	 */
 	public List<SysTimer> findByJobCtxId(Long jobCtxId) {
-		return (List<SysTimer>) this.em
+		return (List<SysTimer>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysTimer e where e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId",
 						SysTimer.class)

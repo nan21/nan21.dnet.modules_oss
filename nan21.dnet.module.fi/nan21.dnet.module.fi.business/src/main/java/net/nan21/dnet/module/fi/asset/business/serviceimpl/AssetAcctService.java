@@ -31,7 +31,7 @@ public class AssetAcctService extends AbstractEntityService<AssetAcct>
 
 	public AssetAcctService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class AssetAcctService extends AbstractEntityService<AssetAcct>
 	 * Find by unique key
 	 */
 	public AssetAcct findByAccount_schema(Asset asset, AccSchema accSchema) {
-		return (AssetAcct) this.em
+		return (AssetAcct) this.getEntityManager()
 				.createNamedQuery(AssetAcct.NQ_FIND_BY_ACCOUNT_SCHEMA)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAsset", asset)
@@ -54,7 +54,8 @@ public class AssetAcctService extends AbstractEntityService<AssetAcct>
 	 * Find by unique key
 	 */
 	public AssetAcct findByAccount_schema(Long assetId, Long accSchemaId) {
-		return (AssetAcct) this.em
+		return (AssetAcct) this
+				.getEntityManager()
 				.createNamedQuery(AssetAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAssetId", assetId)
@@ -72,7 +73,8 @@ public class AssetAcctService extends AbstractEntityService<AssetAcct>
 	 * Find by ID of reference: asset.id
 	 */
 	public List<AssetAcct> findByAssetId(Long assetId) {
-		return (List<AssetAcct>) this.em
+		return (List<AssetAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetAcct e where e.clientId = :pClientId and e.asset.id = :pAssetId",
 						AssetAcct.class)
@@ -91,7 +93,8 @@ public class AssetAcctService extends AbstractEntityService<AssetAcct>
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<AssetAcct> findByAccSchemaId(Long accSchemaId) {
-		return (List<AssetAcct>) this.em
+		return (List<AssetAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetAcct e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						AssetAcct.class)
@@ -110,7 +113,8 @@ public class AssetAcctService extends AbstractEntityService<AssetAcct>
 	 * Find by ID of reference: deprecAccount.id
 	 */
 	public List<AssetAcct> findByDeprecAccountId(Long deprecAccountId) {
-		return (List<AssetAcct>) this.em
+		return (List<AssetAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetAcct e where e.clientId = :pClientId and e.deprecAccount.id = :pDeprecAccountId",
 						AssetAcct.class)
@@ -130,7 +134,8 @@ public class AssetAcctService extends AbstractEntityService<AssetAcct>
 	 * Find by ID of reference: acmlDeprecAccount.id
 	 */
 	public List<AssetAcct> findByAcmlDeprecAccountId(Long acmlDeprecAccountId) {
-		return (List<AssetAcct>) this.em
+		return (List<AssetAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetAcct e where e.clientId = :pClientId and e.acmlDeprecAccount.id = :pAcmlDeprecAccountId",
 						AssetAcct.class)

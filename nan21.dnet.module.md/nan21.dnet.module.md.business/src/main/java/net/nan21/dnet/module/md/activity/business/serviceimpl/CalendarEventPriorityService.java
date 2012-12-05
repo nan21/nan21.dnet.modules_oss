@@ -29,7 +29,7 @@ public class CalendarEventPriorityService
 
 	public CalendarEventPriorityService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class CalendarEventPriorityService
 	 */
 	public CalendarEventPriority findByType_and_name(String eventType,
 			String name) {
-		return (CalendarEventPriority) this.em
+		return (CalendarEventPriority) this
+				.getEntityManager()
 				.createNamedQuery(
 						CalendarEventPriority.NQ_FIND_BY_TYPE_AND_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())

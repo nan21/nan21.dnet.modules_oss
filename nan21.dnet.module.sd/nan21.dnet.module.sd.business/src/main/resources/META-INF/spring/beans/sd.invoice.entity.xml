@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"	 
+	xmlns:int="http://www.springframework.org/schema/integration"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans.xsd
 			http://www.springframework.org/schema/context 
-				http://www.springframework.org/schema/context/spring-context.xsd">   
+				http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/integration
+				http://www.springframework.org/schema/integration/spring-integration.xsd">
+
 	<bean id="SalesInvoiceService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.SalesInvoiceService"/>
+
 	<bean id="SalesInvoiceItemService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.SalesInvoiceItemService"/>
+
 	<bean id="SalesInvoiceTaxService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.SalesInvoiceTaxService"/>
+
 	<bean id="SalesInvoiceItemTaxService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceimpl.SalesInvoiceItemTaxService"/>
+
 	<bean id="PaymentInService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.PaymentInService"/>
+
 	<bean id="PaymentInAmountService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.PaymentInAmountService"/>
+
 	<bean id="SalesTxAmountService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.sd.invoice.business.serviceext.SalesTxAmountService"/>
+
+	<int:channel id="SalesInvoiceService-calculateAmounts"/>
+	<int:service-activator 
+		input-channel="SalesInvoiceService-calculateAmounts" output-channel="SalesInvoiceService-calculateAmounts"
+		ref="SalesInvoiceService" method="calculateAmounts"/>
 </beans>

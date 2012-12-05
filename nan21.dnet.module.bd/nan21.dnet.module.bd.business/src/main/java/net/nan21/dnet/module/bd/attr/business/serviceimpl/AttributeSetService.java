@@ -27,7 +27,7 @@ public class AttributeSetService extends AbstractEntityService<AttributeSet>
 
 	public AttributeSetService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class AttributeSetService extends AbstractEntityService<AttributeSet>
 	 * Find by unique key
 	 */
 	public AttributeSet findByName(String name) {
-		return (AttributeSet) this.em
+		return (AttributeSet) this.getEntityManager()
 				.createNamedQuery(AttributeSet.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

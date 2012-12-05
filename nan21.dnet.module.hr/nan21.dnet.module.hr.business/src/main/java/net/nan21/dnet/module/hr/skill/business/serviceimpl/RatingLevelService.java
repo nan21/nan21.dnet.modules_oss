@@ -29,7 +29,7 @@ public class RatingLevelService extends AbstractEntityService<RatingLevel>
 
 	public RatingLevelService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class RatingLevelService extends AbstractEntityService<RatingLevel>
 	 * Find by unique key
 	 */
 	public RatingLevel findByName(RatingScale ratingScale, String name) {
-		return (RatingLevel) this.em
+		return (RatingLevel) this.getEntityManager()
 				.createNamedQuery(RatingLevel.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pRatingScale", ratingScale)
@@ -52,7 +52,7 @@ public class RatingLevelService extends AbstractEntityService<RatingLevel>
 	 * Find by unique key
 	 */
 	public RatingLevel findByName(Long ratingScaleId, String name) {
-		return (RatingLevel) this.em
+		return (RatingLevel) this.getEntityManager()
 				.createNamedQuery(RatingLevel.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pRatingScaleId", ratingScaleId)
@@ -70,7 +70,8 @@ public class RatingLevelService extends AbstractEntityService<RatingLevel>
 	 * Find by ID of reference: ratingScale.id
 	 */
 	public List<RatingLevel> findByRatingScaleId(Long ratingScaleId) {
-		return (List<RatingLevel>) this.em
+		return (List<RatingLevel>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from RatingLevel e where e.clientId = :pClientId and e.ratingScale.id = :pRatingScaleId",
 						RatingLevel.class)

@@ -32,7 +32,7 @@ public class RoleService extends AbstractEntityService<Role>
 
 	public RoleService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,8 @@ public class RoleService extends AbstractEntityService<Role>
 	 * Find by unique key
 	 */
 	public Role findByName(String name) {
-		return (Role) this.em.createNamedQuery(Role.NQ_FIND_BY_NAME)
+		return (Role) this.getEntityManager()
+				.createNamedQuery(Role.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -60,7 +61,8 @@ public class RoleService extends AbstractEntityService<Role>
 	 * Find by ID of reference: users.id
 	 */
 	public List<Role> findByUsersId(Long usersId) {
-		return (List<Role>) this.em
+		return (List<Role>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Role e, IN (e.users) c where e.clientId = :pClientId and c.id = :pUsersId",
 						Role.class)
@@ -79,7 +81,8 @@ public class RoleService extends AbstractEntityService<Role>
 	 * Find by ID of reference: accessControls.id
 	 */
 	public List<Role> findByAccessControlsId(Long accessControlsId) {
-		return (List<Role>) this.em
+		return (List<Role>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Role e, IN (e.accessControls) c where e.clientId = :pClientId and c.id = :pAccessControlsId",
 						Role.class)
@@ -99,7 +102,8 @@ public class RoleService extends AbstractEntityService<Role>
 	 * Find by ID of reference: menus.id
 	 */
 	public List<Role> findByMenusId(Long menusId) {
-		return (List<Role>) this.em
+		return (List<Role>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Role e, IN (e.menus) c where e.clientId = :pClientId and c.id = :pMenusId",
 						Role.class)
@@ -118,7 +122,8 @@ public class RoleService extends AbstractEntityService<Role>
 	 * Find by ID of reference: menuItems.id
 	 */
 	public List<Role> findByMenuItemsId(Long menuItemsId) {
-		return (List<Role>) this.em
+		return (List<Role>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Role e, IN (e.menuItems) c where e.clientId = :pClientId and c.id = :pMenuItemsId",
 						Role.class)

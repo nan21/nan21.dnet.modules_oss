@@ -31,7 +31,7 @@ public class LocationService extends AbstractEntityService<Location>
 
 	public LocationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class LocationService extends AbstractEntityService<Location>
 	 * Find by ID of reference: country.id
 	 */
 	public List<Location> findByCountryId(Long countryId) {
-		return (List<Location>) this.em
+		return (List<Location>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Location e where e.clientId = :pClientId and e.country.id = :pCountryId",
 						Location.class)
@@ -69,7 +70,8 @@ public class LocationService extends AbstractEntityService<Location>
 	 * Find by ID of reference: region.id
 	 */
 	public List<Location> findByRegionId(Long regionId) {
-		return (List<Location>) this.em
+		return (List<Location>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Location e where e.clientId = :pClientId and e.region.id = :pRegionId",
 						Location.class)
@@ -88,7 +90,8 @@ public class LocationService extends AbstractEntityService<Location>
 	 * Find by ID of reference: city.id
 	 */
 	public List<Location> findByCityId(Long cityId) {
-		return (List<Location>) this.em
+		return (List<Location>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Location e where e.clientId = :pClientId and e.city.id = :pCityId",
 						Location.class)

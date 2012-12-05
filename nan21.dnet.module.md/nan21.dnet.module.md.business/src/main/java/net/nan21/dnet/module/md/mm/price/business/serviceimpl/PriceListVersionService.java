@@ -31,7 +31,7 @@ public class PriceListVersionService
 
 	public PriceListVersionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class PriceListVersionService
 	 * Find by unique key
 	 */
 	public PriceListVersion findByName(String name) {
-		return (PriceListVersion) this.em
+		return (PriceListVersion) this.getEntityManager()
 				.createNamedQuery(PriceListVersion.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -60,7 +60,8 @@ public class PriceListVersionService
 	 * Find by ID of reference: priceList.id
 	 */
 	public List<PriceListVersion> findByPriceListId(Long priceListId) {
-		return (List<PriceListVersion>) this.em
+		return (List<PriceListVersion>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PriceListVersion e where e.clientId = :pClientId and e.priceList.id = :pPriceListId",
 						PriceListVersion.class)

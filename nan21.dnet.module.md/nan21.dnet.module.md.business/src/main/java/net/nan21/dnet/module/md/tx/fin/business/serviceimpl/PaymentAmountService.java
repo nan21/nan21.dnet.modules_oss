@@ -26,7 +26,7 @@ public class PaymentAmountService extends AbstractEntityService<PaymentAmount> {
 
 	public PaymentAmountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -45,7 +45,8 @@ public class PaymentAmountService extends AbstractEntityService<PaymentAmount> {
 	 * Find by ID of reference: payment.id
 	 */
 	public List<PaymentAmount> findByPaymentId(Long paymentId) {
-		return (List<PaymentAmount>) this.em
+		return (List<PaymentAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PaymentAmount e where e.clientId = :pClientId and e.payment.id = :pPaymentId",
 						PaymentAmount.class)

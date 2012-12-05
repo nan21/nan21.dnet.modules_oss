@@ -33,7 +33,7 @@ public class BpClassificationService
 
 	public BpClassificationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class BpClassificationService
 	 * Find by ID of reference: bp.id
 	 */
 	public List<BpClassification> findByBpId(Long bpId) {
-		return (List<BpClassification>) this.em
+		return (List<BpClassification>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpClassification e where e.clientId = :pClientId and e.bp.id = :pBpId",
 						BpClassification.class)
@@ -72,7 +73,8 @@ public class BpClassificationService
 	 * Find by ID of reference: classSystem.id
 	 */
 	public List<BpClassification> findByClassSystemId(Long classSystemId) {
-		return (List<BpClassification>) this.em
+		return (List<BpClassification>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpClassification e where e.clientId = :pClientId and e.classSystem.id = :pClassSystemId",
 						BpClassification.class)
@@ -91,7 +93,8 @@ public class BpClassificationService
 	 * Find by ID of reference: classCode.id
 	 */
 	public List<BpClassification> findByClassCodeId(Long classCodeId) {
-		return (List<BpClassification>) this.em
+		return (List<BpClassification>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpClassification e where e.clientId = :pClientId and e.classCode.id = :pClassCodeId",
 						BpClassification.class)

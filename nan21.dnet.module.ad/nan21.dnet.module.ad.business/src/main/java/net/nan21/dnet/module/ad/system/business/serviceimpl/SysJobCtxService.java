@@ -24,7 +24,7 @@ public class SysJobCtxService extends AbstractEntityService<SysJobCtx> {
 
 	public SysJobCtxService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -36,7 +36,8 @@ public class SysJobCtxService extends AbstractEntityService<SysJobCtx> {
 	 * Find by unique key
 	 */
 	public SysJobCtx findByName(String name) {
-		return (SysJobCtx) this.em.createNamedQuery(SysJobCtx.NQ_FIND_BY_NAME)
+		return (SysJobCtx) this.getEntityManager()
+				.createNamedQuery(SysJobCtx.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

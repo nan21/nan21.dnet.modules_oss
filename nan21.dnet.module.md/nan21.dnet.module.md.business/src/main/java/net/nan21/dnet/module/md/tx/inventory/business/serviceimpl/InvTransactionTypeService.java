@@ -31,7 +31,7 @@ public class InvTransactionTypeService
 
 	public InvTransactionTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class InvTransactionTypeService
 	 * Find by unique key
 	 */
 	public InvTransactionType findByName(String name) {
-		return (InvTransactionType) this.em
+		return (InvTransactionType) this.getEntityManager()
 				.createNamedQuery(InvTransactionType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -60,7 +60,8 @@ public class InvTransactionTypeService
 	 * Find by ID of reference: docType.id
 	 */
 	public List<InvTransactionType> findByDocTypeId(Long docTypeId) {
-		return (List<InvTransactionType>) this.em
+		return (List<InvTransactionType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionType e where e.clientId = :pClientId and e.docType.id = :pDocTypeId",
 						InvTransactionType.class)

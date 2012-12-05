@@ -31,7 +31,7 @@ public class CsvExportFieldService
 
 	public CsvExportFieldService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class CsvExportFieldService
 	 * Find by ID of reference: csvExport.id
 	 */
 	public List<CsvExportField> findByCsvExportId(Long csvExportId) {
-		return (List<CsvExportField>) this.em
+		return (List<CsvExportField>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CsvExportField e where e.clientId = :pClientId and e.csvExport.id = :pCsvExportId",
 						CsvExportField.class)

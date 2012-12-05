@@ -30,7 +30,7 @@ public class SkillService extends AbstractEntityService<Skill>
 
 	public SkillService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class SkillService extends AbstractEntityService<Skill>
 	 * Find by unique key
 	 */
 	public Skill findByName(String name) {
-		return (Skill) this.em.createNamedQuery(Skill.NQ_FIND_BY_NAME)
+		return (Skill) this.getEntityManager()
+				.createNamedQuery(Skill.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class SkillService extends AbstractEntityService<Skill>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Skill> findByTypeId(Long typeId) {
-		return (List<Skill>) this.em
+		return (List<Skill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Skill e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Skill.class)
@@ -77,7 +79,8 @@ public class SkillService extends AbstractEntityService<Skill>
 	 * Find by ID of reference: ratingScale.id
 	 */
 	public List<Skill> findByRatingScaleId(Long ratingScaleId) {
-		return (List<Skill>) this.em
+		return (List<Skill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Skill e where e.clientId = :pClientId and e.ratingScale.id = :pRatingScaleId",
 						Skill.class)

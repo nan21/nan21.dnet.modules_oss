@@ -27,7 +27,7 @@ public class CalendarService extends AbstractEntityService<Calendar>
 
 	public CalendarService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class CalendarService extends AbstractEntityService<Calendar>
 	 * Find by unique key
 	 */
 	public Calendar findByName(String name) {
-		return (Calendar) this.em.createNamedQuery(Calendar.NQ_FIND_BY_NAME)
+		return (Calendar) this.getEntityManager()
+				.createNamedQuery(Calendar.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

@@ -29,7 +29,7 @@ public class ImportMapItemService extends AbstractEntityService<ImportMapItem>
 
 	public ImportMapItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class ImportMapItemService extends AbstractEntityService<ImportMapItem>
 	 * Find by ID of reference: importMap.id
 	 */
 	public List<ImportMapItem> findByImportMapId(Long importMapId) {
-		return (List<ImportMapItem>) this.em
+		return (List<ImportMapItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ImportMapItem e where e.clientId = :pClientId and e.importMap.id = :pImportMapId",
 						ImportMapItem.class)

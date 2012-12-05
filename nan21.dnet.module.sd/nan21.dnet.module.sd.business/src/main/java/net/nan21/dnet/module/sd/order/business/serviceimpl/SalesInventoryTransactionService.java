@@ -34,7 +34,7 @@ public class SalesInventoryTransactionService
 
 	public SalesInventoryTransactionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -54,7 +54,8 @@ public class SalesInventoryTransactionService
 	 * Find by ID of reference: customer.id
 	 */
 	public List<SalesInventoryTransaction> findByCustomerId(Long customerId) {
-		return (List<SalesInventoryTransaction>) this.em
+		return (List<SalesInventoryTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.customer.id = :pCustomerId",
 						SalesInventoryTransaction.class)
@@ -75,7 +76,8 @@ public class SalesInventoryTransactionService
 	 */
 	public List<SalesInventoryTransaction> findByDeliveryLocationId(
 			Long deliveryLocationId) {
-		return (List<SalesInventoryTransaction>) this.em
+		return (List<SalesInventoryTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.deliveryLocation.id = :pDeliveryLocationId",
 						SalesInventoryTransaction.class)
@@ -97,7 +99,8 @@ public class SalesInventoryTransactionService
 	 */
 	public List<SalesInventoryTransaction> findByDeliveryContactId(
 			Long deliveryContactId) {
-		return (List<SalesInventoryTransaction>) this.em
+		return (List<SalesInventoryTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.deliveryContact.id = :pDeliveryContactId",
 						SalesInventoryTransaction.class)
@@ -118,7 +121,8 @@ public class SalesInventoryTransactionService
 	 * Find by ID of reference: salesOrder.id
 	 */
 	public List<SalesInventoryTransaction> findBySalesOrderId(Long salesOrderId) {
-		return (List<SalesInventoryTransaction>) this.em
+		return (List<SalesInventoryTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInventoryTransaction e where e.clientId = :pClientId and e.salesOrder.id = :pSalesOrderId",
 						SalesInventoryTransaction.class)

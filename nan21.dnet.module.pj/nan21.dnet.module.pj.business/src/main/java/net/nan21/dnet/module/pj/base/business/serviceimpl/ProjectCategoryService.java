@@ -29,7 +29,7 @@ public class ProjectCategoryService
 
 	public ProjectCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ProjectCategoryService
 	 * Find by unique key
 	 */
 	public ProjectCategory findByName(String name) {
-		return (ProjectCategory) this.em
+		return (ProjectCategory) this.getEntityManager()
 				.createNamedQuery(ProjectCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

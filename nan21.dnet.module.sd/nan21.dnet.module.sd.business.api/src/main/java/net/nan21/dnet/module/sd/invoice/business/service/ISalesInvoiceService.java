@@ -40,6 +40,8 @@ public interface ISalesInvoiceService extends IEntityService<SalesInvoice> {
 	public void doCopyLines(SalesInvoice target, Long sourceId)
 			throws BusinessException;
 
+	public void calculateAmounts(Long invoiceId) throws BusinessException;
+
 	/**
 	 * Find by unique key
 	 */

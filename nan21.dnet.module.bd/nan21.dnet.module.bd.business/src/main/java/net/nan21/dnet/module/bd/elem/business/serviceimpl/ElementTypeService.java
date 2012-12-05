@@ -30,7 +30,7 @@ public class ElementTypeService extends AbstractEntityService<ElementType>
 
 	public ElementTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class ElementTypeService extends AbstractEntityService<ElementType>
 	 * Find by unique key
 	 */
 	public ElementType findByEngine_name(Engine engine, String name) {
-		return (ElementType) this.em
+		return (ElementType) this.getEntityManager()
 				.createNamedQuery(ElementType.NQ_FIND_BY_ENGINE_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngine", engine).setParameter("pName", name)
@@ -53,7 +53,7 @@ public class ElementTypeService extends AbstractEntityService<ElementType>
 	 * Find by unique key
 	 */
 	public ElementType findByEngine_name(Long engineId, String name) {
-		return (ElementType) this.em
+		return (ElementType) this.getEntityManager()
 				.createNamedQuery(ElementType.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngineId", engineId)
@@ -71,7 +71,8 @@ public class ElementTypeService extends AbstractEntityService<ElementType>
 	 * Find by ID of reference: engine.id
 	 */
 	public List<ElementType> findByEngineId(Long engineId) {
-		return (List<ElementType>) this.em
+		return (List<ElementType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementType e where e.clientId = :pClientId and e.engine.id = :pEngineId",
 						ElementType.class)
@@ -90,7 +91,8 @@ public class ElementTypeService extends AbstractEntityService<ElementType>
 	 * Find by ID of reference: category.id
 	 */
 	public List<ElementType> findByCategoryId(Long categoryId) {
-		return (List<ElementType>) this.em
+		return (List<ElementType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementType e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						ElementType.class)

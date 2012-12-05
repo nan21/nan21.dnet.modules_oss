@@ -31,7 +31,7 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 
 	public BpBankAccountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 	 */
 	public BpBankAccount findByAccount(BusinessPartner bpartner,
 			String accountNo) {
-		return (BpBankAccount) this.em
+		return (BpBankAccount) this.getEntityManager()
 				.createNamedQuery(BpBankAccount.NQ_FIND_BY_ACCOUNT)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pBpartner", bpartner)
@@ -55,7 +55,7 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 	 * Find by unique key
 	 */
 	public BpBankAccount findByAccount(Long bpartnerId, String accountNo) {
-		return (BpBankAccount) this.em
+		return (BpBankAccount) this.getEntityManager()
 				.createNamedQuery(BpBankAccount.NQ_FIND_BY_ACCOUNT_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pBpartnerId", bpartnerId)
@@ -73,7 +73,8 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<BpBankAccount> findByBpartnerId(Long bpartnerId) {
-		return (List<BpBankAccount>) this.em
+		return (List<BpBankAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpBankAccount e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						BpBankAccount.class)
@@ -92,7 +93,8 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 	 * Find by ID of reference: bank.id
 	 */
 	public List<BpBankAccount> findByBankId(Long bankId) {
-		return (List<BpBankAccount>) this.em
+		return (List<BpBankAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpBankAccount e where e.clientId = :pClientId and e.bank.id = :pBankId",
 						BpBankAccount.class)
@@ -111,7 +113,8 @@ public class BpBankAccountService extends AbstractEntityService<BpBankAccount>
 	 * Find by ID of reference: currency.id
 	 */
 	public List<BpBankAccount> findByCurrencyId(Long currencyId) {
-		return (List<BpBankAccount>) this.em
+		return (List<BpBankAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from BpBankAccount e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						BpBankAccount.class)

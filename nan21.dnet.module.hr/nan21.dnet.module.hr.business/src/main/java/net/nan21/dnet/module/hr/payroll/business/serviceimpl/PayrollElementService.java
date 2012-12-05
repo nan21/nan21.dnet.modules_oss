@@ -32,7 +32,7 @@ public class PayrollElementService
 
 	public PayrollElementService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class PayrollElementService
 	 * Find by unique key
 	 */
 	public PayrollElement findByEngine_code(Engine engine, String code) {
-		return (PayrollElement) this.em
+		return (PayrollElement) this.getEntityManager()
 				.createNamedQuery(PayrollElement.NQ_FIND_BY_ENGINE_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngine", engine).setParameter("pCode", code)
@@ -55,7 +55,8 @@ public class PayrollElementService
 	 * Find by unique key
 	 */
 	public PayrollElement findByEngine_code(Long engineId, String code) {
-		return (PayrollElement) this.em
+		return (PayrollElement) this
+				.getEntityManager()
 				.createNamedQuery(
 						PayrollElement.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -74,7 +75,8 @@ public class PayrollElementService
 	 * Find by ID of reference: accItem.id
 	 */
 	public List<PayrollElement> findByAccItemId(Long accItemId) {
-		return (List<PayrollElement>) this.em
+		return (List<PayrollElement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayrollElement e where e.clientId = :pClientId and e.accItem.id = :pAccItemId",
 						PayrollElement.class)
@@ -93,7 +95,8 @@ public class PayrollElementService
 	 * Find by ID of reference: sourceElement.id
 	 */
 	public List<PayrollElement> findBySourceElementId(Long sourceElementId) {
-		return (List<PayrollElement>) this.em
+		return (List<PayrollElement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayrollElement e where e.clientId = :pClientId and e.sourceElement.id = :pSourceElementId",
 						PayrollElement.class)

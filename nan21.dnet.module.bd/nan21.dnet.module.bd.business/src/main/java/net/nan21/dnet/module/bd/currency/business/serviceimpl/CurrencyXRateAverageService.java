@@ -32,7 +32,7 @@ public class CurrencyXRateAverageService
 
 	public CurrencyXRateAverageService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class CurrencyXRateAverageService
 	 * Find by ID of reference: provider.id
 	 */
 	public List<CurrencyXRateAverage> findByProviderId(Long providerId) {
-		return (List<CurrencyXRateAverage>) this.em
+		return (List<CurrencyXRateAverage>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CurrencyXRateAverage e where e.clientId = :pClientId and e.provider.id = :pProviderId",
 						CurrencyXRateAverage.class)
@@ -71,7 +72,8 @@ public class CurrencyXRateAverageService
 	 * Find by ID of reference: source.id
 	 */
 	public List<CurrencyXRateAverage> findBySourceId(Long sourceId) {
-		return (List<CurrencyXRateAverage>) this.em
+		return (List<CurrencyXRateAverage>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CurrencyXRateAverage e where e.clientId = :pClientId and e.source.id = :pSourceId",
 						CurrencyXRateAverage.class)
@@ -90,7 +92,8 @@ public class CurrencyXRateAverageService
 	 * Find by ID of reference: target.id
 	 */
 	public List<CurrencyXRateAverage> findByTargetId(Long targetId) {
-		return (List<CurrencyXRateAverage>) this.em
+		return (List<CurrencyXRateAverage>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CurrencyXRateAverage e where e.clientId = :pClientId and e.target.id = :pTargetId",
 						CurrencyXRateAverage.class)

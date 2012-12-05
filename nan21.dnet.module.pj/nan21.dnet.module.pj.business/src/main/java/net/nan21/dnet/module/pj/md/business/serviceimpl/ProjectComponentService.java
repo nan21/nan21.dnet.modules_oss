@@ -33,7 +33,7 @@ public class ProjectComponentService
 
 	public ProjectComponentService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class ProjectComponentService
 	 * Find by unique key
 	 */
 	public ProjectComponent findByName(Project project, String name) {
-		return (ProjectComponent) this.em
+		return (ProjectComponent) this.getEntityManager()
 				.createNamedQuery(ProjectComponent.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProject", project).setParameter("pName", name)
@@ -56,7 +56,7 @@ public class ProjectComponentService
 	 * Find by unique key
 	 */
 	public ProjectComponent findByName(Long projectId, String name) {
-		return (ProjectComponent) this.em
+		return (ProjectComponent) this.getEntityManager()
 				.createNamedQuery(ProjectComponent.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProjectId", projectId)
@@ -74,7 +74,8 @@ public class ProjectComponentService
 	 * Find by ID of reference: componentLead.id
 	 */
 	public List<ProjectComponent> findByComponentLeadId(Long componentLeadId) {
-		return (List<ProjectComponent>) this.em
+		return (List<ProjectComponent>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProjectComponent e where e.clientId = :pClientId and e.componentLead.id = :pComponentLeadId",
 						ProjectComponent.class)
@@ -94,7 +95,8 @@ public class ProjectComponentService
 	 * Find by ID of reference: project.id
 	 */
 	public List<ProjectComponent> findByProjectId(Long projectId) {
-		return (List<ProjectComponent>) this.em
+		return (List<ProjectComponent>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProjectComponent e where e.clientId = :pClientId and e.project.id = :pProjectId",
 						ProjectComponent.class)
@@ -113,7 +115,8 @@ public class ProjectComponentService
 	 * Find by ID of reference: affectingIssues.id
 	 */
 	public List<ProjectComponent> findByAffectingIssuesId(Long affectingIssuesId) {
-		return (List<ProjectComponent>) this.em
+		return (List<ProjectComponent>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ProjectComponent e, IN (e.affectingIssues) c where e.clientId = :pClientId and c.id = :pAffectingIssuesId",
 						ProjectComponent.class)

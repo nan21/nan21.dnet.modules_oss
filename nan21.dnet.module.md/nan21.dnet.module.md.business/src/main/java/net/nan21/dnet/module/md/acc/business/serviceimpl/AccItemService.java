@@ -27,7 +27,7 @@ public class AccItemService extends AbstractEntityService<AccItem>
 
 	public AccItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class AccItemService extends AbstractEntityService<AccItem>
 	 * Find by unique key
 	 */
 	public AccItem findByName(String name) {
-		return (AccItem) this.em.createNamedQuery(AccItem.NQ_FIND_BY_NAME)
+		return (AccItem) this.getEntityManager()
+				.createNamedQuery(AccItem.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

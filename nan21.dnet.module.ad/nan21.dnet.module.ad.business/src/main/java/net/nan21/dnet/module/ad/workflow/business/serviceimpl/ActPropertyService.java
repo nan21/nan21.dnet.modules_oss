@@ -26,7 +26,7 @@ public class ActPropertyService extends AbstractEntityService<ActProperty>
 
 	public ActPropertyService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

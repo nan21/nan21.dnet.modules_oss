@@ -32,7 +32,7 @@ public class CalendarEventService extends AbstractEntityService<CalendarEvent>
 
 	public CalendarEventService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class CalendarEventService extends AbstractEntityService<CalendarEvent>
 	 * Find by ID of reference: status.id
 	 */
 	public List<CalendarEvent> findByStatusId(Long statusId) {
-		return (List<CalendarEvent>) this.em
+		return (List<CalendarEvent>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CalendarEvent e where e.clientId = :pClientId and e.status.id = :pStatusId",
 						CalendarEvent.class)
@@ -70,7 +71,8 @@ public class CalendarEventService extends AbstractEntityService<CalendarEvent>
 	 * Find by ID of reference: priority.id
 	 */
 	public List<CalendarEvent> findByPriorityId(Long priorityId) {
-		return (List<CalendarEvent>) this.em
+		return (List<CalendarEvent>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CalendarEvent e where e.clientId = :pClientId and e.priority.id = :pPriorityId",
 						CalendarEvent.class)
@@ -89,7 +91,8 @@ public class CalendarEventService extends AbstractEntityService<CalendarEvent>
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<CalendarEvent> findByBpartnerId(Long bpartnerId) {
-		return (List<CalendarEvent>) this.em
+		return (List<CalendarEvent>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CalendarEvent e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						CalendarEvent.class)
@@ -108,7 +111,8 @@ public class CalendarEventService extends AbstractEntityService<CalendarEvent>
 	 * Find by ID of reference: contact.id
 	 */
 	public List<CalendarEvent> findByContactId(Long contactId) {
-		return (List<CalendarEvent>) this.em
+		return (List<CalendarEvent>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CalendarEvent e where e.clientId = :pClientId and e.contact.id = :pContactId",
 						CalendarEvent.class)

@@ -34,12 +34,14 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 
 	public void unPost(SalesInvoice invoice) throws BusinessException {
 		try {
-			this.em.createQuery(
-					"delete from AccDoc t " + " where t.docUuid = :invoiceUuid")
+			this.getEntityManager()
+					.createQuery(
+							"delete from AccDoc t "
+									+ " where t.docUuid = :invoiceUuid")
 					.setParameter("invoiceUuid", invoice.getUuid())
 					.executeUpdate();
 			invoice.setPosted(false);
-			this.em.merge(invoice);
+			this.getEntityManager().merge(invoice);
 		} catch (Exception e) {
 			if (e.getCause() != null
 					&& e.getCause() instanceof SQLIntegrityConstraintViolationException) {
@@ -64,10 +66,10 @@ public class SalesInvoiceToAccDocBD extends AbstractBusinessDelegate {
 		for (AccSchema schema : schemas) {
 			AccDoc doc = this.generateAccDoc(invoice, schema);
 			result.add(doc);
-			this.em.persist(doc);
+			this.getEntityManager().persist(doc);
 		}
 		invoice.setPosted(true);
-		this.em.merge(invoice);
+		this.getEntityManager().merge(invoice);
 		return result;
 	}
 

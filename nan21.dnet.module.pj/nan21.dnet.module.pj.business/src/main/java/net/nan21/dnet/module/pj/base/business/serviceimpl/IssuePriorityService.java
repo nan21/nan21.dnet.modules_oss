@@ -27,7 +27,7 @@ public class IssuePriorityService extends AbstractEntityService<IssuePriority>
 
 	public IssuePriorityService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IssuePriorityService extends AbstractEntityService<IssuePriority>
 	 * Find by unique key
 	 */
 	public IssuePriority findByName(String name) {
-		return (IssuePriority) this.em
+		return (IssuePriority) this.getEntityManager()
 				.createNamedQuery(IssuePriority.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

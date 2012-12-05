@@ -33,7 +33,7 @@ public class CustomerGroupAcctService
 
 	public CustomerGroupAcctService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class CustomerGroupAcctService
 	 */
 	public CustomerGroupAcct findByGroup_schema(CustomerGroup custGroup,
 			AccSchema accSchema) {
-		return (CustomerGroupAcct) this.em
+		return (CustomerGroupAcct) this.getEntityManager()
 				.createNamedQuery(CustomerGroupAcct.NQ_FIND_BY_GROUP_SCHEMA)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCustGroup", custGroup)
@@ -58,7 +58,8 @@ public class CustomerGroupAcctService
 	 */
 	public CustomerGroupAcct findByGroup_schema(Long custGroupId,
 			Long accSchemaId) {
-		return (CustomerGroupAcct) this.em
+		return (CustomerGroupAcct) this
+				.getEntityManager()
 				.createNamedQuery(
 						CustomerGroupAcct.NQ_FIND_BY_GROUP_SCHEMA_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -77,7 +78,8 @@ public class CustomerGroupAcctService
 	 * Find by ID of reference: custGroup.id
 	 */
 	public List<CustomerGroupAcct> findByCustGroupId(Long custGroupId) {
-		return (List<CustomerGroupAcct>) this.em
+		return (List<CustomerGroupAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CustomerGroupAcct e where e.clientId = :pClientId and e.custGroup.id = :pCustGroupId",
 						CustomerGroupAcct.class)
@@ -96,7 +98,8 @@ public class CustomerGroupAcctService
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<CustomerGroupAcct> findByAccSchemaId(Long accSchemaId) {
-		return (List<CustomerGroupAcct>) this.em
+		return (List<CustomerGroupAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CustomerGroupAcct e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						CustomerGroupAcct.class)
@@ -115,7 +118,8 @@ public class CustomerGroupAcctService
 	 * Find by ID of reference: salesAccount.id
 	 */
 	public List<CustomerGroupAcct> findBySalesAccountId(Long salesAccountId) {
-		return (List<CustomerGroupAcct>) this.em
+		return (List<CustomerGroupAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CustomerGroupAcct e where e.clientId = :pClientId and e.salesAccount.id = :pSalesAccountId",
 						CustomerGroupAcct.class)
@@ -135,7 +139,8 @@ public class CustomerGroupAcctService
 	 * Find by ID of reference: prepayAccount.id
 	 */
 	public List<CustomerGroupAcct> findByPrepayAccountId(Long prepayAccountId) {
-		return (List<CustomerGroupAcct>) this.em
+		return (List<CustomerGroupAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CustomerGroupAcct e where e.clientId = :pClientId and e.prepayAccount.id = :pPrepayAccountId",
 						CustomerGroupAcct.class)

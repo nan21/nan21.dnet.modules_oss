@@ -29,7 +29,7 @@ public class OrganizationHierarchyService
 
 	public OrganizationHierarchyService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class OrganizationHierarchyService
 	 * Find by unique key
 	 */
 	public OrganizationHierarchy findByName(String name) {
-		return (OrganizationHierarchy) this.em
+		return (OrganizationHierarchy) this.getEntityManager()
 				.createNamedQuery(OrganizationHierarchy.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

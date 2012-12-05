@@ -29,7 +29,7 @@ public class PayrollService extends AbstractEntityService<Payroll>
 
 	public PayrollService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class PayrollService extends AbstractEntityService<Payroll>
 	 * Find by unique key
 	 */
 	public Payroll findByName(String name) {
-		return (Payroll) this.em.createNamedQuery(Payroll.NQ_FIND_BY_NAME)
+		return (Payroll) this.getEntityManager()
+				.createNamedQuery(Payroll.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class PayrollService extends AbstractEntityService<Payroll>
 	 * Find by ID of reference: engine.id
 	 */
 	public List<Payroll> findByEngineId(Long engineId) {
-		return (List<Payroll>) this.em
+		return (List<Payroll>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payroll e where e.clientId = :pClientId and e.engine.id = :pEngineId",
 						Payroll.class)

@@ -30,7 +30,7 @@ public class TxDocTypeService extends AbstractEntityService<TxDocType>
 
 	public TxDocTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class TxDocTypeService extends AbstractEntityService<TxDocType>
 	 * Find by unique key
 	 */
 	public TxDocType findByName(String name) {
-		return (TxDocType) this.em.createNamedQuery(TxDocType.NQ_FIND_BY_NAME)
+		return (TxDocType) this.getEntityManager()
+				.createNamedQuery(TxDocType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class TxDocTypeService extends AbstractEntityService<TxDocType>
 	 * Find by ID of reference: docSequence.id
 	 */
 	public List<TxDocType> findByDocSequenceId(Long docSequenceId) {
-		return (List<TxDocType>) this.em
+		return (List<TxDocType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxDocType e where e.clientId = :pClientId and e.docSequence.id = :pDocSequenceId",
 						TxDocType.class)
@@ -77,7 +79,8 @@ public class TxDocTypeService extends AbstractEntityService<TxDocType>
 	 * Find by ID of reference: journal.id
 	 */
 	public List<TxDocType> findByJournalId(Long journalId) {
-		return (List<TxDocType>) this.em
+		return (List<TxDocType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxDocType e where e.clientId = :pClientId and e.journal.id = :pJournalId",
 						TxDocType.class)

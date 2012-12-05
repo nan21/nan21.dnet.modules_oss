@@ -30,7 +30,7 @@ public class IssueLinkService extends AbstractEntityService<IssueLink>
 
 	public IssueLinkService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class IssueLinkService extends AbstractEntityService<IssueLink>
 	 * Find by ID of reference: sourceIssue.id
 	 */
 	public List<IssueLink> findBySourceIssueId(Long sourceIssueId) {
-		return (List<IssueLink>) this.em
+		return (List<IssueLink>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueLink e where e.clientId = :pClientId and e.sourceIssue.id = :pSourceIssueId",
 						IssueLink.class)
@@ -68,7 +69,8 @@ public class IssueLinkService extends AbstractEntityService<IssueLink>
 	 * Find by ID of reference: targetIssue.id
 	 */
 	public List<IssueLink> findByTargetIssueId(Long targetIssueId) {
-		return (List<IssueLink>) this.em
+		return (List<IssueLink>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueLink e where e.clientId = :pClientId and e.targetIssue.id = :pTargetIssueId",
 						IssueLink.class)
@@ -87,7 +89,8 @@ public class IssueLinkService extends AbstractEntityService<IssueLink>
 	 * Find by ID of reference: linkType.id
 	 */
 	public List<IssueLink> findByLinkTypeId(Long linkTypeId) {
-		return (List<IssueLink>) this.em
+		return (List<IssueLink>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueLink e where e.clientId = :pClientId and e.linkType.id = :pLinkTypeId",
 						IssueLink.class)

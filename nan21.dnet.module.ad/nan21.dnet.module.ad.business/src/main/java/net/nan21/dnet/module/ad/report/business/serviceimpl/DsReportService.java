@@ -29,7 +29,7 @@ public class DsReportService extends AbstractEntityService<DsReport>
 
 	public DsReportService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class DsReportService extends AbstractEntityService<DsReport>
 	 * Find by ID of reference: report.id
 	 */
 	public List<DsReport> findByReportId(Long reportId) {
-		return (List<DsReport>) this.em
+		return (List<DsReport>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from DsReport e where e.clientId = :pClientId and e.report.id = :pReportId",
 						DsReport.class)

@@ -34,7 +34,7 @@ public class PaymentService extends AbstractEntityService<Payment>
 
 	public PaymentService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -53,7 +53,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: currency.id
 	 */
 	public List<Payment> findByCurrencyId(Long currencyId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payment e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						Payment.class)
@@ -72,7 +73,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: paymentMethod.id
 	 */
 	public List<Payment> findByPaymentMethodId(Long paymentMethodId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payment e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId",
 						Payment.class)
@@ -92,7 +94,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: fromOrg.id
 	 */
 	public List<Payment> findByFromOrgId(Long fromOrgId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payment e where e.clientId = :pClientId and e.fromOrg.id = :pFromOrgId",
 						Payment.class)
@@ -111,7 +114,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: toOrg.id
 	 */
 	public List<Payment> findByToOrgId(Long toOrgId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payment e where e.clientId = :pClientId and e.toOrg.id = :pToOrgId",
 						Payment.class)
@@ -130,7 +134,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: fromAccount.id
 	 */
 	public List<Payment> findByFromAccountId(Long fromAccountId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payment e where e.clientId = :pClientId and e.fromAccount.id = :pFromAccountId",
 						Payment.class)
@@ -149,7 +154,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: toAccount.id
 	 */
 	public List<Payment> findByToAccountId(Long toAccountId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payment e where e.clientId = :pClientId and e.toAccount.id = :pToAccountId",
 						Payment.class)
@@ -168,7 +174,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<Payment> findByBpartnerId(Long bpartnerId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Payment e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						Payment.class)
@@ -187,7 +194,8 @@ public class PaymentService extends AbstractEntityService<Payment>
 	 * Find by ID of reference: lines.id
 	 */
 	public List<Payment> findByLinesId(Long linesId) {
-		return (List<Payment>) this.em
+		return (List<Payment>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Payment e, IN (e.lines) c where e.clientId = :pClientId and c.id = :pLinesId",
 						Payment.class)

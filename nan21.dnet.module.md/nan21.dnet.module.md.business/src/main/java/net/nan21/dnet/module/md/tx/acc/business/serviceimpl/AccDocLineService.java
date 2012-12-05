@@ -31,7 +31,7 @@ public class AccDocLineService extends AbstractEntityService<AccDocLine>
 
 	public AccDocLineService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class AccDocLineService extends AbstractEntityService<AccDocLine>
 	 * Find by ID of reference: accDoc.id
 	 */
 	public List<AccDocLine> findByAccDocId(Long accDocId) {
-		return (List<AccDocLine>) this.em
+		return (List<AccDocLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDocLine e where e.clientId = :pClientId and e.accDoc.id = :pAccDocId",
 						AccDocLine.class)
@@ -69,7 +70,8 @@ public class AccDocLineService extends AbstractEntityService<AccDocLine>
 	 * Find by ID of reference: product.id
 	 */
 	public List<AccDocLine> findByProductId(Long productId) {
-		return (List<AccDocLine>) this.em
+		return (List<AccDocLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDocLine e where e.clientId = :pClientId and e.product.id = :pProductId",
 						AccDocLine.class)
@@ -88,7 +90,8 @@ public class AccDocLineService extends AbstractEntityService<AccDocLine>
 	 * Find by ID of reference: asset.id
 	 */
 	public List<AccDocLine> findByAssetId(Long assetId) {
-		return (List<AccDocLine>) this.em
+		return (List<AccDocLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccDocLine e where e.clientId = :pClientId and e.asset.id = :pAssetId",
 						AccDocLine.class)

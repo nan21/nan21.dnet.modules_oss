@@ -32,7 +32,7 @@ public class EmployeeLicenseService
 
 	public EmployeeLicenseService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class EmployeeLicenseService
 	 * Find by ID of reference: employee.id
 	 */
 	public List<EmployeeLicense> findByEmployeeId(Long employeeId) {
-		return (List<EmployeeLicense>) this.em
+		return (List<EmployeeLicense>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeLicense e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						EmployeeLicense.class)
@@ -70,7 +71,8 @@ public class EmployeeLicenseService
 	 * Find by ID of reference: licenseType.id
 	 */
 	public List<EmployeeLicense> findByLicenseTypeId(Long licenseTypeId) {
-		return (List<EmployeeLicense>) this.em
+		return (List<EmployeeLicense>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeLicense e where e.clientId = :pClientId and e.licenseType.id = :pLicenseTypeId",
 						EmployeeLicense.class)

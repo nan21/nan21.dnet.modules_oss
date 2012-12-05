@@ -26,7 +26,7 @@ public class QuartzLockService extends AbstractEntityService<QuartzLock>
 
 	public QuartzLockService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

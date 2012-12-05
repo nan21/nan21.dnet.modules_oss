@@ -29,7 +29,7 @@ public class CourseService extends AbstractEntityService<Course>
 
 	public CourseService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class CourseService extends AbstractEntityService<Course>
 	 * Find by unique key
 	 */
 	public Course findByCode(String code) {
-		return (Course) this.em.createNamedQuery(Course.NQ_FIND_BY_CODE)
+		return (Course) this.getEntityManager()
+				.createNamedQuery(Course.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -50,7 +51,8 @@ public class CourseService extends AbstractEntityService<Course>
 	 * Find by unique key
 	 */
 	public Course findByName(String name) {
-		return (Course) this.em.createNamedQuery(Course.NQ_FIND_BY_NAME)
+		return (Course) this.getEntityManager()
+				.createNamedQuery(Course.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -66,7 +68,8 @@ public class CourseService extends AbstractEntityService<Course>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Course> findByTypeId(Long typeId) {
-		return (List<Course>) this.em
+		return (List<Course>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Course e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Course.class)

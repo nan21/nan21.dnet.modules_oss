@@ -27,7 +27,7 @@ public class SysDateFormatService extends AbstractEntityService<SysDateFormat>
 
 	public SysDateFormatService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class SysDateFormatService extends AbstractEntityService<SysDateFormat>
 	 * Find by unique key
 	 */
 	public SysDateFormat findByName(String name) {
-		return (SysDateFormat) this.em
+		return (SysDateFormat) this.getEntityManager()
 				.createNamedQuery(SysDateFormat.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

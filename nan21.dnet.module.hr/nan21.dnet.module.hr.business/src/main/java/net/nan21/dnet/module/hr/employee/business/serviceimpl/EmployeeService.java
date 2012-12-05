@@ -29,7 +29,7 @@ public class EmployeeService extends AbstractEntityService<Employee>
 
 	public EmployeeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class EmployeeService extends AbstractEntityService<Employee>
 	 * Find by unique key
 	 */
 	public Employee findByCode(String code) {
-		return (Employee) this.em.createNamedQuery(Employee.NQ_FIND_BY_CODE)
+		return (Employee) this.getEntityManager()
+				.createNamedQuery(Employee.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class EmployeeService extends AbstractEntityService<Employee>
 	 * Find by ID of reference: contacts.id
 	 */
 	public List<Employee> findByContactsId(Long contactsId) {
-		return (List<Employee>) this.em
+		return (List<Employee>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Employee e, IN (e.contacts) c where e.clientId = :pClientId and c.id = :pContactsId",
 						Employee.class)

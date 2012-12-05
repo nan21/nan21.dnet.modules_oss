@@ -30,7 +30,7 @@ public class AttributeService extends AbstractEntityService<Attribute>
 
 	public AttributeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class AttributeService extends AbstractEntityService<Attribute>
 	 * Find by unique key
 	 */
 	public Attribute findByName(String name) {
-		return (Attribute) this.em.createNamedQuery(Attribute.NQ_FIND_BY_NAME)
+		return (Attribute) this.getEntityManager()
+				.createNamedQuery(Attribute.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class AttributeService extends AbstractEntityService<Attribute>
 	 * Find by ID of reference: category.id
 	 */
 	public List<Attribute> findByCategoryId(Long categoryId) {
-		return (List<Attribute>) this.em
+		return (List<Attribute>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Attribute e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						Attribute.class)
@@ -77,7 +79,8 @@ public class AttributeService extends AbstractEntityService<Attribute>
 	 * Find by ID of reference: uom.id
 	 */
 	public List<Attribute> findByUomId(Long uomId) {
-		return (List<Attribute>) this.em
+		return (List<Attribute>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Attribute e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						Attribute.class)

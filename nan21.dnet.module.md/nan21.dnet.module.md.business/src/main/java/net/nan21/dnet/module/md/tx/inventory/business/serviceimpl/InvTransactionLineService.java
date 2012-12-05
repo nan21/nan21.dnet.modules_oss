@@ -35,7 +35,7 @@ public class InvTransactionLineService
 
 	public InvTransactionLineService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -55,7 +55,8 @@ public class InvTransactionLineService
 	 * Find by ID of reference: invTransaction.id
 	 */
 	public List<InvTransactionLine> findByInvTransactionId(Long invTransactionId) {
-		return (List<InvTransactionLine>) this.em
+		return (List<InvTransactionLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.clientId = :pClientId and e.invTransaction.id = :pInvTransactionId",
 						InvTransactionLine.class)
@@ -75,7 +76,8 @@ public class InvTransactionLineService
 	 * Find by ID of reference: item.id
 	 */
 	public List<InvTransactionLine> findByItemId(Long itemId) {
-		return (List<InvTransactionLine>) this.em
+		return (List<InvTransactionLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.clientId = :pClientId and e.item.id = :pItemId",
 						InvTransactionLine.class)
@@ -96,7 +98,8 @@ public class InvTransactionLineService
 	 */
 	public List<InvTransactionLine> findByFromSubInventoryId(
 			Long fromSubInventoryId) {
-		return (List<InvTransactionLine>) this.em
+		return (List<InvTransactionLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.clientId = :pClientId and e.fromSubInventory.id = :pFromSubInventoryId",
 						InvTransactionLine.class)
@@ -116,7 +119,8 @@ public class InvTransactionLineService
 	 * Find by ID of reference: fromLocator.id
 	 */
 	public List<InvTransactionLine> findByFromLocatorId(Long fromLocatorId) {
-		return (List<InvTransactionLine>) this.em
+		return (List<InvTransactionLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.clientId = :pClientId and e.fromLocator.id = :pFromLocatorId",
 						InvTransactionLine.class)
@@ -136,7 +140,8 @@ public class InvTransactionLineService
 	 * Find by ID of reference: toSubInventory.id
 	 */
 	public List<InvTransactionLine> findByToSubInventoryId(Long toSubInventoryId) {
-		return (List<InvTransactionLine>) this.em
+		return (List<InvTransactionLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.clientId = :pClientId and e.toSubInventory.id = :pToSubInventoryId",
 						InvTransactionLine.class)
@@ -156,7 +161,8 @@ public class InvTransactionLineService
 	 * Find by ID of reference: toLocator.id
 	 */
 	public List<InvTransactionLine> findByToLocatorId(Long toLocatorId) {
-		return (List<InvTransactionLine>) this.em
+		return (List<InvTransactionLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.clientId = :pClientId and e.toLocator.id = :pToLocatorId",
 						InvTransactionLine.class)
@@ -175,7 +181,8 @@ public class InvTransactionLineService
 	 * Find by ID of reference: uom.id
 	 */
 	public List<InvTransactionLine> findByUomId(Long uomId) {
-		return (List<InvTransactionLine>) this.em
+		return (List<InvTransactionLine>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						InvTransactionLine.class)

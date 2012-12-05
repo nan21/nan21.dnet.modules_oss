@@ -31,7 +31,7 @@ public class EmployeeSkillService extends AbstractEntityService<EmployeeSkill>
 
 	public EmployeeSkillService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class EmployeeSkillService extends AbstractEntityService<EmployeeSkill>
 	 * Find by ID of reference: employee.id
 	 */
 	public List<EmployeeSkill> findByEmployeeId(Long employeeId) {
-		return (List<EmployeeSkill>) this.em
+		return (List<EmployeeSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeSkill e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						EmployeeSkill.class)
@@ -69,7 +70,8 @@ public class EmployeeSkillService extends AbstractEntityService<EmployeeSkill>
 	 * Find by ID of reference: skill.id
 	 */
 	public List<EmployeeSkill> findBySkillId(Long skillId) {
-		return (List<EmployeeSkill>) this.em
+		return (List<EmployeeSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeSkill e where e.clientId = :pClientId and e.skill.id = :pSkillId",
 						EmployeeSkill.class)
@@ -88,7 +90,8 @@ public class EmployeeSkillService extends AbstractEntityService<EmployeeSkill>
 	 * Find by ID of reference: skillLevel.id
 	 */
 	public List<EmployeeSkill> findBySkillLevelId(Long skillLevelId) {
-		return (List<EmployeeSkill>) this.em
+		return (List<EmployeeSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeSkill e where e.clientId = :pClientId and e.skillLevel.id = :pSkillLevelId",
 						EmployeeSkill.class)

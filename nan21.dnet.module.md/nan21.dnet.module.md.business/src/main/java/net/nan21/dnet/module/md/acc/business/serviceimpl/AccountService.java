@@ -29,7 +29,7 @@ public class AccountService extends AbstractEntityService<Account>
 
 	public AccountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class AccountService extends AbstractEntityService<Account>
 	 * Find by unique key
 	 */
 	public Account findByCode(String code) {
-		return (Account) this.em.createNamedQuery(Account.NQ_FIND_BY_CODE)
+		return (Account) this.getEntityManager()
+				.createNamedQuery(Account.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class AccountService extends AbstractEntityService<Account>
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<Account> findByAccSchemaId(Long accSchemaId) {
-		return (List<Account>) this.em
+		return (List<Account>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Account e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						Account.class)

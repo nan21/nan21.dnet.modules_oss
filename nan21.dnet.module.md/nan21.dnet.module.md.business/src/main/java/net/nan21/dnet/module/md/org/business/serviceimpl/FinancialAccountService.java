@@ -34,7 +34,7 @@ public class FinancialAccountService
 
 	public FinancialAccountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class FinancialAccountService
 	 * Find by unique key
 	 */
 	public FinancialAccount findByName(String name) {
-		return (FinancialAccount) this.em
+		return (FinancialAccount) this.getEntityManager()
 				.createNamedQuery(FinancialAccount.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -63,7 +63,8 @@ public class FinancialAccountService
 	 * Find by ID of reference: org.id
 	 */
 	public List<FinancialAccount> findByOrgId(Long orgId) {
-		return (List<FinancialAccount>) this.em
+		return (List<FinancialAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccount e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						FinancialAccount.class)
@@ -82,7 +83,8 @@ public class FinancialAccountService
 	 * Find by ID of reference: currency.id
 	 */
 	public List<FinancialAccount> findByCurrencyId(Long currencyId) {
-		return (List<FinancialAccount>) this.em
+		return (List<FinancialAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccount e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						FinancialAccount.class)
@@ -101,7 +103,8 @@ public class FinancialAccountService
 	 * Find by ID of reference: journal.id
 	 */
 	public List<FinancialAccount> findByJournalId(Long journalId) {
-		return (List<FinancialAccount>) this.em
+		return (List<FinancialAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccount e where e.clientId = :pClientId and e.journal.id = :pJournalId",
 						FinancialAccount.class)
@@ -120,7 +123,8 @@ public class FinancialAccountService
 	 * Find by ID of reference: methods.id
 	 */
 	public List<FinancialAccount> findByMethodsId(Long methodsId) {
-		return (List<FinancialAccount>) this.em
+		return (List<FinancialAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from FinancialAccount e, IN (e.methods) c where e.clientId = :pClientId and c.id = :pMethodsId",
 						FinancialAccount.class)

@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"	 
+	xmlns:int="http://www.springframework.org/schema/integration"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans.xsd
 			http://www.springframework.org/schema/context 
-				http://www.springframework.org/schema/context/spring-context.xsd">   
+				http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/integration
+				http://www.springframework.org/schema/integration/spring-integration.xsd">
+
 	<bean id="AssetCategoryService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.fi.asset.business.serviceimpl.AssetCategoryService"/>
+
 	<bean id="AssetCategoryAcctService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.fi.asset.business.serviceimpl.AssetCategoryAcctService"/>
+
 	<bean id="AssetService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.fi.asset.business.serviceimpl.AssetService"/>
+
 	<bean id="AssetAcctService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.fi.asset.business.serviceimpl.AssetAcctService"/>
+
 	<bean id="AmortizationService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.fi.asset.business.serviceimpl.AmortizationService"/>
 </beans>

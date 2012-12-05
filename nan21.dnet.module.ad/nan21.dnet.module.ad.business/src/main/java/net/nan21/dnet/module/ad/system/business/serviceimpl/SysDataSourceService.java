@@ -30,7 +30,7 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 
 	public SysDataSourceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 	 * Find by unique key
 	 */
 	public SysDataSource findByName(String name) {
-		return (SysDataSource) this.em
+		return (SysDataSource) this.getEntityManager()
 				.createNamedQuery(SysDataSource.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -52,7 +52,7 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 	 * Find by unique key
 	 */
 	public SysDataSource findByModel(String model) {
-		return (SysDataSource) this.em
+		return (SysDataSource) this.getEntityManager()
 				.createNamedQuery(SysDataSource.NQ_FIND_BY_MODEL)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pModel", model).getSingleResult();
@@ -69,7 +69,8 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 	 * Find by ID of reference: fields.id
 	 */
 	public List<SysDataSource> findByFieldsId(Long fieldsId) {
-		return (List<SysDataSource>) this.em
+		return (List<SysDataSource>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from SysDataSource e, IN (e.fields) c where e.clientId = :pClientId and c.id = :pFieldsId",
 						SysDataSource.class)
@@ -88,7 +89,8 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 	 * Find by ID of reference: serviceMethods.id
 	 */
 	public List<SysDataSource> findByServiceMethodsId(Long serviceMethodsId) {
-		return (List<SysDataSource>) this.em
+		return (List<SysDataSource>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from SysDataSource e, IN (e.serviceMethods) c where e.clientId = :pClientId and c.id = :pServiceMethodsId",
 						SysDataSource.class)

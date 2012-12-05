@@ -30,7 +30,7 @@ public class EmployeeBaseService extends AbstractEntityService<EmployeeBase>
 
 	public EmployeeBaseService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class EmployeeBaseService extends AbstractEntityService<EmployeeBase>
 	 * Find by ID of reference: employer.id
 	 */
 	public List<EmployeeBase> findByEmployerId(Long employerId) {
-		return (List<EmployeeBase>) this.em
+		return (List<EmployeeBase>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeBase e where e.clientId = :pClientId and e.employer.id = :pEmployerId",
 						EmployeeBase.class)
@@ -68,7 +69,8 @@ public class EmployeeBaseService extends AbstractEntityService<EmployeeBase>
 	 * Find by ID of reference: citizenship.id
 	 */
 	public List<EmployeeBase> findByCitizenshipId(Long citizenshipId) {
-		return (List<EmployeeBase>) this.em
+		return (List<EmployeeBase>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeBase e where e.clientId = :pClientId and e.citizenship.id = :pCitizenshipId",
 						EmployeeBase.class)

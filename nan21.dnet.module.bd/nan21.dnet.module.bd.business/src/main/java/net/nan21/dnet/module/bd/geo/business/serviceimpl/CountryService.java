@@ -27,7 +27,7 @@ public class CountryService extends AbstractEntityService<Country>
 
 	public CountryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class CountryService extends AbstractEntityService<Country>
 	 * Find by unique key
 	 */
 	public Country findByCode(String code) {
-		return (Country) this.em.createNamedQuery(Country.NQ_FIND_BY_CODE)
+		return (Country) this.getEntityManager()
+				.createNamedQuery(Country.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class CountryService extends AbstractEntityService<Country>
 	 * Find by unique key
 	 */
 	public Country findByName(String name) {
-		return (Country) this.em.createNamedQuery(Country.NQ_FIND_BY_NAME)
+		return (Country) this.getEntityManager()
+				.createNamedQuery(Country.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

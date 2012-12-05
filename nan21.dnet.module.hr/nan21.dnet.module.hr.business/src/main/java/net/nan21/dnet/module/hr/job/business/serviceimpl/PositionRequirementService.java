@@ -32,7 +32,7 @@ public class PositionRequirementService
 
 	public PositionRequirementService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class PositionRequirementService
 	 * Find by ID of reference: position.id
 	 */
 	public List<PositionRequirement> findByPositionId(Long positionId) {
-		return (List<PositionRequirement>) this.em
+		return (List<PositionRequirement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PositionRequirement e where e.clientId = :pClientId and e.position.id = :pPositionId",
 						PositionRequirement.class)
@@ -71,7 +72,8 @@ public class PositionRequirementService
 	 * Find by ID of reference: requirement.id
 	 */
 	public List<PositionRequirement> findByRequirementId(Long requirementId) {
-		return (List<PositionRequirement>) this.em
+		return (List<PositionRequirement>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PositionRequirement e where e.clientId = :pClientId and e.requirement.id = :pRequirementId",
 						PositionRequirement.class)

@@ -29,7 +29,7 @@ public class OpportunityPriorityService
 
 	public OpportunityPriorityService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class OpportunityPriorityService
 	 * Find by unique key
 	 */
 	public OpportunityPriority findByName(String name) {
-		return (OpportunityPriority) this.em
+		return (OpportunityPriority) this.getEntityManager()
 				.createNamedQuery(OpportunityPriority.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

@@ -27,7 +27,7 @@ public class QualificationService extends AbstractEntityService<Qualification>
 
 	public QualificationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class QualificationService extends AbstractEntityService<Qualification>
 	 * Find by unique key
 	 */
 	public Qualification findByName(String name) {
-		return (Qualification) this.em
+		return (Qualification) this.getEntityManager()
 				.createNamedQuery(Qualification.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

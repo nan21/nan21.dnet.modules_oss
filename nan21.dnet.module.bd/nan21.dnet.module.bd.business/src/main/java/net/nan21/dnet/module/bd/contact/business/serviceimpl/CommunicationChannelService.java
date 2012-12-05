@@ -31,7 +31,7 @@ public class CommunicationChannelService
 
 	public CommunicationChannelService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class CommunicationChannelService
 	 * Find by ID of reference: type.id
 	 */
 	public List<CommunicationChannel> findByTypeId(Long typeId) {
-		return (List<CommunicationChannel>) this.em
+		return (List<CommunicationChannel>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CommunicationChannel e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						CommunicationChannel.class)

@@ -30,7 +30,7 @@ public class CsvExportService extends AbstractEntityService<CsvExport>
 
 	public CsvExportService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class CsvExportService extends AbstractEntityService<CsvExport>
 	 * Find by unique key
 	 */
 	public CsvExport findByName(String name) {
-		return (CsvExport) this.em.createNamedQuery(CsvExport.NQ_FIND_BY_NAME)
+		return (CsvExport) this.getEntityManager()
+				.createNamedQuery(CsvExport.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class CsvExportService extends AbstractEntityService<CsvExport>
 	 * Find by ID of reference: fields.id
 	 */
 	public List<CsvExport> findByFieldsId(Long fieldsId) {
-		return (List<CsvExport>) this.em
+		return (List<CsvExport>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from CsvExport e, IN (e.fields) c where e.clientId = :pClientId and c.id = :pFieldsId",
 						CsvExport.class)
@@ -77,7 +79,8 @@ public class CsvExportService extends AbstractEntityService<CsvExport>
 	 * Find by ID of reference: sorts.id
 	 */
 	public List<CsvExport> findBySortsId(Long sortsId) {
-		return (List<CsvExport>) this.em
+		return (List<CsvExport>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from CsvExport e, IN (e.sorts) c where e.clientId = :pClientId and c.id = :pSortsId",
 						CsvExport.class)

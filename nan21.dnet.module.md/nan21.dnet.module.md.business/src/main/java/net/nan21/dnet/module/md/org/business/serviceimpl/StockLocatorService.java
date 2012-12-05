@@ -30,7 +30,7 @@ public class StockLocatorService extends AbstractEntityService<StockLocator>
 
 	public StockLocatorService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class StockLocatorService extends AbstractEntityService<StockLocator>
 	 * Find by unique key
 	 */
 	public StockLocator findByName(String name) {
-		return (StockLocator) this.em
+		return (StockLocator) this.getEntityManager()
 				.createNamedQuery(StockLocator.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -59,7 +59,8 @@ public class StockLocatorService extends AbstractEntityService<StockLocator>
 	 * Find by ID of reference: subInventory.id
 	 */
 	public List<StockLocator> findBySubInventoryId(Long subInventoryId) {
-		return (List<StockLocator>) this.em
+		return (List<StockLocator>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from StockLocator e where e.clientId = :pClientId and e.subInventory.id = :pSubInventoryId",
 						StockLocator.class)
@@ -79,7 +80,8 @@ public class StockLocatorService extends AbstractEntityService<StockLocator>
 	 * Find by ID of reference: locatorType.id
 	 */
 	public List<StockLocator> findByLocatorTypeId(Long locatorTypeId) {
-		return (List<StockLocator>) this.em
+		return (List<StockLocator>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from StockLocator e where e.clientId = :pClientId and e.locatorType.id = :pLocatorTypeId",
 						StockLocator.class)

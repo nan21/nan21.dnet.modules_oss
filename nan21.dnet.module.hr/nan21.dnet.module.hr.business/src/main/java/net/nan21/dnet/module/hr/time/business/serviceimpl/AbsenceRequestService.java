@@ -34,7 +34,7 @@ public class AbsenceRequestService
 
 	public AbsenceRequestService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -53,7 +53,8 @@ public class AbsenceRequestService
 	 * Find by ID of reference: employee.id
 	 */
 	public List<AbsenceRequest> findByEmployeeId(Long employeeId) {
-		return (List<AbsenceRequest>) this.em
+		return (List<AbsenceRequest>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AbsenceRequest e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						AbsenceRequest.class)
@@ -72,7 +73,8 @@ public class AbsenceRequestService
 	 * Find by ID of reference: type.id
 	 */
 	public List<AbsenceRequest> findByTypeId(Long typeId) {
-		return (List<AbsenceRequest>) this.em
+		return (List<AbsenceRequest>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AbsenceRequest e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						AbsenceRequest.class)
@@ -91,7 +93,8 @@ public class AbsenceRequestService
 	 * Find by ID of reference: reason.id
 	 */
 	public List<AbsenceRequest> findByReasonId(Long reasonId) {
-		return (List<AbsenceRequest>) this.em
+		return (List<AbsenceRequest>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AbsenceRequest e where e.clientId = :pClientId and e.reason.id = :pReasonId",
 						AbsenceRequest.class)
@@ -110,7 +113,8 @@ public class AbsenceRequestService
 	 * Find by ID of reference: items.id
 	 */
 	public List<AbsenceRequest> findByItemsId(Long itemsId) {
-		return (List<AbsenceRequest>) this.em
+		return (List<AbsenceRequest>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from AbsenceRequest e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId",
 						AbsenceRequest.class)

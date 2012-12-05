@@ -30,7 +30,7 @@ public class ProjectService extends AbstractEntityService<Project>
 
 	public ProjectService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class ProjectService extends AbstractEntityService<Project>
 	 * Find by unique key
 	 */
 	public Project findByCode(String code) {
-		return (Project) this.em.createNamedQuery(Project.NQ_FIND_BY_CODE)
+		return (Project) this.getEntityManager()
+				.createNamedQuery(Project.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -51,7 +52,8 @@ public class ProjectService extends AbstractEntityService<Project>
 	 * Find by unique key
 	 */
 	public Project findByName(String name) {
-		return (Project) this.em.createNamedQuery(Project.NQ_FIND_BY_NAME)
+		return (Project) this.getEntityManager()
+				.createNamedQuery(Project.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -67,7 +69,8 @@ public class ProjectService extends AbstractEntityService<Project>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Project> findByTypeId(Long typeId) {
-		return (List<Project>) this.em
+		return (List<Project>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Project e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Project.class)
@@ -86,7 +89,8 @@ public class ProjectService extends AbstractEntityService<Project>
 	 * Find by ID of reference: projectLead.id
 	 */
 	public List<Project> findByProjectLeadId(Long projectLeadId) {
-		return (List<Project>) this.em
+		return (List<Project>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Project e where e.clientId = :pClientId and e.projectLead.id = :pProjectLeadId",
 						Project.class)

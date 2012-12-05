@@ -37,7 +37,7 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 
 	public SalesInvoiceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by unique key
 	 */
 	public SalesInvoice findByCode(String code) {
-		return (SalesInvoice) this.em
+		return (SalesInvoice) this.getEntityManager()
 				.createNamedQuery(SalesInvoice.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -66,7 +66,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: priceList.id
 	 */
 	public List<SalesInvoice> findByPriceListId(Long priceListId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.priceList.id = :pPriceListId",
 						SalesInvoice.class)
@@ -85,7 +86,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: currency.id
 	 */
 	public List<SalesInvoice> findByCurrencyId(Long currencyId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						SalesInvoice.class)
@@ -104,7 +106,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: paymentMethod.id
 	 */
 	public List<SalesInvoice> findByPaymentMethodId(Long paymentMethodId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId",
 						SalesInvoice.class)
@@ -124,7 +127,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: paymentTerm.id
 	 */
 	public List<SalesInvoice> findByPaymentTermId(Long paymentTermId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.paymentTerm.id = :pPaymentTermId",
 						SalesInvoice.class)
@@ -143,7 +147,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: docType.id
 	 */
 	public List<SalesInvoice> findByDocTypeId(Long docTypeId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.docType.id = :pDocTypeId",
 						SalesInvoice.class)
@@ -162,7 +167,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: customer.id
 	 */
 	public List<SalesInvoice> findByCustomerId(Long customerId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.customer.id = :pCustomerId",
 						SalesInvoice.class)
@@ -181,7 +187,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: billToLocation.id
 	 */
 	public List<SalesInvoice> findByBillToLocationId(Long billToLocationId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.billToLocation.id = :pBillToLocationId",
 						SalesInvoice.class)
@@ -201,7 +208,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: billToContact.id
 	 */
 	public List<SalesInvoice> findByBillToContactId(Long billToContactId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.billToContact.id = :pBillToContactId",
 						SalesInvoice.class)
@@ -221,7 +229,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: supplier.id
 	 */
 	public List<SalesInvoice> findBySupplierId(Long supplierId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.supplier.id = :pSupplierId",
 						SalesInvoice.class)
@@ -240,7 +249,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: salesOrder.id
 	 */
 	public List<SalesInvoice> findBySalesOrderId(Long salesOrderId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoice e where e.clientId = :pClientId and e.salesOrder.id = :pSalesOrderId",
 						SalesInvoice.class)
@@ -259,7 +269,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: lines.id
 	 */
 	public List<SalesInvoice> findByLinesId(Long linesId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from SalesInvoice e, IN (e.lines) c where e.clientId = :pClientId and c.id = :pLinesId",
 						SalesInvoice.class)
@@ -278,7 +289,8 @@ public class SalesInvoiceService extends AbstractEntityService<SalesInvoice> {
 	 * Find by ID of reference: taxes.id
 	 */
 	public List<SalesInvoice> findByTaxesId(Long taxesId) {
-		return (List<SalesInvoice>) this.em
+		return (List<SalesInvoice>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from SalesInvoice e, IN (e.taxes) c where e.clientId = :pClientId and c.id = :pTaxesId",
 						SalesInvoice.class)

@@ -29,7 +29,7 @@ public class WfDefProcessService extends AbstractEntityService<WfDefProcess>
 
 	public WfDefProcessService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class WfDefProcessService extends AbstractEntityService<WfDefProcess>
 	 * Find by unique key
 	 */
 	public WfDefProcess findByName(String name) {
-		return (WfDefProcess) this.em
+		return (WfDefProcess) this.getEntityManager()
 				.createNamedQuery(WfDefProcess.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -58,7 +58,8 @@ public class WfDefProcessService extends AbstractEntityService<WfDefProcess>
 	 * Find by ID of reference: nodes.id
 	 */
 	public List<WfDefProcess> findByNodesId(Long nodesId) {
-		return (List<WfDefProcess>) this.em
+		return (List<WfDefProcess>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from WfDefProcess e, IN (e.nodes) c where e.clientId = :pClientId and c.id = :pNodesId",
 						WfDefProcess.class)

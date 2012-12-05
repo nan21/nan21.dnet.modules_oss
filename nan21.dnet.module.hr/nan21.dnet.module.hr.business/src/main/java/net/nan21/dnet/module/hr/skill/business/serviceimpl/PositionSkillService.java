@@ -31,7 +31,7 @@ public class PositionSkillService extends AbstractEntityService<PositionSkill>
 
 	public PositionSkillService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class PositionSkillService extends AbstractEntityService<PositionSkill>
 	 * Find by ID of reference: position.id
 	 */
 	public List<PositionSkill> findByPositionId(Long positionId) {
-		return (List<PositionSkill>) this.em
+		return (List<PositionSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PositionSkill e where e.clientId = :pClientId and e.position.id = :pPositionId",
 						PositionSkill.class)
@@ -69,7 +70,8 @@ public class PositionSkillService extends AbstractEntityService<PositionSkill>
 	 * Find by ID of reference: skill.id
 	 */
 	public List<PositionSkill> findBySkillId(Long skillId) {
-		return (List<PositionSkill>) this.em
+		return (List<PositionSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PositionSkill e where e.clientId = :pClientId and e.skill.id = :pSkillId",
 						PositionSkill.class)
@@ -88,7 +90,8 @@ public class PositionSkillService extends AbstractEntityService<PositionSkill>
 	 * Find by ID of reference: requiredLevel.id
 	 */
 	public List<PositionSkill> findByRequiredLevelId(Long requiredLevelId) {
-		return (List<PositionSkill>) this.em
+		return (List<PositionSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PositionSkill e where e.clientId = :pClientId and e.requiredLevel.id = :pRequiredLevelId",
 						PositionSkill.class)

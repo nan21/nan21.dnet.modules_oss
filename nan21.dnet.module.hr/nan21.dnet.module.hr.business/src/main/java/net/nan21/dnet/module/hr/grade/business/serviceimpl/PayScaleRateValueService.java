@@ -32,7 +32,7 @@ public class PayScaleRateValueService
 
 	public PayScaleRateValueService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class PayScaleRateValueService
 	 * Find by ID of reference: scaleRate.id
 	 */
 	public List<PayScaleRateValue> findByScaleRateId(Long scaleRateId) {
-		return (List<PayScaleRateValue>) this.em
+		return (List<PayScaleRateValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayScaleRateValue e where e.clientId = :pClientId and e.scaleRate.id = :pScaleRateId",
 						PayScaleRateValue.class)
@@ -70,7 +71,8 @@ public class PayScaleRateValueService
 	 * Find by ID of reference: scalePoint.id
 	 */
 	public List<PayScaleRateValue> findByScalePointId(Long scalePointId) {
-		return (List<PayScaleRateValue>) this.em
+		return (List<PayScaleRateValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayScaleRateValue e where e.clientId = :pClientId and e.scalePoint.id = :pScalePointId",
 						PayScaleRateValue.class)

@@ -23,7 +23,7 @@ public class PaymentInService extends AbstractEntityService<PaymentIn> {
 
 	public PaymentInService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

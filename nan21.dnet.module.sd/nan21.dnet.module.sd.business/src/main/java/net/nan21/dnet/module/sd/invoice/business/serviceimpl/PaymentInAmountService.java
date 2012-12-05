@@ -28,7 +28,7 @@ public class PaymentInAmountService
 
 	public PaymentInAmountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -47,7 +47,8 @@ public class PaymentInAmountService
 	 * Find by ID of reference: txAmount.id
 	 */
 	public List<PaymentInAmount> findByTxAmountId(Long txAmountId) {
-		return (List<PaymentInAmount>) this.em
+		return (List<PaymentInAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PaymentInAmount e where e.clientId = :pClientId and e.txAmount.id = :pTxAmountId",
 						PaymentInAmount.class)

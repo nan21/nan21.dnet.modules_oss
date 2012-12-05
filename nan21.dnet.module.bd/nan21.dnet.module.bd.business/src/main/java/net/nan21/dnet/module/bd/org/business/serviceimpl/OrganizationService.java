@@ -30,7 +30,7 @@ public class OrganizationService extends AbstractEntityService<Organization>
 
 	public OrganizationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class OrganizationService extends AbstractEntityService<Organization>
 	 * Find by unique key
 	 */
 	public Organization findByCode(String code) {
-		return (Organization) this.em
+		return (Organization) this.getEntityManager()
 				.createNamedQuery(Organization.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -52,7 +52,7 @@ public class OrganizationService extends AbstractEntityService<Organization>
 	 * Find by unique key
 	 */
 	public Organization findByName(String name) {
-		return (Organization) this.em
+		return (Organization) this.getEntityManager()
 				.createNamedQuery(Organization.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -69,7 +69,8 @@ public class OrganizationService extends AbstractEntityService<Organization>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Organization> findByTypeId(Long typeId) {
-		return (List<Organization>) this.em
+		return (List<Organization>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Organization e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Organization.class)
@@ -88,7 +89,8 @@ public class OrganizationService extends AbstractEntityService<Organization>
 	 * Find by ID of reference: calendar.id
 	 */
 	public List<Organization> findByCalendarId(Long calendarId) {
-		return (List<Organization>) this.em
+		return (List<Organization>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Organization e where e.clientId = :pClientId and e.calendar.id = :pCalendarId",
 						Organization.class)

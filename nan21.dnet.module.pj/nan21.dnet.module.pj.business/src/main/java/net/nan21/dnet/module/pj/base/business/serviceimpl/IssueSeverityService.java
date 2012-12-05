@@ -27,7 +27,7 @@ public class IssueSeverityService extends AbstractEntityService<IssueSeverity>
 
 	public IssueSeverityService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IssueSeverityService extends AbstractEntityService<IssueSeverity>
 	 * Find by unique key
 	 */
 	public IssueSeverity findByName(String name) {
-		return (IssueSeverity) this.em
+		return (IssueSeverity) this.getEntityManager()
 				.createNamedQuery(IssueSeverity.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

@@ -30,7 +30,7 @@ public class IssueTextService extends AbstractEntityService<IssueText>
 
 	public IssueTextService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class IssueTextService extends AbstractEntityService<IssueText>
 	 * Find by ID of reference: issue.id
 	 */
 	public List<IssueText> findByIssueId(Long issueId) {
-		return (List<IssueText>) this.em
+		return (List<IssueText>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueText e where e.clientId = :pClientId and e.issue.id = :pIssueId",
 						IssueText.class)
@@ -68,7 +69,8 @@ public class IssueTextService extends AbstractEntityService<IssueText>
 	 * Find by ID of reference: issueTextType.id
 	 */
 	public List<IssueText> findByIssueTextTypeId(Long issueTextTypeId) {
-		return (List<IssueText>) this.em
+		return (List<IssueText>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueText e where e.clientId = :pClientId and e.issueTextType.id = :pIssueTextTypeId",
 						IssueText.class)

@@ -29,7 +29,7 @@ public class AttributeCategoryService
 
 	public AttributeCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class AttributeCategoryService
 	 * Find by unique key
 	 */
 	public AttributeCategory findByName(String name) {
-		return (AttributeCategory) this.em
+		return (AttributeCategory) this.getEntityManager()
 				.createNamedQuery(AttributeCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

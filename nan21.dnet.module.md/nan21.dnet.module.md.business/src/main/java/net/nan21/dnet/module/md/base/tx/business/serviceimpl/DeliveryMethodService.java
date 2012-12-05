@@ -29,7 +29,7 @@ public class DeliveryMethodService
 
 	public DeliveryMethodService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class DeliveryMethodService
 	 * Find by unique key
 	 */
 	public DeliveryMethod findByName(String name) {
-		return (DeliveryMethod) this.em
+		return (DeliveryMethod) this.getEntityManager()
 				.createNamedQuery(DeliveryMethod.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

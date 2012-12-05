@@ -27,7 +27,7 @@ public class RegionTypeService extends AbstractEntityService<RegionType>
 
 	public RegionTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class RegionTypeService extends AbstractEntityService<RegionType>
 	 * Find by unique key
 	 */
 	public RegionType findByName(String name) {
-		return (RegionType) this.em
+		return (RegionType) this.getEntityManager()
 				.createNamedQuery(RegionType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

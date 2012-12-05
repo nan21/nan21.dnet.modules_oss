@@ -30,7 +30,7 @@ public class AssetBaseService extends AbstractEntityService<AssetBase>
 
 	public AssetBaseService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class AssetBaseService extends AbstractEntityService<AssetBase>
 	 * Find by unique key
 	 */
 	public AssetBase findByCode(String code) {
-		return (AssetBase) this.em.createNamedQuery(AssetBase.NQ_FIND_BY_CODE)
+		return (AssetBase) this.getEntityManager()
+				.createNamedQuery(AssetBase.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class AssetBaseService extends AbstractEntityService<AssetBase>
 	 * Find by ID of reference: org.id
 	 */
 	public List<AssetBase> findByOrgId(Long orgId) {
-		return (List<AssetBase>) this.em
+		return (List<AssetBase>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetBase e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						AssetBase.class)
@@ -77,7 +79,8 @@ public class AssetBaseService extends AbstractEntityService<AssetBase>
 	 * Find by ID of reference: product.id
 	 */
 	public List<AssetBase> findByProductId(Long productId) {
-		return (List<AssetBase>) this.em
+		return (List<AssetBase>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetBase e where e.clientId = :pClientId and e.product.id = :pProductId",
 						AssetBase.class)

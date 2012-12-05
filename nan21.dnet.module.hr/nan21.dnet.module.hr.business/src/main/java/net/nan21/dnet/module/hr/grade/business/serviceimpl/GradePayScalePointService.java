@@ -32,7 +32,7 @@ public class GradePayScalePointService
 
 	public GradePayScalePointService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class GradePayScalePointService
 	 * Find by ID of reference: gradePayScale.id
 	 */
 	public List<GradePayScalePoint> findByGradePayScaleId(Long gradePayScaleId) {
-		return (List<GradePayScalePoint>) this.em
+		return (List<GradePayScalePoint>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradePayScalePoint e where e.clientId = :pClientId and e.gradePayScale.id = :pGradePayScaleId",
 						GradePayScalePoint.class)
@@ -72,7 +73,8 @@ public class GradePayScalePointService
 	 * Find by ID of reference: point.id
 	 */
 	public List<GradePayScalePoint> findByPointId(Long pointId) {
-		return (List<GradePayScalePoint>) this.em
+		return (List<GradePayScalePoint>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradePayScalePoint e where e.clientId = :pClientId and e.point.id = :pPointId",
 						GradePayScalePoint.class)

@@ -12,6 +12,7 @@ import java.util.List;
 import org.joda.time.DateTime;
 
 import net.nan21.dnet.core.api.exceptions.BusinessException;
+import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod;
 import net.nan21.dnet.module.sc._businessdelegates.invoice.PurchaseInvoiceCreateLines;
@@ -23,6 +24,7 @@ import net.nan21.dnet.module.sc.invoice.business.service.IPurchaseTxAmountServic
 import net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOut;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PaymentOutAmount;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice;
+import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceTax;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseTxAmount;
 
 /**
@@ -197,6 +199,70 @@ public class PurchaseInvoiceService
 			throws BusinessException {
 		this.getBusinessDelegate(PurchaseInvoiceCreateLines.class).copyLines(
 				target, sourceId);
+	}
+
+	@Override
+	public void calculateAmounts(Long invoiceId) {
+		this.getEntityManager().flush();
+		Object[] x = (Object[]) this
+				.getEntityManager()
+				.createQuery(
+						"select sum(i.netAmount), sum(i.taxAmount) from PurchaseInvoiceItem i "
+								+ "where i.purchaseInvoice.id = :invoiceId")
+				.setParameter("invoiceId", invoiceId).getSingleResult();
+		PurchaseInvoice invoice = this.getEntityManager().find(
+				PurchaseInvoice.class, invoiceId);
+
+		Double totalNet = (Double) x[0];
+		Double totalTax = (Double) x[1];
+		if (totalNet == null) {
+			totalNet = 0D;
+		}
+		if (totalTax == null) {
+			totalTax = 0D;
+		}
+
+		invoice.setTotalNetAmount(totalNet.floatValue());
+		invoice.setTotalTaxAmount(totalTax.floatValue());
+
+		// re-create taxes
+		// delete existing
+		this.getEntityManager()
+				.createQuery(
+						"delete from PurchaseInvoiceTax t "
+								+ " where t.purchaseInvoice.id = :invoiceId")
+				.setParameter("invoiceId", invoiceId).executeUpdate();
+
+		// create new
+
+		@SuppressWarnings("unchecked")
+		List<Object[]> taxes = (List<Object[]>) this
+				.getEntityManager()
+				.createQuery(
+						"select i.tax,  sum(i.baseAmount), sum(i.taxAmount) from PurchaseInvoiceItemTax i "
+								+ " where i.purchaseInvoiceItem.purchaseInvoice.id = :invoiceId "
+								+ " group by i.tax ")
+				.setParameter("invoiceId", invoiceId).getResultList();
+		for (Object[] tax : taxes) {
+			Tax t = (Tax) tax[0];
+			Double baseval = (Double) tax[1];
+			Double taxval = (Double) tax[2];
+			if (baseval == null) {
+				baseval = 0D;
+			}
+			if (taxval == null) {
+				taxval = 0D;
+			}
+
+			PurchaseInvoiceTax invTax = new PurchaseInvoiceTax();
+			invTax.setPurchaseInvoice(invoice);
+			invTax.setTax(t);
+			invTax.setBaseAmount(baseval.floatValue());
+			invTax.setTaxAmount(taxval.floatValue());
+			invoice.addToTaxes(invTax);
+		}
+
+		this.getEntityManager().merge(invoice);
 	}
 
 }

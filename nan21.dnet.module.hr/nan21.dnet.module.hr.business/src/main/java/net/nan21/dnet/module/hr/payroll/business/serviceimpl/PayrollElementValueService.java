@@ -34,7 +34,7 @@ public class PayrollElementValueService
 
 	public PayrollElementValueService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -53,7 +53,8 @@ public class PayrollElementValueService
 	 * Find by ID of reference: element.id
 	 */
 	public List<PayrollElementValue> findByElementId(Long elementId) {
-		return (List<PayrollElementValue>) this.em
+		return (List<PayrollElementValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayrollElementValue e where e.clientId = :pClientId and e.element.id = :pElementId",
 						PayrollElementValue.class)
@@ -72,7 +73,8 @@ public class PayrollElementValueService
 	 * Find by ID of reference: period.id
 	 */
 	public List<PayrollElementValue> findByPeriodId(Long periodId) {
-		return (List<PayrollElementValue>) this.em
+		return (List<PayrollElementValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayrollElementValue e where e.clientId = :pClientId and e.period.id = :pPeriodId",
 						PayrollElementValue.class)
@@ -92,7 +94,8 @@ public class PayrollElementValueService
 	 * Find by ID of reference: assignment.id
 	 */
 	public List<PayrollElementValue> findByAssignmentId(Long assignmentId) {
-		return (List<PayrollElementValue>) this.em
+		return (List<PayrollElementValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayrollElementValue e where e.clientId = :pClientId and e.assignment.id = :pAssignmentId",
 						PayrollElementValue.class)
@@ -111,7 +114,8 @@ public class PayrollElementValueService
 	 * Find by ID of reference: org.id
 	 */
 	public List<PayrollElementValue> findByOrgId(Long orgId) {
-		return (List<PayrollElementValue>) this.em
+		return (List<PayrollElementValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayrollElementValue e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						PayrollElementValue.class)

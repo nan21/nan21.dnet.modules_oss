@@ -31,7 +31,7 @@ public class ProjectMemberService extends AbstractEntityService<ProjectMember>
 
 	public ProjectMemberService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class ProjectMemberService extends AbstractEntityService<ProjectMember>
 	 * Find by unique key
 	 */
 	public ProjectMember findByName(Project project, Assignable member) {
-		return (ProjectMember) this.em
+		return (ProjectMember) this.getEntityManager()
 				.createNamedQuery(ProjectMember.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProject", project)
@@ -54,7 +54,7 @@ public class ProjectMemberService extends AbstractEntityService<ProjectMember>
 	 * Find by unique key
 	 */
 	public ProjectMember findByName(Long projectId, Long memberId) {
-		return (ProjectMember) this.em
+		return (ProjectMember) this.getEntityManager()
 				.createNamedQuery(ProjectMember.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProjectId", projectId)
@@ -72,7 +72,8 @@ public class ProjectMemberService extends AbstractEntityService<ProjectMember>
 	 * Find by ID of reference: project.id
 	 */
 	public List<ProjectMember> findByProjectId(Long projectId) {
-		return (List<ProjectMember>) this.em
+		return (List<ProjectMember>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProjectMember e where e.clientId = :pClientId and e.project.id = :pProjectId",
 						ProjectMember.class)
@@ -91,7 +92,8 @@ public class ProjectMemberService extends AbstractEntityService<ProjectMember>
 	 * Find by ID of reference: member.id
 	 */
 	public List<ProjectMember> findByMemberId(Long memberId) {
-		return (List<ProjectMember>) this.em
+		return (List<ProjectMember>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProjectMember e where e.clientId = :pClientId and e.member.id = :pMemberId",
 						ProjectMember.class)
@@ -110,7 +112,8 @@ public class ProjectMemberService extends AbstractEntityService<ProjectMember>
 	 * Find by ID of reference: projectRole.id
 	 */
 	public List<ProjectMember> findByProjectRoleId(Long projectRoleId) {
-		return (List<ProjectMember>) this.em
+		return (List<ProjectMember>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProjectMember e where e.clientId = :pClientId and e.projectRole.id = :pProjectRoleId",
 						ProjectMember.class)

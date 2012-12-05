@@ -27,7 +27,7 @@ public class UomTypeService extends AbstractEntityService<UomType>
 
 	public UomTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class UomTypeService extends AbstractEntityService<UomType>
 	 * Find by unique key
 	 */
 	public UomType findByName(String name) {
-		return (UomType) this.em.createNamedQuery(UomType.NQ_FIND_BY_NAME)
+		return (UomType) this.getEntityManager()
+				.createNamedQuery(UomType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

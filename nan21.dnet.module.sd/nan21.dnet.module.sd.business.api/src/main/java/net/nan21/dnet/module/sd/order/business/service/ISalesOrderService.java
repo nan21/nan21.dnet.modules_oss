@@ -45,6 +45,8 @@ public interface ISalesOrderService extends IEntityService<SalesOrder> {
 			TxDocType deliveryDocType, InvTransactionType delivTxType,
 			Date delivEventDate) throws BusinessException;
 
+	public void calculateAmounts(Long orderId) throws BusinessException;
+
 	/**
 	 * Find by unique key
 	 */

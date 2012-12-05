@@ -27,7 +27,7 @@ public class UserTypeService extends AbstractEntityService<UserType>
 
 	public UserTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class UserTypeService extends AbstractEntityService<UserType>
 	 * Find by unique key
 	 */
 	public UserType findByName(String name) {
-		return (UserType) this.em.createNamedQuery(UserType.NQ_FIND_BY_NAME)
+		return (UserType) this.getEntityManager()
+				.createNamedQuery(UserType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

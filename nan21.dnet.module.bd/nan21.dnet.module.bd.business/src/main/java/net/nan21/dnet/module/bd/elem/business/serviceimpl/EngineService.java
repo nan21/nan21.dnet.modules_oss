@@ -27,7 +27,7 @@ public class EngineService extends AbstractEntityService<Engine>
 
 	public EngineService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class EngineService extends AbstractEntityService<Engine>
 	 * Find by unique key
 	 */
 	public Engine findByName(String name) {
-		return (Engine) this.em.createNamedQuery(Engine.NQ_FIND_BY_NAME)
+		return (Engine) this.getEntityManager()
+				.createNamedQuery(Engine.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

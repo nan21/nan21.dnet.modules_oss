@@ -22,7 +22,7 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 	protected TypedQuery<InvBalance> balanceQuery;
 
 	public void confirm(Long transactionId) throws BusinessException {
-		InvTransaction transaction = (InvTransaction) this.em
+		InvTransaction transaction = (InvTransaction) this.getEntityManager()
 				.createNamedQuery(InvTransaction.NQ_FIND_BY_ID)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pId", transactionId).getResultList().get(0);
@@ -40,16 +40,17 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 				+ " where e.clientId = :pClientId "
 				+ "   and e.subInventory.id = :pSubInventoryId"
 				+ "   and e.item.id = :pItemId";
-		this.balanceQuery = this.em.createQuery(stockEql, InvBalance.class);
+		this.balanceQuery = this.getEntityManager().createQuery(stockEql,
+				InvBalance.class);
 
 		transaction.setEventDate(new Date());
 		this.createOperations(transaction);
 		transaction.setConfirmed(true);
-		this.em.merge(transaction);
+		this.getEntityManager().merge(transaction);
 	}
 
 	public void unConfirm(Long transactionId) throws BusinessException {
-		InvTransaction transaction = (InvTransaction) this.em
+		InvTransaction transaction = (InvTransaction) this.getEntityManager()
 				.createNamedQuery(InvTransaction.NQ_FIND_BY_ID)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pId", transactionId).getResultList().get(0);
@@ -67,13 +68,14 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 				+ " where e.clientId = :pClientId "
 				+ "   and e.subInventory.id = :pSubInventoryId"
 				+ "   and e.item.id = :pItemId";
-		this.balanceQuery = this.em.createQuery(stockEql, InvBalance.class);
+		this.balanceQuery = this.getEntityManager().createQuery(stockEql,
+				InvBalance.class);
 
 		String eql = "select e from InvOperation e "
 				+ " where e.clientId = :pClientId "
 				+ "  and e.transactionLine.id in "
 				+ "	(select t.id from InvTransactionLine t where t.invTransaction.id = :pTxId) ";
-		List<InvOperation> operations = this.em
+		List<InvOperation> operations = this.getEntityManager()
 				.createQuery(eql, InvOperation.class)
 				.setParameter("pTxId", transaction.getId())
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -91,19 +93,21 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 				+ " where e.clientId = :pClientId "
 				+ "   and e.transactionLine.id in "
 				+ "	(select t.id from InvTransactionLine t where t.invTransaction.id = :pTxId) ";
-		this.em.createQuery(eql).setParameter("pTxId", transaction.getId())
+		this.getEntityManager().createQuery(eql)
+				.setParameter("pTxId", transaction.getId())
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.executeUpdate();
 
 		transaction.setConfirmed(false);
 		transaction.setEventDate(null);
-		this.em.merge(transaction);
+		this.getEntityManager().merge(transaction);
 	}
 
 	private void createOperations(InvTransaction transaction)
 			throws BusinessException {
 
-		List<InvTransactionLine> lines = this.em
+		List<InvTransactionLine> lines = this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransactionLine e where e.invTransaction.id = :pTxId and e.clientId = :pClientId",
 						InvTransactionLine.class)
@@ -146,7 +150,7 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 
 				this.updateBalance(op.getItem(), op.getSubInventory(),
 						op.getQuantity(), line.getUom(), false);
-				this.em.persist(op);
+				this.getEntityManager().persist(op);
 			}
 
 			// create out operation from source
@@ -172,7 +176,7 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 
 				this.updateBalance(op.getItem(), op.getSubInventory(),
 						op.getQuantity(), line.getUom(), true);
-				this.em.persist(op);
+				this.getEntityManager().persist(op);
 			}
 
 			// find balance for sub-inventory/product/uom
@@ -200,7 +204,7 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 			stock.setQuantity(0F);
 		} else {
 			stock = stocks.get(0);
-			this.em.lock(stock, LockModeType.PESSIMISTIC_READ);
+			this.getEntityManager().lock(stock, LockModeType.PESSIMISTIC_READ);
 		}
 		// update quantity
 
@@ -220,9 +224,9 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 		// save stock
 
 		if (!exists) {
-			this.em.persist(stock);
+			this.getEntityManager().persist(stock);
 		} else {
-			this.em.merge(stock);
+			this.getEntityManager().merge(stock);
 		}
 
 	}

@@ -26,7 +26,7 @@ public class PersonService extends AbstractEntityService<Person>
 
 	public PersonService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

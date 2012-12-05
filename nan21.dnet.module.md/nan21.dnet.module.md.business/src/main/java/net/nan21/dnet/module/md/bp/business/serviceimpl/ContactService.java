@@ -29,7 +29,7 @@ public class ContactService extends AbstractEntityService<Contact>
 
 	public ContactService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class ContactService extends AbstractEntityService<Contact>
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<Contact> findByBpartnerId(Long bpartnerId) {
-		return (List<Contact>) this.em
+		return (List<Contact>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Contact e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						Contact.class)

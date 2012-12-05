@@ -36,7 +36,7 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 
 	public OpportunityService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -55,7 +55,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: account.id
 	 */
 	public List<Opportunity> findByAccountId(Long accountId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.account.id = :pAccountId",
 						Opportunity.class)
@@ -74,7 +75,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: expectedCurrency.id
 	 */
 	public List<Opportunity> findByExpectedCurrencyId(Long expectedCurrencyId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.expectedCurrency.id = :pExpectedCurrencyId",
 						Opportunity.class)
@@ -94,7 +96,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: salesStage.id
 	 */
 	public List<Opportunity> findBySalesStageId(Long salesStageId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.salesStage.id = :pSalesStageId",
 						Opportunity.class)
@@ -113,7 +116,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: status.id
 	 */
 	public List<Opportunity> findByStatusId(Long statusId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.status.id = :pStatusId",
 						Opportunity.class)
@@ -132,7 +136,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: priority.id
 	 */
 	public List<Opportunity> findByPriorityId(Long priorityId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.priority.id = :pPriorityId",
 						Opportunity.class)
@@ -151,7 +156,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: leadSource.id
 	 */
 	public List<Opportunity> findByLeadSourceId(Long leadSourceId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.leadSource.id = :pLeadSourceId",
 						Opportunity.class)
@@ -171,7 +177,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: resultReason.id
 	 */
 	public List<Opportunity> findByResultReasonId(Long resultReasonId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.resultReason.id = :pResultReasonId",
 						Opportunity.class)
@@ -191,7 +198,8 @@ public class OpportunityService extends AbstractEntityService<Opportunity>
 	 * Find by ID of reference: assignedTo.id
 	 */
 	public List<Opportunity> findByAssignedToId(Long assignedToId) {
-		return (List<Opportunity>) this.em
+		return (List<Opportunity>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Opportunity e where e.clientId = :pClientId and e.assignedTo.id = :pAssignedToId",
 						Opportunity.class)

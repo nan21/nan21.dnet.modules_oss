@@ -31,7 +31,7 @@ public class AbsenceService extends AbstractEntityService<Absence>
 
 	public AbsenceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class AbsenceService extends AbstractEntityService<Absence>
 	 * Find by ID of reference: employee.id
 	 */
 	public List<Absence> findByEmployeeId(Long employeeId) {
-		return (List<Absence>) this.em
+		return (List<Absence>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Absence e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						Absence.class)
@@ -69,7 +70,8 @@ public class AbsenceService extends AbstractEntityService<Absence>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Absence> findByTypeId(Long typeId) {
-		return (List<Absence>) this.em
+		return (List<Absence>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Absence e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Absence.class)
@@ -88,7 +90,8 @@ public class AbsenceService extends AbstractEntityService<Absence>
 	 * Find by ID of reference: reason.id
 	 */
 	public List<Absence> findByReasonId(Long reasonId) {
-		return (List<Absence>) this.em
+		return (List<Absence>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Absence e where e.clientId = :pClientId and e.reason.id = :pReasonId",
 						Absence.class)

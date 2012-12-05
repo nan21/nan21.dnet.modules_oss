@@ -27,7 +27,7 @@ public class SkillCategoryService extends AbstractEntityService<SkillCategory>
 
 	public SkillCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class SkillCategoryService extends AbstractEntityService<SkillCategory>
 	 * Find by unique key
 	 */
 	public SkillCategory findByName(String name) {
-		return (SkillCategory) this.em
+		return (SkillCategory) this.getEntityManager()
 				.createNamedQuery(SkillCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

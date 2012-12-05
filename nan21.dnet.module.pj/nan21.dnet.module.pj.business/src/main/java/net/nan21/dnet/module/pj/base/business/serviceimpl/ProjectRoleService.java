@@ -29,7 +29,7 @@ public class ProjectRoleService extends AbstractEntityService<ProjectRole>
 
 	public ProjectRoleService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ProjectRoleService extends AbstractEntityService<ProjectRole>
 	 * Find by unique key
 	 */
 	public ProjectRole findByName(String name) {
-		return (ProjectRole) this.em
+		return (ProjectRole) this.getEntityManager()
 				.createNamedQuery(ProjectRole.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -58,7 +58,8 @@ public class ProjectRoleService extends AbstractEntityService<ProjectRole>
 	 * Find by ID of reference: projectTypes.id
 	 */
 	public List<ProjectRole> findByProjectTypesId(Long projectTypesId) {
-		return (List<ProjectRole>) this.em
+		return (List<ProjectRole>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ProjectRole e, IN (e.projectTypes) c where e.clientId = :pClientId and c.id = :pProjectTypesId",
 						ProjectRole.class)

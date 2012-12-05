@@ -30,7 +30,7 @@ public class ExportMapItemService extends AbstractEntityService<ExportMapItem>
 
 	public ExportMapItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class ExportMapItemService extends AbstractEntityService<ExportMapItem>
 	 * Find by ID of reference: exportMap.id
 	 */
 	public List<ExportMapItem> findByExportMapId(Long exportMapId) {
-		return (List<ExportMapItem>) this.em
+		return (List<ExportMapItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ExportMapItem e where e.clientId = :pClientId and e.exportMap.id = :pExportMapId",
 						ExportMapItem.class)
@@ -68,7 +69,8 @@ public class ExportMapItemService extends AbstractEntityService<ExportMapItem>
 	 * Find by ID of reference: csvExport.id
 	 */
 	public List<ExportMapItem> findByCsvExportId(Long csvExportId) {
-		return (List<ExportMapItem>) this.em
+		return (List<ExportMapItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ExportMapItem e where e.clientId = :pClientId and e.csvExport.id = :pCsvExportId",
 						ExportMapItem.class)

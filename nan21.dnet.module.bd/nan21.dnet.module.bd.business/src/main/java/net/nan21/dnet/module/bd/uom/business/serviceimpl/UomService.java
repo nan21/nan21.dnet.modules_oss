@@ -29,7 +29,7 @@ public class UomService extends AbstractEntityService<Uom>
 
 	public UomService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class UomService extends AbstractEntityService<Uom>
 	 * Find by unique key
 	 */
 	public Uom findByCode(String code) {
-		return (Uom) this.em.createNamedQuery(Uom.NQ_FIND_BY_CODE)
+		return (Uom) this.getEntityManager()
+				.createNamedQuery(Uom.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -50,7 +51,8 @@ public class UomService extends AbstractEntityService<Uom>
 	 * Find by unique key
 	 */
 	public Uom findByName(String name) {
-		return (Uom) this.em.createNamedQuery(Uom.NQ_FIND_BY_NAME)
+		return (Uom) this.getEntityManager()
+				.createNamedQuery(Uom.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -66,7 +68,8 @@ public class UomService extends AbstractEntityService<Uom>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Uom> findByTypeId(Long typeId) {
-		return (List<Uom>) this.em
+		return (List<Uom>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Uom e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Uom.class)

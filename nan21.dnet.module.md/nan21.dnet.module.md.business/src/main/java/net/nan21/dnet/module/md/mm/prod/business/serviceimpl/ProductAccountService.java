@@ -33,7 +33,7 @@ public class ProductAccountService
 
 	public ProductAccountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class ProductAccountService
 	 * Find by unique key
 	 */
 	public ProductAccount findByProd_org(Product product, Organization org) {
-		return (ProductAccount) this.em
+		return (ProductAccount) this.getEntityManager()
 				.createNamedQuery(ProductAccount.NQ_FIND_BY_PROD_ORG)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProduct", product).setParameter("pOrg", org)
@@ -56,7 +56,7 @@ public class ProductAccountService
 	 * Find by unique key
 	 */
 	public ProductAccount findByProd_org(Long productId, Long orgId) {
-		return (ProductAccount) this.em
+		return (ProductAccount) this.getEntityManager()
 				.createNamedQuery(ProductAccount.NQ_FIND_BY_PROD_ORG_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProductId", productId)
@@ -74,7 +74,8 @@ public class ProductAccountService
 	 * Find by ID of reference: org.id
 	 */
 	public List<ProductAccount> findByOrgId(Long orgId) {
-		return (List<ProductAccount>) this.em
+		return (List<ProductAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAccount e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						ProductAccount.class)
@@ -93,7 +94,8 @@ public class ProductAccountService
 	 * Find by ID of reference: group.id
 	 */
 	public List<ProductAccount> findByGroupId(Long groupId) {
-		return (List<ProductAccount>) this.em
+		return (List<ProductAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAccount e where e.clientId = :pClientId and e.group.id = :pGroupId",
 						ProductAccount.class)
@@ -112,7 +114,8 @@ public class ProductAccountService
 	 * Find by ID of reference: product.id
 	 */
 	public List<ProductAccount> findByProductId(Long productId) {
-		return (List<ProductAccount>) this.em
+		return (List<ProductAccount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAccount e where e.clientId = :pClientId and e.product.id = :pProductId",
 						ProductAccount.class)

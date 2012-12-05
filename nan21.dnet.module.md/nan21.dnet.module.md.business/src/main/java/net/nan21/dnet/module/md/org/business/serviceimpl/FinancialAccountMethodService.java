@@ -32,7 +32,7 @@ public class FinancialAccountMethodService
 
 	public FinancialAccountMethodService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -45,7 +45,8 @@ public class FinancialAccountMethodService
 	 */
 	public FinancialAccountMethod findByAccount_mtd(
 			FinancialAccount financialAccount, PaymentMethod payMethod) {
-		return (FinancialAccountMethod) this.em
+		return (FinancialAccountMethod) this
+				.getEntityManager()
 				.createNamedQuery(FinancialAccountMethod.NQ_FIND_BY_ACCOUNT_MTD)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pFinancialAccount", financialAccount)
@@ -57,7 +58,8 @@ public class FinancialAccountMethodService
 	 */
 	public FinancialAccountMethod findByAccount_mtd(Long financialAccountId,
 			Long payMethodId) {
-		return (FinancialAccountMethod) this.em
+		return (FinancialAccountMethod) this
+				.getEntityManager()
 				.createNamedQuery(
 						FinancialAccountMethod.NQ_FIND_BY_ACCOUNT_MTD_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -78,7 +80,8 @@ public class FinancialAccountMethodService
 	 */
 	public List<FinancialAccountMethod> findByFinancialAccountId(
 			Long financialAccountId) {
-		return (List<FinancialAccountMethod>) this.em
+		return (List<FinancialAccountMethod>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccountMethod e where e.clientId = :pClientId and e.financialAccount.id = :pFinancialAccountId",
 						FinancialAccountMethod.class)
@@ -98,7 +101,8 @@ public class FinancialAccountMethodService
 	 * Find by ID of reference: payMethod.id
 	 */
 	public List<FinancialAccountMethod> findByPayMethodId(Long payMethodId) {
-		return (List<FinancialAccountMethod>) this.em
+		return (List<FinancialAccountMethod>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccountMethod e where e.clientId = :pClientId and e.payMethod.id = :pPayMethodId",
 						FinancialAccountMethod.class)

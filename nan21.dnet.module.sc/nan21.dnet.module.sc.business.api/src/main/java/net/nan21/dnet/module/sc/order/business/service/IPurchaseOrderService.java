@@ -33,6 +33,8 @@ public interface IPurchaseOrderService extends IEntityService<PurchaseOrder> {
 	public void doCopyLines(PurchaseOrder target, Long sourceId)
 			throws BusinessException;
 
+	public void calculateAmounts(Long orderId) throws BusinessException;
+
 	/**
 	 * Find by unique key
 	 */

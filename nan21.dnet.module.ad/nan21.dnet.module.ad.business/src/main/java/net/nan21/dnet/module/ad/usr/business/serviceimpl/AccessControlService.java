@@ -30,7 +30,7 @@ public class AccessControlService extends AbstractEntityService<AccessControl>
 
 	public AccessControlService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class AccessControlService extends AbstractEntityService<AccessControl>
 	 * Find by unique key
 	 */
 	public AccessControl findByName(String name) {
-		return (AccessControl) this.em
+		return (AccessControl) this.getEntityManager()
 				.createNamedQuery(AccessControl.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -59,7 +59,8 @@ public class AccessControlService extends AbstractEntityService<AccessControl>
 	 * Find by ID of reference: dsRules.id
 	 */
 	public List<AccessControl> findByDsRulesId(Long dsRulesId) {
-		return (List<AccessControl>) this.em
+		return (List<AccessControl>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from AccessControl e, IN (e.dsRules) c where e.clientId = :pClientId and c.id = :pDsRulesId",
 						AccessControl.class)
@@ -78,7 +79,8 @@ public class AccessControlService extends AbstractEntityService<AccessControl>
 	 * Find by ID of reference: roles.id
 	 */
 	public List<AccessControl> findByRolesId(Long rolesId) {
-		return (List<AccessControl>) this.em
+		return (List<AccessControl>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from AccessControl e, IN (e.roles) c where e.clientId = :pClientId and c.id = :pRolesId",
 						AccessControl.class)

@@ -30,7 +30,7 @@ public class AssetService extends AbstractEntityService<Asset>
 
 	public AssetService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class AssetService extends AbstractEntityService<Asset>
 	 * Find by unique key
 	 */
 	public Asset findByCode(String code) {
-		return (Asset) this.em.createNamedQuery(Asset.NQ_FIND_BY_CODE)
+		return (Asset) this.getEntityManager()
+				.createNamedQuery(Asset.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class AssetService extends AbstractEntityService<Asset>
 	 * Find by ID of reference: category.id
 	 */
 	public List<Asset> findByCategoryId(Long categoryId) {
-		return (List<Asset>) this.em
+		return (List<Asset>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Asset e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						Asset.class)
@@ -77,7 +79,8 @@ public class AssetService extends AbstractEntityService<Asset>
 	 * Find by ID of reference: currency.id
 	 */
 	public List<Asset> findByCurrencyId(Long currencyId) {
-		return (List<Asset>) this.em
+		return (List<Asset>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Asset e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						Asset.class)

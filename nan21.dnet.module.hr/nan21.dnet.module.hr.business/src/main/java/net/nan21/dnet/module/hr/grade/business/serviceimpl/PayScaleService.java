@@ -27,7 +27,7 @@ public class PayScaleService extends AbstractEntityService<PayScale>
 
 	public PayScaleService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class PayScaleService extends AbstractEntityService<PayScale>
 	 * Find by unique key
 	 */
 	public PayScale findByCode(String code) {
-		return (PayScale) this.em.createNamedQuery(PayScale.NQ_FIND_BY_CODE)
+		return (PayScale) this.getEntityManager()
+				.createNamedQuery(PayScale.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class PayScaleService extends AbstractEntityService<PayScale>
 	 * Find by unique key
 	 */
 	public PayScale findByName(String name) {
-		return (PayScale) this.em.createNamedQuery(PayScale.NQ_FIND_BY_NAME)
+		return (PayScale) this.getEntityManager()
+				.createNamedQuery(PayScale.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

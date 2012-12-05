@@ -31,7 +31,7 @@ public class WfDefNodeFieldService
 
 	public WfDefNodeFieldService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class WfDefNodeFieldService
 	 * Find by unique key
 	 */
 	public WfDefNodeField findByName(String name) {
-		return (WfDefNodeField) this.em
+		return (WfDefNodeField) this.getEntityManager()
 				.createNamedQuery(WfDefNodeField.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -60,7 +60,8 @@ public class WfDefNodeFieldService
 	 * Find by ID of reference: node.id
 	 */
 	public List<WfDefNodeField> findByNodeId(Long nodeId) {
-		return (List<WfDefNodeField>) this.em
+		return (List<WfDefNodeField>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from WfDefNodeField e where e.clientId = :pClientId and e.node.id = :pNodeId",
 						WfDefNodeField.class)

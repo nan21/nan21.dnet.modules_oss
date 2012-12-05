@@ -29,7 +29,7 @@ public class MenuService extends AbstractEntityService<Menu>
 
 	public MenuService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class MenuService extends AbstractEntityService<Menu>
 	 * Find by unique key
 	 */
 	public Menu findByName(String name) {
-		return (Menu) this.em.createNamedQuery(Menu.NQ_FIND_BY_NAME)
+		return (Menu) this.getEntityManager()
+				.createNamedQuery(Menu.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class MenuService extends AbstractEntityService<Menu>
 	 * Find by ID of reference: roles.id
 	 */
 	public List<Menu> findByRolesId(Long rolesId) {
-		return (List<Menu>) this.em
+		return (List<Menu>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Menu e, IN (e.roles) c where e.clientId = :pClientId and c.id = :pRolesId",
 						Menu.class)

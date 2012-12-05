@@ -26,7 +26,7 @@ public class QuartzTriggerService extends AbstractEntityService<QuartzTrigger>
 
 	public QuartzTriggerService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

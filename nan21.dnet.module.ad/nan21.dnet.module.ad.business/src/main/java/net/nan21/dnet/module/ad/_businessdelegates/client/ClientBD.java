@@ -21,8 +21,9 @@ public class ClientBD extends AbstractBusinessDelegate {
 
 	public void createAdminUser(Client client, String userCode,
 			String userName, String password) throws BusinessException {
+
 		client.setAdminRole(ClientBD.ROLE_ADMIN);
-		this.em.persist(client);
+		this.getEntityManager().persist(client);
 
 		net.nan21.dnet.core.api.session.User su = Session.user.get();
 		net.nan21.dnet.core.api.session.User newUser = new net.nan21.dnet.core.api.session.User(
@@ -35,18 +36,18 @@ public class ClientBD extends AbstractBusinessDelegate {
 			radmin.setName(ROLE_ADMIN);
 			radmin.setActive(true);
 			radmin.setDescription("Administrator role for un-restricted access to business functions.");
-			this.em.persist(radmin);
+			this.getEntityManager().persist(radmin);
 
 			Role ruser = new Role();
 			ruser.setName(ROLE_USER);
 			ruser.setActive(true);
 			ruser.setDescription("Application role which allows a user to use the application.");
-			this.em.persist(ruser);
+			this.getEntityManager().persist(ruser);
 
 			UserType t = new UserType();
 			t.setName("Default");
 			t.setActive(true);
-			this.em.persist(t);
+			this.getEntityManager().persist(t);
 
 			Collection<Role> roles = new ArrayList<Role>();
 			roles.add(radmin);
@@ -73,9 +74,9 @@ public class ClientBD extends AbstractBusinessDelegate {
 
 			u.setPassword(hashedPass);
 			u.setRoles(roles);
-			this.em.persist(u);
+			this.getEntityManager().persist(u);
 			Session.user.set(newUser);
-			this.em.flush();
+			this.getEntityManager().flush();
 		} finally {
 			Session.user.set(su);
 		}

@@ -29,7 +29,7 @@ public class CommunicationChannelTypeService
 
 	public CommunicationChannelTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CommunicationChannelTypeService
 	 * Find by unique key
 	 */
 	public CommunicationChannelType findByName(String name) {
-		return (CommunicationChannelType) this.em
+		return (CommunicationChannelType) this.getEntityManager()
 				.createNamedQuery(CommunicationChannelType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

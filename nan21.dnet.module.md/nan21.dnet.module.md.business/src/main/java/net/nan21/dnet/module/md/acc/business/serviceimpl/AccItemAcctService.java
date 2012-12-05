@@ -28,7 +28,7 @@ public class AccItemAcctService extends AbstractEntityService<AccItemAcct> {
 
 	public AccItemAcctService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class AccItemAcctService extends AbstractEntityService<AccItemAcct> {
 	 * Find by unique key
 	 */
 	public AccItemAcct findByItem_schema(AccItem accItem, AccSchema accSchema) {
-		return (AccItemAcct) this.em
+		return (AccItemAcct) this.getEntityManager()
 				.createNamedQuery(AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAccItem", accItem)
@@ -51,7 +51,7 @@ public class AccItemAcctService extends AbstractEntityService<AccItemAcct> {
 	 * Find by unique key
 	 */
 	public AccItemAcct findByItem_schema(Long accItemId, Long accSchemaId) {
-		return (AccItemAcct) this.em
+		return (AccItemAcct) this.getEntityManager()
 				.createNamedQuery(AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAccItemId", accItemId)
@@ -69,7 +69,8 @@ public class AccItemAcctService extends AbstractEntityService<AccItemAcct> {
 	 * Find by ID of reference: accItem.id
 	 */
 	public List<AccItemAcct> findByAccItemId(Long accItemId) {
-		return (List<AccItemAcct>) this.em
+		return (List<AccItemAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccItemAcct e where e.clientId = :pClientId and e.accItem.id = :pAccItemId",
 						AccItemAcct.class)
@@ -88,7 +89,8 @@ public class AccItemAcctService extends AbstractEntityService<AccItemAcct> {
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<AccItemAcct> findByAccSchemaId(Long accSchemaId) {
-		return (List<AccItemAcct>) this.em
+		return (List<AccItemAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccItemAcct e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						AccItemAcct.class)
@@ -107,7 +109,8 @@ public class AccItemAcctService extends AbstractEntityService<AccItemAcct> {
 	 * Find by ID of reference: crAccount.id
 	 */
 	public List<AccItemAcct> findByCrAccountId(Long crAccountId) {
-		return (List<AccItemAcct>) this.em
+		return (List<AccItemAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccItemAcct e where e.clientId = :pClientId and e.crAccount.id = :pCrAccountId",
 						AccItemAcct.class)
@@ -126,7 +129,8 @@ public class AccItemAcctService extends AbstractEntityService<AccItemAcct> {
 	 * Find by ID of reference: dbAccount.id
 	 */
 	public List<AccItemAcct> findByDbAccountId(Long dbAccountId) {
-		return (List<AccItemAcct>) this.em
+		return (List<AccItemAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccItemAcct e where e.clientId = :pClientId and e.dbAccount.id = :pDbAccountId",
 						AccItemAcct.class)

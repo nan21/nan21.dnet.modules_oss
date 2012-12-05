@@ -31,7 +31,7 @@ public class ClassificationItemService
 
 	public ClassificationItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class ClassificationItemService
 	 */
 	public ClassificationItem findBySyscode(ClassificationSystem classSystem,
 			String code) {
-		return (ClassificationItem) this.em
+		return (ClassificationItem) this.getEntityManager()
 				.createNamedQuery(ClassificationItem.NQ_FIND_BY_SYSCODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pClassSystem", classSystem)
@@ -55,7 +55,8 @@ public class ClassificationItemService
 	 * Find by unique key
 	 */
 	public ClassificationItem findBySyscode(Long classSystemId, String code) {
-		return (ClassificationItem) this.em
+		return (ClassificationItem) this
+				.getEntityManager()
 				.createNamedQuery(
 						ClassificationItem.NQ_FIND_BY_SYSCODE_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -68,7 +69,7 @@ public class ClassificationItemService
 	 */
 	public ClassificationItem findBySysname(ClassificationSystem classSystem,
 			String name) {
-		return (ClassificationItem) this.em
+		return (ClassificationItem) this.getEntityManager()
 				.createNamedQuery(ClassificationItem.NQ_FIND_BY_SYSNAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pClassSystem", classSystem)
@@ -79,7 +80,8 @@ public class ClassificationItemService
 	 * Find by unique key
 	 */
 	public ClassificationItem findBySysname(Long classSystemId, String name) {
-		return (ClassificationItem) this.em
+		return (ClassificationItem) this
+				.getEntityManager()
 				.createNamedQuery(
 						ClassificationItem.NQ_FIND_BY_SYSNAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -99,7 +101,8 @@ public class ClassificationItemService
 	 * Find by ID of reference: classSystem.id
 	 */
 	public List<ClassificationItem> findByClassSystemId(Long classSystemId) {
-		return (List<ClassificationItem>) this.em
+		return (List<ClassificationItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ClassificationItem e where e.clientId = :pClientId and e.classSystem.id = :pClassSystemId",
 						ClassificationItem.class)

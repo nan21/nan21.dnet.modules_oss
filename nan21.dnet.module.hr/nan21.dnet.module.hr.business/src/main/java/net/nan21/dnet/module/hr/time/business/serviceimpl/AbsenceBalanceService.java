@@ -31,7 +31,7 @@ public class AbsenceBalanceService
 
 	public AbsenceBalanceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class AbsenceBalanceService
 	 * Find by ID of reference: employee.id
 	 */
 	public List<AbsenceBalance> findByEmployeeId(Long employeeId) {
-		return (List<AbsenceBalance>) this.em
+		return (List<AbsenceBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AbsenceBalance e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						AbsenceBalance.class)

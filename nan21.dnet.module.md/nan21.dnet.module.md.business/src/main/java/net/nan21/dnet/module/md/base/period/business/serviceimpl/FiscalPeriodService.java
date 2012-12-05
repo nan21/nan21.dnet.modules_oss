@@ -26,7 +26,7 @@ public class FiscalPeriodService extends AbstractEntityService<FiscalPeriod> {
 
 	public FiscalPeriodService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class FiscalPeriodService extends AbstractEntityService<FiscalPeriod> {
 	 * Find by unique key
 	 */
 	public FiscalPeriod findByCode(String code) {
-		return (FiscalPeriod) this.em
+		return (FiscalPeriod) this.getEntityManager()
 				.createNamedQuery(FiscalPeriod.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -48,7 +48,7 @@ public class FiscalPeriodService extends AbstractEntityService<FiscalPeriod> {
 	 * Find by unique key
 	 */
 	public FiscalPeriod findByName(String name) {
-		return (FiscalPeriod) this.em
+		return (FiscalPeriod) this.getEntityManager()
 				.createNamedQuery(FiscalPeriod.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -65,7 +65,8 @@ public class FiscalPeriodService extends AbstractEntityService<FiscalPeriod> {
 	 * Find by ID of reference: year.id
 	 */
 	public List<FiscalPeriod> findByYearId(Long yearId) {
-		return (List<FiscalPeriod>) this.em
+		return (List<FiscalPeriod>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FiscalPeriod e where e.clientId = :pClientId and e.year.id = :pYearId",
 						FiscalPeriod.class)

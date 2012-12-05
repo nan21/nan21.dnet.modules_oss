@@ -32,7 +32,7 @@ public class PurchaseOrderTaxService
 
 	public PurchaseOrderTaxService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class PurchaseOrderTaxService
 	 * Find by ID of reference: purchaseOrder.id
 	 */
 	public List<PurchaseOrderTax> findByPurchaseOrderId(Long purchaseOrderId) {
-		return (List<PurchaseOrderTax>) this.em
+		return (List<PurchaseOrderTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseOrderTax e where e.clientId = :pClientId and e.purchaseOrder.id = :pPurchaseOrderId",
 						PurchaseOrderTax.class)
@@ -72,7 +73,8 @@ public class PurchaseOrderTaxService
 	 * Find by ID of reference: tax.id
 	 */
 	public List<PurchaseOrderTax> findByTaxId(Long taxId) {
-		return (List<PurchaseOrderTax>) this.em
+		return (List<PurchaseOrderTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseOrderTax e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						PurchaseOrderTax.class)

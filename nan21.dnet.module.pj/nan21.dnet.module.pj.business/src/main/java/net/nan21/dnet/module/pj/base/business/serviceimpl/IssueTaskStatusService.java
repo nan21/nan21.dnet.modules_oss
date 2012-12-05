@@ -29,7 +29,7 @@ public class IssueTaskStatusService
 
 	public IssueTaskStatusService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class IssueTaskStatusService
 	 * Find by unique key
 	 */
 	public IssueTaskStatus findByName(String name) {
-		return (IssueTaskStatus) this.em
+		return (IssueTaskStatus) this.getEntityManager()
 				.createNamedQuery(IssueTaskStatus.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

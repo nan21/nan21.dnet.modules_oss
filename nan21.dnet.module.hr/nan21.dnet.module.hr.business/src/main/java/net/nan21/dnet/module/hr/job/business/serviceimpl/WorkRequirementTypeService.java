@@ -29,7 +29,7 @@ public class WorkRequirementTypeService
 
 	public WorkRequirementTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class WorkRequirementTypeService
 	 * Find by unique key
 	 */
 	public WorkRequirementType findByName(String name) {
-		return (WorkRequirementType) this.em
+		return (WorkRequirementType) this.getEntityManager()
 				.createNamedQuery(WorkRequirementType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

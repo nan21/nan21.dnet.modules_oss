@@ -32,7 +32,7 @@ public class PurchaseInvoiceItemTaxService
 
 	public PurchaseInvoiceItemTaxService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -53,7 +53,8 @@ public class PurchaseInvoiceItemTaxService
 	 */
 	public List<PurchaseInvoiceItemTax> findByPurchaseInvoiceItemId(
 			Long purchaseInvoiceItemId) {
-		return (List<PurchaseInvoiceItemTax>) this.em
+		return (List<PurchaseInvoiceItemTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoiceItemTax e where e.clientId = :pClientId and e.purchaseInvoiceItem.id = :pPurchaseInvoiceItemId",
 						PurchaseInvoiceItemTax.class)
@@ -73,7 +74,8 @@ public class PurchaseInvoiceItemTaxService
 	 * Find by ID of reference: tax.id
 	 */
 	public List<PurchaseInvoiceItemTax> findByTaxId(Long taxId) {
-		return (List<PurchaseInvoiceItemTax>) this.em
+		return (List<PurchaseInvoiceItemTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseInvoiceItemTax e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						PurchaseInvoiceItemTax.class)

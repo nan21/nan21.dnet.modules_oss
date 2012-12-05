@@ -27,7 +27,7 @@ public class ReportServerService extends AbstractEntityService<ReportServer>
 
 	public ReportServerService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class ReportServerService extends AbstractEntityService<ReportServer>
 	 * Find by unique key
 	 */
 	public ReportServer findByName(String name) {
-		return (ReportServer) this.em
+		return (ReportServer) this.getEntityManager()
 				.createNamedQuery(ReportServer.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

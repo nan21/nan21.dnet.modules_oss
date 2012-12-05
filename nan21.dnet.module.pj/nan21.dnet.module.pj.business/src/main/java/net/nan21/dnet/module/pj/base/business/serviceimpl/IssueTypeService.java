@@ -30,7 +30,7 @@ public class IssueTypeService extends AbstractEntityService<IssueType>
 
 	public IssueTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class IssueTypeService extends AbstractEntityService<IssueType>
 	 * Find by unique key
 	 */
 	public IssueType findByName(String name) {
-		return (IssueType) this.em.createNamedQuery(IssueType.NQ_FIND_BY_NAME)
+		return (IssueType) this.getEntityManager()
+				.createNamedQuery(IssueType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class IssueTypeService extends AbstractEntityService<IssueType>
 	 * Find by ID of reference: category.id
 	 */
 	public List<IssueType> findByCategoryId(Long categoryId) {
-		return (List<IssueType>) this.em
+		return (List<IssueType>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from IssueType e where e.clientId = :pClientId and e.category.id = :pCategoryId",
 						IssueType.class)
@@ -77,7 +79,8 @@ public class IssueTypeService extends AbstractEntityService<IssueType>
 	 * Find by ID of reference: projectTypes.id
 	 */
 	public List<IssueType> findByProjectTypesId(Long projectTypesId) {
-		return (List<IssueType>) this.em
+		return (List<IssueType>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from IssueType e, IN (e.projectTypes) c where e.clientId = :pClientId and c.id = :pProjectTypesId",
 						IssueType.class)

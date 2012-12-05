@@ -29,7 +29,7 @@ public class ExportJobService extends AbstractEntityService<ExportJob>
 
 	public ExportJobService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class ExportJobService extends AbstractEntityService<ExportJob>
 	 * Find by unique key
 	 */
 	public ExportJob findByName(String name) {
-		return (ExportJob) this.em.createNamedQuery(ExportJob.NQ_FIND_BY_NAME)
+		return (ExportJob) this.getEntityManager()
+				.createNamedQuery(ExportJob.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class ExportJobService extends AbstractEntityService<ExportJob>
 	 * Find by ID of reference: items.id
 	 */
 	public List<ExportJob> findByItemsId(Long itemsId) {
-		return (List<ExportJob>) this.em
+		return (List<ExportJob>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ExportJob e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId",
 						ExportJob.class)

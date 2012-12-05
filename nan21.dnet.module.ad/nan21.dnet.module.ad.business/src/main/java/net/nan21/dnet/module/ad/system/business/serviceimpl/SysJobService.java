@@ -27,7 +27,7 @@ public class SysJobService extends AbstractEntityService<SysJob>
 
 	public SysJobService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class SysJobService extends AbstractEntityService<SysJob>
 	 * Find by unique key
 	 */
 	public SysJob findByName(String name) {
-		return (SysJob) this.em.createNamedQuery(SysJob.NQ_FIND_BY_NAME)
+		return (SysJob) this.getEntityManager()
+				.createNamedQuery(SysJob.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class SysJobService extends AbstractEntityService<SysJob>
 	 * Find by unique key
 	 */
 	public SysJob findByJclass(String javaClass) {
-		return (SysJob) this.em.createNamedQuery(SysJob.NQ_FIND_BY_JCLASS)
+		return (SysJob) this.getEntityManager()
+				.createNamedQuery(SysJob.NQ_FIND_BY_JCLASS)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJavaClass", javaClass).getSingleResult();
 	}

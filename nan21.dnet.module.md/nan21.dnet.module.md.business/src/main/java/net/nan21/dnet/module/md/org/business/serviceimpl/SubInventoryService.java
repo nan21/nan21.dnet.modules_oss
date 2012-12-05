@@ -29,7 +29,7 @@ public class SubInventoryService extends AbstractEntityService<SubInventory>
 
 	public SubInventoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class SubInventoryService extends AbstractEntityService<SubInventory>
 	 * Find by unique key
 	 */
 	public SubInventory findByName(String name) {
-		return (SubInventory) this.em
+		return (SubInventory) this.getEntityManager()
 				.createNamedQuery(SubInventory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -58,7 +58,8 @@ public class SubInventoryService extends AbstractEntityService<SubInventory>
 	 * Find by ID of reference: inventory.id
 	 */
 	public List<SubInventory> findByInventoryId(Long inventoryId) {
-		return (List<SubInventory>) this.em
+		return (List<SubInventory>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SubInventory e where e.clientId = :pClientId and e.inventory.id = :pInventoryId",
 						SubInventory.class)

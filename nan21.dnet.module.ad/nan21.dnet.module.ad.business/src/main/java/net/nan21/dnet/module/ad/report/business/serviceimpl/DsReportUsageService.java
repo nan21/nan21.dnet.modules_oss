@@ -29,7 +29,7 @@ public class DsReportUsageService extends AbstractEntityService<DsReportUsage>
 
 	public DsReportUsageService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class DsReportUsageService extends AbstractEntityService<DsReportUsage>
 	 * Find by ID of reference: dsReport.id
 	 */
 	public List<DsReportUsage> findByDsReportId(Long dsReportId) {
-		return (List<DsReportUsage>) this.em
+		return (List<DsReportUsage>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from DsReportUsage e where e.clientId = :pClientId and e.dsReport.id = :pDsReportId",
 						DsReportUsage.class)

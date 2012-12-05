@@ -30,7 +30,7 @@ public class CityService extends AbstractEntityService<City>
 
 	public CityService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class CityService extends AbstractEntityService<City>
 	 * Find by ID of reference: country.id
 	 */
 	public List<City> findByCountryId(Long countryId) {
-		return (List<City>) this.em
+		return (List<City>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from City e where e.clientId = :pClientId and e.country.id = :pCountryId",
 						City.class)
@@ -68,7 +69,8 @@ public class CityService extends AbstractEntityService<City>
 	 * Find by ID of reference: region.id
 	 */
 	public List<City> findByRegionId(Long regionId) {
-		return (List<City>) this.em
+		return (List<City>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from City e where e.clientId = :pClientId and e.region.id = :pRegionId",
 						City.class)

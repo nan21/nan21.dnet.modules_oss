@@ -33,7 +33,7 @@ public class QualificationSkillService
 
 	public QualificationSkillService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -53,7 +53,8 @@ public class QualificationSkillService
 	 * Find by ID of reference: qualification.id
 	 */
 	public List<QualificationSkill> findByQualificationId(Long qualificationId) {
-		return (List<QualificationSkill>) this.em
+		return (List<QualificationSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from QualificationSkill e where e.clientId = :pClientId and e.qualification.id = :pQualificationId",
 						QualificationSkill.class)
@@ -73,7 +74,8 @@ public class QualificationSkillService
 	 * Find by ID of reference: skill.id
 	 */
 	public List<QualificationSkill> findBySkillId(Long skillId) {
-		return (List<QualificationSkill>) this.em
+		return (List<QualificationSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from QualificationSkill e where e.clientId = :pClientId and e.skill.id = :pSkillId",
 						QualificationSkill.class)
@@ -93,7 +95,8 @@ public class QualificationSkillService
 	 * Find by ID of reference: requiredLevel.id
 	 */
 	public List<QualificationSkill> findByRequiredLevelId(Long requiredLevelId) {
-		return (List<QualificationSkill>) this.em
+		return (List<QualificationSkill>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from QualificationSkill e where e.clientId = :pClientId and e.requiredLevel.id = :pRequiredLevelId",
 						QualificationSkill.class)

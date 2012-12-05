@@ -28,7 +28,7 @@ public class ActIdentityInfoService
 
 	public ActIdentityInfoService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

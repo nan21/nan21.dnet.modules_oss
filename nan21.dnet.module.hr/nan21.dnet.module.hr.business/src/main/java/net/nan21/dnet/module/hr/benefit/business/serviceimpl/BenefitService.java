@@ -27,7 +27,7 @@ public class BenefitService extends AbstractEntityService<Benefit>
 
 	public BenefitService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class BenefitService extends AbstractEntityService<Benefit>
 	 * Find by unique key
 	 */
 	public Benefit findByName(String name) {
-		return (Benefit) this.em.createNamedQuery(Benefit.NQ_FIND_BY_NAME)
+		return (Benefit) this.getEntityManager()
+				.createNamedQuery(Benefit.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

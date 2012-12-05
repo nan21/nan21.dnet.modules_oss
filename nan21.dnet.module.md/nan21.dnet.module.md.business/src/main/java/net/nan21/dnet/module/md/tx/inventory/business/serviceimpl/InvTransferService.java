@@ -26,7 +26,7 @@ public class InvTransferService extends AbstractEntityService<InvTransfer>
 
 	public InvTransferService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

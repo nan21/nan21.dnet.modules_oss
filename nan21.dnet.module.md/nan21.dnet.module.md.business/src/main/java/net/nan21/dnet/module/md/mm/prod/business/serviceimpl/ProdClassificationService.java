@@ -33,7 +33,7 @@ public class ProdClassificationService
 
 	public ProdClassificationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class ProdClassificationService
 	 * Find by ID of reference: product.id
 	 */
 	public List<ProdClassification> findByProductId(Long productId) {
-		return (List<ProdClassification>) this.em
+		return (List<ProdClassification>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProdClassification e where e.clientId = :pClientId and e.product.id = :pProductId",
 						ProdClassification.class)
@@ -72,7 +73,8 @@ public class ProdClassificationService
 	 * Find by ID of reference: classSystem.id
 	 */
 	public List<ProdClassification> findByClassSystemId(Long classSystemId) {
-		return (List<ProdClassification>) this.em
+		return (List<ProdClassification>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProdClassification e where e.clientId = :pClientId and e.classSystem.id = :pClassSystemId",
 						ProdClassification.class)
@@ -91,7 +93,8 @@ public class ProdClassificationService
 	 * Find by ID of reference: classCode.id
 	 */
 	public List<ProdClassification> findByClassCodeId(Long classCodeId) {
-		return (List<ProdClassification>) this.em
+		return (List<ProdClassification>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProdClassification e where e.clientId = :pClientId and e.classCode.id = :pClassCodeId",
 						ProdClassification.class)

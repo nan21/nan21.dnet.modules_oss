@@ -32,7 +32,7 @@ public class SalesInvoiceItemService
 
 	public SalesInvoiceItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class SalesInvoiceItemService
 	 * Find by ID of reference: salesInvoice.id
 	 */
 	public List<SalesInvoiceItem> findBySalesInvoiceId(Long salesInvoiceId) {
-		return (List<SalesInvoiceItem>) this.em
+		return (List<SalesInvoiceItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoiceItem e where e.clientId = :pClientId and e.salesInvoice.id = :pSalesInvoiceId",
 						SalesInvoiceItem.class)
@@ -71,7 +72,8 @@ public class SalesInvoiceItemService
 	 * Find by ID of reference: product.id
 	 */
 	public List<SalesInvoiceItem> findByProductId(Long productId) {
-		return (List<SalesInvoiceItem>) this.em
+		return (List<SalesInvoiceItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoiceItem e where e.clientId = :pClientId and e.product.id = :pProductId",
 						SalesInvoiceItem.class)
@@ -90,7 +92,8 @@ public class SalesInvoiceItemService
 	 * Find by ID of reference: uom.id
 	 */
 	public List<SalesInvoiceItem> findByUomId(Long uomId) {
-		return (List<SalesInvoiceItem>) this.em
+		return (List<SalesInvoiceItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoiceItem e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						SalesInvoiceItem.class)
@@ -109,7 +112,8 @@ public class SalesInvoiceItemService
 	 * Find by ID of reference: tax.id
 	 */
 	public List<SalesInvoiceItem> findByTaxId(Long taxId) {
-		return (List<SalesInvoiceItem>) this.em
+		return (List<SalesInvoiceItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesInvoiceItem e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						SalesInvoiceItem.class)
@@ -128,7 +132,8 @@ public class SalesInvoiceItemService
 	 * Find by ID of reference: itemTaxes.id
 	 */
 	public List<SalesInvoiceItem> findByItemTaxesId(Long itemTaxesId) {
-		return (List<SalesInvoiceItem>) this.em
+		return (List<SalesInvoiceItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from SalesInvoiceItem e, IN (e.itemTaxes) c where e.clientId = :pClientId and c.id = :pItemTaxesId",
 						SalesInvoiceItem.class)

@@ -29,7 +29,7 @@ public class ReportService extends AbstractEntityService<Report>
 
 	public ReportService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class ReportService extends AbstractEntityService<Report>
 	 * Find by unique key
 	 */
 	public Report findByCode(String code) {
-		return (Report) this.em.createNamedQuery(Report.NQ_FIND_BY_CODE)
+		return (Report) this.getEntityManager()
+				.createNamedQuery(Report.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -50,7 +51,8 @@ public class ReportService extends AbstractEntityService<Report>
 	 * Find by unique key
 	 */
 	public Report findByName(String name) {
-		return (Report) this.em.createNamedQuery(Report.NQ_FIND_BY_NAME)
+		return (Report) this.getEntityManager()
+				.createNamedQuery(Report.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -66,7 +68,8 @@ public class ReportService extends AbstractEntityService<Report>
 	 * Find by ID of reference: reportServer.id
 	 */
 	public List<Report> findByReportServerId(Long reportServerId) {
-		return (List<Report>) this.em
+		return (List<Report>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Report e where e.clientId = :pClientId and e.reportServer.id = :pReportServerId",
 						Report.class)

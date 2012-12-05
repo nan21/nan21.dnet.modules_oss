@@ -29,7 +29,7 @@ public class SysParamValueService extends AbstractEntityService<SysParamValue>
 
 	public SysParamValueService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class SysParamValueService extends AbstractEntityService<SysParamValue>
 	 * Find by ID of reference: sysParam.id
 	 */
 	public List<SysParamValue> findBySysParamId(Long sysParamId) {
-		return (List<SysParamValue>) this.em
+		return (List<SysParamValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysParamValue e where e.clientId = :pClientId and e.sysParam.id = :pSysParamId",
 						SysParamValue.class)

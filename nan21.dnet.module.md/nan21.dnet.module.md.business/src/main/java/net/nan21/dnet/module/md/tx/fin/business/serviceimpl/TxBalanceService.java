@@ -31,7 +31,7 @@ public class TxBalanceService extends AbstractEntityService<TxBalance>
 
 	public TxBalanceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class TxBalanceService extends AbstractEntityService<TxBalance>
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<TxBalance> findByBpartnerId(Long bpartnerId) {
-		return (List<TxBalance>) this.em
+		return (List<TxBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxBalance e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						TxBalance.class)
@@ -69,7 +70,8 @@ public class TxBalanceService extends AbstractEntityService<TxBalance>
 	 * Find by ID of reference: org.id
 	 */
 	public List<TxBalance> findByOrgId(Long orgId) {
-		return (List<TxBalance>) this.em
+		return (List<TxBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxBalance e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						TxBalance.class)
@@ -88,7 +90,8 @@ public class TxBalanceService extends AbstractEntityService<TxBalance>
 	 * Find by ID of reference: currency.id
 	 */
 	public List<TxBalance> findByCurrencyId(Long currencyId) {
-		return (List<TxBalance>) this.em
+		return (List<TxBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxBalance e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						TxBalance.class)

@@ -27,7 +27,7 @@ public class PaymentTermService extends AbstractEntityService<PaymentTerm>
 
 	public PaymentTermService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class PaymentTermService extends AbstractEntityService<PaymentTerm>
 	 * Find by unique key
 	 */
 	public PaymentTerm findByName(String name) {
-		return (PaymentTerm) this.em
+		return (PaymentTerm) this.getEntityManager()
 				.createNamedQuery(PaymentTerm.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

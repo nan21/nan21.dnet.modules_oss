@@ -33,7 +33,7 @@ public class AccOperationService extends AbstractEntityService<AccOperation>
 
 	public AccOperationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class AccOperationService extends AbstractEntityService<AccOperation>
 	 * Find by ID of reference: org.id
 	 */
 	public List<AccOperation> findByOrgId(Long orgId) {
-		return (List<AccOperation>) this.em
+		return (List<AccOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccOperation e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						AccOperation.class)
@@ -71,7 +72,8 @@ public class AccOperationService extends AbstractEntityService<AccOperation>
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<AccOperation> findByAccSchemaId(Long accSchemaId) {
-		return (List<AccOperation>) this.em
+		return (List<AccOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccOperation e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						AccOperation.class)
@@ -90,7 +92,8 @@ public class AccOperationService extends AbstractEntityService<AccOperation>
 	 * Find by ID of reference: period.id
 	 */
 	public List<AccOperation> findByPeriodId(Long periodId) {
-		return (List<AccOperation>) this.em
+		return (List<AccOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccOperation e where e.clientId = :pClientId and e.period.id = :pPeriodId",
 						AccOperation.class)
@@ -109,7 +112,8 @@ public class AccOperationService extends AbstractEntityService<AccOperation>
 	 * Find by ID of reference: accDoc.id
 	 */
 	public List<AccOperation> findByAccDocId(Long accDocId) {
-		return (List<AccOperation>) this.em
+		return (List<AccOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccOperation e where e.clientId = :pClientId and e.accDoc.id = :pAccDocId",
 						AccOperation.class)
@@ -128,7 +132,8 @@ public class AccOperationService extends AbstractEntityService<AccOperation>
 	 * Find by ID of reference: accDocLine.id
 	 */
 	public List<AccOperation> findByAccDocLineId(Long accDocLineId) {
-		return (List<AccOperation>) this.em
+		return (List<AccOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccOperation e where e.clientId = :pClientId and e.accDocLine.id = :pAccDocLineId",
 						AccOperation.class)

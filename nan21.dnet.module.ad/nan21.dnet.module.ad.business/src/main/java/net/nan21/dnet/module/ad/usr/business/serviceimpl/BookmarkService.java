@@ -28,7 +28,7 @@ public class BookmarkService extends AbstractEntityService<Bookmark>
 
 	public BookmarkService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -40,7 +40,8 @@ public class BookmarkService extends AbstractEntityService<Bookmark>
 	 * Find by unique key
 	 */
 	public Bookmark findByName(String owner, String name) {
-		return (Bookmark) this.em.createNamedQuery(Bookmark.NQ_FIND_BY_NAME)
+		return (Bookmark) this.getEntityManager()
+				.createNamedQuery(Bookmark.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pOwner", owner).setParameter("pName", name)
 				.getSingleResult();
@@ -57,7 +58,8 @@ public class BookmarkService extends AbstractEntityService<Bookmark>
 	 * Find by ID of reference: parent.id
 	 */
 	public List<Bookmark> findByParentId(Long parentId) {
-		return (List<Bookmark>) this.em
+		return (List<Bookmark>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Bookmark e where e.clientId = :pClientId and e.parent.id = :pParentId",
 						Bookmark.class)

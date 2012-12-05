@@ -26,7 +26,7 @@ public class TempAsgnLineService extends AbstractEntityService<TempAsgnLine>
 
 	public TempAsgnLineService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

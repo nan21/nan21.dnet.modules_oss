@@ -27,7 +27,7 @@ public class IssueTextTypeService extends AbstractEntityService<IssueTextType>
 
 	public IssueTextTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IssueTextTypeService extends AbstractEntityService<IssueTextType>
 	 * Find by unique key
 	 */
 	public IssueTextType findByName(String name) {
-		return (IssueTextType) this.em
+		return (IssueTextType) this.getEntityManager()
 				.createNamedQuery(IssueTextType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

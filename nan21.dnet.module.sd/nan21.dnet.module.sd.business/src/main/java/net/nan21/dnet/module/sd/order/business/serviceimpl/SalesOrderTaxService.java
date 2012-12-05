@@ -30,7 +30,7 @@ public class SalesOrderTaxService extends AbstractEntityService<SalesOrderTax>
 
 	public SalesOrderTaxService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class SalesOrderTaxService extends AbstractEntityService<SalesOrderTax>
 	 * Find by ID of reference: salesOrder.id
 	 */
 	public List<SalesOrderTax> findBySalesOrderId(Long salesOrderId) {
-		return (List<SalesOrderTax>) this.em
+		return (List<SalesOrderTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesOrderTax e where e.clientId = :pClientId and e.salesOrder.id = :pSalesOrderId",
 						SalesOrderTax.class)
@@ -68,7 +69,8 @@ public class SalesOrderTaxService extends AbstractEntityService<SalesOrderTax>
 	 * Find by ID of reference: tax.id
 	 */
 	public List<SalesOrderTax> findByTaxId(Long taxId) {
-		return (List<SalesOrderTax>) this.em
+		return (List<SalesOrderTax>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesOrderTax e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						SalesOrderTax.class)

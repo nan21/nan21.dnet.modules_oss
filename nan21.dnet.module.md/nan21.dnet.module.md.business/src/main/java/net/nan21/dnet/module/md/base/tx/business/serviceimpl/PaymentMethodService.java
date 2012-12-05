@@ -29,7 +29,7 @@ public class PaymentMethodService extends AbstractEntityService<PaymentMethod>
 
 	public PaymentMethodService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class PaymentMethodService extends AbstractEntityService<PaymentMethod>
 	 * Find by unique key
 	 */
 	public PaymentMethod findByName(String name) {
-		return (PaymentMethod) this.em
+		return (PaymentMethod) this.getEntityManager()
 				.createNamedQuery(PaymentMethod.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -58,7 +58,8 @@ public class PaymentMethodService extends AbstractEntityService<PaymentMethod>
 	 * Find by ID of reference: docType.id
 	 */
 	public List<PaymentMethod> findByDocTypeId(Long docTypeId) {
-		return (List<PaymentMethod>) this.em
+		return (List<PaymentMethod>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PaymentMethod e where e.clientId = :pClientId and e.docType.id = :pDocTypeId",
 						PaymentMethod.class)

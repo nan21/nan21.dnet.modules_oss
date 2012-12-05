@@ -26,7 +26,7 @@ public class ActAttachmentService extends AbstractEntityService<ActAttachment>
 
 	public ActAttachmentService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

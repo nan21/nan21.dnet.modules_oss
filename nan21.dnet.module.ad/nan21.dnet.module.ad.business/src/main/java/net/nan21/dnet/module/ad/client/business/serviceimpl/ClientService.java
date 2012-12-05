@@ -23,7 +23,7 @@ public class ClientService extends AbstractEntityService<Client> {
 
 	public ClientService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

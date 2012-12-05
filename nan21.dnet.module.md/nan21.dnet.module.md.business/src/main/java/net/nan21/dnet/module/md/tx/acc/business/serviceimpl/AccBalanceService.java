@@ -31,7 +31,7 @@ public class AccBalanceService extends AbstractEntityService<AccBalance>
 
 	public AccBalanceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class AccBalanceService extends AbstractEntityService<AccBalance>
 	 * Find by ID of reference: org.id
 	 */
 	public List<AccBalance> findByOrgId(Long orgId) {
-		return (List<AccBalance>) this.em
+		return (List<AccBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccBalance e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						AccBalance.class)
@@ -69,7 +70,8 @@ public class AccBalanceService extends AbstractEntityService<AccBalance>
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<AccBalance> findByAccSchemaId(Long accSchemaId) {
-		return (List<AccBalance>) this.em
+		return (List<AccBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccBalance e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						AccBalance.class)
@@ -88,7 +90,8 @@ public class AccBalanceService extends AbstractEntityService<AccBalance>
 	 * Find by ID of reference: period.id
 	 */
 	public List<AccBalance> findByPeriodId(Long periodId) {
-		return (List<AccBalance>) this.em
+		return (List<AccBalance>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AccBalance e where e.clientId = :pClientId and e.period.id = :pPeriodId",
 						AccBalance.class)

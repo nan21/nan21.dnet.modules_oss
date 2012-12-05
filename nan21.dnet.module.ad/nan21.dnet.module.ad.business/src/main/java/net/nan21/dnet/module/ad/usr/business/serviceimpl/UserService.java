@@ -29,7 +29,7 @@ public class UserService extends AbstractEntityService<User> {
 
 	public UserService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class UserService extends AbstractEntityService<User> {
 	 * Find by unique key
 	 */
 	public User findByCode(String code) {
-		return (User) this.em.createNamedQuery(User.NQ_FIND_BY_CODE)
+		return (User) this.getEntityManager()
+				.createNamedQuery(User.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class UserService extends AbstractEntityService<User> {
 	 * Find by ID of reference: dateFormat.id
 	 */
 	public List<User> findByDateFormatId(Long dateFormatId) {
-		return (List<User>) this.em
+		return (List<User>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from User e where e.clientId = :pClientId and e.dateFormat.id = :pDateFormatId",
 						User.class)
@@ -76,7 +78,8 @@ public class UserService extends AbstractEntityService<User> {
 	 * Find by ID of reference: accountType.id
 	 */
 	public List<User> findByAccountTypeId(Long accountTypeId) {
-		return (List<User>) this.em
+		return (List<User>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from User e where e.clientId = :pClientId and e.accountType.id = :pAccountTypeId",
 						User.class)
@@ -95,7 +98,8 @@ public class UserService extends AbstractEntityService<User> {
 	 * Find by ID of reference: roles.id
 	 */
 	public List<User> findByRolesId(Long rolesId) {
-		return (List<User>) this.em
+		return (List<User>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from User e, IN (e.roles) c where e.clientId = :pClientId and c.id = :pRolesId",
 						User.class)
@@ -114,7 +118,8 @@ public class UserService extends AbstractEntityService<User> {
 	 * Find by ID of reference: groups.id
 	 */
 	public List<User> findByGroupsId(Long groupsId) {
-		return (List<User>) this.em
+		return (List<User>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from User e, IN (e.groups) c where e.clientId = :pClientId and c.id = :pGroupsId",
 						User.class)

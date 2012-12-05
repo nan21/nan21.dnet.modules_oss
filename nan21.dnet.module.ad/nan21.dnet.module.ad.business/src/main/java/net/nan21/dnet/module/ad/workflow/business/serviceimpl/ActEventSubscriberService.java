@@ -28,7 +28,7 @@ public class ActEventSubscriberService
 
 	public ActEventSubscriberService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

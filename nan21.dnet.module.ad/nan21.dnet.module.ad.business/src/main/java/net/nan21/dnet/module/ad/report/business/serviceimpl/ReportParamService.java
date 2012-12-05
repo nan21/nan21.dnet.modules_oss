@@ -29,7 +29,7 @@ public class ReportParamService extends AbstractEntityService<ReportParam>
 
 	public ReportParamService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ReportParamService extends AbstractEntityService<ReportParam>
 	 * Find by unique key
 	 */
 	public ReportParam findByCode(Report report, String code) {
-		return (ReportParam) this.em
+		return (ReportParam) this.getEntityManager()
 				.createNamedQuery(ReportParam.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pReport", report).setParameter("pCode", code)
@@ -52,7 +52,7 @@ public class ReportParamService extends AbstractEntityService<ReportParam>
 	 * Find by unique key
 	 */
 	public ReportParam findByCode(Long reportId, String code) {
-		return (ReportParam) this.em
+		return (ReportParam) this.getEntityManager()
 				.createNamedQuery(ReportParam.NQ_FIND_BY_CODE_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pReportId", reportId)
@@ -63,7 +63,7 @@ public class ReportParamService extends AbstractEntityService<ReportParam>
 	 * Find by unique key
 	 */
 	public ReportParam findByName(Report report, String name) {
-		return (ReportParam) this.em
+		return (ReportParam) this.getEntityManager()
 				.createNamedQuery(ReportParam.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pReport", report).setParameter("pName", name)
@@ -74,7 +74,7 @@ public class ReportParamService extends AbstractEntityService<ReportParam>
 	 * Find by unique key
 	 */
 	public ReportParam findByName(Long reportId, String name) {
-		return (ReportParam) this.em
+		return (ReportParam) this.getEntityManager()
 				.createNamedQuery(ReportParam.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pReportId", reportId)
@@ -92,7 +92,8 @@ public class ReportParamService extends AbstractEntityService<ReportParam>
 	 * Find by ID of reference: report.id
 	 */
 	public List<ReportParam> findByReportId(Long reportId) {
-		return (List<ReportParam>) this.em
+		return (List<ReportParam>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ReportParam e where e.clientId = :pClientId and e.report.id = :pReportId",
 						ReportParam.class)

@@ -34,7 +34,7 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 
 	public InvOperationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -53,7 +53,8 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 	 * Find by ID of reference: inventory.id
 	 */
 	public List<InvOperation> findByInventoryId(Long inventoryId) {
-		return (List<InvOperation>) this.em
+		return (List<InvOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvOperation e where e.clientId = :pClientId and e.inventory.id = :pInventoryId",
 						InvOperation.class)
@@ -72,7 +73,8 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 	 * Find by ID of reference: subInventory.id
 	 */
 	public List<InvOperation> findBySubInventoryId(Long subInventoryId) {
-		return (List<InvOperation>) this.em
+		return (List<InvOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvOperation e where e.clientId = :pClientId and e.subInventory.id = :pSubInventoryId",
 						InvOperation.class)
@@ -92,7 +94,8 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 	 * Find by ID of reference: locator.id
 	 */
 	public List<InvOperation> findByLocatorId(Long locatorId) {
-		return (List<InvOperation>) this.em
+		return (List<InvOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvOperation e where e.clientId = :pClientId and e.locator.id = :pLocatorId",
 						InvOperation.class)
@@ -111,7 +114,8 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 	 * Find by ID of reference: item.id
 	 */
 	public List<InvOperation> findByItemId(Long itemId) {
-		return (List<InvOperation>) this.em
+		return (List<InvOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvOperation e where e.clientId = :pClientId and e.item.id = :pItemId",
 						InvOperation.class)
@@ -131,7 +135,8 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 	 * Find by ID of reference: transactionLine.id
 	 */
 	public List<InvOperation> findByTransactionLineId(Long transactionLineId) {
-		return (List<InvOperation>) this.em
+		return (List<InvOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvOperation e where e.clientId = :pClientId and e.transactionLine.id = :pTransactionLineId",
 						InvOperation.class)
@@ -151,7 +156,8 @@ public class InvOperationService extends AbstractEntityService<InvOperation>
 	 * Find by ID of reference: uom.id
 	 */
 	public List<InvOperation> findByUomId(Long uomId) {
-		return (List<InvOperation>) this.em
+		return (List<InvOperation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvOperation e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						InvOperation.class)

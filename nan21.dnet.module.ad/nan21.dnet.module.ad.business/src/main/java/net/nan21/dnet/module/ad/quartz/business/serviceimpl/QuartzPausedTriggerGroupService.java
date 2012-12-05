@@ -28,7 +28,7 @@ public class QuartzPausedTriggerGroupService
 
 	public QuartzPausedTriggerGroupService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

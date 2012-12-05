@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"	 
+	xmlns:int="http://www.springframework.org/schema/integration"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans.xsd
 			http://www.springframework.org/schema/context 
-				http://www.springframework.org/schema/context/spring-context.xsd">   
+				http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/integration
+				http://www.springframework.org/schema/integration/spring-integration.xsd">
+
 	<bean id="EmployeeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeService"/>
+
 	<bean id="EmployeeAssignmentService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeAssignmentService"/>
+
 	<bean id="EmployeeContactService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeContactService"/>
+
 	<bean id="EmployeeEducationService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeEducationService"/>
+
 	<bean id="EmployeeWorkExperienceService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeWorkExperienceService"/>
+
 	<bean id="EmployeeLicenseService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeLicenseService"/>
+
 	<bean id="EmployeeContactTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeContactTypeService"/>
+
 	<bean id="EducationTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EducationTypeService"/>
+
 	<bean id="LicenseTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.LicenseTypeService"/>
+
 	<bean id="EmployeeContactRelationshipService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmployeeContactRelationshipService"/>
+
 	<bean id="EmploymentTypeService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.hr.employee.business.serviceimpl.EmploymentTypeService"/>
 </beans>

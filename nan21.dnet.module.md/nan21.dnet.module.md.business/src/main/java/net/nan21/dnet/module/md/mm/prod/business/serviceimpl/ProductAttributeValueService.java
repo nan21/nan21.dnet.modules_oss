@@ -32,7 +32,7 @@ public class ProductAttributeValueService
 
 	public ProductAttributeValueService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class ProductAttributeValueService
 	 * Find by unique key
 	 */
 	public ProductAttributeValue findByName(Product product, Attribute attribute) {
-		return (ProductAttributeValue) this.em
+		return (ProductAttributeValue) this.getEntityManager()
 				.createNamedQuery(ProductAttributeValue.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProduct", product)
@@ -55,7 +55,8 @@ public class ProductAttributeValueService
 	 * Find by unique key
 	 */
 	public ProductAttributeValue findByName(Long productId, Long attributeId) {
-		return (ProductAttributeValue) this.em
+		return (ProductAttributeValue) this
+				.getEntityManager()
 				.createNamedQuery(
 						ProductAttributeValue.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -74,7 +75,8 @@ public class ProductAttributeValueService
 	 * Find by ID of reference: product.id
 	 */
 	public List<ProductAttributeValue> findByProductId(Long productId) {
-		return (List<ProductAttributeValue>) this.em
+		return (List<ProductAttributeValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAttributeValue e where e.clientId = :pClientId and e.product.id = :pProductId",
 						ProductAttributeValue.class)
@@ -93,7 +95,8 @@ public class ProductAttributeValueService
 	 * Find by ID of reference: attribute.id
 	 */
 	public List<ProductAttributeValue> findByAttributeId(Long attributeId) {
-		return (List<ProductAttributeValue>) this.em
+		return (List<ProductAttributeValue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAttributeValue e where e.clientId = :pClientId and e.attribute.id = :pAttributeId",
 						ProductAttributeValue.class)

@@ -31,7 +31,7 @@ public class ProductAccountGroupService
 
 	public ProductAccountGroupService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class ProductAccountGroupService
 	 * Find by unique key
 	 */
 	public ProductAccountGroup findByCode(String code) {
-		return (ProductAccountGroup) this.em
+		return (ProductAccountGroup) this.getEntityManager()
 				.createNamedQuery(ProductAccountGroup.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -53,7 +53,7 @@ public class ProductAccountGroupService
 	 * Find by unique key
 	 */
 	public ProductAccountGroup findByName(String name) {
-		return (ProductAccountGroup) this.em
+		return (ProductAccountGroup) this.getEntityManager()
 				.createNamedQuery(ProductAccountGroup.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -71,7 +71,8 @@ public class ProductAccountGroupService
 	 * Find by ID of reference: accounts.id
 	 */
 	public List<ProductAccountGroup> findByAccountsId(Long accountsId) {
-		return (List<ProductAccountGroup>) this.em
+		return (List<ProductAccountGroup>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ProductAccountGroup e, IN (e.accounts) c where e.clientId = :pClientId and c.id = :pAccountsId",
 						ProductAccountGroup.class)

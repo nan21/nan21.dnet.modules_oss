@@ -27,7 +27,7 @@ public class CurrencyService extends AbstractEntityService<Currency>
 
 	public CurrencyService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class CurrencyService extends AbstractEntityService<Currency>
 	 * Find by unique key
 	 */
 	public Currency findByCode(String code) {
-		return (Currency) this.em.createNamedQuery(Currency.NQ_FIND_BY_CODE)
+		return (Currency) this.getEntityManager()
+				.createNamedQuery(Currency.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class CurrencyService extends AbstractEntityService<Currency>
 	 * Find by unique key
 	 */
 	public Currency findByName(String name) {
-		return (Currency) this.em.createNamedQuery(Currency.NQ_FIND_BY_NAME)
+		return (Currency) this.getEntityManager()
+				.createNamedQuery(Currency.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

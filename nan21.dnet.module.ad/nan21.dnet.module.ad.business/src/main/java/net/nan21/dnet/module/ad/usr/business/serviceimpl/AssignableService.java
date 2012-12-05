@@ -29,7 +29,7 @@ public class AssignableService extends AbstractEntityService<Assignable>
 
 	public AssignableService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class AssignableService extends AbstractEntityService<Assignable>
 	 * Find by unique key
 	 */
 	public Assignable findByName(String name) {
-		return (Assignable) this.em
+		return (Assignable) this.getEntityManager()
 				.createNamedQuery(Assignable.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -58,7 +58,8 @@ public class AssignableService extends AbstractEntityService<Assignable>
 	 * Find by ID of reference: assignableType.id
 	 */
 	public List<Assignable> findByAssignableTypeId(Long assignableTypeId) {
-		return (List<Assignable>) this.em
+		return (List<Assignable>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Assignable e where e.clientId = :pClientId and e.assignableType.id = :pAssignableTypeId",
 						Assignable.class)

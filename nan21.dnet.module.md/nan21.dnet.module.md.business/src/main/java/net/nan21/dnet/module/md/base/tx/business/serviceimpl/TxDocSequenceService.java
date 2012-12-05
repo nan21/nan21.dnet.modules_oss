@@ -27,7 +27,7 @@ public class TxDocSequenceService extends AbstractEntityService<TxDocSequence>
 
 	public TxDocSequenceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class TxDocSequenceService extends AbstractEntityService<TxDocSequence>
 	 * Find by unique key
 	 */
 	public TxDocSequence findByName(String name) {
-		return (TxDocSequence) this.em
+		return (TxDocSequence) this.getEntityManager()
 				.createNamedQuery(TxDocSequence.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

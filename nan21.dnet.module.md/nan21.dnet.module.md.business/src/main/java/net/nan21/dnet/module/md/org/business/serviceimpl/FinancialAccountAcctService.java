@@ -30,7 +30,7 @@ public class FinancialAccountAcctService
 
 	public FinancialAccountAcctService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,8 @@ public class FinancialAccountAcctService
 	 */
 	public FinancialAccountAcct findByAccount_schema(
 			FinancialAccount financialAccount, AccSchema accSchema) {
-		return (FinancialAccountAcct) this.em
+		return (FinancialAccountAcct) this
+				.getEntityManager()
 				.createNamedQuery(
 						FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -56,7 +57,8 @@ public class FinancialAccountAcctService
 	 */
 	public FinancialAccountAcct findByAccount_schema(Long financialAccountId,
 			Long accSchemaId) {
-		return (FinancialAccountAcct) this.em
+		return (FinancialAccountAcct) this
+				.getEntityManager()
 				.createNamedQuery(
 						FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -77,7 +79,8 @@ public class FinancialAccountAcctService
 	 */
 	public List<FinancialAccountAcct> findByFinancialAccountId(
 			Long financialAccountId) {
-		return (List<FinancialAccountAcct>) this.em
+		return (List<FinancialAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccountAcct e where e.clientId = :pClientId and e.financialAccount.id = :pFinancialAccountId",
 						FinancialAccountAcct.class)
@@ -97,7 +100,8 @@ public class FinancialAccountAcctService
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<FinancialAccountAcct> findByAccSchemaId(Long accSchemaId) {
-		return (List<FinancialAccountAcct>) this.em
+		return (List<FinancialAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccountAcct e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						FinancialAccountAcct.class)
@@ -118,7 +122,8 @@ public class FinancialAccountAcctService
 	 */
 	public List<FinancialAccountAcct> findByDepositAccountId(
 			Long depositAccountId) {
-		return (List<FinancialAccountAcct>) this.em
+		return (List<FinancialAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccountAcct e where e.clientId = :pClientId and e.depositAccount.id = :pDepositAccountId",
 						FinancialAccountAcct.class)
@@ -140,7 +145,8 @@ public class FinancialAccountAcctService
 	 */
 	public List<FinancialAccountAcct> findByWithdrawalAccountId(
 			Long withdrawalAccountId) {
-		return (List<FinancialAccountAcct>) this.em
+		return (List<FinancialAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from FinancialAccountAcct e where e.clientId = :pClientId and e.withdrawalAccount.id = :pWithdrawalAccountId",
 						FinancialAccountAcct.class)

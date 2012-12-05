@@ -53,8 +53,8 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 		String jql = "delete from "
 				+ ProductAttributeValue.class.getSimpleName()
 				+ " e where e.product.id = :productId ";
-		this.em.createQuery(jql).setParameter("productId", product.getId())
-				.executeUpdate();
+		this.getEntityManager().createQuery(jql)
+				.setParameter("productId", product.getId()).executeUpdate();
 	}
 
 	/**
@@ -82,10 +82,11 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 				+ "  from " + AttributeSetAttribute.class.getSimpleName()
 				+ " t " + " where t.attributeSet.id = :setId )  ";
 
-		this.em.createQuery(deleteJpl).setParameter("productId", productId)
+		this.getEntityManager().createQuery(deleteJpl)
+				.setParameter("productId", productId)
 				.setParameter("setId", setId).executeUpdate();
 
-		this.em.flush();
+		this.getEntityManager().flush();
 
 		// add the missing ones
 		Collection<ProductAttributeValue> attrValues = new ArrayList<ProductAttributeValue>();
@@ -96,7 +97,7 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 				+ ProductAttributeValue.class.getSimpleName()
 				+ " v where v.product.id = :productId ) ";
 
-		List<AttributeSetAttribute> groupAttributes = this.em
+		List<AttributeSetAttribute> groupAttributes = this.getEntityManager()
 				.createQuery(addJpl, AttributeSetAttribute.class)
 				.setParameter("productId", productId)
 				.setParameter("setId", setId).getResultList();
@@ -107,7 +108,7 @@ public class SynchronizeProductAttributeBD extends AbstractBusinessDelegate {
 			attrValue.setAttribute(groupAttribute.getAttribute());
 			attrValue.setProduct(product);
 			attrValues.add(attrValue);
-			this.em.persist(attrValue);
+			this.getEntityManager().persist(attrValue);
 		}
 		product.setAttributeValues(attrValues);
 

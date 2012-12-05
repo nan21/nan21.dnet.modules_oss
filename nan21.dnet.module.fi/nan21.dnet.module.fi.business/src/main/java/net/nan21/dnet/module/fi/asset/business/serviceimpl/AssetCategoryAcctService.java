@@ -33,7 +33,7 @@ public class AssetCategoryAcctService
 
 	public AssetCategoryAcctService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class AssetCategoryAcctService
 	 */
 	public AssetCategoryAcct findByAccount_schema(AssetCategory assetCategory,
 			AccSchema accSchema) {
-		return (AssetCategoryAcct) this.em
+		return (AssetCategoryAcct) this.getEntityManager()
 				.createNamedQuery(AssetCategoryAcct.NQ_FIND_BY_ACCOUNT_SCHEMA)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAssetCategory", assetCategory)
@@ -58,7 +58,8 @@ public class AssetCategoryAcctService
 	 */
 	public AssetCategoryAcct findByAccount_schema(Long assetCategoryId,
 			Long accSchemaId) {
-		return (AssetCategoryAcct) this.em
+		return (AssetCategoryAcct) this
+				.getEntityManager()
 				.createNamedQuery(
 						AssetCategoryAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -78,7 +79,8 @@ public class AssetCategoryAcctService
 	 * Find by ID of reference: assetCategory.id
 	 */
 	public List<AssetCategoryAcct> findByAssetCategoryId(Long assetCategoryId) {
-		return (List<AssetCategoryAcct>) this.em
+		return (List<AssetCategoryAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetCategoryAcct e where e.clientId = :pClientId and e.assetCategory.id = :pAssetCategoryId",
 						AssetCategoryAcct.class)
@@ -98,7 +100,8 @@ public class AssetCategoryAcctService
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<AssetCategoryAcct> findByAccSchemaId(Long accSchemaId) {
-		return (List<AssetCategoryAcct>) this.em
+		return (List<AssetCategoryAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetCategoryAcct e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						AssetCategoryAcct.class)
@@ -117,7 +120,8 @@ public class AssetCategoryAcctService
 	 * Find by ID of reference: deprecAccount.id
 	 */
 	public List<AssetCategoryAcct> findByDeprecAccountId(Long deprecAccountId) {
-		return (List<AssetCategoryAcct>) this.em
+		return (List<AssetCategoryAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetCategoryAcct e where e.clientId = :pClientId and e.deprecAccount.id = :pDeprecAccountId",
 						AssetCategoryAcct.class)
@@ -139,7 +143,8 @@ public class AssetCategoryAcctService
 	 */
 	public List<AssetCategoryAcct> findByAcmlDeprecAccountId(
 			Long acmlDeprecAccountId) {
-		return (List<AssetCategoryAcct>) this.em
+		return (List<AssetCategoryAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AssetCategoryAcct e where e.clientId = :pClientId and e.acmlDeprecAccount.id = :pAcmlDeprecAccountId",
 						AssetCategoryAcct.class)

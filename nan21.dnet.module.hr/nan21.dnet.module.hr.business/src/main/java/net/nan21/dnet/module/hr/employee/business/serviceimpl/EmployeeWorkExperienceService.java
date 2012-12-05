@@ -31,7 +31,7 @@ public class EmployeeWorkExperienceService
 
 	public EmployeeWorkExperienceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class EmployeeWorkExperienceService
 	 * Find by ID of reference: employee.id
 	 */
 	public List<EmployeeWorkExperience> findByEmployeeId(Long employeeId) {
-		return (List<EmployeeWorkExperience>) this.em
+		return (List<EmployeeWorkExperience>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeWorkExperience e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						EmployeeWorkExperience.class)

@@ -27,7 +27,7 @@ public class EducationTypeService extends AbstractEntityService<EducationType>
 
 	public EducationTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class EducationTypeService extends AbstractEntityService<EducationType>
 	 * Find by unique key
 	 */
 	public EducationType findByName(String name) {
-		return (EducationType) this.em
+		return (EducationType) this.getEntityManager()
 				.createNamedQuery(EducationType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

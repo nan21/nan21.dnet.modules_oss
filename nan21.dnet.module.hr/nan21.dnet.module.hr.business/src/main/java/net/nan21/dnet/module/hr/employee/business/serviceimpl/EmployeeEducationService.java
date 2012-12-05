@@ -32,7 +32,7 @@ public class EmployeeEducationService
 
 	public EmployeeEducationService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class EmployeeEducationService
 	 * Find by ID of reference: employee.id
 	 */
 	public List<EmployeeEducation> findByEmployeeId(Long employeeId) {
-		return (List<EmployeeEducation>) this.em
+		return (List<EmployeeEducation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeEducation e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						EmployeeEducation.class)
@@ -70,7 +71,8 @@ public class EmployeeEducationService
 	 * Find by ID of reference: type.id
 	 */
 	public List<EmployeeEducation> findByTypeId(Long typeId) {
-		return (List<EmployeeEducation>) this.em
+		return (List<EmployeeEducation>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeEducation e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						EmployeeEducation.class)

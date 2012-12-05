@@ -30,7 +30,7 @@ public class ExportJobItemService extends AbstractEntityService<ExportJobItem>
 
 	public ExportJobItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class ExportJobItemService extends AbstractEntityService<ExportJobItem>
 	 * Find by unique key
 	 */
 	public ExportJobItem findByJob_map(ExportJob job, ExportMap map) {
-		return (ExportJobItem) this.em
+		return (ExportJobItem) this.getEntityManager()
 				.createNamedQuery(ExportJobItem.NQ_FIND_BY_JOB_MAP)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJob", job).setParameter("pMap", map)
@@ -53,7 +53,7 @@ public class ExportJobItemService extends AbstractEntityService<ExportJobItem>
 	 * Find by unique key
 	 */
 	public ExportJobItem findByJob_map(Long jobId, Long mapId) {
-		return (ExportJobItem) this.em
+		return (ExportJobItem) this.getEntityManager()
 				.createNamedQuery(ExportJobItem.NQ_FIND_BY_JOB_MAP_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJobId", jobId).setParameter("pMapId", mapId)
@@ -71,7 +71,8 @@ public class ExportJobItemService extends AbstractEntityService<ExportJobItem>
 	 * Find by ID of reference: job.id
 	 */
 	public List<ExportJobItem> findByJobId(Long jobId) {
-		return (List<ExportJobItem>) this.em
+		return (List<ExportJobItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ExportJobItem e where e.clientId = :pClientId and e.job.id = :pJobId",
 						ExportJobItem.class)
@@ -90,7 +91,8 @@ public class ExportJobItemService extends AbstractEntityService<ExportJobItem>
 	 * Find by ID of reference: map.id
 	 */
 	public List<ExportJobItem> findByMapId(Long mapId) {
-		return (List<ExportJobItem>) this.em
+		return (List<ExportJobItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ExportJobItem e where e.clientId = :pClientId and e.map.id = :pMapId",
 						ExportJobItem.class)

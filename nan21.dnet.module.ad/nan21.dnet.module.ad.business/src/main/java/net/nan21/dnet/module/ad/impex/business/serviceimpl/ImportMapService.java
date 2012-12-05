@@ -29,7 +29,7 @@ public class ImportMapService extends AbstractEntityService<ImportMap>
 
 	public ImportMapService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class ImportMapService extends AbstractEntityService<ImportMap>
 	 * Find by unique key
 	 */
 	public ImportMap findByName(String name) {
-		return (ImportMap) this.em.createNamedQuery(ImportMap.NQ_FIND_BY_NAME)
+		return (ImportMap) this.getEntityManager()
+				.createNamedQuery(ImportMap.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class ImportMapService extends AbstractEntityService<ImportMap>
 	 * Find by ID of reference: items.id
 	 */
 	public List<ImportMap> findByItemsId(Long itemsId) {
-		return (List<ImportMap>) this.em
+		return (List<ImportMap>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ImportMap e, IN (e.items) c where e.clientId = :pClientId and c.id = :pItemsId",
 						ImportMap.class)

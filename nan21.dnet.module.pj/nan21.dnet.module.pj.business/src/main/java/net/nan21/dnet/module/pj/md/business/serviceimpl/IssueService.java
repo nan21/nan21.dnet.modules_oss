@@ -38,7 +38,7 @@ public class IssueService extends AbstractEntityService<Issue>
 
 	public IssueService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by unique key
 	 */
 	public Issue findByCode(String code) {
-		return (Issue) this.em.createNamedQuery(Issue.NQ_FIND_BY_CODE)
+		return (Issue) this.getEntityManager()
+				.createNamedQuery(Issue.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -66,7 +67,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: project.id
 	 */
 	public List<Issue> findByProjectId(Long projectId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.project.id = :pProjectId",
 						Issue.class)
@@ -85,7 +87,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: status.id
 	 */
 	public List<Issue> findByStatusId(Long statusId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.status.id = :pStatusId",
 						Issue.class)
@@ -104,7 +107,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Issue> findByTypeId(Long typeId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Issue.class)
@@ -123,7 +127,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: priority.id
 	 */
 	public List<Issue> findByPriorityId(Long priorityId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.priority.id = :pPriorityId",
 						Issue.class)
@@ -142,7 +147,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: resolution.id
 	 */
 	public List<Issue> findByResolutionId(Long resolutionId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.resolution.id = :pResolutionId",
 						Issue.class)
@@ -161,7 +167,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: severity.id
 	 */
 	public List<Issue> findBySeverityId(Long severityId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.severity.id = :pSeverityId",
 						Issue.class)
@@ -180,7 +187,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: reportedVersion.id
 	 */
 	public List<Issue> findByReportedVersionId(Long reportedVersionId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.reportedVersion.id = :pReportedVersionId",
 						Issue.class)
@@ -200,7 +208,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: targetVersion.id
 	 */
 	public List<Issue> findByTargetVersionId(Long targetVersionId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.targetVersion.id = :pTargetVersionId",
 						Issue.class)
@@ -220,7 +229,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: fixedInVersion.id
 	 */
 	public List<Issue> findByFixedInVersionId(Long fixedInVersionId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.fixedInVersion.id = :pFixedInVersionId",
 						Issue.class)
@@ -240,7 +250,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: assignee.id
 	 */
 	public List<Issue> findByAssigneeId(Long assigneeId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.assignee.id = :pAssigneeId",
 						Issue.class)
@@ -259,7 +270,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: assigneeRole.id
 	 */
 	public List<Issue> findByAssigneeRoleId(Long assigneeRoleId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Issue e where e.clientId = :pClientId and e.assigneeRole.id = :pAssigneeRoleId",
 						Issue.class)
@@ -279,7 +291,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: affectedVersions.id
 	 */
 	public List<Issue> findByAffectedVersionsId(Long affectedVersionsId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Issue e, IN (e.affectedVersions) c where e.clientId = :pClientId and c.id = :pAffectedVersionsId",
 						Issue.class)
@@ -300,7 +313,8 @@ public class IssueService extends AbstractEntityService<Issue>
 	 * Find by ID of reference: affectedComponents.id
 	 */
 	public List<Issue> findByAffectedComponentsId(Long affectedComponentsId) {
-		return (List<Issue>) this.em
+		return (List<Issue>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Issue e, IN (e.affectedComponents) c where e.clientId = :pClientId and c.id = :pAffectedComponentsId",
 						Issue.class)

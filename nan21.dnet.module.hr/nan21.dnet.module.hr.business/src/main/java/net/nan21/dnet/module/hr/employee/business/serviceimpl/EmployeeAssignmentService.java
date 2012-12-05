@@ -37,7 +37,7 @@ public class EmployeeAssignmentService
 
 	public EmployeeAssignmentService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -56,7 +56,8 @@ public class EmployeeAssignmentService
 	 * Find by ID of reference: employee.id
 	 */
 	public List<EmployeeAssignment> findByEmployeeId(Long employeeId) {
-		return (List<EmployeeAssignment>) this.em
+		return (List<EmployeeAssignment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeAssignment e where e.clientId = :pClientId and e.employee.id = :pEmployeeId",
 						EmployeeAssignment.class)
@@ -75,7 +76,8 @@ public class EmployeeAssignmentService
 	 * Find by ID of reference: type.id
 	 */
 	public List<EmployeeAssignment> findByTypeId(Long typeId) {
-		return (List<EmployeeAssignment>) this.em
+		return (List<EmployeeAssignment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeAssignment e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						EmployeeAssignment.class)
@@ -94,7 +96,8 @@ public class EmployeeAssignmentService
 	 * Find by ID of reference: position.id
 	 */
 	public List<EmployeeAssignment> findByPositionId(Long positionId) {
-		return (List<EmployeeAssignment>) this.em
+		return (List<EmployeeAssignment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeAssignment e where e.clientId = :pClientId and e.position.id = :pPositionId",
 						EmployeeAssignment.class)
@@ -113,7 +116,8 @@ public class EmployeeAssignmentService
 	 * Find by ID of reference: job.id
 	 */
 	public List<EmployeeAssignment> findByJobId(Long jobId) {
-		return (List<EmployeeAssignment>) this.em
+		return (List<EmployeeAssignment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeAssignment e where e.clientId = :pClientId and e.job.id = :pJobId",
 						EmployeeAssignment.class)
@@ -132,7 +136,8 @@ public class EmployeeAssignmentService
 	 * Find by ID of reference: org.id
 	 */
 	public List<EmployeeAssignment> findByOrgId(Long orgId) {
-		return (List<EmployeeAssignment>) this.em
+		return (List<EmployeeAssignment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeAssignment e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						EmployeeAssignment.class)
@@ -151,7 +156,8 @@ public class EmployeeAssignmentService
 	 * Find by ID of reference: grade.id
 	 */
 	public List<EmployeeAssignment> findByGradeId(Long gradeId) {
-		return (List<EmployeeAssignment>) this.em
+		return (List<EmployeeAssignment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeAssignment e where e.clientId = :pClientId and e.grade.id = :pGradeId",
 						EmployeeAssignment.class)
@@ -170,7 +176,8 @@ public class EmployeeAssignmentService
 	 * Find by ID of reference: payroll.id
 	 */
 	public List<EmployeeAssignment> findByPayrollId(Long payrollId) {
-		return (List<EmployeeAssignment>) this.em
+		return (List<EmployeeAssignment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from EmployeeAssignment e where e.clientId = :pClientId and e.payroll.id = :pPayrollId",
 						EmployeeAssignment.class)

@@ -26,8 +26,8 @@ public class Setup_HR extends AbstractBusinessSetupParticipant implements
 		// database objects are created in the right order
 		// in case the object creation is managed by Eclipselink
 
-		this.em.createQuery("select count(e) from Employee e").getResultList()
-				.get(0);
+		this.getEntityManager().createQuery("select count(e) from Employee e")
+				.getResultList().get(0);
 
 	}
 

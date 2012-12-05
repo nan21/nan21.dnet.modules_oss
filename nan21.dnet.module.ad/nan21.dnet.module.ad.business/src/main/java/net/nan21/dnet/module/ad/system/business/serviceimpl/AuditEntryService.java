@@ -29,7 +29,7 @@ public class AuditEntryService extends AbstractEntityService<AuditEntry>
 
 	public AuditEntryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class AuditEntryService extends AbstractEntityService<AuditEntry>
 	 * Find by ID of reference: auditFields.id
 	 */
 	public List<AuditEntry> findByAuditFieldsId(Long auditFieldsId) {
-		return (List<AuditEntry>) this.em
+		return (List<AuditEntry>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from AuditEntry e, IN (e.auditFields) c where e.clientId = :pClientId and c.id = :pAuditFieldsId",
 						AuditEntry.class)

@@ -28,7 +28,7 @@ public class QuartzCalendarService
 
 	public QuartzCalendarService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

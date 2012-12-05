@@ -27,7 +27,7 @@ public class AssetCategoryService extends AbstractEntityService<AssetCategory>
 
 	public AssetCategoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class AssetCategoryService extends AbstractEntityService<AssetCategory>
 	 * Find by unique key
 	 */
 	public AssetCategory findByCode(String code) {
-		return (AssetCategory) this.em
+		return (AssetCategory) this.getEntityManager()
 				.createNamedQuery(AssetCategory.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -49,7 +49,7 @@ public class AssetCategoryService extends AbstractEntityService<AssetCategory>
 	 * Find by unique key
 	 */
 	public AssetCategory findByName(String name) {
-		return (AssetCategory) this.em
+		return (AssetCategory) this.getEntityManager()
 				.createNamedQuery(AssetCategory.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

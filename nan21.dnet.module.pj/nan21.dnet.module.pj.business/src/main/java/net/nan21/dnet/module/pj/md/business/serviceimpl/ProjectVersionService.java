@@ -32,7 +32,7 @@ public class ProjectVersionService
 
 	public ProjectVersionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class ProjectVersionService
 	 * Find by unique key
 	 */
 	public ProjectVersion findByName(Project project, String name) {
-		return (ProjectVersion) this.em
+		return (ProjectVersion) this.getEntityManager()
 				.createNamedQuery(ProjectVersion.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProject", project).setParameter("pName", name)
@@ -55,7 +55,7 @@ public class ProjectVersionService
 	 * Find by unique key
 	 */
 	public ProjectVersion findByName(Long projectId, String name) {
-		return (ProjectVersion) this.em
+		return (ProjectVersion) this.getEntityManager()
 				.createNamedQuery(ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProjectId", projectId)
@@ -73,7 +73,8 @@ public class ProjectVersionService
 	 * Find by ID of reference: project.id
 	 */
 	public List<ProjectVersion> findByProjectId(Long projectId) {
-		return (List<ProjectVersion>) this.em
+		return (List<ProjectVersion>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProjectVersion e where e.clientId = :pClientId and e.project.id = :pProjectId",
 						ProjectVersion.class)
@@ -92,7 +93,8 @@ public class ProjectVersionService
 	 * Find by ID of reference: affectingIssues.id
 	 */
 	public List<ProjectVersion> findByAffectingIssuesId(Long affectingIssuesId) {
-		return (List<ProjectVersion>) this.em
+		return (List<ProjectVersion>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ProjectVersion e, IN (e.affectingIssues) c where e.clientId = :pClientId and c.id = :pAffectingIssuesId",
 						ProjectVersion.class)

@@ -31,7 +31,7 @@ public class AbsenceRequestItemService
 
 	public AbsenceRequestItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class AbsenceRequestItemService
 	 * Find by ID of reference: absenceRequest.id
 	 */
 	public List<AbsenceRequestItem> findByAbsenceRequestId(Long absenceRequestId) {
-		return (List<AbsenceRequestItem>) this.em
+		return (List<AbsenceRequestItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AbsenceRequestItem e where e.clientId = :pClientId and e.absenceRequest.id = :pAbsenceRequestId",
 						AbsenceRequestItem.class)

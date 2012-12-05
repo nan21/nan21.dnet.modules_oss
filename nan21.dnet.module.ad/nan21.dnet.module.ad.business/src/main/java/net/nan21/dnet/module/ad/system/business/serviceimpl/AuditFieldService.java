@@ -29,7 +29,7 @@ public class AuditFieldService extends AbstractEntityService<AuditField>
 
 	public AuditFieldService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class AuditFieldService extends AbstractEntityService<AuditField>
 	 * Find by ID of reference: auditEntry.id
 	 */
 	public List<AuditField> findByAuditEntryId(Long auditEntryId) {
-		return (List<AuditField>) this.em
+		return (List<AuditField>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AuditField e where e.clientId = :pClientId and e.auditEntry.id = :pAuditEntryId",
 						AuditField.class)

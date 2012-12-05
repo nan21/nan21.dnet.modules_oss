@@ -29,7 +29,7 @@ public class RegionService extends AbstractEntityService<Region>
 
 	public RegionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class RegionService extends AbstractEntityService<Region>
 	 * Find by unique key
 	 */
 	public Region findByCodeAndCountry(Country country, String code) {
-		return (Region) this.em
+		return (Region) this.getEntityManager()
 				.createNamedQuery(Region.NQ_FIND_BY_CODEANDCOUNTRY)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCountry", country).setParameter("pCode", code)
@@ -52,7 +52,7 @@ public class RegionService extends AbstractEntityService<Region>
 	 * Find by unique key
 	 */
 	public Region findByCodeAndCountry(Long countryId, String code) {
-		return (Region) this.em
+		return (Region) this.getEntityManager()
 				.createNamedQuery(Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCountryId", countryId)
@@ -70,7 +70,8 @@ public class RegionService extends AbstractEntityService<Region>
 	 * Find by ID of reference: country.id
 	 */
 	public List<Region> findByCountryId(Long countryId) {
-		return (List<Region>) this.em
+		return (List<Region>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Region e where e.clientId = :pClientId and e.country.id = :pCountryId",
 						Region.class)

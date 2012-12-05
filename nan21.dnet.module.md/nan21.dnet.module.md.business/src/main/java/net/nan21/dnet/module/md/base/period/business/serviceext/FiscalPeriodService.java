@@ -29,7 +29,8 @@ public class FiscalPeriodService
 	public FiscalPeriod getPostingPeriod(Date date, Organization org)
 			throws BusinessException {
 		try {
-			FiscalPeriod period = (FiscalPeriod) this.em
+			FiscalPeriod period = (FiscalPeriod) this
+					.getEntityManager()
 					.createQuery(
 							"select e from FiscalPeriod e "
 									+ "	where e.clientId = :pClientId "

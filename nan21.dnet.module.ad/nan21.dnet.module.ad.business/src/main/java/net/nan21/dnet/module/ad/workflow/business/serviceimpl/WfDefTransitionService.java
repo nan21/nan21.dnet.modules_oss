@@ -32,7 +32,7 @@ public class WfDefTransitionService
 
 	public WfDefTransitionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class WfDefTransitionService
 	 * Find by ID of reference: process.id
 	 */
 	public List<WfDefTransition> findByProcessId(Long processId) {
-		return (List<WfDefTransition>) this.em
+		return (List<WfDefTransition>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from WfDefTransition e where e.clientId = :pClientId and e.process.id = :pProcessId",
 						WfDefTransition.class)
@@ -70,7 +71,8 @@ public class WfDefTransitionService
 	 * Find by ID of reference: source.id
 	 */
 	public List<WfDefTransition> findBySourceId(Long sourceId) {
-		return (List<WfDefTransition>) this.em
+		return (List<WfDefTransition>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from WfDefTransition e where e.clientId = :pClientId and e.source.id = :pSourceId",
 						WfDefTransition.class)
@@ -89,7 +91,8 @@ public class WfDefTransitionService
 	 * Find by ID of reference: target.id
 	 */
 	public List<WfDefTransition> findByTargetId(Long targetId) {
-		return (List<WfDefTransition>) this.em
+		return (List<WfDefTransition>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from WfDefTransition e where e.clientId = :pClientId and e.target.id = :pTargetId",
 						WfDefTransition.class)

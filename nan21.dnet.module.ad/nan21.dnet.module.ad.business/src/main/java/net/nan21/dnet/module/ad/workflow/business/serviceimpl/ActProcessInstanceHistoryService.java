@@ -30,7 +30,7 @@ public class ActProcessInstanceHistoryService
 
 	public ActProcessInstanceHistoryService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class ActProcessInstanceHistoryService
 	 */
 	public List<ActProcessInstanceHistory> findByProcessDefinitionId(
 			String processDefinitionId) {
-		return (List<ActProcessInstanceHistory>) this.em
+		return (List<ActProcessInstanceHistory>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ActProcessInstanceHistory e where  e.processDefinition.id = :pProcessDefinitionId",
 						ActProcessInstanceHistory.class)

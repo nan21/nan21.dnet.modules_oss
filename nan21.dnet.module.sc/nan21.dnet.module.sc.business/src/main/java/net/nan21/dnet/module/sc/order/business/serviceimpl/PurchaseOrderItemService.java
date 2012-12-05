@@ -32,7 +32,7 @@ public class PurchaseOrderItemService
 
 	public PurchaseOrderItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -52,7 +52,8 @@ public class PurchaseOrderItemService
 	 * Find by ID of reference: purchaseOrder.id
 	 */
 	public List<PurchaseOrderItem> findByPurchaseOrderId(Long purchaseOrderId) {
-		return (List<PurchaseOrderItem>) this.em
+		return (List<PurchaseOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseOrderItem e where e.clientId = :pClientId and e.purchaseOrder.id = :pPurchaseOrderId",
 						PurchaseOrderItem.class)
@@ -72,7 +73,8 @@ public class PurchaseOrderItemService
 	 * Find by ID of reference: product.id
 	 */
 	public List<PurchaseOrderItem> findByProductId(Long productId) {
-		return (List<PurchaseOrderItem>) this.em
+		return (List<PurchaseOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseOrderItem e where e.clientId = :pClientId and e.product.id = :pProductId",
 						PurchaseOrderItem.class)
@@ -91,7 +93,8 @@ public class PurchaseOrderItemService
 	 * Find by ID of reference: uom.id
 	 */
 	public List<PurchaseOrderItem> findByUomId(Long uomId) {
-		return (List<PurchaseOrderItem>) this.em
+		return (List<PurchaseOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseOrderItem e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						PurchaseOrderItem.class)
@@ -110,7 +113,8 @@ public class PurchaseOrderItemService
 	 * Find by ID of reference: tax.id
 	 */
 	public List<PurchaseOrderItem> findByTaxId(Long taxId) {
-		return (List<PurchaseOrderItem>) this.em
+		return (List<PurchaseOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PurchaseOrderItem e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						PurchaseOrderItem.class)
@@ -130,7 +134,8 @@ public class PurchaseOrderItemService
 	 * Find by ID of reference: itemTaxes.id
 	 */
 	public List<PurchaseOrderItem> findByItemTaxesId(Long itemTaxesId) {
-		return (List<PurchaseOrderItem>) this.em
+		return (List<PurchaseOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from PurchaseOrderItem e, IN (e.itemTaxes) c where e.clientId = :pClientId and c.id = :pItemTaxesId",
 						PurchaseOrderItem.class)

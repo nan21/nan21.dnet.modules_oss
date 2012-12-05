@@ -32,7 +32,7 @@ public class AttributeSetAttributeService
 
 	public AttributeSetAttributeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class AttributeSetAttributeService
 	 */
 	public AttributeSetAttribute findByName(AttributeSet attributeSet,
 			Attribute attribute) {
-		return (AttributeSetAttribute) this.em
+		return (AttributeSetAttribute) this.getEntityManager()
 				.createNamedQuery(AttributeSetAttribute.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAttributeSet", attributeSet)
@@ -57,7 +57,8 @@ public class AttributeSetAttributeService
 	 */
 	public AttributeSetAttribute findByName(Long attributeSetId,
 			Long attributeId) {
-		return (AttributeSetAttribute) this.em
+		return (AttributeSetAttribute) this
+				.getEntityManager()
 				.createNamedQuery(
 						AttributeSetAttribute.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -77,7 +78,8 @@ public class AttributeSetAttributeService
 	 * Find by ID of reference: attributeSet.id
 	 */
 	public List<AttributeSetAttribute> findByAttributeSetId(Long attributeSetId) {
-		return (List<AttributeSetAttribute>) this.em
+		return (List<AttributeSetAttribute>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AttributeSetAttribute e where e.clientId = :pClientId and e.attributeSet.id = :pAttributeSetId",
 						AttributeSetAttribute.class)
@@ -97,7 +99,8 @@ public class AttributeSetAttributeService
 	 * Find by ID of reference: attribute.id
 	 */
 	public List<AttributeSetAttribute> findByAttributeId(Long attributeId) {
-		return (List<AttributeSetAttribute>) this.em
+		return (List<AttributeSetAttribute>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AttributeSetAttribute e where e.clientId = :pClientId and e.attribute.id = :pAttributeId",
 						AttributeSetAttribute.class)

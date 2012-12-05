@@ -28,7 +28,7 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice> {
 
 	public ProductPriceService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice> {
 	 */
 	public ProductPrice findByName(PriceListVersion priceListVersion,
 			Product product) {
-		return (ProductPrice) this.em
+		return (ProductPrice) this.getEntityManager()
 				.createNamedQuery(ProductPrice.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pPriceListVersion", priceListVersion)
@@ -52,7 +52,7 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice> {
 	 * Find by unique key
 	 */
 	public ProductPrice findByName(Long priceListVersionId, Long productId) {
-		return (ProductPrice) this.em
+		return (ProductPrice) this.getEntityManager()
 				.createNamedQuery(ProductPrice.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pPriceListVersionId", priceListVersionId)
@@ -71,7 +71,8 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice> {
 	 * Find by ID of reference: priceListVersion.id
 	 */
 	public List<ProductPrice> findByPriceListVersionId(Long priceListVersionId) {
-		return (List<ProductPrice>) this.em
+		return (List<ProductPrice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductPrice e where e.clientId = :pClientId and e.priceListVersion.id = :pPriceListVersionId",
 						ProductPrice.class)
@@ -91,7 +92,8 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice> {
 	 * Find by ID of reference: product.id
 	 */
 	public List<ProductPrice> findByProductId(Long productId) {
-		return (List<ProductPrice>) this.em
+		return (List<ProductPrice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductPrice e where e.clientId = :pClientId and e.product.id = :pProductId",
 						ProductPrice.class)
@@ -110,7 +112,8 @@ public class ProductPriceService extends AbstractEntityService<ProductPrice> {
 	 * Find by ID of reference: uom.id
 	 */
 	public List<ProductPrice> findByUomId(Long uomId) {
-		return (List<ProductPrice>) this.em
+		return (List<ProductPrice>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductPrice e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						ProductPrice.class)

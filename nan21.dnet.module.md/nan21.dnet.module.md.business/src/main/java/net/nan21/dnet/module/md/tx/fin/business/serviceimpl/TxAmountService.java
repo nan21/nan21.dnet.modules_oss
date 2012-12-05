@@ -32,7 +32,7 @@ public class TxAmountService extends AbstractEntityService<TxAmount>
 
 	public TxAmountService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class TxAmountService extends AbstractEntityService<TxAmount>
 	 * Find by ID of reference: bpartner.id
 	 */
 	public List<TxAmount> findByBpartnerId(Long bpartnerId) {
-		return (List<TxAmount>) this.em
+		return (List<TxAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxAmount e where e.clientId = :pClientId and e.bpartner.id = :pBpartnerId",
 						TxAmount.class)
@@ -70,7 +71,8 @@ public class TxAmountService extends AbstractEntityService<TxAmount>
 	 * Find by ID of reference: org.id
 	 */
 	public List<TxAmount> findByOrgId(Long orgId) {
-		return (List<TxAmount>) this.em
+		return (List<TxAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxAmount e where e.clientId = :pClientId and e.org.id = :pOrgId",
 						TxAmount.class)
@@ -89,7 +91,8 @@ public class TxAmountService extends AbstractEntityService<TxAmount>
 	 * Find by ID of reference: paymentMethod.id
 	 */
 	public List<TxAmount> findByPaymentMethodId(Long paymentMethodId) {
-		return (List<TxAmount>) this.em
+		return (List<TxAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxAmount e where e.clientId = :pClientId and e.paymentMethod.id = :pPaymentMethodId",
 						TxAmount.class)
@@ -109,7 +112,8 @@ public class TxAmountService extends AbstractEntityService<TxAmount>
 	 * Find by ID of reference: currency.id
 	 */
 	public List<TxAmount> findByCurrencyId(Long currencyId) {
-		return (List<TxAmount>) this.em
+		return (List<TxAmount>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from TxAmount e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						TxAmount.class)

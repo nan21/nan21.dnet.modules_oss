@@ -29,7 +29,7 @@ public class CalendarEventStatusService
 
 	public CalendarEventStatusService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CalendarEventStatusService
 	 * Find by unique key
 	 */
 	public CalendarEventStatus findByType_and_name(String eventType, String name) {
-		return (CalendarEventStatus) this.em
+		return (CalendarEventStatus) this.getEntityManager()
 				.createNamedQuery(CalendarEventStatus.NQ_FIND_BY_TYPE_AND_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEventType", eventType)

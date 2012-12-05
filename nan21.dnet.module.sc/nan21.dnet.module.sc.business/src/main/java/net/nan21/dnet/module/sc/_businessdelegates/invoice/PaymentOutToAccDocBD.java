@@ -41,12 +41,14 @@ public class PaymentOutToAccDocBD extends AbstractBusinessDelegate {
 	 */
 	public void unPost(PaymentOut payment) throws BusinessException {
 		try {
-			this.em.createQuery(
-					"delete from AccDoc t " + " where t.docUuid = :invoiceUuid")
+			this.getEntityManager()
+					.createQuery(
+							"delete from AccDoc t "
+									+ " where t.docUuid = :invoiceUuid")
 					.setParameter("invoiceUuid", payment.getUuid())
 					.executeUpdate();
 			payment.setPosted(false);
-			this.em.merge(payment);
+			this.getEntityManager().merge(payment);
 		} catch (Exception e) {
 			if (e.getCause() != null
 					&& e.getCause() instanceof SQLIntegrityConstraintViolationException) {
@@ -77,10 +79,10 @@ public class PaymentOutToAccDocBD extends AbstractBusinessDelegate {
 		for (AccSchema schema : schemas) {
 			AccDoc doc = this.generateAccDoc(payment, schema);
 			result.add(doc);
-			this.em.persist(doc);
+			this.getEntityManager().persist(doc);
 		}
 		payment.setPosted(true);
-		this.em.merge(payment);
+		this.getEntityManager().merge(payment);
 		return result;
 	}
 

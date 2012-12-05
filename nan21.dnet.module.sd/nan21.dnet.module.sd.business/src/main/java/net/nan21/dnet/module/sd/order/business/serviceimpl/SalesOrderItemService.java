@@ -32,7 +32,7 @@ public class SalesOrderItemService
 
 	public SalesOrderItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -51,7 +51,8 @@ public class SalesOrderItemService
 	 * Find by ID of reference: salesOrder.id
 	 */
 	public List<SalesOrderItem> findBySalesOrderId(Long salesOrderId) {
-		return (List<SalesOrderItem>) this.em
+		return (List<SalesOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesOrderItem e where e.clientId = :pClientId and e.salesOrder.id = :pSalesOrderId",
 						SalesOrderItem.class)
@@ -70,7 +71,8 @@ public class SalesOrderItemService
 	 * Find by ID of reference: product.id
 	 */
 	public List<SalesOrderItem> findByProductId(Long productId) {
-		return (List<SalesOrderItem>) this.em
+		return (List<SalesOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesOrderItem e where e.clientId = :pClientId and e.product.id = :pProductId",
 						SalesOrderItem.class)
@@ -89,7 +91,8 @@ public class SalesOrderItemService
 	 * Find by ID of reference: uom.id
 	 */
 	public List<SalesOrderItem> findByUomId(Long uomId) {
-		return (List<SalesOrderItem>) this.em
+		return (List<SalesOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesOrderItem e where e.clientId = :pClientId and e.uom.id = :pUomId",
 						SalesOrderItem.class)
@@ -108,7 +111,8 @@ public class SalesOrderItemService
 	 * Find by ID of reference: tax.id
 	 */
 	public List<SalesOrderItem> findByTaxId(Long taxId) {
-		return (List<SalesOrderItem>) this.em
+		return (List<SalesOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SalesOrderItem e where e.clientId = :pClientId and e.tax.id = :pTaxId",
 						SalesOrderItem.class)
@@ -127,7 +131,8 @@ public class SalesOrderItemService
 	 * Find by ID of reference: itemTaxes.id
 	 */
 	public List<SalesOrderItem> findByItemTaxesId(Long itemTaxesId) {
-		return (List<SalesOrderItem>) this.em
+		return (List<SalesOrderItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from SalesOrderItem e, IN (e.itemTaxes) c where e.clientId = :pClientId and c.id = :pItemTaxesId",
 						SalesOrderItem.class)

@@ -27,7 +27,7 @@ public class IssueTaskTypeService extends AbstractEntityService<IssueTaskType>
 
 	public IssueTaskTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IssueTaskTypeService extends AbstractEntityService<IssueTaskType>
 	 * Find by unique key
 	 */
 	public IssueTaskType findByName(String name) {
-		return (IssueTaskType) this.em
+		return (IssueTaskType) this.getEntityManager()
 				.createNamedQuery(IssueTaskType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

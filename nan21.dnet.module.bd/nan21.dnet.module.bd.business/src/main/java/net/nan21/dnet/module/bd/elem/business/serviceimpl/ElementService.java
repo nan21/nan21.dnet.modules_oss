@@ -32,7 +32,7 @@ public class ElementService extends AbstractEntityService<Element>
 
 	public ElementService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class ElementService extends AbstractEntityService<Element>
 	 * Find by unique key
 	 */
 	public Element findByEngine_code(Engine engine, String code) {
-		return (Element) this.em
+		return (Element) this.getEntityManager()
 				.createNamedQuery(Element.NQ_FIND_BY_ENGINE_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngine", engine).setParameter("pCode", code)
@@ -55,7 +55,7 @@ public class ElementService extends AbstractEntityService<Element>
 	 * Find by unique key
 	 */
 	public Element findByEngine_code(Long engineId, String code) {
-		return (Element) this.em
+		return (Element) this.getEntityManager()
 				.createNamedQuery(Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pEngineId", engineId)
@@ -73,7 +73,8 @@ public class ElementService extends AbstractEntityService<Element>
 	 * Find by ID of reference: engine.id
 	 */
 	public List<Element> findByEngineId(Long engineId) {
-		return (List<Element>) this.em
+		return (List<Element>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Element e where e.clientId = :pClientId and e.engine.id = :pEngineId",
 						Element.class)
@@ -92,7 +93,8 @@ public class ElementService extends AbstractEntityService<Element>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Element> findByTypeId(Long typeId) {
-		return (List<Element>) this.em
+		return (List<Element>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Element e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Element.class)
@@ -111,7 +113,8 @@ public class ElementService extends AbstractEntityService<Element>
 	 * Find by ID of reference: variables.id
 	 */
 	public List<Element> findByVariablesId(Long variablesId) {
-		return (List<Element>) this.em
+		return (List<Element>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Element e, IN (e.variables) c where e.clientId = :pClientId and c.id = :pVariablesId",
 						Element.class)
@@ -130,7 +133,8 @@ public class ElementService extends AbstractEntityService<Element>
 	 * Find by ID of reference: formulas.id
 	 */
 	public List<Element> findByFormulasId(Long formulasId) {
-		return (List<Element>) this.em
+		return (List<Element>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from Element e, IN (e.formulas) c where e.clientId = :pClientId and c.id = :pFormulasId",
 						Element.class)

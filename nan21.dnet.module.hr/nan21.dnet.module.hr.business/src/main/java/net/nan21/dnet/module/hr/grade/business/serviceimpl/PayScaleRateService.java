@@ -30,7 +30,7 @@ public class PayScaleRateService extends AbstractEntityService<PayScaleRate>
 
 	public PayScaleRateService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class PayScaleRateService extends AbstractEntityService<PayScaleRate>
 	 * Find by unique key
 	 */
 	public PayScaleRate findByName(String name) {
-		return (PayScaleRate) this.em
+		return (PayScaleRate) this.getEntityManager()
 				.createNamedQuery(PayScaleRate.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -59,7 +59,8 @@ public class PayScaleRateService extends AbstractEntityService<PayScaleRate>
 	 * Find by ID of reference: payScale.id
 	 */
 	public List<PayScaleRate> findByPayScaleId(Long payScaleId) {
-		return (List<PayScaleRate>) this.em
+		return (List<PayScaleRate>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayScaleRate e where e.clientId = :pClientId and e.payScale.id = :pPayScaleId",
 						PayScaleRate.class)
@@ -78,7 +79,8 @@ public class PayScaleRateService extends AbstractEntityService<PayScaleRate>
 	 * Find by ID of reference: currency.id
 	 */
 	public List<PayScaleRate> findByCurrencyId(Long currencyId) {
-		return (List<PayScaleRate>) this.em
+		return (List<PayScaleRate>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayScaleRate e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						PayScaleRate.class)

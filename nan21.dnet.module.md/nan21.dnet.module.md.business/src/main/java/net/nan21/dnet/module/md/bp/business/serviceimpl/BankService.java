@@ -27,7 +27,7 @@ public class BankService extends AbstractEntityService<Bank>
 
 	public BankService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class BankService extends AbstractEntityService<Bank>
 	 * Find by unique key
 	 */
 	public Bank findByCode(String code) {
-		return (Bank) this.em.createNamedQuery(Bank.NQ_FIND_BY_CODE)
+		return (Bank) this.getEntityManager()
+				.createNamedQuery(Bank.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class BankService extends AbstractEntityService<Bank>
 	 * Find by unique key
 	 */
 	public Bank findByName(String name) {
-		return (Bank) this.em.createNamedQuery(Bank.NQ_FIND_BY_NAME)
+		return (Bank) this.getEntityManager()
+				.createNamedQuery(Bank.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

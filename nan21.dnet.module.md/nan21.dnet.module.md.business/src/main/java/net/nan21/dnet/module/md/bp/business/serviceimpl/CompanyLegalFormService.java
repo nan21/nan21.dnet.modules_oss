@@ -31,7 +31,7 @@ public class CompanyLegalFormService
 
 	public CompanyLegalFormService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class CompanyLegalFormService
 	 * Find by unique key
 	 */
 	public CompanyLegalForm findByName(Country country, String name) {
-		return (CompanyLegalForm) this.em
+		return (CompanyLegalForm) this.getEntityManager()
 				.createNamedQuery(CompanyLegalForm.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCountry", country).setParameter("pName", name)
@@ -54,7 +54,7 @@ public class CompanyLegalFormService
 	 * Find by unique key
 	 */
 	public CompanyLegalForm findByName(Long countryId, String name) {
-		return (CompanyLegalForm) this.em
+		return (CompanyLegalForm) this.getEntityManager()
 				.createNamedQuery(CompanyLegalForm.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCountryId", countryId)
@@ -72,7 +72,8 @@ public class CompanyLegalFormService
 	 * Find by ID of reference: country.id
 	 */
 	public List<CompanyLegalForm> findByCountryId(Long countryId) {
-		return (List<CompanyLegalForm>) this.em
+		return (List<CompanyLegalForm>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from CompanyLegalForm e where e.clientId = :pClientId and e.country.id = :pCountryId",
 						CompanyLegalForm.class)

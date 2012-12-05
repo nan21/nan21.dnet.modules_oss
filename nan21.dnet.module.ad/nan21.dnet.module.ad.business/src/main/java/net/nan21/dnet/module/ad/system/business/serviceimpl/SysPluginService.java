@@ -27,7 +27,7 @@ public class SysPluginService extends AbstractEntityService<SysPlugin>
 
 	public SysPluginService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class SysPluginService extends AbstractEntityService<SysPlugin>
 	 * Find by unique key
 	 */
 	public SysPlugin findByName(String name) {
-		return (SysPlugin) this.em.createNamedQuery(SysPlugin.NQ_FIND_BY_NAME)
+		return (SysPlugin) this.getEntityManager()
+				.createNamedQuery(SysPlugin.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

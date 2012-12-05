@@ -30,7 +30,7 @@ public class JobCourseService extends AbstractEntityService<JobCourse>
 
 	public JobCourseService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class JobCourseService extends AbstractEntityService<JobCourse>
 	 * Find by ID of reference: job.id
 	 */
 	public List<JobCourse> findByJobId(Long jobId) {
-		return (List<JobCourse>) this.em
+		return (List<JobCourse>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from JobCourse e where e.clientId = :pClientId and e.job.id = :pJobId",
 						JobCourse.class)
@@ -68,7 +69,8 @@ public class JobCourseService extends AbstractEntityService<JobCourse>
 	 * Find by ID of reference: course.id
 	 */
 	public List<JobCourse> findByCourseId(Long courseId) {
-		return (List<JobCourse>) this.em
+		return (List<JobCourse>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from JobCourse e where e.clientId = :pClientId and e.course.id = :pCourseId",
 						JobCourse.class)

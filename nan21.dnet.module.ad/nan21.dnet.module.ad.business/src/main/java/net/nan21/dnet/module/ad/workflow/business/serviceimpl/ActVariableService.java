@@ -28,7 +28,7 @@ public class ActVariableService extends AbstractEntityService<ActVariable>
 
 	public ActVariableService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -47,7 +47,8 @@ public class ActVariableService extends AbstractEntityService<ActVariable>
 	 * Find by ID of reference: byteArray.id
 	 */
 	public List<ActVariable> findByByteArrayId(String byteArrayId) {
-		return (List<ActVariable>) this.em
+		return (List<ActVariable>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ActVariable e where  e.byteArray.id = :pByteArrayId",
 						ActVariable.class)

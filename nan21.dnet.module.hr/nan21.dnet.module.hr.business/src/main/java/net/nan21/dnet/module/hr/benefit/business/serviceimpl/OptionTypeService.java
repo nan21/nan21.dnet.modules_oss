@@ -27,7 +27,7 @@ public class OptionTypeService extends AbstractEntityService<OptionType>
 
 	public OptionTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class OptionTypeService extends AbstractEntityService<OptionType>
 	 * Find by unique key
 	 */
 	public OptionType findByName(String name) {
-		return (OptionType) this.em
+		return (OptionType) this.getEntityManager()
 				.createNamedQuery(OptionType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

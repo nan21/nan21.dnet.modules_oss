@@ -46,4 +46,30 @@ public class PurchaseOrderService
 
 	}
 
+	@Override
+	public void calculateAmounts(Long orderId) {
+		this.getEntityManager().flush();
+		Object[] x = (Object[]) this
+				.getEntityManager()
+				.createQuery(
+						"select sum(i.netAmount), sum(i.taxAmount) from PurchaseOrderItem i where i.purchaseOrder.id = :orderId")
+				.setParameter("orderId", orderId).getSingleResult();
+
+		PurchaseOrder order = this.getEntityManager().find(PurchaseOrder.class,
+				orderId);
+
+		Double totalNet = (Double) x[0];
+		Double totalTax = (Double) x[1];
+		if (totalNet == null) {
+			totalNet = 0D;
+		}
+		if (totalTax == null) {
+			totalTax = 0D;
+		}
+		order.setTotalNetAmount(totalNet.floatValue());
+		order.setTotalTaxAmount(totalTax.floatValue());
+
+		this.getEntityManager().merge(order);
+	}
+
 }

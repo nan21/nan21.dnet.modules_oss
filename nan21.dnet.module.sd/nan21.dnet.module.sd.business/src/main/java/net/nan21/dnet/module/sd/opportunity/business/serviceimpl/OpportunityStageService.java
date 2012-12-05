@@ -29,7 +29,7 @@ public class OpportunityStageService
 
 	public OpportunityStageService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class OpportunityStageService
 	 * Find by unique key
 	 */
 	public OpportunityStage findByName(String name) {
-		return (OpportunityStage) this.em
+		return (OpportunityStage) this.getEntityManager()
 				.createNamedQuery(OpportunityStage.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

@@ -30,7 +30,7 @@ public class WfDefNodeService extends AbstractEntityService<WfDefNode>
 
 	public WfDefNodeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class WfDefNodeService extends AbstractEntityService<WfDefNode>
 	 * Find by unique key
 	 */
 	public WfDefNode findByName(String name) {
-		return (WfDefNode) this.em.createNamedQuery(WfDefNode.NQ_FIND_BY_NAME)
+		return (WfDefNode) this.getEntityManager()
+				.createNamedQuery(WfDefNode.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class WfDefNodeService extends AbstractEntityService<WfDefNode>
 	 * Find by ID of reference: process.id
 	 */
 	public List<WfDefNode> findByProcessId(Long processId) {
-		return (List<WfDefNode>) this.em
+		return (List<WfDefNode>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from WfDefNode e where e.clientId = :pClientId and e.process.id = :pProcessId",
 						WfDefNode.class)
@@ -77,7 +79,8 @@ public class WfDefNodeService extends AbstractEntityService<WfDefNode>
 	 * Find by ID of reference: fields.id
 	 */
 	public List<WfDefNode> findByFieldsId(Long fieldsId) {
-		return (List<WfDefNode>) this.em
+		return (List<WfDefNode>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from WfDefNode e, IN (e.fields) c where e.clientId = :pClientId and c.id = :pFieldsId",
 						WfDefNode.class)

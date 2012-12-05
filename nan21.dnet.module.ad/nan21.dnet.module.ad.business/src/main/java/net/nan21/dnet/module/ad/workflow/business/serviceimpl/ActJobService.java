@@ -26,7 +26,7 @@ public class ActJobService extends AbstractEntityService<ActJob>
 
 	public ActJobService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

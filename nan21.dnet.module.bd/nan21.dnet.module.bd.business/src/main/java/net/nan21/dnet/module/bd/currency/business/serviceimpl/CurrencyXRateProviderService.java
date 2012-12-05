@@ -29,7 +29,7 @@ public class CurrencyXRateProviderService
 
 	public CurrencyXRateProviderService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CurrencyXRateProviderService
 	 * Find by unique key
 	 */
 	public CurrencyXRateProvider findByCode(String code) {
-		return (CurrencyXRateProvider) this.em
+		return (CurrencyXRateProvider) this.getEntityManager()
 				.createNamedQuery(CurrencyXRateProvider.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -51,7 +51,7 @@ public class CurrencyXRateProviderService
 	 * Find by unique key
 	 */
 	public CurrencyXRateProvider findByName(String name) {
-		return (CurrencyXRateProvider) this.em
+		return (CurrencyXRateProvider) this.getEntityManager()
 				.createNamedQuery(CurrencyXRateProvider.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

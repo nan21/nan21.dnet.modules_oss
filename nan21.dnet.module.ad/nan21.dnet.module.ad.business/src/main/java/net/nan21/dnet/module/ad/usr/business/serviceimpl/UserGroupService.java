@@ -29,7 +29,7 @@ public class UserGroupService extends AbstractEntityService<UserGroup>
 
 	public UserGroupService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class UserGroupService extends AbstractEntityService<UserGroup>
 	 * Find by unique key
 	 */
 	public UserGroup findByName(String name) {
-		return (UserGroup) this.em.createNamedQuery(UserGroup.NQ_FIND_BY_NAME)
+		return (UserGroup) this.getEntityManager()
+				.createNamedQuery(UserGroup.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class UserGroupService extends AbstractEntityService<UserGroup>
 	 * Find by ID of reference: users.id
 	 */
 	public List<UserGroup> findByUsersId(Long usersId) {
-		return (List<UserGroup>) this.em
+		return (List<UserGroup>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from UserGroup e, IN (e.users) c where e.clientId = :pClientId and c.id = :pUsersId",
 						UserGroup.class)

@@ -33,7 +33,7 @@ public class ProductAccountAcctService
 
 	public ProductAccountAcctService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class ProductAccountAcctService
 	 */
 	public ProductAccountAcct findByAccount_schema(ProductAccount prodAccount,
 			AccSchema accSchema) {
-		return (ProductAccountAcct) this.em
+		return (ProductAccountAcct) this.getEntityManager()
 				.createNamedQuery(ProductAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pProdAccount", prodAccount)
@@ -58,7 +58,8 @@ public class ProductAccountAcctService
 	 */
 	public ProductAccountAcct findByAccount_schema(Long prodAccountId,
 			Long accSchemaId) {
-		return (ProductAccountAcct) this.em
+		return (ProductAccountAcct) this
+				.getEntityManager()
 				.createNamedQuery(
 						ProductAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
@@ -77,7 +78,8 @@ public class ProductAccountAcctService
 	 * Find by ID of reference: prodAccount.id
 	 */
 	public List<ProductAccountAcct> findByProdAccountId(Long prodAccountId) {
-		return (List<ProductAccountAcct>) this.em
+		return (List<ProductAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAccountAcct e where e.clientId = :pClientId and e.prodAccount.id = :pProdAccountId",
 						ProductAccountAcct.class)
@@ -96,7 +98,8 @@ public class ProductAccountAcctService
 	 * Find by ID of reference: accSchema.id
 	 */
 	public List<ProductAccountAcct> findByAccSchemaId(Long accSchemaId) {
-		return (List<ProductAccountAcct>) this.em
+		return (List<ProductAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAccountAcct e where e.clientId = :pClientId and e.accSchema.id = :pAccSchemaId",
 						ProductAccountAcct.class)
@@ -115,7 +118,8 @@ public class ProductAccountAcctService
 	 * Find by ID of reference: expenseAccount.id
 	 */
 	public List<ProductAccountAcct> findByExpenseAccountId(Long expenseAccountId) {
-		return (List<ProductAccountAcct>) this.em
+		return (List<ProductAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAccountAcct e where e.clientId = :pClientId and e.expenseAccount.id = :pExpenseAccountId",
 						ProductAccountAcct.class)
@@ -135,7 +139,8 @@ public class ProductAccountAcctService
 	 * Find by ID of reference: revenueAccount.id
 	 */
 	public List<ProductAccountAcct> findByRevenueAccountId(Long revenueAccountId) {
-		return (List<ProductAccountAcct>) this.em
+		return (List<ProductAccountAcct>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ProductAccountAcct e where e.clientId = :pClientId and e.revenueAccount.id = :pRevenueAccountId",
 						ProductAccountAcct.class)

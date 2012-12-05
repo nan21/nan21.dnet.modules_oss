@@ -27,7 +27,7 @@ public class SysParamService extends AbstractEntityService<SysParam>
 
 	public SysParamService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class SysParamService extends AbstractEntityService<SysParam>
 	 * Find by unique key
 	 */
 	public SysParam findByCode(String code) {
-		return (SysParam) this.em.createNamedQuery(SysParam.NQ_FIND_BY_CODE)
+		return (SysParam) this.getEntityManager()
+				.createNamedQuery(SysParam.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class SysParamService extends AbstractEntityService<SysParam>
 	 * Find by unique key
 	 */
 	public SysParam findByName(String name) {
-		return (SysParam) this.em.createNamedQuery(SysParam.NQ_FIND_BY_NAME)
+		return (SysParam) this.getEntityManager()
+				.createNamedQuery(SysParam.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

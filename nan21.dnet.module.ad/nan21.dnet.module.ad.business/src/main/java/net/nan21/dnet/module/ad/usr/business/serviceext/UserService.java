@@ -40,7 +40,7 @@ public class UserService extends
 			hashedPass = "0" + hashedPass;
 		}
 		u.setPassword(hashedPass);
-		this.em.merge(u);
+		this.getEntityManager().merge(u);
 
 	}
 

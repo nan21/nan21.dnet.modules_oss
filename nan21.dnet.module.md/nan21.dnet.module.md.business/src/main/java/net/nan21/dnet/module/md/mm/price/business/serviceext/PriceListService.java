@@ -28,7 +28,8 @@ public class PriceListService extends
 				+ PriceList.class.getSimpleName()
 				+ " e "
 				+ " where e.salesList = :pSalesList and e.active=true and e.clientId = :pClientId ";
-		return (PriceList) this.em.createQuery(eql, PriceList.class)
+		return (PriceList) this.getEntityManager()
+				.createQuery(eql, PriceList.class)
 				.setParameter("pSalesList", salesList)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.getResultList().get(0);

@@ -29,7 +29,7 @@ public class GradeRateService extends AbstractEntityService<GradeRate>
 
 	public GradeRateService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class GradeRateService extends AbstractEntityService<GradeRate>
 	 * Find by unique key
 	 */
 	public GradeRate findByName(String name) {
-		return (GradeRate) this.em.createNamedQuery(GradeRate.NQ_FIND_BY_NAME)
+		return (GradeRate) this.getEntityManager()
+				.createNamedQuery(GradeRate.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -57,7 +58,8 @@ public class GradeRateService extends AbstractEntityService<GradeRate>
 	 * Find by ID of reference: currency.id
 	 */
 	public List<GradeRate> findByCurrencyId(Long currencyId) {
-		return (List<GradeRate>) this.em
+		return (List<GradeRate>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradeRate e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						GradeRate.class)

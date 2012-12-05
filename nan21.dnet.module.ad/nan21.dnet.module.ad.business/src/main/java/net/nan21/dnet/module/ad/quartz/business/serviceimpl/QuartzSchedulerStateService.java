@@ -28,7 +28,7 @@ public class QuartzSchedulerStateService
 
 	public QuartzSchedulerStateService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

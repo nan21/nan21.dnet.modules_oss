@@ -27,7 +27,7 @@ public class GradeService extends AbstractEntityService<Grade>
 
 	public GradeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class GradeService extends AbstractEntityService<Grade>
 	 * Find by unique key
 	 */
 	public Grade findByCode(String code) {
-		return (Grade) this.em.createNamedQuery(Grade.NQ_FIND_BY_CODE)
+		return (Grade) this.getEntityManager()
+				.createNamedQuery(Grade.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
 	}
@@ -48,7 +49,8 @@ public class GradeService extends AbstractEntityService<Grade>
 	 * Find by unique key
 	 */
 	public Grade findByName(String name) {
-		return (Grade) this.em.createNamedQuery(Grade.NQ_FIND_BY_NAME)
+		return (Grade) this.getEntityManager()
+				.createNamedQuery(Grade.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}

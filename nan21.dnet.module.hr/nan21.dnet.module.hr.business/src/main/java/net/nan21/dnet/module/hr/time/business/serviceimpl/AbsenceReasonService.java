@@ -29,7 +29,7 @@ public class AbsenceReasonService extends AbstractEntityService<AbsenceReason>
 
 	public AbsenceReasonService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class AbsenceReasonService extends AbstractEntityService<AbsenceReason>
 	 * Find by unique key
 	 */
 	public AbsenceReason findByName(String name) {
-		return (AbsenceReason) this.em
+		return (AbsenceReason) this.getEntityManager()
 				.createNamedQuery(AbsenceReason.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -58,7 +58,8 @@ public class AbsenceReasonService extends AbstractEntityService<AbsenceReason>
 	 * Find by ID of reference: type.id
 	 */
 	public List<AbsenceReason> findByTypeId(Long typeId) {
-		return (List<AbsenceReason>) this.em
+		return (List<AbsenceReason>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AbsenceReason e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						AbsenceReason.class)

@@ -29,7 +29,7 @@ public class SysJobCtxParamService
 
 	public SysJobCtxParamService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class SysJobCtxParamService
 	 * Find by ID of reference: jobCtx.id
 	 */
 	public List<SysJobCtxParam> findByJobCtxId(Long jobCtxId) {
-		return (List<SysJobCtxParam>) this.em
+		return (List<SysJobCtxParam>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysJobCtxParam e where e.clientId = :pClientId and e.jobCtx.id = :pJobCtxId",
 						SysJobCtxParam.class)
@@ -67,7 +68,8 @@ public class SysJobCtxParamService
 	 * Find by ID of reference: jobParam.id
 	 */
 	public List<SysJobCtxParam> findByJobParamId(Long jobParamId) {
-		return (List<SysJobCtxParam>) this.em
+		return (List<SysJobCtxParam>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysJobCtxParam e where e.clientId = :pClientId and e.jobParam.id = :pJobParamId",
 						SysJobCtxParam.class)

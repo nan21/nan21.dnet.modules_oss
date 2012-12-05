@@ -26,7 +26,7 @@ public class PriceListService extends AbstractEntityService<PriceList> {
 
 	public PriceListService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -38,7 +38,8 @@ public class PriceListService extends AbstractEntityService<PriceList> {
 	 * Find by unique key
 	 */
 	public PriceList findByName(String name) {
-		return (PriceList) this.em.createNamedQuery(PriceList.NQ_FIND_BY_NAME)
+		return (PriceList) this.getEntityManager()
+				.createNamedQuery(PriceList.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -54,7 +55,8 @@ public class PriceListService extends AbstractEntityService<PriceList> {
 	 * Find by ID of reference: currency.id
 	 */
 	public List<PriceList> findByCurrencyId(Long currencyId) {
-		return (List<PriceList>) this.em
+		return (List<PriceList>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PriceList e where e.clientId = :pClientId and e.currency.id = :pCurrencyId",
 						PriceList.class)

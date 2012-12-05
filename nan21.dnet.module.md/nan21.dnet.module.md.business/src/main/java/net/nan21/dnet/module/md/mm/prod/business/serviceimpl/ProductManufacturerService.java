@@ -29,7 +29,7 @@ public class ProductManufacturerService
 
 	public ProductManufacturerService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ProductManufacturerService
 	 * Find by unique key
 	 */
 	public ProductManufacturer findByCode(String code) {
-		return (ProductManufacturer) this.em
+		return (ProductManufacturer) this.getEntityManager()
 				.createNamedQuery(ProductManufacturer.NQ_FIND_BY_CODE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pCode", code).getSingleResult();
@@ -51,7 +51,7 @@ public class ProductManufacturerService
 	 * Find by unique key
 	 */
 	public ProductManufacturer findByName(String name) {
-		return (ProductManufacturer) this.em
+		return (ProductManufacturer) this.getEntityManager()
 				.createNamedQuery(ProductManufacturer.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

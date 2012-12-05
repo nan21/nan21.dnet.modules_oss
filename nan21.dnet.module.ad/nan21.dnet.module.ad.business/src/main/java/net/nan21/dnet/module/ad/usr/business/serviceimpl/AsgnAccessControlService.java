@@ -31,7 +31,7 @@ public class AsgnAccessControlService
 
 	public AsgnAccessControlService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class AsgnAccessControlService
 	 */
 	public AsgnAccessControl findByUnique(AccessControl accessControl,
 			String dsName) {
-		return (AsgnAccessControl) this.em
+		return (AsgnAccessControl) this.getEntityManager()
 				.createNamedQuery(AsgnAccessControl.NQ_FIND_BY_UNIQUE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAccessControl", accessControl)
@@ -55,7 +55,8 @@ public class AsgnAccessControlService
 	 * Find by unique key
 	 */
 	public AsgnAccessControl findByUnique(Long accessControlId, String dsName) {
-		return (AsgnAccessControl) this.em
+		return (AsgnAccessControl) this
+				.getEntityManager()
 				.createNamedQuery(AsgnAccessControl.NQ_FIND_BY_UNIQUE_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pAccessControlId", accessControlId)
@@ -74,7 +75,8 @@ public class AsgnAccessControlService
 	 * Find by ID of reference: accessControl.id
 	 */
 	public List<AsgnAccessControl> findByAccessControlId(Long accessControlId) {
-		return (List<AsgnAccessControl>) this.em
+		return (List<AsgnAccessControl>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from AsgnAccessControl e where e.clientId = :pClientId and e.accessControl.id = :pAccessControlId",
 						AsgnAccessControl.class)

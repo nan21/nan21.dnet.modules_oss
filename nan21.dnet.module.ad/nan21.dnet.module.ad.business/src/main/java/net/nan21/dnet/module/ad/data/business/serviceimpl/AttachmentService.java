@@ -29,7 +29,7 @@ public class AttachmentService extends AbstractEntityService<Attachment>
 
 	public AttachmentService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -48,7 +48,8 @@ public class AttachmentService extends AbstractEntityService<Attachment>
 	 * Find by ID of reference: type.id
 	 */
 	public List<Attachment> findByTypeId(Long typeId) {
-		return (List<Attachment>) this.em
+		return (List<Attachment>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from Attachment e where e.clientId = :pClientId and e.type.id = :pTypeId",
 						Attachment.class)

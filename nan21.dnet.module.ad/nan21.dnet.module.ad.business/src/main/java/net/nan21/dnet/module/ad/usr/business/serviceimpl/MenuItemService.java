@@ -30,7 +30,7 @@ public class MenuItemService extends AbstractEntityService<MenuItem>
 
 	public MenuItemService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class MenuItemService extends AbstractEntityService<MenuItem>
 	 * Find by unique key
 	 */
 	public MenuItem findByName(String name) {
-		return (MenuItem) this.em.createNamedQuery(MenuItem.NQ_FIND_BY_NAME)
+		return (MenuItem) this.getEntityManager()
+				.createNamedQuery(MenuItem.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -58,7 +59,8 @@ public class MenuItemService extends AbstractEntityService<MenuItem>
 	 * Find by ID of reference: menuItem.id
 	 */
 	public List<MenuItem> findByMenuItemId(Long menuItemId) {
-		return (List<MenuItem>) this.em
+		return (List<MenuItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from MenuItem e where e.clientId = :pClientId and e.menuItem.id = :pMenuItemId",
 						MenuItem.class)
@@ -77,7 +79,8 @@ public class MenuItemService extends AbstractEntityService<MenuItem>
 	 * Find by ID of reference: menu.id
 	 */
 	public List<MenuItem> findByMenuId(Long menuId) {
-		return (List<MenuItem>) this.em
+		return (List<MenuItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from MenuItem e where e.clientId = :pClientId and e.menu.id = :pMenuId",
 						MenuItem.class)
@@ -96,7 +99,8 @@ public class MenuItemService extends AbstractEntityService<MenuItem>
 	 * Find by ID of reference: roles.id
 	 */
 	public List<MenuItem> findByRolesId(Long rolesId) {
-		return (List<MenuItem>) this.em
+		return (List<MenuItem>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from MenuItem e, IN (e.roles) c where e.clientId = :pClientId and c.id = :pRolesId",
 						MenuItem.class)

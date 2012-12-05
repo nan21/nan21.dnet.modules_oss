@@ -26,7 +26,7 @@ public class PayrollPeriodService extends AbstractEntityService<PayrollPeriod> {
 
 	public PayrollPeriodService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class PayrollPeriodService extends AbstractEntityService<PayrollPeriod> {
 	 * Find by unique key
 	 */
 	public PayrollPeriod findByName(String name) {
-		return (PayrollPeriod) this.em
+		return (PayrollPeriod) this.getEntityManager()
 				.createNamedQuery(PayrollPeriod.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
@@ -55,7 +55,8 @@ public class PayrollPeriodService extends AbstractEntityService<PayrollPeriod> {
 	 * Find by ID of reference: payroll.id
 	 */
 	public List<PayrollPeriod> findByPayrollId(Long payrollId) {
-		return (List<PayrollPeriod>) this.em
+		return (List<PayrollPeriod>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from PayrollPeriod e where e.clientId = :pClientId and e.payroll.id = :pPayrollId",
 						PayrollPeriod.class)

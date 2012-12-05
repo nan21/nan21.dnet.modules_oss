@@ -27,7 +27,7 @@ public class GeoZoneTypeService extends AbstractEntityService<GeoZoneType>
 
 	public GeoZoneTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class GeoZoneTypeService extends AbstractEntityService<GeoZoneType>
 	 * Find by unique key
 	 */
 	public GeoZoneType findByName(String name) {
-		return (GeoZoneType) this.em
+		return (GeoZoneType) this.getEntityManager()
 				.createNamedQuery(GeoZoneType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

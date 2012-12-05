@@ -27,7 +27,7 @@ public class IssueLinkTypeService extends AbstractEntityService<IssueLinkType>
 
 	public IssueLinkTypeService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IssueLinkTypeService extends AbstractEntityService<IssueLinkType>
 	 * Find by unique key
 	 */
 	public IssueLinkType findByName(String name) {
-		return (IssueLinkType) this.em
+		return (IssueLinkType) this.getEntityManager()
 				.createNamedQuery(IssueLinkType.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

@@ -30,7 +30,7 @@ public class InvTransactionService
 
 	public InvTransactionService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class InvTransactionService
 	 * Find by ID of reference: transactionType.id
 	 */
 	public List<InvTransaction> findByTransactionTypeId(Long transactionTypeId) {
-		return (List<InvTransaction>) this.em
+		return (List<InvTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransaction e where e.clientId = :pClientId and e.transactionType.id = :pTransactionTypeId",
 						InvTransaction.class)
@@ -70,7 +71,8 @@ public class InvTransactionService
 	 * Find by ID of reference: fromInventory.id
 	 */
 	public List<InvTransaction> findByFromInventoryId(Long fromInventoryId) {
-		return (List<InvTransaction>) this.em
+		return (List<InvTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransaction e where e.clientId = :pClientId and e.fromInventory.id = :pFromInventoryId",
 						InvTransaction.class)
@@ -90,7 +92,8 @@ public class InvTransactionService
 	 * Find by ID of reference: toInventory.id
 	 */
 	public List<InvTransaction> findByToInventoryId(Long toInventoryId) {
-		return (List<InvTransaction>) this.em
+		return (List<InvTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from InvTransaction e where e.clientId = :pClientId and e.toInventory.id = :pToInventoryId",
 						InvTransaction.class)
@@ -109,7 +112,8 @@ public class InvTransactionService
 	 * Find by ID of reference: lines.id
 	 */
 	public List<InvTransaction> findByLinesId(Long linesId) {
-		return (List<InvTransaction>) this.em
+		return (List<InvTransaction>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from InvTransaction e, IN (e.lines) c where e.clientId = :pClientId and c.id = :pLinesId",
 						InvTransaction.class)

@@ -30,7 +30,7 @@ public class ActIdentityUserService
 
 	public ActIdentityUserService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -49,7 +49,8 @@ public class ActIdentityUserService
 	 * Find by ID of reference: groups.id
 	 */
 	public List<ActIdentityUser> findByGroupsId(String groupsId) {
-		return (List<ActIdentityUser>) this.em
+		return (List<ActIdentityUser>) this
+				.getEntityManager()
 				.createQuery(
 						"select distinct e from ActIdentityUser e, IN (e.groups) c where  c.id = :pGroupsId",
 						ActIdentityUser.class)

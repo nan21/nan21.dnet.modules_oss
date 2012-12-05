@@ -31,7 +31,7 @@ public class ElementFormulaService
 
 	public ElementFormulaService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class ElementFormulaService
 	 * Find by ID of reference: element.id
 	 */
 	public List<ElementFormula> findByElementId(Long elementId) {
-		return (List<ElementFormula>) this.em
+		return (List<ElementFormula>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from ElementFormula e where e.clientId = :pClientId and e.element.id = :pElementId",
 						ElementFormula.class)

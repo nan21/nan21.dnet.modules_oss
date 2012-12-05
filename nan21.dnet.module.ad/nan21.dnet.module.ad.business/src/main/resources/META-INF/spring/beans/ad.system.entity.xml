@@ -1,49 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"	 
+	xmlns:int="http://www.springframework.org/schema/integration"
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans.xsd
 			http://www.springframework.org/schema/context 
-				http://www.springframework.org/schema/context/spring-context.xsd">   
+				http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/integration
+				http://www.springframework.org/schema/integration/spring-integration.xsd">
+
 	<bean id="SysPluginService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysPluginService"/>
+
 	<bean id="SysParamService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysParamService"/>
+
 	<bean id="SysParamValueService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysParamValueService"/>
+
 	<bean id="SysJobService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysJobService"/>
+
 	<bean id="SysJobParamService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysJobParamService"/>
+
 	<bean id="SysJobCtxService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceext.SysJobCtxService"/>
+
 	<bean id="SysJobCtxParamService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceext.SysJobCtxParamService"/>
+
 	<bean id="SysTimerService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceext.SysTimerService"/>
+
 	<bean id="SysDataSourceService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysDataSourceService"/>
+
 	<bean id="SysDsFieldService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysDsFieldService"/>
+
 	<bean id="SysDsEventService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysDsEventService"/>
+
 	<bean id="SysDsServiceService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysDsServiceService"/>
+
 	<bean id="SysFrameExtensionService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysFrameExtensionService"/>
+
 	<bean id="TempAsgnService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.TempAsgnService"/>
+
 	<bean id="TempAsgnLineService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.TempAsgnLineService"/>
+
 	<bean id="BusinessObjectService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.BusinessObjectService"/>
+
 	<bean id="SysDateFormatService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysDateFormatService"/>
+
 	<bean id="UiViewStateService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.UiViewStateService"/>
+
 	<bean id="AuditEntryService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.AuditEntryService"/>
+
 	<bean id="AuditFieldService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.AuditFieldService"/>
 </beans>

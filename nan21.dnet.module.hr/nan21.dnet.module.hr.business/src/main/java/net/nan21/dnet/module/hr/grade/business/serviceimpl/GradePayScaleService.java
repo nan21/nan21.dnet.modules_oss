@@ -31,7 +31,7 @@ public class GradePayScaleService extends AbstractEntityService<GradePayScale>
 
 	public GradePayScaleService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -50,7 +50,8 @@ public class GradePayScaleService extends AbstractEntityService<GradePayScale>
 	 * Find by ID of reference: grade.id
 	 */
 	public List<GradePayScale> findByGradeId(Long gradeId) {
-		return (List<GradePayScale>) this.em
+		return (List<GradePayScale>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradePayScale e where e.clientId = :pClientId and e.grade.id = :pGradeId",
 						GradePayScale.class)
@@ -69,7 +70,8 @@ public class GradePayScaleService extends AbstractEntityService<GradePayScale>
 	 * Find by ID of reference: payScale.id
 	 */
 	public List<GradePayScale> findByPayScaleId(Long payScaleId) {
-		return (List<GradePayScale>) this.em
+		return (List<GradePayScale>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradePayScale e where e.clientId = :pClientId and e.payScale.id = :pPayScaleId",
 						GradePayScale.class)
@@ -88,7 +90,8 @@ public class GradePayScaleService extends AbstractEntityService<GradePayScale>
 	 * Find by ID of reference: ceiling.id
 	 */
 	public List<GradePayScale> findByCeilingId(Long ceilingId) {
-		return (List<GradePayScale>) this.em
+		return (List<GradePayScale>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from GradePayScale e where e.clientId = :pClientId and e.ceiling.id = :pCeilingId",
 						GradePayScale.class)

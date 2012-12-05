@@ -27,7 +27,7 @@ public class RatingScaleService extends AbstractEntityService<RatingScale>
 
 	public RatingScaleService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class RatingScaleService extends AbstractEntityService<RatingScale>
 	 * Find by unique key
 	 */
 	public RatingScale findByName(String name) {
-		return (RatingScale) this.em
+		return (RatingScale) this.getEntityManager()
 				.createNamedQuery(RatingScale.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();

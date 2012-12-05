@@ -26,7 +26,7 @@ public class NoteService extends AbstractEntityService<Note>
 
 	public NoteService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override

@@ -26,8 +26,8 @@ public class Setup_PJ extends AbstractBusinessSetupParticipant implements
 		// database objects are created in the right order
 		// in case the object creation is managed by eclipselink
 
-		this.em.createQuery("select count(e) from Project e").getResultList()
-				.get(0);
+		this.getEntityManager().createQuery("select count(e) from Project e")
+				.getResultList().get(0);
 	}
 
 }

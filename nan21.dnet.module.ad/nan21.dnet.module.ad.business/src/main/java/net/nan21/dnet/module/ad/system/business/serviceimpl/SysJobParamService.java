@@ -29,7 +29,7 @@ public class SysJobParamService extends AbstractEntityService<SysJobParam>
 
 	public SysJobParamService(EntityManager em) {
 		super();
-		this.em = em;
+		this.setEntityManager(em);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class SysJobParamService extends AbstractEntityService<SysJobParam>
 	 * Find by unique key
 	 */
 	public SysJobParam findByName(SysJob job, String name) {
-		return (SysJobParam) this.em
+		return (SysJobParam) this.getEntityManager()
 				.createNamedQuery(SysJobParam.NQ_FIND_BY_NAME)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJob", job).setParameter("pName", name)
@@ -52,7 +52,7 @@ public class SysJobParamService extends AbstractEntityService<SysJobParam>
 	 * Find by unique key
 	 */
 	public SysJobParam findByName(Long jobId, String name) {
-		return (SysJobParam) this.em
+		return (SysJobParam) this.getEntityManager()
 				.createNamedQuery(SysJobParam.NQ_FIND_BY_NAME_PRIMITIVE)
 				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pJobId", jobId).setParameter("pName", name)
@@ -70,7 +70,8 @@ public class SysJobParamService extends AbstractEntityService<SysJobParam>
 	 * Find by ID of reference: job.id
 	 */
 	public List<SysJobParam> findByJobId(Long jobId) {
-		return (List<SysJobParam>) this.em
+		return (List<SysJobParam>) this
+				.getEntityManager()
 				.createQuery(
 						"select e from SysJobParam e where e.clientId = :pClientId and e.job.id = :pJobId",
 						SysJobParam.class)
