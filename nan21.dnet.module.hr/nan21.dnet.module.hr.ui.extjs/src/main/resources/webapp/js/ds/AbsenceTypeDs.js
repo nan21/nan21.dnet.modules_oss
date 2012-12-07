@@ -22,8 +22,8 @@ Ext.define("net.nan21.dnet.module.hr.time.ds.model.AbsenceTypeDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

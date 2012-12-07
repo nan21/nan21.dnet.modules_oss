@@ -16,11 +16,6 @@ public class ProductPriceReportDsQueryBuilder
 			QueryBuilderWithJpql<ProductPriceReportDs, ProductPriceReportDs, ProductPriceReportDsParam> {
 
 	@Override
-	public void setFilter(ProductPriceReportDs filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getValidAt() != null) {
 			addFilterCondition("  e.priceListVersion.validFrom <= :validAt and not exists (select pp.id from ProductPrice pp where pp.product.id = e.product.id and pp.priceListVersion.priceList.id = e.priceListVersion.priceList.id and pp.priceListVersion.validFrom > e.priceListVersion.validFrom and pp.priceListVersion.validFrom <= :validAt  )");

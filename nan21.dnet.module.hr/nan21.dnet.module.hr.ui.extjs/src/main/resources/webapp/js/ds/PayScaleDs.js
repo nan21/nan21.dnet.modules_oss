@@ -22,9 +22,9 @@ Ext.define("net.nan21.dnet.module.hr.grade.ds.model.PayScaleDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

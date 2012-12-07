@@ -44,9 +44,9 @@ Ext.define("net.nan21.dnet.module.fi.asset.ds.model.AssetDs", {
 		{name:"version", type:"int", useNull:true},
 		{name:"withDepreciation", type:"boolean"}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

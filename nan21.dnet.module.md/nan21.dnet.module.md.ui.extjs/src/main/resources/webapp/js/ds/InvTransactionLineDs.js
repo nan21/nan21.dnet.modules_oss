@@ -34,6 +34,7 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionLineDs"
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "itemCode", type: 'presence'},
 		{field: "quantity", type: 'presence'},

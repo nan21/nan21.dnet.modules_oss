@@ -26,6 +26,7 @@ Ext.define("net.nan21.dnet.module.hr.job.ds.model.PositionDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "name", type: 'presence'}
 	]

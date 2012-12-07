@@ -40,6 +40,7 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.BusinessPartnerDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "name", type: 'presence'}
 	]

@@ -16,11 +16,6 @@ public class ProductDsQueryBuilder
 			QueryBuilderWithJpql<ProductDs, ProductDs, ProductDsParam> {
 
 	@Override
-	public void setFilter(ProductDs filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getProductCategoryId() != null) {
 			addFilterCondition("  e.id in ( select p.id from  Product p, IN (p.categories) c where c.id = :productCategoryId )  ");

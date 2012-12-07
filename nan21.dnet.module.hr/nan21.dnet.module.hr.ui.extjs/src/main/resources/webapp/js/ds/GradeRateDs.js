@@ -22,8 +22,8 @@ Ext.define("net.nan21.dnet.module.hr.grade.ds.model.GradeRateDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

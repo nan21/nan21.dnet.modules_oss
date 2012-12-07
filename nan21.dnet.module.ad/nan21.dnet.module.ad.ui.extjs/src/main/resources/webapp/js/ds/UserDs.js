@@ -30,11 +30,11 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.UserDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });
 
 Ext.define("net.nan21.dnet.module.ad.usr.ds.model.UserDsParam", {

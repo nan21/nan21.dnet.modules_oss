@@ -35,7 +35,12 @@ Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PaymentOutDs", {
 		{name:"posted", type:"boolean"},
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
-	]
+	],
+	
+	init: function() {
+		this.set("docDate", new Date());
+		this.set("amount", 0);
+	}
 });
 
 Dnet.createFilterModelFromRecordModel({

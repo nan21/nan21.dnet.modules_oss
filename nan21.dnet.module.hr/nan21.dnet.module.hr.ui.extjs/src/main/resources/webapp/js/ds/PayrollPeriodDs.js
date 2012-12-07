@@ -26,6 +26,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "name", type: 'presence'},
 		{field: "startDate", type: 'presence'},

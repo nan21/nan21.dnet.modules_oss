@@ -48,7 +48,14 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDs", {
 		{name:"totalTaxAmount", type:"float", useNull:true},
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
-	]
+	],
+	
+	init: function() {
+		this.set("docDate", new Date());
+		this.set("totalNetAmount", 0);
+		this.set("totalTaxAmount", 0);
+		this.set("totalAmount", 0);
+	}
 });
 
 Dnet.createFilterModelFromRecordModel({

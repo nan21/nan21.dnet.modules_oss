@@ -26,8 +26,8 @@ Ext.define("net.nan21.dnet.module.md.base.tax.ds.model.TaxDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

@@ -28,8 +28,8 @@ Ext.define("net.nan21.dnet.module.md.org.ds.model.FinancialAccountDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

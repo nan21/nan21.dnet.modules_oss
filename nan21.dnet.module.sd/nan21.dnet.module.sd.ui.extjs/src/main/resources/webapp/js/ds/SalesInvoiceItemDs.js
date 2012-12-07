@@ -31,6 +31,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.SalesInvoiceItemDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "quantity", type: 'presence'},
 		{field: "unitPrice", type: 'presence'}

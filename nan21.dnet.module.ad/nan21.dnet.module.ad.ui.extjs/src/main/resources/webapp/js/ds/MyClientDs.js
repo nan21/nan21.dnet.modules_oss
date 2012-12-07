@@ -13,7 +13,6 @@ Ext.define("net.nan21.dnet.module.ad.client.ds.model.MyClientDs", {
 		{name:"createdBy", type:"string"},
 		{name:"entityFQN", type:"string"},
 		{name:"id", type:"int", useNull:true},
-		{name:"id", type:"int", useNull:true},
 		{name:"maintenanceLanguage", type:"string"},
 		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"modifiedBy", type:"string"},

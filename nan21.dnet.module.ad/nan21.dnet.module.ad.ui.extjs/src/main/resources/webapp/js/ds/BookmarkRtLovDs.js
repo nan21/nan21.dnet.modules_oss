@@ -29,8 +29,8 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.BookmarkRtLovDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

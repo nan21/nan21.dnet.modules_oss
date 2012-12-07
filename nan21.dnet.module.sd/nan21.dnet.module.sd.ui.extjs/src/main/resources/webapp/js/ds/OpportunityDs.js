@@ -43,8 +43,8 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.ds.model.OpportunityDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

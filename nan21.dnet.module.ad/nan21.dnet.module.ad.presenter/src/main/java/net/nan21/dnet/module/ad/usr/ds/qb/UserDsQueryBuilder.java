@@ -16,11 +16,6 @@ public class UserDsQueryBuilder
 			QueryBuilderWithJpql<UserDs, UserDs, UserDsParam> {
 
 	@Override
-	public void setFilter(UserDs filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getWithRoleId() != null) {
 			addFilterCondition("  e.id in ( select p.id from  User p, IN (p.roles) c where c.id = :withRoleId )  ");

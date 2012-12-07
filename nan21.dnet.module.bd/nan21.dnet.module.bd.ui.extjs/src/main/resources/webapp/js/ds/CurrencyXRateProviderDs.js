@@ -22,9 +22,9 @@ Ext.define("net.nan21.dnet.module.bd.currency.ds.model.CurrencyXRateProviderDs",
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

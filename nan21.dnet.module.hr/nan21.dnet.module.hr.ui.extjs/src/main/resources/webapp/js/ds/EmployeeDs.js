@@ -37,6 +37,7 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "firstName", type: 'presence'},
 		{field: "lastName", type: 'presence'}

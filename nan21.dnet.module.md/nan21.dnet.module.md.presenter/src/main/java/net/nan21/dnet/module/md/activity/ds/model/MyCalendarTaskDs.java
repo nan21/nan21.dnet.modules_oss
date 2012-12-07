@@ -28,7 +28,6 @@ public class MyCalendarTaskDs extends AbstractAuditableDs<CalendarEvent> {
 	public static final String fBPARTNERCODE = "bpartnerCode";
 	public static final String fCONTACTID = "contactId";
 	public static final String fCONTACTNAME = "contactName";
-	public static final String fCREATEDBY = "createdBy";
 	public static final String fNOTES = "notes";
 	public static final String fLOCATION = "location";
 	public static final String fURL = "url";
@@ -73,9 +72,6 @@ public class MyCalendarTaskDs extends AbstractAuditableDs<CalendarEvent> {
 
 	@DsField(join = "left", fetch = false, path = "contact.name")
 	private String contactName;
-
-	@DsField()
-	private String createdBy;
 
 	@DsField()
 	private String notes;
@@ -202,14 +198,6 @@ public class MyCalendarTaskDs extends AbstractAuditableDs<CalendarEvent> {
 
 	public void setContactName(String contactName) {
 		this.contactName = contactName;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
 	}
 
 	public String getNotes() {

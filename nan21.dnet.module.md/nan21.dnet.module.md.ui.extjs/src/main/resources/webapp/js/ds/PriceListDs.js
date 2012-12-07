@@ -24,6 +24,7 @@ Ext.define("net.nan21.dnet.module.md.mm.price.ds.model.PriceListDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "currency", type: 'presence'},
 		{field: "name", type: 'presence'}

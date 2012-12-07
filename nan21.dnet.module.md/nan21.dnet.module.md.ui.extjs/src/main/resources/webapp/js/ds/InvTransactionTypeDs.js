@@ -24,8 +24,8 @@ Ext.define("net.nan21.dnet.module.md.tx.inventory.ds.model.InvTransactionTypeDs"
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

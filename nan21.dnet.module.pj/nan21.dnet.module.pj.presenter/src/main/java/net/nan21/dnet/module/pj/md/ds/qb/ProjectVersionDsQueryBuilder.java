@@ -17,11 +17,6 @@ public class ProjectVersionDsQueryBuilder
 			QueryBuilderWithJpql<ProjectVersionDs, ProjectVersionDsFilter, ProjectVersionDsParam> {
 
 	@Override
-	public void setFilter(ProjectVersionDsFilter filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params.getHideReleased() != null
 				&& this.params.getHideReleased() == true) {

@@ -16,11 +16,6 @@ public class EmployeeAssignmentDsQueryBuilder
 			QueryBuilderWithJpql<EmployeeAssignmentDs, EmployeeAssignmentDs, EmployeeAssignmentDsParam> {
 
 	@Override
-	public void setFilter(EmployeeAssignmentDs filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getValidAt() != null) {
 			addFilterCondition("  e.validFrom <= :validAt and ( e.validTo is null or e.validTo >= :validAt) ");

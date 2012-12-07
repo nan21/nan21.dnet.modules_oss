@@ -25,7 +25,6 @@ public class MyCalendarMeetingDs extends AbstractAuditableDs<CalendarEvent> {
 	public static final String fPRIORITYNAME = "priorityName";
 	public static final String fBPARTNERID = "bpartnerId";
 	public static final String fBPARTNERCODE = "bpartnerCode";
-	public static final String fCREATEDBY = "createdBy";
 	public static final String fNOTES = "notes";
 	public static final String fLOCATION = "location";
 	public static final String fURL = "url";
@@ -61,9 +60,6 @@ public class MyCalendarMeetingDs extends AbstractAuditableDs<CalendarEvent> {
 
 	@DsField(join = "left", path = "bpartner.code")
 	private String bpartnerCode;
-
-	@DsField()
-	private String createdBy;
 
 	@DsField()
 	private String notes;
@@ -166,14 +162,6 @@ public class MyCalendarMeetingDs extends AbstractAuditableDs<CalendarEvent> {
 
 	public void setBpartnerCode(String bpartnerCode) {
 		this.bpartnerCode = bpartnerCode;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
 	}
 
 	public String getNotes() {

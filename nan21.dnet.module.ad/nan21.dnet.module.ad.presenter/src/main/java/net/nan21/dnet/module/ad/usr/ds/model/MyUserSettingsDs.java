@@ -14,14 +14,10 @@ import net.nan21.dnet.module.ad.usr.domain.entity.User;
 @Ds(entity = User.class, sort = {@SortField(field = MyUserSettingsDs.fNAME)})
 public class MyUserSettingsDs extends AbstractTypeWithCodeDs<User> {
 
-	public static final String fCODE = "code";
 	public static final String fDECIMALSEPARATOR = "decimalSeparator";
 	public static final String fTHOUSANDSEPARATOR = "thousandSeparator";
 	public static final String fDATEFORMATID = "dateFormatId";
 	public static final String fDATEFORMAT = "dateFormat";
-
-	@DsField()
-	private String code;
 
 	@DsField()
 	private String decimalSeparator;
@@ -41,14 +37,6 @@ public class MyUserSettingsDs extends AbstractTypeWithCodeDs<User> {
 
 	public MyUserSettingsDs(User e) {
 		super(e);
-	}
-
-	public String getCode() {
-		return this.code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	public String getDecimalSeparator() {

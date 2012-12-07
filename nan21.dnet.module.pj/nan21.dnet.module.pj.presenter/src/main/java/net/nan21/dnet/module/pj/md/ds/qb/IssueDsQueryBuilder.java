@@ -16,11 +16,6 @@ public class IssueDsQueryBuilder
 			QueryBuilderWithJpql<IssueDs, IssueDs, IssueDsParam> {
 
 	@Override
-	public void setFilter(IssueDs filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getAffectedVersionId() != null) {
 			addFilterCondition("  e.id in ( select p.id from  Issue p, IN (p.affectedVersions) c where c.id = :affectedVersionId )  ");

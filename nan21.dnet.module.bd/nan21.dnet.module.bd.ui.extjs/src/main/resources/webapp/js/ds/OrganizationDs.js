@@ -28,9 +28,9 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationDs", {
 		{name:"valid", type:"boolean"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

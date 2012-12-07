@@ -21,4 +21,9 @@ public class MyCalendarMeetingDsService
 	public void preInsert(MyCalendarMeetingDs ds, EmptyParam params) {
 		ds.setEventType("meeting");
 	}
+
+	@Override
+	public void preUpdate(MyCalendarMeetingDs ds, EmptyParam params) {
+		ds.setEventType("meeting");
+	}
 }

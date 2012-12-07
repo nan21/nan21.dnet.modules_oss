@@ -21,4 +21,9 @@ public class MyCalendarCallDsService
 	public void preInsert(MyCalendarCallDs ds, EmptyParam params) {
 		ds.setEventType("call");
 	}
+
+	@Override
+	public void preUpdate(MyCalendarCallDs ds, EmptyParam params) {
+		ds.setEventType("call");
+	}
 }

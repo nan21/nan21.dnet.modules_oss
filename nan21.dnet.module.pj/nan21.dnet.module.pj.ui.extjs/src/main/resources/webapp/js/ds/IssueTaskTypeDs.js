@@ -20,8 +20,8 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssueTaskTypeDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

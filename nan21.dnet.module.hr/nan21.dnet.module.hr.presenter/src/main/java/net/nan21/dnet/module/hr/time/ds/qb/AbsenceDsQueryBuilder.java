@@ -16,11 +16,6 @@ public class AbsenceDsQueryBuilder
 			QueryBuilderWithJpql<AbsenceDs, AbsenceDs, AbsenceDsParam> {
 
 	@Override
-	public void setFilter(AbsenceDs filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getFrom() != null) {
 			addFilterCondition("  e.eventDate >= :from ");

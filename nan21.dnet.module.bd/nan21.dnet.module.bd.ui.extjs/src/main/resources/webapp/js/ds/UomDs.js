@@ -24,9 +24,9 @@ Ext.define("net.nan21.dnet.module.bd.uom.ds.model.UomDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

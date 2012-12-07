@@ -49,6 +49,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs", {
 		{name:"weightUomCode", type:"string"},
 		{name:"weightUomId", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "name", type: 'presence'}
 	]

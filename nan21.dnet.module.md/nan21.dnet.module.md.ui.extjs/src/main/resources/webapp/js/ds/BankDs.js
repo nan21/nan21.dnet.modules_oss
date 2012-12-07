@@ -23,9 +23,9 @@ Ext.define("net.nan21.dnet.module.md.bp.ds.model.BankDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

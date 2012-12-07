@@ -23,8 +23,8 @@ Ext.define("net.nan21.dnet.module.bd.elem.ds.model.ElementCategoryDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

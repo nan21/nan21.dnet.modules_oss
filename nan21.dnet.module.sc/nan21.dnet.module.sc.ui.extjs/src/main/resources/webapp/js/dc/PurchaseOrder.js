@@ -200,9 +200,9 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditMain", {
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:250, layout:"form"})
-			.addPanel({ name:"col2", width:250, layout:"form"})
-			.addPanel({ name:"col3", width:250, layout:"form"})
-			.addPanel({ name:"col4", width:180, layout:"form"})
+			.addPanel({ name:"col2", width:200, layout:"form"})
+			.addPanel({ name:"col3", width:220, layout:"form"})
+			.addPanel({ name:"col4", width:170, layout:"form"})
 		;
 	},
 

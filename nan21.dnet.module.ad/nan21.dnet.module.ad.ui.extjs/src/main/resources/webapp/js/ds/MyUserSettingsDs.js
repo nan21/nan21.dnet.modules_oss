@@ -10,7 +10,6 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDs", {
 		{name:"active", type:"boolean"},
 		{name:"clientId", type:"int", useNull:true},
 		{name:"code", type:"string"},
-		{name:"code", type:"string"},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdBy", type:"string"},
 		{name:"dateFormat", type:"string"},
@@ -27,9 +26,9 @@ Ext.define("net.nan21.dnet.module.ad.usr.ds.model.MyUserSettingsDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

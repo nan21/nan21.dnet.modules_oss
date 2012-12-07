@@ -15,7 +15,6 @@ Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarCallDs", {
 		{name:"contactId", type:"int", useNull:true},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdBy", type:"string"},
-		{name:"createdBy", type:"string"},
 		{name:"endDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"entityFQN", type:"string"},
 		{name:"eventType", type:"string"},

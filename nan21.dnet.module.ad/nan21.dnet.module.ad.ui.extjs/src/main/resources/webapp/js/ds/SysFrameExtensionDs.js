@@ -23,6 +23,7 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "frameFQN", type: 'presence'},
 		{field: "sequenceNo", type: 'presence'},

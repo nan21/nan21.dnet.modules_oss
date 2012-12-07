@@ -27,8 +27,8 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

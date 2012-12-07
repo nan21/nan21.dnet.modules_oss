@@ -21,8 +21,8 @@ Ext.define("net.nan21.dnet.module.pj.base.ds.model.IssuePriorityDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

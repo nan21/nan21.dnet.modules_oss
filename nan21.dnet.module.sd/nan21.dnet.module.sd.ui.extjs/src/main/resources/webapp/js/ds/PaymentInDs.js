@@ -34,7 +34,12 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInDs", {
 		{name:"toAccountId", type:"int", useNull:true},
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
-	]
+	],
+	
+	init: function() {
+		this.set("docDate", new Date());
+		this.set("amount", 0);
+	}
 });
 
 Dnet.createFilterModelFromRecordModel({

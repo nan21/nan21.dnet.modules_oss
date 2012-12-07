@@ -17,11 +17,6 @@ public class PayrollElementValueDsQueryBuilder
 			QueryBuilderWithJpql<PayrollElementValueDs, PayrollElementValueDsFilter, PayrollElementValueDsParam> {
 
 	@Override
-	public void setFilter(PayrollElementValueDsFilter filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getElementSetId() != null) {
 			addFilterCondition("  e.element.id in ( select ese.element.id from  ElementSetElement ese where ese.elementSet.id = :elementSetId )  ");

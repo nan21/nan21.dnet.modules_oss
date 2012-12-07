@@ -23,8 +23,8 @@ Ext.define("net.nan21.dnet.module.hr.skill.ds.model.RatingLevelDs", {
 		{name:"value", type:"int", useNull:true},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

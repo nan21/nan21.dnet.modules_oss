@@ -49,6 +49,7 @@ Ext.define("net.nan21.dnet.module.pj.md.ds.model.IssueDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "summary", type: 'presence'}
 	]

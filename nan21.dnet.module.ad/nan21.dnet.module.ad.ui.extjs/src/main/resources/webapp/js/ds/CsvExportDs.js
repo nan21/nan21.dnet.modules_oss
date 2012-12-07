@@ -21,10 +21,10 @@ Ext.define("net.nan21.dnet.module.ad.impex.ds.model.CsvExportDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });
 
 Ext.define("net.nan21.dnet.module.ad.impex.ds.model.CsvExportDsParam", {

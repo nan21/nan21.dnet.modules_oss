@@ -22,8 +22,8 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationHierarchyDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

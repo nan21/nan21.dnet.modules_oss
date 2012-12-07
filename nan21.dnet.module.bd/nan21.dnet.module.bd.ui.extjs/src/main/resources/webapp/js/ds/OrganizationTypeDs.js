@@ -27,8 +27,8 @@ Ext.define("net.nan21.dnet.module.bd.org.ds.model.OrganizationTypeDs", {
 		{name:"virtualEntity", type:"boolean"},
 		{name:"warehouse", type:"boolean"}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

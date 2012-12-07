@@ -23,8 +23,8 @@ Ext.define("net.nan21.dnet.module.md.base.tx.ds.model.PaymentMethodDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

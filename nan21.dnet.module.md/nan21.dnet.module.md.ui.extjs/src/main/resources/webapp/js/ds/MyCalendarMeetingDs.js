@@ -13,7 +13,6 @@ Ext.define("net.nan21.dnet.module.md.activity.ds.model.MyCalendarMeetingDs", {
 		{name:"clientId", type:"int", useNull:true},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdBy", type:"string"},
-		{name:"createdBy", type:"string"},
 		{name:"eminder", type:"string"},
 		{name:"endDate", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"entityFQN", type:"string"},

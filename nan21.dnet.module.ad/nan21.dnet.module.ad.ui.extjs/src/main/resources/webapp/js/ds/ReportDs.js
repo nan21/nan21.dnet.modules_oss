@@ -26,9 +26,9 @@ Ext.define("net.nan21.dnet.module.ad.report.ds.model.ReportDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

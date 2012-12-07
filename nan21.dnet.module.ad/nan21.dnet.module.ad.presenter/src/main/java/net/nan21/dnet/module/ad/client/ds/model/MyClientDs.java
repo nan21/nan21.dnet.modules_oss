@@ -18,7 +18,6 @@ public class MyClientDs extends X_AbstractAuditedDs<Client> {
 	public static final String fNOTES = "notes";
 	public static final String fMAINTENANCELANGUAGE = "maintenanceLanguage";
 	public static final String fADMINROLE = "adminRole";
-	public static final String fID = "id";
 
 	@DsField()
 	private String name;
@@ -34,9 +33,6 @@ public class MyClientDs extends X_AbstractAuditedDs<Client> {
 
 	@DsField()
 	private String adminRole;
-
-	@DsField()
-	private Long id;
 
 	public MyClientDs() {
 		super();
@@ -84,13 +80,5 @@ public class MyClientDs extends X_AbstractAuditedDs<Client> {
 
 	public void setAdminRole(String adminRole) {
 		this.adminRole = adminRole;
-	}
-
-	public Long getId() {
-		return this.id;
-	}
-
-	public void setId(Object id) {
-		this.id = this._asLong_(id);
 	}
 }

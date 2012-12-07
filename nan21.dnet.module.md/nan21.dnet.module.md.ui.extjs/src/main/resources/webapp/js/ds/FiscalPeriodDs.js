@@ -28,9 +28,9 @@ Ext.define("net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs", {
 		{name:"year", type:"string"},
 		{name:"yearId", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "code", type: 'presence'},
 		{field: "name", type: 'presence'}
 	]
-
 });

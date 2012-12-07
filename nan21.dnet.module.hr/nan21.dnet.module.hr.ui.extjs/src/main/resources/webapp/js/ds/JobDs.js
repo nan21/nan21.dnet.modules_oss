@@ -26,6 +26,7 @@ Ext.define("net.nan21.dnet.module.hr.job.ds.model.JobDs", {
 		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "name", type: 'presence'}
 	]

@@ -25,6 +25,7 @@ Ext.define("net.nan21.dnet.module.pj.md.ds.model.ProjectVersionDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "name", type: 'presence'},
 		{field: "planDate", type: 'presence'}

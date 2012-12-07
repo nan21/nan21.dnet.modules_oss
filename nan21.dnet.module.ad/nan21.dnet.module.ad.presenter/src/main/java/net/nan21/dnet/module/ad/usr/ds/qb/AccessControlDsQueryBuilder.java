@@ -16,11 +16,6 @@ public class AccessControlDsQueryBuilder
 			QueryBuilderWithJpql<AccessControlDs, AccessControlDs, AccessControlDsParam> {
 
 	@Override
-	public void setFilter(AccessControlDs filter) {
-		this.filter = filter;
-	}
-
-	@Override
 	public void beforeBuildWhere() {
 		if (this.params != null && this.params.getWithRoleId() != null) {
 			addFilterCondition("  e.id in ( select p.id from  AccessControl p, IN (p.roles) c where c.id = :withRoleId )  ");

@@ -21,4 +21,9 @@ public class MyCalendarTaskDsService
 	public void preInsert(MyCalendarTaskDs ds, EmptyParam params) {
 		ds.setEventType("task");
 	}
+
+	@Override
+	public void preUpdate(MyCalendarTaskDs ds, EmptyParam params) {
+		ds.setEventType("task");
+	}
 }

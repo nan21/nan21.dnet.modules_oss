@@ -29,10 +29,10 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysTimerDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });
 
 Dnet.createFilterModelFromRecordModel({

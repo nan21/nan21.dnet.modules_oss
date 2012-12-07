@@ -21,8 +21,8 @@ Ext.define("net.nan21.dnet.module.bd.contact.ds.model.CommunicationChannelTypeDs
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+	
 	validations: [
 		{field: "name", type: 'presence'}
 	]
-
 });

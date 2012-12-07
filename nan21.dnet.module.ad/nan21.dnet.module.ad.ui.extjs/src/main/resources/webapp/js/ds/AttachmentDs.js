@@ -27,6 +27,7 @@ Ext.define("net.nan21.dnet.module.ad.data.ds.model.AttachmentDs", {
 		{name:"uuid", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
+
 	validations: [
 		{field: "type", type: 'presence'},
 		{field: "name", type: 'presence'}
