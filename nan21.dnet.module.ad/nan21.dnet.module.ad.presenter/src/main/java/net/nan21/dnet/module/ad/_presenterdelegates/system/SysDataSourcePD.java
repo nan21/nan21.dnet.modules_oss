@@ -1,7 +1,5 @@
 package net.nan21.dnet.module.ad._presenterdelegates.system;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +8,8 @@ import java.util.Map;
 import net.nan21.dnet.core.api.descriptor.IDsDefinition;
 import net.nan21.dnet.core.api.descriptor.IDsDefinitions;
 import net.nan21.dnet.core.api.session.Session;
+import net.nan21.dnet.core.presenter.model.DsDefinition;
+import net.nan21.dnet.core.presenter.model.FieldDefinition;
 import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDataSourceService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
@@ -35,27 +35,13 @@ public class SysDataSourcePD extends AbstractPresenterBaseService {
 				e.setActive(true);
 				e.setIsAsgn(def.isAsgn());
 
-				Class<?> theClass = def.getModelClass();
-				List<String> _tmp = new ArrayList<String>();
-				while (theClass != null) {
-					Field[] fields = theClass.getDeclaredFields();
-					for (Field field : fields) {
-						String fieldName = field.getName();
-						if (!Modifier.isStatic(field.getModifiers())) {
-							if (!fieldName.equals("_entity_")
-									&& !fieldName.equals("__clientRecordId__")
-									&& !_tmp.contains(fieldName)) {
-								SysDsField f = new SysDsField();
-								f.setName(fieldName);
-								f.setActive(true);
-								f.setDataType(field.getType()
-										.getCanonicalName());
-								e.addToFields(f);
-								_tmp.add(fieldName);
-							}
-						}
-					}
-					theClass = theClass.getSuperclass();
+				for (FieldDefinition fld : ((DsDefinition) def)
+						.getModelFields()) {
+					SysDsField f = new SysDsField();
+					f.setName(fld.getName());
+					f.setActive(true);
+					f.setDataType(fld.getClassName());
+					e.addToFields(f);
 				}
 
 				List<String> serviceMethods = def.getServiceMethods();
@@ -68,7 +54,7 @@ public class SysDataSourcePD extends AbstractPresenterBaseService {
 						e.addToServiceMethods(sme);
 					}
 				}
-				//
+
 				result.add(e);
 			}
 		}
