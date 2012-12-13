@@ -36,7 +36,7 @@ Ext.define("net.nan21.dnet.module.sd.invoice.ds.model.PaymentInDs", {
 		{name:"version", type:"int", useNull:true}
 	],
 	
-	init: function() {
+	onInit: function() {
 		this.set("docDate", new Date());
 		this.set("amount", 0);
 	}

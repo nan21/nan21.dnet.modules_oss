@@ -239,7 +239,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditMain", {
 			/* controls */
 			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addTextField({ name:"docNo", dataIndex:"docNo", anchor:"-20"})
-			.addDateField({name:"docDate", dataIndex:"docDate", noUpdate:true, allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
+			.addDateField({name:"docDate", dataIndex:"docDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
 			.addLov({xtype:"md_base_tx_lovs_TxDocTypesSO", name:"docType", dataIndex:"docType", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "docTypeId"} 

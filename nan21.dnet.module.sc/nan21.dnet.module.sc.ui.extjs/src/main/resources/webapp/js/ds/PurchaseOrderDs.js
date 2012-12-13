@@ -50,7 +50,7 @@ Ext.define("net.nan21.dnet.module.sc.order.ds.model.PurchaseOrderDs", {
 		{name:"version", type:"int", useNull:true}
 	],
 	
-	init: function() {
+	onInit: function() {
 		this.set("docDate", new Date());
 		this.set("totalNetAmount", 0);
 		this.set("totalTaxAmount", 0);

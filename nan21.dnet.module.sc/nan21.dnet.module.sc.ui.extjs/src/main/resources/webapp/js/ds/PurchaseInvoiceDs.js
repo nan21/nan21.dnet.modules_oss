@@ -52,7 +52,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.ds.model.PurchaseInvoiceDs", {
 		{field: "docDate", type: 'presence'}
 	],
 	
-	init: function() {
+	onInit: function() {
 		this.set("docDate", new Date());
 		this.set("totalNetAmount", 0);
 		this.set("totalTaxAmount", 0);
