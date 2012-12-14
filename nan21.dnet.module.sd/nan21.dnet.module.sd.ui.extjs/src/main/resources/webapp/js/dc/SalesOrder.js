@@ -320,9 +320,9 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrder$EditDetails", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			.addDateField({name:"plannedDeliveryDate", dataIndex:"plannedDeliveryDate", anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20"})
+			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20", height:60})
 			.addLov({xtype:"md_base_tx_lovs_PaymentMethodIn", name:"paymentMethod", dataIndex:"paymentMethod", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "paymentMethodId"} 

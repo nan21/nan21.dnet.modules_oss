@@ -10,7 +10,7 @@
 	<!-- ==================== Employee ==================== -->
 	
 	<bean id="EmployeeDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+			class="net.nan21.dnet.module.hr.employee.ds.serviceext.EmployeeDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.Employee"/>
 		<property name="converterClass" value="net.nan21.dnet.module.hr.employee.ds.converter.EmployeeDsConv" />

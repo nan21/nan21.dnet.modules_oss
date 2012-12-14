@@ -14,6 +14,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs", {
 		{name:"createdBy", type:"string"},
 		{name:"description", type:"string"},
 		{name:"entityFQN", type:"string"},
+		{name:"iconLocation", type:"string"},
 		{name:"iconUrl", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},

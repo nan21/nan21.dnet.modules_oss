@@ -133,7 +133,7 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrderItem$EditForm", {
 			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

@@ -65,9 +65,9 @@ Ext.define("net.nan21.dnet.module.hr.employee.frame.Employee_UI", {
 			.addButton({name:"btnUploadAttachment", text:"Upload...", tooltip:"Upload attachment file.", disabled:true,
 					handler: this.onBtnUploadAttachment, scope:this, stateManager:{name:"selected_one_clean", dc:"atch" }})
 			
-			.addDcFilterFormView("emp", {name:"empFilter", height:140, xtype:"hr_employee_dc_Employee$Filter"})
+			.addDcFilterFormView("emp", {name:"empFilter", xtype:"hr_employee_dc_Employee$Filter"})
 			.addDcGridView("emp", {name:"empList", xtype:"hr_employee_dc_Employee$List"})
-			.addDcFormView("emp", {name:"empEditMain", height:140, xtype:"hr_employee_dc_Employee$EditMain"})
+			.addDcFormView("emp", {name:"empEditMain", xtype:"hr_employee_dc_Employee$EditMain"})
 			.addDcFormView("emp", {name:"empEditOther", title:"Details", xtype:"hr_employee_dc_Employee$EditOther"})
 			.addDcGridView("asgn", {name:"asgnList", xtype:"hr_employee_dc_EmployeeAssignment$CtxList"})
 			.addDcFormView("asgn", {name:"asgnEdit", xtype:"hr_employee_dc_EmployeeAssignment$Edit"})

@@ -158,6 +158,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "defaultUomId"} 
 				]})
+			.addImage({ name:"iconLocation", dataIndex:"iconLocation", anchor:"-20", height:120})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true})
 			.addPanel({ name:"row1", width:700, layout:"form"})
@@ -165,6 +166,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$Edit", {
 			.addPanel({ name:"col1", width:350, layout:"form"})
 			.addPanel({ name:"col2", width:250, layout:"form"})
 			.addPanel({ name:"col3", width:200, layout:"form"})
+			.addPanel({ name:"col4", width:120, layout:"form", defaults:{labelAlign:"top"}})
 		;
 	},
 
@@ -172,10 +174,11 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$Edit", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["row1", "row2"])
 			.addChildrenTo("row1", ["name"])
-			.addChildrenTo("row2", ["col1", "col2", "col3"])
+			.addChildrenTo("row2", ["col1", "col2", "col3", "col4"])
 			.addChildrenTo("col1", ["code", "defaultUomCode", "attributeSet"])
 			.addChildrenTo("col2", ["manufacturerCode", "manufacturerProductNo"])
 			.addChildrenTo("col3", ["active", "showInCatalog", "sale", "purchase"])
+			.addChildrenTo("col4", ["iconLocation"])
 		;
 	}
 });

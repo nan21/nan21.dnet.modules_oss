@@ -75,6 +75,7 @@ Import-Package:
  net.nan21.dnet.module.bd.standards.domain.entity;version="1.0.6",
  net.nan21.dnet.module.bd.uom.business.service;version="1.0.6",
  net.nan21.dnet.module.bd.uom.domain.entity;version="1.0.6",
+ net.nan21.dnet.module.md._businessapi;version="1.0.6",
  net.nan21.dnet.module.md.acc.business.service;version="1.0.6",
  net.nan21.dnet.module.md.acc.domain.entity;version="1.0.6",
  net.nan21.dnet.module.md.activity.business.service;version="1.0.6",

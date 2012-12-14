@@ -133,6 +133,9 @@ public class EmployeeBase extends AbstractAuditable {
 	@Column(name = "CURRENTHIREDATE")
 	private Date currentHireDate;
 
+	@Column(name = "PHOTOURL", length = 255)
+	private String photoUrl;
+
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Organization.class)
 	@JoinColumn(name = "EMPLOYER_ID", referencedColumnName = "ID")
 	private Organization employer;
@@ -315,6 +318,14 @@ public class EmployeeBase extends AbstractAuditable {
 
 	public void setCurrentHireDate(Date currentHireDate) {
 		this.currentHireDate = currentHireDate;
+	}
+
+	public String getPhotoUrl() {
+		return this.photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
 	}
 
 	public Organization getEmployer() {

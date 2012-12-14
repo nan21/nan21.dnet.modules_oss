@@ -138,7 +138,7 @@ Ext.define("net.nan21.dnet.module.sd.order.dc.SalesOrderItem$EditForm", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "taxId"} 
 				]})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

@@ -17,9 +17,13 @@ public class ProductManufacturerDs
 			AbstractTypeWithCodeDs<ProductManufacturer> {
 
 	public static final String fICONURL = "iconUrl";
+	public static final String fICONLOCATION = "iconLocation";
 
 	@DsField()
 	private String iconUrl;
+
+	//@DsField(noInsert = true, noUpdate = true, fetch = false, path = "iconUrl")
+	private String iconLocation;
 
 	public ProductManufacturerDs() {
 		super();
@@ -35,5 +39,13 @@ public class ProductManufacturerDs
 
 	public void setIconUrl(String iconUrl) {
 		this.iconUrl = iconUrl;
+	}
+
+	public String getIconLocation() {
+		return this.iconLocation;
+	}
+
+	public void setIconLocation(String iconLocation) {
+		this.iconLocation = iconLocation;
 	}
 }

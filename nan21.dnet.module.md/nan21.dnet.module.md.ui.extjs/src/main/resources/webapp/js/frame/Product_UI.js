@@ -57,7 +57,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.frame.Product_UI", {
 			
 			.addDcFilterFormView("prod", {name:"prodFilter", xtype:"md_mm_prod_dc_Product$Filter"})
 			.addDcGridView("prod", {name:"prodList", xtype:"md_mm_prod_dc_Product$List"})
-			.addDcFormView("prod", {name:"prodEdit", height:180, xtype:"md_mm_prod_dc_Product$Edit", 
+			.addDcFormView("prod", {name:"prodEdit", xtype:"md_mm_prod_dc_Product$Edit", 
 					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnAsgnCategories")]}]})
 			.addDcFormView("prod", {name:"prodEditInfo", title:"Details", xtype:"md_mm_prod_dc_Product$EditInfo"})

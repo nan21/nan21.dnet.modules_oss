@@ -102,21 +102,24 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.Employee$EditMain", {
 			.addCombo({ xtype:"combo", name:"maritalStatus", dataIndex:"maritalStatus", anchor:"-20",
 				store:[ "single", "married", "divorced", "widow", "other"]
 			})
+			.addImage({ name:"photoLocation", dataIndex:"photoLocation", anchor:"-20", height:120})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
 			.addPanel({ name:"col2", width:250, layout:"form"})
 			.addPanel({ name:"col3", width:250, layout:"form"})
+			.addPanel({ name:"col4", width:120, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1", "col2", "col3"])
+			.addChildrenTo("main", ["col1", "col2", "col3", "col4"])
 			.addChildrenTo("col1", ["lastName", "firstName", "middleName"])
 			.addChildrenTo("col2", ["employerCode", "code"])
 			.addChildrenTo("col3", ["gender", "birthdate", "maritalStatus"])
+			.addChildrenTo("col4", ["photoLocation"])
 		;
 	}
 });
@@ -143,17 +146,20 @@ Ext.define("net.nan21.dnet.module.hr.employee.dc.Employee$EditOther", {
 			.addTextField({ name:"passportNo", dataIndex:"passportNo", anchor:"-20", maxLength:32})
 			.addTextField({ name:"sinNo", dataIndex:"sinNo", anchor:"-20", maxLength:32})
 			.addTextField({ name:"ssnNo", dataIndex:"ssnNo", anchor:"-20", maxLength:32})
+			.addTextField({ name:"photoUrl", dataIndex:"photoUrl", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
 			.addPanel({ name:"col1", width:300, layout:"form"})
+			.addPanel({ name:"col2", width:300, layout:"form"})
 		;
 	},
 
 	_linkElements_: function() {
 		this._getBuilder_()
-			.addChildrenTo("main", ["col1"])
+			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["citizenshipCode", "passportNo", "ssnNo", "sinNo", "officeEmail", "currentHireDate", "firstHireDate"])
+			.addChildrenTo("col2", ["photoUrl"])
 		;
 	}
 });

@@ -34,7 +34,7 @@
 					         <img src="${product.iconUrl}" title="${product.name}" alt="${product.name}"/>
 					    </c:when>
 					    <c:otherwise>
-					        <img src=" ${product_icon_baseurl}/${product.iconUrl}" title="${product.name}" alt="${product.name}"/>
+					        <img src="${product_icon_baseurl}/${product.iconUrl}" title="${product.name}" alt="${product.name}"/>
 					    </c:otherwise>
 					</c:choose>
 			 	 

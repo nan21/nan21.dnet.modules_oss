@@ -16,12 +16,15 @@ public class ProductCategoryDs extends AbstractTypeWithCodeDs<ProductCategory> {
 
 	public static final String fFOLDER = "folder";
 	public static final String fICONURL = "iconUrl";
+	public static final String fICONLOCATION = "iconLocation";
 
 	@DsField()
 	private Boolean folder;
 
 	@DsField()
 	private String iconUrl;
+
+	private String iconLocation;
 
 	public ProductCategoryDs() {
 		super();
@@ -45,5 +48,13 @@ public class ProductCategoryDs extends AbstractTypeWithCodeDs<ProductCategory> {
 
 	public void setIconUrl(String iconUrl) {
 		this.iconUrl = iconUrl;
+	}
+
+	public String getIconLocation() {
+		return this.iconLocation;
+	}
+
+	public void setIconLocation(String iconLocation) {
+		this.iconLocation = iconLocation;
 	}
 }

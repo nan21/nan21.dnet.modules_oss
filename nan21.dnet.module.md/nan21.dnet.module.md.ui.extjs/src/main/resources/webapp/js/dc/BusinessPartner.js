@@ -199,37 +199,38 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BusinessPartner$Edit", {
 	
 	onRecordChange: function() {
 		var rec = this._controller_.getRecord();
-				if(rec) {
-					if( rec.get("type") == "company") {
-						this._showStackedViewElement_("col0", "formCompany");
-					} else {
-						this._showStackedViewElement_("col0", "formPerson");
-					}			
-				}
+		if(rec) {
+			if( rec.get("type") == "company") {
+				this._showStackedViewElement_("col0", "formCompany");
+			} else {
+				this._showStackedViewElement_("col0", "formPerson");
+			}			
+		}
 	},
 	
-	_afterRender_: function() {
+	_registerListeners_: function() {
+		this.callParent(arguments);
 		this._controller_.on("recordChange", this.onRecordChange, this);
 	},
 	
 	_updatePersonName_: function() {
 		var rec = this._controller_.getRecord();
-				if(rec.get("type") == "person")	{
-					var n = rec.get("lastName") + " " + rec.get("firstName") + " " + rec.get("middleName");
-					if (rec.get("name") != n) {
-						rec.set("name", n)
-					}
-				}
+		if(rec.get("type") == "person")	{
+			var n = rec.get("lastName") + " " + rec.get("firstName") + " " + rec.get("middleName");
+			if (rec.get("name") != n) {
+				rec.set("name", n)
+			}
+		}
 	},
 	
 	_updateCompanyName_: function() {
 		var rec = this._controller_.getRecord();
-				if(rec.get("type") == "company")	{
-					var n = rec.get("companyName");
-					if (rec.get("name") != n) {
-						rec.set("name", n)
-					}
-				}
+		if(rec.get("type") == "company")	{
+			var n = rec.get("companyName");
+			if (rec.get("name") != n) {
+				rec.set("name", n)
+			}
+		}
 	}
 
 });

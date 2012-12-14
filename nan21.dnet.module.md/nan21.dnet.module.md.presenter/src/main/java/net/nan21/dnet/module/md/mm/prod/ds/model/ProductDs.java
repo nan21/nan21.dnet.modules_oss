@@ -41,6 +41,8 @@ public class ProductDs extends AbstractTypeWithCodeDs<Product> {
 	public static final String fATTRIBUTESET = "attributeSet";
 	public static final String fCLASSNAME = "className";
 	public static final String fBUSINESSOBJECT = "businessObject";
+	public static final String fICONLOCATION = "iconLocation";
+	public static final String fIMAGELOCATION = "imageLocation";
 
 	@DsField()
 	private String iconUrl;
@@ -122,6 +124,10 @@ public class ProductDs extends AbstractTypeWithCodeDs<Product> {
 
 	@DsField(fetch = false)
 	private String businessObject;
+
+	private String iconLocation;
+
+	private String imageLocation;
 
 	public ProductDs() {
 		super();
@@ -345,5 +351,21 @@ public class ProductDs extends AbstractTypeWithCodeDs<Product> {
 
 	public void setBusinessObject(String businessObject) {
 		this.businessObject = businessObject;
+	}
+
+	public String getIconLocation() {
+		return this.iconLocation;
+	}
+
+	public void setIconLocation(String iconLocation) {
+		this.iconLocation = iconLocation;
+	}
+
+	public String getImageLocation() {
+		return this.imageLocation;
+	}
+
+	public void setImageLocation(String imageLocation) {
+		this.imageLocation = imageLocation;
 	}
 }

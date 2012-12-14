@@ -99,7 +99,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoiceItem$EditForm", {
 			.addDisplayFieldNumber({ name:"netAmount", dataIndex:"netAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addDisplayFieldNumber({ name:"taxAmount", dataIndex:"taxAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addDisplayFieldNumber({ name:"lineAmount", dataIndex:"lineAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			.addLov({xtype:"md_base_tax_lovs_TaxApplicables", name:"tax", dataIndex:"tax", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "taxId"} 

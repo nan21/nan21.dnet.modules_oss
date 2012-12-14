@@ -36,6 +36,7 @@
 		<column name="NICKNAME" type="varchar(255)" />
 		<column name="OFFICEEMAIL" type="varchar(128)" />
 		<column name="PASSPORTNO" type="varchar(32)" />
+		<column name="PHOTOURL" type="varchar(255)" />
 		<column name="PREVIOUSLASTNAME" type="varchar(255)" />
 		<column name="SINNO" type="varchar(32)" />
 		<column name="SSNNO" type="varchar(32)" />

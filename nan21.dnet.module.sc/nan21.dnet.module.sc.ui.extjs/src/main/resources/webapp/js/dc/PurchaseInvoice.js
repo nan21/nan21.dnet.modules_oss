@@ -228,7 +228,7 @@ Ext.define("net.nan21.dnet.module.sc.invoice.dc.PurchaseInvoice$EditDetails", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			.addBooleanField({ name:"selfPayed", dataIndex:"selfPayed", anchor:"-20",listeners:{
 				change:{scope:this, fn:this._onSelfPayedChange_}
 			}

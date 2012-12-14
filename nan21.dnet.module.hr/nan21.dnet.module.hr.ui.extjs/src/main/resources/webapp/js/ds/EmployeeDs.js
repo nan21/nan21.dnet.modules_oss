@@ -32,6 +32,8 @@ Ext.define("net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs", {
 		{name:"modifiedBy", type:"string"},
 		{name:"officeEmail", type:"string"},
 		{name:"passportNo", type:"string"},
+		{name:"photoLocation", type:"string"},
+		{name:"photoUrl", type:"string"},
 		{name:"sinNo", type:"string"},
 		{name:"ssnNo", type:"string"},
 		{name:"uuid", type:"string"},

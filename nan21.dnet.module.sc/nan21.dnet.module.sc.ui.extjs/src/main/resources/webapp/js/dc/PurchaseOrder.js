@@ -195,7 +195,7 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditMain", {
 			.addDisplayFieldNumber({ name:"totalAmount", dataIndex:"totalAmount", anchor:"-20", fieldCls:"displayfieldnumber important-field", decimals:2 })
 			.addDisplayFieldBoolean({ name:"confirmed", dataIndex:"confirmed", anchor:"-20" })
 			.addDateField({name:"plannedDeliveryDate", dataIndex:"plannedDeliveryDate", anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20"})
+			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20", height:80})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
@@ -246,9 +246,9 @@ Ext.define("net.nan21.dnet.module.sc.order.dc.PurchaseOrder$EditDetails", {
 	_defineElements_: function() {
 		this._getBuilder_()
 			/* controls */
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			.addDateField({name:"plannedDeliveryDate", dataIndex:"plannedDeliveryDate", anchor:"-20", format:Ext.DATE_FORMAT})
-			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20"})
+			.addTextArea({ name:"deliveryNotes", dataIndex:"deliveryNotes", anchor:"-20", height:80})
 			.addLov({xtype:"md_base_tx_lovs_PaymentMethodOut", name:"paymentMethod", dataIndex:"paymentMethod", anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "paymentMethodId"} 

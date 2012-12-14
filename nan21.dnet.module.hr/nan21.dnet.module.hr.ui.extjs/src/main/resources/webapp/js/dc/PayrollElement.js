@@ -172,7 +172,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$Edit", {
 				change:{scope:this, fn:this.onBalanceChange}
 			}
 			})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:80})
 			.addCombo({ xtype:"combo", name:"dataType", dataIndex:"dataType", allowBlank:false, anchor:"-20",
 				store:[ "string", "number", "boolean", "date"]
 			})
@@ -223,27 +223,30 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.PayrollElement$Edit", {
 	/* ==================== Business functions ==================== */
 	
 	onBalanceChange: function() {
+		
 		var r = this._getController_().getRecord();
-				if (r.get("balance")) {
-					r.set("calculation", "");            
-				} else {
-		            r.set("balanceFunction", "");             
-				}
-				this._doSwitchViews_(r.data.balance);
+		if (r.get("balance")) {
+			r.set("calculation", "");            
+		} else {
+		    r.set("balanceFunction", "");             
+		}
+		this._doSwitchViews_(r.data.balance);
 	},
 	
 	_doSwitchViews_: function(balance) {
+		
 		if (balance) {
-					this._showStackedViewElement_("colStack",1);			 
-				} else {
-					this._showStackedViewElement_("colStack",0);	 
-				}
+			this._showStackedViewElement_("colStack",1);			 
+		} else {
+			this._showStackedViewElement_("colStack",0);	 
+		}
 	},
 	
 	_afterBind_: function(record) {
+		
 		if (record) {
-					this._doSwitchViews_(record.data.balance);
-				}
+			this._doSwitchViews_(record.data.balance);
+		}
 	}
 
 });

@@ -64,3 +64,27 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductCategory$EditList", {
 			.addDefaults();
 	}
 });
+
+
+/* ================= EDITOR: ViewIcon ================= */
+
+
+Ext.define("net.nan21.dnet.module.md.mm.prod.dc.ProductCategory$ViewIcon", {
+	extend: "dnet.core.dc.AbstractDcvEditForm",
+	alias: "widget.md_mm_prod_dc_ProductCategory$ViewIcon",
+
+	_defineElements_: function() {
+		this._getBuilder_()
+			/* controls */
+			.addImage({ name:"iconLocation", dataIndex:"iconLocation", anchor:"-20", maxWidth:150})
+			/* containers */
+			.addPanel({ name:"main", autoScroll:true, layout:"form"})
+		;
+	},
+
+	_linkElements_: function() {
+		this._getBuilder_()
+			.addChildrenTo("main", ["iconLocation"])
+		;
+	}
+});

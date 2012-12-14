@@ -10,7 +10,7 @@
 	<!-- ==================== ProductCategory ==================== -->
 	
 	<bean id="ProductCategoryDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+			class="net.nan21.dnet.module.md.mm.prod.ds.serviceext.ProductCategoryDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductCategory"/>
 	</bean>
@@ -27,7 +27,7 @@
 	<!-- ==================== ProductManufacturer ==================== -->
 	
 	<bean id="ProductManufacturerDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+			class="net.nan21.dnet.module.md.mm.prod.ds.serviceext.ProductManufacturerDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer"/>
 	</bean>
@@ -44,7 +44,7 @@
 	<!-- ==================== Product ==================== -->
 	
 	<bean id="ProductDsService" scope="singleton" lazy-init="true"
-			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+			class="net.nan21.dnet.module.md.mm.prod.ds.serviceext.ProductDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.md.mm.prod.domain.entity.Product"/>
 		<property name="paramClass" value="net.nan21.dnet.module.md.mm.prod.ds.model.ProductDsParam"/>

@@ -34,6 +34,8 @@ public class EmployeeDs extends AbstractAuditableDs<Employee> {
 	public static final String fCITIZENSHIPCODE = "citizenshipCode";
 	public static final String fPASSPORTNO = "passportNo";
 	public static final String fCLASSNAME = "className";
+	public static final String fPHOTOURL = "photoUrl";
+	public static final String fPHOTOLOCATION = "photoLocation";
 
 	@DsField()
 	private String code;
@@ -94,6 +96,11 @@ public class EmployeeDs extends AbstractAuditableDs<Employee> {
 
 	@DsField(fetch = false)
 	private String className;
+
+	@DsField()
+	private String photoUrl;
+
+	private String photoLocation;
 
 	public EmployeeDs() {
 		super();
@@ -261,5 +268,21 @@ public class EmployeeDs extends AbstractAuditableDs<Employee> {
 
 	public void setClassName(String className) {
 		this.className = className;
+	}
+
+	public String getPhotoUrl() {
+		return this.photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
+
+	public String getPhotoLocation() {
+		return this.photoLocation;
+	}
+
+	public void setPhotoLocation(String photoLocation) {
+		this.photoLocation = photoLocation;
 	}
 }
