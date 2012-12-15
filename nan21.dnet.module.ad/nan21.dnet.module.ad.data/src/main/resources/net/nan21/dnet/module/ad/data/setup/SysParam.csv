@@ -20,3 +20,6 @@ MM_PRODUCT_ICON_SUFFIX;Product icon default suffix;-small;;true
 MM_PRODUCT_IMAGE_BASEURL;Product image base url;http://dnet.nan21.net/static-demo-resources/MM/products;;true
 MM_PRODUCT_IMAGE_EXT;Product image default extension;jpg;;true
 MM_PRODUCT_IMAGE_SUFFIX;Product image default suffix;;;true
+HR_EMPL_PHOTO_BASEURL;Employee photo base url;http://dnet.nan21.net/static-demo-resources/MM/products;;true
+HR_EMPL_PHOTO_EXT;Employee photo default extension;jpg;;true
+HR_EMPL_PHOTO_SUFFIX;Employee photo default suffix;-small;;true
