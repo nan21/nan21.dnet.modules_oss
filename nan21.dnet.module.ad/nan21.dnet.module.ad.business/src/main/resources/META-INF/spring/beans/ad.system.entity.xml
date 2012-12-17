@@ -13,6 +13,9 @@
 	<bean id="SysPluginService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysPluginService"/>
 
+	<bean id="DbChangeLogService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.ad.system.business.serviceimpl.DbChangeLogService"/>
+
 	<bean id="SysParamService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysParamService"/>
 

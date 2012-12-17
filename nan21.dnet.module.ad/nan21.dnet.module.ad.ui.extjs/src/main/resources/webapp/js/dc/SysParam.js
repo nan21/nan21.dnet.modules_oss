@@ -75,7 +75,7 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$Edit", {
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:100})
 			.addTextField({ name:"defaultValue", dataIndex:"defaultValue", anchor:"-20"})
 			.addTextField({ name:"value", dataIndex:"value", anchor:"-20"})
 			/* containers */

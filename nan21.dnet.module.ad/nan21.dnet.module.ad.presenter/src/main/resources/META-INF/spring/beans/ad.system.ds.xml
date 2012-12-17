@@ -7,6 +7,16 @@
 			http://www.springframework.org/schema/context 
 				http://www.springframework.org/schema/context/spring-context.xsd">
 	
+	<!-- ==================== DbChangeLog ==================== -->
+	
+	<bean id="DbChangeLogDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.DbChangeLogDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.DbChangeLogDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.DbChangeLog"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
 	<!-- ==================== SysParam ==================== -->
 	
 	<bean id="SysParamDsService" scope="singleton" lazy-init="true"

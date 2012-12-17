@@ -42,6 +42,7 @@
 		<class>net.nan21.dnet.module.ad.system.domain.entity.AuditEntry</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.AuditField</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.BusinessObject</class>
+		<class>net.nan21.dnet.module.ad.system.domain.entity.DbChangeLog</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.SysDataSource</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent</class>
