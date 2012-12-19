@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="SalesOrderService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.order.business.serviceext.SalesOrderService"/>				
+
+	<bean id="SalesOrderItemService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.order.business.serviceext.SalesOrderItemService"/>				
+
+	<bean id="SalesOrderTaxService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.order.business.serviceimpl.SalesOrderTaxService"/>				
+
+	<bean id="SalesOrderItemTaxService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.order.business.serviceimpl.SalesOrderItemTaxService"/>				
+
+	<bean id="SalesInventoryTransactionService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.order.business.serviceimpl.SalesInventoryTransactionService"/>				
+</beans>

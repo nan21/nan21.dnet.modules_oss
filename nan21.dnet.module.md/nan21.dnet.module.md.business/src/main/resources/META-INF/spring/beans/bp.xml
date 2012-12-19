@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="BusinessPartnerService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceext.BusinessPartnerService"/>				
+
+	<bean id="ContactService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.ContactService"/>				
+
+	<bean id="BpClassificationService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.BpClassificationService"/>				
+
+	<bean id="BpBankAccountService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.BpBankAccountService"/>				
+
+	<bean id="CompanyLegalFormService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.CompanyLegalFormService"/>				
+
+	<bean id="BankService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.BankService"/>				
+
+	<bean id="BpAccountService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.BpAccountService"/>				
+
+	<bean id="BpAccountAcctService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.BpAccountAcctService"/>				
+
+	<bean id="CustomerGroupService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.CustomerGroupService"/>				
+
+	<bean id="CustomerGroupAcctService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.CustomerGroupAcctService"/>				
+
+	<bean id="VendorGroupService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.VendorGroupService"/>				
+
+	<bean id="VendorGroupAcctService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.md.bp.business.serviceimpl.VendorGroupAcctService"/>				
+</beans>

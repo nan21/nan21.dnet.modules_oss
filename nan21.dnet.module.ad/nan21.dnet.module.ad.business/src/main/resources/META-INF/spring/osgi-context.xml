@@ -42,4 +42,6 @@
 
 	<osgi:service ref="startupParticipant"
 		interface="net.nan21.dnet.core.api.setup.IStartupParticipant"/>
+	
+	<import resource="messaging/data.osgi.xml"/>
 </beans>

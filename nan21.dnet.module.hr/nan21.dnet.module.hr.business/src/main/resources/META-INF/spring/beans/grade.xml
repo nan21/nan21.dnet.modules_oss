@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="GradeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.GradeService"/>				
+
+	<bean id="GradeRateService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.GradeRateService"/>				
+
+	<bean id="GradeRateValueService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.GradeRateValueService"/>				
+
+	<bean id="PayScaleService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.PayScaleService"/>				
+
+	<bean id="PayScalePointService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.PayScalePointService"/>				
+
+	<bean id="PayScaleRateService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.PayScaleRateService"/>				
+
+	<bean id="PayScaleRateValueService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.PayScaleRateValueService"/>				
+
+	<bean id="GradePayScaleService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.GradePayScaleService"/>				
+
+	<bean id="GradePayScalePointService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.GradePayScalePointService"/>				
+
+	<bean id="JobGradeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.JobGradeService"/>				
+
+	<bean id="PositionGradeService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.hr.grade.business.serviceimpl.PositionGradeService"/>				
+</beans>

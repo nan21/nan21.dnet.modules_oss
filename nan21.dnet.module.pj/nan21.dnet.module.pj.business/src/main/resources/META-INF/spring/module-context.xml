@@ -40,6 +40,12 @@
 
 	<context:annotation-config />
 
+	<!-- Based on the -Ddnet.emf.type system property import the proper xml files 
+		to configure the entity-manager-factory and transaction manager beans. It 
+		is recommended to use the 'shared' value to have one global application level 
+		entity manager factory. See the nan21.dnet.modules_oss.jpa_all bundle for 
+		more details. -->
+	
     <import resource="emf/mc-emf-${dnet.emf.type}.xml"/>
 
   	<bean id="serviceLocator" 
@@ -57,6 +63,11 @@
 
 	<tx:annotation-driven mode="aspectj"/>
 
+	<!-- Transaction manager configuration. -->
+
+	<!-- The insert, update, delete and doSomething() methods of the entity 
+	services are transactional. -->
+
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="insert" read-only="false" rollback-for="BusinessException"/>
@@ -65,6 +76,8 @@
 			<tx:method name="do*" read-only="false" rollback-for="BusinessException"/>
 		</tx:attributes>
 	</tx:advice>
+
+	<!-- The assignment business service has the following transactional methods. -->
 
 	<tx:advice id="txAdviceAsgn" transaction-manager="transactionManager">
 		<tx:attributes>
@@ -100,6 +113,6 @@
 
 	<!-- Entity services -->
 
-	<import resource="beans/pj.base.entity.xml"/>
-	<import resource="beans/pj.md.entity.xml"/>
+	<import resource="beans/base.xml"/>
+	<import resource="beans/md.xml"/>
 </beans>

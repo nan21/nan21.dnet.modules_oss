@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="OpportunityStatusService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.opportunity.business.serviceimpl.OpportunityStatusService"/>				
+
+	<bean id="OpportunityPriorityService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.opportunity.business.serviceimpl.OpportunityPriorityService"/>				
+
+	<bean id="OpportunitySourceService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.opportunity.business.serviceimpl.OpportunitySourceService"/>				
+
+	<bean id="OpportunityStageService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.opportunity.business.serviceimpl.OpportunityStageService"/>				
+
+	<bean id="OpportunityResultReasonService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.opportunity.business.serviceimpl.OpportunityResultReasonService"/>				
+
+	<bean id="OpportunityService" scope="singleton" lazy-init="true"
+		class="net.nan21.dnet.module.sd.opportunity.business.serviceimpl.OpportunityService"/>				
+</beans>
