@@ -5,6 +5,9 @@
 	<persistence-unit name="net.nan21.dnet" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
+		<!-- List all the entities used by this bundle. It is necessary only if 
+			the bundle uses its own entity-manager-factory -->
+
 		<!-- Declared -->
 
 		<class>net.nan21.dnet.module.fi.asset.domain.entity.Amortization</class>

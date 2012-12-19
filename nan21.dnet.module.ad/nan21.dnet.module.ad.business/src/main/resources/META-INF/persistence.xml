@@ -5,6 +5,9 @@
 	<persistence-unit name="net.nan21.dnet" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
+		<!-- List all the entities used by this bundle. It is necessary only if 
+			the bundle uses its own entity-manager-factory -->
+
 		<!-- Declared -->
 
 		<class>net.nan21.dnet.module.ad.client.domain.entity.Client</class>
@@ -42,6 +45,8 @@
 		<class>net.nan21.dnet.module.ad.system.domain.entity.AuditEntry</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.AuditField</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.BusinessObject</class>
+		<class>net.nan21.dnet.module.ad.system.domain.entity.CustomField</class>
+		<class>net.nan21.dnet.module.ad.system.domain.entity.CustomFieldGroup</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.DbChangeLog</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.SysDataSource</class>
 		<class>net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat</class>

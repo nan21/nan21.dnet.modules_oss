@@ -5,6 +5,9 @@
 	<persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
+		<!-- List the dependent entities which are used by the entities declared 
+			in this bundle. -->
+
 		<!-- Dependencies -->
 
 
