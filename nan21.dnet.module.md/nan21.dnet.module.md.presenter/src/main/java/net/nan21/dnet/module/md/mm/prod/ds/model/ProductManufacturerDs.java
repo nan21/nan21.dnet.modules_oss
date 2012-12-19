@@ -22,7 +22,6 @@ public class ProductManufacturerDs
 	@DsField()
 	private String iconUrl;
 
-	//@DsField(noInsert = true, noUpdate = true, fetch = false, path = "iconUrl")
 	private String iconLocation;
 
 	public ProductManufacturerDs() {

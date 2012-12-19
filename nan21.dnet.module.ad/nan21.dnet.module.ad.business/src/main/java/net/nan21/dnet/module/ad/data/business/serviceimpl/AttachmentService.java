@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
-import net.nan21.dnet.module.ad.data.business.service.IAttachmentService;
 import net.nan21.dnet.module.ad.data.domain.entity.Attachment;
 import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
 
@@ -19,9 +18,7 @@ import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
  * finder methods based on unique keys as well as reference fields.
  * 
  */
-public class AttachmentService extends AbstractEntityService<Attachment>
-		implements
-			IAttachmentService {
+public class AttachmentService extends AbstractEntityService<Attachment> {
 
 	public AttachmentService() {
 		super();

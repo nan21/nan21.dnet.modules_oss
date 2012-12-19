@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<changeSet author="amathe" id="TBL">
+        <createTable tableName="AD_CUST_FIELD">
+		<column name="ACTIVE" type="number(1)">
+			<constraints nullable="false" /></column>
+		<column name="CLIENTID" type="number(3)">
+			<constraints nullable="false" /></column>
+		<column name="CREATEDAT" type="date">
+			<constraints nullable="false" /></column>
+		<column name="CREATEDBY" type="varchar2(32)">
+			<constraints nullable="false" /></column>
+		<column name="DATATYPE" type="varchar2(32)">
+			<constraints nullable="false" /></column>
+		<column name="DESCRIPTION" type="varchar2(400)" />
+		<column name="ID" type="number(19)">
+			<constraints nullable="false" /></column>
+		<column name="LABEL" type="varchar2(255)" />
+		<column name="MODIFIEDAT" type="date">
+			<constraints nullable="false" /></column>
+		<column name="MODIFIEDBY" type="varchar2(32)">
+			<constraints nullable="false" /></column>
+		<column name="NAME" type="varchar2(255)">
+			<constraints nullable="false" /></column>
+		<column name="UUID" type="varchar2(36)" />
+		<column name="VERSION" type="number(19)">
+			<constraints nullable="false" /></column>
+		<column name="GROUP_ID" type="number(19)">
+			<constraints  /></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="amathe" id="PK">
+    	<addPrimaryKey tableName="AD_CUST_FIELD" constraintName="PK_AD_CUST_FIELD" columnNames="ID" />
+    </changeSet>
+
+	<changeSet author="amathe" id="UK-1">
+		<addUniqueConstraint tableName="AD_CUST_FIELD" constraintName="UK_AD_CUST_FIELD1" columnNames="CLIENTID, GROUP_ID,NAME" />
+	</changeSet>
+
+	<changeSet author="amathe" id="SEQ">
+		<insert tableName="SEQUENCE">
+		    <column name="SEQ_NAME" value="AD_CUST_FIELD_SEQ"/>
+		    <column name="SEQ_COUNT" valueNumeric="0"/>
+		</insert>
+	</changeSet>
+</databaseChangeLog>
