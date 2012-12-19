@@ -78,7 +78,7 @@ Ext.define("net.nan21.dnet.module.hr.payroll.dc.Payroll$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "engineId"} 
 				]})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			.addCombo({ xtype:"combo", name:"periodType", dataIndex:"periodType", allowBlank:false, anchor:"-20",
 				store:[ "calendar-month"]
 			})

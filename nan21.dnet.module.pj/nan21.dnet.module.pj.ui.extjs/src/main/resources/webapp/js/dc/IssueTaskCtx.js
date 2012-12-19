@@ -87,7 +87,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.IssueTaskCtx$Edit", {
 		this._getBuilder_()
 			/* controls */
 			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:120})
 			.addLov({xtype:"pj_base_lovs_IssueTaskTypes", name:"type", _sharedLabel_:true, dataIndex:"type", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "typeId"} 

@@ -89,7 +89,7 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.Organization$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "calendarId"} 
 				]})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:80})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addBooleanField({ name:"valid", _sharedLabel_:true, dataIndex:"valid", anchor:"-20"})
 			.addLov({xtype:"bd_org_lovs_OrganizationTypes", name:"type", _sharedLabel_:true, dataIndex:"type", allowBlank:false, anchor:"-20",

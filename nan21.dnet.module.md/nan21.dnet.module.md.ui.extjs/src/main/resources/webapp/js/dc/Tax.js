@@ -84,7 +84,7 @@ Ext.define("net.nan21.dnet.module.md.base.tax.dc.Tax$Edit", {
 			/* controls */
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:60})
 			.addNumberField({name:"rate", dataIndex:"rate", anchor:"-20", decimals:2})
 			.addBooleanField({ name:"summary", dataIndex:"summary", anchor:"-20"})
 			.addLov({xtype:"md_base_tax_lovs_TaxCategories", name:"category", dataIndex:"category", anchor:"-20",

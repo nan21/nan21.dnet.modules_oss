@@ -121,7 +121,7 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Meeting$Edit", {
 		this._getBuilder_()
 			/* controls */
 			.addTextField({ name:"subject", dataIndex:"subject", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:100})
 			.addNumberField({name:"statusId", _sharedLabel_:true, dataIndex:"statusId", disabled:true , anchor:"-20"})
 			.addLov({xtype:"md_activity_lovs_CalendarEventStatusMeeting", name:"statusName", _sharedLabel_:true, dataIndex:"statusName", anchor:"-20",
 				retFieldMapping: [

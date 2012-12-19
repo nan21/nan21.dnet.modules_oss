@@ -96,7 +96,7 @@ Ext.define("net.nan21.dnet.module.bd.org.dc.OrganizationHierarchy$Edit", {
 			.addDateField({name:"startDate", dataIndex:"startDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addDateField({name:"endDate", dataIndex:"endDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:40})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

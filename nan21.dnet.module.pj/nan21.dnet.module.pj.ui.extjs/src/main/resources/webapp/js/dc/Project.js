@@ -87,7 +87,7 @@ Ext.define("net.nan21.dnet.module.pj.md.dc.Project$Edit", {
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", allowBlank:false, anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addBooleanField({ name:"isPublic", dataIndex:"isPublic", anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:100})
 			.addLov({xtype:"pj_base_lovs_ProjectTypes", name:"type", _sharedLabel_:true, dataIndex:"type", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "typeId"} 

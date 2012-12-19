@@ -94,7 +94,7 @@ Ext.define("net.nan21.dnet.module.md.org.dc.FinancialAccount$Edit", {
 			/* controls */
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:80})
 			.addCombo({ xtype:"combo", name:"type", _sharedLabel_:true, dataIndex:"type", noUpdate:true, allowBlank:false, anchor:"-20",
 				store:[ "bank", "cash"]
 			})

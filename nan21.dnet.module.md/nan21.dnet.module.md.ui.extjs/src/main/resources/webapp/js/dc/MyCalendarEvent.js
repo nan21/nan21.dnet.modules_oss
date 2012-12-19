@@ -113,7 +113,7 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$EditCall", {
 		this._getBuilder_()
 			/* controls */
 			.addTextField({ name:"subject", dataIndex:"subject", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:80})
 			.addDateField({name:"dueDate", dataIndex:"dueDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addLov({xtype:"md_activity_lovs_CalendarEventStatusCall", name:"statusName", _sharedLabel_:true, dataIndex:"statusName", anchor:"-20",
 				retFieldMapping: [
@@ -164,7 +164,7 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$EditMeeting", {
 		this._getBuilder_()
 			/* controls */
 			.addTextField({ name:"subject", dataIndex:"subject", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:80})
 			.addTextField({ name:"location", dataIndex:"location", anchor:"-20"})
 			.addDateField({name:"dueDate", dataIndex:"dueDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addLov({xtype:"md_activity_lovs_CalendarEventStatusMeeting", name:"statusName", _sharedLabel_:true, dataIndex:"statusName", anchor:"-20",
@@ -218,7 +218,7 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.MyCalendarEvent$EditTask", {
 		this._getBuilder_()
 			/* controls */
 			.addTextField({ name:"subject", dataIndex:"subject", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:80})
 			.addDateField({name:"dueDate", dataIndex:"dueDate", anchor:"-20", format:Ext.DATE_FORMAT})
 			.addLov({xtype:"md_activity_lovs_CalendarEventStatusTask", name:"statusName", _sharedLabel_:true, dataIndex:"statusName", anchor:"-20",
 				retFieldMapping: [

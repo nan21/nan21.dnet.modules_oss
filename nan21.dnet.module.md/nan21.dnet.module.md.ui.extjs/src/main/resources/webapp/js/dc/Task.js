@@ -126,7 +126,7 @@ Ext.define("net.nan21.dnet.module.md.activity.dc.Task$Edit", {
 		this._getBuilder_()
 			/* controls */
 			.addTextField({ name:"subject", dataIndex:"subject", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:100})
 			.addBooleanField({ name:"allDay", dataIndex:"allDay", anchor:"-20"})
 			.addLov({xtype:"md_activity_lovs_CalendarEventStatusTask", name:"statusName", _sharedLabel_:true, dataIndex:"statusName", anchor:"-20",
 				retFieldMapping: [

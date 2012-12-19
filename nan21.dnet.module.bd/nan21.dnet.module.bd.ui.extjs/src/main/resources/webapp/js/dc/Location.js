@@ -108,8 +108,8 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Location$EditCtx", {
 					{lovField:"countryId",dsField: "countryId"} 
 				]})
 			.addTextField({ name:"cityName", dataIndex:"cityName", anchor:"-20"})
-			.addTextArea({ name:"adress", dataIndex:"adress", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"adress", dataIndex:"adress", allowBlank:false, anchor:"-20", height:60})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:60})
 			.addBooleanField({ name:"billing", dataIndex:"billing", anchor:"-20"})
 			.addBooleanField({ name:"mailing", dataIndex:"mailing", anchor:"-20"})
 			.addBooleanField({ name:"shipping", dataIndex:"shipping", anchor:"-20"})

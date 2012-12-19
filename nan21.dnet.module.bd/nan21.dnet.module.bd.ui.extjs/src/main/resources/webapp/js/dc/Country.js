@@ -124,7 +124,7 @@ Ext.define("net.nan21.dnet.module.bd.geo.dc.Country$Edit", {
 			/* controls */
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", allowBlank:false, anchor:"-20", maxLength:32})
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:40})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addBooleanField({ name:"hasRegions", dataIndex:"hasRegions", anchor:"-20"})
 			.addTextField({ name:"iso2", dataIndex:"iso2", anchor:"-20", maxLength:2, caseRestriction:"uppercase"})

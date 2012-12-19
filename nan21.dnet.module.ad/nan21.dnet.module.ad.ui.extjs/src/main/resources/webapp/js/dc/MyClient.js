@@ -22,7 +22,7 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.MyClient$Edit", {
 			/* controls */
 			.addDisplayFieldText({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
 			.addDisplayFieldText({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:60})
 			.addTextField({ name:"maintenanceLanguage", dataIndex:"maintenanceLanguage", anchor:"-20", maxLength:5, caseRestriction:"uppercase"})
 			.addTextField({ name:"adminRole", dataIndex:"adminRole", allowBlank:false, anchor:"-20", maxLength:32})
 			.addDisplayFieldDate({ name:"createdAt", _sharedLabel_:true, dataIndex:"createdAt", anchor:"-20" })

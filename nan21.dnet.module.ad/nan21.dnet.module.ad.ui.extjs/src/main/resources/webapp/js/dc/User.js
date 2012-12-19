@@ -96,7 +96,7 @@ Ext.define("net.nan21.dnet.module.ad.usr.dc.User$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "accountTypeId"} 
 				]})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:60})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addBooleanField({ name:"locked", dataIndex:"locked", anchor:"-20"})
 			.addCombo({ xtype:"combo", name:"decimalSeparator", dataIndex:"decimalSeparator", anchor:"-20",

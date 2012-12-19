@@ -83,7 +83,7 @@ Ext.define("net.nan21.dnet.module.ad.report.dc.Report$Edit", {
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", allowBlank:false, anchor:"-20", maxLength:32})
 			.addTextField({ name:"contextPath", dataIndex:"contextPath", anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:100})
 			.addLov({xtype:"ad_report_lovs_ReportServers", name:"reportServer", dataIndex:"reportServer", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "reportServerId"} 

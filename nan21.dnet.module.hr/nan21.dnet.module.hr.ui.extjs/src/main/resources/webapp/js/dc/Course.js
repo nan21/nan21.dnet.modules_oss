@@ -81,9 +81,9 @@ Ext.define("net.nan21.dnet.module.hr.training.dc.Course$Edit", {
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addTextField({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
-			.addTextArea({ name:"deliveredCompetences", dataIndex:"deliveredCompetences", anchor:"-20"})
-			.addTextArea({ name:"intendedAudience", dataIndex:"intendedAudience", anchor:"-20"})
-			.addTextArea({ name:"requirements", dataIndex:"requirements", anchor:"-20"})
+			.addTextArea({ name:"deliveredCompetences", dataIndex:"deliveredCompetences", anchor:"-20", height:80})
+			.addTextArea({ name:"intendedAudience", dataIndex:"intendedAudience", anchor:"-20", height:80})
+			.addTextArea({ name:"requirements", dataIndex:"requirements", anchor:"-20", height:80})
 			.addLov({xtype:"hr_training_lovs_CourseTypes", name:"type", _sharedLabel_:true, dataIndex:"type", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "typeId"} 

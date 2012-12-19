@@ -108,7 +108,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity$Edit", {
 		this._getBuilder_()
 			/* controls */
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:80})
 			.addLov({xtype:"md_bp_lovs_BusinessPartnersName", name:"account", dataIndex:"account", allowBlank:false, anchor:"-20",
 				retFieldMapping: [
 					{lovField:"id", dsField: "accountId"} 
@@ -134,7 +134,7 @@ Ext.define("net.nan21.dnet.module.sd.opportunity.dc.Opportunity$Edit", {
 				retFieldMapping: [
 					{lovField:"id", dsField: "resultReasonId"} 
 				]})
-			.addTextArea({ name:"resultNote", dataIndex:"resultNote", anchor:"-20"})
+			.addTextArea({ name:"resultNote", dataIndex:"resultNote", anchor:"-20", height:80})
 			.addDateField({name:"closeDate", dataIndex:"closeDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
 			.addNumberField({name:"probability", dataIndex:"probability", anchor:"-20", decimals:2})
 			.addNumberField({name:"amount", dataIndex:"amount", allowBlank:false, anchor:"-20", decimals:2})

@@ -77,7 +77,7 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Edit", {
 			/* controls */
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", allowBlank:false, anchor:"-20", maxLength:32})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:60})
 			.addTextField({ name:"defaultImportPath", dataIndex:"defaultImportPath", allowBlank:false, anchor:"-20"})
 			.addTextField({ name:"defaultExportPath", dataIndex:"defaultExportPath", allowBlank:false, anchor:"-20"})
 			.addTextField({ name:"tempPath", dataIndex:"tempPath", allowBlank:false, anchor:"-20"})
@@ -112,7 +112,7 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Create", {
 			/* controls */
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", allowBlank:false, anchor:"-20", maxLength:32})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:60})
 			.addTextField({ name:"defaultImportPath", dataIndex:"defaultImportPath", allowBlank:false, anchor:"-20"})
 			.addTextField({ name:"defaultExportPath", dataIndex:"defaultExportPath", allowBlank:false, anchor:"-20"})
 			.addTextField({ name:"tempPath", dataIndex:"tempPath", allowBlank:false, anchor:"-20"})

@@ -109,7 +109,7 @@ Ext.define("net.nan21.dnet.module.hr.time.dc.Absence$Edit", {
 				]})
 			.addDateField({name:"eventDate", dataIndex:"eventDate", allowBlank:false, anchor:"-20", format:Ext.DATE_FORMAT})
 			.addNumberField({name:"hours", dataIndex:"hours", allowBlank:false, width:80})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:100})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

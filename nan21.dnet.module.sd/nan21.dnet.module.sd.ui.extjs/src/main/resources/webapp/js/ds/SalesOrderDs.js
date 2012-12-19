@@ -70,7 +70,7 @@ Ext.define("net.nan21.dnet.module.sd.order.ds.model.SalesOrderDs", {
 		{name:"version", type:"int", useNull:true}
 	],
 	
-	onInit: function() {
+	initRecord: function() {
 		this.set("docDate", new Date());
 		this.set("totalNetAmount", 0);
 		this.set("totalTaxAmount", 0);

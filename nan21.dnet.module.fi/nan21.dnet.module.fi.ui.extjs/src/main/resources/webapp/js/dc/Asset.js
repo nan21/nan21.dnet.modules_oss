@@ -101,7 +101,7 @@ Ext.define("net.nan21.dnet.module.fi.asset.dc.Asset$Edit", {
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", anchor:"-20"})
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:80})
 			.addLov({xtype:"bd_org_lovs_LegalEntityOrganizations", name:"org", dataIndex:"org", allowBlank:false, anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "orgId"} 

@@ -75,7 +75,7 @@ Ext.define("net.nan21.dnet.module.hr.grade.dc.GradeRate$Edit", {
 			/* controls */
 			.addTextField({ name:"name", _sharedLabel_:true, dataIndex:"name", allowBlank:false, anchor:"-20"})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", width:300})
+			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", width:300, height:60})
 			.addLov({xtype:"bd_currency_lovs_Currencies", name:"currencyCode", dataIndex:"currencyCode", anchor:"-20", maxLength:32,
 				retFieldMapping: [
 					{lovField:"id", dsField: "currencyId"} 

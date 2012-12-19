@@ -90,7 +90,7 @@ Ext.define("net.nan21.dnet.module.hr.job.dc.Position$Edit", {
 					{lovField:"id", dsField: "jobId"} 
 				]})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
-			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20"})
+			.addTextArea({ name:"notes", _sharedLabel_:true, dataIndex:"notes", anchor:"-20", height:80})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})

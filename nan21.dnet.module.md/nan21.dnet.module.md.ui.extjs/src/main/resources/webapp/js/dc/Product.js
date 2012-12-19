@@ -85,6 +85,7 @@ Ext.define("net.nan21.dnet.module.md.mm.prod.dc.Product$List", {
 			.addTextColumn({ name:"attributeSet", dataIndex:"attributeSet", width:120})
 			.addTextColumn({ name:"manufacturerCode", dataIndex:"manufacturerCode", width:100})
 			.addTextColumn({ name:"manufacturerProductNo", dataIndex:"manufacturerProductNo", hidden:true, width:100})
+			.addTextColumn({ name:"description", dataIndex:"description", hidden:true, width:200})
 			.addNumberColumn({ name:"weight", dataIndex:"weight", decimals:2})
 			.addTextColumn({ name:"weightUomCode", dataIndex:"weightUomCode", width:100})
 			.addNumberColumn({ name:"volume", dataIndex:"volume", hidden:true, decimals:2})
