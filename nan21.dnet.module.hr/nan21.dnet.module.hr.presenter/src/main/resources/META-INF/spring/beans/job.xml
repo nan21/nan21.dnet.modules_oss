@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== WorkRequirementType ==================== -->
+	
+	<bean id="WorkRequirementTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType"/>
+	</bean>
+	
+	<!-- ==================== WorkRequirementTypeLov ==================== -->
+	
+	<bean id="WorkRequirementTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementTypeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirementType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== WorkRequirement ==================== -->
+	
+	<bean id="WorkRequirementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement"/>
+	</bean>
+	
+	<!-- ==================== WorkRequirementLov ==================== -->
+	
+	<bean id="WorkRequirementLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.WorkRequirementLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== JobType ==================== -->
+	
+	<bean id="JobTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobType"/>
+	</bean>
+	
+	<!-- ==================== JobTypeLov ==================== -->
+	
+	<bean id="JobTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobTypeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Job ==================== -->
+	
+	<bean id="JobDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Job"/>
+	</bean>
+	
+	<!-- ==================== JobLov ==================== -->
+	
+	<bean id="JobLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Job"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== JobRequirement ==================== -->
+	
+	<bean id="JobRequirementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.JobRequirementDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.JobRequirement"/>
+	</bean>
+	
+	<!-- ==================== Position ==================== -->
+	
+	<bean id="PositionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Position"/>
+	</bean>
+	
+	<!-- ==================== PositionLov ==================== -->
+	
+	<bean id="PositionLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.Position"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PositionRequirement ==================== -->
+	
+	<bean id="PositionRequirementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.job.ds.model.PositionRequirementDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.job.domain.entity.PositionRequirement"/>
+	</bean>
+</beans>

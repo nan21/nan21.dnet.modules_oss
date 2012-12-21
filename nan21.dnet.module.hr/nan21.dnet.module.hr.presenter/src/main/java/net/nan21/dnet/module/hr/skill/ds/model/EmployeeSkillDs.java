@@ -7,18 +7,29 @@ package net.nan21.dnet.module.hr.skill.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.skill.domain.entity.EmployeeSkill;
+import net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel;
+import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
 
 @Ds(entity = EmployeeSkill.class)
+@RefLookups({
+		@RefLookup(refId = EmployeeSkillDs.f_employeeId),
+		@RefLookup(refId = EmployeeSkillDs.f_skillId, namedQuery = Skill.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = EmployeeSkillDs.f_skill)}),
+		@RefLookup(refId = EmployeeSkillDs.f_skillLevelId, namedQuery = RatingLevel.NQ_FIND_BY_NAME_PRIMITIVE, params = {
+				@Param(name = "pRatingScaleId", field = EmployeeSkillDs.f_ratingScaleId),
+				@Param(name = "pName", field = EmployeeSkillDs.f_skillLevel)})})
 public class EmployeeSkillDs extends AbstractAuditableDs<EmployeeSkill> {
 
-	public static final String fEMPLOYEEID = "employeeId";
-	public static final String fSKILLID = "skillId";
-	public static final String fSKILL = "skill";
-	public static final String fRATINGSCALEID = "ratingScaleId";
-	public static final String fSKILLLEVELID = "skillLevelId";
-	public static final String fSKILLLEVEL = "skillLevel";
+	public static final String f_employeeId = "employeeId";
+	public static final String f_skillId = "skillId";
+	public static final String f_skill = "skill";
+	public static final String f_ratingScaleId = "ratingScaleId";
+	public static final String f_skillLevelId = "skillLevelId";
+	public static final String f_skillLevel = "skillLevel";
 
 	@DsField(join = "left", path = "employee.id")
 	private Long employeeId;

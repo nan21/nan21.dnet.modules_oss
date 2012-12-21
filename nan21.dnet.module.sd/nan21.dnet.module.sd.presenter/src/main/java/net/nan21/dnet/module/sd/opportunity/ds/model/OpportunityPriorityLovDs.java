@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityPriority;
 
-@Ds(entity = OpportunityPriority.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = OpportunityPriorityLovDs.fNAME)})
+@Ds(entity = OpportunityPriority.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = OpportunityPriorityLovDs.f_name)})
 public class OpportunityPriorityLovDs
 		extends
 			AbstractTypeLov<OpportunityPriority> {

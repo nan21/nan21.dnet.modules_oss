@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
-@Ds(entity = Engine.class, sort = {@SortField(field = EngineDs.fNAME)})
+@Ds(entity = Engine.class, sort = {@SortField(field = EngineDs.f_name)})
 public class EngineDs extends AbstractTypeDs<Engine> {
 
-	public static final String fTYPE = "type";
+	public static final String f_type = "type";
 
-	@DsField()
+	@DsField
 	private String type;
 
 	public EngineDs() {

@@ -11,10 +11,10 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportParam;
 
-@Ds(entity = ReportParam.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ReportParamLovDs.fCODE)})
+@Ds(entity = ReportParam.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ReportParamLovDs.f_code)})
 public class ReportParamLovDs extends AbstractTypeWithCodeLov<ReportParam> {
 
-	public static final String fREPORTID = "reportId";
+	public static final String f_reportId = "reportId";
 
 	@DsField(join = "left", path = "report.id")
 	private Long reportId;

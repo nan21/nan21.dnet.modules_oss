@@ -9,13 +9,13 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class AccessControlDsParam extends EmptyParam {
 
-	public static final String fWITHROLEID = "withRoleId";
-	public static final String fWITHROLE = "withRole";
-	public static final String fCOPYFROMID = "copyFromId";
-	public static final String fCOPYFROM = "copyFrom";
-	public static final String fRESETRULES = "resetRules";
-	public static final String fSKIPDS = "skipDs";
-	public static final String fSKIPASGN = "skipAsgn";
+	public static final String f_withRoleId = "withRoleId";
+	public static final String f_withRole = "withRole";
+	public static final String f_copyFromId = "copyFromId";
+	public static final String f_copyFrom = "copyFrom";
+	public static final String f_resetRules = "resetRules";
+	public static final String f_skipDs = "skipDs";
+	public static final String f_skipAsgn = "skipAsgn";
 
 	private Long withRoleId;
 

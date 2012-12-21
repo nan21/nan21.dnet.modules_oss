@@ -9,9 +9,9 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ImportMapItemDsParam extends EmptyParam {
 
-	public static final String fIMPORTFILELOCATION = "importFileLocation";
-	public static final String fIMPORTDATASOURCE = "importDataSource";
-	public static final String fIMPORTUKFIELDNAME = "importUkFieldName";
+	public static final String f_importFileLocation = "importFileLocation";
+	public static final String f_importDataSource = "importDataSource";
+	public static final String f_importUkFieldName = "importUkFieldName";
 
 	private String importFileLocation;
 

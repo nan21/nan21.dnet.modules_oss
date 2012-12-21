@@ -12,20 +12,20 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.hr.grade.domain.entity.Grade;
 
-@Ds(entity = Grade.class, sort = {@SortField(field = GradeDs.fNAME)})
+@Ds(entity = Grade.class, sort = {@SortField(field = GradeDs.f_name)})
 public class GradeDs extends AbstractTypeWithCodeDs<Grade> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fVALIDTO = "validTo";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_validTo = "validTo";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
-	@DsField()
+	@DsField
 	private Date validTo;
 
 	public GradeDs() {

@@ -30,8 +30,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_ID, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_IDS, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.financialAccount = :pFinancialAccount and e.accSchema = :pAccSchema", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = FinancialAccountAcct.NQ_FIND_BY_ACCOUNT_SCHEMA_PRIMITIVE, query = "SELECT e FROM FinancialAccountAcct e WHERE e.clientId = :pClientId and e.financialAccount.id = :pFinancialAccountId and e.accSchema.id = :pAccSchemaId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -45,16 +43,6 @@ public class FinancialAccountAcct extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "MD_FINACNT_ACCT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "FinancialAccountAcct.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "FinancialAccountAcct.findByIds";
 
 	/**
 	 * Named query find by unique key: Account_schema.

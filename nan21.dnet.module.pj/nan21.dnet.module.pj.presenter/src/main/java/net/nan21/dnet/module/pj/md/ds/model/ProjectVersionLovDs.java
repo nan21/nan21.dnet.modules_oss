@@ -12,16 +12,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion;
 
-@Ds(entity = ProjectVersion.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ProjectVersionLovDs.fPLANDATE, desc = true)})
+@Ds(entity = ProjectVersion.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ProjectVersionLovDs.f_planDate, desc = true)})
 public class ProjectVersionLovDs extends AbstractTypeLov<ProjectVersion> {
 
-	public static final String fPROJECTID = "projectId";
-	public static final String fPLANDATE = "planDate";
+	public static final String f_projectId = "projectId";
+	public static final String f_planDate = "planDate";
 
 	@DsField(join = "left", path = "project.id")
 	private Long projectId;
 
-	@DsField()
+	@DsField
 	private Date planDate;
 
 	public ProjectVersionLovDs() {

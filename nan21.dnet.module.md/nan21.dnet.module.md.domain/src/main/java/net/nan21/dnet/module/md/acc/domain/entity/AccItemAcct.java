@@ -30,8 +30,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_ID, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_IDS, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.accItem = :pAccItem and e.accSchema = :pAccSchema", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = AccItemAcct.NQ_FIND_BY_ITEM_SCHEMA_PRIMITIVE, query = "SELECT e FROM AccItemAcct e WHERE e.clientId = :pClientId and e.accItem.id = :pAccItemId and e.accSchema.id = :pAccSchemaId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -44,16 +42,6 @@ public class AccItemAcct extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "MD_ACC_ITEM_ACCT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "AccItemAcct.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "AccItemAcct.findByIds";
 
 	/**
 	 * Named query find by unique key: Item_schema.

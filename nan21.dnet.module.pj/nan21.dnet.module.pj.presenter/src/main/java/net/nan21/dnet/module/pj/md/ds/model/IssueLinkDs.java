@@ -7,20 +7,28 @@ package net.nan21.dnet.module.pj.md.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueLinkType;
 import net.nan21.dnet.module.pj.md.domain.entity.IssueLink;
 
 @Ds(entity = IssueLink.class)
+@RefLookups({
+		@RefLookup(refId = IssueLinkDs.f_sourceIssueId),
+		@RefLookup(refId = IssueLinkDs.f_targetIssueId),
+		@RefLookup(refId = IssueLinkDs.f_linkTypeId, namedQuery = IssueLinkType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueLinkDs.f_linkType)})})
 public class IssueLinkDs extends AbstractAuditableDs<IssueLink> {
 
-	public static final String fSOURCEISSUEID = "sourceIssueId";
-	public static final String fSOURCEISSUE = "sourceIssue";
-	public static final String fSOURCESUMMARY = "sourceSummary";
-	public static final String fTARGETISSUEID = "targetIssueId";
-	public static final String fTARGETISSUE = "targetIssue";
-	public static final String fTARGETSUMMARY = "targetSummary";
-	public static final String fLINKTYPEID = "linkTypeId";
-	public static final String fLINKTYPE = "linkType";
+	public static final String f_sourceIssueId = "sourceIssueId";
+	public static final String f_sourceIssue = "sourceIssue";
+	public static final String f_sourceSummary = "sourceSummary";
+	public static final String f_targetIssueId = "targetIssueId";
+	public static final String f_targetIssue = "targetIssue";
+	public static final String f_targetSummary = "targetSummary";
+	public static final String f_linkTypeId = "linkTypeId";
+	public static final String f_linkType = "linkType";
 
 	@DsField(join = "left", jpqlFilter = " ( e.sourceIssue.id = :sourceIssueId or e.targetIssue.id = :sourceIssueId )  ", path = "sourceIssue.id")
 	private Long sourceIssueId;

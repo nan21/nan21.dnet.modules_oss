@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.skill.domain.entity.SkillType;
 
-@Ds(entity = SkillType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SkillTypeLovDs.fNAME)})
+@Ds(entity = SkillType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SkillTypeLovDs.f_name)})
 public class SkillTypeLovDs extends AbstractTypeLov<SkillType> {
 
 	public SkillTypeLovDs() {

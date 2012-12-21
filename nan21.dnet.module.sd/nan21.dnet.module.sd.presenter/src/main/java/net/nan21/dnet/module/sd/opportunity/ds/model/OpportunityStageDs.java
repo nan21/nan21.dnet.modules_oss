@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage;
 
-@Ds(entity = OpportunityStage.class, sort = {@SortField(field = OpportunityStageDs.fNAME)})
+@Ds(entity = OpportunityStage.class, sort = {@SortField(field = OpportunityStageDs.f_name)})
 public class OpportunityStageDs extends AbstractTypeDs<OpportunityStage> {
 
 	public OpportunityStageDs() {

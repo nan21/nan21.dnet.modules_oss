@@ -13,13 +13,13 @@ import net.nan21.dnet.module.md.tx.fin.domain.entity.TxBalance;
 @Ds(entity = TxBalance.class)
 public class TxBalanceDs extends AbstractAuditableDs<TxBalance> {
 
-	public static final String fBUSINESSPARTNERID = "businessPartnerId";
-	public static final String fBUSINESSPARTNER = "businessPartner";
-	public static final String fORGANIZATIONID = "organizationId";
-	public static final String fORGANIZATION = "organization";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fAMOUNT = "amount";
+	public static final String f_businessPartnerId = "businessPartnerId";
+	public static final String f_businessPartner = "businessPartner";
+	public static final String f_organizationId = "organizationId";
+	public static final String f_organization = "organization";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_amount = "amount";
 
 	@DsField(join = "left", path = "bpartner.id")
 	private Long businessPartnerId;
@@ -39,7 +39,7 @@ public class TxBalanceDs extends AbstractAuditableDs<TxBalance> {
 	@DsField(join = "left", path = "currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private Float amount;
 
 	public TxBalanceDs() {

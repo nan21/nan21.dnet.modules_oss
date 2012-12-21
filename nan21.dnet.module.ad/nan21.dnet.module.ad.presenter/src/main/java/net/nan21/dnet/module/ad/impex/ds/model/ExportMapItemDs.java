@@ -7,20 +7,28 @@ package net.nan21.dnet.module.ad.impex.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
+import net.nan21.dnet.module.ad.impex.domain.entity.ExportMap;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportMapItem;
 
 @Ds(entity = ExportMapItem.class)
+@RefLookups({
+		@RefLookup(refId = ExportMapItemDs.f_exportMapId, namedQuery = ExportMap.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ExportMapItemDs.f_exportMap)}),
+		@RefLookup(refId = ExportMapItemDs.f_csvExportId, namedQuery = CsvExport.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ExportMapItemDs.f_csvExport)})})
 public class ExportMapItemDs extends AbstractAuditableDs<ExportMapItem> {
 
-	public static final String fEXPORTMAPID = "exportMapId";
-	public static final String fEXPORTMAP = "exportMap";
-	public static final String fCSVEXPORTID = "csvExportId";
-	public static final String fCSVEXPORT = "csvExport";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fFILENAME = "fileName";
-	public static final String fPATH = "path";
-	public static final String fACTIVE = "active";
+	public static final String f_exportMapId = "exportMapId";
+	public static final String f_exportMap = "exportMap";
+	public static final String f_csvExportId = "csvExportId";
+	public static final String f_csvExport = "csvExport";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_fileName = "fileName";
+	public static final String f_path = "path";
+	public static final String f_active = "active";
 
 	@DsField(join = "left", path = "exportMap.id")
 	private Long exportMapId;
@@ -34,16 +42,16 @@ public class ExportMapItemDs extends AbstractAuditableDs<ExportMapItem> {
 	@DsField(join = "left", path = "csvExport.name")
 	private String csvExport;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String fileName;
 
-	@DsField()
+	@DsField
 	private String path;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
 	public ExportMapItemDs() {

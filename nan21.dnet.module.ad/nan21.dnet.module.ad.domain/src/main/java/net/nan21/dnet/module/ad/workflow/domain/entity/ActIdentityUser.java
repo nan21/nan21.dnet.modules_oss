@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.workflow.domain.entity;
 
+import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +16,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import net.nan21.dnet.core.api.model.IModelWithId;
@@ -24,34 +23,20 @@ import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import org.eclipse.persistence.annotations.Cache;
 import org.eclipse.persistence.annotations.CacheType;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = ActIdentityUser.NQ_FIND_BY_ID, query = "SELECT e FROM ActIdentityUser e WHERE  e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ActIdentityUser.NQ_FIND_BY_IDS, query = "SELECT e FROM ActIdentityUser e WHERE  e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = ActIdentityUser.TABLE_NAME)
 @Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActIdentityUser implements IModelWithId {
+public class ActIdentityUser implements IModelWithId, Serializable {
 
 	public static final String TABLE_NAME = "ACT_ID_USER";
 	public static final String SEQUENCE_NAME = "ACT_ID_USER_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ActIdentityUser.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ActIdentityUser.findByIds";
 
 	@Column(name = "ID_", nullable = false, length = 64)
 	@NotBlank

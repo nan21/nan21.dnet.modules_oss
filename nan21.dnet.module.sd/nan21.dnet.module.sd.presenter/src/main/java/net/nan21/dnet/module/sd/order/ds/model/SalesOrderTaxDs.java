@@ -13,11 +13,11 @@ import net.nan21.dnet.module.sd.order.domain.entity.SalesOrderTax;
 @Ds(entity = SalesOrderTax.class)
 public class SalesOrderTaxDs extends AbstractAuditableDs<SalesOrderTax> {
 
-	public static final String fSALESORDERID = "salesOrderId";
-	public static final String fTAXID = "taxId";
-	public static final String fTAX = "tax";
-	public static final String fBASEAMOUNT = "baseAmount";
-	public static final String fTAXAMOUNT = "taxAmount";
+	public static final String f_salesOrderId = "salesOrderId";
+	public static final String f_taxId = "taxId";
+	public static final String f_tax = "tax";
+	public static final String f_baseAmount = "baseAmount";
+	public static final String f_taxAmount = "taxAmount";
 
 	@DsField(join = "left", path = "salesOrder.id")
 	private Long salesOrderId;
@@ -28,10 +28,10 @@ public class SalesOrderTaxDs extends AbstractAuditableDs<SalesOrderTax> {
 	@DsField(join = "left", path = "tax.name")
 	private String tax;
 
-	@DsField()
+	@DsField
 	private Float baseAmount;
 
-	@DsField()
+	@DsField
 	private Float taxAmount;
 
 	public SalesOrderTaxDs() {

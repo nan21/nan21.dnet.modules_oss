@@ -13,22 +13,22 @@ import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoice;
 @Ds(entity = SalesInvoice.class)
 public class SalesInvoiceLovDs extends AbstractAuditableLov<SalesInvoice> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fSUPPLIER = "supplier";
-	public static final String fTOTALAMOUNT = "totalAmount";
-	public static final String fCURRENCY = "currency";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_supplier = "supplier";
+	public static final String f_totalAmount = "totalAmount";
+	public static final String f_currency = "currency";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
 	@DsField(join = "left", path = "supplier.name")
 	private String supplier;
 
-	@DsField()
+	@DsField
 	private Float totalAmount;
 
 	@DsField(join = "left", path = "currency.code")

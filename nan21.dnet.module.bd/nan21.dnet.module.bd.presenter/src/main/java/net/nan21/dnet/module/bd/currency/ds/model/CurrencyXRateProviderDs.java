@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateProvider;
 
-@Ds(entity = CurrencyXRateProvider.class, sort = {@SortField(field = CurrencyXRateProviderDs.fNAME)})
+@Ds(entity = CurrencyXRateProvider.class, sort = {@SortField(field = CurrencyXRateProviderDs.f_name)})
 public class CurrencyXRateProviderDs
 		extends
 			AbstractTypeWithCodeDs<CurrencyXRateProvider> {

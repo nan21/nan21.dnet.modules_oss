@@ -29,10 +29,7 @@ import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = ExportJob.NQ_FIND_BY_ID, query = "SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ExportJob.NQ_FIND_BY_IDS, query = "SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ExportJob.NQ_FIND_BY_NAME, query = "SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = ExportJob.NQ_FIND_BY_NAME, query = "SELECT e FROM ExportJob e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = ExportJob.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = ExportJob.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -43,16 +40,6 @@ public class ExportJob extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_EXP_JOB_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ExportJob.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ExportJob.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

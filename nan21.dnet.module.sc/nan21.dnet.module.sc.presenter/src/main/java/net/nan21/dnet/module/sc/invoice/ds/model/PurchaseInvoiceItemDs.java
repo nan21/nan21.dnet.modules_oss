@@ -7,29 +7,40 @@ package net.nan21.dnet.module.sc.invoice.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
+import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoiceItem;
 
 @Ds(entity = PurchaseInvoiceItem.class)
+@RefLookups({
+		@RefLookup(refId = PurchaseInvoiceItemDs.f_purchaseInvoiceId),
+		@RefLookup(refId = PurchaseInvoiceItemDs.f_uomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseInvoiceItemDs.f_uomCode)}),
+		@RefLookup(refId = PurchaseInvoiceItemDs.f_productId, namedQuery = Product.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseInvoiceItemDs.f_productCode)}),
+		@RefLookup(refId = PurchaseInvoiceItemDs.f_taxId, namedQuery = Tax.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseInvoiceItemDs.f_tax)})})
 public class PurchaseInvoiceItemDs
 		extends
 			AbstractAuditableDs<PurchaseInvoiceItem> {
 
-	public static final String fPURCHASEINVOICEID = "purchaseInvoiceId";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCTCODE = "productCode";
-	public static final String fPRODUCTNAME = "productName";
-	public static final String fDESCRIPTION = "description";
-	public static final String fQUANTITY = "quantity";
-	public static final String fUOMID = "uomId";
-	public static final String fUOMCODE = "uomCode";
-	public static final String fUNITPRICE = "unitPrice";
-	public static final String fNETAMOUNT = "netAmount";
-	public static final String fTAXAMOUNT = "taxAmount";
-	public static final String fLINEAMOUNT = "lineAmount";
-	public static final String fENTRYMODE = "entryMode";
-	public static final String fTAXID = "taxId";
-	public static final String fTAX = "tax";
+	public static final String f_purchaseInvoiceId = "purchaseInvoiceId";
+	public static final String f_productId = "productId";
+	public static final String f_productCode = "productCode";
+	public static final String f_productName = "productName";
+	public static final String f_description = "description";
+	public static final String f_quantity = "quantity";
+	public static final String f_uomId = "uomId";
+	public static final String f_uomCode = "uomCode";
+	public static final String f_unitPrice = "unitPrice";
+	public static final String f_netAmount = "netAmount";
+	public static final String f_taxAmount = "taxAmount";
+	public static final String f_lineAmount = "lineAmount";
+	public static final String f_entryMode = "entryMode";
+	public static final String f_taxId = "taxId";
+	public static final String f_tax = "tax";
 
 	@DsField(noUpdate = true, join = "left", path = "purchaseInvoice.id")
 	private Long purchaseInvoiceId;
@@ -43,10 +54,10 @@ public class PurchaseInvoiceItemDs
 	@DsField(join = "left", path = "product.name")
 	private String productName;
 
-	@DsField()
+	@DsField
 	private String description;
 
-	@DsField()
+	@DsField
 	private Float quantity;
 
 	@DsField(join = "left", path = "uom.id")
@@ -55,19 +66,19 @@ public class PurchaseInvoiceItemDs
 	@DsField(join = "left", path = "uom.code")
 	private String uomCode;
 
-	@DsField()
+	@DsField
 	private Float unitPrice;
 
-	@DsField()
+	@DsField
 	private Float netAmount;
 
-	@DsField()
+	@DsField
 	private Float taxAmount;
 
-	@DsField()
+	@DsField
 	private Float lineAmount;
 
-	@DsField()
+	@DsField
 	private String entryMode;
 
 	@DsField(join = "left", path = "tax.id")

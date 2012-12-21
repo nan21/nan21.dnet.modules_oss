@@ -7,24 +7,32 @@ package net.nan21.dnet.module.ad.impex.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.impex.domain.entity.ExportJob;
 import net.nan21.dnet.module.ad.impex.domain.entity.ExportJobItem;
+import net.nan21.dnet.module.ad.impex.domain.entity.ExportMap;
 
-@Ds(entity = ExportJobItem.class, sort = {@SortField(field = ExportJobItemDs.fSEQUENCENO)})
+@Ds(entity = ExportJobItem.class, sort = {@SortField(field = ExportJobItemDs.f_sequenceNo)})
+@RefLookups({
+		@RefLookup(refId = ExportJobItemDs.f_jobId, namedQuery = ExportJob.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ExportJobItemDs.f_jobName)}),
+		@RefLookup(refId = ExportJobItemDs.f_mapId, namedQuery = ExportMap.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ExportJobItemDs.f_mapName)})})
 public class ExportJobItemDs extends AbstractAuditableDs<ExportJobItem> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fACTIVE = "active";
-	public static final String fJOBID = "jobId";
-	public static final String fJOBNAME = "jobName";
-	public static final String fMAPID = "mapId";
-	public static final String fMAPNAME = "mapName";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_active = "active";
+	public static final String f_jobId = "jobId";
+	public static final String f_jobName = "jobName";
+	public static final String f_mapId = "mapId";
+	public static final String f_mapName = "mapName";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
 	@DsField(join = "left", path = "job.id")

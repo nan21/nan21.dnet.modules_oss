@@ -27,10 +27,7 @@ import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = InvTransactionType.NQ_FIND_BY_ID, query = "SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = InvTransactionType.NQ_FIND_BY_IDS, query = "SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = InvTransactionType.NQ_FIND_BY_NAME, query = "SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = InvTransactionType.NQ_FIND_BY_NAME, query = "SELECT e FROM InvTransactionType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = InvTransactionType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = InvTransactionType.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -41,16 +38,6 @@ public class InvTransactionType extends AbstractType {
 	public static final String SEQUENCE_NAME = "TX_INVT_TX_TYPE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "InvTransactionType.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "InvTransactionType.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

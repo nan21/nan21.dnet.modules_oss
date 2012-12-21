@@ -7,16 +7,21 @@ package net.nan21.dnet.module.md.base.tx.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 
-@Ds(entity = TxDocType.class, sort = {@SortField(field = TxDocTypeDs.fNAME)})
+@Ds(entity = TxDocType.class, sort = {@SortField(field = TxDocTypeDs.f_name)})
+@RefLookups({@RefLookup(refId = TxDocTypeDs.f_journalId, namedQuery = AccJournal.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = TxDocTypeDs.f_journal)})})
 public class TxDocTypeDs extends AbstractTypeDs<TxDocType> {
 
-	public static final String fJOURNALID = "journalId";
-	public static final String fJOURNAL = "journal";
-	public static final String fCATEGORY = "category";
+	public static final String f_journalId = "journalId";
+	public static final String f_journal = "journal";
+	public static final String f_category = "category";
 
 	@DsField(join = "left", path = "journal.id")
 	private Long journalId;
@@ -24,7 +29,7 @@ public class TxDocTypeDs extends AbstractTypeDs<TxDocType> {
 	@DsField(join = "left", path = "journal.name")
 	private String journal;
 
-	@DsField()
+	@DsField
 	private String category;
 
 	public TxDocTypeDs() {

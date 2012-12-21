@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueSeverity;
 
-@Ds(entity = IssueSeverity.class, sort = {@SortField(field = IssueSeverityDs.fSEQUENCENO)})
+@Ds(entity = IssueSeverity.class, sort = {@SortField(field = IssueSeverityDs.f_sequenceNo)})
 public class IssueSeverityDs extends AbstractTypeDs<IssueSeverity> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
+	public static final String f_sequenceNo = "sequenceNo";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
 	public IssueSeverityDs() {

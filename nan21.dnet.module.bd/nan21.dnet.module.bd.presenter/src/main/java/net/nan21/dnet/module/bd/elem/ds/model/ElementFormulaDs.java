@@ -8,27 +8,34 @@ package net.nan21.dnet.module.bd.elem.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.elem.domain.entity.Element;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementFormula;
 
 @Ds(entity = ElementFormula.class, sort = {
-		@SortField(field = ElementFormulaDs.fENGINE),
-		@SortField(field = ElementFormulaDs.fSEQUENCENO),
-		@SortField(field = ElementFormulaDs.fVALIDFROM, desc = true)})
+		@SortField(field = ElementFormulaDs.f_engine),
+		@SortField(field = ElementFormulaDs.f_sequenceNo),
+		@SortField(field = ElementFormulaDs.f_validFrom, desc = true)})
+@RefLookups({@RefLookup(refId = ElementFormulaDs.f_elementId, namedQuery = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
+		@Param(name = "pCode", field = ElementFormulaDs.f_element),
+		@Param(name = "pEngineId", field = ElementFormulaDs.f_engineId)})})
 public class ElementFormulaDs extends AbstractAuditableDs<ElementFormula> {
 
-	public static final String fELEMENTID = "elementId";
-	public static final String fELEMENT = "element";
-	public static final String fELEMENTNAME = "elementName";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
-	public static final String fENGINETYPE = "engineType";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fVALIDTO = "validTo";
-	public static final String fSTATICVALUE = "staticValue";
-	public static final String fEXPRESSION = "expression";
+	public static final String f_elementId = "elementId";
+	public static final String f_element = "element";
+	public static final String f_elementName = "elementName";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
+	public static final String f_engineType = "engineType";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_validTo = "validTo";
+	public static final String f_staticValue = "staticValue";
+	public static final String f_expression = "expression";
 
 	@DsField(join = "left", path = "element.id")
 	private Long elementId;
@@ -51,16 +58,16 @@ public class ElementFormulaDs extends AbstractAuditableDs<ElementFormula> {
 	@DsField(join = "left", path = "element.engine.type")
 	private String engineType;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
-	@DsField()
+	@DsField
 	private Date validTo;
 
-	@DsField()
+	@DsField
 	private Boolean staticValue;
 
-	@DsField()
+	@DsField
 	private String expression;
 
 	public ElementFormulaDs() {

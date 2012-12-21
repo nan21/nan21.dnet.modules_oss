@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.UserType;
 
-@Ds(entity = UserType.class, sort = {@SortField(field = UserTypeDs.fNAME)})
+@Ds(entity = UserType.class, sort = {@SortField(field = UserTypeDs.f_name)})
 public class UserTypeDs extends AbstractTypeDs<UserType> {
 
-	public static final String fEMPLOYEEACCOUNT = "employeeAccount";
-	public static final String fBPACCOUNT = "bpAccount";
+	public static final String f_employeeAccount = "employeeAccount";
+	public static final String f_bpAccount = "bpAccount";
 
-	@DsField()
+	@DsField
 	private Boolean employeeAccount;
 
-	@DsField()
+	@DsField
 	private Boolean bpAccount;
 
 	public UserTypeDs() {

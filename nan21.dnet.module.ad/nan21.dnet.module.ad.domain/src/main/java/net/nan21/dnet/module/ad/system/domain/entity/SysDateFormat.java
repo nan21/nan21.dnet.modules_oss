@@ -27,10 +27,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
  * Define date formats available to users.
  *  
  */
-@NamedQueries({
-		@NamedQuery(name = SysDateFormat.NQ_FIND_BY_ID, query = "SELECT e FROM SysDateFormat e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysDateFormat.NQ_FIND_BY_IDS, query = "SELECT e FROM SysDateFormat e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysDateFormat.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDateFormat e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = SysDateFormat.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDateFormat e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = SysDateFormat.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SysDateFormat.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -41,16 +38,6 @@ public class SysDateFormat extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_SYS_DTFMT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "SysDateFormat.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "SysDateFormat.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

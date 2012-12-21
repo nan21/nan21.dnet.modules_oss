@@ -9,30 +9,38 @@ import javax.persistence.QueryHint;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
 import net.nan21.dnet.core.api.annotation.DsQueryHints;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.attr.domain.entity.Attribute;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAttributeValue;
 import org.eclipse.persistence.config.QueryHints;
 
 @Ds(entity = ProductAttributeValue.class)
 @DsQueryHints({@QueryHint(name = QueryHints.LEFT_FETCH, value = "e.product.attributeSet")})
+@RefLookups({
+		@RefLookup(refId = ProductAttributeValueDs.f_productId, namedQuery = Product.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAttributeValueDs.f_productCode)}),
+		@RefLookup(refId = ProductAttributeValueDs.f_attributeId, namedQuery = Attribute.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProductAttributeValueDs.f_attribute)})})
 public class ProductAttributeValueDs
 		extends
 			AbstractAuditableDs<ProductAttributeValue> {
 
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCTCODE = "productCode";
-	public static final String fPRODUCTNAME = "productName";
-	public static final String fSETID = "setId";
-	public static final String fSET = "set";
-	public static final String fATTRIBUTEID = "attributeId";
-	public static final String fATTRIBUTE = "attribute";
-	public static final String fTITLE = "title";
-	public static final String fDATATYPE = "dataType";
-	public static final String fCATEGORYID = "categoryId";
-	public static final String fCATEGORY = "category";
-	public static final String fUOM = "uom";
-	public static final String fLISTOFVALUES = "listOfvalues";
-	public static final String fVALUE = "value";
+	public static final String f_productId = "productId";
+	public static final String f_productCode = "productCode";
+	public static final String f_productName = "productName";
+	public static final String f_setId = "setId";
+	public static final String f_set = "set";
+	public static final String f_attributeId = "attributeId";
+	public static final String f_attribute = "attribute";
+	public static final String f_title = "title";
+	public static final String f_dataType = "dataType";
+	public static final String f_categoryId = "categoryId";
+	public static final String f_category = "category";
+	public static final String f_uom = "uom";
+	public static final String f_listOfvalues = "listOfvalues";
+	public static final String f_value = "value";
 
 	@DsField(join = "left", path = "product.id")
 	private Long productId;
@@ -73,7 +81,7 @@ public class ProductAttributeValueDs
 	@DsField(join = "left", path = "attribute.listOfvalues")
 	private String listOfvalues;
 
-	@DsField()
+	@DsField
 	private String value;
 
 	public ProductAttributeValueDs() {

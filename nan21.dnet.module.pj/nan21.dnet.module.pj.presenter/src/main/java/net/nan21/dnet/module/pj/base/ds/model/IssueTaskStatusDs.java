@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskStatus;
 
-@Ds(entity = IssueTaskStatus.class, sort = {@SortField(field = IssueTaskStatusDs.fNAME)})
+@Ds(entity = IssueTaskStatus.class, sort = {@SortField(field = IssueTaskStatusDs.f_name)})
 public class IssueTaskStatusDs extends AbstractTypeDs<IssueTaskStatus> {
 
 	public IssueTaskStatusDs() {

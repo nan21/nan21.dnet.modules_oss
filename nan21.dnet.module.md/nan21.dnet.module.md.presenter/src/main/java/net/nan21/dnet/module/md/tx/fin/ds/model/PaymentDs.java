@@ -14,34 +14,34 @@ import net.nan21.dnet.module.md.tx.fin.domain.entity.Payment;
 @Ds(entity = Payment.class)
 public class PaymentDs extends AbstractAuditableDs<Payment> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCDATE = "docDate";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
-	public static final String fFROMORGID = "fromOrgId";
-	public static final String fFROMORG = "fromOrg";
-	public static final String fTOORGID = "toOrgId";
-	public static final String fTOORG = "toOrg";
-	public static final String fFROMACCOUNTID = "fromAccountId";
-	public static final String fFROMACCOUNT = "fromAccount";
-	public static final String fTOACCOUNTID = "toAccountId";
-	public static final String fTOACCOUNT = "toAccount";
-	public static final String fBUSINESSPARTNERID = "businessPartnerId";
-	public static final String fBUSINESSPARTNER = "businessPartner";
-	public static final String fAMOUNT = "amount";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fPOSTED = "posted";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_docDate = "docDate";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
+	public static final String f_fromOrgId = "fromOrgId";
+	public static final String f_fromOrg = "fromOrg";
+	public static final String f_toOrgId = "toOrgId";
+	public static final String f_toOrg = "toOrg";
+	public static final String f_fromAccountId = "fromAccountId";
+	public static final String f_fromAccount = "fromAccount";
+	public static final String f_toAccountId = "toAccountId";
+	public static final String f_toAccount = "toAccount";
+	public static final String f_businessPartnerId = "businessPartnerId";
+	public static final String f_businessPartner = "businessPartner";
+	public static final String f_amount = "amount";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_posted = "posted";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
-	@DsField()
+	@DsField
 	private Date docDate;
 
 	@DsField(join = "left", path = "currency.id")
@@ -86,13 +86,13 @@ public class PaymentDs extends AbstractAuditableDs<Payment> {
 	@DsField(join = "left", path = "bpartner.name")
 	private String businessPartner;
 
-	@DsField()
+	@DsField
 	private Float amount;
 
-	@DsField()
+	@DsField
 	private Boolean confirmed;
 
-	@DsField()
+	@DsField
 	private Boolean posted;
 
 	public PaymentDs() {

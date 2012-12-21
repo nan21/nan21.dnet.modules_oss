@@ -8,38 +8,47 @@ package net.nan21.dnet.module.md.tx.inventory.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransfer;
 
-@Ds(entity = InvTransfer.class, sort = {@SortField(field = InvTransferDs.fEVENTDATE, desc = true)})
+@Ds(entity = InvTransfer.class, sort = {@SortField(field = InvTransferDs.f_eventDate, desc = true)})
+@RefLookups({
+		@RefLookup(refId = InvTransferDs.f_transactionTypeId, namedQuery = InvTransactionType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransferDs.f_transactionType)}),
+		@RefLookup(refId = InvTransferDs.f_fromInventoryId, namedQuery = Organization.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransferDs.f_fromInventory)}),
+		@RefLookup(refId = InvTransferDs.f_toInventoryId, namedQuery = Organization.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransferDs.f_toInventory)})})
 public class InvTransferDs extends AbstractAuditableDs<InvTransfer> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCDATE = "docDate";
-	public static final String fEVENTDATE = "eventDate";
-	public static final String fTRANSACTIONTYPEID = "transactionTypeId";
-	public static final String fTRANSACTIONTYPE = "transactionType";
-	public static final String fHASFROMINVENTORY = "hasFromInventory";
-	public static final String fHASTOINVENTORY = "hasToInventory";
-	public static final String fFROMINVENTORYID = "fromInventoryId";
-	public static final String fFROMINVENTORY = "fromInventory";
-	public static final String fTOINVENTORYID = "toInventoryId";
-	public static final String fTOINVENTORY = "toInventory";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fPOSTED = "posted";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_docDate = "docDate";
+	public static final String f_eventDate = "eventDate";
+	public static final String f_transactionTypeId = "transactionTypeId";
+	public static final String f_transactionType = "transactionType";
+	public static final String f_hasFromInventory = "hasFromInventory";
+	public static final String f_hasToInventory = "hasToInventory";
+	public static final String f_fromInventoryId = "fromInventoryId";
+	public static final String f_fromInventory = "fromInventory";
+	public static final String f_toInventoryId = "toInventoryId";
+	public static final String f_toInventory = "toInventory";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_posted = "posted";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
-	@DsField()
+	@DsField
 	private Date docDate;
 
-	@DsField()
+	@DsField
 	private Date eventDate;
 
 	@DsField(join = "left", path = "transactionType.id")
@@ -66,10 +75,10 @@ public class InvTransferDs extends AbstractAuditableDs<InvTransfer> {
 	@DsField(join = "left", path = "toInventory.code")
 	private String toInventory;
 
-	@DsField()
+	@DsField
 	private Boolean confirmed;
 
-	@DsField()
+	@DsField
 	private Boolean posted;
 
 	public InvTransferDs() {

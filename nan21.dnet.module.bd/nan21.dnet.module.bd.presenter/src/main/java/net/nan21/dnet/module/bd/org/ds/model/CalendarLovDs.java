@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 
-@Ds(entity = Calendar.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CalendarLovDs.fNAME)})
+@Ds(entity = Calendar.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CalendarLovDs.f_name)})
 public class CalendarLovDs extends AbstractTypeLov<Calendar> {
 
 	public CalendarLovDs() {

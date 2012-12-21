@@ -37,17 +37,17 @@
 
 	<!-- Presenter services -->  
 
-	<import resource="beans/md.acc.ds.xml"/>
-	<import resource="beans/md.activity.ds.xml"/>
-	<import resource="beans/md.base.tx.ds.xml"/>
-	<import resource="beans/md.base.tax.ds.xml"/>
-	<import resource="beans/md.base.period.ds.xml"/>
-	<import resource="beans/md.bp.ds.xml"/>
-	<import resource="beans/md.mm.price.ds.xml"/>
-	<import resource="beans/md.mm.prod.asgn.xml"/>
-	<import resource="beans/md.mm.prod.ds.xml"/>
-	<import resource="beans/md.org.ds.xml"/>
-	<import resource="beans/md.tx.acc.ds.xml"/>
-	<import resource="beans/md.tx.fin.ds.xml"/>
-	<import resource="beans/md.tx.inventory.ds.xml"/>
+	<import resource="beans/acc.xml"/>
+	<import resource="beans/activity.xml"/>
+	<import resource="beans/base.tx.xml"/>
+	<import resource="beans/base.tax.xml"/>
+	<import resource="beans/base.period.xml"/>
+	<import resource="beans/bp.xml"/>
+	<import resource="beans/mm.price.xml"/>
+	<import resource="beans/mm.prod.asgn.xml"/>
+	<import resource="beans/mm.prod.xml"/>
+	<import resource="beans/org.xml"/>
+	<import resource="beans/tx.acc.xml"/>
+	<import resource="beans/tx.fin.xml"/>
+	<import resource="beans/tx.inventory.xml"/>
 </beans>

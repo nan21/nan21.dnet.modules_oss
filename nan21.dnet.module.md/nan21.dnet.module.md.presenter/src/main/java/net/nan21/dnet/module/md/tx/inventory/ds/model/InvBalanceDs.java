@@ -13,18 +13,18 @@ import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvBalance;
 @Ds(entity = InvBalance.class)
 public class InvBalanceDs extends AbstractAuditableDs<InvBalance> {
 
-	public static final String fINVENTORYID = "inventoryId";
-	public static final String fINVENTORY = "inventory";
-	public static final String fSUBINVENTORYID = "subInventoryId";
-	public static final String fSUBINVENTORY = "subInventory";
-	public static final String fLOCATORID = "locatorId";
-	public static final String fLOCATOR = "locator";
-	public static final String fITEMID = "itemId";
-	public static final String fITEM = "item";
-	public static final String fITEMNAME = "itemName";
-	public static final String fQUANTITY = "quantity";
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
+	public static final String f_inventoryId = "inventoryId";
+	public static final String f_inventory = "inventory";
+	public static final String f_subInventoryId = "subInventoryId";
+	public static final String f_subInventory = "subInventory";
+	public static final String f_locatorId = "locatorId";
+	public static final String f_locator = "locator";
+	public static final String f_itemId = "itemId";
+	public static final String f_item = "item";
+	public static final String f_itemName = "itemName";
+	public static final String f_quantity = "quantity";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
 
 	@DsField(join = "left", path = "subInventory.inventory.id")
 	private Long inventoryId;
@@ -53,7 +53,7 @@ public class InvBalanceDs extends AbstractAuditableDs<InvBalance> {
 	@DsField(join = "left", path = "item.name")
 	private String itemName;
 
-	@DsField()
+	@DsField
 	private Float quantity;
 
 	@DsField(join = "left", path = "uom.id")

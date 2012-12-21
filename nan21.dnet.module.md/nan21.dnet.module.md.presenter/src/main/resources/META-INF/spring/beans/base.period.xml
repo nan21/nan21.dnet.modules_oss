@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== FiscalYear ==================== -->
+	
+	<bean id="FiscalYearDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalYearDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="createMonths">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md._presenterdelegates.base.period.PeriodPD"/>
+						<constructor-arg name="methodName" value="createMonths" />
+					</bean>
+				</entry>
+				<entry key="createQuarters">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md._presenterdelegates.base.period.PeriodPD"/>
+						<constructor-arg name="methodName" value="createQuarters" />
+					</bean>
+				</entry>
+				<entry key="createHalfYears">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md._presenterdelegates.base.period.PeriodPD"/>
+						<constructor-arg name="methodName" value="createHalfYears" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== FiscalYearLov ==================== -->
+	
+	<bean id="FiscalYearLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalYearLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== FiscalPeriod ==================== -->
+	
+	<bean id="FiscalPeriodDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod"/>
+	</bean>
+	
+	<!-- ==================== FiscalPeriodLov ==================== -->
+	
+	<bean id="FiscalPeriodLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.base.period.ds.model.FiscalPeriodLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

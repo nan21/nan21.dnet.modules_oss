@@ -37,12 +37,12 @@
 
 	<!-- Presenter services -->  
 
-	<import resource="beans/bd.contact.ds.xml"/>
-	<import resource="beans/bd.currency.ds.xml"/>
-	<import resource="beans/bd.geo.ds.xml"/>
-	<import resource="beans/bd.org.ds.xml"/>
-	<import resource="beans/bd.standards.ds.xml"/>
-	<import resource="beans/bd.uom.ds.xml"/>
-	<import resource="beans/bd.elem.ds.xml"/>
-	<import resource="beans/bd.attr.ds.xml"/>
+	<import resource="beans/contact.xml"/>
+	<import resource="beans/currency.xml"/>
+	<import resource="beans/geo.xml"/>
+	<import resource="beans/org.xml"/>
+	<import resource="beans/standards.xml"/>
+	<import resource="beans/uom.xml"/>
+	<import resource="beans/elem.xml"/>
+	<import resource="beans/attr.xml"/>
 </beans>

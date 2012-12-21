@@ -8,53 +8,74 @@ package net.nan21.dnet.module.sc.order.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
+import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseOrder;
 
-@Ds(entity = PurchaseOrder.class, sort = {@SortField(field = PurchaseOrderDs.fDOCDATE, desc = true)})
+@Ds(entity = PurchaseOrder.class, sort = {@SortField(field = PurchaseOrderDs.f_docDate, desc = true)})
+@RefLookups({
+		@RefLookup(refId = PurchaseOrderDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseOrderDs.f_currency)}),
+		@RefLookup(refId = PurchaseOrderDs.f_inventoryId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseOrderDs.f_inventory)}),
+		@RefLookup(refId = PurchaseOrderDs.f_docTypeId, namedQuery = TxDocType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseOrderDs.f_docType)}),
+		@RefLookup(refId = PurchaseOrderDs.f_priceListId, namedQuery = PriceList.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseOrderDs.f_priceList)}),
+		@RefLookup(refId = PurchaseOrderDs.f_deliveryMethodId, namedQuery = DeliveryMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseOrderDs.f_deliveryMethod)}),
+		@RefLookup(refId = PurchaseOrderDs.f_paymentMethodId, namedQuery = PaymentMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseOrderDs.f_paymentMethod)}),
+		@RefLookup(refId = PurchaseOrderDs.f_paymentTermId, namedQuery = PaymentTerm.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseOrderDs.f_paymentTerm)}),
+		@RefLookup(refId = PurchaseOrderDs.f_customerId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseOrderDs.f_customer)}),
+		@RefLookup(refId = PurchaseOrderDs.f_supplierId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseOrderDs.f_supplierCode)})})
 public class PurchaseOrderDs extends AbstractAuditableDs<PurchaseOrder> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCDATE = "docDate";
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
-	public static final String fDESCRIPTION = "description";
-	public static final String fCUSTOMERID = "customerId";
-	public static final String fCUSTOMER = "customer";
-	public static final String fSUPPLIERID = "supplierId";
-	public static final String fSUPPLIERUUID = "supplierUuid";
-	public static final String fSUPPLIERCODE = "supplierCode";
-	public static final String fSUPPLIER = "supplier";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fPRICELISTID = "priceListId";
-	public static final String fPRICELIST = "priceList";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
-	public static final String fPAYMENTTERMID = "paymentTermId";
-	public static final String fPAYMENTTERM = "paymentTerm";
-	public static final String fDELIVERYMETHODID = "deliveryMethodId";
-	public static final String fDELIVERYMETHOD = "deliveryMethod";
-	public static final String fINVENTORYID = "inventoryId";
-	public static final String fINVENTORY = "inventory";
-	public static final String fPLANNEDDELIVERYDATE = "plannedDeliveryDate";
-	public static final String fDELIVERYNOTES = "deliveryNotes";
-	public static final String fTOTALAMOUNT = "totalAmount";
-	public static final String fTOTALNETAMOUNT = "totalNetAmount";
-	public static final String fTOTALTAXAMOUNT = "totalTaxAmount";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fCLASSNAME = "className";
-	public static final String fBUSINESSOBJECT = "businessObject";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_docDate = "docDate";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
+	public static final String f_description = "description";
+	public static final String f_customerId = "customerId";
+	public static final String f_customer = "customer";
+	public static final String f_supplierId = "supplierId";
+	public static final String f_supplierUuid = "supplierUuid";
+	public static final String f_supplierCode = "supplierCode";
+	public static final String f_supplier = "supplier";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_priceListId = "priceListId";
+	public static final String f_priceList = "priceList";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
+	public static final String f_paymentTermId = "paymentTermId";
+	public static final String f_paymentTerm = "paymentTerm";
+	public static final String f_deliveryMethodId = "deliveryMethodId";
+	public static final String f_deliveryMethod = "deliveryMethod";
+	public static final String f_inventoryId = "inventoryId";
+	public static final String f_inventory = "inventory";
+	public static final String f_plannedDeliveryDate = "plannedDeliveryDate";
+	public static final String f_deliveryNotes = "deliveryNotes";
+	public static final String f_totalAmount = "totalAmount";
+	public static final String f_totalNetAmount = "totalNetAmount";
+	public static final String f_totalTaxAmount = "totalTaxAmount";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_className = "className";
+	public static final String f_businessObject = "businessObject";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
-	@DsField()
+	@DsField
 	private Date docDate;
 
 	@DsField(join = "left", path = "docType.id")
@@ -63,7 +84,7 @@ public class PurchaseOrderDs extends AbstractAuditableDs<PurchaseOrder> {
 	@DsField(join = "left", path = "docType.name")
 	private String docType;
 
-	@DsField()
+	@DsField
 	private String description;
 
 	@DsField(noUpdate = true, join = "left", path = "customer.id")
@@ -120,10 +141,10 @@ public class PurchaseOrderDs extends AbstractAuditableDs<PurchaseOrder> {
 	@DsField(join = "left", path = "inventory.code")
 	private String inventory;
 
-	@DsField()
+	@DsField
 	private Date plannedDeliveryDate;
 
-	@DsField()
+	@DsField
 	private String deliveryNotes;
 
 	@DsField(noInsert = true, noUpdate = true)
@@ -135,7 +156,7 @@ public class PurchaseOrderDs extends AbstractAuditableDs<PurchaseOrder> {
 	@DsField(noInsert = true, noUpdate = true)
 	private Float totalTaxAmount;
 
-	@DsField()
+	@DsField
 	private Boolean confirmed;
 
 	@DsField(noInsert = true, noUpdate = true, fetch = false)

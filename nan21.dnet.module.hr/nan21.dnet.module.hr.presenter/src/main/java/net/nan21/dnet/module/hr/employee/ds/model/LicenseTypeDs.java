@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.hr.employee.domain.entity.LicenseType;
 
-@Ds(entity = LicenseType.class, sort = {@SortField(field = LicenseTypeDs.fNAME)})
+@Ds(entity = LicenseType.class, sort = {@SortField(field = LicenseTypeDs.f_name)})
 public class LicenseTypeDs extends AbstractTypeDs<LicenseType> {
 
 	public LicenseTypeDs() {

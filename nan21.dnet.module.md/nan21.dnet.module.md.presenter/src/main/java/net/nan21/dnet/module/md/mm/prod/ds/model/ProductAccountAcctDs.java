@@ -7,21 +7,31 @@ package net.nan21.dnet.module.md.mm.prod.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountAcct;
 
 @Ds(entity = ProductAccountAcct.class)
+@RefLookups({
+		@RefLookup(refId = ProductAccountAcctDs.f_prodAccountId),
+		@RefLookup(refId = ProductAccountAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountAcctDs.f_accSchema)}),
+		@RefLookup(refId = ProductAccountAcctDs.f_expenseAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountAcctDs.f_expenseAccount)}),
+		@RefLookup(refId = ProductAccountAcctDs.f_revenueAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountAcctDs.f_revenueAccount)})})
 public class ProductAccountAcctDs
 		extends
 			AbstractAuditableDs<ProductAccountAcct> {
 
-	public static final String fPRODACCOUNTID = "prodAccountId";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fEXPENSEACCOUNTID = "expenseAccountId";
-	public static final String fEXPENSEACCOUNT = "expenseAccount";
-	public static final String fREVENUEACCOUNTID = "revenueAccountId";
-	public static final String fREVENUEACCOUNT = "revenueAccount";
+	public static final String f_prodAccountId = "prodAccountId";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_expenseAccountId = "expenseAccountId";
+	public static final String f_expenseAccount = "expenseAccount";
+	public static final String f_revenueAccountId = "revenueAccountId";
+	public static final String f_revenueAccount = "revenueAccount";
 
 	@DsField(join = "left", path = "prodAccount.id")
 	private Long prodAccountId;

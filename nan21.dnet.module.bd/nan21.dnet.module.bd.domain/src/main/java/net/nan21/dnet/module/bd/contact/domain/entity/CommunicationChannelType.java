@@ -28,10 +28,7 @@ import org.hibernate.validator.constraints.NotBlank;
  Defines communication channel types.
  For example: phone, office phone , skype, etc
  */
-@NamedQueries({
-		@NamedQuery(name = CommunicationChannelType.NQ_FIND_BY_ID, query = "SELECT e FROM CommunicationChannelType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = CommunicationChannelType.NQ_FIND_BY_IDS, query = "SELECT e FROM CommunicationChannelType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = CommunicationChannelType.NQ_FIND_BY_NAME, query = "SELECT e FROM CommunicationChannelType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = CommunicationChannelType.NQ_FIND_BY_NAME, query = "SELECT e FROM CommunicationChannelType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = CommunicationChannelType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = CommunicationChannelType.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -42,16 +39,6 @@ public class CommunicationChannelType extends AbstractType {
 	public static final String SEQUENCE_NAME = "BD_CMNC_MTD_TYPE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "CommunicationChannelType.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "CommunicationChannelType.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

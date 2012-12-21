@@ -30,8 +30,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = VendorGroupAcct.NQ_FIND_BY_ID, query = "SELECT e FROM VendorGroupAcct e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = VendorGroupAcct.NQ_FIND_BY_IDS, query = "SELECT e FROM VendorGroupAcct e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = VendorGroupAcct.NQ_FIND_BY_GROUP_SCHEMA, query = "SELECT e FROM VendorGroupAcct e WHERE e.clientId = :pClientId and e.vendorGroup = :pVendorGroup and e.accSchema = :pAccSchema", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = VendorGroupAcct.NQ_FIND_BY_GROUP_SCHEMA_PRIMITIVE, query = "SELECT e FROM VendorGroupAcct e WHERE e.clientId = :pClientId and e.vendorGroup.id = :pVendorGroupId and e.accSchema.id = :pAccSchemaId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -44,16 +42,6 @@ public class VendorGroupAcct extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "MD_BP_VENDGRP_ACCT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "VendorGroupAcct.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "VendorGroupAcct.findByIds";
 
 	/**
 	 * Named query find by unique key: Group_schema.

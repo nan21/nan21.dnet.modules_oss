@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.Menu;
 
-@Ds(entity = Menu.class, sort = {@SortField(field = MenuDs.fNAME)})
+@Ds(entity = Menu.class, sort = {@SortField(field = MenuDs.f_name)})
 public class MenuDs extends AbstractTypeDs<Menu> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fTITLE = "title";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_title = "title";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String title;
 
 	public MenuDs() {

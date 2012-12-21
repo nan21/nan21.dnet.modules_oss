@@ -8,19 +8,24 @@ package net.nan21.dnet.module.hr.payroll.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod;
 
-@Ds(entity = PayrollPeriod.class, sort = {@SortField(field = PayrollPeriodDs.fNAME)})
+@Ds(entity = PayrollPeriod.class, sort = {@SortField(field = PayrollPeriodDs.f_name)})
+@RefLookups({@RefLookup(refId = PayrollPeriodDs.f_payrollId, namedQuery = Payroll.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PayrollPeriodDs.f_payrollName)})})
 public class PayrollPeriodDs extends AbstractTypeDs<PayrollPeriod> {
 
-	public static final String fPAYROLLID = "payrollId";
-	public static final String fPAYROLLNAME = "payrollName";
-	public static final String fSTARTDATE = "startDate";
-	public static final String fENDDATE = "endDate";
-	public static final String fPROCESSED = "processed";
-	public static final String fCLOSED = "closed";
+	public static final String f_payrollId = "payrollId";
+	public static final String f_payrollName = "payrollName";
+	public static final String f_startDate = "startDate";
+	public static final String f_endDate = "endDate";
+	public static final String f_processed = "processed";
+	public static final String f_closed = "closed";
 
 	@DsField(join = "left", path = "payroll.id")
 	private Long payrollId;
@@ -28,16 +33,16 @@ public class PayrollPeriodDs extends AbstractTypeDs<PayrollPeriod> {
 	@DsField(join = "left", path = "payroll.name")
 	private String payrollName;
 
-	@DsField()
+	@DsField
 	private Date startDate;
 
-	@DsField()
+	@DsField
 	private Date endDate;
 
-	@DsField()
+	@DsField
 	private Boolean processed;
 
-	@DsField()
+	@DsField
 	private Boolean closed;
 
 	public PayrollPeriodDs() {

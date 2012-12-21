@@ -7,15 +7,20 @@ package net.nan21.dnet.module.ad.system.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent;
 
 @Ds(entity = SysDsEvent.class)
+@RefLookups({@RefLookup(refId = SysDsEventDs.f_dataSourceId, namedQuery = SysDataSource.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SysDsEventDs.f_dataSource)})})
 public class SysDsEventDs extends AbstractAuditableDs<SysDsEvent> {
 
-	public static final String fDATASOURCEID = "dataSourceId";
-	public static final String fDATASOURCE = "dataSource";
-	public static final String fNAME = "name";
+	public static final String f_dataSourceId = "dataSourceId";
+	public static final String f_dataSource = "dataSource";
+	public static final String f_name = "name";
 
 	@DsField(join = "left", path = "dataSource.id")
 	private Long dataSourceId;

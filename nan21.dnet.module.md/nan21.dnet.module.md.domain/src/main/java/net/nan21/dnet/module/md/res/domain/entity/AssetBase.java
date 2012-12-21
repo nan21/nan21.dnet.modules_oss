@@ -35,10 +35,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 /**
  Base asset definition. It is meant to be extended by the asset management in the accounting module.
  */
-@NamedQueries({
-		@NamedQuery(name = AssetBase.NQ_FIND_BY_ID, query = "SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AssetBase.NQ_FIND_BY_IDS, query = "SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AssetBase.NQ_FIND_BY_CODE, query = "SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = AssetBase.NQ_FIND_BY_CODE, query = "SELECT e FROM AssetBase e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "ENTITYTYPE", discriminatorType = DiscriminatorType.STRING, length = 32)
@@ -51,16 +48,6 @@ public class AssetBase extends AbstractTypeWithCode {
 	public static final String SEQUENCE_NAME = "MD_RES_ASSET_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "AssetBase.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "AssetBase.findByIds";
 
 	/**
 	 * Named query find by unique key: Code.

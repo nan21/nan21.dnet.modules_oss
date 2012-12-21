@@ -11,13 +11,13 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 
-@Ds(entity = Product.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ProductWithUomLovDs.fCODE)})
+@Ds(entity = Product.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ProductWithUomLovDs.f_code)})
 public class ProductWithUomLovDs extends AbstractTypeWithCodeLov<Product> {
 
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
-	public static final String fSALE = "sale";
-	public static final String fPURCHASE = "purchase";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
+	public static final String f_sale = "sale";
+	public static final String f_purchase = "purchase";
 
 	@DsField(join = "left", path = "defaultUom.id")
 	private Long uomId;
@@ -25,10 +25,10 @@ public class ProductWithUomLovDs extends AbstractTypeWithCodeLov<Product> {
 	@DsField(join = "left", path = "defaultUom.code")
 	private String uom;
 
-	@DsField()
+	@DsField
 	private Boolean sale;
 
-	@DsField()
+	@DsField
 	private Boolean purchase;
 
 	public ProductWithUomLovDs() {

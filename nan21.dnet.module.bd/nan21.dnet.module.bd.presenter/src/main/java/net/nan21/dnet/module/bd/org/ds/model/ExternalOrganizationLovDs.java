@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 
-@Ds(entity = Organization.class, jpqlWhere = " e.type.external = true ", sort = {@SortField(field = ExternalOrganizationLovDs.fCODE)})
+@Ds(entity = Organization.class, jpqlWhere = " e.type.external = true ", sort = {@SortField(field = ExternalOrganizationLovDs.f_code)})
 public class ExternalOrganizationLovDs
 		extends
 			AbstractTypeWithCodeLov<Organization> {
 
-	public static final String fEXTERNAL = "external";
+	public static final String f_external = "external";
 
 	@DsField(join = "left", path = "type.external")
 	private Boolean external;

@@ -29,8 +29,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-		@NamedQuery(name = ReportParam.NQ_FIND_BY_ID, query = "SELECT e FROM ReportParam e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ReportParam.NQ_FIND_BY_IDS, query = "SELECT e FROM ReportParam e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ReportParam.NQ_FIND_BY_CODE, query = "SELECT e FROM ReportParam e WHERE e.clientId = :pClientId and e.report = :pReport and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ReportParam.NQ_FIND_BY_CODE_PRIMITIVE, query = "SELECT e FROM ReportParam e WHERE e.clientId = :pClientId and e.report.id = :pReportId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ReportParam.NQ_FIND_BY_NAME, query = "SELECT e FROM ReportParam e WHERE e.clientId = :pClientId and e.report = :pReport and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
@@ -48,16 +46,6 @@ public class ReportParam extends AbstractTypeWithCode {
 	public static final String SEQUENCE_NAME = "AD_RPT_PARAM_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ReportParam.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ReportParam.findByIds";
 
 	/**
 	 * Named query find by unique key: Code.

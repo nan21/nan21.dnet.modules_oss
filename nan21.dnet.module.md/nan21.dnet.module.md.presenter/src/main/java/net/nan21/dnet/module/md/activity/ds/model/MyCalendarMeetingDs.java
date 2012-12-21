@@ -8,30 +8,44 @@ package net.nan21.dnet.module.md.activity.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.md.activity.domain.entity.CalendarEvent;
+import net.nan21.dnet.module.md.activity.domain.entity.CalendarEventPriority;
+import net.nan21.dnet.module.md.activity.domain.entity.CalendarEventStatus;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
-@Ds(entity = CalendarEvent.class, jpqlWhere = " e.eventType = 'meeting' ", sort = {@SortField(field = MyCalendarMeetingDs.fSTARTDATE, desc = true)})
+@Ds(entity = CalendarEvent.class, jpqlWhere = " e.eventType = 'meeting' ", sort = {@SortField(field = MyCalendarMeetingDs.f_startDate, desc = true)})
+@RefLookups({
+		@RefLookup(refId = MyCalendarMeetingDs.f_bpartnerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = MyCalendarMeetingDs.f_bpartnerCode)}),
+		@RefLookup(refId = MyCalendarMeetingDs.f_priorityId, namedQuery = CalendarEventPriority.NQ_FIND_BY_TYPE_AND_NAME, params = {
+				@Param(name = "pName", field = MyCalendarMeetingDs.f_priorityName),
+				@Param(name = "pEventType", field = MyCalendarMeetingDs.f_eventType)}),
+		@RefLookup(refId = MyCalendarMeetingDs.f_statusId, namedQuery = CalendarEventStatus.NQ_FIND_BY_TYPE_AND_NAME, params = {
+				@Param(name = "pName", field = MyCalendarMeetingDs.f_statusName),
+				@Param(name = "pEventType", field = MyCalendarMeetingDs.f_eventType)})})
 public class MyCalendarMeetingDs extends AbstractAuditableDs<CalendarEvent> {
 
-	public static final String fSUBJECT = "subject";
-	public static final String fSTARTDATE = "startDate";
-	public static final String fENDDATE = "endDate";
-	public static final String fEVENTTYPE = "eventType";
-	public static final String fSTATUSID = "statusId";
-	public static final String fSTATUSNAME = "statusName";
-	public static final String fPRIORITYID = "priorityId";
-	public static final String fPRIORITYNAME = "priorityName";
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fBPARTNERCODE = "bpartnerCode";
-	public static final String fNOTES = "notes";
-	public static final String fLOCATION = "location";
-	public static final String fURL = "url";
-	public static final String fEMINDER = "eminder";
-	public static final String fALLDAY = "allDay";
+	public static final String f_subject = "subject";
+	public static final String f_startDate = "startDate";
+	public static final String f_endDate = "endDate";
+	public static final String f_eventType = "eventType";
+	public static final String f_statusId = "statusId";
+	public static final String f_statusName = "statusName";
+	public static final String f_priorityId = "priorityId";
+	public static final String f_priorityName = "priorityName";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_bpartnerCode = "bpartnerCode";
+	public static final String f_notes = "notes";
+	public static final String f_location = "location";
+	public static final String f_url = "url";
+	public static final String f_eminder = "eminder";
+	public static final String f_allDay = "allDay";
 
-	@DsField()
+	@DsField
 	private String subject;
 
 	@DsField(jpqlFilter = " e.endDate >= :startDate ")
@@ -40,7 +54,7 @@ public class MyCalendarMeetingDs extends AbstractAuditableDs<CalendarEvent> {
 	@DsField(jpqlFilter = " e.startDate <= :endDate ")
 	private Date endDate;
 
-	@DsField()
+	@DsField
 	private String eventType;
 
 	@DsField(join = "left", path = "status.id")
@@ -61,19 +75,19 @@ public class MyCalendarMeetingDs extends AbstractAuditableDs<CalendarEvent> {
 	@DsField(join = "left", path = "bpartner.code")
 	private String bpartnerCode;
 
-	@DsField()
+	@DsField
 	private String notes;
 
-	@DsField()
+	@DsField
 	private String location;
 
-	@DsField()
+	@DsField
 	private String url;
 
 	@DsField(path = "reminder")
 	private String eminder;
 
-	@DsField()
+	@DsField
 	private Boolean allDay;
 
 	public MyCalendarMeetingDs() {

@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
 
-@Ds(entity = PaymentMethod.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PaymentMethodLovDs.fNAME)})
+@Ds(entity = PaymentMethod.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PaymentMethodLovDs.f_name)})
 public class PaymentMethodLovDs extends AbstractTypeLov<PaymentMethod> {
 
-	public static final String fTYPE = "type";
+	public static final String f_type = "type";
 
-	@DsField()
+	@DsField
 	private String type;
 
 	public PaymentMethodLovDs() {

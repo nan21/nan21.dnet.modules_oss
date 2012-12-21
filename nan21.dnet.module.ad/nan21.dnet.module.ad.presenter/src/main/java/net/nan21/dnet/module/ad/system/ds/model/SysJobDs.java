@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJob;
 
-@Ds(entity = SysJob.class, sort = {@SortField(field = SysJobDs.fNAME)})
+@Ds(entity = SysJob.class, sort = {@SortField(field = SysJobDs.f_name)})
 public class SysJobDs extends AbstractTypeDs<SysJob> {
 
-	public static final String fJAVACLASS = "javaClass";
+	public static final String f_javaClass = "javaClass";
 
-	@DsField()
+	@DsField
 	private String javaClass;
 
 	public SysJobDs() {

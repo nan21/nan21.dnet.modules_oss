@@ -8,42 +8,47 @@ package net.nan21.dnet.module.md.bp.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 import net.nan21.dnet.module.md.bp.domain.entity.Contact;
 
 @Ds(entity = Contact.class)
+@RefLookups({@RefLookup(refId = ContactDs.f_bpartnerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ContactDs.f_bpartnerCode)})})
 public class ContactDs extends AbstractAuditableDs<Contact> {
 
-	public static final String fFIRSTNAME = "firstName";
-	public static final String fLASTNAME = "lastName";
-	public static final String fNAME = "name";
-	public static final String fACTIVE = "active";
-	public static final String fGENDER = "gender";
-	public static final String fBIRTHDATE = "birthdate";
-	public static final String fPOSITION = "position";
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fBPARTNERCODE = "bpartnerCode";
-	public static final String fCLASSNAME = "className";
+	public static final String f_firstName = "firstName";
+	public static final String f_lastName = "lastName";
+	public static final String f_name = "name";
+	public static final String f_active = "active";
+	public static final String f_gender = "gender";
+	public static final String f_birthdate = "birthdate";
+	public static final String f_position = "position";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_bpartnerCode = "bpartnerCode";
+	public static final String f_className = "className";
 
-	@DsField()
+	@DsField
 	private String firstName;
 
-	@DsField()
+	@DsField
 	private String lastName;
 
 	@DsField(fetch = false)
 	private String name;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
-	@DsField()
+	@DsField
 	private String gender;
 
 	@DsField(path = "birthDate")
 	private Date birthdate;
 
-	@DsField()
+	@DsField
 	private String position;
 
 	@DsField(join = "left", path = "bpartner.id")

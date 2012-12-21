@@ -7,16 +7,21 @@ package net.nan21.dnet.module.bd.elem.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementSet;
+import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
-@Ds(entity = ElementSet.class, sort = {@SortField(field = ElementSetDs.fNAME)})
+@Ds(entity = ElementSet.class, sort = {@SortField(field = ElementSetDs.f_name)})
+@RefLookups({@RefLookup(refId = ElementSetDs.f_engineId, namedQuery = Engine.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ElementSetDs.f_engine)})})
 public class ElementSetDs extends AbstractTypeDs<ElementSet> {
 
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
-	public static final String fENGINETYPE = "engineType";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
+	public static final String f_engineType = "engineType";
 
 	@DsField(join = "left", path = "engine.id")
 	private Long engineId;

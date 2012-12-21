@@ -17,9 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
@@ -30,14 +28,10 @@ import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice;
 import net.nan21.dnet.module.sc.invoice.domain.eventhandler.PurchaseInvoiceItemEventHandler;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = PurchaseInvoiceItem.NQ_FIND_BY_ID, query = "SELECT e FROM PurchaseInvoiceItem e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = PurchaseInvoiceItem.NQ_FIND_BY_IDS, query = "SELECT e FROM PurchaseInvoiceItem e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = PurchaseInvoiceItem.TABLE_NAME)
 @Customizer(PurchaseInvoiceItemEventHandler.class)
@@ -47,16 +41,6 @@ public class PurchaseInvoiceItem extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "SC_INV_ITEM_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "PurchaseInvoiceItem.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "PurchaseInvoiceItem.findByIds";
 
 	/**
 	 * System generated unique identifier.

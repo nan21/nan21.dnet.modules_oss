@@ -16,9 +16,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,14 +24,10 @@ import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.core.domain.model.AbstractSimpleEntity;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = AuditEntry.NQ_FIND_BY_ID, query = "SELECT e FROM AuditEntry e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AuditEntry.NQ_FIND_BY_IDS, query = "SELECT e FROM AuditEntry e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = AuditEntry.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
@@ -43,16 +37,6 @@ public class AuditEntry extends AbstractSimpleEntity {
 	public static final String SEQUENCE_NAME = "AD_AUDIT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "AuditEntry.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "AuditEntry.findByIds";
 
 	/**
 	 * System generated unique identifier.

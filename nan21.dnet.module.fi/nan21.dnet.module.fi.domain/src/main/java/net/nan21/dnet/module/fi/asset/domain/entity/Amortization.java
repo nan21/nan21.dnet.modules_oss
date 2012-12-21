@@ -31,8 +31,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = Amortization.NQ_FIND_BY_ID, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Amortization.NQ_FIND_BY_IDS, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = Amortization.NQ_FIND_BY_AMORT, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.asset = :pAsset and e.postingDate = :pPostingDate", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = Amortization.NQ_FIND_BY_AMORT_PRIMITIVE, query = "SELECT e FROM Amortization e WHERE e.clientId = :pClientId and e.asset.id = :pAssetId and e.postingDate = :pPostingDate", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -45,16 +43,6 @@ public class Amortization extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "FI_AMORT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "Amortization.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "Amortization.findByIds";
 
 	/**
 	 * Named query find by unique key: Amort.

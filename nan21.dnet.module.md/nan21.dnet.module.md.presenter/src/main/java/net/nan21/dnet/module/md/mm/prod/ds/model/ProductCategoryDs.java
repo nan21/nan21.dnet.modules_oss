@@ -11,17 +11,17 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductCategory;
 
-@Ds(entity = ProductCategory.class, sort = {@SortField(field = ProductCategoryDs.fNAME)})
+@Ds(entity = ProductCategory.class, sort = {@SortField(field = ProductCategoryDs.f_name)})
 public class ProductCategoryDs extends AbstractTypeWithCodeDs<ProductCategory> {
 
-	public static final String fFOLDER = "folder";
-	public static final String fICONURL = "iconUrl";
-	public static final String fICONLOCATION = "iconLocation";
+	public static final String f_folder = "folder";
+	public static final String f_iconUrl = "iconUrl";
+	public static final String f_iconLocation = "iconLocation";
 
-	@DsField()
+	@DsField
 	private Boolean folder;
 
-	@DsField()
+	@DsField
 	private String iconUrl;
 
 	private String iconLocation;

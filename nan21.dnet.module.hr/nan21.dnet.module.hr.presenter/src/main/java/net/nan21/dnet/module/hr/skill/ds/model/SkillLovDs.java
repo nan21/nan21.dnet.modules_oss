@@ -11,10 +11,10 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
 
-@Ds(entity = Skill.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SkillLovDs.fNAME)})
+@Ds(entity = Skill.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SkillLovDs.f_name)})
 public class SkillLovDs extends AbstractTypeLov<Skill> {
 
-	public static final String fRATINGSCALEID = "ratingScaleId";
+	public static final String f_ratingScaleId = "ratingScaleId";
 
 	@DsField(join = "left", path = "ratingScale.id")
 	private Long ratingScaleId;

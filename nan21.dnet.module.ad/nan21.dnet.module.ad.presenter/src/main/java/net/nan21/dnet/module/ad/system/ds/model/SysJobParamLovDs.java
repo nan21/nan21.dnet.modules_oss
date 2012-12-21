@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobParam;
 
-@Ds(entity = SysJobParam.class, sort = {@SortField(field = SysJobParamLovDs.fNAME)})
+@Ds(entity = SysJobParam.class, sort = {@SortField(field = SysJobParamLovDs.f_name)})
 public class SysJobParamLovDs extends AbstractTypeDs<SysJobParam> {
 
 	public SysJobParamLovDs() {

@@ -8,47 +8,60 @@ package net.nan21.dnet.module.sd.order.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType;
 import net.nan21.dnet.module.sd.order.domain.entity.SalesInventoryTransaction;
 
 @Ds(entity = SalesInventoryTransaction.class)
+@RefLookups({
+		@RefLookup(refId = SalesDeliveryDs.f_customerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesDeliveryDs.f_customerCode)}),
+		@RefLookup(refId = SalesDeliveryDs.f_transactionTypeId, namedQuery = InvTransactionType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesDeliveryDs.f_transactionType)}),
+		@RefLookup(refId = SalesDeliveryDs.f_carrierId, namedQuery = Organization.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesDeliveryDs.f_carrier)}),
+		@RefLookup(refId = SalesDeliveryDs.f_warehouseId, namedQuery = Organization.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesDeliveryDs.f_warehouse)}),
+		@RefLookup(refId = SalesDeliveryDs.f_deliveryLocationId),
+		@RefLookup(refId = SalesDeliveryDs.f_deliveryContactId)})
 public class SalesDeliveryDs
 		extends
 			AbstractAuditableDs<SalesInventoryTransaction> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCDATE = "docDate";
-	public static final String fEVENTDATE = "eventDate";
-	public static final String fCUSTOMERID = "customerId";
-	public static final String fCUSTOMERCODE = "customerCode";
-	public static final String fCUSTOMER = "customer";
-	public static final String fSALESORDERID = "salesOrderId";
-	public static final String fSALESORDERUUID = "salesOrderUuid";
-	public static final String fSALESORDER = "salesOrder";
-	public static final String fTRANSACTIONTYPEID = "transactionTypeId";
-	public static final String fTRANSACTIONTYPE = "transactionType";
-	public static final String fCARRIERID = "carrierId";
-	public static final String fCARRIER = "carrier";
-	public static final String fWAREHOUSEID = "warehouseId";
-	public static final String fWAREHOUSE = "warehouse";
-	public static final String fDELIVERYLOCATIONID = "deliveryLocationId";
-	public static final String fDELIVERYLOCATION = "deliveryLocation";
-	public static final String fDELIVERYCONTACTID = "deliveryContactId";
-	public static final String fDELIVERYCONTACT = "deliveryContact";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fPOSTED = "posted";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_docDate = "docDate";
+	public static final String f_eventDate = "eventDate";
+	public static final String f_customerId = "customerId";
+	public static final String f_customerCode = "customerCode";
+	public static final String f_customer = "customer";
+	public static final String f_salesOrderId = "salesOrderId";
+	public static final String f_salesOrderUuid = "salesOrderUuid";
+	public static final String f_salesOrder = "salesOrder";
+	public static final String f_transactionTypeId = "transactionTypeId";
+	public static final String f_transactionType = "transactionType";
+	public static final String f_carrierId = "carrierId";
+	public static final String f_carrier = "carrier";
+	public static final String f_warehouseId = "warehouseId";
+	public static final String f_warehouse = "warehouse";
+	public static final String f_deliveryLocationId = "deliveryLocationId";
+	public static final String f_deliveryLocation = "deliveryLocation";
+	public static final String f_deliveryContactId = "deliveryContactId";
+	public static final String f_deliveryContact = "deliveryContact";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_posted = "posted";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
-	@DsField()
+	@DsField
 	private Date docDate;
 
-	@DsField()
+	@DsField
 	private Date eventDate;
 
 	@DsField(join = "left", path = "customer.id")
@@ -99,10 +112,10 @@ public class SalesDeliveryDs
 	@DsField(join = "left", fetch = false, path = "deliveryContact.name")
 	private String deliveryContact;
 
-	@DsField()
+	@DsField
 	private Boolean confirmed;
 
-	@DsField()
+	@DsField
 	private Boolean posted;
 
 	public SalesDeliveryDs() {

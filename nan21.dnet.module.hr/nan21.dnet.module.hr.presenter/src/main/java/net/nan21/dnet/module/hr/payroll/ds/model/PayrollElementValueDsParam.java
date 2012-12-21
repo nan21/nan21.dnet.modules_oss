@@ -9,8 +9,8 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class PayrollElementValueDsParam extends EmptyParam {
 
-	public static final String fELEMENTSETID = "elementSetId";
-	public static final String fELEMENTSET = "elementSet";
+	public static final String f_elementSetId = "elementSetId";
+	public static final String f_elementSet = "elementSet";
 
 	private Long elementSetId;
 

@@ -7,18 +7,26 @@ package net.nan21.dnet.module.hr.grade.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
+import net.nan21.dnet.module.hr.grade.domain.entity.PayScale;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRate;
 
-@Ds(entity = PayScaleRate.class, sort = {@SortField(field = PayScaleRateDs.fNAME)})
+@Ds(entity = PayScaleRate.class, sort = {@SortField(field = PayScaleRateDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = PayScaleRateDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PayScaleRateDs.f_currencyCode)}),
+		@RefLookup(refId = PayScaleRateDs.f_payScaleId, namedQuery = PayScale.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PayScaleRateDs.f_payScaleCode)})})
 public class PayScaleRateDs extends AbstractTypeDs<PayScaleRate> {
 
-	public static final String fPAYSCALEID = "payScaleId";
-	public static final String fPAYSCALECODE = "payScaleCode";
-	public static final String fPAYSCALENAME = "payScaleName";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCYCODE = "currencyCode";
+	public static final String f_payScaleId = "payScaleId";
+	public static final String f_payScaleCode = "payScaleCode";
+	public static final String f_payScaleName = "payScaleName";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currencyCode = "currencyCode";
 
 	@DsField(join = "left", path = "payScale.id")
 	private Long payScaleId;

@@ -17,25 +17,25 @@ public class PurchaseTxAmountOverviewDs
 		extends
 			AbstractAuditableDs<PurchaseTxAmount> {
 
-	public static final String fCUSTOMERID = "customerId";
-	public static final String fCUSTOMER = "customer";
-	public static final String fSUPPLIERID = "supplierId";
-	public static final String fSUPPLIERCODE = "supplierCode";
-	public static final String fSUPPLIER = "supplier";
-	public static final String fINVOICEID = "invoiceId";
-	public static final String fINVOICECODE = "invoiceCode";
-	public static final String fINVOICEDOCNO = "invoiceDocNo";
-	public static final String fINVOICEDOCDATE = "invoiceDocDate";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fORDERID = "orderId";
-	public static final String fDUEDATE = "dueDate";
-	public static final String fDUEINDAYS = "dueInDays";
-	public static final String fDUEAMOUNT = "dueAmount";
-	public static final String fPAYEDAMOUNT = "payedAmount";
-	public static final String fOUTSTANDINGAMOUNT = "outstandingAmount";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
+	public static final String f_customerId = "customerId";
+	public static final String f_customer = "customer";
+	public static final String f_supplierId = "supplierId";
+	public static final String f_supplierCode = "supplierCode";
+	public static final String f_supplier = "supplier";
+	public static final String f_invoiceId = "invoiceId";
+	public static final String f_invoiceCode = "invoiceCode";
+	public static final String f_invoiceDocNo = "invoiceDocNo";
+	public static final String f_invoiceDocDate = "invoiceDocDate";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_orderId = "orderId";
+	public static final String f_dueDate = "dueDate";
+	public static final String f_dueInDays = "dueInDays";
+	public static final String f_dueAmount = "dueAmount";
+	public static final String f_payedAmount = "payedAmount";
+	public static final String f_outstandingAmount = "outstandingAmount";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
 
 	@DsField(join = "left", path = "org.id")
 	private Long customerId;
@@ -73,16 +73,16 @@ public class PurchaseTxAmountOverviewDs
 	@DsField(join = "left", path = "order.id")
 	private Long orderId;
 
-	@DsField()
+	@DsField
 	private Date dueDate;
 
 	@DsField(fetch = false)
 	private Integer dueInDays;
 
-	@DsField()
+	@DsField
 	private Float dueAmount;
 
-	@DsField()
+	@DsField
 	private Float payedAmount;
 
 	@DsField(path = "amount")

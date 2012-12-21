@@ -8,43 +8,61 @@ package net.nan21.dnet.module.hr.employee.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeAssignment;
+import net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType;
+import net.nan21.dnet.module.hr.grade.domain.entity.Grade;
+import net.nan21.dnet.module.hr.job.domain.entity.Job;
+import net.nan21.dnet.module.hr.job.domain.entity.Position;
+import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
 
 @Ds(entity = EmployeeAssignment.class)
+@RefLookups({
+		@RefLookup(refId = EmployeeAssignmentDs.f_employeeId, namedQuery = Employee.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = EmployeeAssignmentDs.f_employerCode)}),
+		@RefLookup(refId = EmployeeAssignmentDs.f_typeId, namedQuery = EmploymentType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = EmployeeAssignmentDs.f_type)}),
+		@RefLookup(refId = EmployeeAssignmentDs.f_positionId, namedQuery = Position.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = EmployeeAssignmentDs.f_positionCode)}),
+		@RefLookup(refId = EmployeeAssignmentDs.f_jobId, namedQuery = Job.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = EmployeeAssignmentDs.f_jobCode)}),
+		@RefLookup(refId = EmployeeAssignmentDs.f_orgId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = EmployeeAssignmentDs.f_org)}),
+		@RefLookup(refId = EmployeeAssignmentDs.f_gradeId, namedQuery = Grade.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = EmployeeAssignmentDs.f_gradeCode)}),
+		@RefLookup(refId = EmployeeAssignmentDs.f_payrollId, namedQuery = Payroll.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = EmployeeAssignmentDs.f_payroll)})})
 public class EmployeeAssignmentDs
 		extends
 			AbstractAuditableDs<EmployeeAssignment> {
 
-	public static final String fEMPLOYEEID = "employeeId";
-	public static final String fEMPLOYEECODE = "employeeCode";
-	public static final String fEMPLOYERID = "employerId";
-	public static final String fEMPLOYERCODE = "employerCode";
-	public static final String fFIRSTNAME = "firstName";
-	public static final String fLASTNAME = "lastName";
-	public static final String fMIDDLENAME = "middleName";
-	public static final String fNAME = "name";
-	public static final String fCLASSNAME = "className";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fVALIDTO = "validTo";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fASSIGNTOPOSITION = "assignToPosition";
-	public static final String fGRADEID = "gradeId";
-	public static final String fGRADECODE = "gradeCode";
-	public static final String fJOBID = "jobId";
-	public static final String fJOBCODE = "jobCode";
-	public static final String fJOBNAME = "jobName";
-	public static final String fPOSITIONID = "positionId";
-	public static final String fPOSITIONCODE = "positionCode";
-	public static final String fPOSITIONNAME = "positionName";
-	public static final String fPOSORGID = "posOrgId";
-	public static final String fPOSORG = "posOrg";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fBASESALARY = "baseSalary";
-	public static final String fPAYROLLID = "payrollId";
-	public static final String fPAYROLL = "payroll";
+	public static final String f_employeeId = "employeeId";
+	public static final String f_employeeCode = "employeeCode";
+	public static final String f_employerId = "employerId";
+	public static final String f_employerCode = "employerCode";
+	public static final String f_firstName = "firstName";
+	public static final String f_lastName = "lastName";
+	public static final String f_middleName = "middleName";
+	public static final String f_name = "name";
+	public static final String f_className = "className";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_validTo = "validTo";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_assignToPosition = "assignToPosition";
+	public static final String f_gradeId = "gradeId";
+	public static final String f_gradeCode = "gradeCode";
+	public static final String f_jobId = "jobId";
+	public static final String f_jobCode = "jobCode";
+	public static final String f_jobName = "jobName";
+	public static final String f_positionId = "positionId";
+	public static final String f_positionCode = "positionCode";
+	public static final String f_positionName = "positionName";
+	public static final String f_posOrgId = "posOrgId";
+	public static final String f_posOrg = "posOrg";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_baseSalary = "baseSalary";
+	public static final String f_payrollId = "payrollId";
+	public static final String f_payroll = "payroll";
 
 	@DsField(join = "left", path = "employee.id")
 	private Long employeeId;
@@ -73,10 +91,10 @@ public class EmployeeAssignmentDs
 	@DsField(fetch = false)
 	private String className;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
-	@DsField()
+	@DsField
 	private Date validTo;
 
 	@DsField(join = "left", path = "type.id")
@@ -85,7 +103,7 @@ public class EmployeeAssignmentDs
 	@DsField(join = "left", path = "type.name")
 	private String type;
 
-	@DsField()
+	@DsField
 	private Boolean assignToPosition;
 
 	@DsField(join = "left", path = "grade.id")
@@ -124,7 +142,7 @@ public class EmployeeAssignmentDs
 	@DsField(join = "left", path = "org.code")
 	private String org;
 
-	@DsField()
+	@DsField
 	private Float baseSalary;
 
 	@DsField(join = "left", path = "payroll.id")

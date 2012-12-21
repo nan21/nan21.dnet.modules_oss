@@ -7,24 +7,35 @@ package net.nan21.dnet.module.md.mm.prod.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroup;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroupAcct;
 
 @Ds(entity = ProductAccountGroupAcct.class)
+@RefLookups({
+		@RefLookup(refId = ProductAccountGroupAcctDs.f_groupId, namedQuery = ProductAccountGroup.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountGroupAcctDs.f_group)}),
+		@RefLookup(refId = ProductAccountGroupAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountGroupAcctDs.f_accSchema)}),
+		@RefLookup(refId = ProductAccountGroupAcctDs.f_expenseAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountGroupAcctDs.f_expenseAccount)}),
+		@RefLookup(refId = ProductAccountGroupAcctDs.f_revenueAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountGroupAcctDs.f_revenueAccount)})})
 public class ProductAccountGroupAcctDs
 		extends
 			AbstractAuditableDs<ProductAccountGroupAcct> {
 
-	public static final String fGROUPID = "groupId";
-	public static final String fGROUP = "group";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fEXPENSEACCOUNTID = "expenseAccountId";
-	public static final String fEXPENSEACCOUNT = "expenseAccount";
-	public static final String fEXPENSEACCOUNTNAME = "expenseAccountName";
-	public static final String fREVENUEACCOUNTID = "revenueAccountId";
-	public static final String fREVENUEACCOUNT = "revenueAccount";
-	public static final String fREVENUEACCOUNTNAME = "revenueAccountName";
+	public static final String f_groupId = "groupId";
+	public static final String f_group = "group";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_expenseAccountId = "expenseAccountId";
+	public static final String f_expenseAccount = "expenseAccount";
+	public static final String f_expenseAccountName = "expenseAccountName";
+	public static final String f_revenueAccountId = "revenueAccountId";
+	public static final String f_revenueAccount = "revenueAccount";
+	public static final String f_revenueAccountName = "revenueAccountName";
 
 	@DsField(join = "left", path = "group.id")
 	private Long groupId;

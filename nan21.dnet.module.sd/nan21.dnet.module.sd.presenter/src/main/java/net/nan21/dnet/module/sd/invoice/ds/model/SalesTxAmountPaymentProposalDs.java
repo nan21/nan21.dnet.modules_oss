@@ -16,26 +16,26 @@ public class SalesTxAmountPaymentProposalDs
 		extends
 			AbstractAuditableDs<SalesTxAmount> {
 
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fORGID = "orgId";
-	public static final String fINVOICEID = "invoiceId";
-	public static final String fINVOICECODE = "invoiceCode";
-	public static final String fINVOICEDOCDATE = "invoiceDocDate";
-	public static final String fINVOICEDOCNO = "invoiceDocNo";
-	public static final String fORDERID = "orderId";
-	public static final String fORDERCODE = "orderCode";
-	public static final String fORDERDOCDATE = "orderDocDate";
-	public static final String fORDERDOCNO = "orderDocNo";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fDUEDATE = "dueDate";
-	public static final String fDUEAMOUNT = "dueAmount";
-	public static final String fPAYEDAMOUNT = "payedAmount";
-	public static final String fOUTSTANDINGAMOUNT = "outstandingAmount";
-	public static final String fCURRENTPAYMENT = "currentPayment";
-	public static final String fREMAININGAMOUNT = "remainingAmount";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_orgId = "orgId";
+	public static final String f_invoiceId = "invoiceId";
+	public static final String f_invoiceCode = "invoiceCode";
+	public static final String f_invoiceDocDate = "invoiceDocDate";
+	public static final String f_invoiceDocNo = "invoiceDocNo";
+	public static final String f_orderId = "orderId";
+	public static final String f_orderCode = "orderCode";
+	public static final String f_orderDocDate = "orderDocDate";
+	public static final String f_orderDocNo = "orderDocNo";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_dueDate = "dueDate";
+	public static final String f_dueAmount = "dueAmount";
+	public static final String f_payedAmount = "payedAmount";
+	public static final String f_outstandingAmount = "outstandingAmount";
+	public static final String f_currentPayment = "currentPayment";
+	public static final String f_remainingAmount = "remainingAmount";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
 
 	@DsField(join = "left", path = "bpartner.id")
 	private Long bpartnerId;
@@ -73,13 +73,13 @@ public class SalesTxAmountPaymentProposalDs
 	@DsField(join = "left", path = "currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private Date dueDate;
 
-	@DsField()
+	@DsField
 	private Float dueAmount;
 
-	@DsField()
+	@DsField
 	private Float payedAmount;
 
 	@DsField(path = "amount")

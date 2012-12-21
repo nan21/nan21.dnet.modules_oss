@@ -29,8 +29,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-		@NamedQuery(name = SysDsEvent.NQ_FIND_BY_ID, query = "SELECT e FROM SysDsEvent e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysDsEvent.NQ_FIND_BY_IDS, query = "SELECT e FROM SysDsEvent e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = SysDsEvent.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDsEvent e WHERE e.clientId = :pClientId and e.dataSource = :pDataSource and e.eventType = :pEventType", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = SysDsEvent.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysDsEvent e WHERE e.clientId = :pClientId and e.dataSource.id = :pDataSourceId and e.eventType = :pEventType", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -43,16 +41,6 @@ public class SysDsEvent extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "AD_SYS_DS_EVNT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "SysDsEvent.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "SysDsEvent.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

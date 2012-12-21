@@ -9,9 +9,9 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ClientDsParam extends EmptyParam {
 
-	public static final String fADMINUSERCODE = "adminUserCode";
-	public static final String fADMINUSERNAME = "adminUserName";
-	public static final String fADMINPASSWORD = "adminPassword";
+	public static final String f_adminUserCode = "adminUserCode";
+	public static final String f_adminUserName = "adminUserName";
+	public static final String f_adminPassword = "adminPassword";
 
 	private String adminUserCode;
 

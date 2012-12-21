@@ -11,22 +11,22 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
 
-@Ds(entity = ClassificationSystem.class, sort = {@SortField(field = ClassificationSystemDs.fNAME)})
+@Ds(entity = ClassificationSystem.class, sort = {@SortField(field = ClassificationSystemDs.f_name)})
 public class ClassificationSystemDs
 		extends
 			AbstractTypeWithCodeDs<ClassificationSystem> {
 
-	public static final String fINTERNAL = "internal";
-	public static final String fTAG = "tag";
-	public static final String fUSEINCONTEXT = "useInContext";
+	public static final String f_internal = "internal";
+	public static final String f_tag = "tag";
+	public static final String f_useInContext = "useInContext";
 
-	@DsField()
+	@DsField
 	private Boolean internal;
 
-	@DsField()
+	@DsField
 	private String tag;
 
-	@DsField()
+	@DsField
 	private String useInContext;
 
 	public ClassificationSystemDs() {

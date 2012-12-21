@@ -7,24 +7,35 @@ package net.nan21.dnet.module.md.org.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
+import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccountAcct;
 
 @Ds(entity = FinancialAccountAcct.class)
+@RefLookups({
+		@RefLookup(refId = FinancialAccountAcctDs.f_financialAccountId, namedQuery = FinancialAccount.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = FinancialAccountAcctDs.f_financialAccount)}),
+		@RefLookup(refId = FinancialAccountAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = FinancialAccountAcctDs.f_accSchema)}),
+		@RefLookup(refId = FinancialAccountAcctDs.f_depositAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = FinancialAccountAcctDs.f_depositAccount)}),
+		@RefLookup(refId = FinancialAccountAcctDs.f_withdrawalAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = FinancialAccountAcctDs.f_withdrawalAccount)})})
 public class FinancialAccountAcctDs
 		extends
 			AbstractAuditableDs<FinancialAccountAcct> {
 
-	public static final String fFINANCIALACCOUNTID = "financialAccountId";
-	public static final String fFINANCIALACCOUNT = "financialAccount";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fDEPOSITACCOUNTID = "depositAccountId";
-	public static final String fDEPOSITACCOUNT = "depositAccount";
-	public static final String fDEPOSITACCOUNTNAME = "depositAccountName";
-	public static final String fWITHDRAWALACCOUNTID = "withdrawalAccountId";
-	public static final String fWITHDRAWALACCOUNT = "withdrawalAccount";
-	public static final String fWITHDRAWALACCOUNTNAME = "withdrawalAccountName";
+	public static final String f_financialAccountId = "financialAccountId";
+	public static final String f_financialAccount = "financialAccount";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_depositAccountId = "depositAccountId";
+	public static final String f_depositAccount = "depositAccount";
+	public static final String f_depositAccountName = "depositAccountName";
+	public static final String f_withdrawalAccountId = "withdrawalAccountId";
+	public static final String f_withdrawalAccount = "withdrawalAccount";
+	public static final String f_withdrawalAccountName = "withdrawalAccountName";
 
 	@DsField(join = "left", path = "financialAccount.id")
 	private Long financialAccountId;

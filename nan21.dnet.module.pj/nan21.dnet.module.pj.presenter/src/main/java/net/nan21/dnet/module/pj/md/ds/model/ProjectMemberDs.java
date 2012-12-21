@@ -7,19 +7,29 @@ package net.nan21.dnet.module.pj.md.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.usr.domain.entity.Assignable;
+import net.nan21.dnet.module.pj.base.domain.entity.ProjectRole;
+import net.nan21.dnet.module.pj.md.domain.entity.Project;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectMember;
 
 @Ds(entity = ProjectMember.class)
+@RefLookups({
+		@RefLookup(refId = ProjectMemberDs.f_projectId, namedQuery = Project.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProjectMemberDs.f_project)}),
+		@RefLookup(refId = ProjectMemberDs.f_roleId, namedQuery = ProjectRole.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProjectMemberDs.f_role)}),
+		@RefLookup(refId = ProjectMemberDs.f_memberId, namedQuery = Assignable.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProjectMemberDs.f_member)})})
 public class ProjectMemberDs extends AbstractAuditableDs<ProjectMember> {
 
-	public static final String fPROJECTID = "projectId";
-	public static final String fPROJECT = "project";
-	public static final String fPROJECTNAME = "projectName";
-	public static final String fROLEID = "roleId";
-	public static final String fROLE = "role";
-	public static final String fMEMBERID = "memberId";
-	public static final String fMEMBER = "member";
+	public static final String f_projectId = "projectId";
+	public static final String f_project = "project";
+	public static final String f_projectName = "projectName";
+	public static final String f_roleId = "roleId";
+	public static final String f_role = "role";
+	public static final String f_memberId = "memberId";
+	public static final String f_member = "member";
 
 	@DsField(join = "left", path = "project.id")
 	private Long projectId;

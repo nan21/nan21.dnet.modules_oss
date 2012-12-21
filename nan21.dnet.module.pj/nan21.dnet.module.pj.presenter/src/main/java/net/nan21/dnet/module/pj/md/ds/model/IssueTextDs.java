@@ -7,16 +7,23 @@ package net.nan21.dnet.module.pj.md.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueTextType;
 import net.nan21.dnet.module.pj.md.domain.entity.IssueText;
 
 @Ds(entity = IssueText.class)
+@RefLookups({
+		@RefLookup(refId = IssueTextDs.f_issueId),
+		@RefLookup(refId = IssueTextDs.f_issueTextTypeId, namedQuery = IssueTextType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueTextDs.f_issueTextType)})})
 public class IssueTextDs extends AbstractAuditableDs<IssueText> {
 
-	public static final String fISSUEID = "issueId";
-	public static final String fISSUETEXTTYPEID = "issueTextTypeId";
-	public static final String fISSUETEXTTYPE = "issueTextType";
-	public static final String fCONTENT = "content";
+	public static final String f_issueId = "issueId";
+	public static final String f_issueTextTypeId = "issueTextTypeId";
+	public static final String f_issueTextType = "issueTextType";
+	public static final String f_content = "content";
 
 	@DsField(join = "left", path = "issue.id")
 	private Long issueId;
@@ -27,7 +34,7 @@ public class IssueTextDs extends AbstractAuditableDs<IssueText> {
 	@DsField(join = "left", path = "issueTextType.name")
 	private String issueTextType;
 
-	@DsField()
+	@DsField
 	private String content;
 
 	public IssueTextDs() {

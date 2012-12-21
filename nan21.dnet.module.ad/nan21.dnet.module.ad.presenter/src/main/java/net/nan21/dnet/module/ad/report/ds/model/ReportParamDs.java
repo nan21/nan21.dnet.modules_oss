@@ -7,21 +7,26 @@ package net.nan21.dnet.module.ad.report.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.ad.report.domain.entity.Report;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportParam;
 
-@Ds(entity = ReportParam.class, sort = {@SortField(field = ReportParamDs.fNAME)})
+@Ds(entity = ReportParam.class, sort = {@SortField(field = ReportParamDs.f_name)})
+@RefLookups({@RefLookup(refId = ReportParamDs.f_reportId, namedQuery = Report.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ReportParamDs.f_reportCode)})})
 public class ReportParamDs extends AbstractTypeWithCodeDs<ReportParam> {
 
-	public static final String fREPORTID = "reportId";
-	public static final String fREPORTCODE = "reportCode";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fDEFAULTVALUE = "defaultValue";
-	public static final String fDATATYPE = "dataType";
-	public static final String fLISTOFVALUES = "listOfValues";
-	public static final String fNOEDIT = "noEdit";
-	public static final String fMANDATORY = "mandatory";
+	public static final String f_reportId = "reportId";
+	public static final String f_reportCode = "reportCode";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_defaultValue = "defaultValue";
+	public static final String f_dataType = "dataType";
+	public static final String f_listOfValues = "listOfValues";
+	public static final String f_noEdit = "noEdit";
+	public static final String f_mandatory = "mandatory";
 
 	@DsField(join = "left", path = "report.id")
 	private Long reportId;
@@ -29,22 +34,22 @@ public class ReportParamDs extends AbstractTypeWithCodeDs<ReportParam> {
 	@DsField(join = "left", path = "report.code")
 	private String reportCode;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String defaultValue;
 
-	@DsField()
+	@DsField
 	private String dataType;
 
-	@DsField()
+	@DsField
 	private String listOfValues;
 
-	@DsField()
+	@DsField
 	private Boolean noEdit;
 
-	@DsField()
+	@DsField
 	private Boolean mandatory;
 
 	public ReportParamDs() {

@@ -17,9 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -31,13 +29,9 @@ import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoice;
 import net.nan21.dnet.module.sd.invoice.domain.eventhandler.SalesInvoiceItemEventHandler;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = SalesInvoiceItem.NQ_FIND_BY_ID, query = "SELECT e FROM SalesInvoiceItem e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SalesInvoiceItem.NQ_FIND_BY_IDS, query = "SELECT e FROM SalesInvoiceItem e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = SalesInvoiceItem.TABLE_NAME)
 @Customizer(SalesInvoiceItemEventHandler.class)
@@ -47,16 +41,6 @@ public class SalesInvoiceItem extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "SD_INV_ITEM_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "SalesInvoiceItem.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "SalesInvoiceItem.findByIds";
 
 	/**
 	 * System generated unique identifier.

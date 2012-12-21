@@ -43,10 +43,7 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = Issue.NQ_FIND_BY_ID, query = "SELECT e FROM Issue e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Issue.NQ_FIND_BY_IDS, query = "SELECT e FROM Issue e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Issue.NQ_FIND_BY_CODE, query = "SELECT e FROM Issue e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = Issue.NQ_FIND_BY_CODE, query = "SELECT e FROM Issue e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = Issue.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Issue.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "CODE"})})
@@ -57,16 +54,6 @@ public class Issue extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "PJ_ISSUE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "Issue.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "Issue.findByIds";
 
 	/**
 	 * Named query find by unique key: Code.

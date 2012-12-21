@@ -9,8 +9,8 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ActTaskInstanceDsParam extends EmptyParam {
 
-	public static final String fHIDEACTIVE = "hideActive";
-	public static final String fHIDECOMPLETED = "hideCompleted";
+	public static final String f_hideActive = "hideActive";
+	public static final String f_hideCompleted = "hideCompleted";
 
 	private Boolean hideActive;
 

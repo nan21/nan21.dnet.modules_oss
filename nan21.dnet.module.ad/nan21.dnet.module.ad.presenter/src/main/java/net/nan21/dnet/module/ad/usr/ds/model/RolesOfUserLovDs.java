@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.usr.domain.entity.Role;
 
-@Ds(entity = Role.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = RolesOfUserLovDs.fNAME)})
+@Ds(entity = Role.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = RolesOfUserLovDs.f_name)})
 public class RolesOfUserLovDs extends AbstractTypeLov<Role> {
 
 	public RolesOfUserLovDs() {

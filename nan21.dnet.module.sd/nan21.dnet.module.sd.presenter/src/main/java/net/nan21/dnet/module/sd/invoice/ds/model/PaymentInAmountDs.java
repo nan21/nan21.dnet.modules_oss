@@ -8,23 +8,26 @@ package net.nan21.dnet.module.sd.invoice.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.sd.invoice.domain.entity.PaymentInAmount;
 
 @Ds(entity = PaymentInAmount.class)
+@RefLookups({@RefLookup(refId = PaymentInAmountDs.f_paymentId)})
 public class PaymentInAmountDs extends AbstractAuditableDs<PaymentInAmount> {
 
-	public static final String fPAYMENTID = "paymentId";
-	public static final String fORGID = "orgId";
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fTXAMOUNTID = "txAmountId";
-	public static final String fINVOICECODE = "invoiceCode";
-	public static final String fINVOICEDOCNO = "invoiceDocNo";
-	public static final String fINVOICEDOCDATE = "invoiceDocDate";
-	public static final String fDUEAMOUNT = "dueAmount";
-	public static final String fPAYEDAMOUNT = "payedAmount";
-	public static final String fOUTSTANDINGAMOUNT = "outstandingAmount";
-	public static final String fCURRENTPAYMENT = "currentPayment";
+	public static final String f_paymentId = "paymentId";
+	public static final String f_orgId = "orgId";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_txAmountId = "txAmountId";
+	public static final String f_invoiceCode = "invoiceCode";
+	public static final String f_invoiceDocNo = "invoiceDocNo";
+	public static final String f_invoiceDocDate = "invoiceDocDate";
+	public static final String f_dueAmount = "dueAmount";
+	public static final String f_payedAmount = "payedAmount";
+	public static final String f_outstandingAmount = "outstandingAmount";
+	public static final String f_currentPayment = "currentPayment";
 
 	@DsField(join = "left", path = "payment.id")
 	private Long paymentId;

@@ -11,15 +11,15 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer;
 
-@Ds(entity = ProductManufacturer.class, sort = {@SortField(field = ProductManufacturerDs.fNAME)})
+@Ds(entity = ProductManufacturer.class, sort = {@SortField(field = ProductManufacturerDs.f_name)})
 public class ProductManufacturerDs
 		extends
 			AbstractTypeWithCodeDs<ProductManufacturer> {
 
-	public static final String fICONURL = "iconUrl";
-	public static final String fICONLOCATION = "iconLocation";
+	public static final String f_iconUrl = "iconUrl";
+	public static final String f_iconLocation = "iconLocation";
 
-	@DsField()
+	@DsField
 	private String iconUrl;
 
 	private String iconLocation;

@@ -30,8 +30,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = ProjectMember.NQ_FIND_BY_ID, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ProjectMember.NQ_FIND_BY_IDS, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProjectMember.NQ_FIND_BY_NAME, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.project = :pProject and e.member = :pMember", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProjectMember.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM ProjectMember e WHERE e.clientId = :pClientId and e.project.id = :pProjectId and e.member.id = :pMemberId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -44,16 +42,6 @@ public class ProjectMember extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "PJ_PRJ_MBR_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ProjectMember.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ProjectMember.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

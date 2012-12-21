@@ -7,36 +7,54 @@ package net.nan21.dnet.module.md.bp.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 import net.nan21.dnet.module.md.bp.domain.entity.BpAccount;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.bp.domain.entity.CustomerGroup;
+import net.nan21.dnet.module.md.bp.domain.entity.VendorGroup;
 
 @Ds(entity = BpAccount.class)
+@RefLookups({
+		@RefLookup(refId = BpAccountDs.f_businessPartnerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountDs.f_businessPartnerCode)}),
+		@RefLookup(refId = BpAccountDs.f_orgId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountDs.f_org)}),
+		@RefLookup(refId = BpAccountDs.f_customerGroupId, namedQuery = CustomerGroup.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountDs.f_customerGroup)}),
+		@RefLookup(refId = BpAccountDs.f_customerPaymentMethodId, namedQuery = PaymentMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = BpAccountDs.f_customerPaymentMethod)}),
+		@RefLookup(refId = BpAccountDs.f_customerPaymentTermId, namedQuery = PaymentTerm.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = BpAccountDs.f_customerPaymentTerm)}),
+		@RefLookup(refId = BpAccountDs.f_vendorGroupId, namedQuery = VendorGroup.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountDs.f_vendorGroup)}),
+		@RefLookup(refId = BpAccountDs.f_vendorPaymentMethodId, namedQuery = PaymentMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = BpAccountDs.f_vendorPaymentMethod)}),
+		@RefLookup(refId = BpAccountDs.f_vendorPaymentTermId, namedQuery = PaymentTerm.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = BpAccountDs.f_vendorPaymentTerm)})})
 public class BpAccountDs extends AbstractAuditableDs<BpAccount> {
 
-	public static final String fBUSINESSPARTNERID = "businessPartnerId";
-	public static final String fBUSINESSPARTNERCODE = "businessPartnerCode";
-	public static final String fBUSINESSPARTNERNAME = "businessPartnerName";
-	public static final String fCUSTOMER = "customer";
-	public static final String fVENDOR = "vendor";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fCUSTOMERGROUPID = "customerGroupId";
-	public static final String fCUSTOMERGROUP = "customerGroup";
-	public static final String fCUSTOMERPAYMENTMETHODID = "customerPaymentMethodId";
-	public static final String fCUSTOMERPAYMENTMETHOD = "customerPaymentMethod";
-	public static final String fCUSTOMERCREDITLIMIT = "customerCreditLimit";
-	public static final String fCUSTOMERPAYMENTTERMID = "customerPaymentTermId";
-	public static final String fCUSTOMERPAYMENTTERM = "customerPaymentTerm";
-	public static final String fVENDORGROUPID = "vendorGroupId";
-	public static final String fVENDORGROUP = "vendorGroup";
-	public static final String fVENDORPAYMENTMETHODID = "vendorPaymentMethodId";
-	public static final String fVENDORPAYMENTMETHOD = "vendorPaymentMethod";
-	public static final String fVENDORCREDITLIMIT = "vendorCreditLimit";
-	public static final String fVENDORPAYMENTTERMID = "vendorPaymentTermId";
-	public static final String fVENDORPAYMENTTERM = "vendorPaymentTerm";
-	public static final String fANALITICSEGMENT = "analiticSegment";
-	public static final String fCUSTANALITICSEGMENT = "custAnaliticSegment";
-	public static final String fVENDANALITICSEGMENT = "vendAnaliticSegment";
+	public static final String f_businessPartnerId = "businessPartnerId";
+	public static final String f_businessPartnerCode = "businessPartnerCode";
+	public static final String f_businessPartnerName = "businessPartnerName";
+	public static final String f_customer = "customer";
+	public static final String f_vendor = "vendor";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_customerGroupId = "customerGroupId";
+	public static final String f_customerGroup = "customerGroup";
+	public static final String f_customerPaymentMethodId = "customerPaymentMethodId";
+	public static final String f_customerPaymentMethod = "customerPaymentMethod";
+	public static final String f_customerCreditLimit = "customerCreditLimit";
+	public static final String f_customerPaymentTermId = "customerPaymentTermId";
+	public static final String f_customerPaymentTerm = "customerPaymentTerm";
+	public static final String f_vendorGroupId = "vendorGroupId";
+	public static final String f_vendorGroup = "vendorGroup";
+	public static final String f_vendorPaymentMethodId = "vendorPaymentMethodId";
+	public static final String f_vendorPaymentMethod = "vendorPaymentMethod";
+	public static final String f_vendorCreditLimit = "vendorCreditLimit";
+	public static final String f_vendorPaymentTermId = "vendorPaymentTermId";
+	public static final String f_vendorPaymentTerm = "vendorPaymentTerm";
+	public static final String f_analiticSegment = "analiticSegment";
+	public static final String f_custAnaliticSegment = "custAnaliticSegment";
+	public static final String f_vendAnaliticSegment = "vendAnaliticSegment";
 
 	@DsField(join = "left", path = "bpartner.id")
 	private Long businessPartnerId;
@@ -47,10 +65,10 @@ public class BpAccountDs extends AbstractAuditableDs<BpAccount> {
 	@DsField(join = "left", path = "bpartner.name")
 	private String businessPartnerName;
 
-	@DsField()
+	@DsField
 	private Boolean customer;
 
-	@DsField()
+	@DsField
 	private Boolean vendor;
 
 	@DsField(join = "left", path = "org.id")
@@ -101,13 +119,13 @@ public class BpAccountDs extends AbstractAuditableDs<BpAccount> {
 	@DsField(join = "left", path = "vendPaymentTerm.name")
 	private String vendorPaymentTerm;
 
-	@DsField()
+	@DsField
 	private String analiticSegment;
 
-	@DsField()
+	@DsField
 	private String custAnaliticSegment;
 
-	@DsField()
+	@DsField
 	private String vendAnaliticSegment;
 
 	public BpAccountDs() {

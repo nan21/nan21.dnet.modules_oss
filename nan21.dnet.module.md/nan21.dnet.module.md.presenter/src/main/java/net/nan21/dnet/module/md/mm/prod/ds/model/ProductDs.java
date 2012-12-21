@@ -7,80 +7,93 @@ package net.nan21.dnet.module.md.mm.prod.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer;
 
-@Ds(entity = Product.class, sort = {@SortField(field = ProductDs.fNAME)})
+@Ds(entity = Product.class, sort = {@SortField(field = ProductDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = ProductDs.f_manufacturerId, namedQuery = ProductManufacturer.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductDs.f_manufacturerCode)}),
+		@RefLookup(refId = ProductDs.f_defaultUomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductDs.f_defaultUomCode)}),
+		@RefLookup(refId = ProductDs.f_dimUomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductDs.f_dimUomCode)}),
+		@RefLookup(refId = ProductDs.f_volumeUomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductDs.f_volumeUomCode)}),
+		@RefLookup(refId = ProductDs.f_weightUomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductDs.f_weightUomCode)}),
+		@RefLookup(refId = ProductDs.f_attributeSetId, namedQuery = AttributeSet.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProductDs.f_attributeSet)})})
 public class ProductDs extends AbstractTypeWithCodeDs<Product> {
 
-	public static final String fICONURL = "iconUrl";
-	public static final String fIMAGEURL = "imageUrl";
-	public static final String fDESCRIPTION = "description";
-	public static final String fSHOWINCATALOG = "showInCatalog";
-	public static final String fSALE = "sale";
-	public static final String fPURCHASE = "purchase";
-	public static final String fSTORABLE = "storable";
-	public static final String fWEIGHT = "weight";
-	public static final String fVOLUME = "volume";
-	public static final String fDIMWIDTH = "dimWidth";
-	public static final String fDIMHEIGHT = "dimHeight";
-	public static final String fDIMDEPTH = "dimDepth";
-	public static final String fMANUFACTURERPRODUCTNO = "manufacturerProductNo";
-	public static final String fDEFAULTUOMID = "defaultUomId";
-	public static final String fDEFAULTUOMCODE = "defaultUomCode";
-	public static final String fWEIGHTUOMID = "weightUomId";
-	public static final String fWEIGHTUOMCODE = "weightUomCode";
-	public static final String fVOLUMEUOMID = "volumeUomId";
-	public static final String fVOLUMEUOMCODE = "volumeUomCode";
-	public static final String fDIMUOMID = "dimUomId";
-	public static final String fDIMUOMCODE = "dimUomCode";
-	public static final String fMANUFACTURERID = "manufacturerId";
-	public static final String fMANUFACTURERCODE = "manufacturerCode";
-	public static final String fATTRIBUTESETID = "attributeSetId";
-	public static final String fATTRIBUTESET = "attributeSet";
-	public static final String fCLASSNAME = "className";
-	public static final String fBUSINESSOBJECT = "businessObject";
-	public static final String fICONLOCATION = "iconLocation";
-	public static final String fIMAGELOCATION = "imageLocation";
+	public static final String f_iconUrl = "iconUrl";
+	public static final String f_imageUrl = "imageUrl";
+	public static final String f_description = "description";
+	public static final String f_showInCatalog = "showInCatalog";
+	public static final String f_sale = "sale";
+	public static final String f_purchase = "purchase";
+	public static final String f_storable = "storable";
+	public static final String f_weight = "weight";
+	public static final String f_volume = "volume";
+	public static final String f_dimWidth = "dimWidth";
+	public static final String f_dimHeight = "dimHeight";
+	public static final String f_dimDepth = "dimDepth";
+	public static final String f_manufacturerProductNo = "manufacturerProductNo";
+	public static final String f_defaultUomId = "defaultUomId";
+	public static final String f_defaultUomCode = "defaultUomCode";
+	public static final String f_weightUomId = "weightUomId";
+	public static final String f_weightUomCode = "weightUomCode";
+	public static final String f_volumeUomId = "volumeUomId";
+	public static final String f_volumeUomCode = "volumeUomCode";
+	public static final String f_dimUomId = "dimUomId";
+	public static final String f_dimUomCode = "dimUomCode";
+	public static final String f_manufacturerId = "manufacturerId";
+	public static final String f_manufacturerCode = "manufacturerCode";
+	public static final String f_attributeSetId = "attributeSetId";
+	public static final String f_attributeSet = "attributeSet";
+	public static final String f_className = "className";
+	public static final String f_businessObject = "businessObject";
+	public static final String f_iconLocation = "iconLocation";
+	public static final String f_imageLocation = "imageLocation";
 
-	@DsField()
+	@DsField
 	private String iconUrl;
 
-	@DsField()
+	@DsField
 	private String imageUrl;
 
-	@DsField()
+	@DsField
 	private String description;
 
-	@DsField()
+	@DsField
 	private Boolean showInCatalog;
 
-	@DsField()
+	@DsField
 	private Boolean sale;
 
-	@DsField()
+	@DsField
 	private Boolean purchase;
 
-	@DsField()
+	@DsField
 	private Boolean storable;
 
-	@DsField()
+	@DsField
 	private Float weight;
 
-	@DsField()
+	@DsField
 	private Float volume;
 
-	@DsField()
+	@DsField
 	private Float dimWidth;
 
-	@DsField()
+	@DsField
 	private Float dimHeight;
 
-	@DsField()
+	@DsField
 	private Float dimDepth;
 
-	@DsField()
+	@DsField
 	private String manufacturerProductNo;
 
 	@DsField(join = "left", path = "defaultUom.id")

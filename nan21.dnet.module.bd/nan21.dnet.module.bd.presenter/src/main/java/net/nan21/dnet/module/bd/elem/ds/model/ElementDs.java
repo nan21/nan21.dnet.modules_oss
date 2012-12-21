@@ -11,17 +11,17 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.bd.elem.domain.entity.Element;
 
-@Ds(entity = Element.class, sort = {@SortField(field = ElementDs.fNAME)})
+@Ds(entity = Element.class, sort = {@SortField(field = ElementDs.f_name)})
 public class ElementDs extends AbstractTypeWithCodeDs<Element> {
 
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
-	public static final String fENGINETYPE = "engineType";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fDATATYPE = "dataType";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fCALCULATION = "calculation";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
+	public static final String f_engineType = "engineType";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_dataType = "dataType";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_calculation = "calculation";
 
 	@DsField(join = "left", path = "engine.id")
 	private Long engineId;
@@ -38,13 +38,13 @@ public class ElementDs extends AbstractTypeWithCodeDs<Element> {
 	@DsField(join = "left", path = "type.name")
 	private String type;
 
-	@DsField()
+	@DsField
 	private String dataType;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String calculation;
 
 	public ElementDs() {

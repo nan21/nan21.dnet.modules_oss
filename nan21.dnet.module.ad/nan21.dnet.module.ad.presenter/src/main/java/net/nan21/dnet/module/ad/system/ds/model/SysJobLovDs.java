@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJob;
 
-@Ds(entity = SysJob.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysJobLovDs.fNAME)})
+@Ds(entity = SysJob.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysJobLovDs.f_name)})
 public class SysJobLovDs extends AbstractTypeLov<SysJob> {
 
 	public SysJobLovDs() {

@@ -13,29 +13,29 @@ import net.nan21.dnet.module.ad.system.domain.entity.SysFrameExtension;
 @Ds(entity = SysFrameExtension.class)
 public class SysFrameExtensionDs extends AbstractAuditableDs<SysFrameExtension> {
 
-	public static final String fFRAMEFQN = "frameFQN";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fFILELOCATION = "fileLocation";
-	public static final String fRELATIVEPATH = "relativePath";
-	public static final String fACTIVE = "active";
-	public static final String fDESCRIPTION = "description";
+	public static final String f_frameFQN = "frameFQN";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_fileLocation = "fileLocation";
+	public static final String f_relativePath = "relativePath";
+	public static final String f_active = "active";
+	public static final String f_description = "description";
 
-	@DsField()
+	@DsField
 	private String frameFQN;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String fileLocation;
 
-	@DsField()
+	@DsField
 	private Boolean relativePath;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
-	@DsField()
+	@DsField
 	private String description;
 
 	public SysFrameExtensionDs() {

@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
 
-@Ds(entity = PaymentTerm.class, sort = {@SortField(field = PaymentTermDs.fNAME)})
+@Ds(entity = PaymentTerm.class, sort = {@SortField(field = PaymentTermDs.f_name)})
 public class PaymentTermDs extends AbstractTypeDs<PaymentTerm> {
 
-	public static final String fDAYS = "days";
+	public static final String f_days = "days";
 
-	@DsField()
+	@DsField
 	private Integer days;
 
 	public PaymentTermDs() {

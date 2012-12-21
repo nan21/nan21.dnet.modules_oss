@@ -14,22 +14,22 @@ import net.nan21.dnet.module.md.tx.acc.domain.entity.AccOperation;
 @Ds(entity = AccOperation.class, jpqlWhere = " e.headerLine = false ")
 public class AccOperationDs extends AbstractAuditableDs<AccOperation> {
 
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fPERIODID = "periodId";
-	public static final String fPERIOD = "period";
-	public static final String fDOCNO = "docNo";
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fBPARTNER = "bpartner";
-	public static final String fEVENTDATE = "eventDate";
-	public static final String fDBACCOUNT = "dbAccount";
-	public static final String fCRACCOUNT = "crAccount";
-	public static final String fDBAMOUNT = "dbAmount";
-	public static final String fCRAMOUNT = "crAmount";
-	public static final String fNOTES = "notes";
-	public static final String fACCDOCLINEID = "accDocLineId";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_periodId = "periodId";
+	public static final String f_period = "period";
+	public static final String f_docNo = "docNo";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_bpartner = "bpartner";
+	public static final String f_eventDate = "eventDate";
+	public static final String f_dbAccount = "dbAccount";
+	public static final String f_crAccount = "crAccount";
+	public static final String f_dbAmount = "dbAmount";
+	public static final String f_crAmount = "crAmount";
+	public static final String f_notes = "notes";
+	public static final String f_accDocLineId = "accDocLineId";
 
 	@DsField(join = "left", path = "org.id")
 	private Long orgId;
@@ -58,22 +58,22 @@ public class AccOperationDs extends AbstractAuditableDs<AccOperation> {
 	@DsField(join = "left", path = "accDoc.bpartner.name")
 	private String bpartner;
 
-	@DsField()
+	@DsField
 	private Date eventDate;
 
-	@DsField()
+	@DsField
 	private String dbAccount;
 
-	@DsField()
+	@DsField
 	private String crAccount;
 
-	@DsField()
+	@DsField
 	private Float dbAmount;
 
-	@DsField()
+	@DsField
 	private Float crAmount;
 
-	@DsField()
+	@DsField
 	private String notes;
 
 	@DsField(join = "left", path = "accDocLine.id")

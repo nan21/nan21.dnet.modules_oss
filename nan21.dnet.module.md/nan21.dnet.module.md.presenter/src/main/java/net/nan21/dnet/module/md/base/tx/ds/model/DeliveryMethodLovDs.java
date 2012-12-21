@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod;
 
-@Ds(entity = DeliveryMethod.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = DeliveryMethodLovDs.fNAME)})
+@Ds(entity = DeliveryMethod.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = DeliveryMethodLovDs.f_name)})
 public class DeliveryMethodLovDs extends AbstractTypeLov<DeliveryMethod> {
 
-	public static final String fDELIVERY = "delivery";
-	public static final String fEXTERNALCOURIER = "externalCourier";
+	public static final String f_delivery = "delivery";
+	public static final String f_externalCourier = "externalCourier";
 
-	@DsField()
+	@DsField
 	private Boolean delivery;
 
-	@DsField()
+	@DsField
 	private Boolean externalCourier;
 
 	public DeliveryMethodLovDs() {

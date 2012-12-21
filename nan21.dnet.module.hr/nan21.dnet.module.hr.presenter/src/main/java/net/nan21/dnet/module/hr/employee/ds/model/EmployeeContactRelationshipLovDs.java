@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactRelationship;
 
-@Ds(entity = EmployeeContactRelationship.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = EmployeeContactRelationshipLovDs.fNAME)})
+@Ds(entity = EmployeeContactRelationship.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = EmployeeContactRelationshipLovDs.f_name)})
 public class EmployeeContactRelationshipLovDs
 		extends
 			AbstractTypeLov<EmployeeContactRelationship> {

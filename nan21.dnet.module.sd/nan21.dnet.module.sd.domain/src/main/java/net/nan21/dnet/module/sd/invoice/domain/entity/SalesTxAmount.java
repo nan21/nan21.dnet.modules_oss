@@ -11,8 +11,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.TxAmount;
@@ -20,13 +18,9 @@ import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoice;
 import net.nan21.dnet.module.sd.order.domain.entity.SalesOrder;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = SalesTxAmount.NQ_FIND_BY_ID, query = "SELECT e FROM SalesTxAmount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SalesTxAmount.NQ_FIND_BY_IDS, query = "SELECT e FROM SalesTxAmount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @CascadeOnDelete
 @Table(name = SalesTxAmount.TABLE_NAME)
@@ -37,16 +31,6 @@ public class SalesTxAmount extends TxAmount {
 	public static final String SEQUENCE_NAME = "SD_TX_AMNT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "SalesTxAmount.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "SalesTxAmount.findByIds";
 
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = SalesOrder.class)
 	@JoinColumn(name = "ORDER_ID", referencedColumnName = "ID")

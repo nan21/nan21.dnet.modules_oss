@@ -27,10 +27,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
  <BR> It is possible also to use external sources (as LDAP, other application, single-sign-on etc ).
  <BR> For this reason there is not reference across the application to an user through this object but only by a username (the <code>code<code> field).
  */
-@NamedQueries({
-		@NamedQuery(name = UserType.NQ_FIND_BY_ID, query = "SELECT e FROM UserType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = UserType.NQ_FIND_BY_IDS, query = "SELECT e FROM UserType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = UserType.NQ_FIND_BY_NAME, query = "SELECT e FROM UserType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = UserType.NQ_FIND_BY_NAME, query = "SELECT e FROM UserType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = UserType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = UserType.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -41,16 +38,6 @@ public class UserType extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_USR_TYPE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "UserType.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "UserType.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

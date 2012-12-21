@@ -9,8 +9,8 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class UiViewStateRTLovDsParam extends EmptyParam {
 
-	public static final String fHIDEMINE = "hideMine";
-	public static final String fHIDEOTHERS = "hideOthers";
+	public static final String f_hideMine = "hideMine";
+	public static final String f_hideOthers = "hideOthers";
 
 	private Boolean hideMine;
 

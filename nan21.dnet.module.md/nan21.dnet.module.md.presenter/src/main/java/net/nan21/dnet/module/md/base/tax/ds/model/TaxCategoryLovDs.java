@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.base.tax.domain.entity.TaxCategory;
 
-@Ds(entity = TaxCategory.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = TaxCategoryLovDs.fNAME)})
+@Ds(entity = TaxCategory.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = TaxCategoryLovDs.f_name)})
 public class TaxCategoryLovDs extends AbstractTypeLov<TaxCategory> {
 
 	public TaxCategoryLovDs() {

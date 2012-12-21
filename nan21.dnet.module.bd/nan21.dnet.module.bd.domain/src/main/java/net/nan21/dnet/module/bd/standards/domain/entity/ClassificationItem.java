@@ -28,8 +28,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = ClassificationItem.NQ_FIND_BY_ID, query = "SELECT e FROM ClassificationItem e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ClassificationItem.NQ_FIND_BY_IDS, query = "SELECT e FROM ClassificationItem e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ClassificationItem.NQ_FIND_BY_SYSCODE, query = "SELECT e FROM ClassificationItem e WHERE e.clientId = :pClientId and e.classSystem = :pClassSystem and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ClassificationItem.NQ_FIND_BY_SYSCODE_PRIMITIVE, query = "SELECT e FROM ClassificationItem e WHERE e.clientId = :pClientId and e.classSystem.id = :pClassSystemId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ClassificationItem.NQ_FIND_BY_SYSNAME, query = "SELECT e FROM ClassificationItem e WHERE e.clientId = :pClientId and e.classSystem = :pClassSystem and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
@@ -47,16 +45,6 @@ public class ClassificationItem extends AbstractTypeWithCode {
 	public static final String SEQUENCE_NAME = "BD_CLSF_ITEM_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ClassificationItem.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ClassificationItem.findByIds";
 
 	/**
 	 * Named query find by unique key: Syscode.

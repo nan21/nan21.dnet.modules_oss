@@ -8,20 +8,27 @@ package net.nan21.dnet.module.hr.employee.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeLicense;
+import net.nan21.dnet.module.hr.employee.domain.entity.LicenseType;
 
 @Ds(entity = EmployeeLicense.class)
+@RefLookups({
+		@RefLookup(refId = EmployeeLicenseDs.f_employeeId),
+		@RefLookup(refId = EmployeeLicenseDs.f_licenseTypeId, namedQuery = LicenseType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = EmployeeLicenseDs.f_licenseType)})})
 public class EmployeeLicenseDs extends AbstractAuditableDs<EmployeeLicense> {
 
-	public static final String fEMPLOYEEID = "employeeId";
-	public static final String fLICENSETYPEID = "licenseTypeId";
-	public static final String fLICENSETYPE = "licenseType";
-	public static final String fDOCUMENTNO = "documentNo";
-	public static final String fISSUEDBY = "issuedBy";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fVALIDTO = "validTo";
-	public static final String fNOTES = "notes";
+	public static final String f_employeeId = "employeeId";
+	public static final String f_licenseTypeId = "licenseTypeId";
+	public static final String f_licenseType = "licenseType";
+	public static final String f_documentNo = "documentNo";
+	public static final String f_issuedBy = "issuedBy";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_validTo = "validTo";
+	public static final String f_notes = "notes";
 
 	@DsField(join = "left", path = "employee.id")
 	private Long employeeId;
@@ -32,19 +39,19 @@ public class EmployeeLicenseDs extends AbstractAuditableDs<EmployeeLicense> {
 	@DsField(join = "left", path = "licenseType.name")
 	private String licenseType;
 
-	@DsField()
+	@DsField
 	private String documentNo;
 
-	@DsField()
+	@DsField
 	private String issuedBy;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
-	@DsField()
+	@DsField
 	private Date validTo;
 
-	@DsField()
+	@DsField
 	private String notes;
 
 	public EmployeeLicenseDs() {

@@ -7,18 +7,28 @@ package net.nan21.dnet.module.bd.elem.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.bd.elem.domain.entity.ElementCategory;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementType;
+import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 
-@Ds(entity = ElementType.class, sort = {@SortField(field = ElementTypeDs.fNAME)})
+@Ds(entity = ElementType.class, sort = {@SortField(field = ElementTypeDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = ElementTypeDs.f_engineId, namedQuery = Engine.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ElementTypeDs.f_engine)}),
+		@RefLookup(refId = ElementTypeDs.f_categoryId, namedQuery = ElementCategory.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE, params = {
+				@Param(name = "pName", field = ElementTypeDs.f_category),
+				@Param(name = "pEngineId", field = ElementTypeDs.f_engineId)})})
 public class ElementTypeDs extends AbstractTypeDs<ElementType> {
 
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
-	public static final String fENGINETYPE = "engineType";
-	public static final String fCATEGORYID = "categoryId";
-	public static final String fCATEGORY = "category";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
+	public static final String f_engineType = "engineType";
+	public static final String f_categoryId = "categoryId";
+	public static final String f_category = "category";
 
 	@DsField(join = "left", path = "engine.id")
 	private Long engineId;

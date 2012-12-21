@@ -7,18 +7,25 @@ package net.nan21.dnet.module.hr.job.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.job.domain.entity.PositionRequirement;
+import net.nan21.dnet.module.hr.job.domain.entity.WorkRequirement;
 
 @Ds(entity = PositionRequirement.class)
+@RefLookups({
+		@RefLookup(refId = PositionRequirementDs.f_positionId),
+		@RefLookup(refId = PositionRequirementDs.f_requirementId, namedQuery = WorkRequirement.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PositionRequirementDs.f_requirement)})})
 public class PositionRequirementDs
 		extends
 			AbstractAuditableDs<PositionRequirement> {
 
-	public static final String fPOSITIONID = "positionId";
-	public static final String fREQUIREMENTID = "requirementId";
-	public static final String fREQUIREMENT = "requirement";
-	public static final String fNOTES = "notes";
+	public static final String f_positionId = "positionId";
+	public static final String f_requirementId = "requirementId";
+	public static final String f_requirement = "requirement";
+	public static final String f_notes = "notes";
 
 	@DsField(join = "left", path = "position.id")
 	private Long positionId;
@@ -29,7 +36,7 @@ public class PositionRequirementDs
 	@DsField(join = "left", path = "requirement.name")
 	private String requirement;
 
-	@DsField()
+	@DsField
 	private String notes;
 
 	public PositionRequirementDs() {

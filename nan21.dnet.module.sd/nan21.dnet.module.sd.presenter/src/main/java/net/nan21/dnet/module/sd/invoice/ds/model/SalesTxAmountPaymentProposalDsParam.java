@@ -9,11 +9,11 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class SalesTxAmountPaymentProposalDsParam extends EmptyParam {
 
-	public static final String fBUSINESSPARTNER = "businessPartner";
-	public static final String fRECEIVEDAMOUNT = "receivedAmount";
-	public static final String fUNALLOCATEDAMOUNT = "unAllocatedAmount";
-	public static final String fPAYMENTCURRENCY = "paymentCurrency";
-	public static final String fPAYMENTID = "paymentId";
+	public static final String f_businessPartner = "businessPartner";
+	public static final String f_receivedAmount = "receivedAmount";
+	public static final String f_unAllocatedAmount = "unAllocatedAmount";
+	public static final String f_paymentCurrency = "paymentCurrency";
+	public static final String f_paymentId = "paymentId";
 
 	private String businessPartner;
 

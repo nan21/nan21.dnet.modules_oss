@@ -15,9 +15,9 @@ public class OrganizationHierarchyItemLovDs
 		extends
 			AbstractAuditableLov<OrganizationHierarchyItem> {
 
-	public static final String fHIERARCHYID = "hierarchyId";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
+	public static final String f_hierarchyId = "hierarchyId";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
 
 	@DsField(join = "left", path = "hierarchy.id")
 	private Long hierarchyId;

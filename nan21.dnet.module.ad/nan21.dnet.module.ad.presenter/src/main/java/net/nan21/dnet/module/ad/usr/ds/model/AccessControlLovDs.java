@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 
-@Ds(entity = AccessControl.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AccessControlLovDs.fNAME)})
+@Ds(entity = AccessControl.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AccessControlLovDs.f_name)})
 public class AccessControlLovDs extends AbstractTypeLov<AccessControl> {
 
 	public AccessControlLovDs() {

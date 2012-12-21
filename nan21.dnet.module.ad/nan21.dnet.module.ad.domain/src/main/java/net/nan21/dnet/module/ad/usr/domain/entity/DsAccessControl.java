@@ -32,8 +32,6 @@ import org.hibernate.validator.constraints.NotBlank;
  * Access control rules for data-source components.
  */
 @NamedQueries({
-		@NamedQuery(name = DsAccessControl.NQ_FIND_BY_ID, query = "SELECT e FROM DsAccessControl e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = DsAccessControl.NQ_FIND_BY_IDS, query = "SELECT e FROM DsAccessControl e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = DsAccessControl.NQ_FIND_BY_UNIQUE, query = "SELECT e FROM DsAccessControl e WHERE e.clientId = :pClientId and e.accessControl = :pAccessControl and e.dsName = :pDsName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = DsAccessControl.NQ_FIND_BY_UNIQUE_PRIMITIVE, query = "SELECT e FROM DsAccessControl e WHERE e.clientId = :pClientId and e.accessControl.id = :pAccessControlId and e.dsName = :pDsName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -46,16 +44,6 @@ public class DsAccessControl extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "AD_ACL_DS_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "DsAccessControl.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "DsAccessControl.findByIds";
 
 	/**
 	 * Named query find by unique key: Unique.

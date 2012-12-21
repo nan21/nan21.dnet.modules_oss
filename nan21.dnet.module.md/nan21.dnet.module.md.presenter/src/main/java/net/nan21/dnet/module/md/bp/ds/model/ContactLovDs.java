@@ -13,7 +13,7 @@ import net.nan21.dnet.module.md.bp.domain.entity.Contact;
 @Ds(entity = Contact.class)
 public class ContactLovDs extends AbstractAuditableLov<Contact> {
 
-	public static final String fNAME = "name";
+	public static final String f_name = "name";
 
 	@DsField(fetch = false, jpqlFilter = " e.lastName like :name ")
 	private String name;

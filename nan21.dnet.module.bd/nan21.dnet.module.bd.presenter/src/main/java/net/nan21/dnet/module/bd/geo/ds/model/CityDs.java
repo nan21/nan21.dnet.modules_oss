@@ -7,17 +7,27 @@ package net.nan21.dnet.module.bd.geo.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.geo.domain.entity.City;
+import net.nan21.dnet.module.bd.geo.domain.entity.Country;
+import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 
-@Ds(entity = City.class, sort = {@SortField(field = CityDs.fNAME)})
+@Ds(entity = City.class, sort = {@SortField(field = CityDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = CityDs.f_countryId, namedQuery = Country.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = CityDs.f_countryCode)}),
+		@RefLookup(refId = CityDs.f_regionId, namedQuery = Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE, params = {
+				@Param(name = "pCode", field = CityDs.f_regionCode),
+				@Param(name = "pCountryId", field = CityDs.f_countryId)})})
 public class CityDs extends AbstractTypeDs<City> {
 
-	public static final String fCOUNTRYID = "countryId";
-	public static final String fCOUNTRYCODE = "countryCode";
-	public static final String fREGIONID = "regionId";
-	public static final String fREGIONCODE = "regionCode";
+	public static final String f_countryId = "countryId";
+	public static final String f_countryCode = "countryCode";
+	public static final String f_regionId = "regionId";
+	public static final String f_regionCode = "regionCode";
 
 	@DsField(join = "left", path = "country.id")
 	private Long countryId;

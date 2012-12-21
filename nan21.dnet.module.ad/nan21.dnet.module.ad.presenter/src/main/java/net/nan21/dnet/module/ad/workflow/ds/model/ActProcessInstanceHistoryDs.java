@@ -12,30 +12,30 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessInstanceHistory;
 
-@Ds(entity = ActProcessInstanceHistory.class, jpqlWhere = " e.endTime is not null ", sort = {@SortField(field = ActProcessInstanceHistoryDs.fENDTIME, desc = true)})
+@Ds(entity = ActProcessInstanceHistory.class, jpqlWhere = " e.endTime is not null ", sort = {@SortField(field = ActProcessInstanceHistoryDs.f_endTime, desc = true)})
 public class ActProcessInstanceHistoryDs
 		extends
 			AbstractBaseDs<ActProcessInstanceHistory> {
 
-	public static final String fID = "id";
-	public static final String fPROCESSINSTANCEID = "processInstanceId";
-	public static final String fPROCESSID = "processId";
-	public static final String fPROCESS = "process";
-	public static final String fPROCESSVERSION = "processVersion";
-	public static final String fCLIENTID = "clientId";
-	public static final String fSTARTTIME = "startTime";
-	public static final String fENDTIME = "endTime";
-	public static final String fDURATION = "duration";
-	public static final String fDURATIONTEXT = "durationText";
-	public static final String fSTARTEDBY = "startedBy";
-	public static final String fSTARTACTION = "startAction";
-	public static final String fENDACTION = "endAction";
-	public static final String fDELETEREASON = "deleteReason";
+	public static final String f_id = "id";
+	public static final String f_processInstanceId = "processInstanceId";
+	public static final String f_processId = "processId";
+	public static final String f_process = "process";
+	public static final String f_processVersion = "processVersion";
+	public static final String f_clientId = "clientId";
+	public static final String f_startTime = "startTime";
+	public static final String f_endTime = "endTime";
+	public static final String f_duration = "duration";
+	public static final String f_durationText = "durationText";
+	public static final String f_startedBy = "startedBy";
+	public static final String f_startAction = "startAction";
+	public static final String f_endAction = "endAction";
+	public static final String f_deleteReason = "deleteReason";
 
-	@DsField()
+	@DsField
 	private String id;
 
-	@DsField()
+	@DsField
 	private String processInstanceId;
 
 	@DsField(join = "left", path = "processDefinition.id")
@@ -56,22 +56,22 @@ public class ActProcessInstanceHistoryDs
 	@DsField(jpqlFilter = " e.startTime <= :endTime")
 	private Date endTime;
 
-	@DsField()
+	@DsField
 	private Long duration;
 
 	@DsField(fetch = false)
 	private String durationText;
 
-	@DsField()
+	@DsField
 	private String startedBy;
 
-	@DsField()
+	@DsField
 	private String startAction;
 
-	@DsField()
+	@DsField
 	private String endAction;
 
-	@DsField()
+	@DsField
 	private String deleteReason;
 
 	public ActProcessInstanceHistoryDs() {

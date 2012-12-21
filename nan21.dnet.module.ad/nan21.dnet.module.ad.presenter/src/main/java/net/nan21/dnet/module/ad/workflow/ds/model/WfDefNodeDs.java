@@ -7,30 +7,33 @@ package net.nan21.dnet.module.ad.workflow.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode;
 
-@Ds(entity = WfDefNode.class, sort = {@SortField(field = WfDefNodeDs.fID)})
+@Ds(entity = WfDefNode.class, sort = {@SortField(field = WfDefNodeDs.f_id)})
+@RefLookups({@RefLookup(refId = WfDefNodeDs.f_processId)})
 public class WfDefNodeDs extends AbstractTypeDs<WfDefNode> {
 
-	public static final String fASSIGNTOUSER = "assignToUser";
-	public static final String fASSIGNTOGROUP = "assignToGroup";
-	public static final String fSTARTWITHPREVIOUS = "startWithPrevious";
-	public static final String fTASKTYPE = "taskType";
-	public static final String fPROCESSID = "processId";
-	public static final String fPROCESS = "process";
+	public static final String f_assignToUser = "assignToUser";
+	public static final String f_assignToGroup = "assignToGroup";
+	public static final String f_startWithPrevious = "startWithPrevious";
+	public static final String f_taskType = "taskType";
+	public static final String f_processId = "processId";
+	public static final String f_process = "process";
 
-	@DsField()
+	@DsField
 	private String assignToUser;
 
-	@DsField()
+	@DsField
 	private String assignToGroup;
 
-	@DsField()
+	@DsField
 	private Boolean startWithPrevious;
 
-	@DsField()
+	@DsField
 	private String taskType;
 
 	@DsField(join = "left", path = "process.id")

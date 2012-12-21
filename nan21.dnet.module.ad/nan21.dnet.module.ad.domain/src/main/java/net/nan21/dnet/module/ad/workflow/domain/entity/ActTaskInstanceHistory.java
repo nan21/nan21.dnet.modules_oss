@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.workflow.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +16,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,35 +28,21 @@ import net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory;
 import org.eclipse.persistence.annotations.Cache;
 import org.eclipse.persistence.annotations.CacheType;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 import net.nan21.dnet.core.api.util.Duration;
 
-@NamedQueries({
-		@NamedQuery(name = ActTaskInstanceHistory.NQ_FIND_BY_ID, query = "SELECT e FROM ActTaskInstanceHistory e WHERE  e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ActTaskInstanceHistory.NQ_FIND_BY_IDS, query = "SELECT e FROM ActTaskInstanceHistory e WHERE  e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = ActTaskInstanceHistory.TABLE_NAME)
 @Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActTaskInstanceHistory implements IModelWithId {
+public class ActTaskInstanceHistory implements IModelWithId, Serializable {
 
 	public static final String TABLE_NAME = "ACT_HI_TASKINST";
 	public static final String SEQUENCE_NAME = "ACT_HI_TASKINST_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ActTaskInstanceHistory.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ActTaskInstanceHistory.findByIds";
 
 	@Column(name = "ID_", nullable = false, length = 64)
 	@NotBlank

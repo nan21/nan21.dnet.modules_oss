@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== RatingScale ==================== -->
+	
+	<bean id="RatingScaleDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingScaleDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingScale"/>
+	</bean>
+	
+	<!-- ==================== RatingScaleLov ==================== -->
+	
+	<bean id="RatingScaleLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingScaleLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingScale"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== RatingLevel ==================== -->
+	
+	<bean id="RatingLevelDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingLevelDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel"/>
+	</bean>
+	
+	<!-- ==================== RatingLevelLov ==================== -->
+	
+	<bean id="RatingLevelLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.RatingLevelLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SkillCategory ==================== -->
+	
+	<bean id="SkillCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillCategory"/>
+	</bean>
+	
+	<!-- ==================== SkillCategoryLov ==================== -->
+	
+	<bean id="SkillCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillCategoryLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillCategory"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SkillType ==================== -->
+	
+	<bean id="SkillTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillTypeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillType"/>
+	</bean>
+	
+	<!-- ==================== SkillTypeLov ==================== -->
+	
+	<bean id="SkillTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillTypeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.SkillType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Skill ==================== -->
+	
+	<bean id="SkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Skill"/>
+	</bean>
+	
+	<!-- ==================== SkillLov ==================== -->
+	
+	<bean id="SkillLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.SkillLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Skill"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Qualification ==================== -->
+	
+	<bean id="QualificationDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Qualification"/>
+	</bean>
+	
+	<!-- ==================== QualificationLov ==================== -->
+	
+	<bean id="QualificationLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.Qualification"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== QualificationSkill ==================== -->
+	
+	<bean id="QualificationSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.QualificationSkillDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.QualificationSkill"/>
+	</bean>
+	
+	<!-- ==================== JobSkill ==================== -->
+	
+	<bean id="JobSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.JobSkillDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.JobSkill"/>
+	</bean>
+	
+	<!-- ==================== PositionSkill ==================== -->
+	
+	<bean id="PositionSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.PositionSkillDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.PositionSkill"/>
+	</bean>
+	
+	<!-- ==================== EmployeeSkill ==================== -->
+	
+	<bean id="EmployeeSkillDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.skill.ds.model.EmployeeSkillDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.skill.domain.entity.EmployeeSkill"/>
+	</bean>
+</beans>

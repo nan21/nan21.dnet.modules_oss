@@ -7,19 +7,24 @@ package net.nan21.dnet.module.bd.geo.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 
-@Ds(entity = Region.class, sort = {@SortField(field = RegionDs.fCOUNTRYCODE),
-		@SortField(field = RegionDs.fNAME)})
+@Ds(entity = Region.class, sort = {@SortField(field = RegionDs.f_countryCode),
+		@SortField(field = RegionDs.f_name)})
+@RefLookups({@RefLookup(refId = RegionDs.f_countryId, namedQuery = Country.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = RegionDs.f_countryCode)})})
 public class RegionDs extends AbstractTypeWithCodeDs<Region> {
 
-	public static final String fISO = "iso";
-	public static final String fCOUNTRYID = "countryId";
-	public static final String fCOUNTRYCODE = "countryCode";
+	public static final String f_iso = "iso";
+	public static final String f_countryId = "countryId";
+	public static final String f_countryCode = "countryCode";
 
-	@DsField()
+	@DsField
 	private String iso;
 
 	@DsField(join = "left", path = "country.id")

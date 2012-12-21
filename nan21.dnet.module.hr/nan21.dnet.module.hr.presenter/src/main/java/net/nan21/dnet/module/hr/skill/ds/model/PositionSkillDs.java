@@ -7,18 +7,29 @@ package net.nan21.dnet.module.hr.skill.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.skill.domain.entity.PositionSkill;
+import net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel;
+import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
 
 @Ds(entity = PositionSkill.class)
+@RefLookups({
+		@RefLookup(refId = PositionSkillDs.f_positionId),
+		@RefLookup(refId = PositionSkillDs.f_requiredLevelId, namedQuery = RatingLevel.NQ_FIND_BY_NAME_PRIMITIVE, params = {
+				@Param(name = "pName", field = PositionSkillDs.f_requiredLevel),
+				@Param(name = "pRatingScaleId", field = PositionSkillDs.f_ratingScaleId)}),
+		@RefLookup(refId = PositionSkillDs.f_competenceId, namedQuery = Skill.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PositionSkillDs.f_competence)})})
 public class PositionSkillDs extends AbstractAuditableDs<PositionSkill> {
 
-	public static final String fPOSITIONID = "positionId";
-	public static final String fCOMPETENCEID = "competenceId";
-	public static final String fCOMPETENCE = "competence";
-	public static final String fRATINGSCALEID = "ratingScaleId";
-	public static final String fREQUIREDLEVELID = "requiredLevelId";
-	public static final String fREQUIREDLEVEL = "requiredLevel";
+	public static final String f_positionId = "positionId";
+	public static final String f_competenceId = "competenceId";
+	public static final String f_competence = "competence";
+	public static final String f_ratingScaleId = "ratingScaleId";
+	public static final String f_requiredLevelId = "requiredLevelId";
+	public static final String f_requiredLevel = "requiredLevel";
 
 	@DsField(join = "left", path = "position.id")
 	private Long positionId;

@@ -13,15 +13,15 @@ import net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage;
 @Ds(entity = DsReportUsage.class, jpqlWhere = " e.dsReport.report.active = true ")
 public class DsReportUsageRtDs extends AbstractAuditableDs<DsReportUsage> {
 
-	public static final String fDSREPORTID = "dsReportId";
-	public static final String fREPORTID = "reportId";
-	public static final String fREPORTCODE = "reportCode";
-	public static final String fREPORTTITLE = "reportTitle";
-	public static final String fREPORTCONTEXTPATH = "reportContextPath";
-	public static final String fSERVERURL = "serverUrl";
-	public static final String fFRAMENAME = "frameName";
-	public static final String fTOOLBARKEY = "toolbarKey";
-	public static final String fDCKEY = "dcKey";
+	public static final String f_dsReportId = "dsReportId";
+	public static final String f_reportId = "reportId";
+	public static final String f_reportCode = "reportCode";
+	public static final String f_reportTitle = "reportTitle";
+	public static final String f_reportContextPath = "reportContextPath";
+	public static final String f_serverUrl = "serverUrl";
+	public static final String f_frameName = "frameName";
+	public static final String f_toolbarKey = "toolbarKey";
+	public static final String f_dcKey = "dcKey";
 
 	@DsField(join = "left", path = "dsReport.id")
 	private Long dsReportId;
@@ -41,13 +41,13 @@ public class DsReportUsageRtDs extends AbstractAuditableDs<DsReportUsage> {
 	@DsField(join = "left", path = "dsReport.report.reportServer.url")
 	private String serverUrl;
 
-	@DsField()
+	@DsField
 	private String frameName;
 
-	@DsField()
+	@DsField
 	private String toolbarKey;
 
-	@DsField()
+	@DsField
 	private String dcKey;
 
 	public DsReportUsageRtDs() {

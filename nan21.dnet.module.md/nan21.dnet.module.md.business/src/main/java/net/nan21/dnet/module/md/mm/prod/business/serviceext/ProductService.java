@@ -6,9 +6,6 @@
 package net.nan21.dnet.module.md.mm.prod.business.serviceext;
 
 import java.util.List;
-import java.util.Map;
-
-import org.apache.ibatis.ognl.ListPropertyAccessor;
 
 import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;

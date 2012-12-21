@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.ad.usr.domain.entity.User;
 
-@Ds(entity = User.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = UserLovDs.fCODE)})
+@Ds(entity = User.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = UserLovDs.f_code)})
 public class UserLovDs extends AbstractTypeWithCodeLov<User> {
 
 	public UserLovDs() {

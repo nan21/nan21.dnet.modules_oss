@@ -8,18 +8,27 @@ package net.nan21.dnet.module.hr.grade.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScaleRateValue;
 
 @Ds(entity = PayScaleRateValue.class)
+@RefLookups({
+		@RefLookup(refId = PayScaleRateValueDs.f_scaleRateId),
+		@RefLookup(refId = PayScaleRateValueDs.f_scalePointId, namedQuery = PayScalePoint.NQ_FIND_BY_SCALE_CODE_PRIMITIVE, params = {
+				@Param(name = "pPayScaleId", field = PayScaleRateValueDs.f_scaleRateId),
+				@Param(name = "pCode", field = PayScaleRateValueDs.f_scalePointCode)})})
 public class PayScaleRateValueDs extends AbstractAuditableDs<PayScaleRateValue> {
 
-	public static final String fSCALERATEID = "scaleRateId";
-	public static final String fSCALEPOINTID = "scalePointId";
-	public static final String fSCALEPOINTCODE = "scalePointCode";
-	public static final String fVALUE = "value";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fVALIDTO = "validTo";
+	public static final String f_scaleRateId = "scaleRateId";
+	public static final String f_scalePointId = "scalePointId";
+	public static final String f_scalePointCode = "scalePointCode";
+	public static final String f_value = "value";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_validTo = "validTo";
 
 	@DsField(join = "left", path = "scaleRate.id")
 	private Long scaleRateId;
@@ -30,13 +39,13 @@ public class PayScaleRateValueDs extends AbstractAuditableDs<PayScaleRateValue> 
 	@DsField(join = "left", path = "scalePoint.code")
 	private String scalePointCode;
 
-	@DsField()
+	@DsField
 	private Float value;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
-	@DsField()
+	@DsField
 	private Date validTo;
 
 	public PayScaleRateValueDs() {

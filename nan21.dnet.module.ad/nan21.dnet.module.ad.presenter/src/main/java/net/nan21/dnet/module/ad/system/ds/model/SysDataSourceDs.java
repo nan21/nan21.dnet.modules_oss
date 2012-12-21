@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 
-@Ds(entity = SysDataSource.class, sort = {@SortField(field = SysDataSourceDs.fNAME)})
+@Ds(entity = SysDataSource.class, sort = {@SortField(field = SysDataSourceDs.f_name)})
 public class SysDataSourceDs extends AbstractTypeDs<SysDataSource> {
 
-	public static final String fMODEL = "model";
-	public static final String fISASGN = "isAsgn";
+	public static final String f_model = "model";
+	public static final String f_isAsgn = "isAsgn";
 
-	@DsField()
+	@DsField
 	private String model;
 
-	@DsField()
+	@DsField
 	private Boolean isAsgn;
 
 	public SysDataSourceDs() {

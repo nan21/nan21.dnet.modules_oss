@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel;
 
-@Ds(entity = RatingLevel.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = RatingLevelLovDs.fVALUE)})
+@Ds(entity = RatingLevel.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = RatingLevelLovDs.f_value)})
 public class RatingLevelLovDs extends AbstractTypeLov<RatingLevel> {
 
-	public static final String fRATINGSCALEID = "ratingScaleId";
-	public static final String fVALUE = "value";
+	public static final String f_ratingScaleId = "ratingScaleId";
+	public static final String f_value = "value";
 
 	@DsField(join = "left", path = "ratingScale.id")
 	private Long ratingScaleId;
 
-	@DsField()
+	@DsField
 	private Integer value;
 
 	public RatingLevelLovDs() {

@@ -10,15 +10,15 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class SalesOrderDsParam extends EmptyParam {
 
-	public static final String fDELIVDOCTYPEID = "delivDocTypeId";
-	public static final String fDELIVDOCTYPE = "delivDocType";
-	public static final String fDELIVTXTYPEID = "delivTxTypeId";
-	public static final String fDELIVTXTYPE = "delivTxType";
-	public static final String fDELIVEVENTDATA = "delivEventData";
-	public static final String fINVDOCTYPEID = "invDocTypeId";
-	public static final String fINVDOCTYPE = "invDocType";
-	public static final String fCOPYFROMID = "copyFromId";
-	public static final String fCOPYFROM = "copyFrom";
+	public static final String f_delivDocTypeId = "delivDocTypeId";
+	public static final String f_delivDocType = "delivDocType";
+	public static final String f_delivTxTypeId = "delivTxTypeId";
+	public static final String f_delivTxType = "delivTxType";
+	public static final String f_delivEventData = "delivEventData";
+	public static final String f_invDocTypeId = "invDocTypeId";
+	public static final String f_invDocType = "invDocType";
+	public static final String f_copyFromId = "copyFromId";
+	public static final String f_copyFrom = "copyFrom";
 
 	private Long delivDocTypeId;
 

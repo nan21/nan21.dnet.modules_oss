@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType;
 
-@Ds(entity = EmploymentType.class, sort = {@SortField(field = EmploymentTypeDs.fNAME)})
+@Ds(entity = EmploymentType.class, sort = {@SortField(field = EmploymentTypeDs.f_name)})
 public class EmploymentTypeDs extends AbstractTypeDs<EmploymentType> {
 
 	public EmploymentTypeDs() {

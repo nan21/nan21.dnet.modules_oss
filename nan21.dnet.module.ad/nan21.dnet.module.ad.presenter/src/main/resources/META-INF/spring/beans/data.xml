@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== Note ==================== -->
+	
+	<bean id="NoteDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.NoteDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.Note"/>
+	</bean>
+	
+	<!-- ==================== AttachmentType ==================== -->
+	
+	<bean id="AttachmentTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.AttachmentType"/>
+	</bean>
+	
+	<!-- ==================== AttachmentTypeLov ==================== -->
+	
+	<bean id="AttachmentTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentTypeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.AttachmentType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Attachment ==================== -->
+	
+	<bean id="AttachmentDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.data.ds.model.AttachmentDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.data.domain.entity.Attachment"/>
+	</bean>
+</beans>

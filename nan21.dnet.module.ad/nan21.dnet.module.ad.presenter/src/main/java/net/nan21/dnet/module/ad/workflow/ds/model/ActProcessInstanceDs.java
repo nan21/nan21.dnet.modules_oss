@@ -12,25 +12,25 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessInstanceHistory;
 
-@Ds(entity = ActProcessInstanceHistory.class, jpqlWhere = " e.endTime is null ", sort = {@SortField(field = ActProcessInstanceDs.fSTARTTIME, desc = true)})
+@Ds(entity = ActProcessInstanceHistory.class, jpqlWhere = " e.endTime is null ", sort = {@SortField(field = ActProcessInstanceDs.f_startTime, desc = true)})
 public class ActProcessInstanceDs
 		extends
 			AbstractBaseDs<ActProcessInstanceHistory> {
 
-	public static final String fID = "id";
-	public static final String fPROCESSINSTANCEID = "processInstanceId";
-	public static final String fPROCESSID = "processId";
-	public static final String fPROCESS = "process";
-	public static final String fPROCESSVERSION = "processVersion";
-	public static final String fCLIENTID = "clientId";
-	public static final String fSTARTTIME = "startTime";
-	public static final String fSTARTEDBY = "startedBy";
-	public static final String fSTARTACTION = "startAction";
+	public static final String f_id = "id";
+	public static final String f_processInstanceId = "processInstanceId";
+	public static final String f_processId = "processId";
+	public static final String f_process = "process";
+	public static final String f_processVersion = "processVersion";
+	public static final String f_clientId = "clientId";
+	public static final String f_startTime = "startTime";
+	public static final String f_startedBy = "startedBy";
+	public static final String f_startAction = "startAction";
 
-	@DsField()
+	@DsField
 	private String id;
 
-	@DsField()
+	@DsField
 	private String processInstanceId;
 
 	@DsField(join = "left", path = "processDefinition.id")
@@ -45,13 +45,13 @@ public class ActProcessInstanceDs
 	@DsField(join = "left", path = "processDefinition.clientId")
 	private Long clientId;
 
-	@DsField()
+	@DsField
 	private Date startTime;
 
-	@DsField()
+	@DsField
 	private String startedBy;
 
-	@DsField()
+	@DsField
 	private String startAction;
 
 	public ActProcessInstanceDs() {

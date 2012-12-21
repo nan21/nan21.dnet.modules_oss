@@ -9,20 +9,14 @@ package net.nan21.dnet.module.md.tx.inventory.domain.entity;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransaction;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = InvTransfer.NQ_FIND_BY_ID, query = "SELECT e FROM InvTransfer e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = InvTransfer.NQ_FIND_BY_IDS, query = "SELECT e FROM InvTransfer e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @CascadeOnDelete
 @DiscriminatorValue("TRSF")
@@ -34,16 +28,6 @@ public class InvTransfer extends InvTransaction {
 	public static final String SEQUENCE_NAME = "TX_INVT_TX_TRSF_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "InvTransfer.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "InvTransfer.findByIds";
 
 	public void aboutToInsert(DescriptorEvent event) {
 		super.aboutToInsert(event);

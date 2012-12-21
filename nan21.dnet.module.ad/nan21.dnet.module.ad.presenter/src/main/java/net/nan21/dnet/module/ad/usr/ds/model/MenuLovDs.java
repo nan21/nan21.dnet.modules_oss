@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.usr.domain.entity.Menu;
 
-@Ds(entity = Menu.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = MenuLovDs.fNAME)})
+@Ds(entity = Menu.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = MenuLovDs.f_name)})
 public class MenuLovDs extends AbstractTypeLov<Menu> {
 
-	public static final String fTITLE = "title";
+	public static final String f_title = "title";
 
-	@DsField()
+	@DsField
 	private String title;
 
 	public MenuLovDs() {

@@ -11,20 +11,20 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 
-@Ds(entity = Currency.class, sort = {@SortField(field = CurrencyDs.fNAME)})
+@Ds(entity = Currency.class, sort = {@SortField(field = CurrencyDs.f_name)})
 public class CurrencyDs extends AbstractTypeWithCodeDs<Currency> {
 
-	public static final String fISO3 = "iso3";
-	public static final String fSTANDARDPRECISION = "standardPrecision";
-	public static final String fSYMBOL = "symbol";
+	public static final String f_iso3 = "iso3";
+	public static final String f_standardPrecision = "standardPrecision";
+	public static final String f_symbol = "symbol";
 
-	@DsField()
+	@DsField
 	private String iso3;
 
-	@DsField()
+	@DsField
 	private Integer standardPrecision;
 
-	@DsField()
+	@DsField
 	private String symbol;
 
 	public CurrencyDs() {

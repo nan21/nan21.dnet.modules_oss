@@ -11,25 +11,25 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableLov;
 import net.nan21.dnet.module.ad.system.domain.entity.UiViewState;
 
-@Ds(entity = UiViewState.class, sort = {@SortField(field = UiViewStateRTLovDs.fNAME)})
+@Ds(entity = UiViewState.class, sort = {@SortField(field = UiViewStateRTLovDs.f_name)})
 public class UiViewStateRTLovDs extends AbstractAuditableLov<UiViewState> {
 
-	public static final String fNAME = "name";
-	public static final String fCMP = "cmp";
-	public static final String fCMPTYPE = "cmpType";
-	public static final String fSTATEVALUE = "stateValue";
-	public static final String fOWNER = "owner";
+	public static final String f_name = "name";
+	public static final String f_cmp = "cmp";
+	public static final String f_cmpType = "cmpType";
+	public static final String f_stateValue = "stateValue";
+	public static final String f_owner = "owner";
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String cmp;
 
-	@DsField()
+	@DsField
 	private String cmpType;
 
-	@DsField()
+	@DsField
 	private String stateValue;
 
 	@DsField(path = "createdBy")

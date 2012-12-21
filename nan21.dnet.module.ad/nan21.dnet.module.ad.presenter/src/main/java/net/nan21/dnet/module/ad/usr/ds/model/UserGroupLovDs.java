@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.usr.domain.entity.UserGroup;
 
-@Ds(entity = UserGroup.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = UserGroupLovDs.fNAME)})
+@Ds(entity = UserGroup.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = UserGroupLovDs.f_name)})
 public class UserGroupLovDs extends AbstractTypeLov<UserGroup> {
 
 	public UserGroupLovDs() {

@@ -7,26 +7,37 @@ package net.nan21.dnet.module.sd.invoice.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
+import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesInvoiceItem;
 
 @Ds(entity = SalesInvoiceItem.class)
+@RefLookups({
+		@RefLookup(refId = SalesInvoiceItemDs.f_salesInvoiceId),
+		@RefLookup(refId = SalesInvoiceItemDs.f_uomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesInvoiceItemDs.f_uomCode)}),
+		@RefLookup(refId = SalesInvoiceItemDs.f_productId, namedQuery = Product.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesInvoiceItemDs.f_productCode)}),
+		@RefLookup(refId = SalesInvoiceItemDs.f_taxId, namedQuery = Tax.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesInvoiceItemDs.f_tax)})})
 public class SalesInvoiceItemDs extends AbstractAuditableDs<SalesInvoiceItem> {
 
-	public static final String fSALESINVOICEID = "salesInvoiceId";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCTCODE = "productCode";
-	public static final String fPRODUCTNAME = "productName";
-	public static final String fDESCRIPTION = "description";
-	public static final String fQUANTITY = "quantity";
-	public static final String fUOMID = "uomId";
-	public static final String fUOMCODE = "uomCode";
-	public static final String fUNITPRICE = "unitPrice";
-	public static final String fNETAMOUNT = "netAmount";
-	public static final String fTAXAMOUNT = "taxAmount";
-	public static final String fLINEAMOUNT = "lineAmount";
-	public static final String fTAXID = "taxId";
-	public static final String fTAX = "tax";
+	public static final String f_salesInvoiceId = "salesInvoiceId";
+	public static final String f_productId = "productId";
+	public static final String f_productCode = "productCode";
+	public static final String f_productName = "productName";
+	public static final String f_description = "description";
+	public static final String f_quantity = "quantity";
+	public static final String f_uomId = "uomId";
+	public static final String f_uomCode = "uomCode";
+	public static final String f_unitPrice = "unitPrice";
+	public static final String f_netAmount = "netAmount";
+	public static final String f_taxAmount = "taxAmount";
+	public static final String f_lineAmount = "lineAmount";
+	public static final String f_taxId = "taxId";
+	public static final String f_tax = "tax";
 
 	@DsField(noUpdate = true, join = "left", path = "salesInvoice.id")
 	private Long salesInvoiceId;
@@ -40,10 +51,10 @@ public class SalesInvoiceItemDs extends AbstractAuditableDs<SalesInvoiceItem> {
 	@DsField(join = "left", path = "product.name")
 	private String productName;
 
-	@DsField()
+	@DsField
 	private String description;
 
-	@DsField()
+	@DsField
 	private Float quantity;
 
 	@DsField(join = "left", path = "uom.id")
@@ -52,7 +63,7 @@ public class SalesInvoiceItemDs extends AbstractAuditableDs<SalesInvoiceItem> {
 	@DsField(join = "left", path = "uom.code")
 	private String uomCode;
 
-	@DsField()
+	@DsField
 	private Float unitPrice;
 
 	@DsField(noInsert = true, noUpdate = true)

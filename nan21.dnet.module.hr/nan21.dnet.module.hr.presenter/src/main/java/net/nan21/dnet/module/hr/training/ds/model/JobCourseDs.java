@@ -7,20 +7,28 @@ package net.nan21.dnet.module.hr.training.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.hr.job.domain.entity.Job;
+import net.nan21.dnet.module.hr.training.domain.entity.Course;
 import net.nan21.dnet.module.hr.training.domain.entity.JobCourse;
 
 @Ds(entity = JobCourse.class)
+@RefLookups({
+		@RefLookup(refId = JobCourseDs.f_jobId, namedQuery = Job.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = JobCourseDs.f_jobCode)}),
+		@RefLookup(refId = JobCourseDs.f_courseId, namedQuery = Course.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = JobCourseDs.f_courseCode)})})
 public class JobCourseDs extends AbstractAuditableDs<JobCourse> {
 
-	public static final String fJOBID = "jobId";
-	public static final String fJOBCODE = "jobCode";
-	public static final String fJOBNAME = "jobName";
-	public static final String fCOURSEID = "courseId";
-	public static final String fCOURSECODE = "courseCode";
-	public static final String fCOURSENAME = "courseName";
-	public static final String fMANDATORY = "mandatory";
-	public static final String fVALIDFOR = "validFor";
+	public static final String f_jobId = "jobId";
+	public static final String f_jobCode = "jobCode";
+	public static final String f_jobName = "jobName";
+	public static final String f_courseId = "courseId";
+	public static final String f_courseCode = "courseCode";
+	public static final String f_courseName = "courseName";
+	public static final String f_mandatory = "mandatory";
+	public static final String f_validFor = "validFor";
 
 	@DsField(join = "left", path = "job.id")
 	private Long jobId;
@@ -40,10 +48,10 @@ public class JobCourseDs extends AbstractAuditableDs<JobCourse> {
 	@DsField(join = "left", path = "course.name")
 	private String courseName;
 
-	@DsField()
+	@DsField
 	private Boolean mandatory;
 
-	@DsField()
+	@DsField
 	private Integer validFor;
 
 	public JobCourseDs() {

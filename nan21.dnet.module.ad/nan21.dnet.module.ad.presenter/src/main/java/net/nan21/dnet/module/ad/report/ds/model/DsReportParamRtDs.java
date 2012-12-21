@@ -13,20 +13,20 @@ import net.nan21.dnet.module.ad.report.domain.entity.DsReportParam;
 @Ds(entity = DsReportParam.class)
 public class DsReportParamRtDs extends AbstractAuditableDs<DsReportParam> {
 
-	public static final String fDSREPORTID = "dsReportId";
-	public static final String fREPORTID = "reportId";
-	public static final String fREPORTCODE = "reportCode";
-	public static final String fPARAMID = "paramId";
-	public static final String fPARAMCODE = "paramCode";
-	public static final String fPARAMNAME = "paramName";
-	public static final String fPARAMDATATYPE = "paramDataType";
-	public static final String fPARAMMANDATORY = "paramMandatory";
-	public static final String fPARAMDEFAULTVALUE = "paramDefaultValue";
-	public static final String fPARAMLISTOFVALUES = "paramListOfValues";
-	public static final String fPARAMNOEDIT = "paramNoEdit";
-	public static final String fDATASOURCE = "dataSource";
-	public static final String fDSFIELD = "dsField";
-	public static final String fSTATICVALUE = "staticValue";
+	public static final String f_dsReportId = "dsReportId";
+	public static final String f_reportId = "reportId";
+	public static final String f_reportCode = "reportCode";
+	public static final String f_paramId = "paramId";
+	public static final String f_paramCode = "paramCode";
+	public static final String f_paramName = "paramName";
+	public static final String f_paramDataType = "paramDataType";
+	public static final String f_paramMandatory = "paramMandatory";
+	public static final String f_paramDefaultValue = "paramDefaultValue";
+	public static final String f_paramListOfValues = "paramListOfValues";
+	public static final String f_paramNoEdit = "paramNoEdit";
+	public static final String f_dataSource = "dataSource";
+	public static final String f_dsField = "dsField";
+	public static final String f_staticValue = "staticValue";
 
 	@DsField(join = "left", path = "dsReport.id")
 	private Long dsReportId;
@@ -64,10 +64,10 @@ public class DsReportParamRtDs extends AbstractAuditableDs<DsReportParam> {
 	@DsField(join = "left", path = "dsReport.dataSource")
 	private String dataSource;
 
-	@DsField()
+	@DsField
 	private String dsField;
 
-	@DsField()
+	@DsField
 	private String staticValue;
 
 	public DsReportParamRtDs() {

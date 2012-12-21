@@ -7,21 +7,24 @@ package net.nan21.dnet.module.ad.workflow.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNodeField;
 
-@Ds(entity = WfDefNodeField.class, sort = {@SortField(field = WfDefNodeFieldDs.fNAME)})
+@Ds(entity = WfDefNodeField.class, sort = {@SortField(field = WfDefNodeFieldDs.f_name)})
+@RefLookups({@RefLookup(refId = WfDefNodeFieldDs.f_nodeId)})
 public class WfDefNodeFieldDs extends AbstractTypeDs<WfDefNodeField> {
 
-	public static final String fTYPE = "type";
-	public static final String fREQUIRED = "required";
-	public static final String fNODEID = "nodeId";
+	public static final String f_type = "type";
+	public static final String f_required = "required";
+	public static final String f_nodeId = "nodeId";
 
-	@DsField()
+	@DsField
 	private String type;
 
-	@DsField()
+	@DsField
 	private Boolean required;
 
 	@DsField(join = "left", path = "node.id")

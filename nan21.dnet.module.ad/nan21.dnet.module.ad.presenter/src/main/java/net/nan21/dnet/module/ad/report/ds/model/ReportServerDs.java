@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportServer;
 
-@Ds(entity = ReportServer.class, sort = {@SortField(field = ReportServerDs.fNAME)})
+@Ds(entity = ReportServer.class, sort = {@SortField(field = ReportServerDs.f_name)})
 public class ReportServerDs extends AbstractTypeDs<ReportServer> {
 
-	public static final String fURL = "url";
+	public static final String f_url = "url";
 
-	@DsField()
+	@DsField
 	private String url;
 
 	public ReportServerDs() {

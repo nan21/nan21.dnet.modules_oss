@@ -8,36 +8,44 @@ package net.nan21.dnet.module.hr.employee.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.geo.domain.entity.Country;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 
 @Ds(entity = Employee.class)
+@RefLookups({
+		@RefLookup(refId = EmployeeDs.f_employerId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = EmployeeDs.f_employerCode)}),
+		@RefLookup(refId = EmployeeDs.f_citizenshipId, namedQuery = Country.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = EmployeeDs.f_citizenshipCode)})})
 public class EmployeeDs extends AbstractAuditableDs<Employee> {
 
-	public static final String fCODE = "code";
-	public static final String fEMPLOYERID = "employerId";
-	public static final String fEMPLOYERCODE = "employerCode";
-	public static final String fBUSINESSOBJECT = "businessObject";
-	public static final String fFIRSTNAME = "firstName";
-	public static final String fLASTNAME = "lastName";
-	public static final String fMIDDLENAME = "middleName";
-	public static final String fBIRTHDATE = "birthdate";
-	public static final String fGENDER = "gender";
-	public static final String fMARITALSTATUS = "maritalStatus";
-	public static final String fSINNO = "sinNo";
-	public static final String fSSNNO = "ssnNo";
-	public static final String fHASDISABILITY = "hasDisability";
-	public static final String fFIRSTHIREDATE = "firstHireDate";
-	public static final String fCURRENTHIREDATE = "currentHireDate";
-	public static final String fOFFICEEMAIL = "officeEmail";
-	public static final String fCITIZENSHIPID = "citizenshipId";
-	public static final String fCITIZENSHIPCODE = "citizenshipCode";
-	public static final String fPASSPORTNO = "passportNo";
-	public static final String fCLASSNAME = "className";
-	public static final String fPHOTOURL = "photoUrl";
-	public static final String fPHOTOLOCATION = "photoLocation";
+	public static final String f_code = "code";
+	public static final String f_employerId = "employerId";
+	public static final String f_employerCode = "employerCode";
+	public static final String f_businessObject = "businessObject";
+	public static final String f_firstName = "firstName";
+	public static final String f_lastName = "lastName";
+	public static final String f_middleName = "middleName";
+	public static final String f_birthdate = "birthdate";
+	public static final String f_gender = "gender";
+	public static final String f_maritalStatus = "maritalStatus";
+	public static final String f_sinNo = "sinNo";
+	public static final String f_ssnNo = "ssnNo";
+	public static final String f_hasDisability = "hasDisability";
+	public static final String f_firstHireDate = "firstHireDate";
+	public static final String f_currentHireDate = "currentHireDate";
+	public static final String f_officeEmail = "officeEmail";
+	public static final String f_citizenshipId = "citizenshipId";
+	public static final String f_citizenshipCode = "citizenshipCode";
+	public static final String f_passportNo = "passportNo";
+	public static final String f_className = "className";
+	public static final String f_photoUrl = "photoUrl";
+	public static final String f_photoLocation = "photoLocation";
 
-	@DsField()
+	@DsField
 	private String code;
 
 	@DsField(join = "left", path = "employer.id")
@@ -49,40 +57,40 @@ public class EmployeeDs extends AbstractAuditableDs<Employee> {
 	@DsField(fetch = false)
 	private String businessObject;
 
-	@DsField()
+	@DsField
 	private String firstName;
 
-	@DsField()
+	@DsField
 	private String lastName;
 
-	@DsField()
+	@DsField
 	private String middleName;
 
-	@DsField()
+	@DsField
 	private Date birthdate;
 
-	@DsField()
+	@DsField
 	private String gender;
 
-	@DsField()
+	@DsField
 	private String maritalStatus;
 
-	@DsField()
+	@DsField
 	private String sinNo;
 
-	@DsField()
+	@DsField
 	private String ssnNo;
 
-	@DsField()
+	@DsField
 	private Boolean hasDisability;
 
-	@DsField()
+	@DsField
 	private Date firstHireDate;
 
-	@DsField()
+	@DsField
 	private Date currentHireDate;
 
-	@DsField()
+	@DsField
 	private String officeEmail;
 
 	@DsField(join = "left", path = "citizenship.id")
@@ -91,13 +99,13 @@ public class EmployeeDs extends AbstractAuditableDs<Employee> {
 	@DsField(join = "left", path = "citizenship.code")
 	private String citizenshipCode;
 
-	@DsField()
+	@DsField
 	private String passportNo;
 
 	@DsField(fetch = false)
 	private String className;
 
-	@DsField()
+	@DsField
 	private String photoUrl;
 
 	private String photoLocation;

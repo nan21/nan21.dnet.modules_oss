@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== DbChangeLog ==================== -->
+	
+	<bean id="DbChangeLogDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.DbChangeLogDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.DbChangeLogDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.DbChangeLog"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysParam ==================== -->
+	
+	<bean id="SysParamDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysParamDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysParam"/>
+		<property name="rpcFilter" >
+			<map>
+				<entry key="refreshSysConfig">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.system.SysParamPD"/>
+						<constructor-arg name="methodName" value="reloadSysConfig" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== SysJob ==================== -->
+	
+	<bean id="SysJobDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJob"/>
+		<property name="rpcFilter" >
+			<map>
+				<entry key="synchronizeCatalog">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.system.SysJobPD"/>
+						<constructor-arg name="methodName" value="synchronizeCatalog" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== SysJobLov ==================== -->
+	
+	<bean id="SysJobLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJob"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysJobParam ==================== -->
+	
+	<bean id="SysJobParamDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobParamDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobParam"/>
+	</bean>
+	
+	<!-- ==================== SysJobParamLov ==================== -->
+	
+	<bean id="SysJobParamLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobParamLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobParam"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysJobCtx ==================== -->
+	
+	<bean id="SysJobCtxDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx"/>
+	</bean>
+	
+	<!-- ==================== SysJobCtxLov ==================== -->
+	
+	<bean id="SysJobCtxLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysJobCtxParam ==================== -->
+	
+	<bean id="SysJobCtxParamDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysJobCtxParamDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysJobCtxParam"/>
+	</bean>
+	
+	<!-- ==================== SysTimer ==================== -->
+	
+	<bean id="SysTimerDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysTimer"/>
+	</bean>
+	
+	<!-- ==================== SysTimerLov ==================== -->
+	
+	<bean id="SysTimerLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysTimerLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysTimer"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysDataSource ==================== -->
+	
+	<bean id="SysDataSourceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
+		<property name="rpcFilter" >
+			<map>
+				<entry key="synchronizeCatalog">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.system.SysDataSourcePD"/>
+						<constructor-arg name="methodName" value="synchronizeCatalog" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== SysDataSourceLov ==================== -->
+	
+	<bean id="SysDataSourceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysDataSourceDsLov ==================== -->
+	
+	<bean id="SysDataSourceDsLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDsLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysDataSourceAsgnLov ==================== -->
+	
+	<bean id="SysDataSourceAsgnLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDataSourceAsgnLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDataSource"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysDsField ==================== -->
+	
+	<bean id="SysDsFieldDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsField"/>
+	</bean>
+	
+	<!-- ==================== SysDsFieldLov ==================== -->
+	
+	<bean id="SysDsFieldLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsFieldLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsField"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysDsService ==================== -->
+	
+	<bean id="SysDsServiceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsService"/>
+	</bean>
+	
+	<!-- ==================== SysDsServiceLov ==================== -->
+	
+	<bean id="SysDsServiceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsServiceLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsService"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysDsEvent ==================== -->
+	
+	<bean id="SysDsEventDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent"/>
+	</bean>
+	
+	<!-- ==================== SysDsEventLov ==================== -->
+	
+	<bean id="SysDsEventLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDsEventLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysFrameExtension ==================== -->
+	
+	<bean id="SysFrameExtensionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysFrameExtensionDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysFrameExtension"/>
+	</bean>
+	
+	<!-- ==================== SysDateFormat ==================== -->
+	
+	<bean id="SysDateFormatDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat"/>
+	</bean>
+	
+	<!-- ==================== SysDateFormatLov ==================== -->
+	
+	<bean id="SysDateFormatLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysDateFormatLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== UiViewState ==================== -->
+	
+	<bean id="UiViewStateDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.UiViewState"/>
+	</bean>
+	
+	<!-- ==================== UiViewStateRTLov ==================== -->
+	
+	<bean id="UiViewStateRTLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateRTLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.UiViewState"/>
+		<property name="paramClass" value="net.nan21.dnet.module.ad.system.ds.model.UiViewStateRTLovDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.system.ds.qbext.UiViewStateRTLovDsQueryBuilder" />
+	</bean>
+	
+	<!-- ==================== AuditFieldRep ==================== -->
+	
+	<bean id="AuditFieldRepDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.AuditFieldRepDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.AuditField"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

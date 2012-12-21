@@ -8,36 +8,54 @@ package net.nan21.dnet.module.sd.opportunity.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.Opportunity;
+import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityPriority;
+import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityResultReason;
+import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunitySource;
+import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage;
+import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStatus;
 
-@Ds(entity = Opportunity.class, sort = {@SortField(field = OpportunityDs.fNAME)})
+@Ds(entity = Opportunity.class, sort = {@SortField(field = OpportunityDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = OpportunityDs.f_accountId),
+		@RefLookup(refId = OpportunityDs.f_statusId, namedQuery = OpportunityStatus.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OpportunityDs.f_status)}),
+		@RefLookup(refId = OpportunityDs.f_priorityId, namedQuery = OpportunityPriority.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OpportunityDs.f_priority)}),
+		@RefLookup(refId = OpportunityDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = OpportunityDs.f_currency)}),
+		@RefLookup(refId = OpportunityDs.f_salesStageId, namedQuery = OpportunityStage.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OpportunityDs.f_salesStage)}),
+		@RefLookup(refId = OpportunityDs.f_leadSourceId, namedQuery = OpportunitySource.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OpportunityDs.f_leadSource)}),
+		@RefLookup(refId = OpportunityDs.f_resultReasonId, namedQuery = OpportunityResultReason.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OpportunityDs.f_resultReason)}),
+		@RefLookup(refId = OpportunityDs.f_assignedToId)})
 public class OpportunityDs extends AbstractTypeDs<Opportunity> {
 
-	public static final String fACCOUNTID = "accountId";
-	public static final String fACCOUNT = "account";
-	public static final String fCLOSEDATE = "closeDate";
-	public static final String fPROBABILITY = "probability";
-	public static final String fAMOUNT = "amount";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fSTATUSID = "statusId";
-	public static final String fSTATUS = "status";
-	public static final String fPRIORITYID = "priorityId";
-	public static final String fPRIORITY = "priority";
-	public static final String fSALESSTAGEID = "salesStageId";
-	public static final String fSALESSTAGE = "salesStage";
-	public static final String fLEADSOURCEID = "leadSourceId";
-	public static final String fLEADSOURCE = "leadSource";
-	public static final String fCAMPAIGN = "campaign";
-	public static final String fRESULTREASONID = "resultReasonId";
-	public static final String fRESULTREASON = "resultReason";
-	public static final String fRESULTNOTE = "resultNote";
-	public static final String fASSIGNEDTOID = "assignedToId";
-	public static final String fASSIGNEDTO = "assignedTo";
-	public static final String fCLASSNAME = "className";
-	public static final String fBUSINESSOBJECT = "businessObject";
+	public static final String f_accountId = "accountId";
+	public static final String f_account = "account";
+	public static final String f_closeDate = "closeDate";
+	public static final String f_probability = "probability";
+	public static final String f_amount = "amount";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_statusId = "statusId";
+	public static final String f_status = "status";
+	public static final String f_priorityId = "priorityId";
+	public static final String f_priority = "priority";
+	public static final String f_salesStageId = "salesStageId";
+	public static final String f_salesStage = "salesStage";
+	public static final String f_leadSourceId = "leadSourceId";
+	public static final String f_leadSource = "leadSource";
+	public static final String f_campaign = "campaign";
+	public static final String f_resultReasonId = "resultReasonId";
+	public static final String f_resultReason = "resultReason";
+	public static final String f_resultNote = "resultNote";
+	public static final String f_assignedToId = "assignedToId";
+	public static final String f_assignedTo = "assignedTo";
+	public static final String f_className = "className";
+	public static final String f_businessObject = "businessObject";
 
 	@DsField(join = "left", path = "account.id")
 	private Long accountId;
@@ -48,7 +66,7 @@ public class OpportunityDs extends AbstractTypeDs<Opportunity> {
 	@DsField(path = "expectedCloseDate")
 	private Date closeDate;
 
-	@DsField()
+	@DsField
 	private Float probability;
 
 	@DsField(path = "expectedAmount")
@@ -84,7 +102,7 @@ public class OpportunityDs extends AbstractTypeDs<Opportunity> {
 	@DsField(join = "left", path = "leadSource.name")
 	private String leadSource;
 
-	@DsField()
+	@DsField
 	private String campaign;
 
 	@DsField(join = "left", path = "resultReason.id")
@@ -93,7 +111,7 @@ public class OpportunityDs extends AbstractTypeDs<Opportunity> {
 	@DsField(join = "left", path = "resultReason.name")
 	private String resultReason;
 
-	@DsField()
+	@DsField
 	private String resultNote;
 
 	@DsField(join = "left", path = "assignedTo.id")

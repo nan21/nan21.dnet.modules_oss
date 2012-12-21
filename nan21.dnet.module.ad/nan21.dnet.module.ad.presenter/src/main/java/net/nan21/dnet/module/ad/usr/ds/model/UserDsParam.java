@@ -9,12 +9,12 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class UserDsParam extends EmptyParam {
 
-	public static final String fNEWPASSWORD = "newPassword";
-	public static final String fCONFIRMPASSWORD = "confirmPassword";
-	public static final String fWITHROLEID = "withRoleId";
-	public static final String fWITHROLE = "withRole";
-	public static final String fINGROUPID = "inGroupId";
-	public static final String fINGROUP = "inGroup";
+	public static final String f_newPassword = "newPassword";
+	public static final String f_confirmPassword = "confirmPassword";
+	public static final String f_withRoleId = "withRoleId";
+	public static final String f_withRole = "withRole";
+	public static final String f_inGroupId = "inGroupId";
+	public static final String f_inGroup = "inGroup";
 
 	private String newPassword;
 

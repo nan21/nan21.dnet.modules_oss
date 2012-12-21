@@ -7,18 +7,26 @@ package net.nan21.dnet.module.ad.workflow.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode;
 import net.nan21.dnet.module.ad.workflow.domain.entity.WfDefTransition;
 
 @Ds(entity = WfDefTransition.class)
+@RefLookups({
+		@RefLookup(refId = WfDefTransitionDs.f_processId),
+		@RefLookup(refId = WfDefTransitionDs.f_sourceId, namedQuery = WfDefNode.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = WfDefTransitionDs.f_source)}),
+		@RefLookup(refId = WfDefTransitionDs.f_targetId, namedQuery = WfDefNode.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = WfDefTransitionDs.f_target)})})
 public class WfDefTransitionDs extends AbstractAuditableDs<WfDefTransition> {
 
-	public static final String fPROCESSID = "processId";
-	public static final String fPROCESS = "process";
-	public static final String fSOURCEID = "sourceId";
-	public static final String fSOURCE = "source";
-	public static final String fTARGETID = "targetId";
-	public static final String fTARGET = "target";
+	public static final String f_processId = "processId";
+	public static final String f_process = "process";
+	public static final String f_sourceId = "sourceId";
+	public static final String f_source = "source";
+	public static final String f_targetId = "targetId";
+	public static final String f_target = "target";
 
 	@DsField(join = "left", path = "process.id")
 	private Long processId;

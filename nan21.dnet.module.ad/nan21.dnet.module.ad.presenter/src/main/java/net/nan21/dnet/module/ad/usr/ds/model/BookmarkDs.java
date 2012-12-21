@@ -7,43 +7,49 @@ package net.nan21.dnet.module.ad.usr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.Bookmark;
 
-@Ds(entity = Bookmark.class, sort = {@SortField(field = BookmarkDs.fNAME)})
+@Ds(entity = Bookmark.class, sort = {@SortField(field = BookmarkDs.f_name)})
+@RefLookups({@RefLookup(refId = BookmarkDs.f_parentId, namedQuery = Bookmark.NQ_FIND_BY_NAME, params = {
+		@Param(name = "pName", field = BookmarkDs.f_parent),
+		@Param(name = "pOwner", field = BookmarkDs.f_owner)})})
 public class BookmarkDs extends AbstractTypeDs<Bookmark> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fTITLE = "title";
-	public static final String fFRAME = "frame";
-	public static final String fBUNDLE = "bundle";
-	public static final String fSEPARATORBEFORE = "separatorBefore";
-	public static final String fSEPARATORAFTER = "separatorAfter";
-	public static final String fOWNER = "owner";
-	public static final String fLEAFNODE = "leafNode";
-	public static final String fPARENTID = "parentId";
-	public static final String fPARENT = "parent";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_title = "title";
+	public static final String f_frame = "frame";
+	public static final String f_bundle = "bundle";
+	public static final String f_separatorBefore = "separatorBefore";
+	public static final String f_separatorAfter = "separatorAfter";
+	public static final String f_owner = "owner";
+	public static final String f_leafNode = "leafNode";
+	public static final String f_parentId = "parentId";
+	public static final String f_parent = "parent";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String title;
 
-	@DsField()
+	@DsField
 	private String frame;
 
-	@DsField()
+	@DsField
 	private String bundle;
 
-	@DsField()
+	@DsField
 	private Boolean separatorBefore;
 
-	@DsField()
+	@DsField
 	private Boolean separatorAfter;
 
-	@DsField()
+	@DsField
 	private String owner;
 
 	@DsField(fetch = false)

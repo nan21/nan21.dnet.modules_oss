@@ -11,11 +11,11 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableLov;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint;
 
-@Ds(entity = PayScalePoint.class, sort = {@SortField(field = PayScalePointLovDs.fNAME)})
+@Ds(entity = PayScalePoint.class, sort = {@SortField(field = PayScalePointLovDs.f_name)})
 public class PayScalePointLovDs extends AbstractAuditableLov<PayScalePoint> {
 
-	public static final String fNAME = "name";
-	public static final String fPAYSCALEID = "payScaleId";
+	public static final String f_name = "name";
+	public static final String f_payScaleId = "payScaleId";
 
 	@DsField(path = "code")
 	private String name;

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== SalesOrder ==================== -->
+	
+	<bean id="SalesOrderDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrder"/>
+		<property name="paramClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderDsParam"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="generateInvoice">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesOrderPD"/>
+						<constructor-arg name="methodName" value="generateInvoice" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="generateDelivery">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesOrderPD"/>
+						<constructor-arg name="methodName" value="generateDelivery" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="confirm">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesOrderPD"/>
+						<constructor-arg name="methodName" value="confirm" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="unConfirm">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesOrderPD"/>
+						<constructor-arg name="methodName" value="unConfirm" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="copyLines">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesOrderPD"/>
+						<constructor-arg name="methodName" value="copyLines" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== SalesOrderLov ==================== -->
+	
+	<bean id="SalesOrderLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrder"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SalesOrderItem ==================== -->
+	
+	<bean id="SalesOrderItemDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="onProductChange">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesOrderItemPD"/>
+						<constructor-arg name="methodName" value="onProductChange" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== SalesOrderItemOverview ==================== -->
+	
+	<bean id="SalesOrderItemOverviewDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemOverviewDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItem"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SalesOrderItemTax ==================== -->
+	
+	<bean id="SalesOrderItemTaxDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderItemTaxDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderItemTax"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SalesOrderTax ==================== -->
+	
+	<bean id="SalesOrderTaxDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesOrderTaxDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesOrderTax"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SalesDelivery ==================== -->
+	
+	<bean id="SalesDeliveryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.sd.order.ds.model.SalesDeliveryDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.sd.order.domain.entity.SalesInventoryTransaction"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="confirm">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesDeliveryPD"/>
+						<constructor-arg name="methodName" value="confirm" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="unConfirm">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesDeliveryPD"/>
+						<constructor-arg name="methodName" value="unConfirm" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="post">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesDeliveryPD"/>
+						<constructor-arg name="methodName" value="post" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="unPost">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.sd._presenterdelegates.order.SalesDeliveryPD"/>
+						<constructor-arg name="methodName" value="unPost" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

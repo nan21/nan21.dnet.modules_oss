@@ -17,49 +17,49 @@ public class DbChangeLogDs extends AbstractDsModel<DbChangeLog>
 		implements
 			IModelWithId {
 
-	public static final String fID = "id";
-	public static final String fTXID = "txid";
-	public static final String fAUTHOR = "author";
-	public static final String fFILENAME = "filename";
-	public static final String fDATEEXECUTED = "dateExecuted";
-	public static final String fORDEREXECUTED = "orderExecuted";
-	public static final String fMD5SUM = "md5sum";
-	public static final String fDESCRIPTION = "description";
-	public static final String fCOMMENTS = "comments";
-	public static final String fTAG = "tag";
-	public static final String fLIQUIBASE = "liquibase";
+	public static final String f_id = "id";
+	public static final String f_txid = "txid";
+	public static final String f_author = "author";
+	public static final String f_filename = "filename";
+	public static final String f_dateExecuted = "dateExecuted";
+	public static final String f_orderExecuted = "orderExecuted";
+	public static final String f_md5sum = "md5sum";
+	public static final String f_description = "description";
+	public static final String f_comments = "comments";
+	public static final String f_tag = "tag";
+	public static final String f_liquibase = "liquibase";
 
 	@DsField(fetch = false)
 	private String id;
 
-	@DsField()
+	@DsField
 	private String txid;
 
-	@DsField()
+	@DsField
 	private String author;
 
-	@DsField()
+	@DsField
 	private String filename;
 
-	@DsField()
+	@DsField
 	private Date dateExecuted;
 
-	@DsField()
+	@DsField
 	private Integer orderExecuted;
 
-	@DsField()
+	@DsField
 	private String md5sum;
 
-	@DsField()
+	@DsField
 	private String description;
 
-	@DsField()
+	@DsField
 	private String comments;
 
-	@DsField()
+	@DsField
 	private String tag;
 
-	@DsField()
+	@DsField
 	private String liquibase;
 
 	public DbChangeLogDs() {

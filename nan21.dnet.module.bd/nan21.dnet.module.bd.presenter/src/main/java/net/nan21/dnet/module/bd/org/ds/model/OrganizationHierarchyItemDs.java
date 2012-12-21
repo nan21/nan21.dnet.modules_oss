@@ -7,20 +7,29 @@ package net.nan21.dnet.module.bd.org.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchy;
 import net.nan21.dnet.module.bd.org.domain.entity.OrganizationHierarchyItem;
 
 @Ds(entity = OrganizationHierarchyItem.class)
+@RefLookups({
+		@RefLookup(refId = OrganizationHierarchyItemDs.f_hierarchyId, namedQuery = OrganizationHierarchy.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OrganizationHierarchyItemDs.f_hierarchy)}),
+		@RefLookup(refId = OrganizationHierarchyItemDs.f_orgId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = OrganizationHierarchyItemDs.f_org)}),
+		@RefLookup(refId = OrganizationHierarchyItemDs.f_parentId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = OrganizationHierarchyItemDs.f_parentCode)})})
 public class OrganizationHierarchyItemDs
 		extends
 			AbstractAuditableDs<OrganizationHierarchyItem> {
 
-	public static final String fHIERARCHYID = "hierarchyId";
-	public static final String fHIERARCHY = "hierarchy";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fPARENTID = "parentId";
-	public static final String fPARENTCODE = "parentCode";
+	public static final String f_hierarchyId = "hierarchyId";
+	public static final String f_hierarchy = "hierarchy";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_parentId = "parentId";
+	public static final String f_parentCode = "parentCode";
 
 	@DsField(join = "left", path = "hierarchy.id")
 	private Long hierarchyId;

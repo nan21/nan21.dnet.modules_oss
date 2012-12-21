@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 
-@Ds(entity = TxDocType.class, jpqlWhere = " e.active=true and e.category = 'purchase-invoice' ", sort = {@SortField(field = TxDocTypePILovDs.fNAME)})
+@Ds(entity = TxDocType.class, jpqlWhere = " e.active=true and e.category = 'purchase-invoice' ", sort = {@SortField(field = TxDocTypePILovDs.f_name)})
 public class TxDocTypePILovDs extends AbstractTypeLov<TxDocType> {
 
-	public static final String fCATEGORY = "category";
+	public static final String f_category = "category";
 
-	@DsField()
+	@DsField
 	private String category;
 
 	public TxDocTypePILovDs() {

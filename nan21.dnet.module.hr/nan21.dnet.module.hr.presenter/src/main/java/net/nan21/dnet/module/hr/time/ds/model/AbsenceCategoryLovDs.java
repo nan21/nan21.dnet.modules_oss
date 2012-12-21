@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceCategory;
 
-@Ds(entity = AbsenceCategory.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AbsenceCategoryLovDs.fNAME)})
+@Ds(entity = AbsenceCategory.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AbsenceCategoryLovDs.f_name)})
 public class AbsenceCategoryLovDs extends AbstractTypeLov<AbsenceCategory> {
 
 	public AbsenceCategoryLovDs() {

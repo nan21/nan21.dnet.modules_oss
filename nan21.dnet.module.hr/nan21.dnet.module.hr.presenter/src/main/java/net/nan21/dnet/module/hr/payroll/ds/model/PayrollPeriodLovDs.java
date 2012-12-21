@@ -12,28 +12,28 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod;
 
-@Ds(entity = PayrollPeriod.class, jpqlWhere = "", sort = {@SortField(field = PayrollPeriodLovDs.fSTARTDATE, desc = true)})
+@Ds(entity = PayrollPeriod.class, jpqlWhere = "", sort = {@SortField(field = PayrollPeriodLovDs.f_startDate, desc = true)})
 public class PayrollPeriodLovDs extends AbstractTypeLov<PayrollPeriod> {
 
-	public static final String fPAYROLLID = "payrollId";
-	public static final String fACTIVE = "active";
-	public static final String fPROCESSED = "processed";
-	public static final String fCLOSED = "closed";
-	public static final String fSTARTDATE = "startDate";
+	public static final String f_payrollId = "payrollId";
+	public static final String f_active = "active";
+	public static final String f_processed = "processed";
+	public static final String f_closed = "closed";
+	public static final String f_startDate = "startDate";
 
 	@DsField(join = "left", path = "payroll.id")
 	private Long payrollId;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
-	@DsField()
+	@DsField
 	private Boolean processed;
 
-	@DsField()
+	@DsField
 	private Boolean closed;
 
-	@DsField()
+	@DsField
 	private Date startDate;
 
 	public PayrollPeriodLovDs() {

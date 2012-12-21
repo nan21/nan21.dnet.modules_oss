@@ -7,36 +7,39 @@ package net.nan21.dnet.module.md.tx.acc.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine;
 
-@Ds(entity = AccDocLine.class, sort = {@SortField(field = AccDocLineDs.fSEQUENCENO)})
+@Ds(entity = AccDocLine.class, sort = {@SortField(field = AccDocLineDs.f_sequenceNo)})
+@RefLookups({@RefLookup(refId = AccDocLineDs.f_accDocId)})
 public class AccDocLineDs extends AbstractAuditableDs<AccDocLine> {
 
-	public static final String fACCDOCID = "accDocId";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fDBACCOUNT = "dbAccount";
-	public static final String fCRACCOUNT = "crAccount";
-	public static final String fDBAMOUNT = "dbAmount";
-	public static final String fCRAMOUNT = "crAmount";
+	public static final String f_accDocId = "accDocId";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_dbAccount = "dbAccount";
+	public static final String f_crAccount = "crAccount";
+	public static final String f_dbAmount = "dbAmount";
+	public static final String f_crAmount = "crAmount";
 
 	@DsField(join = "left", path = "accDoc.id")
 	private Long accDocId;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String dbAccount;
 
-	@DsField()
+	@DsField
 	private String crAccount;
 
-	@DsField()
+	@DsField
 	private Float dbAmount;
 
-	@DsField()
+	@DsField
 	private Float crAmount;
 
 	public AccDocLineDs() {

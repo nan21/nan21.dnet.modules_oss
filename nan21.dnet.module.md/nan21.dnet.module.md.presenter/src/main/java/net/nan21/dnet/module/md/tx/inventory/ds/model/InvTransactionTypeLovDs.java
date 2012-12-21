@@ -11,13 +11,13 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType;
 
-@Ds(entity = InvTransactionType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = InvTransactionTypeLovDs.fNAME)})
+@Ds(entity = InvTransactionType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = InvTransactionTypeLovDs.f_name)})
 public class InvTransactionTypeLovDs
 		extends
 			AbstractTypeLov<InvTransactionType> {
 
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
 
 	@DsField(join = "left", path = "docType.id")
 	private Long docTypeId;

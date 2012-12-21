@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.Role;
 
-@Ds(entity = Role.class, sort = {@SortField(field = RoleDs.fNAME)})
+@Ds(entity = Role.class, sort = {@SortField(field = RoleDs.f_name)})
 public class RoleDs extends AbstractTypeDs<Role> {
 
 	public RoleDs() {

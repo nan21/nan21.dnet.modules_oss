@@ -7,34 +7,39 @@ package net.nan21.dnet.module.ad.usr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 import net.nan21.dnet.module.ad.usr.domain.entity.AsgnAccessControl;
 
-@Ds(entity = AsgnAccessControl.class, sort = {@SortField(field = AsgnAccessControlDs.fDSNAME)})
+@Ds(entity = AsgnAccessControl.class, sort = {@SortField(field = AsgnAccessControlDs.f_dsName)})
+@RefLookups({@RefLookup(refId = AsgnAccessControlDs.f_accessControlId, namedQuery = AccessControl.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AsgnAccessControlDs.f_accessControl)})})
 public class AsgnAccessControlDs extends AbstractAuditableDs<AsgnAccessControl> {
 
-	public static final String fDSNAME = "dsName";
-	public static final String fQUERYALLOWED = "queryAllowed";
-	public static final String fUPDATEALLOWED = "updateAllowed";
-	public static final String fIMPORTALLOWED = "importAllowed";
-	public static final String fEXPORTALLOWED = "exportAllowed";
-	public static final String fACCESSCONTROLID = "accessControlId";
-	public static final String fACCESSCONTROL = "accessControl";
+	public static final String f_dsName = "dsName";
+	public static final String f_queryAllowed = "queryAllowed";
+	public static final String f_updateAllowed = "updateAllowed";
+	public static final String f_importAllowed = "importAllowed";
+	public static final String f_exportAllowed = "exportAllowed";
+	public static final String f_accessControlId = "accessControlId";
+	public static final String f_accessControl = "accessControl";
 
-	@DsField()
+	@DsField
 	private String dsName;
 
-	@DsField()
+	@DsField
 	private Boolean queryAllowed;
 
-	@DsField()
+	@DsField
 	private Boolean updateAllowed;
 
-	@DsField()
+	@DsField
 	private Boolean importAllowed;
 
-	@DsField()
+	@DsField
 	private Boolean exportAllowed;
 
 	@DsField(join = "left", path = "accessControl.id")

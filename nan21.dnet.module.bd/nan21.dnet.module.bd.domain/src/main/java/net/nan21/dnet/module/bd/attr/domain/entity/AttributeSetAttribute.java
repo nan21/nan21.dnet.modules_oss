@@ -31,8 +31,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 /** Attribute sets. 
  Attributes are combined in sets and define specific behavoiur for each set.*/
 @NamedQueries({
-		@NamedQuery(name = AttributeSetAttribute.NQ_FIND_BY_ID, query = "SELECT e FROM AttributeSetAttribute e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AttributeSetAttribute.NQ_FIND_BY_IDS, query = "SELECT e FROM AttributeSetAttribute e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = AttributeSetAttribute.NQ_FIND_BY_NAME, query = "SELECT e FROM AttributeSetAttribute e WHERE e.clientId = :pClientId and e.attributeSet = :pAttributeSet and e.attribute = :pAttribute", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = AttributeSetAttribute.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM AttributeSetAttribute e WHERE e.clientId = :pClientId and e.attributeSet.id = :pAttributeSetId and e.attribute.id = :pAttributeId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -45,16 +43,6 @@ public class AttributeSetAttribute extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "BD_ATTR_SET_ATTR_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "AttributeSetAttribute.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "AttributeSetAttribute.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

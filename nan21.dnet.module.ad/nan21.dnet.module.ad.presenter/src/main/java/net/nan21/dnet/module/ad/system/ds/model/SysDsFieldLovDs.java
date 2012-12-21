@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsField;
 
-@Ds(entity = SysDsField.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysDsFieldLovDs.fNAME)})
+@Ds(entity = SysDsField.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysDsFieldLovDs.f_name)})
 public class SysDsFieldLovDs extends AbstractTypeLov<SysDsField> {
 
-	public static final String fDATASOURCEID = "dataSourceId";
-	public static final String fDATASOURCENAME = "dataSourceName";
-	public static final String fDATATYPE = "dataType";
+	public static final String f_dataSourceId = "dataSourceId";
+	public static final String f_dataSourceName = "dataSourceName";
+	public static final String f_dataType = "dataType";
 
 	@DsField(join = "left", path = "dataSource.id")
 	private Long dataSourceId;
@@ -24,7 +24,7 @@ public class SysDsFieldLovDs extends AbstractTypeLov<SysDsField> {
 	@DsField(join = "left", path = "dataSource.name")
 	private String dataSourceName;
 
-	@DsField()
+	@DsField
 	private String dataType;
 
 	public SysDsFieldLovDs() {

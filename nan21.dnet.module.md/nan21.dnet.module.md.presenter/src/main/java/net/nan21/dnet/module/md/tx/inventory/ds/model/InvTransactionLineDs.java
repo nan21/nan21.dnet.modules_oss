@@ -7,31 +7,46 @@ package net.nan21.dnet.module.md.tx.inventory.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
+import net.nan21.dnet.module.md.org.domain.entity.StockLocator;
+import net.nan21.dnet.module.md.org.domain.entity.SubInventory;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionLine;
 
 @Ds(entity = InvTransactionLine.class)
+@RefLookups({
+		@RefLookup(refId = InvTransactionLineDs.f_transactionId),
+		@RefLookup(refId = InvTransactionLineDs.f_itemId, namedQuery = Product.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = InvTransactionLineDs.f_itemCode)}),
+		@RefLookup(refId = InvTransactionLineDs.f_uomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = InvTransactionLineDs.f_uom)}),
+		@RefLookup(refId = InvTransactionLineDs.f_fromSubInventoryId, namedQuery = SubInventory.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransactionLineDs.f_fromSubInventory)}),
+		@RefLookup(refId = InvTransactionLineDs.f_toSubInventoryId, namedQuery = SubInventory.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransactionLineDs.f_toSubInventory)}),
+		@RefLookup(refId = InvTransactionLineDs.f_fromLocatorId, namedQuery = StockLocator.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransactionLineDs.f_fromLocator)}),
+		@RefLookup(refId = InvTransactionLineDs.f_toLocatorId, namedQuery = StockLocator.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransactionLineDs.f_toLocator)})})
 public class InvTransactionLineDs
 		extends
 			AbstractAuditableDs<InvTransactionLine> {
 
-	public static final String fTRANSACTIONID = "transactionId";
-	public static final String fFROMINVENTORYID = "fromInventoryId";
-	public static final String fTOINVENTORYID = "toInventoryId";
-	public static final String fITEMID = "itemId";
-	public static final String fITEMCODE = "itemCode";
-	public static final String fITEM = "item";
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
-	public static final String fFROMSUBINVENTORYID = "fromSubInventoryId";
-	public static final String fFROMSUBINVENTORY = "fromSubInventory";
-	public static final String fFROMLOCATORID = "fromLocatorId";
-	public static final String fFROMLOCATOR = "fromLocator";
-	public static final String fTOSUBINVENTORYID = "toSubInventoryId";
-	public static final String fTOSUBINVENTORY = "toSubInventory";
-	public static final String fTOLOCATORID = "toLocatorId";
-	public static final String fTOLOCATOR = "toLocator";
-	public static final String fQUANTITY = "quantity";
+	public static final String f_transactionId = "transactionId";
+	public static final String f_fromInventoryId = "fromInventoryId";
+	public static final String f_toInventoryId = "toInventoryId";
+	public static final String f_itemId = "itemId";
+	public static final String f_itemCode = "itemCode";
+	public static final String f_item = "item";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
+	public static final String f_fromSubInventoryId = "fromSubInventoryId";
+	public static final String f_fromSubInventory = "fromSubInventory";
+	public static final String f_fromLocatorId = "fromLocatorId";
+	public static final String f_fromLocator = "fromLocator";
+	public static final String f_toSubInventoryId = "toSubInventoryId";
+	public static final String f_toSubInventory = "toSubInventory";
+	public static final String f_toLocatorId = "toLocatorId";
+	public static final String f_toLocator = "toLocator";
+	public static final String f_quantity = "quantity";
 
 	@DsField(join = "left", path = "invTransaction.id")
 	private Long transactionId;
@@ -81,7 +96,7 @@ public class InvTransactionLineDs
 	@DsField(join = "left", path = "toLocator.name")
 	private String toLocator;
 
-	@DsField()
+	@DsField
 	private Float quantity;
 
 	public InvTransactionLineDs() {

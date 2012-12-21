@@ -7,15 +7,20 @@ package net.nan21.dnet.module.pj.base.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.pj.base.domain.entity.ProjectCategory;
 import net.nan21.dnet.module.pj.base.domain.entity.ProjectType;
 
-@Ds(entity = ProjectType.class, sort = {@SortField(field = ProjectTypeDs.fNAME)})
+@Ds(entity = ProjectType.class, sort = {@SortField(field = ProjectTypeDs.f_name)})
+@RefLookups({@RefLookup(refId = ProjectTypeDs.f_categoryId, namedQuery = ProjectCategory.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProjectTypeDs.f_category)})})
 public class ProjectTypeDs extends AbstractTypeDs<ProjectType> {
 
-	public static final String fCATEGORYID = "categoryId";
-	public static final String fCATEGORY = "category";
+	public static final String f_categoryId = "categoryId";
+	public static final String f_category = "category";
 
 	@DsField(join = "left", path = "category.id")
 	private Long categoryId;

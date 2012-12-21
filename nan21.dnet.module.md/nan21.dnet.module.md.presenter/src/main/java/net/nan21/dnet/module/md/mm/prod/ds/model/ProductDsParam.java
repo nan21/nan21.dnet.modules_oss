@@ -9,8 +9,8 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ProductDsParam extends EmptyParam {
 
-	public static final String fPRODUCTCATEGORYID = "productCategoryId";
-	public static final String fPRODUCTCATEGORY = "productCategory";
+	public static final String f_productCategoryId = "productCategoryId";
+	public static final String f_productCategory = "productCategory";
 
 	private Long productCategoryId;
 

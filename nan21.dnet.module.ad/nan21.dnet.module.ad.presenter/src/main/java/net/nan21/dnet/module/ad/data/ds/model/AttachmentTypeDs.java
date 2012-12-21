@@ -11,24 +11,24 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
 
-@Ds(entity = AttachmentType.class, sort = {@SortField(field = AttachmentTypeDs.fNAME)})
+@Ds(entity = AttachmentType.class, sort = {@SortField(field = AttachmentTypeDs.f_name)})
 public class AttachmentTypeDs extends AbstractTypeDs<AttachmentType> {
 
-	public static final String fCATEGORY = "category";
-	public static final String fUPLOADPATH = "uploadPath";
-	public static final String fBASEURL = "baseUrl";
-	public static final String fUSEINCONTEXT = "useInContext";
+	public static final String f_category = "category";
+	public static final String f_uploadPath = "uploadPath";
+	public static final String f_baseUrl = "baseUrl";
+	public static final String f_useInContext = "useInContext";
 
-	@DsField()
+	@DsField
 	private String category;
 
-	@DsField()
+	@DsField
 	private String uploadPath;
 
-	@DsField()
+	@DsField
 	private String baseUrl;
 
-	@DsField()
+	@DsField
 	private String useInContext;
 
 	public AttachmentTypeDs() {

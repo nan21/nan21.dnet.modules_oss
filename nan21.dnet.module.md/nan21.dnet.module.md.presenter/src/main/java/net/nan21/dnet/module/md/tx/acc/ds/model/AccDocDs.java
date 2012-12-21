@@ -12,32 +12,32 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.md.tx.acc.domain.entity.AccDoc;
 
-@Ds(entity = AccDoc.class, sort = {@SortField(field = AccDocDs.fDOCDATE)})
+@Ds(entity = AccDoc.class, sort = {@SortField(field = AccDocDs.f_docDate)})
 public class AccDocDs extends AbstractAuditableDs<AccDoc> {
 
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fPERIODID = "periodId";
-	public static final String fPERIOD = "period";
-	public static final String fJOURNALID = "journalId";
-	public static final String fJOURNAL = "journal";
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fBPARTNER = "bpartner";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
-	public static final String fDOCDATE = "docDate";
-	public static final String fDOCNETAMOUNT = "docNetAmount";
-	public static final String fDOCTAXAMOUNT = "docTaxAmount";
-	public static final String fDOCAMOUNT = "docAmount";
-	public static final String fDOCCURRENCYID = "docCurrencyId";
-	public static final String fDOCCURRENCY = "docCurrency";
-	public static final String fDBAMOUNT = "dbAmount";
-	public static final String fCRAMOUNT = "crAmount";
-	public static final String fDIFFERENCE = "difference";
-	public static final String fPOSTED = "posted";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_periodId = "periodId";
+	public static final String f_period = "period";
+	public static final String f_journalId = "journalId";
+	public static final String f_journal = "journal";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_bpartner = "bpartner";
+	public static final String f_docNo = "docNo";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
+	public static final String f_docDate = "docDate";
+	public static final String f_docNetAmount = "docNetAmount";
+	public static final String f_docTaxAmount = "docTaxAmount";
+	public static final String f_docAmount = "docAmount";
+	public static final String f_docCurrencyId = "docCurrencyId";
+	public static final String f_docCurrency = "docCurrency";
+	public static final String f_dbAmount = "dbAmount";
+	public static final String f_crAmount = "crAmount";
+	public static final String f_difference = "difference";
+	public static final String f_posted = "posted";
 
 	@DsField(join = "left", path = "org.id")
 	private Long orgId;
@@ -69,7 +69,7 @@ public class AccDocDs extends AbstractAuditableDs<AccDoc> {
 	@DsField(join = "left", path = "bpartner.name")
 	private String bpartner;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
 	@DsField(join = "left", path = "docType.id")
@@ -78,16 +78,16 @@ public class AccDocDs extends AbstractAuditableDs<AccDoc> {
 	@DsField(join = "left", path = "docType.name")
 	private String docType;
 
-	@DsField()
+	@DsField
 	private Date docDate;
 
-	@DsField()
+	@DsField
 	private Float docNetAmount;
 
-	@DsField()
+	@DsField
 	private Float docTaxAmount;
 
-	@DsField()
+	@DsField
 	private Float docAmount;
 
 	@DsField(join = "left", path = "docCurrency.id")
@@ -96,16 +96,16 @@ public class AccDocDs extends AbstractAuditableDs<AccDoc> {
 	@DsField(join = "left", path = "docCurrency.code")
 	private String docCurrency;
 
-	@DsField()
+	@DsField
 	private Float dbAmount;
 
-	@DsField()
+	@DsField
 	private Float crAmount;
 
-	@DsField()
+	@DsField
 	private Float difference;
 
-	@DsField()
+	@DsField
 	private Boolean posted;
 
 	public AccDocDs() {

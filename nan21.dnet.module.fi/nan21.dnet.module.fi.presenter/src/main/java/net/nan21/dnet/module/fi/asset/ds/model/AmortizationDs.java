@@ -8,25 +8,30 @@ package net.nan21.dnet.module.fi.asset.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.fi.asset.domain.entity.Amortization;
+import net.nan21.dnet.module.fi.asset.domain.entity.Asset;
 
 @Ds(entity = Amortization.class)
+@RefLookups({@RefLookup(refId = AmortizationDs.f_assetId, namedQuery = Asset.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AmortizationDs.f_asset)})})
 public class AmortizationDs extends AbstractAuditableDs<Amortization> {
 
-	public static final String fASSETID = "assetId";
-	public static final String fASSET = "asset";
-	public static final String fASSETNAME = "assetName";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fASSETCATEGORYID = "assetCategoryId";
-	public static final String fASSETCATEGORY = "assetCategory";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fAMOUNT = "amount";
-	public static final String fPERCENTAGE = "percentage";
-	public static final String fPERIODTYPE = "periodType";
-	public static final String fPOSTINGDATE = "postingDate";
+	public static final String f_assetId = "assetId";
+	public static final String f_asset = "asset";
+	public static final String f_assetName = "assetName";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_assetCategoryId = "assetCategoryId";
+	public static final String f_assetCategory = "assetCategory";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_amount = "amount";
+	public static final String f_percentage = "percentage";
+	public static final String f_periodType = "periodType";
+	public static final String f_postingDate = "postingDate";
 
 	@DsField(join = "left", path = "asset.id")
 	private Long assetId;
@@ -55,16 +60,16 @@ public class AmortizationDs extends AbstractAuditableDs<Amortization> {
 	@DsField(join = "left", path = "asset.currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private Float amount;
 
-	@DsField()
+	@DsField
 	private Float percentage;
 
 	@DsField(join = "left", path = "asset.periodType")
 	private String periodType;
 
-	@DsField()
+	@DsField
 	private Date postingDate;
 
 	public AmortizationDs() {

@@ -7,17 +7,22 @@ package net.nan21.dnet.module.md.org.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.org.domain.entity.StockLocator;
+import net.nan21.dnet.module.md.org.domain.entity.SubInventory;
 
-@Ds(entity = StockLocator.class, sort = {@SortField(field = StockLocatorDs.fNAME)})
+@Ds(entity = StockLocator.class, sort = {@SortField(field = StockLocatorDs.f_name)})
+@RefLookups({@RefLookup(refId = StockLocatorDs.f_subInventoryId, namedQuery = SubInventory.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = StockLocatorDs.f_subInventory)})})
 public class StockLocatorDs extends AbstractTypeDs<StockLocator> {
 
-	public static final String fSUBINVENTORYID = "subInventoryId";
-	public static final String fSUBINVENTORY = "subInventory";
-	public static final String fLOCATORTYPEID = "locatorTypeId";
-	public static final String fLOCATORTYPE = "locatorType";
+	public static final String f_subInventoryId = "subInventoryId";
+	public static final String f_subInventory = "subInventory";
+	public static final String f_locatorTypeId = "locatorTypeId";
+	public static final String f_locatorType = "locatorType";
 
 	@DsField(join = "left", path = "subInventory.id")
 	private Long subInventoryId;

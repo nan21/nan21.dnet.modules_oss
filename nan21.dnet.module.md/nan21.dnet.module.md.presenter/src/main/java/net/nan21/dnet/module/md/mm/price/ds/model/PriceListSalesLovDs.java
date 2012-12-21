@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 
-@Ds(entity = PriceList.class, jpqlWhere = " e.active=true and e.salesList = true ", sort = {@SortField(field = PriceListSalesLovDs.fNAME)})
+@Ds(entity = PriceList.class, jpqlWhere = " e.active=true and e.salesList = true ", sort = {@SortField(field = PriceListSalesLovDs.f_name)})
 public class PriceListSalesLovDs extends AbstractTypeLov<PriceList> {
 
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fSALESLIST = "salesList";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_salesList = "salesList";
 
 	@DsField(join = "left", path = "currency.id")
 	private Long currencyId;
@@ -24,7 +24,7 @@ public class PriceListSalesLovDs extends AbstractTypeLov<PriceList> {
 	@DsField(join = "left", path = "currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private Boolean salesList;
 
 	public PriceListSalesLovDs() {

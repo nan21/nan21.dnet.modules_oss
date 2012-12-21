@@ -10,7 +10,7 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class EmployeeAssignmentDsParam extends EmptyParam {
 
-	public static final String fVALIDAT = "validAt";
+	public static final String f_validAt = "validAt";
 
 	private Date validAt;
 

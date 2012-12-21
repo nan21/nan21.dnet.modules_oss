@@ -7,20 +7,31 @@ package net.nan21.dnet.module.md.acc.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccItem;
 import net.nan21.dnet.module.md.acc.domain.entity.AccItemAcct;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
 
 @Ds(entity = AccItemAcct.class)
+@RefLookups({
+		@RefLookup(refId = AccItemAcctDs.f_accItemId, namedQuery = AccItem.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AccItemAcctDs.f_accItem)}),
+		@RefLookup(refId = AccItemAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AccItemAcctDs.f_accSchema)}),
+		@RefLookup(refId = AccItemAcctDs.f_crAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AccItemAcctDs.f_crAccount)}),
+		@RefLookup(refId = AccItemAcctDs.f_dbAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AccItemAcctDs.f_dbAccount)})})
 public class AccItemAcctDs extends AbstractAuditableDs<AccItemAcct> {
 
-	public static final String fACCITEMID = "accItemId";
-	public static final String fACCITEM = "accItem";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fCRACCOUNTID = "crAccountId";
-	public static final String fCRACCOUNT = "crAccount";
-	public static final String fDBACCOUNTID = "dbAccountId";
-	public static final String fDBACCOUNT = "dbAccount";
+	public static final String f_accItemId = "accItemId";
+	public static final String f_accItem = "accItem";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_crAccountId = "crAccountId";
+	public static final String f_crAccount = "crAccount";
+	public static final String f_dbAccountId = "dbAccountId";
+	public static final String f_dbAccount = "dbAccount";
 
 	@DsField(join = "left", path = "accItem.id")
 	private Long accItemId;

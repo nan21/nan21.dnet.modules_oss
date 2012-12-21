@@ -7,17 +7,22 @@ package net.nan21.dnet.module.md.mm.price.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 
-@Ds(entity = PriceList.class, sort = {@SortField(field = PriceListDs.fNAME)})
+@Ds(entity = PriceList.class, sort = {@SortField(field = PriceListDs.f_name)})
+@RefLookups({@RefLookup(refId = PriceListDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PriceListDs.f_currency)})})
 public class PriceListDs extends AbstractTypeDs<PriceList> {
 
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fSALESLIST = "salesList";
-	public static final String fISDEFAULT = "isDefault";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_salesList = "salesList";
+	public static final String f_isDefault = "isDefault";
 
 	@DsField(join = "left", path = "currency.id")
 	private Long currencyId;
@@ -25,10 +30,10 @@ public class PriceListDs extends AbstractTypeDs<PriceList> {
 	@DsField(join = "left", path = "currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private Boolean salesList;
 
-	@DsField()
+	@DsField
 	private Boolean isDefault;
 
 	public PriceListDs() {

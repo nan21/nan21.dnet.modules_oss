@@ -9,7 +9,7 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ActProcessInstanceHistoryDsParam extends EmptyParam {
 
-	public static final String fPROCESSFULLNAME = "processFullName";
+	public static final String f_processFullName = "processFullName";
 
 	private String processFullName;
 

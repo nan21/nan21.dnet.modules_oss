@@ -13,21 +13,21 @@ import net.nan21.dnet.module.ad.system.domain.entity.UiViewState;
 @Ds(entity = UiViewState.class)
 public class UiViewStateDs extends AbstractAuditableDs<UiViewState> {
 
-	public static final String fNAME = "name";
-	public static final String fCMP = "cmp";
-	public static final String fCMPTYPE = "cmpType";
-	public static final String fSTATEVALUE = "stateValue";
+	public static final String f_name = "name";
+	public static final String f_cmp = "cmp";
+	public static final String f_cmpType = "cmpType";
+	public static final String f_stateValue = "stateValue";
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String cmp;
 
-	@DsField()
+	@DsField
 	private String cmpType;
 
-	@DsField()
+	@DsField
 	private String stateValue;
 
 	public UiViewStateDs() {

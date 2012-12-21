@@ -13,9 +13,9 @@ import net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent;
 @Ds(entity = SysDsEvent.class)
 public class SysDsEventLovDs extends AbstractAuditableLov<SysDsEvent> {
 
-	public static final String fDATASOURCEID = "dataSourceId";
-	public static final String fDATASOURCENAME = "dataSourceName";
-	public static final String fNAME = "name";
+	public static final String f_dataSourceId = "dataSourceId";
+	public static final String f_dataSourceName = "dataSourceName";
+	public static final String f_name = "name";
 
 	@DsField(join = "left", path = "dataSource.id")
 	private Long dataSourceId;

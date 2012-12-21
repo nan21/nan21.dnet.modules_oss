@@ -16,30 +16,30 @@ public class ActTaskInstanceHistoryDs
 		extends
 			AbstractBaseDs<ActTaskInstanceHistory> {
 
-	public static final String fID = "id";
-	public static final String fTASKDEFINITIONKEY = "taskDefinitionKey";
-	public static final String fPROCESSINSTANCEID = "processInstanceId";
-	public static final String fPROCESSDEFINITIONID = "processDefinitionId";
-	public static final String fCLIENTID = "clientId";
-	public static final String fEXECUTIONID = "executionId";
-	public static final String fNAME = "name";
-	public static final String fDESCRIPTION = "description";
-	public static final String fASSIGNEE = "assignee";
-	public static final String fSTARTTIME = "startTime";
-	public static final String fENDTIME = "endTime";
-	public static final String fDURATION = "duration";
-	public static final String fDURATIONTEXT = "durationText";
-	public static final String fDELETEREASON = "deleteReason";
-	public static final String fPRIORITY = "priority";
-	public static final String fDUEDATE = "dueDate";
+	public static final String f_id = "id";
+	public static final String f_taskDefinitionKey = "taskDefinitionKey";
+	public static final String f_processInstanceId = "processInstanceId";
+	public static final String f_processDefinitionId = "processDefinitionId";
+	public static final String f_clientId = "clientId";
+	public static final String f_executionId = "executionId";
+	public static final String f_name = "name";
+	public static final String f_description = "description";
+	public static final String f_assignee = "assignee";
+	public static final String f_startTime = "startTime";
+	public static final String f_endTime = "endTime";
+	public static final String f_duration = "duration";
+	public static final String f_durationText = "durationText";
+	public static final String f_deleteReason = "deleteReason";
+	public static final String f_priority = "priority";
+	public static final String f_dueDate = "dueDate";
 
-	@DsField()
+	@DsField
 	private String id;
 
-	@DsField()
+	@DsField
 	private String taskDefinitionKey;
 
-	@DsField()
+	@DsField
 	private String processInstanceId;
 
 	@DsField(join = "left", path = "processDefinition.id")
@@ -48,37 +48,37 @@ public class ActTaskInstanceHistoryDs
 	@DsField(join = "left", path = "processDefinition.clientId")
 	private Long clientId;
 
-	@DsField()
+	@DsField
 	private String executionId;
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String description;
 
-	@DsField()
+	@DsField
 	private String assignee;
 
-	@DsField()
+	@DsField
 	private Date startTime;
 
-	@DsField()
+	@DsField
 	private Date endTime;
 
-	@DsField()
+	@DsField
 	private Long duration;
 
 	@DsField(fetch = false)
 	private String durationText;
 
-	@DsField()
+	@DsField
 	private String deleteReason;
 
-	@DsField()
+	@DsField
 	private Long priority;
 
-	@DsField()
+	@DsField
 	private Date dueDate;
 
 	public ActTaskInstanceHistoryDs() {

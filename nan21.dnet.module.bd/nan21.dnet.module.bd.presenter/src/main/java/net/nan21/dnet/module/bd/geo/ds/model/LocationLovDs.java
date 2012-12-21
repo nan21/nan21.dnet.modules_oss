@@ -13,21 +13,21 @@ import net.nan21.dnet.module.bd.geo.domain.entity.Location;
 @Ds(entity = Location.class, jpqlWhere = " e.active = true ")
 public class LocationLovDs extends AbstractAuditableLov<Location> {
 
-	public static final String fTARGETUUID = "targetUuid";
-	public static final String fTARGETTYPE = "targetType";
-	public static final String fASSTRING = "asString";
-	public static final String fACTIVE = "active";
+	public static final String f_targetUuid = "targetUuid";
+	public static final String f_targetType = "targetType";
+	public static final String f_asString = "asString";
+	public static final String f_active = "active";
 
-	@DsField()
+	@DsField
 	private String targetUuid;
 
-	@DsField()
+	@DsField
 	private String targetType;
 
 	@DsField(fetch = false)
 	private String asString;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
 	public LocationLovDs() {

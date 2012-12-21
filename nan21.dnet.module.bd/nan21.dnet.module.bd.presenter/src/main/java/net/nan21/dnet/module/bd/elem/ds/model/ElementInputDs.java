@@ -7,27 +7,38 @@ package net.nan21.dnet.module.bd.elem.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.elem.domain.entity.Element;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementInput;
 
 @Ds(entity = ElementInput.class, sort = {
-		@SortField(field = ElementInputDs.fENGINE),
-		@SortField(field = ElementInputDs.fSEQUENCENO),
-		@SortField(field = ElementInputDs.fREFERENCE)})
+		@SortField(field = ElementInputDs.f_engine),
+		@SortField(field = ElementInputDs.f_sequenceNo),
+		@SortField(field = ElementInputDs.f_reference)})
+@RefLookups({
+		@RefLookup(refId = ElementInputDs.f_elementId, namedQuery = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
+				@Param(name = "pCode", field = ElementInputDs.f_element),
+				@Param(name = "pEngineId", field = ElementInputDs.f_engineId)}),
+		@RefLookup(refId = ElementInputDs.f_referenceId, namedQuery = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
+				@Param(name = "pEngineId", field = ElementInputDs.f_engineId),
+				@Param(name = "pCode", field = ElementInputDs.f_reference)})})
 public class ElementInputDs extends AbstractAuditableDs<ElementInput> {
 
-	public static final String fELEMENTID = "elementId";
-	public static final String fELEMENT = "element";
-	public static final String fELEMENTNAME = "elementName";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
-	public static final String fENGINETYPE = "engineType";
-	public static final String fREFERENCEID = "referenceId";
-	public static final String fREFERENCE = "reference";
-	public static final String fREFERENCENAME = "referenceName";
-	public static final String fALIAS = "alias";
+	public static final String f_elementId = "elementId";
+	public static final String f_element = "element";
+	public static final String f_elementName = "elementName";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
+	public static final String f_engineType = "engineType";
+	public static final String f_referenceId = "referenceId";
+	public static final String f_reference = "reference";
+	public static final String f_referenceName = "referenceName";
+	public static final String f_alias = "alias";
 
 	@DsField(join = "left", path = "element.id")
 	private Long elementId;
@@ -59,7 +70,7 @@ public class ElementInputDs extends AbstractAuditableDs<ElementInput> {
 	@DsField(join = "left", path = "crossReference.name")
 	private String referenceName;
 
-	@DsField()
+	@DsField
 	private String alias;
 
 	public ElementInputDs() {

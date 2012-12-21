@@ -11,20 +11,20 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.MenuItem;
 
-@Ds(entity = MenuItem.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = MenuItemRtLovDs.fSEQUENCENO)})
+@Ds(entity = MenuItem.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = MenuItemRtLovDs.f_sequenceNo)})
 public class MenuItemRtLovDs extends AbstractTypeDs<MenuItem> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fMENUITEMID = "menuItemId";
-	public static final String fMENUITEM = "menuItem";
-	public static final String fMENUID = "menuId";
-	public static final String fMENU = "menu";
-	public static final String fTEXT = "text";
-	public static final String fFRAME = "frame";
-	public static final String fBUNDLE = "bundle";
-	public static final String fLEAF = "leaf";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_menuItemId = "menuItemId";
+	public static final String f_menuItem = "menuItem";
+	public static final String f_menuId = "menuId";
+	public static final String f_menu = "menu";
+	public static final String f_text = "text";
+	public static final String f_frame = "frame";
+	public static final String f_bundle = "bundle";
+	public static final String f_leaf = "leaf";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
 	@DsField(join = "left", path = "menuItem.id")
@@ -42,10 +42,10 @@ public class MenuItemRtLovDs extends AbstractTypeDs<MenuItem> {
 	@DsField(path = "title")
 	private String text;
 
-	@DsField()
+	@DsField
 	private String frame;
 
-	@DsField()
+	@DsField
 	private String bundle;
 
 	@DsField(fetch = false, path = "leafNode")

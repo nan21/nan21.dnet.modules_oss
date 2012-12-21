@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
 
-@Ds(entity = Payroll.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PayrollLovDs.fNAME)})
+@Ds(entity = Payroll.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PayrollLovDs.f_name)})
 public class PayrollLovDs extends AbstractTypeLov<Payroll> {
 
 	public PayrollLovDs() {

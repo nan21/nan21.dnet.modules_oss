@@ -7,22 +7,33 @@ package net.nan21.dnet.module.md.tx.fin.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
+import net.nan21.dnet.module.md.acc.domain.entity.AccItem;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.tx.fin.domain.entity.PaymentItem;
 
 @Ds(entity = PaymentItem.class)
+@RefLookups({
+		@RefLookup(refId = PaymentItemDs.f_paymentId),
+		@RefLookup(refId = PaymentItemDs.f_accItemId, namedQuery = AccItem.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PaymentItemDs.f_accItem)}),
+		@RefLookup(refId = PaymentItemDs.f_productId, namedQuery = Product.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PaymentItemDs.f_product)}),
+		@RefLookup(refId = PaymentItemDs.f_uomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PaymentItemDs.f_uom)})})
 public class PaymentItemDs extends AbstractAuditableDs<PaymentItem> {
 
-	public static final String fPAYMENTID = "paymentId";
-	public static final String fACCITEMID = "accItemId";
-	public static final String fACCITEM = "accItem";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCT = "product";
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
-	public static final String fQUANTITY = "quantity";
-	public static final String fUNITPRICE = "unitPrice";
-	public static final String fAMOUNT = "amount";
+	public static final String f_paymentId = "paymentId";
+	public static final String f_accItemId = "accItemId";
+	public static final String f_accItem = "accItem";
+	public static final String f_productId = "productId";
+	public static final String f_product = "product";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
+	public static final String f_quantity = "quantity";
+	public static final String f_unitPrice = "unitPrice";
+	public static final String f_amount = "amount";
 
 	@DsField(join = "left", path = "payment.id")
 	private Long paymentId;
@@ -45,13 +56,13 @@ public class PaymentItemDs extends AbstractAuditableDs<PaymentItem> {
 	@DsField(join = "left", path = "uom.code")
 	private String uom;
 
-	@DsField()
+	@DsField
 	private Float quantity;
 
-	@DsField()
+	@DsField
 	private Float unitPrice;
 
-	@DsField()
+	@DsField
 	private Float amount;
 
 	public PaymentItemDs() {

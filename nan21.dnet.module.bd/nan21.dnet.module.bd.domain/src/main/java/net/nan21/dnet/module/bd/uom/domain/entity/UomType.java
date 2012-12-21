@@ -25,10 +25,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 /** Measuring units definition.  */
-@NamedQueries({
-		@NamedQuery(name = UomType.NQ_FIND_BY_ID, query = "SELECT e FROM UomType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = UomType.NQ_FIND_BY_IDS, query = "SELECT e FROM UomType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = UomType.NQ_FIND_BY_NAME, query = "SELECT e FROM UomType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = UomType.NQ_FIND_BY_NAME, query = "SELECT e FROM UomType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = UomType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = UomType.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -39,16 +36,6 @@ public class UomType extends AbstractType {
 	public static final String SEQUENCE_NAME = "BD_UOM_TYPE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "UomType.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "UomType.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

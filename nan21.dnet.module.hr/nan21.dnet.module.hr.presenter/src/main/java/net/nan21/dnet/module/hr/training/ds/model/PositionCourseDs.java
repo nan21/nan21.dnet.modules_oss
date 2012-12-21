@@ -7,20 +7,28 @@ package net.nan21.dnet.module.hr.training.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.hr.job.domain.entity.Position;
+import net.nan21.dnet.module.hr.training.domain.entity.Course;
 import net.nan21.dnet.module.hr.training.domain.entity.PositionCourse;
 
 @Ds(entity = PositionCourse.class)
+@RefLookups({
+		@RefLookup(refId = PositionCourseDs.f_positionId, namedQuery = Position.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PositionCourseDs.f_positionCode)}),
+		@RefLookup(refId = PositionCourseDs.f_courseId, namedQuery = Course.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PositionCourseDs.f_courseCode)})})
 public class PositionCourseDs extends AbstractAuditableDs<PositionCourse> {
 
-	public static final String fPOSITIONID = "positionId";
-	public static final String fPOSITIONCODE = "positionCode";
-	public static final String fPOSITIONNAME = "positionName";
-	public static final String fCOURSEID = "courseId";
-	public static final String fCOURSECODE = "courseCode";
-	public static final String fCOURSENAME = "courseName";
-	public static final String fMANDATORY = "mandatory";
-	public static final String fVALIDFOR = "validFor";
+	public static final String f_positionId = "positionId";
+	public static final String f_positionCode = "positionCode";
+	public static final String f_positionName = "positionName";
+	public static final String f_courseId = "courseId";
+	public static final String f_courseCode = "courseCode";
+	public static final String f_courseName = "courseName";
+	public static final String f_mandatory = "mandatory";
+	public static final String f_validFor = "validFor";
 
 	@DsField(join = "left", path = "position.id")
 	private Long positionId;
@@ -40,10 +48,10 @@ public class PositionCourseDs extends AbstractAuditableDs<PositionCourse> {
 	@DsField(join = "left", path = "course.name")
 	private String courseName;
 
-	@DsField()
+	@DsField
 	private Boolean mandatory;
 
-	@DsField()
+	@DsField
 	private Integer validFor;
 
 	public PositionCourseDs() {

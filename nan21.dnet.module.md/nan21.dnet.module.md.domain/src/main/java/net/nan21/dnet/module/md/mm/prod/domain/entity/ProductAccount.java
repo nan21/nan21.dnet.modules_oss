@@ -31,8 +31,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Product accounts.*/
 @NamedQueries({
-		@NamedQuery(name = ProductAccount.NQ_FIND_BY_ID, query = "SELECT e FROM ProductAccount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ProductAccount.NQ_FIND_BY_IDS, query = "SELECT e FROM ProductAccount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProductAccount.NQ_FIND_BY_PROD_ORG, query = "SELECT e FROM ProductAccount e WHERE e.clientId = :pClientId and e.product = :pProduct and e.org = :pOrg", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProductAccount.NQ_FIND_BY_PROD_ORG_PRIMITIVE, query = "SELECT e FROM ProductAccount e WHERE e.clientId = :pClientId and e.product.id = :pProductId and e.org.id = :pOrgId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -45,16 +43,6 @@ public class ProductAccount extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "MD_PROD_ACNT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ProductAccount.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ProductAccount.findByIds";
 
 	/**
 	 * Named query find by unique key: Prod_org.

@@ -29,8 +29,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-		@NamedQuery(name = SysJobParam.NQ_FIND_BY_ID, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysJobParam.NQ_FIND_BY_IDS, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = SysJobParam.NQ_FIND_BY_NAME, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.job = :pJob and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = SysJobParam.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysJobParam e WHERE e.clientId = :pClientId and e.job.id = :pJobId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -43,16 +41,6 @@ public class SysJobParam extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_SYS_JOB_PARAM_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "SysJobParam.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "SysJobParam.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

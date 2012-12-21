@@ -11,10 +11,10 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.bp.domain.entity.CompanyLegalForm;
 
-@Ds(entity = CompanyLegalForm.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CompanyLegalFormLovDs.fNAME)})
+@Ds(entity = CompanyLegalForm.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CompanyLegalFormLovDs.f_name)})
 public class CompanyLegalFormLovDs extends AbstractTypeLov<CompanyLegalForm> {
 
-	public static final String fCOUNTRYID = "countryId";
+	public static final String f_countryId = "countryId";
 
 	@DsField(join = "left", path = "country.id")
 	private Long countryId;

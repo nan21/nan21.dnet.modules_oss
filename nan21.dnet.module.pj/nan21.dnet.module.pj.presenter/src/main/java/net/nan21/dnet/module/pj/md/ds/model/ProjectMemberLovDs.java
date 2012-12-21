@@ -12,15 +12,15 @@ import net.nan21.dnet.core.presenter.model.base.AbstractAuditableLov;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectMember;
 
 @Ds(entity = ProjectMember.class, sort = {
-		@SortField(field = ProjectMemberLovDs.fMEMBER),
-		@SortField(field = ProjectMemberLovDs.fROLE)})
+		@SortField(field = ProjectMemberLovDs.f_member),
+		@SortField(field = ProjectMemberLovDs.f_role)})
 public class ProjectMemberLovDs extends AbstractAuditableLov<ProjectMember> {
 
-	public static final String fPROJECTID = "projectId";
-	public static final String fROLEID = "roleId";
-	public static final String fROLE = "role";
-	public static final String fMEMBERID = "memberId";
-	public static final String fMEMBER = "member";
+	public static final String f_projectId = "projectId";
+	public static final String f_roleId = "roleId";
+	public static final String f_role = "role";
+	public static final String f_memberId = "memberId";
+	public static final String f_member = "member";
 
 	@DsField(join = "left", path = "project.id")
 	private Long projectId;

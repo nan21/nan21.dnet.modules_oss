@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.md.bp.domain.entity.Bank;
 
-@Ds(entity = Bank.class, sort = {@SortField(field = BankDs.fNAME)})
+@Ds(entity = Bank.class, sort = {@SortField(field = BankDs.f_name)})
 public class BankDs extends AbstractTypeWithCodeDs<Bank> {
 
-	public static final String fSWIFTCODE = "swiftCode";
+	public static final String f_swiftCode = "swiftCode";
 
-	@DsField()
+	@DsField
 	private String swiftCode;
 
 	public BankDs() {

@@ -11,10 +11,10 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
 
-@Ds(entity = AttachmentType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AttachmentTypeLovDs.fNAME)})
+@Ds(entity = AttachmentType.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AttachmentTypeLovDs.f_name)})
 public class AttachmentTypeLovDs extends AbstractTypeLov<AttachmentType> {
 
-	public static final String fUSEINCONTEXT = "useInContext";
+	public static final String f_useInContext = "useInContext";
 
 	@DsField(jpqlFilter = " :useInContext like e.useInContext ")
 	private String useInContext;

@@ -15,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,13 +27,9 @@ import net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod;
 import net.nan21.dnet.module.md.tx.acc.domain.entity.AccDoc;
 import net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = AccOperation.NQ_FIND_BY_ID, query = "SELECT e FROM AccOperation e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AccOperation.NQ_FIND_BY_IDS, query = "SELECT e FROM AccOperation e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = AccOperation.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
@@ -45,16 +39,6 @@ public class AccOperation extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "TX_ACC_OPR_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "AccOperation.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "AccOperation.findByIds";
 
 	/**
 	 * System generated unique identifier.

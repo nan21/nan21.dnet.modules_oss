@@ -13,25 +13,25 @@ import net.nan21.dnet.module.ad.client.domain.entity.Client;
 @Ds(entity = Client.class)
 public class MyClientDs extends X_AbstractAuditedDs<Client> {
 
-	public static final String fNAME = "name";
-	public static final String fCODE = "code";
-	public static final String fNOTES = "notes";
-	public static final String fMAINTENANCELANGUAGE = "maintenanceLanguage";
-	public static final String fADMINROLE = "adminRole";
+	public static final String f_name = "name";
+	public static final String f_code = "code";
+	public static final String f_notes = "notes";
+	public static final String f_maintenanceLanguage = "maintenanceLanguage";
+	public static final String f_adminRole = "adminRole";
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String notes;
 
-	@DsField()
+	@DsField
 	private String maintenanceLanguage;
 
-	@DsField()
+	@DsField
 	private String adminRole;
 
 	public MyClientDs() {

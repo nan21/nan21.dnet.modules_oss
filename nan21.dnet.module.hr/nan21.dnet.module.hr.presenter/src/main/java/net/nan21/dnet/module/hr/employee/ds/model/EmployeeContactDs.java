@@ -8,34 +8,41 @@ package net.nan21.dnet.module.hr.employee.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContact;
+import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactRelationship;
 
 @Ds(entity = EmployeeContact.class)
+@RefLookups({
+		@RefLookup(refId = EmployeeContactDs.f_employeeId),
+		@RefLookup(refId = EmployeeContactDs.f_relationshipId, namedQuery = EmployeeContactRelationship.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = EmployeeContactDs.f_relationship)})})
 public class EmployeeContactDs extends AbstractAuditableDs<EmployeeContact> {
 
-	public static final String fEMPLOYEEID = "employeeId";
-	public static final String fFIRSTNAME = "firstName";
-	public static final String fLASTNAME = "lastName";
-	public static final String fBIRTHDATE = "birthDate";
-	public static final String fGENDER = "gender";
-	public static final String fRELATIONSHIPID = "relationshipId";
-	public static final String fRELATIONSHIP = "relationship";
-	public static final String fISDEPENDENT = "isDependent";
+	public static final String f_employeeId = "employeeId";
+	public static final String f_firstName = "firstName";
+	public static final String f_lastName = "lastName";
+	public static final String f_birthDate = "birthDate";
+	public static final String f_gender = "gender";
+	public static final String f_relationshipId = "relationshipId";
+	public static final String f_relationship = "relationship";
+	public static final String f_isDependent = "isDependent";
 
 	@DsField(join = "left", path = "employee.id")
 	private Long employeeId;
 
-	@DsField()
+	@DsField
 	private String firstName;
 
-	@DsField()
+	@DsField
 	private String lastName;
 
-	@DsField()
+	@DsField
 	private Date birthDate;
 
-	@DsField()
+	@DsField
 	private String gender;
 
 	@DsField(join = "left", path = "relationship.id")
@@ -44,7 +51,7 @@ public class EmployeeContactDs extends AbstractAuditableDs<EmployeeContact> {
 	@DsField(join = "left", path = "relationship.name")
 	private String relationship;
 
-	@DsField()
+	@DsField
 	private Boolean isDependent;
 
 	public EmployeeContactDs() {

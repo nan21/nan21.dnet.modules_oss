@@ -16,35 +16,35 @@ public class SalesInvoiceItemOverviewDs
 		extends
 			AbstractAuditableDs<SalesInvoiceItem> {
 
-	public static final String fDOCID = "docId";
-	public static final String fDOCCODE = "docCode";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCDATE = "docDate";
-	public static final String fCUSTOMERID = "customerId";
-	public static final String fCUSTOMERCODE = "customerCode";
-	public static final String fCUSTOMERNAME = "customerName";
-	public static final String fSUPPLIERID = "supplierId";
-	public static final String fSUPPLIERCODE = "supplierCode";
-	public static final String fSUPPLIERNAME = "supplierName";
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fPOSTED = "posted";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCTCODE = "productCode";
-	public static final String fPRODUCTNAME = "productName";
-	public static final String fDESCRIPTION = "description";
-	public static final String fQUANTITY = "quantity";
-	public static final String fUOMID = "uomId";
-	public static final String fUOMCODE = "uomCode";
-	public static final String fUNITPRICE = "unitPrice";
-	public static final String fNETAMOUNT = "netAmount";
-	public static final String fTAXAMOUNT = "taxAmount";
-	public static final String fLINEAMOUNT = "lineAmount";
-	public static final String fTAXID = "taxId";
-	public static final String fTAX = "tax";
+	public static final String f_docId = "docId";
+	public static final String f_docCode = "docCode";
+	public static final String f_docNo = "docNo";
+	public static final String f_docDate = "docDate";
+	public static final String f_customerId = "customerId";
+	public static final String f_customerCode = "customerCode";
+	public static final String f_customerName = "customerName";
+	public static final String f_supplierId = "supplierId";
+	public static final String f_supplierCode = "supplierCode";
+	public static final String f_supplierName = "supplierName";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_posted = "posted";
+	public static final String f_productId = "productId";
+	public static final String f_productCode = "productCode";
+	public static final String f_productName = "productName";
+	public static final String f_description = "description";
+	public static final String f_quantity = "quantity";
+	public static final String f_uomId = "uomId";
+	public static final String f_uomCode = "uomCode";
+	public static final String f_unitPrice = "unitPrice";
+	public static final String f_netAmount = "netAmount";
+	public static final String f_taxAmount = "taxAmount";
+	public static final String f_lineAmount = "lineAmount";
+	public static final String f_taxId = "taxId";
+	public static final String f_tax = "tax";
 
 	@DsField(join = "left", path = "salesInvoice.id")
 	private Long docId;
@@ -103,10 +103,10 @@ public class SalesInvoiceItemOverviewDs
 	@DsField(join = "left", path = "product.name")
 	private String productName;
 
-	@DsField()
+	@DsField
 	private String description;
 
-	@DsField()
+	@DsField
 	private Float quantity;
 
 	@DsField(join = "left", path = "uom.id")
@@ -115,13 +115,13 @@ public class SalesInvoiceItemOverviewDs
 	@DsField(join = "left", path = "uom.code")
 	private String uomCode;
 
-	@DsField()
+	@DsField
 	private Float unitPrice;
 
-	@DsField()
+	@DsField
 	private Float netAmount;
 
-	@DsField()
+	@DsField
 	private Float taxAmount;
 
 	@DsField(fetch = false)

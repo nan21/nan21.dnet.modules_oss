@@ -12,25 +12,25 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment;
 
-@Ds(entity = ActDeployment.class, sort = {@SortField(field = ActDeploymentDs.fDEPLOYTIME, desc = true)})
+@Ds(entity = ActDeployment.class, sort = {@SortField(field = ActDeploymentDs.f_deployTime, desc = true)})
 public class ActDeploymentDs extends AbstractBaseDs<ActDeployment> {
 
-	public static final String fID = "id";
-	public static final String fCLIENTID = "clientId";
-	public static final String fNAME = "name";
-	public static final String fDEPLOYTIME = "deployTime";
-	public static final String fFULLNAME = "fullName";
+	public static final String f_id = "id";
+	public static final String f_clientId = "clientId";
+	public static final String f_name = "name";
+	public static final String f_deployTime = "deployTime";
+	public static final String f_fullName = "fullName";
 
-	@DsField()
+	@DsField
 	private String id;
 
-	@DsField()
+	@DsField
 	private Long clientId;
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private Date deployTime;
 
 	@DsField(fetch = false)

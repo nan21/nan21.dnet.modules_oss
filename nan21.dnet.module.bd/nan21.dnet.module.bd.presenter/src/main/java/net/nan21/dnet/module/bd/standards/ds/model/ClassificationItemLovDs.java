@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem;
 
-@Ds(entity = ClassificationItem.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ClassificationItemLovDs.fCODE)})
+@Ds(entity = ClassificationItem.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ClassificationItemLovDs.f_code)})
 public class ClassificationItemLovDs
 		extends
 			AbstractTypeWithCodeLov<ClassificationItem> {
 
-	public static final String fCLASSSYSTEMID = "classSystemId";
+	public static final String f_classSystemId = "classSystemId";
 
 	@DsField(join = "left", path = "classSystem.id")
 	private Long classSystemId;

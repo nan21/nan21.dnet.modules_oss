@@ -9,8 +9,8 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class SalesInvoiceDsParam extends EmptyParam {
 
-	public static final String fCOPYFROMID = "copyFromId";
-	public static final String fCOPYFROM = "copyFrom";
+	public static final String f_copyFromId = "copyFromId";
+	public static final String f_copyFrom = "copyFrom";
 
 	private Long copyFromId;
 

@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMap;
 
-@Ds(entity = ImportMap.class, sort = {@SortField(field = ImportMapDs.fNAME)})
+@Ds(entity = ImportMap.class, sort = {@SortField(field = ImportMapDs.f_name)})
 public class ImportMapDs extends AbstractTypeDs<ImportMap> {
 
-	public static final String fPATH = "path";
+	public static final String f_path = "path";
 
-	@DsField()
+	@DsField
 	private String path;
 
 	public ImportMapDs() {

@@ -37,5 +37,5 @@
 
 	<!-- Presenter services -->  
 
-	<import resource="beans/fi.asset.ds.xml"/>	
+	<import resource="beans/asset.xml"/>	
 </beans>

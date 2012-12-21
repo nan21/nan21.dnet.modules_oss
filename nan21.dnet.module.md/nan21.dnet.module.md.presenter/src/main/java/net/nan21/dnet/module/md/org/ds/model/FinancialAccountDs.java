@@ -7,21 +7,31 @@ package net.nan21.dnet.module.md.org.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.acc.domain.entity.AccJournal;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
 
-@Ds(entity = FinancialAccount.class, sort = {@SortField(field = FinancialAccountDs.fNAME)})
+@Ds(entity = FinancialAccount.class, sort = {@SortField(field = FinancialAccountDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = FinancialAccountDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = FinancialAccountDs.f_currency)}),
+		@RefLookup(refId = FinancialAccountDs.f_orgId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = FinancialAccountDs.f_org)}),
+		@RefLookup(refId = FinancialAccountDs.f_journalId, namedQuery = AccJournal.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = FinancialAccountDs.f_journal)})})
 public class FinancialAccountDs extends AbstractTypeDs<FinancialAccount> {
 
-	public static final String fTYPE = "type";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fJOURNALID = "journalId";
-	public static final String fJOURNAL = "journal";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fANALITICSEGMENT = "analiticSegment";
+	public static final String f_type = "type";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_journalId = "journalId";
+	public static final String f_journal = "journal";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_analiticSegment = "analiticSegment";
 
 	@DsField(noUpdate = true)
 	private String type;
@@ -44,7 +54,7 @@ public class FinancialAccountDs extends AbstractTypeDs<FinancialAccount> {
 	@DsField(join = "left", path = "currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private String analiticSegment;
 
 	public FinancialAccountDs() {

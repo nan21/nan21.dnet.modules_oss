@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
 
-@Ds(entity = CsvExport.class, sort = {@SortField(field = CsvExportDs.fNAME)})
+@Ds(entity = CsvExport.class, sort = {@SortField(field = CsvExportDs.f_name)})
 public class CsvExportDs extends AbstractTypeDs<CsvExport> {
 
-	public static final String fDATASOURCE = "dataSource";
+	public static final String f_dataSource = "dataSource";
 
-	@DsField()
+	@DsField
 	private String dataSource;
 
 	public CsvExportDs() {

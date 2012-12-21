@@ -8,45 +8,74 @@ package net.nan21.dnet.module.pj.md.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.pj.base.domain.entity.IssuePriority;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueResolution;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueSeverity;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueStatus;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueType;
+import net.nan21.dnet.module.pj.base.domain.entity.ProjectRole;
 import net.nan21.dnet.module.pj.md.domain.entity.Issue;
+import net.nan21.dnet.module.pj.md.domain.entity.Project;
+import net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion;
 
-@Ds(entity = Issue.class, sort = {@SortField(field = IssueDs.fMODIFIEDAT, desc = true)})
+@Ds(entity = Issue.class, sort = {@SortField(field = IssueDs.f_modifiedAt, desc = true)})
+@RefLookups({
+		@RefLookup(refId = IssueDs.f_projectId, namedQuery = Project.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = IssueDs.f_project)}),
+		@RefLookup(refId = IssueDs.f_typeId, namedQuery = IssueType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueDs.f_type)}),
+		@RefLookup(refId = IssueDs.f_statusId, namedQuery = IssueStatus.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueDs.f_status)}),
+		@RefLookup(refId = IssueDs.f_priorityId, namedQuery = IssuePriority.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueDs.f_priority)}),
+		@RefLookup(refId = IssueDs.f_resolutionId, namedQuery = IssueResolution.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueDs.f_resolution)}),
+		@RefLookup(refId = IssueDs.f_severityId, namedQuery = IssueSeverity.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueDs.f_severity)}),
+		@RefLookup(refId = IssueDs.f_assigneeId),
+		@RefLookup(refId = IssueDs.f_assigneeRoleId, namedQuery = ProjectRole.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueDs.f_assigneeRole)}),
+		@RefLookup(refId = IssueDs.f_reportedVersionId, namedQuery = ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE, params = {
+				@Param(name = "pProjectId", field = IssueDs.f_projectId),
+				@Param(name = "pName", field = IssueDs.f_reportedVersion)}),
+		@RefLookup(refId = IssueDs.f_targetVersionId, namedQuery = ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE, params = {
+				@Param(name = "pName", field = IssueDs.f_targetVersion),
+				@Param(name = "pProjectId", field = IssueDs.f_projectId)}),
+		@RefLookup(refId = IssueDs.f_fixedInVersionId, namedQuery = ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE, params = {
+				@Param(name = "pName", field = IssueDs.f_fixedInVersion),
+				@Param(name = "pProjectId", field = IssueDs.f_projectId)})})
 public class IssueDs extends AbstractAuditableDs<Issue> {
 
-	public static final String fPROJECTID = "projectId";
-	public static final String fPROJECT = "project";
-	public static final String fPROJECTNAME = "projectName";
-	public static final String fCODE = "code";
-	public static final String fSUMMARY = "summary";
-	public static final String fDESCRIPTION = "description";
-	public static final String fBUSINESSVALUE = "businessValue";
-	public static final String fESTIMATEDEFFORT = "estimatedEffort";
-	public static final String fCLARITY = "clarity";
-	public static final String fDUEDATE = "dueDate";
-	public static final String fRESOLUTIONDATE = "resolutionDate";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fSTATUSID = "statusId";
-	public static final String fSTATUS = "status";
-	public static final String fPRIORITYID = "priorityId";
-	public static final String fPRIORITY = "priority";
-	public static final String fRESOLUTIONID = "resolutionId";
-	public static final String fRESOLUTION = "resolution";
-	public static final String fSEVERITYID = "severityId";
-	public static final String fSEVERITY = "severity";
-	public static final String fASSIGNEEID = "assigneeId";
-	public static final String fASSIGNEE = "assignee";
-	public static final String fASSIGNEEROLEID = "assigneeRoleId";
-	public static final String fASSIGNEEROLE = "assigneeRole";
-	public static final String fREPORTEDVERSIONID = "reportedVersionId";
-	public static final String fREPORTEDVERSION = "reportedVersion";
-	public static final String fTARGETVERSIONID = "targetVersionId";
-	public static final String fTARGETVERSION = "targetVersion";
-	public static final String fFIXEDINVERSIONID = "fixedInVersionId";
-	public static final String fFIXEDINVERSION = "fixedInVersion";
-	public static final String fBUSINESSOBJECT = "businessObject";
+	public static final String f_projectId = "projectId";
+	public static final String f_project = "project";
+	public static final String f_projectName = "projectName";
+	public static final String f_code = "code";
+	public static final String f_summary = "summary";
+	public static final String f_description = "description";
+	public static final String f_businessValue = "businessValue";
+	public static final String f_estimatedEffort = "estimatedEffort";
+	public static final String f_clarity = "clarity";
+	public static final String f_dueDate = "dueDate";
+	public static final String f_resolutionDate = "resolutionDate";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_statusId = "statusId";
+	public static final String f_status = "status";
+	public static final String f_priorityId = "priorityId";
+	public static final String f_priority = "priority";
+	public static final String f_resolutionId = "resolutionId";
+	public static final String f_resolution = "resolution";
+	public static final String f_severityId = "severityId";
+	public static final String f_severity = "severity";
+	public static final String f_assigneeId = "assigneeId";
+	public static final String f_assignee = "assignee";
+	public static final String f_assigneeRoleId = "assigneeRoleId";
+	public static final String f_assigneeRole = "assigneeRole";
+	public static final String f_reportedVersionId = "reportedVersionId";
+	public static final String f_reportedVersion = "reportedVersion";
+	public static final String f_targetVersionId = "targetVersionId";
+	public static final String f_targetVersion = "targetVersion";
+	public static final String f_fixedInVersionId = "fixedInVersionId";
+	public static final String f_fixedInVersion = "fixedInVersion";
+	public static final String f_businessObject = "businessObject";
 
 	@DsField(noUpdate = true, join = "left", path = "project.id")
 	private Long projectId;
@@ -60,25 +89,25 @@ public class IssueDs extends AbstractAuditableDs<Issue> {
 	@DsField(noUpdate = true)
 	private String code;
 
-	@DsField()
+	@DsField
 	private String summary;
 
-	@DsField()
+	@DsField
 	private String description;
 
-	@DsField()
+	@DsField
 	private Integer businessValue;
 
-	@DsField()
+	@DsField
 	private Integer estimatedEffort;
 
-	@DsField()
+	@DsField
 	private Integer clarity;
 
-	@DsField()
+	@DsField
 	private Date dueDate;
 
-	@DsField()
+	@DsField
 	private Date resolutionDate;
 
 	@DsField(join = "left", path = "type.id")

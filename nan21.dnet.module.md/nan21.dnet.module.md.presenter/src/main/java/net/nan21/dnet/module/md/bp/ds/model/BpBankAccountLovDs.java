@@ -13,9 +13,9 @@ import net.nan21.dnet.module.md.bp.domain.entity.BpBankAccount;
 @Ds(entity = BpBankAccount.class)
 public class BpBankAccountLovDs extends AbstractAuditableLov<BpBankAccount> {
 
-	public static final String fACCOUNTNO = "accountNo";
+	public static final String f_accountNo = "accountNo";
 
-	@DsField()
+	@DsField
 	private String accountNo;
 
 	public BpBankAccountLovDs() {

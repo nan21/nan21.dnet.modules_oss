@@ -11,32 +11,32 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence;
 
-@Ds(entity = TxDocSequence.class, sort = {@SortField(field = TxDocSequenceDs.fNAME)})
+@Ds(entity = TxDocSequence.class, sort = {@SortField(field = TxDocSequenceDs.f_name)})
 public class TxDocSequenceDs extends AbstractTypeDs<TxDocSequence> {
 
-	public static final String fFIRSTNO = "firstNo";
-	public static final String fLASTNO = "lastNo";
-	public static final String fNEXTNO = "nextNo";
-	public static final String fINCREMENTBY = "incrementBy";
-	public static final String fPREFIX = "prefix";
-	public static final String fSUFFIX = "suffix";
+	public static final String f_firstNo = "firstNo";
+	public static final String f_lastNo = "lastNo";
+	public static final String f_nextNo = "nextNo";
+	public static final String f_incrementBy = "incrementBy";
+	public static final String f_prefix = "prefix";
+	public static final String f_suffix = "suffix";
 
-	@DsField()
+	@DsField
 	private Integer firstNo;
 
-	@DsField()
+	@DsField
 	private Integer lastNo;
 
-	@DsField()
+	@DsField
 	private Integer nextNo;
 
-	@DsField()
+	@DsField
 	private Integer incrementBy;
 
-	@DsField()
+	@DsField
 	private String prefix;
 
-	@DsField()
+	@DsField
 	private String suffix;
 
 	public TxDocSequenceDs() {

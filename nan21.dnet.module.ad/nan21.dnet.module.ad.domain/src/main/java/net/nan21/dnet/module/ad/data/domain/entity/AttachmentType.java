@@ -25,10 +25,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 /** Product attachment type definition.*/
-@NamedQueries({
-		@NamedQuery(name = AttachmentType.NQ_FIND_BY_ID, query = "SELECT e FROM AttachmentType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AttachmentType.NQ_FIND_BY_IDS, query = "SELECT e FROM AttachmentType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = AttachmentType.NQ_FIND_BY_NAME, query = "SELECT e FROM AttachmentType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = AttachmentType.NQ_FIND_BY_NAME, query = "SELECT e FROM AttachmentType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = AttachmentType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = AttachmentType.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -39,16 +36,6 @@ public class AttachmentType extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_ATCH_TYPE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "AttachmentType.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "AttachmentType.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

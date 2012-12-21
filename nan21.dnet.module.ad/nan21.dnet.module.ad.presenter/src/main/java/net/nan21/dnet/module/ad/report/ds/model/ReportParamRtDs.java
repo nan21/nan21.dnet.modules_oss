@@ -12,19 +12,19 @@ import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.ad.report.domain.entity.ReportParam;
 
 @Ds(entity = ReportParam.class, jpqlWhere = "  e.active = true  ", sort = {
-		@SortField(field = ReportParamRtDs.fSEQUENCENO),
-		@SortField(field = ReportParamRtDs.fNAME)})
+		@SortField(field = ReportParamRtDs.f_sequenceNo),
+		@SortField(field = ReportParamRtDs.f_name)})
 public class ReportParamRtDs extends AbstractTypeWithCodeDs<ReportParam> {
 
-	public static final String fREPORTID = "reportId";
-	public static final String fREPORTCODE = "reportCode";
-	public static final String fVALUE = "value";
-	public static final String fDATATYPE = "dataType";
-	public static final String fPARAMETERNAME = "parameterName";
-	public static final String fLISTOFVALUES = "listOfValues";
-	public static final String fNOEDIT = "noEdit";
-	public static final String fMANDATORY = "mandatory";
-	public static final String fSEQUENCENO = "sequenceNo";
+	public static final String f_reportId = "reportId";
+	public static final String f_reportCode = "reportCode";
+	public static final String f_value = "value";
+	public static final String f_dataType = "dataType";
+	public static final String f_parameterName = "parameterName";
+	public static final String f_listOfValues = "listOfValues";
+	public static final String f_noEdit = "noEdit";
+	public static final String f_mandatory = "mandatory";
+	public static final String f_sequenceNo = "sequenceNo";
 
 	@DsField(join = "left", path = "report.id")
 	private Long reportId;
@@ -35,22 +35,22 @@ public class ReportParamRtDs extends AbstractTypeWithCodeDs<ReportParam> {
 	@DsField(path = "defaultValue")
 	private String value;
 
-	@DsField()
+	@DsField
 	private String dataType;
 
 	@DsField(path = "name")
 	private String parameterName;
 
-	@DsField()
+	@DsField
 	private String listOfValues;
 
-	@DsField()
+	@DsField
 	private Boolean noEdit;
 
-	@DsField()
+	@DsField
 	private Boolean mandatory;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
 	public ReportParamRtDs() {

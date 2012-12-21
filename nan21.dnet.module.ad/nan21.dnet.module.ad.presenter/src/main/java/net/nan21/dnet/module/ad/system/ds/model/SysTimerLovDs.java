@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.system.domain.entity.SysTimer;
 
-@Ds(entity = SysTimer.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysTimerLovDs.fNAME)})
+@Ds(entity = SysTimer.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysTimerLovDs.f_name)})
 public class SysTimerLovDs extends AbstractTypeLov<SysTimer> {
 
 	public SysTimerLovDs() {

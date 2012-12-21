@@ -13,25 +13,25 @@ import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 
 @Ds(entity = Issue.class, jpqlWhere = "e.targetVersion.releaseDate is null", sort = {
-		@SortField(field = IssueRoadmapDs.fTARGETVERSIONDATE),
-		@SortField(field = IssueRoadmapDs.fTARGETVERSION),
-		@SortField(field = IssueRoadmapDs.fMODIFIEDAT, desc = true)})
+		@SortField(field = IssueRoadmapDs.f_targetVersionDate),
+		@SortField(field = IssueRoadmapDs.f_targetVersion),
+		@SortField(field = IssueRoadmapDs.f_modifiedAt, desc = true)})
 public class IssueRoadmapDs extends AbstractAuditableDs<Issue> {
 
-	public static final String fPROJECTID = "projectId";
-	public static final String fPROJECT = "project";
-	public static final String fPROJECTNAME = "projectName";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fSTATUSID = "statusId";
-	public static final String fSTATUS = "status";
-	public static final String fCODE = "code";
-	public static final String fSUMMARY = "summary";
-	public static final String fTARGETVERSIONID = "targetVersionId";
-	public static final String fTARGETVERSION = "targetVersion";
-	public static final String fTARGETVERSIONDATE = "targetVersionDate";
-	public static final String fFIXEDINVERSIONID = "fixedInVersionId";
-	public static final String fFIXEDINVERSION = "fixedInVersion";
+	public static final String f_projectId = "projectId";
+	public static final String f_project = "project";
+	public static final String f_projectName = "projectName";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_statusId = "statusId";
+	public static final String f_status = "status";
+	public static final String f_code = "code";
+	public static final String f_summary = "summary";
+	public static final String f_targetVersionId = "targetVersionId";
+	public static final String f_targetVersion = "targetVersion";
+	public static final String f_targetVersionDate = "targetVersionDate";
+	public static final String f_fixedInVersionId = "fixedInVersionId";
+	public static final String f_fixedInVersion = "fixedInVersion";
 
 	@DsField(join = "left", path = "project.id")
 	private Long projectId;
@@ -54,10 +54,10 @@ public class IssueRoadmapDs extends AbstractAuditableDs<Issue> {
 	@DsField(join = "left", path = "status.name")
 	private String status;
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String summary;
 
 	@DsField(join = "left", path = "targetVersion.id")

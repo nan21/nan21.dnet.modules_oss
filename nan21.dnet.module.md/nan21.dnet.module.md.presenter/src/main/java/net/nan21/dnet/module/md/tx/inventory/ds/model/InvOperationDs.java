@@ -12,26 +12,26 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvOperation;
 
-@Ds(entity = InvOperation.class, sort = {@SortField(field = InvOperationDs.fEVENTDATE, desc = true)})
+@Ds(entity = InvOperation.class, sort = {@SortField(field = InvOperationDs.f_eventDate, desc = true)})
 public class InvOperationDs extends AbstractAuditableDs<InvOperation> {
 
-	public static final String fITEMID = "itemId";
-	public static final String fITEMCODE = "itemCode";
-	public static final String fITEM = "item";
-	public static final String fEVENTDATE = "eventDate";
-	public static final String fINVENTORYID = "inventoryId";
-	public static final String fINVENTORY = "inventory";
-	public static final String fINVENTORYNAME = "inventoryName";
-	public static final String fSUBINVENTORYID = "subInventoryId";
-	public static final String fSUBINVENTORY = "subInventory";
-	public static final String fLOCATORID = "locatorId";
-	public static final String fLOCATOR = "locator";
-	public static final String fTRANSACTIONID = "transactionId";
-	public static final String fTRANSACTIONLINEID = "transactionLineId";
-	public static final String fDIRECTION = "direction";
-	public static final String fQUANTITY = "quantity";
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
+	public static final String f_itemId = "itemId";
+	public static final String f_itemCode = "itemCode";
+	public static final String f_item = "item";
+	public static final String f_eventDate = "eventDate";
+	public static final String f_inventoryId = "inventoryId";
+	public static final String f_inventory = "inventory";
+	public static final String f_inventoryName = "inventoryName";
+	public static final String f_subInventoryId = "subInventoryId";
+	public static final String f_subInventory = "subInventory";
+	public static final String f_locatorId = "locatorId";
+	public static final String f_locator = "locator";
+	public static final String f_transactionId = "transactionId";
+	public static final String f_transactionLineId = "transactionLineId";
+	public static final String f_direction = "direction";
+	public static final String f_quantity = "quantity";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
 
 	@DsField(join = "left", path = "item.id")
 	private Long itemId;
@@ -42,7 +42,7 @@ public class InvOperationDs extends AbstractAuditableDs<InvOperation> {
 	@DsField(join = "left", path = "item.name")
 	private String item;
 
-	@DsField()
+	@DsField
 	private Date eventDate;
 
 	@DsField(join = "left", path = "inventory.id")
@@ -72,10 +72,10 @@ public class InvOperationDs extends AbstractAuditableDs<InvOperation> {
 	@DsField(join = "left", path = "transactionLine.id")
 	private Long transactionLineId;
 
-	@DsField()
+	@DsField
 	private String direction;
 
-	@DsField()
+	@DsField
 	private Float quantity;
 
 	@DsField(join = "left", path = "uom.id")

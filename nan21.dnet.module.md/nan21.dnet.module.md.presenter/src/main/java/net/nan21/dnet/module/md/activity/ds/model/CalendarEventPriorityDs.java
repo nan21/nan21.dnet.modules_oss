@@ -11,14 +11,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.activity.domain.entity.CalendarEventPriority;
 
-@Ds(entity = CalendarEventPriority.class, sort = {@SortField(field = CalendarEventPriorityDs.fNAME)})
+@Ds(entity = CalendarEventPriority.class, sort = {@SortField(field = CalendarEventPriorityDs.f_name)})
 public class CalendarEventPriorityDs
 		extends
 			AbstractTypeDs<CalendarEventPriority> {
 
-	public static final String fEVENTTYPE = "eventType";
+	public static final String f_eventType = "eventType";
 
-	@DsField()
+	@DsField
 	private String eventType;
 
 	public CalendarEventPriorityDs() {

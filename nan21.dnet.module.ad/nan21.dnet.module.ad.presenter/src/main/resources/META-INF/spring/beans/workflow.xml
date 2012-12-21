@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== ActDeployment ==================== -->
+	
+	<bean id="ActDeploymentDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment"/>
+		<property name="paramClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActDeploymentDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ActDeploymentLov ==================== -->
+	
+	<bean id="ActDeploymentLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActDeploymentLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActDeployment"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActDeploymentLovDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ActProcessDefinition ==================== -->
+	
+	<bean id="ActProcessDefinitionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition"/>
+		<property name="paramClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActProcessDefinitionDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+		<property name="rpcData" >
+			<map>
+				<entry key="serviceStartProcess">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActProcessDefinitionPD"/>
+						<constructor-arg name="methodName" value="startInstance" />
+					</bean>
+				</entry>
+				<entry key="getDiagram">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActProcessDefinitionPD"/>
+						<constructor-arg name="methodName" value="getDiagram" />
+					</bean>
+				</entry>
+				<entry key="getStartForm">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActProcessDefinitionPD"/>
+						<constructor-arg name="methodName" value="getStartForm" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== ActProcessDefinitionLov ==================== -->
+	
+	<bean id="ActProcessDefinitionLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessDefinitionLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActProcessDefinitionLovDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ActProcessInstance ==================== -->
+	
+	<bean id="ActProcessInstanceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessInstanceHistory"/>
+		<property name="paramClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActProcessInstanceDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+		<property name="rpcData" >
+			<map>
+				<entry key="killProcessInstance">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActProcessInstancePD"/>
+						<constructor-arg name="methodName" value="killInstance" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== ActProcessInstanceHistory ==================== -->
+	
+	<bean id="ActProcessInstanceHistoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessInstanceHistory"/>
+		<property name="paramClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActProcessInstanceHistoryDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActProcessInstanceHistoryDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ActTaskInstance ==================== -->
+	
+	<bean id="ActTaskInstanceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
+		<property name="paramClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActTaskInstanceDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+		<property name="rpcData" >
+			<map>
+				<entry key="assignTask">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActTaskInstancePD"/>
+						<constructor-arg name="methodName" value="assignTask" />
+					</bean>
+				</entry>
+				<entry key="completeTask">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActTaskInstancePD"/>
+						<constructor-arg name="methodName" value="completeTask" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== ActVariable ==================== -->
+	
+	<bean id="ActVariableDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActVariableDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActVariable"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ActTaskInstanceHistory ==================== -->
+	
+	<bean id="ActTaskInstanceHistoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActTaskInstanceHistoryDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActTaskInstanceHistoryDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ActMyTask ==================== -->
+	
+	<bean id="ActMyTaskDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTask"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActMyTaskDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+		<property name="rpcData" >
+			<map>
+				<entry key="completeTask">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActMyTaskPD"/>
+						<constructor-arg name="methodName" value="complete" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== ActMyTaskHistory ==================== -->
+	
+	<bean id="ActMyTaskHistoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActMyTaskHistoryDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTaskInstanceHistory"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActMyTaskHistoryDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ActAvailableTask ==================== -->
+	
+	<bean id="ActAvailableTaskDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.ActAvailableTaskDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.ActTask"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.ad.workflow.ds.qb.ActAvailableTaskDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+		<property name="rpcData" >
+			<map>
+				<entry key="assignTask">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.ActAvailableTaskPD"/>
+						<constructor-arg name="methodName" value="claim" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== WfDefProcess ==================== -->
+	
+	<bean id="WfDefProcessDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefProcessDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefProcess"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="deployProcess">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.WfDefProcessPD"/>
+						<constructor-arg name="methodName" value="deployProcess" />
+					</bean>
+				</entry>
+				<entry key="getDiagram">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.workflow.WfDefProcessPD"/>
+						<constructor-arg name="methodName" value="getDiagram" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== WfDefNode ==================== -->
+	
+	<bean id="WfDefNodeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNode"/>
+	</bean>
+	
+	<!-- ==================== WfDefNodeField ==================== -->
+	
+	<bean id="WfDefNodeFieldDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefNodeFieldDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefNodeField"/>
+	</bean>
+	
+	<!-- ==================== WfDefTransition ==================== -->
+	
+	<bean id="WfDefTransitionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.workflow.ds.model.WfDefTransitionDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.workflow.domain.entity.WfDefTransition"/>
+	</bean>
+</beans>

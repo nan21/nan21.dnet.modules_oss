@@ -39,8 +39,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-		@NamedQuery(name = Element.NQ_FIND_BY_ID, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Element.NQ_FIND_BY_IDS, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = Element.NQ_FIND_BY_ENGINE_CODE, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.engine = :pEngine and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, query = "SELECT e FROM Element e WHERE e.clientId = :pClientId and e.engine.id = :pEngineId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -55,16 +53,6 @@ public class Element extends AbstractTypeWithCode {
 	public static final String SEQUENCE_NAME = "BD_ELEM_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "Element.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "Element.findByIds";
 
 	/**
 	 * Named query find by unique key: Engine_code.

@@ -14,14 +14,14 @@ import net.nan21.dnet.module.ad.system.domain.entity.AuditField;
 @Ds(entity = AuditField.class)
 public class AuditFieldRepDs extends AbstractSimpleDs<AuditField> {
 
-	public static final String fOPERATION = "operation";
-	public static final String fSOURCEFQN = "sourceFQN";
-	public static final String fSOURCEID = "sourceId";
-	public static final String fFIELDNAME = "fieldName";
-	public static final String fOLDVALUE = "oldValue";
-	public static final String fNEWVALUE = "newValue";
-	public static final String fCREATEDAT = "createdAt";
-	public static final String fCREATEDBY = "createdBy";
+	public static final String f_operation = "operation";
+	public static final String f_sourceFQN = "sourceFQN";
+	public static final String f_sourceId = "sourceId";
+	public static final String f_fieldName = "fieldName";
+	public static final String f_oldValue = "oldValue";
+	public static final String f_newValue = "newValue";
+	public static final String f_createdAt = "createdAt";
+	public static final String f_createdBy = "createdBy";
 
 	@DsField(join = "left", path = "auditEntry.operation")
 	private String operation;
@@ -32,19 +32,19 @@ public class AuditFieldRepDs extends AbstractSimpleDs<AuditField> {
 	@DsField(join = "left", path = "auditEntry.sourceId")
 	private String sourceId;
 
-	@DsField()
+	@DsField
 	private String fieldName;
 
-	@DsField()
+	@DsField
 	private String oldValue;
 
-	@DsField()
+	@DsField
 	private String newValue;
 
-	@DsField()
+	@DsField
 	private Date createdAt;
 
-	@DsField()
+	@DsField
 	private String createdBy;
 
 	public AuditFieldRepDs() {

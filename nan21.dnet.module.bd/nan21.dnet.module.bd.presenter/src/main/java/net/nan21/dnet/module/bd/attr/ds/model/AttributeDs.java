@@ -7,22 +7,30 @@ package net.nan21.dnet.module.bd.attr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.attr.domain.entity.Attribute;
+import net.nan21.dnet.module.bd.attr.domain.entity.AttributeCategory;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
 
-@Ds(entity = Attribute.class, sort = {@SortField(field = AttributeDs.fNAME)})
+@Ds(entity = Attribute.class, sort = {@SortField(field = AttributeDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = AttributeDs.f_categoryId, namedQuery = AttributeCategory.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AttributeDs.f_category)}),
+		@RefLookup(refId = AttributeDs.f_uomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AttributeDs.f_uom)})})
 public class AttributeDs extends AbstractTypeDs<Attribute> {
 
-	public static final String fTITLE = "title";
-	public static final String fCATEGORYID = "categoryId";
-	public static final String fCATEGORY = "category";
-	public static final String fDATATYPE = "dataType";
-	public static final String fLISTOFVALUES = "listOfvalues";
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
+	public static final String f_title = "title";
+	public static final String f_categoryId = "categoryId";
+	public static final String f_category = "category";
+	public static final String f_dataType = "dataType";
+	public static final String f_listOfvalues = "listOfvalues";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
 
-	@DsField()
+	@DsField
 	private String title;
 
 	@DsField(join = "left", path = "category.id")
@@ -31,10 +39,10 @@ public class AttributeDs extends AbstractTypeDs<Attribute> {
 	@DsField(join = "left", path = "category.name")
 	private String category;
 
-	@DsField()
+	@DsField
 	private String dataType;
 
-	@DsField()
+	@DsField
 	private String listOfvalues;
 
 	@DsField(join = "left", path = "uom.id")

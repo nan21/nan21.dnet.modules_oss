@@ -13,15 +13,15 @@ import net.nan21.dnet.module.md.tx.acc.domain.entity.AccBalance;
 @Ds(entity = AccBalance.class)
 public class AccBalanceDs extends AbstractAuditableDs<AccBalance> {
 
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fPERIODID = "periodId";
-	public static final String fPERIOD = "period";
-	public static final String fACCOUNT = "account";
-	public static final String fAMOUNT = "amount";
-	public static final String fINITIALAMOUNT = "initialAmount";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_periodId = "periodId";
+	public static final String f_period = "period";
+	public static final String f_account = "account";
+	public static final String f_amount = "amount";
+	public static final String f_initialAmount = "initialAmount";
 
 	@DsField(join = "left", path = "org.id")
 	private Long orgId;
@@ -41,13 +41,13 @@ public class AccBalanceDs extends AbstractAuditableDs<AccBalance> {
 	@DsField(join = "left", path = "period.code")
 	private String period;
 
-	@DsField()
+	@DsField
 	private String account;
 
-	@DsField()
+	@DsField
 	private Float amount;
 
-	@DsField()
+	@DsField
 	private Float initialAmount;
 
 	public AccBalanceDs() {

@@ -167,8 +167,8 @@ public class ProductController extends AbstractWebController {
 							.createQueryBuilder()
 							.addSortInfo(
 									new String[] {
-											ProductAttributeValueDs.fCATEGORY,
-											ProductAttributeValueDs.fTITLE })
+											ProductAttributeValueDs.f_category,
+											ProductAttributeValueDs.f_title })
 							.addFilter(attributesFilter));
 
 			// attachments

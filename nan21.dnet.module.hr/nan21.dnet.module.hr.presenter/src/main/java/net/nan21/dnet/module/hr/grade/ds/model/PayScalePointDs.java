@@ -7,23 +7,26 @@ package net.nan21.dnet.module.hr.grade.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScalePoint;
 
 @Ds(entity = PayScalePoint.class)
+@RefLookups({@RefLookup(refId = PayScalePointDs.f_payScaleId)})
 public class PayScalePointDs extends AbstractAuditableDs<PayScalePoint> {
 
-	public static final String fPAYSCALEID = "payScaleId";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fCODE = "code";
+	public static final String f_payScaleId = "payScaleId";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_code = "code";
 
 	@DsField(join = "left", path = "payScale.id")
 	private Long payScaleId;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String code;
 
 	public PayScalePointDs() {

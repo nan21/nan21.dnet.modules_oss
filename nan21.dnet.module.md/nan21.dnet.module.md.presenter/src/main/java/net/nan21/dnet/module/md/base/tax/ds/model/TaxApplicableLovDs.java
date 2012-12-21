@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 
-@Ds(entity = Tax.class, jpqlWhere = " e.parentTax is null and e.active = true ", sort = {@SortField(field = TaxApplicableLovDs.fNAME)})
+@Ds(entity = Tax.class, jpqlWhere = " e.parentTax is null and e.active = true ", sort = {@SortField(field = TaxApplicableLovDs.f_name)})
 public class TaxApplicableLovDs extends AbstractTypeLov<Tax> {
 
-	public static final String fRATE = "rate";
-	public static final String fSUMMARY = "summary";
+	public static final String f_rate = "rate";
+	public static final String f_summary = "summary";
 
-	@DsField()
+	@DsField
 	private Float rate;
 
-	@DsField()
+	@DsField
 	private Boolean summary;
 
 	public TaxApplicableLovDs() {

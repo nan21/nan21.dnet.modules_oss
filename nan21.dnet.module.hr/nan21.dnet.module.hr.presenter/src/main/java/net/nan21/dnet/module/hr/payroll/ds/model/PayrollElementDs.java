@@ -7,27 +7,42 @@ package net.nan21.dnet.module.hr.payroll.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.bd.elem.domain.entity.ElementType;
+import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement;
+import net.nan21.dnet.module.md.acc.domain.entity.AccItem;
 
-@Ds(entity = PayrollElement.class, sort = {@SortField(field = PayrollElementDs.fNAME)})
+@Ds(entity = PayrollElement.class, sort = {@SortField(field = PayrollElementDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = PayrollElementDs.f_engineId, namedQuery = Engine.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PayrollElementDs.f_engine)}),
+		@RefLookup(refId = PayrollElementDs.f_typeId, namedQuery = ElementType.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE, params = {
+				@Param(name = "pName", field = PayrollElementDs.f_type),
+				@Param(name = "pEngineId", field = PayrollElementDs.f_engineId)}),
+		@RefLookup(refId = PayrollElementDs.f_sourceElementId, namedQuery = PayrollElement.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
+				@Param(name = "pEngineId", field = PayrollElementDs.f_engineId),
+				@Param(name = "pCode", field = PayrollElementDs.f_sourceElement)}),
+		@RefLookup(refId = PayrollElementDs.f_accItemId, namedQuery = AccItem.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PayrollElementDs.f_accItem)})})
 public class PayrollElementDs extends AbstractTypeWithCodeDs<PayrollElement> {
 
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
-	public static final String fENGINETYPE = "engineType";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fDATATYPE = "dataType";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fCALCULATION = "calculation";
-	public static final String fBALANCE = "balance";
-	public static final String fBALANCEFUNCTION = "balanceFunction";
-	public static final String fSOURCEELEMENTID = "sourceElementId";
-	public static final String fSOURCEELEMENT = "sourceElement";
-	public static final String fACCITEMID = "accItemId";
-	public static final String fACCITEM = "accItem";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
+	public static final String f_engineType = "engineType";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_dataType = "dataType";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_calculation = "calculation";
+	public static final String f_balance = "balance";
+	public static final String f_balanceFunction = "balanceFunction";
+	public static final String f_sourceElementId = "sourceElementId";
+	public static final String f_sourceElement = "sourceElement";
+	public static final String f_accItemId = "accItemId";
+	public static final String f_accItem = "accItem";
 
 	@DsField(join = "left", path = "engine.id")
 	private Long engineId;
@@ -44,19 +59,19 @@ public class PayrollElementDs extends AbstractTypeWithCodeDs<PayrollElement> {
 	@DsField(join = "left", path = "type.name")
 	private String type;
 
-	@DsField()
+	@DsField
 	private String dataType;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String calculation;
 
-	@DsField()
+	@DsField
 	private Boolean balance;
 
-	@DsField()
+	@DsField
 	private String balanceFunction;
 
 	@DsField(join = "left", path = "sourceElement.id")

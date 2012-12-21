@@ -28,10 +28,7 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Accounting schema definition.  */
-@NamedQueries({
-		@NamedQuery(name = Account.NQ_FIND_BY_ID, query = "SELECT e FROM Account e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Account.NQ_FIND_BY_IDS, query = "SELECT e FROM Account e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Account.NQ_FIND_BY_CODE, query = "SELECT e FROM Account e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = Account.NQ_FIND_BY_CODE, query = "SELECT e FROM Account e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = Account.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Account.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "CODE"})})
@@ -42,16 +39,6 @@ public class Account extends AbstractTypeWithCode {
 	public static final String SEQUENCE_NAME = "MD_ACC_ACCT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "Account.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "Account.findByIds";
 
 	/**
 	 * Named query find by unique key: Code.

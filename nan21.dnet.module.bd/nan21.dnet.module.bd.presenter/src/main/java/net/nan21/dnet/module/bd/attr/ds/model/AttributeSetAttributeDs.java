@@ -7,20 +7,28 @@ package net.nan21.dnet.module.bd.attr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.attr.domain.entity.Attribute;
+import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSet;
 import net.nan21.dnet.module.bd.attr.domain.entity.AttributeSetAttribute;
 
 @Ds(entity = AttributeSetAttribute.class)
+@RefLookups({
+		@RefLookup(refId = AttributeSetAttributeDs.f_setId, namedQuery = AttributeSet.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AttributeSetAttributeDs.f_set)}),
+		@RefLookup(refId = AttributeSetAttributeDs.f_attributeId, namedQuery = Attribute.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AttributeSetAttributeDs.f_attribute)})})
 public class AttributeSetAttributeDs
 		extends
 			AbstractAuditableDs<AttributeSetAttribute> {
 
-	public static final String fSETID = "setId";
-	public static final String fSET = "set";
-	public static final String fATTRIBUTEID = "attributeId";
-	public static final String fATTRIBUTE = "attribute";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fINDESCRIPTION = "inDescription";
+	public static final String f_setId = "setId";
+	public static final String f_set = "set";
+	public static final String f_attributeId = "attributeId";
+	public static final String f_attribute = "attribute";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_inDescription = "inDescription";
 
 	@DsField(join = "left", path = "attributeSet.id")
 	private Long setId;
@@ -34,10 +42,10 @@ public class AttributeSetAttributeDs
 	@DsField(join = "left", path = "attribute.name")
 	private String attribute;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private Boolean inDescription;
 
 	public AttributeSetAttributeDs() {

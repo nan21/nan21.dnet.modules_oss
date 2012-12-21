@@ -15,11 +15,11 @@ public class PurchaseOrderItemTaxDs
 		extends
 			AbstractAuditableDs<PurchaseOrderItemTax> {
 
-	public static final String fPURCHASEORDERITEMID = "purchaseOrderItemId";
-	public static final String fTAXID = "taxId";
-	public static final String fTAX = "tax";
-	public static final String fBASEAMOUNT = "baseAmount";
-	public static final String fTAXAMOUNT = "taxAmount";
+	public static final String f_purchaseOrderItemId = "purchaseOrderItemId";
+	public static final String f_taxId = "taxId";
+	public static final String f_tax = "tax";
+	public static final String f_baseAmount = "baseAmount";
+	public static final String f_taxAmount = "taxAmount";
 
 	@DsField(join = "left", path = "purchaseOrderItem.id")
 	private Long purchaseOrderItemId;
@@ -30,10 +30,10 @@ public class PurchaseOrderItemTaxDs
 	@DsField(join = "left", path = "tax.name")
 	private String tax;
 
-	@DsField()
+	@DsField
 	private Float baseAmount;
 
-	@DsField()
+	@DsField
 	private Float taxAmount;
 
 	public PurchaseOrderItemTaxDs() {

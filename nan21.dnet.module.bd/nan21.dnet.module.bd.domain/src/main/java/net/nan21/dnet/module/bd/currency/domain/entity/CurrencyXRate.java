@@ -33,8 +33,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Exchange rate values.*/
 @NamedQueries({
-		@NamedQuery(name = CurrencyXRate.NQ_FIND_BY_ID, query = "SELECT e FROM CurrencyXRate e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = CurrencyXRate.NQ_FIND_BY_IDS, query = "SELECT e FROM CurrencyXRate e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = CurrencyXRate.NQ_FIND_BY_VALID, query = "SELECT e FROM CurrencyXRate e WHERE e.clientId = :pClientId and e.provider = :pProvider and e.source = :pSource and e.target = :pTarget and e.validAt = :pValidAt", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = CurrencyXRate.NQ_FIND_BY_VALID_PRIMITIVE, query = "SELECT e FROM CurrencyXRate e WHERE e.clientId = :pClientId and e.provider.id = :pProviderId and e.source.id = :pSourceId and e.target.id = :pTargetId and e.validAt = :pValidAt", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -48,16 +46,6 @@ public class CurrencyXRate extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "BD_CRNCY_XRATE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "CurrencyXRate.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "CurrencyXRate.findByIds";
 
 	/**
 	 * Named query find by unique key: Valid.

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== Employee ==================== -->
+	
+	<bean id="EmployeeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.module.hr.employee.ds.serviceext.EmployeeDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.Employee"/>
+	</bean>
+	
+	<!-- ==================== EmployeeLov ==================== -->
+	
+	<bean id="EmployeeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.Employee"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== EmployeeAssignment ==================== -->
+	
+	<bean id="EmployeeAssignmentDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeAssignmentDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeAssignment"/>
+		<property name="paramClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeAssignmentDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.hr.employee.ds.qb.EmployeeAssignmentDsQueryBuilder" />
+	</bean>
+	
+	<!-- ==================== EmployeeContact ==================== -->
+	
+	<bean id="EmployeeContactDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContact"/>
+	</bean>
+	
+	<!-- ==================== EmployeeEducation ==================== -->
+	
+	<bean id="EmployeeEducationDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeEducationDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeEducation"/>
+	</bean>
+	
+	<!-- ==================== EmployeeWorkExperience ==================== -->
+	
+	<bean id="EmployeeWorkExperienceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeWorkExperienceDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeWorkExperience"/>
+	</bean>
+	
+	<!-- ==================== EmployeeLicense ==================== -->
+	
+	<bean id="EmployeeLicenseDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeLicenseDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeLicense"/>
+	</bean>
+	
+	<!-- ==================== EducationType ==================== -->
+	
+	<bean id="EducationTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EducationType"/>
+	</bean>
+	
+	<!-- ==================== EducationTypeLov ==================== -->
+	
+	<bean id="EducationTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EducationTypeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EducationType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== LicenseType ==================== -->
+	
+	<bean id="LicenseTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.LicenseType"/>
+	</bean>
+	
+	<!-- ==================== LicenseTypeLov ==================== -->
+	
+	<bean id="LicenseTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.LicenseTypeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.LicenseType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== EmployeeContactRelationship ==================== -->
+	
+	<bean id="EmployeeContactRelationshipDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactRelationship"/>
+	</bean>
+	
+	<!-- ==================== EmployeeContactRelationshipLov ==================== -->
+	
+	<bean id="EmployeeContactRelationshipLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmployeeContactRelationshipLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmployeeContactRelationship"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== EmploymentType ==================== -->
+	
+	<bean id="EmploymentTypeDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType"/>
+	</bean>
+	
+	<!-- ==================== EmploymentTypeLov ==================== -->
+	
+	<bean id="EmploymentTypeLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.employee.ds.model.EmploymentTypeLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.employee.domain.entity.EmploymentType"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

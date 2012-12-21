@@ -10,9 +10,9 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ProductPriceReportDsParam extends EmptyParam {
 
-	public static final String fVALIDAT = "validAt";
-	public static final String fPRODUCTCATEGORYID = "productCategoryId";
-	public static final String fPRODUCTCATEGORY = "productCategory";
+	public static final String f_validAt = "validAt";
+	public static final String f_productCategoryId = "productCategoryId";
+	public static final String f_productCategory = "productCategory";
 
 	private Date validAt;
 

@@ -8,21 +8,25 @@ package net.nan21.dnet.module.hr.grade.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.grade.domain.entity.GradeRateValue;
 
 @Ds(entity = GradeRateValue.class)
+@RefLookups({@RefLookup(refId = GradeRateValueDs.f_gradeId),
+		@RefLookup(refId = GradeRateValueDs.f_gradeRateId)})
 public class GradeRateValueDs extends AbstractAuditableDs<GradeRateValue> {
 
-	public static final String fGRADEID = "gradeId";
-	public static final String fGRADENAME = "gradeName";
-	public static final String fGRADERATEID = "gradeRateId";
-	public static final String fGRADERATENAME = "gradeRateName";
-	public static final String fFIXVALUE = "fixValue";
-	public static final String fMINVALUE = "minValue";
-	public static final String fMAXVALUE = "maxValue";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fVALIDTO = "validTo";
+	public static final String f_gradeId = "gradeId";
+	public static final String f_gradeName = "gradeName";
+	public static final String f_gradeRateId = "gradeRateId";
+	public static final String f_gradeRateName = "gradeRateName";
+	public static final String f_fixValue = "fixValue";
+	public static final String f_minValue = "minValue";
+	public static final String f_maxValue = "maxValue";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_validTo = "validTo";
 
 	@DsField(join = "left", path = "grade.id")
 	private Long gradeId;
@@ -36,19 +40,19 @@ public class GradeRateValueDs extends AbstractAuditableDs<GradeRateValue> {
 	@DsField(join = "left", path = "gradeRate.name")
 	private String gradeRateName;
 
-	@DsField()
+	@DsField
 	private Float fixValue;
 
-	@DsField()
+	@DsField
 	private Float minValue;
 
-	@DsField()
+	@DsField
 	private Float maxValue;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
-	@DsField()
+	@DsField
 	private Date validTo;
 
 	public GradeRateValueDs() {

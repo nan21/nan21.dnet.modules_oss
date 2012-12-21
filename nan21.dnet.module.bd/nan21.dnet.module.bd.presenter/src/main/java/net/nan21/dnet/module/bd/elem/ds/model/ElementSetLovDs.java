@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.bd.elem.domain.entity.ElementSet;
 
-@Ds(entity = ElementSet.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ElementSetLovDs.fNAME)})
+@Ds(entity = ElementSet.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = ElementSetLovDs.f_name)})
 public class ElementSetLovDs extends AbstractTypeLov<ElementSet> {
 
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
-	public static final String fENGINETYPE = "engineType";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
+	public static final String f_engineType = "engineType";
 
 	@DsField(join = "left", path = "engine.id")
 	private Long engineId;

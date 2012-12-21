@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityPriority;
 
-@Ds(entity = OpportunityPriority.class, sort = {@SortField(field = OpportunityPriorityDs.fNAME)})
+@Ds(entity = OpportunityPriority.class, sort = {@SortField(field = OpportunityPriorityDs.f_name)})
 public class OpportunityPriorityDs extends AbstractTypeDs<OpportunityPriority> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
+	public static final String f_sequenceNo = "sequenceNo";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
 	public OpportunityPriorityDs() {

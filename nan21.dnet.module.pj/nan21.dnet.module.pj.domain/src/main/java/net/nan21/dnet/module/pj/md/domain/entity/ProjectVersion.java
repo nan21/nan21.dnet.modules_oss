@@ -33,8 +33,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = ProjectVersion.NQ_FIND_BY_ID, query = "SELECT e FROM ProjectVersion e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ProjectVersion.NQ_FIND_BY_IDS, query = "SELECT e FROM ProjectVersion e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProjectVersion.NQ_FIND_BY_NAME, query = "SELECT e FROM ProjectVersion e WHERE e.clientId = :pClientId and e.project = :pProject and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM ProjectVersion e WHERE e.clientId = :pClientId and e.project.id = :pProjectId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -47,16 +45,6 @@ public class ProjectVersion extends AbstractType {
 	public static final String SEQUENCE_NAME = "PJ_PRJ_VER_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ProjectVersion.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ProjectVersion.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

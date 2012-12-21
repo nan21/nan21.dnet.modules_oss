@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.grade.domain.entity.GradeRate;
 
-@Ds(entity = GradeRate.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = GradeRateLovDs.fNAME)})
+@Ds(entity = GradeRate.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = GradeRateLovDs.f_name)})
 public class GradeRateLovDs extends AbstractTypeLov<GradeRate> {
 
 	public GradeRateLovDs() {

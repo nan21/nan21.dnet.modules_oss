@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 
-@Ds(entity = SysParam.class, sort = {@SortField(field = SysParamDs.fNAME)})
+@Ds(entity = SysParam.class, sort = {@SortField(field = SysParamDs.f_name)})
 public class SysParamDs extends AbstractTypeWithCodeDs<SysParam> {
 
-	public static final String fDEFAULTVALUE = "defaultValue";
-	public static final String fVALUE = "value";
+	public static final String f_defaultValue = "defaultValue";
+	public static final String f_value = "value";
 
-	@DsField()
+	@DsField
 	private String defaultValue;
 
-	@DsField()
+	@DsField
 	private String value;
 
 	public SysParamDs() {

@@ -11,23 +11,23 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;
 
-@Ds(entity = ActProcessDefinition.class, sort = {@SortField(field = ActProcessDefinitionLovDs.fNAME)})
+@Ds(entity = ActProcessDefinition.class, sort = {@SortField(field = ActProcessDefinitionLovDs.f_name)})
 public class ActProcessDefinitionLovDs
 		extends
 			AbstractBaseDs<ActProcessDefinition> {
 
-	public static final String fID = "id";
-	public static final String fCLIENTID = "clientId";
-	public static final String fNAME = "name";
-	public static final String fFULLNAME = "fullName";
+	public static final String f_id = "id";
+	public static final String f_clientId = "clientId";
+	public static final String f_name = "name";
+	public static final String f_fullName = "fullName";
 
-	@DsField()
+	@DsField
 	private String id;
 
-	@DsField()
+	@DsField
 	private Long clientId;
 
-	@DsField()
+	@DsField
 	private String name;
 
 	@DsField(fetch = false, jpqlFilter = " e.name like :fullName ")

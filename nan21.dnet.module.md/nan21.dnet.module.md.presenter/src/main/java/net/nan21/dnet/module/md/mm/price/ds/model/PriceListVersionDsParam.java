@@ -9,10 +9,10 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class PriceListVersionDsParam extends EmptyParam {
 
-	public static final String fPRODUCTCATEGORYID = "productCategoryId";
-	public static final String fPRODUCTCATEGORY = "productCategory";
-	public static final String fCOPYFROMVERSIONID = "copyFromVersionId";
-	public static final String fCOPYFROMVERSION = "copyFromVersion";
+	public static final String f_productCategoryId = "productCategoryId";
+	public static final String f_productCategory = "productCategory";
+	public static final String f_copyFromVersionId = "copyFromVersionId";
+	public static final String f_copyFromVersion = "copyFromVersion";
 
 	private Long productCategoryId;
 

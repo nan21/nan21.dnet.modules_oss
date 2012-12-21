@@ -7,26 +7,33 @@ package net.nan21.dnet.module.ad.usr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.ad.usr.domain.entity.Menu;
 import net.nan21.dnet.module.ad.usr.domain.entity.MenuItem;
 
-@Ds(entity = MenuItem.class, sort = {@SortField(field = MenuItemDs.fNAME)})
+@Ds(entity = MenuItem.class, sort = {@SortField(field = MenuItemDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = MenuItemDs.f_menuItemId, namedQuery = MenuItem.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = MenuItemDs.f_menuItem)}),
+		@RefLookup(refId = MenuItemDs.f_menuId, namedQuery = Menu.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = MenuItemDs.f_menu)})})
 public class MenuItemDs extends AbstractTypeDs<MenuItem> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fMENUITEMID = "menuItemId";
-	public static final String fMENUITEM = "menuItem";
-	public static final String fMENUID = "menuId";
-	public static final String fMENU = "menu";
-	public static final String fTITLE = "title";
-	public static final String fFRAME = "frame";
-	public static final String fBUNDLE = "bundle";
-	public static final String fICONURL = "iconUrl";
-	public static final String fSEPARATORBEFORE = "separatorBefore";
-	public static final String fSEPARATORAFTER = "separatorAfter";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_menuItemId = "menuItemId";
+	public static final String f_menuItem = "menuItem";
+	public static final String f_menuId = "menuId";
+	public static final String f_menu = "menu";
+	public static final String f_title = "title";
+	public static final String f_frame = "frame";
+	public static final String f_bundle = "bundle";
+	public static final String f_iconUrl = "iconUrl";
+	public static final String f_separatorBefore = "separatorBefore";
+	public static final String f_separatorAfter = "separatorAfter";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
 	@DsField(join = "left", path = "menuItem.id")
@@ -41,22 +48,22 @@ public class MenuItemDs extends AbstractTypeDs<MenuItem> {
 	@DsField(join = "left", path = "menu.name")
 	private String menu;
 
-	@DsField()
+	@DsField
 	private String title;
 
-	@DsField()
+	@DsField
 	private String frame;
 
-	@DsField()
+	@DsField
 	private String bundle;
 
-	@DsField()
+	@DsField
 	private String iconUrl;
 
-	@DsField()
+	@DsField
 	private Boolean separatorBefore;
 
-	@DsField()
+	@DsField
 	private Boolean separatorAfter;
 
 	public MenuItemDs() {

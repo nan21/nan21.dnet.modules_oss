@@ -13,37 +13,37 @@ import net.nan21.dnet.module.ad.workflow.domain.entity.ActVariable;
 @Ds(entity = ActVariable.class)
 public class ActVariableDs extends AbstractBaseDs<ActVariable> {
 
-	public static final String fTYPE = "type";
-	public static final String fNAME = "name";
-	public static final String fPROCESSINSTANCEID = "processInstanceId";
-	public static final String fEXECUTIONID = "executionId";
-	public static final String fDOUBLEVALUE = "doubleValue";
-	public static final String fLONGVALUE = "longValue";
-	public static final String fTEXTVALUE = "textValue";
-	public static final String fTEXTVALUE2 = "textValue2";
+	public static final String f_type = "type";
+	public static final String f_name = "name";
+	public static final String f_processInstanceId = "processInstanceId";
+	public static final String f_executionId = "executionId";
+	public static final String f_doubleValue = "doubleValue";
+	public static final String f_longValue = "longValue";
+	public static final String f_textValue = "textValue";
+	public static final String f_textValue2 = "textValue2";
 
-	@DsField()
+	@DsField
 	private String type;
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String processInstanceId;
 
-	@DsField()
+	@DsField
 	private String executionId;
 
-	@DsField()
+	@DsField
 	private Float doubleValue;
 
-	@DsField()
+	@DsField
 	private Long longValue;
 
-	@DsField()
+	@DsField
 	private String textValue;
 
-	@DsField()
+	@DsField
 	private String textValue2;
 
 	public ActVariableDs() {

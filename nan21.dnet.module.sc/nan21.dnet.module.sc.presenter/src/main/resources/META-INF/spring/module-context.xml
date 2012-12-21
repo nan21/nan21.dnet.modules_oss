@@ -37,7 +37,7 @@
 
 	<!-- Presenter services -->  
 
-	<import resource="beans/sc.account.ds.xml"/>
-	<import resource="beans/sc.order.ds.xml"/>
-	<import resource="beans/sc.invoice.ds.xml"/>
+	<import resource="beans/account.xml"/>
+	<import resource="beans/order.xml"/>
+	<import resource="beans/invoice.xml"/>
 </beans>

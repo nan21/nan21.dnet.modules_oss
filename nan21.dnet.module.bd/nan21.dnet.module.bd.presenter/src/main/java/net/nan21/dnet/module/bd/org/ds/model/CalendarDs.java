@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 
-@Ds(entity = Calendar.class, sort = {@SortField(field = CalendarDs.fNAME)})
+@Ds(entity = Calendar.class, sort = {@SortField(field = CalendarDs.f_name)})
 public class CalendarDs extends AbstractTypeDs<Calendar> {
 
 	public CalendarDs() {

@@ -13,45 +13,45 @@ import net.nan21.dnet.module.ad.client.domain.entity.Client;
 @Ds(entity = Client.class)
 public class ClientDs extends X_AbstractAuditedDs<Client> {
 
-	public static final String fNAME = "name";
-	public static final String fCODE = "code";
-	public static final String fNOTES = "notes";
-	public static final String fMAINTENANCELANGUAGE = "maintenanceLanguage";
-	public static final String fDEFAULTIMPORTPATH = "defaultImportPath";
-	public static final String fDEFAULTEXPORTPATH = "defaultExportPath";
-	public static final String fTEMPPATH = "tempPath";
-	public static final String fSYSTEMCLIENT = "systemClient";
-	public static final String fDEFAULTDSACCESSRULE = "defaultDsAccessRule";
-	public static final String fADMINROLE = "adminRole";
+	public static final String f_name = "name";
+	public static final String f_code = "code";
+	public static final String f_notes = "notes";
+	public static final String f_maintenanceLanguage = "maintenanceLanguage";
+	public static final String f_defaultImportPath = "defaultImportPath";
+	public static final String f_defaultExportPath = "defaultExportPath";
+	public static final String f_tempPath = "tempPath";
+	public static final String f_systemClient = "systemClient";
+	public static final String f_defaultDsAccessRule = "defaultDsAccessRule";
+	public static final String f_adminRole = "adminRole";
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String notes;
 
-	@DsField()
+	@DsField
 	private String maintenanceLanguage;
 
-	@DsField()
+	@DsField
 	private String defaultImportPath;
 
-	@DsField()
+	@DsField
 	private String defaultExportPath;
 
-	@DsField()
+	@DsField
 	private String tempPath;
 
-	@DsField()
+	@DsField
 	private Boolean systemClient;
 
-	@DsField()
+	@DsField
 	private String defaultDsAccessRule;
 
-	@DsField()
+	@DsField
 	private String adminRole;
 
 	public ClientDs() {

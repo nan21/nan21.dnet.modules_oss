@@ -7,20 +7,32 @@ package net.nan21.dnet.module.md.bp.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationItem;
+import net.nan21.dnet.module.bd.standards.domain.entity.ClassificationSystem;
 import net.nan21.dnet.module.md.bp.domain.entity.BpClassification;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
 @Ds(entity = BpClassification.class)
+@RefLookups({
+		@RefLookup(refId = BpClassificationDs.f_businessPartnerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpClassificationDs.f_businessPartner)}),
+		@RefLookup(refId = BpClassificationDs.f_classificationSystemId, namedQuery = ClassificationSystem.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpClassificationDs.f_classificationSystem)}),
+		@RefLookup(refId = BpClassificationDs.f_classificationId, namedQuery = ClassificationItem.NQ_FIND_BY_SYSCODE_PRIMITIVE, params = {
+				@Param(name = "pClassSystemId", field = BpClassificationDs.f_classificationSystemId),
+				@Param(name = "pCode", field = BpClassificationDs.f_classificationCode)})})
 public class BpClassificationDs extends AbstractAuditableDs<BpClassification> {
 
-	public static final String fBUSINESSPARTNERID = "businessPartnerId";
-	public static final String fBUSINESSPARTNER = "businessPartner";
-	public static final String fBUSINESSPARTNERBO = "businessPartnerBO";
-	public static final String fCLASSIFICATIONSYSTEMID = "classificationSystemId";
-	public static final String fCLASSIFICATIONSYSTEM = "classificationSystem";
-	public static final String fCLASSIFICATIONID = "classificationId";
-	public static final String fCLASSIFICATIONCODE = "classificationCode";
-	public static final String fCLASSIFICATIONNAME = "classificationName";
+	public static final String f_businessPartnerId = "businessPartnerId";
+	public static final String f_businessPartner = "businessPartner";
+	public static final String f_businessPartnerBO = "businessPartnerBO";
+	public static final String f_classificationSystemId = "classificationSystemId";
+	public static final String f_classificationSystem = "classificationSystem";
+	public static final String f_classificationId = "classificationId";
+	public static final String f_classificationCode = "classificationCode";
+	public static final String f_classificationName = "classificationName";
 
 	@DsField(join = "left", path = "bp.id")
 	private Long businessPartnerId;

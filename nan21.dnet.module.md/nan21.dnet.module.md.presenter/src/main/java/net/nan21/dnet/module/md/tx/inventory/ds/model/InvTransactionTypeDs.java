@@ -7,17 +7,22 @@ package net.nan21.dnet.module.md.tx.inventory.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
 import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType;
 
-@Ds(entity = InvTransactionType.class, sort = {@SortField(field = InvTransactionTypeDs.fNAME)})
+@Ds(entity = InvTransactionType.class, sort = {@SortField(field = InvTransactionTypeDs.f_name)})
+@RefLookups({@RefLookup(refId = InvTransactionTypeDs.f_docTypeId, namedQuery = TxDocType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = InvTransactionTypeDs.f_docType)})})
 public class InvTransactionTypeDs extends AbstractTypeDs<InvTransactionType> {
 
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
-	public static final String fHASFROMINVENTORY = "hasFromInventory";
-	public static final String fHASTOINVENTORY = "hasToInventory";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
+	public static final String f_hasFromInventory = "hasFromInventory";
+	public static final String f_hasToInventory = "hasToInventory";
 
 	@DsField(join = "left", path = "docType.id")
 	private Long docTypeId;
@@ -25,10 +30,10 @@ public class InvTransactionTypeDs extends AbstractTypeDs<InvTransactionType> {
 	@DsField(join = "left", path = "docType.name")
 	private String docType;
 
-	@DsField()
+	@DsField
 	private Boolean hasFromInventory;
 
-	@DsField()
+	@DsField
 	private Boolean hasToInventory;
 
 	public InvTransactionTypeDs() {

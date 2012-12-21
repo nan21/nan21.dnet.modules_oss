@@ -13,21 +13,21 @@ import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 @Ds(entity = Employee.class)
 public class EmployeeLovDs extends AbstractAuditableLov<Employee> {
 
-	public static final String fFIRSTNAME = "firstName";
-	public static final String fLASTNAME = "lastName";
-	public static final String fNAME = "name";
-	public static final String fCODE = "code";
+	public static final String f_firstName = "firstName";
+	public static final String f_lastName = "lastName";
+	public static final String f_name = "name";
+	public static final String f_code = "code";
 
-	@DsField()
+	@DsField
 	private String firstName;
 
-	@DsField()
+	@DsField
 	private String lastName;
 
 	@DsField(orderBy = "lastName,firstName", fetch = false, jpqlFilter = " e.lastName like :name ")
 	private String name;
 
-	@DsField()
+	@DsField
 	private String code;
 
 	public EmployeeLovDs() {

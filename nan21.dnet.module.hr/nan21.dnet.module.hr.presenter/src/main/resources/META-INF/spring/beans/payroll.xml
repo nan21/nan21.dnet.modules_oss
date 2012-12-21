@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== PayrollElement ==================== -->
+	
+	<bean id="PayrollElementDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
+		<property name="converterClass" value="net.nan21.dnet.module.hr.payroll.ds.converter.PayrollElementDsConv" />
+	</bean>
+	
+	<!-- ==================== PayrollElementLov ==================== -->
+	
+	<bean id="PayrollElementLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PayrollElementSourceLov ==================== -->
+	
+	<bean id="PayrollElementSourceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementSourceLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PayrollElementBalanceLov ==================== -->
+	
+	<bean id="PayrollElementBalanceLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementBalanceLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PayrollManualValue ==================== -->
+	
+	<bean id="PayrollManualValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollManualValueDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElementValue"/>
+	</bean>
+	
+	<!-- ==================== PayrollElementValue ==================== -->
+	
+	<bean id="PayrollElementValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementValueDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementValueDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElementValue"/>
+		<property name="paramClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollElementValueDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.hr.payroll.ds.qb.PayrollElementValueDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PayrollBalanceValue ==================== -->
+	
+	<bean id="PayrollBalanceValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollBalanceValueDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollBalanceValueDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElementValue"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Payroll ==================== -->
+	
+	<bean id="PayrollDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.Payroll"/>
+	</bean>
+	
+	<!-- ==================== PayrollLov ==================== -->
+	
+	<bean id="PayrollLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.Payroll"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PayrollPeriod ==================== -->
+	
+	<bean id="PayrollPeriodDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="open">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.hr._presenterdelegates.payroll.PayrollPeriodProcessorPD"/>
+						<constructor-arg name="methodName" value="open" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="process">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.hr._presenterdelegates.payroll.PayrollPeriodProcessorPD"/>
+						<constructor-arg name="methodName" value="process" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="clear">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.hr._presenterdelegates.payroll.PayrollPeriodProcessorPD"/>
+						<constructor-arg name="methodName" value="clear" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+				<entry key="close">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.hr._presenterdelegates.payroll.PayrollPeriodProcessorPD"/>
+						<constructor-arg name="methodName" value="close" />
+						<constructor-arg name="reloadFromEntity" value="true" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== PayrollPeriodLov ==================== -->
+	
+	<bean id="PayrollPeriodLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.hr.payroll.ds.model.PayrollPeriodLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.hr.payroll.domain.entity.PayrollPeriod"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

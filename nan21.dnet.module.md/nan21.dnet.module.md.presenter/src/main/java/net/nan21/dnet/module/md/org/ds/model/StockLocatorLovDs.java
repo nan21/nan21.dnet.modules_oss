@@ -11,10 +11,10 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.org.domain.entity.StockLocator;
 
-@Ds(entity = StockLocator.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = StockLocatorLovDs.fNAME)})
+@Ds(entity = StockLocator.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = StockLocatorLovDs.f_name)})
 public class StockLocatorLovDs extends AbstractTypeLov<StockLocator> {
 
-	public static final String fSUBINVENTORYID = "subInventoryId";
+	public static final String f_subInventoryId = "subInventoryId";
 
 	@DsField(join = "left", path = "subInventory.id")
 	private Long subInventoryId;

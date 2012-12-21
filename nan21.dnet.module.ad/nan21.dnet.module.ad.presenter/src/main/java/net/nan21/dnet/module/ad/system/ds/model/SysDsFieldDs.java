@@ -7,16 +7,21 @@ package net.nan21.dnet.module.ad.system.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsField;
 
-@Ds(entity = SysDsField.class, sort = {@SortField(field = SysDsFieldDs.fNAME)})
+@Ds(entity = SysDsField.class, sort = {@SortField(field = SysDsFieldDs.f_name)})
+@RefLookups({@RefLookup(refId = SysDsFieldDs.f_dataSourceId, namedQuery = SysDataSource.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SysDsFieldDs.f_dataSource)})})
 public class SysDsFieldDs extends AbstractTypeDs<SysDsField> {
 
-	public static final String fDATASOURCEID = "dataSourceId";
-	public static final String fDATASOURCE = "dataSource";
-	public static final String fDATATYPE = "dataType";
+	public static final String f_dataSourceId = "dataSourceId";
+	public static final String f_dataSource = "dataSource";
+	public static final String f_dataType = "dataType";
 
 	@DsField(join = "left", path = "dataSource.id")
 	private Long dataSourceId;
@@ -24,7 +29,7 @@ public class SysDsFieldDs extends AbstractTypeDs<SysDsField> {
 	@DsField(join = "left", path = "dataSource.name")
 	private String dataSource;
 
-	@DsField()
+	@DsField
 	private String dataType;
 
 	public SysDsFieldDs() {

@@ -8,51 +8,69 @@ package net.nan21.dnet.module.sc.invoice.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
+import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
 import net.nan21.dnet.module.sc.invoice.domain.entity.PurchaseInvoice;
 
-@Ds(entity = PurchaseInvoice.class, sort = {@SortField(field = PurchaseInvoiceDs.fDOCDATE, desc = true)})
+@Ds(entity = PurchaseInvoice.class, sort = {@SortField(field = PurchaseInvoiceDs.f_docDate, desc = true)})
+@RefLookups({
+		@RefLookup(refId = PurchaseInvoiceDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseInvoiceDs.f_currency)}),
+		@RefLookup(refId = PurchaseInvoiceDs.f_paymentMethodId, namedQuery = PaymentMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseInvoiceDs.f_paymentMethod)}),
+		@RefLookup(refId = PurchaseInvoiceDs.f_paymentTermId, namedQuery = PaymentTerm.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseInvoiceDs.f_paymentTerm)}),
+		@RefLookup(refId = PurchaseInvoiceDs.f_docTypeId, namedQuery = TxDocType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseInvoiceDs.f_docType)}),
+		@RefLookup(refId = PurchaseInvoiceDs.f_supplierId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseInvoiceDs.f_supplier)}),
+		@RefLookup(refId = PurchaseInvoiceDs.f_customerId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseInvoiceDs.f_customer)}),
+		@RefLookup(refId = PurchaseInvoiceDs.f_fromAccountId, namedQuery = FinancialAccount.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseInvoiceDs.f_fromAccount)})})
 public class PurchaseInvoiceDs extends AbstractAuditableDs<PurchaseInvoice> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCDATE = "docDate";
-	public static final String fCUSTOMERID = "customerId";
-	public static final String fCUSTOMER = "customer";
-	public static final String fSUPPLIERID = "supplierId";
-	public static final String fSUPPLIERUUID = "supplierUuid";
-	public static final String fSUPPLIERCODE = "supplierCode";
-	public static final String fSUPPLIER = "supplier";
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
-	public static final String fDESCRIPTION = "description";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
-	public static final String fPAYMENTMETHODTYPE = "paymentMethodType";
-	public static final String fPAYMENTTERMID = "paymentTermId";
-	public static final String fPAYMENTTERM = "paymentTerm";
-	public static final String fSELFPAYED = "selfPayed";
-	public static final String fFROMACCOUNTID = "fromAccountId";
-	public static final String fFROMACCOUNT = "fromAccount";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fTOTALNETAMOUNT = "totalNetAmount";
-	public static final String fTOTALTAXAMOUNT = "totalTaxAmount";
-	public static final String fTOTALAMOUNT = "totalAmount";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fPOSTED = "posted";
-	public static final String fPURCHASEORDERID = "purchaseOrderId";
-	public static final String fCLASSNAME = "className";
-	public static final String fBUSINESSOBJECT = "businessObject";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_docDate = "docDate";
+	public static final String f_customerId = "customerId";
+	public static final String f_customer = "customer";
+	public static final String f_supplierId = "supplierId";
+	public static final String f_supplierUuid = "supplierUuid";
+	public static final String f_supplierCode = "supplierCode";
+	public static final String f_supplier = "supplier";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
+	public static final String f_description = "description";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
+	public static final String f_paymentMethodType = "paymentMethodType";
+	public static final String f_paymentTermId = "paymentTermId";
+	public static final String f_paymentTerm = "paymentTerm";
+	public static final String f_selfPayed = "selfPayed";
+	public static final String f_fromAccountId = "fromAccountId";
+	public static final String f_fromAccount = "fromAccount";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_totalNetAmount = "totalNetAmount";
+	public static final String f_totalTaxAmount = "totalTaxAmount";
+	public static final String f_totalAmount = "totalAmount";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_posted = "posted";
+	public static final String f_purchaseOrderId = "purchaseOrderId";
+	public static final String f_className = "className";
+	public static final String f_businessObject = "businessObject";
 
 	@DsField(noUpdate = true)
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
-	@DsField()
+	@DsField
 	private Date docDate;
 
 	@DsField(noUpdate = true, join = "left", path = "customer.id")
@@ -79,7 +97,7 @@ public class PurchaseInvoiceDs extends AbstractAuditableDs<PurchaseInvoice> {
 	@DsField(join = "left", path = "docType.name")
 	private String docType;
 
-	@DsField()
+	@DsField
 	private String description;
 
 	@DsField(join = "left", path = "paymentMethod.id")
@@ -97,7 +115,7 @@ public class PurchaseInvoiceDs extends AbstractAuditableDs<PurchaseInvoice> {
 	@DsField(join = "left", path = "paymentTerm.name")
 	private String paymentTerm;
 
-	@DsField()
+	@DsField
 	private Boolean selfPayed;
 
 	@DsField(join = "left", path = "fromAccount.id")
@@ -112,19 +130,19 @@ public class PurchaseInvoiceDs extends AbstractAuditableDs<PurchaseInvoice> {
 	@DsField(join = "left", path = "currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private Float totalNetAmount;
 
-	@DsField()
+	@DsField
 	private Float totalTaxAmount;
 
-	@DsField()
+	@DsField
 	private Float totalAmount;
 
-	@DsField()
+	@DsField
 	private Boolean confirmed;
 
-	@DsField()
+	@DsField
 	private Boolean posted;
 
 	@DsField(join = "left", path = "purchaseOrder.id")

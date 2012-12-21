@@ -9,7 +9,7 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class PurchaseTxAmountOverviewDsParam extends EmptyParam {
 
-	public static final String fOVERDUE = "overDue";
+	public static final String f_overDue = "overDue";
 
 	private Boolean overDue;
 

@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.hr.training.domain.entity.Course;
 
-@Ds(entity = Course.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CourseLovDs.fCODE)})
+@Ds(entity = Course.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = CourseLovDs.f_code)})
 public class CourseLovDs extends AbstractTypeWithCodeLov<Course> {
 
 	public CourseLovDs() {

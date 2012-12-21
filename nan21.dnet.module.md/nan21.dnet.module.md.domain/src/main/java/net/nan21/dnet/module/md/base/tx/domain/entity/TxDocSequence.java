@@ -24,10 +24,7 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Document auto-numbering sequence setup.  */
-@NamedQueries({
-		@NamedQuery(name = TxDocSequence.NQ_FIND_BY_ID, query = "SELECT e FROM TxDocSequence e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = TxDocSequence.NQ_FIND_BY_IDS, query = "SELECT e FROM TxDocSequence e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = TxDocSequence.NQ_FIND_BY_NAME, query = "SELECT e FROM TxDocSequence e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = TxDocSequence.NQ_FIND_BY_NAME, query = "SELECT e FROM TxDocSequence e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = TxDocSequence.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = TxDocSequence.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -38,16 +35,6 @@ public class TxDocSequence extends AbstractType {
 	public static final String SEQUENCE_NAME = "MD_TXDOC_SEQ_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "TxDocSequence.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "TxDocSequence.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

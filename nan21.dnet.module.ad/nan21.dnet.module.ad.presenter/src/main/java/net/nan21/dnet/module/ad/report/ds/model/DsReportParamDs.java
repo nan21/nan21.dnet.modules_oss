@@ -7,21 +7,30 @@ package net.nan21.dnet.module.ad.report.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.ad.report.domain.entity.DsReportParam;
+import net.nan21.dnet.module.ad.report.domain.entity.ReportParam;
 
 @Ds(entity = DsReportParam.class)
+@RefLookups({
+		@RefLookup(refId = DsReportParamDs.f_dsReportId),
+		@RefLookup(refId = DsReportParamDs.f_paramId, namedQuery = ReportParam.NQ_FIND_BY_CODE_PRIMITIVE, params = {
+				@Param(name = "pReportId", field = DsReportParamDs.f_reportId),
+				@Param(name = "pCode", field = DsReportParamDs.f_paramCode)})})
 public class DsReportParamDs extends AbstractAuditableDs<DsReportParam> {
 
-	public static final String fDSREPORTID = "dsReportId";
-	public static final String fREPORTID = "reportId";
-	public static final String fREPORTCODE = "reportCode";
-	public static final String fPARAMID = "paramId";
-	public static final String fPARAMCODE = "paramCode";
-	public static final String fPARAMNAME = "paramName";
-	public static final String fDATASOURCE = "dataSource";
-	public static final String fDSFIELD = "dsField";
-	public static final String fSTATICVALUE = "staticValue";
+	public static final String f_dsReportId = "dsReportId";
+	public static final String f_reportId = "reportId";
+	public static final String f_reportCode = "reportCode";
+	public static final String f_paramId = "paramId";
+	public static final String f_paramCode = "paramCode";
+	public static final String f_paramName = "paramName";
+	public static final String f_dataSource = "dataSource";
+	public static final String f_dsField = "dsField";
+	public static final String f_staticValue = "staticValue";
 
 	@DsField(join = "left", path = "dsReport.id")
 	private Long dsReportId;
@@ -44,10 +53,10 @@ public class DsReportParamDs extends AbstractAuditableDs<DsReportParam> {
 	@DsField(join = "left", path = "dsReport.dataSource")
 	private String dataSource;
 
-	@DsField()
+	@DsField
 	private String dsField;
 
-	@DsField()
+	@DsField
 	private String staticValue;
 
 	public DsReportParamDs() {

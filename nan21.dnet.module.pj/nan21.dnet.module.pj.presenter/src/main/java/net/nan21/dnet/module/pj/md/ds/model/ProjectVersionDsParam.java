@@ -9,8 +9,8 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ProjectVersionDsParam extends EmptyParam {
 
-	public static final String fHIDERELEASED = "hideReleased";
-	public static final String fHIDEDUE = "hideDue";
+	public static final String f_hideReleased = "hideReleased";
+	public static final String f_hideDue = "hideDue";
 
 	private Boolean hideReleased;
 

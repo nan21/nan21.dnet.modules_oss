@@ -11,10 +11,10 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceReason;
 
-@Ds(entity = AbsenceReason.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AbsenceReasonLovDs.fNAME)})
+@Ds(entity = AbsenceReason.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = AbsenceReasonLovDs.f_name)})
 public class AbsenceReasonLovDs extends AbstractTypeLov<AbsenceReason> {
 
-	public static final String fTYPEID = "typeId";
+	public static final String f_typeId = "typeId";
 
 	@DsField(join = "left", path = "type.id")
 	private Long typeId;

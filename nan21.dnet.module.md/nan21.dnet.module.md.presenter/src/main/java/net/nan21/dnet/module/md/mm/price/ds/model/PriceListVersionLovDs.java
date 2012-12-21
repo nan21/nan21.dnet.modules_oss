@@ -12,16 +12,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 
-@Ds(entity = PriceListVersion.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PriceListVersionLovDs.fNAME)})
+@Ds(entity = PriceListVersion.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PriceListVersionLovDs.f_name)})
 public class PriceListVersionLovDs extends AbstractTypeLov<PriceListVersion> {
 
-	public static final String fPRICELISTID = "priceListId";
-	public static final String fVALIDFROM = "validFrom";
+	public static final String f_priceListId = "priceListId";
+	public static final String f_validFrom = "validFrom";
 
 	@DsField(join = "left", path = "priceList.id")
 	private Long priceListId;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
 	public PriceListVersionLovDs() {

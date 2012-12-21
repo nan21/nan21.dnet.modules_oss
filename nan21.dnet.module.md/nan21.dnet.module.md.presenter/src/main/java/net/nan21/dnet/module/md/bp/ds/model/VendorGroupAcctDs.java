@@ -7,22 +7,33 @@ package net.nan21.dnet.module.md.bp.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
+import net.nan21.dnet.module.md.bp.domain.entity.VendorGroup;
 import net.nan21.dnet.module.md.bp.domain.entity.VendorGroupAcct;
 
 @Ds(entity = VendorGroupAcct.class)
+@RefLookups({
+		@RefLookup(refId = VendorGroupAcctDs.f_vendorGroupId, namedQuery = VendorGroup.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = VendorGroupAcctDs.f_vendorGroup)}),
+		@RefLookup(refId = VendorGroupAcctDs.f_purchaseAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = VendorGroupAcctDs.f_purchaseAccount)}),
+		@RefLookup(refId = VendorGroupAcctDs.f_prepayAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = VendorGroupAcctDs.f_prepayAccount)}),
+		@RefLookup(refId = VendorGroupAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = VendorGroupAcctDs.f_accSchema)})})
 public class VendorGroupAcctDs extends AbstractAuditableDs<VendorGroupAcct> {
 
-	public static final String fVENDORGROUPID = "vendorGroupId";
-	public static final String fVENDORGROUP = "vendorGroup";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fPURCHASEACCOUNTID = "purchaseAccountId";
-	public static final String fPURCHASEACCOUNT = "purchaseAccount";
-	public static final String fPURCHASEACCOUNTNAME = "purchaseAccountName";
-	public static final String fPREPAYACCOUNTID = "prepayAccountId";
-	public static final String fPREPAYACCOUNT = "prepayAccount";
-	public static final String fPREPAYACCOUNTNAME = "prepayAccountName";
+	public static final String f_vendorGroupId = "vendorGroupId";
+	public static final String f_vendorGroup = "vendorGroup";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_purchaseAccountId = "purchaseAccountId";
+	public static final String f_purchaseAccount = "purchaseAccount";
+	public static final String f_purchaseAccountName = "purchaseAccountName";
+	public static final String f_prepayAccountId = "prepayAccountId";
+	public static final String f_prepayAccount = "prepayAccount";
+	public static final String f_prepayAccountName = "prepayAccountName";
 
 	@DsField(join = "left", path = "vendorGroup.id")
 	private Long vendorGroupId;

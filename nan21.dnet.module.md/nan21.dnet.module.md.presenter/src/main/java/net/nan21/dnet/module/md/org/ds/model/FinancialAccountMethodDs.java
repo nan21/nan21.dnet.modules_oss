@@ -7,21 +7,29 @@ package net.nan21.dnet.module.md.org.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
+import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccountMethod;
 
 @Ds(entity = FinancialAccountMethod.class)
+@RefLookups({
+		@RefLookup(refId = FinancialAccountMethodDs.f_financialAccountId, namedQuery = FinancialAccount.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = FinancialAccountMethodDs.f_financialAccount)}),
+		@RefLookup(refId = FinancialAccountMethodDs.f_payMethodId, namedQuery = PaymentMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = FinancialAccountMethodDs.f_payMethod)})})
 public class FinancialAccountMethodDs
 		extends
 			AbstractAuditableDs<FinancialAccountMethod> {
 
-	public static final String fFINANCIALACCOUNTID = "financialAccountId";
-	public static final String fFINANCIALACCOUNT = "financialAccount";
-	public static final String fFINANCIALACCOUNTTYPE = "financialAccountType";
-	public static final String fPAYMETHODID = "payMethodId";
-	public static final String fPAYMETHOD = "payMethod";
-	public static final String fALLOWPAYIN = "allowPayIn";
-	public static final String fALLOWPAYOUT = "allowPayOut";
+	public static final String f_financialAccountId = "financialAccountId";
+	public static final String f_financialAccount = "financialAccount";
+	public static final String f_financialAccountType = "financialAccountType";
+	public static final String f_payMethodId = "payMethodId";
+	public static final String f_payMethod = "payMethod";
+	public static final String f_allowPayIn = "allowPayIn";
+	public static final String f_allowPayOut = "allowPayOut";
 
 	@DsField(join = "left", path = "financialAccount.id")
 	private Long financialAccountId;
@@ -38,10 +46,10 @@ public class FinancialAccountMethodDs
 	@DsField(join = "left", path = "payMethod.name")
 	private String payMethod;
 
-	@DsField()
+	@DsField
 	private Boolean allowPayIn;
 
-	@DsField()
+	@DsField
 	private Boolean allowPayOut;
 
 	public FinancialAccountMethodDs() {

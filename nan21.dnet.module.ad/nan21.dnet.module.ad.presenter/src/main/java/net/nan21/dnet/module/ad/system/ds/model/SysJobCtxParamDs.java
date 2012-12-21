@@ -7,18 +7,25 @@ package net.nan21.dnet.module.ad.system.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx;
 import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtxParam;
 
 @Ds(entity = SysJobCtxParam.class)
+@RefLookups({
+		@RefLookup(refId = SysJobCtxParamDs.f_jobCtxId, namedQuery = SysJobCtx.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SysJobCtxParamDs.f_jobCtx)}),
+		@RefLookup(refId = SysJobCtxParamDs.f_jobParamId)})
 public class SysJobCtxParamDs extends AbstractAuditableDs<SysJobCtxParam> {
 
-	public static final String fJOBCTXID = "jobCtxId";
-	public static final String fJOBCTX = "jobCtx";
-	public static final String fJOBALIAS = "jobAlias";
-	public static final String fJOBPARAMID = "jobParamId";
-	public static final String fJOBPARAM = "jobParam";
-	public static final String fDATATYPE = "dataType";
+	public static final String f_jobCtxId = "jobCtxId";
+	public static final String f_jobCtx = "jobCtx";
+	public static final String f_jobAlias = "jobAlias";
+	public static final String f_jobParamId = "jobParamId";
+	public static final String f_jobParam = "jobParam";
+	public static final String f_dataType = "dataType";
 
 	@DsField(join = "left", path = "jobCtx.id")
 	private Long jobCtxId;

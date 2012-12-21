@@ -7,43 +7,54 @@ package net.nan21.dnet.module.pj.md.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskStatus;
+import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskType;
+import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 import net.nan21.dnet.module.pj.md.domain.entity.IssueTask;
 
 @Ds(entity = IssueTask.class)
+@RefLookups({
+		@RefLookup(refId = IssueTaskDs.f_issueId, namedQuery = Issue.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = IssueTaskDs.f_issue)}),
+		@RefLookup(refId = IssueTaskDs.f_assigneeId),
+		@RefLookup(refId = IssueTaskDs.f_typeId, namedQuery = IssueTaskType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueTaskDs.f_type)}),
+		@RefLookup(refId = IssueTaskDs.f_statusId, namedQuery = IssueTaskStatus.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = IssueTaskDs.f_status)})})
 public class IssueTaskDs extends AbstractAuditableDs<IssueTask> {
 
-	public static final String fCODE = "code";
-	public static final String fDESCRIPTION = "description";
-	public static final String fISSUEID = "issueId";
-	public static final String fISSUEUUID = "issueUuId";
-	public static final String fISSUE = "issue";
-	public static final String fISSUESUMMARY = "issueSummary";
-	public static final String fISSUEPRIORITYID = "issuePriorityId";
-	public static final String fISSUEPRIORITY = "issuePriority";
-	public static final String fISSUETYPEID = "issueTypeId";
-	public static final String fISSUETYPE = "issueType";
-	public static final String fISSUESTATUSID = "issueStatusId";
-	public static final String fISSUESTATUS = "issueStatus";
-	public static final String fISSUESEVERITYID = "issueSeverityId";
-	public static final String fISSUESEVERITY = "issueSeverity";
-	public static final String fISSUEPRIORITYSEQUENCENO = "issuePrioritySequenceNo";
-	public static final String fISSUEBUSINESSOBJECT = "issueBusinessObject";
-	public static final String fISSUECLASSNAME = "issueClassName";
-	public static final String fPROJECTID = "projectId";
-	public static final String fPROJECT = "project";
-	public static final String fPROJECTNAME = "projectName";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fSTATUSID = "statusId";
-	public static final String fSTATUS = "status";
-	public static final String fASSIGNEEID = "assigneeId";
-	public static final String fASSIGNEE = "assignee";
+	public static final String f_code = "code";
+	public static final String f_description = "description";
+	public static final String f_issueId = "issueId";
+	public static final String f_issueUuId = "issueUuId";
+	public static final String f_issue = "issue";
+	public static final String f_issueSummary = "issueSummary";
+	public static final String f_issuePriorityId = "issuePriorityId";
+	public static final String f_issuePriority = "issuePriority";
+	public static final String f_issueTypeId = "issueTypeId";
+	public static final String f_issueType = "issueType";
+	public static final String f_issueStatusId = "issueStatusId";
+	public static final String f_issueStatus = "issueStatus";
+	public static final String f_issueSeverityId = "issueSeverityId";
+	public static final String f_issueSeverity = "issueSeverity";
+	public static final String f_issuePrioritySequenceNo = "issuePrioritySequenceNo";
+	public static final String f_issueBusinessObject = "issueBusinessObject";
+	public static final String f_issueClassName = "issueClassName";
+	public static final String f_projectId = "projectId";
+	public static final String f_project = "project";
+	public static final String f_projectName = "projectName";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_statusId = "statusId";
+	public static final String f_status = "status";
+	public static final String f_assigneeId = "assigneeId";
+	public static final String f_assignee = "assignee";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String description;
 
 	@DsField(join = "left", path = "issue.id")

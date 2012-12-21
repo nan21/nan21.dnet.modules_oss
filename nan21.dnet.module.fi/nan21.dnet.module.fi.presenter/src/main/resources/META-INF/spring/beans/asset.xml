@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== AssetCategory ==================== -->
+	
+	<bean id="AssetCategoryDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory"/>
+	</bean>
+	
+	<!-- ==================== AssetCategoryLov ==================== -->
+	
+	<bean id="AssetCategoryLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== AssetCategoryAcct ==================== -->
+	
+	<bean id="AssetCategoryAcctDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetCategoryAcctDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetCategoryAcct"/>
+	</bean>
+	
+	<!-- ==================== Asset ==================== -->
+	
+	<bean id="AssetDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.Asset"/>
+	</bean>
+	
+	<!-- ==================== AssetAcct ==================== -->
+	
+	<bean id="AssetAcctDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AssetAcctDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.AssetAcct"/>
+	</bean>
+	
+	<!-- ==================== Amortization ==================== -->
+	
+	<bean id="AmortizationDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.fi.asset.ds.model.AmortizationDs"/>
+		<property name="filterClass" value="net.nan21.dnet.module.fi.asset.ds.model.AmortizationDsFilter"/>
+		<property name="entityClass" value="net.nan21.dnet.module.fi.asset.domain.entity.Amortization"/>
+	</bean>
+</beans>

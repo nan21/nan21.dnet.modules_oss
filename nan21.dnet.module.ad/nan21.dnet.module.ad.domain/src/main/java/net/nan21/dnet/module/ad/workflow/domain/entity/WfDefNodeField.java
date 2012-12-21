@@ -28,10 +28,7 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = WfDefNodeField.NQ_FIND_BY_ID, query = "SELECT e FROM WfDefNodeField e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = WfDefNodeField.NQ_FIND_BY_IDS, query = "SELECT e FROM WfDefNodeField e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = WfDefNodeField.NQ_FIND_BY_NAME, query = "SELECT e FROM WfDefNodeField e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = WfDefNodeField.NQ_FIND_BY_NAME, query = "SELECT e FROM WfDefNodeField e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = WfDefNodeField.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = WfDefNodeField.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -42,16 +39,6 @@ public class WfDefNodeField extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_WFDEF_NODE_FLD_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "WfDefNodeField.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "WfDefNodeField.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

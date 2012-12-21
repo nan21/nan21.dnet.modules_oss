@@ -30,8 +30,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = TaxAcct.NQ_FIND_BY_ID, query = "SELECT e FROM TaxAcct e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = TaxAcct.NQ_FIND_BY_IDS, query = "SELECT e FROM TaxAcct e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = TaxAcct.NQ_FIND_BY_TAX_SCHEMA, query = "SELECT e FROM TaxAcct e WHERE e.clientId = :pClientId and e.tax = :pTax and e.accSchema = :pAccSchema", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = TaxAcct.NQ_FIND_BY_TAX_SCHEMA_PRIMITIVE, query = "SELECT e FROM TaxAcct e WHERE e.clientId = :pClientId and e.tax.id = :pTaxId and e.accSchema.id = :pAccSchemaId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -44,16 +42,6 @@ public class TaxAcct extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "MD_TAX_ACCT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "TaxAcct.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "TaxAcct.findByIds";
 
 	/**
 	 * Named query find by unique key: Tax_schema.

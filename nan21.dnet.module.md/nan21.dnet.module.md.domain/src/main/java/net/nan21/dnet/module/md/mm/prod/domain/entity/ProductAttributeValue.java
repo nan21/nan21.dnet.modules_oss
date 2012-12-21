@@ -30,8 +30,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** Product attribute. */
 @NamedQueries({
-		@NamedQuery(name = ProductAttributeValue.NQ_FIND_BY_ID, query = "SELECT e FROM ProductAttributeValue e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ProductAttributeValue.NQ_FIND_BY_IDS, query = "SELECT e FROM ProductAttributeValue e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProductAttributeValue.NQ_FIND_BY_NAME, query = "SELECT e FROM ProductAttributeValue e WHERE e.clientId = :pClientId and e.product = :pProduct and e.attribute = :pAttribute", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ProductAttributeValue.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM ProductAttributeValue e WHERE e.clientId = :pClientId and e.product.id = :pProductId and e.attribute.id = :pAttributeId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -44,16 +42,6 @@ public class ProductAttributeValue extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "MD_PROD_ATTR_VAL_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ProductAttributeValue.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ProductAttributeValue.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

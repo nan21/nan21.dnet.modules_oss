@@ -7,20 +7,30 @@ package net.nan21.dnet.module.md.mm.price.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.uom.domain.entity.Uom;
+import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 import net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 
 @Ds(entity = ProductPrice.class)
+@RefLookups({
+		@RefLookup(refId = ProductPriceDs.f_productId, namedQuery = Product.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProductPriceDs.f_product)}),
+		@RefLookup(refId = ProductPriceDs.f_priceListVersionId, namedQuery = PriceListVersion.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProductPriceDs.f_priceListVersion)}),
+		@RefLookup(refId = ProductPriceDs.f_uomId, namedQuery = Uom.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductPriceDs.f_uom)})})
 public class ProductPriceDs extends AbstractAuditableDs<ProductPrice> {
 
-	public static final String fPRICELISTVERSIONID = "priceListVersionId";
-	public static final String fPRICELISTVERSION = "priceListVersion";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCT = "product";
-	public static final String fPRODUCTNAME = "productName";
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
-	public static final String fPRICE = "price";
+	public static final String f_priceListVersionId = "priceListVersionId";
+	public static final String f_priceListVersion = "priceListVersion";
+	public static final String f_productId = "productId";
+	public static final String f_product = "product";
+	public static final String f_productName = "productName";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
+	public static final String f_price = "price";
 
 	@DsField(join = "left", path = "priceListVersion.id")
 	private Long priceListVersionId;
@@ -43,7 +53,7 @@ public class ProductPriceDs extends AbstractAuditableDs<ProductPrice> {
 	@DsField(join = "left", path = "uom.code")
 	private String uom;
 
-	@DsField()
+	@DsField
 	private Float price;
 
 	public ProductPriceDs() {

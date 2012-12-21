@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
 
-@Ds(entity = AccSchema.class, sort = {@SortField(field = AccSchemaDs.fNAME)})
+@Ds(entity = AccSchema.class, sort = {@SortField(field = AccSchemaDs.f_name)})
 public class AccSchemaDs extends AbstractTypeWithCodeDs<AccSchema> {
 
 	public AccSchemaDs() {

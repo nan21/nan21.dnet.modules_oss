@@ -7,21 +7,26 @@ package net.nan21.dnet.module.ad.impex.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.impex.domain.entity.ImportMap;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
 
-@Ds(entity = ImportMapItem.class, sort = {@SortField(field = ImportMapItemDs.fSEQUENCENO)})
+@Ds(entity = ImportMapItem.class, sort = {@SortField(field = ImportMapItemDs.f_sequenceNo)})
+@RefLookups({@RefLookup(refId = ImportMapItemDs.f_importMapId, namedQuery = ImportMap.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ImportMapItemDs.f_importMapName)})})
 public class ImportMapItemDs extends AbstractAuditableDs<ImportMapItem> {
 
-	public static final String fIMPORTMAPID = "importMapId";
-	public static final String fIMPORTMAPNAME = "importMapName";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fDATASOURCE = "dataSource";
-	public static final String fPATH = "path";
-	public static final String fFILENAME = "fileName";
-	public static final String fUKFIELDNAME = "ukFieldName";
-	public static final String fACTIVE = "active";
+	public static final String f_importMapId = "importMapId";
+	public static final String f_importMapName = "importMapName";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_dataSource = "dataSource";
+	public static final String f_path = "path";
+	public static final String f_fileName = "fileName";
+	public static final String f_ukFieldName = "ukFieldName";
+	public static final String f_active = "active";
 
 	@DsField(join = "left", path = "importMap.id")
 	private Long importMapId;
@@ -29,22 +34,22 @@ public class ImportMapItemDs extends AbstractAuditableDs<ImportMapItem> {
 	@DsField(join = "left", path = "importMap.name")
 	private String importMapName;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
 	@DsField(path = "dataSourceName")
 	private String dataSource;
 
-	@DsField()
+	@DsField
 	private String path;
 
-	@DsField()
+	@DsField
 	private String fileName;
 
-	@DsField()
+	@DsField
 	private String ukFieldName;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
 	public ImportMapItemDs() {

@@ -23,10 +23,7 @@ import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = RegionType.NQ_FIND_BY_ID, query = "SELECT e FROM RegionType e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = RegionType.NQ_FIND_BY_IDS, query = "SELECT e FROM RegionType e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = RegionType.NQ_FIND_BY_NAME, query = "SELECT e FROM RegionType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = RegionType.NQ_FIND_BY_NAME, query = "SELECT e FROM RegionType e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = RegionType.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = RegionType.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -37,16 +34,6 @@ public class RegionType extends AbstractType {
 	public static final String SEQUENCE_NAME = "BD_GEO_REGION_TYPE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "RegionType.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "RegionType.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

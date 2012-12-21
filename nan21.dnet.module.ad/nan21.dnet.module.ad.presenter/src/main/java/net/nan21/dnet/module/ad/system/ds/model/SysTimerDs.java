@@ -8,22 +8,27 @@ package net.nan21.dnet.module.ad.system.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.ad.system.domain.entity.SysJobCtx;
 import net.nan21.dnet.module.ad.system.domain.entity.SysTimer;
 
-@Ds(entity = SysTimer.class, sort = {@SortField(field = SysTimerDs.fNAME)})
+@Ds(entity = SysTimer.class, sort = {@SortField(field = SysTimerDs.f_name)})
+@RefLookups({@RefLookup(refId = SysTimerDs.f_jobCtxId, namedQuery = SysJobCtx.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SysTimerDs.f_jobCtx)})})
 public class SysTimerDs extends AbstractTypeDs<SysTimer> {
 
-	public static final String fJOBCTXID = "jobCtxId";
-	public static final String fJOBCTX = "jobCtx";
-	public static final String fSTARTTIME = "startTime";
-	public static final String fENDTIME = "endTime";
-	public static final String fTYPE = "type";
-	public static final String fCRONEXPRESSION = "cronExpression";
-	public static final String fREPEATCOUNT = "repeatCount";
-	public static final String fREPEATINTERVAL = "repeatInterval";
-	public static final String fREPEATINTERVALTYPE = "repeatIntervalType";
+	public static final String f_jobCtxId = "jobCtxId";
+	public static final String f_jobCtx = "jobCtx";
+	public static final String f_startTime = "startTime";
+	public static final String f_endTime = "endTime";
+	public static final String f_type = "type";
+	public static final String f_cronExpression = "cronExpression";
+	public static final String f_repeatCount = "repeatCount";
+	public static final String f_repeatInterval = "repeatInterval";
+	public static final String f_repeatIntervalType = "repeatIntervalType";
 
 	@DsField(join = "left", path = "jobCtx.id")
 	private Long jobCtxId;
@@ -31,25 +36,25 @@ public class SysTimerDs extends AbstractTypeDs<SysTimer> {
 	@DsField(join = "left", path = "jobCtx.name")
 	private String jobCtx;
 
-	@DsField()
+	@DsField
 	private Date startTime;
 
-	@DsField()
+	@DsField
 	private Date endTime;
 
-	@DsField()
+	@DsField
 	private String type;
 
-	@DsField()
+	@DsField
 	private String cronExpression;
 
-	@DsField()
+	@DsField
 	private Integer repeatCount;
 
-	@DsField()
+	@DsField
 	private Integer repeatInterval;
 
-	@DsField()
+	@DsField
 	private String repeatIntervalType;
 
 	public SysTimerDs() {

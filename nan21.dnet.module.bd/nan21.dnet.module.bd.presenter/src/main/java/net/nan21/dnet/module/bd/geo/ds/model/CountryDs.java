@@ -11,22 +11,22 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 
-@Ds(entity = Country.class, sort = {@SortField(field = CountryDs.fNAME)})
+@Ds(entity = Country.class, sort = {@SortField(field = CountryDs.f_name)})
 public class CountryDs extends AbstractTypeWithCodeDs<Country> {
 
-	public static final String fISO2 = "iso2";
-	public static final String fISO3 = "iso3";
-	public static final String fHASREGIONS = "hasRegions";
-	public static final String fCURRENCY = "currency";
-	public static final String fLANGUAGE = "language";
+	public static final String f_iso2 = "iso2";
+	public static final String f_iso3 = "iso3";
+	public static final String f_hasRegions = "hasRegions";
+	public static final String f_currency = "currency";
+	public static final String f_language = "language";
 
-	@DsField()
+	@DsField
 	private String iso2;
 
-	@DsField()
+	@DsField
 	private String iso3;
 
-	@DsField()
+	@DsField
 	private Boolean hasRegions;
 
 	@DsField(path = "defaultCurrency")

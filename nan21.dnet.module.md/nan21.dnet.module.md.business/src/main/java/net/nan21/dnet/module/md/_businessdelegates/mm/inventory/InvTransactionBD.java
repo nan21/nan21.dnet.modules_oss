@@ -22,10 +22,8 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 	protected TypedQuery<InvBalance> balanceQuery;
 
 	public void confirm(Long transactionId) throws BusinessException {
-		InvTransaction transaction = (InvTransaction) this.getEntityManager()
-				.createNamedQuery(InvTransaction.NQ_FIND_BY_ID)
-				.setParameter("pClientId", Session.user.get().getClientId())
-				.setParameter("pId", transactionId).getResultList().get(0);
+		InvTransaction transaction = this.findEntityService(
+				InvTransaction.class).findById(transactionId);
 
 		if (transaction == null) {
 			throw new RuntimeException("Transaction with ID=" + transactionId
@@ -36,8 +34,8 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 					+ " is already confirmed!");
 		}
 
-		String stockEql = "select e from InvBalance e "
-				+ " where e.clientId = :pClientId "
+		String stockEql = "select e from " + InvBalance.class.getSimpleName()
+				+ " e " + " where e.clientId = :pClientId "
 				+ "   and e.subInventory.id = :pSubInventoryId"
 				+ "   and e.item.id = :pItemId";
 		this.balanceQuery = this.getEntityManager().createQuery(stockEql,
@@ -50,10 +48,8 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 	}
 
 	public void unConfirm(Long transactionId) throws BusinessException {
-		InvTransaction transaction = (InvTransaction) this.getEntityManager()
-				.createNamedQuery(InvTransaction.NQ_FIND_BY_ID)
-				.setParameter("pClientId", Session.user.get().getClientId())
-				.setParameter("pId", transactionId).getResultList().get(0);
+		InvTransaction transaction = this.findEntityService(
+				InvTransaction.class).findById(transactionId);
 
 		if (transaction == null) {
 			throw new RuntimeException("Transaction with ID=" + transactionId
@@ -64,8 +60,8 @@ public class InvTransactionBD extends AbstractBusinessDelegate {
 
 		// get operations to update balance
 
-		String stockEql = "select e from InvBalance e "
-				+ " where e.clientId = :pClientId "
+		String stockEql = "select e from " + InvBalance.class.getSimpleName()
+				+ " e " + " where e.clientId = :pClientId "
 				+ "   and e.subInventory.id = :pSubInventoryId"
 				+ "   and e.item.id = :pItemId";
 		this.balanceQuery = this.getEntityManager().createQuery(stockEql,

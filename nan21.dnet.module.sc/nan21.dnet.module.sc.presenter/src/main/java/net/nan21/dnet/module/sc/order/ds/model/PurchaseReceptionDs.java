@@ -8,43 +8,54 @@ package net.nan21.dnet.module.sc.order.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransactionType;
 import net.nan21.dnet.module.sc.order.domain.entity.PurchaseInventoryTransaction;
 
 @Ds(entity = PurchaseInventoryTransaction.class)
+@RefLookups({
+		@RefLookup(refId = PurchaseReceptionDs.f_supplierId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = PurchaseReceptionDs.f_supplierCode)}),
+		@RefLookup(refId = PurchaseReceptionDs.f_transactionTypeId, namedQuery = InvTransactionType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseReceptionDs.f_transactionType)}),
+		@RefLookup(refId = PurchaseReceptionDs.f_carrierId, namedQuery = Organization.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseReceptionDs.f_carrier)}),
+		@RefLookup(refId = PurchaseReceptionDs.f_warehouseId, namedQuery = Organization.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PurchaseReceptionDs.f_warehouse)})})
 public class PurchaseReceptionDs
 		extends
 			AbstractAuditableDs<PurchaseInventoryTransaction> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fDOCDATE = "docDate";
-	public static final String fEVENTDATE = "eventDate";
-	public static final String fSUPPLIERID = "supplierId";
-	public static final String fSUPPLIERCODE = "supplierCode";
-	public static final String fSUPPLIER = "supplier";
-	public static final String fPURCHASEORDERID = "purchaseOrderId";
-	public static final String fPURCHASEORDERUUID = "purchaseOrderUuid";
-	public static final String fPURCHASEORDER = "purchaseOrder";
-	public static final String fTRANSACTIONTYPEID = "transactionTypeId";
-	public static final String fTRANSACTIONTYPE = "transactionType";
-	public static final String fCARRIERID = "carrierId";
-	public static final String fCARRIER = "carrier";
-	public static final String fWAREHOUSEID = "warehouseId";
-	public static final String fWAREHOUSE = "warehouse";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fPOSTED = "posted";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_docDate = "docDate";
+	public static final String f_eventDate = "eventDate";
+	public static final String f_supplierId = "supplierId";
+	public static final String f_supplierCode = "supplierCode";
+	public static final String f_supplier = "supplier";
+	public static final String f_purchaseOrderId = "purchaseOrderId";
+	public static final String f_purchaseOrderUuid = "purchaseOrderUuid";
+	public static final String f_purchaseOrder = "purchaseOrder";
+	public static final String f_transactionTypeId = "transactionTypeId";
+	public static final String f_transactionType = "transactionType";
+	public static final String f_carrierId = "carrierId";
+	public static final String f_carrier = "carrier";
+	public static final String f_warehouseId = "warehouseId";
+	public static final String f_warehouse = "warehouse";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_posted = "posted";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
-	@DsField()
+	@DsField
 	private Date docDate;
 
-	@DsField()
+	@DsField
 	private Date eventDate;
 
 	@DsField(join = "left", path = "supplier.id")
@@ -83,10 +94,10 @@ public class PurchaseReceptionDs
 	@DsField(join = "left", path = "toInventory.code")
 	private String warehouse;
 
-	@DsField()
+	@DsField
 	private Boolean confirmed;
 
-	@DsField()
+	@DsField
 	private Boolean posted;
 
 	public PurchaseReceptionDs() {

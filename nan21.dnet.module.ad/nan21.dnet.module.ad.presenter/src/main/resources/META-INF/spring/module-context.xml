@@ -63,12 +63,12 @@
 
 	<!-- Presenter services -->  
 
-	<import resource="beans/ad.client.ds.xml"/>
-	<import resource="beans/ad.data.ds.xml"/>
-	<import resource="beans/ad.impex.ds.xml"/>
-	<import resource="beans/ad.report.ds.xml"/>
-	<import resource="beans/ad.system.ds.xml"/>
-	<import resource="beans/ad.usr.ds.xml"/>
-	<import resource="beans/ad.workflow.ds.xml"/>
-	<import resource="beans/ad.usr.asgn.xml"/>
+	<import resource="beans/client.xml"/>
+	<import resource="beans/data.xml"/>
+	<import resource="beans/impex.xml"/>
+	<import resource="beans/report.xml"/>
+	<import resource="beans/system.xml"/>
+	<import resource="beans/usr.xml"/>
+	<import resource="beans/usr.asgn.xml"/>
+	<import resource="beans/workflow.xml"/>
 </beans>

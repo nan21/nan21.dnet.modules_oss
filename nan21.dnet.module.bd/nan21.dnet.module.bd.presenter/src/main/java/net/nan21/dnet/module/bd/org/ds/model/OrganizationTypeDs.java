@@ -11,36 +11,36 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.org.domain.entity.OrganizationType;
 
-@Ds(entity = OrganizationType.class, sort = {@SortField(field = OrganizationTypeDs.fNAME)})
+@Ds(entity = OrganizationType.class, sort = {@SortField(field = OrganizationTypeDs.f_name)})
 public class OrganizationTypeDs extends AbstractTypeDs<OrganizationType> {
 
-	public static final String fVIRTUALENTITY = "virtualEntity";
-	public static final String fLEGALENTITY = "legalEntity";
-	public static final String fACCOUNTINGENABLED = "accountingEnabled";
-	public static final String fINVENTORY = "inventory";
-	public static final String fEXTERNAL = "external";
-	public static final String fCARRIER = "carrier";
-	public static final String fWAREHOUSE = "warehouse";
+	public static final String f_virtualEntity = "virtualEntity";
+	public static final String f_legalEntity = "legalEntity";
+	public static final String f_accountingEnabled = "accountingEnabled";
+	public static final String f_inventory = "inventory";
+	public static final String f_external = "external";
+	public static final String f_carrier = "carrier";
+	public static final String f_warehouse = "warehouse";
 
-	@DsField()
+	@DsField
 	private Boolean virtualEntity;
 
-	@DsField()
+	@DsField
 	private Boolean legalEntity;
 
-	@DsField()
+	@DsField
 	private Boolean accountingEnabled;
 
-	@DsField()
+	@DsField
 	private Boolean inventory;
 
-	@DsField()
+	@DsField
 	private Boolean external;
 
-	@DsField()
+	@DsField
 	private Boolean carrier;
 
-	@DsField()
+	@DsField
 	private Boolean warehouse;
 
 	public OrganizationTypeDs() {

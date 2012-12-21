@@ -11,13 +11,13 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElement;
 
-@Ds(entity = PayrollElement.class, jpqlWhere = " e.balance = false ", sort = {@SortField(field = PayrollElementSourceLovDs.fCODE)})
+@Ds(entity = PayrollElement.class, jpqlWhere = " e.balance = false ", sort = {@SortField(field = PayrollElementSourceLovDs.f_code)})
 public class PayrollElementSourceLovDs
 		extends
 			AbstractTypeWithCodeLov<PayrollElement> {
 
-	public static final String fENGINEID = "engineId";
-	public static final String fENGINE = "engine";
+	public static final String f_engineId = "engineId";
+	public static final String f_engine = "engine";
 
 	@DsField(join = "left", path = "engine.id")
 	private Long engineId;

@@ -7,21 +7,29 @@ package net.nan21.dnet.module.bd.org.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Calendar;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.bd.org.domain.entity.OrganizationType;
 
-@Ds(entity = Organization.class, sort = {@SortField(field = OrganizationDs.fNAME)})
+@Ds(entity = Organization.class, sort = {@SortField(field = OrganizationDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = OrganizationDs.f_typeId, namedQuery = OrganizationType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OrganizationDs.f_type)}),
+		@RefLookup(refId = OrganizationDs.f_calendarId, namedQuery = Calendar.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = OrganizationDs.f_calendar)})})
 public class OrganizationDs extends AbstractTypeWithCodeDs<Organization> {
 
-	public static final String fVALID = "valid";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fCALENDARID = "calendarId";
-	public static final String fCALENDAR = "calendar";
-	public static final String fCLASSNAME = "className";
+	public static final String f_valid = "valid";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_calendarId = "calendarId";
+	public static final String f_calendar = "calendar";
+	public static final String f_className = "className";
 
-	@DsField()
+	@DsField
 	private Boolean valid;
 
 	@DsField(join = "left", path = "type.id")

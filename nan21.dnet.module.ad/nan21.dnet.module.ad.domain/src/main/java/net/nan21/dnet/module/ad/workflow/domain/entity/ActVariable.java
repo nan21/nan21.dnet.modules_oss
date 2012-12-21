@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.workflow.domain.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import net.nan21.dnet.core.api.model.IModelWithId;
@@ -24,34 +23,20 @@ import net.nan21.dnet.module.ad.workflow.domain.entity.ActByteArray;
 import org.eclipse.persistence.annotations.Cache;
 import org.eclipse.persistence.annotations.CacheType;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = ActVariable.NQ_FIND_BY_ID, query = "SELECT e FROM ActVariable e WHERE  e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ActVariable.NQ_FIND_BY_IDS, query = "SELECT e FROM ActVariable e WHERE  e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = ActVariable.TABLE_NAME)
 @Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActVariable implements IModelWithId {
+public class ActVariable implements IModelWithId, Serializable {
 
 	public static final String TABLE_NAME = "ACT_RU_VARIABLE";
 	public static final String SEQUENCE_NAME = "ACT_RU_VARIABLE_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ActVariable.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ActVariable.findByIds";
 
 	@Column(name = "ID_", nullable = false, length = 64)
 	@NotBlank

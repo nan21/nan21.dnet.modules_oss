@@ -8,19 +8,24 @@ package net.nan21.dnet.module.md.base.period.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalPeriod;
+import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
 
-@Ds(entity = FiscalPeriod.class, sort = {@SortField(field = FiscalPeriodDs.fSTARTDATE, desc = true)})
+@Ds(entity = FiscalPeriod.class, sort = {@SortField(field = FiscalPeriodDs.f_startDate, desc = true)})
+@RefLookups({@RefLookup(refId = FiscalPeriodDs.f_yearId, namedQuery = FiscalYear.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = FiscalPeriodDs.f_year)})})
 public class FiscalPeriodDs extends AbstractTypeWithCodeDs<FiscalPeriod> {
 
-	public static final String fYEARID = "yearId";
-	public static final String fYEAR = "year";
-	public static final String fTYPE = "type";
-	public static final String fSTARTDATE = "startDate";
-	public static final String fENDDATE = "endDate";
-	public static final String fPOSTING = "posting";
+	public static final String f_yearId = "yearId";
+	public static final String f_year = "year";
+	public static final String f_type = "type";
+	public static final String f_startDate = "startDate";
+	public static final String f_endDate = "endDate";
+	public static final String f_posting = "posting";
 
 	@DsField(join = "left", path = "year.id")
 	private Long yearId;
@@ -28,16 +33,16 @@ public class FiscalPeriodDs extends AbstractTypeWithCodeDs<FiscalPeriod> {
 	@DsField(join = "left", path = "year.code")
 	private String year;
 
-	@DsField()
+	@DsField
 	private String type;
 
-	@DsField()
+	@DsField
 	private Date startDate;
 
-	@DsField()
+	@DsField
 	private Date endDate;
 
-	@DsField()
+	@DsField
 	private Boolean posting;
 
 	public FiscalPeriodDs() {

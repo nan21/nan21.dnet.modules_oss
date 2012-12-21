@@ -29,8 +29,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-		@NamedQuery(name = PayScalePoint.NQ_FIND_BY_ID, query = "SELECT e FROM PayScalePoint e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = PayScalePoint.NQ_FIND_BY_IDS, query = "SELECT e FROM PayScalePoint e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = PayScalePoint.NQ_FIND_BY_SCALE_CODE, query = "SELECT e FROM PayScalePoint e WHERE e.clientId = :pClientId and e.payScale = :pPayScale and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = PayScalePoint.NQ_FIND_BY_SCALE_CODE_PRIMITIVE, query = "SELECT e FROM PayScalePoint e WHERE e.clientId = :pClientId and e.payScale.id = :pPayScaleId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -43,16 +41,6 @@ public class PayScalePoint extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "HR_PAYSCL_POINT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "PayScalePoint.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "PayScalePoint.findByIds";
 
 	/**
 	 * Named query find by unique key: Scale_code.

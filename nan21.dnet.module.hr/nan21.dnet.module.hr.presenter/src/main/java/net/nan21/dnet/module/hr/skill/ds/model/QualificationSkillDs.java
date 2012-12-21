@@ -7,21 +7,32 @@ package net.nan21.dnet.module.hr.skill.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.skill.domain.entity.QualificationSkill;
+import net.nan21.dnet.module.hr.skill.domain.entity.RatingLevel;
+import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
 
-@Ds(entity = QualificationSkill.class, sort = {@SortField(field = QualificationSkillDs.fSKILL)})
+@Ds(entity = QualificationSkill.class, sort = {@SortField(field = QualificationSkillDs.f_skill)})
+@RefLookups({
+		@RefLookup(refId = QualificationSkillDs.f_qualificationId),
+		@RefLookup(refId = QualificationSkillDs.f_skillId, namedQuery = Skill.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = QualificationSkillDs.f_skill)}),
+		@RefLookup(refId = QualificationSkillDs.f_requiredLevelId, namedQuery = RatingLevel.NQ_FIND_BY_NAME_PRIMITIVE, params = {
+				@Param(name = "pName", field = QualificationSkillDs.f_requiredLevel),
+				@Param(name = "pRatingScaleId", field = QualificationSkillDs.f_ratingScaleId)})})
 public class QualificationSkillDs
 		extends
 			AbstractAuditableDs<QualificationSkill> {
 
-	public static final String fQUALIFICATIONID = "qualificationId";
-	public static final String fSKILLID = "skillId";
-	public static final String fSKILL = "skill";
-	public static final String fRATINGSCALEID = "ratingScaleId";
-	public static final String fREQUIREDLEVELID = "requiredLevelId";
-	public static final String fREQUIREDLEVEL = "requiredLevel";
+	public static final String f_qualificationId = "qualificationId";
+	public static final String f_skillId = "skillId";
+	public static final String f_skill = "skill";
+	public static final String f_ratingScaleId = "ratingScaleId";
+	public static final String f_requiredLevelId = "requiredLevelId";
+	public static final String f_requiredLevel = "requiredLevel";
 
 	@DsField(join = "left", path = "qualification.id")
 	private Long qualificationId;

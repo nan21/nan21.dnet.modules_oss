@@ -8,18 +8,23 @@ package net.nan21.dnet.module.md.mm.price.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 import net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion;
 
-@Ds(entity = PriceListVersion.class, sort = {@SortField(field = PriceListVersionDs.fNAME)})
+@Ds(entity = PriceListVersion.class, sort = {@SortField(field = PriceListVersionDs.f_name)})
+@RefLookups({@RefLookup(refId = PriceListVersionDs.f_priceListId, namedQuery = PriceList.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PriceListVersionDs.f_priceList)})})
 public class PriceListVersionDs extends AbstractTypeDs<PriceListVersion> {
 
-	public static final String fPRICELISTID = "priceListId";
-	public static final String fPRICELIST = "priceList";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fVALIDFROM = "validFrom";
+	public static final String f_priceListId = "priceListId";
+	public static final String f_priceList = "priceList";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_validFrom = "validFrom";
 
 	@DsField(join = "left", path = "priceList.id")
 	private Long priceListId;
@@ -33,7 +38,7 @@ public class PriceListVersionDs extends AbstractTypeDs<PriceListVersion> {
 	@DsField(join = "left", path = "priceList.currency.code")
 	private String currency;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
 	public PriceListVersionDs() {

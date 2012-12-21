@@ -29,10 +29,7 @@ import org.hibernate.validator.constraints.NotBlank;
 /**
  * Application menus.
  */
-@NamedQueries({
-		@NamedQuery(name = Menu.NQ_FIND_BY_ID, query = "SELECT e FROM Menu e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Menu.NQ_FIND_BY_IDS, query = "SELECT e FROM Menu e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Menu.NQ_FIND_BY_NAME, query = "SELECT e FROM Menu e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = Menu.NQ_FIND_BY_NAME, query = "SELECT e FROM Menu e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = Menu.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Menu.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -43,16 +40,6 @@ public class Menu extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_MENU_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "Menu.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "Menu.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

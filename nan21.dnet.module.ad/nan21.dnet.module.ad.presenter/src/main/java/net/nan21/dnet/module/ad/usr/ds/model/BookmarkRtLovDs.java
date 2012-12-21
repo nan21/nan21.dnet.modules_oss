@@ -11,20 +11,20 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.Bookmark;
 
-@Ds(entity = Bookmark.class, sort = {@SortField(field = BookmarkRtLovDs.fSEQUENCENO)})
+@Ds(entity = Bookmark.class, sort = {@SortField(field = BookmarkRtLovDs.f_sequenceNo)})
 public class BookmarkRtLovDs extends AbstractTypeDs<Bookmark> {
 
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fPARENTID = "parentId";
-	public static final String fPARENT = "parent";
-	public static final String fTEXT = "text";
-	public static final String fFRAME = "frame";
-	public static final String fBUNDLE = "bundle";
-	public static final String fSEPARATORBEFORE = "separatorBefore";
-	public static final String fSEPARATORAFTER = "separatorAfter";
-	public static final String fLEAF = "leaf";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_parentId = "parentId";
+	public static final String f_parent = "parent";
+	public static final String f_text = "text";
+	public static final String f_frame = "frame";
+	public static final String f_bundle = "bundle";
+	public static final String f_separatorBefore = "separatorBefore";
+	public static final String f_separatorAfter = "separatorAfter";
+	public static final String f_leaf = "leaf";
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
 	@DsField(join = "left", path = "parent.id")
@@ -36,16 +36,16 @@ public class BookmarkRtLovDs extends AbstractTypeDs<Bookmark> {
 	@DsField(path = "title")
 	private String text;
 
-	@DsField()
+	@DsField
 	private String frame;
 
-	@DsField()
+	@DsField
 	private String bundle;
 
-	@DsField()
+	@DsField
 	private Boolean separatorBefore;
 
-	@DsField()
+	@DsField
 	private Boolean separatorAfter;
 
 	@DsField(fetch = false, path = "leafNode")

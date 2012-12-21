@@ -7,26 +7,34 @@ package net.nan21.dnet.module.ad.usr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat;
 import net.nan21.dnet.module.ad.usr.domain.entity.User;
+import net.nan21.dnet.module.ad.usr.domain.entity.UserType;
 
-@Ds(entity = User.class, sort = {@SortField(field = UserDs.fNAME)})
+@Ds(entity = User.class, sort = {@SortField(field = UserDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = UserDs.f_accountTypeId, namedQuery = UserType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = UserDs.f_accountType)}),
+		@RefLookup(refId = UserDs.f_dateFormatId, namedQuery = SysDateFormat.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = UserDs.f_dateFormat)})})
 public class UserDs extends AbstractTypeWithCodeDs<User> {
 
-	public static final String fCODE = "code";
-	public static final String fLOCKED = "locked";
-	public static final String fACCOUNTTYPE = "accountType";
-	public static final String fACCOUNTTYPEID = "accountTypeId";
-	public static final String fDECIMALSEPARATOR = "decimalSeparator";
-	public static final String fTHOUSANDSEPARATOR = "thousandSeparator";
-	public static final String fDATEFORMATID = "dateFormatId";
-	public static final String fDATEFORMAT = "dateFormat";
+	public static final String f_code = "code";
+	public static final String f_locked = "locked";
+	public static final String f_accountType = "accountType";
+	public static final String f_accountTypeId = "accountTypeId";
+	public static final String f_decimalSeparator = "decimalSeparator";
+	public static final String f_thousandSeparator = "thousandSeparator";
+	public static final String f_dateFormatId = "dateFormatId";
+	public static final String f_dateFormat = "dateFormat";
 
 	@DsField(noUpdate = true)
 	private String code;
 
-	@DsField()
+	@DsField
 	private Boolean locked;
 
 	@DsField(join = "left", path = "accountType.name")
@@ -35,10 +43,10 @@ public class UserDs extends AbstractTypeWithCodeDs<User> {
 	@DsField(join = "left", path = "accountType.id")
 	private Long accountTypeId;
 
-	@DsField()
+	@DsField
 	private String decimalSeparator;
 
-	@DsField()
+	@DsField
 	private String thousandSeparator;
 
 	@DsField(join = "left", path = "dateFormat.id")

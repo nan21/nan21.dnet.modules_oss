@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 
-@Ds(entity = SysDataSource.class, jpqlWhere = " e.isAsgn = true ", sort = {@SortField(field = SysDataSourceAsgnLovDs.fNAME)})
+@Ds(entity = SysDataSource.class, jpqlWhere = " e.isAsgn = true ", sort = {@SortField(field = SysDataSourceAsgnLovDs.f_name)})
 public class SysDataSourceAsgnLovDs extends AbstractTypeLov<SysDataSource> {
 
 	public SysDataSourceAsgnLovDs() {

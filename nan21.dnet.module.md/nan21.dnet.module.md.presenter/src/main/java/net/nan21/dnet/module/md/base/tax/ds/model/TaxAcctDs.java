@@ -7,25 +7,36 @@ package net.nan21.dnet.module.md.base.tax.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
+import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
 import net.nan21.dnet.module.md.base.tax.domain.entity.TaxAcct;
 
 @Ds(entity = TaxAcct.class)
+@RefLookups({
+		@RefLookup(refId = TaxAcctDs.f_taxId, namedQuery = Tax.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = TaxAcctDs.f_tax)}),
+		@RefLookup(refId = TaxAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = TaxAcctDs.f_accSchema)}),
+		@RefLookup(refId = TaxAcctDs.f_salesAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = TaxAcctDs.f_salesAccount)}),
+		@RefLookup(refId = TaxAcctDs.f_purchaseAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = TaxAcctDs.f_purchaseAccount)})})
 public class TaxAcctDs extends AbstractAuditableDs<TaxAcct> {
 
-	public static final String fTAXID = "taxId";
-	public static final String fTAX = "tax";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fSALESACCOUNTID = "salesAccountId";
-	public static final String fSALESACCOUNT = "salesAccount";
-	public static final String fSALESACCOUNTNAME = "salesAccountName";
-	public static final String fPURCHASEACCOUNTID = "purchaseAccountId";
-	public static final String fPURCHASEACCOUNT = "purchaseAccount";
-	public static final String fPURCHASEACCOUNTNAME = "purchaseAccountName";
-	public static final String fNONDEDUCTACCOUNTID = "nonDeductAccountId";
-	public static final String fNONDEDUCTACCOUNT = "nonDeductAccount";
-	public static final String fNONDEDUCTACCOUNTNAME = "nonDeductAccountName";
+	public static final String f_taxId = "taxId";
+	public static final String f_tax = "tax";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_salesAccountId = "salesAccountId";
+	public static final String f_salesAccount = "salesAccount";
+	public static final String f_salesAccountName = "salesAccountName";
+	public static final String f_purchaseAccountId = "purchaseAccountId";
+	public static final String f_purchaseAccount = "purchaseAccount";
+	public static final String f_purchaseAccountName = "purchaseAccountName";
+	public static final String f_nonDeductAccountId = "nonDeductAccountId";
+	public static final String f_nonDeductAccount = "nonDeductAccount";
+	public static final String f_nonDeductAccountName = "nonDeductAccountName";
 
 	@DsField(join = "left", path = "tax.id")
 	private Long taxId;

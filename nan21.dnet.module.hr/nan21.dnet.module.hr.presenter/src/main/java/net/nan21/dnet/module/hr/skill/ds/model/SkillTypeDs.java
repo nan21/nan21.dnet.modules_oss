@@ -7,15 +7,20 @@ package net.nan21.dnet.module.hr.skill.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.hr.skill.domain.entity.SkillCategory;
 import net.nan21.dnet.module.hr.skill.domain.entity.SkillType;
 
-@Ds(entity = SkillType.class, sort = {@SortField(field = SkillTypeDs.fNAME)})
+@Ds(entity = SkillType.class, sort = {@SortField(field = SkillTypeDs.f_name)})
+@RefLookups({@RefLookup(refId = SkillTypeDs.f_categoryId, namedQuery = SkillCategory.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SkillTypeDs.f_category)})})
 public class SkillTypeDs extends AbstractTypeDs<SkillType> {
 
-	public static final String fCATEGORYID = "categoryId";
-	public static final String fCATEGORY = "category";
+	public static final String f_categoryId = "categoryId";
+	public static final String f_category = "category";
 
 	@DsField(join = "left", path = "category.id")
 	private Long categoryId;

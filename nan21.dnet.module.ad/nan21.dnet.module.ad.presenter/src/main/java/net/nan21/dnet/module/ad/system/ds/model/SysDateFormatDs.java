@@ -11,36 +11,36 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDateFormat;
 
-@Ds(entity = SysDateFormat.class, sort = {@SortField(field = SysDateFormatDs.fNAME)})
+@Ds(entity = SysDateFormat.class, sort = {@SortField(field = SysDateFormatDs.f_name)})
 public class SysDateFormatDs extends AbstractTypeDs<SysDateFormat> {
 
-	public static final String fEXTJSDATEFORMAT = "extjsDateFormat";
-	public static final String fEXTJSTIMEFORMAT = "extjsTimeFormat";
-	public static final String fEXTJSDATETIMEFORMAT = "extjsDateTimeFormat";
-	public static final String fEXTJSALTFORMATS = "extjsAltFormats";
-	public static final String fJAVADATEFORMAT = "javaDateFormat";
-	public static final String fJAVATIMEFORMAT = "javaTimeFormat";
-	public static final String fJAVADATETIMEFORMAT = "javaDateTimeFormat";
+	public static final String f_extjsDateFormat = "extjsDateFormat";
+	public static final String f_extjsTimeFormat = "extjsTimeFormat";
+	public static final String f_extjsDateTimeFormat = "extjsDateTimeFormat";
+	public static final String f_extjsAltFormats = "extjsAltFormats";
+	public static final String f_javaDateFormat = "javaDateFormat";
+	public static final String f_javaTimeFormat = "javaTimeFormat";
+	public static final String f_javaDateTimeFormat = "javaDateTimeFormat";
 
-	@DsField()
+	@DsField
 	private String extjsDateFormat;
 
-	@DsField()
+	@DsField
 	private String extjsTimeFormat;
 
-	@DsField()
+	@DsField
 	private String extjsDateTimeFormat;
 
-	@DsField()
+	@DsField
 	private String extjsAltFormats;
 
-	@DsField()
+	@DsField
 	private String javaDateFormat;
 
-	@DsField()
+	@DsField
 	private String javaTimeFormat;
 
-	@DsField()
+	@DsField
 	private String javaDateTimeFormat;
 
 	public SysDateFormatDs() {

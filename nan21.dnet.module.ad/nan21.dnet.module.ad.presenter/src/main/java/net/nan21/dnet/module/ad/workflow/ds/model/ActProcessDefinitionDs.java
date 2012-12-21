@@ -11,54 +11,54 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProcessDefinition;
 
-@Ds(entity = ActProcessDefinition.class, sort = {@SortField(field = ActProcessDefinitionDs.fNAME)})
+@Ds(entity = ActProcessDefinition.class, sort = {@SortField(field = ActProcessDefinitionDs.f_name)})
 public class ActProcessDefinitionDs
 		extends
 			AbstractBaseDs<ActProcessDefinition> {
 
-	public static final String fID = "id";
-	public static final String fCLIENTID = "clientId";
-	public static final String fKEY = "key";
-	public static final String fFULLNAME = "fullName";
-	public static final String fNAME = "name";
-	public static final String fCATEGORY = "category";
-	public static final String fRESOURCENAME = "resourceName";
-	public static final String fDIAGRAMRESOURCENAME = "diagramResourceName";
-	public static final String fPROCDEFVERSION = "procDefVersion";
-	public static final String fDEPLOYMENTID = "deploymentId";
-	public static final String fHASSTARTFORM = "hasStartForm";
+	public static final String f_id = "id";
+	public static final String f_clientId = "clientId";
+	public static final String f_key = "key";
+	public static final String f_fullName = "fullName";
+	public static final String f_name = "name";
+	public static final String f_category = "category";
+	public static final String f_resourceName = "resourceName";
+	public static final String f_diagramResourceName = "diagramResourceName";
+	public static final String f_procDefVersion = "procDefVersion";
+	public static final String f_deploymentId = "deploymentId";
+	public static final String f_hasStartForm = "hasStartForm";
 
-	@DsField()
+	@DsField
 	private String id;
 
-	@DsField()
+	@DsField
 	private Long clientId;
 
-	@DsField()
+	@DsField
 	private String key;
 
 	@DsField(fetch = false)
 	private String fullName;
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String category;
 
-	@DsField()
+	@DsField
 	private String resourceName;
 
-	@DsField()
+	@DsField
 	private String diagramResourceName;
 
-	@DsField()
+	@DsField
 	private Integer procDefVersion;
 
 	@DsField(join = "left", path = "deployment.id")
 	private String deploymentId;
 
-	@DsField()
+	@DsField
 	private Boolean hasStartForm;
 
 	public ActProcessDefinitionDs() {

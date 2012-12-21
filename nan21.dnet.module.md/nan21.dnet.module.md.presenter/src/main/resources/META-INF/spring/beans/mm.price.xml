@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== PriceList ==================== -->
+	
+	<bean id="PriceListDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
+	</bean>
+	
+	<!-- ==================== PriceListLov ==================== -->
+	
+	<bean id="PriceListLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PriceListSalesLov ==================== -->
+	
+	<bean id="PriceListSalesLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListSalesLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PriceListPurchaseLov ==================== -->
+	
+	<bean id="PriceListPurchaseLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListPurchaseLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceList"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== PriceListVersion ==================== -->
+	
+	<bean id="PriceListVersionDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion"/>
+		<property name="paramClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionDsParam"/>
+		<property name="rpcData" >
+			<map>
+				<entry key="addProductsFromCategory">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md._presenterdelegates.mm.price.PriceListVersionPD"/>
+						<constructor-arg name="methodName" value="addProductsFromCategory" />
+					</bean>
+				</entry>
+				<entry key="addProductsFromPriceListVersion">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.md._presenterdelegates.mm.price.PriceListVersionPD"/>
+						<constructor-arg name="methodName" value="addProductsFromPriceListVersion" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ==================== PriceListVersionLov ==================== -->
+	
+	<bean id="PriceListVersionLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.PriceListVersionLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.PriceListVersion"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ProductPrice ==================== -->
+	
+	<bean id="ProductPriceDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice"/>
+		<property name="paramClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.mm.price.ds.qb.ProductPriceDsQueryBuilder" />
+	</bean>
+	
+	<!-- ==================== ProductPriceReport ==================== -->
+	
+	<bean id="ProductPriceReportDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceReportDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice"/>
+		<property name="paramClass" value="net.nan21.dnet.module.md.mm.price.ds.model.ProductPriceReportDsParam"/>
+		<property name="queryBuilderClass" value="net.nan21.dnet.module.md.mm.price.ds.qb.ProductPriceReportDsQueryBuilder" />
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

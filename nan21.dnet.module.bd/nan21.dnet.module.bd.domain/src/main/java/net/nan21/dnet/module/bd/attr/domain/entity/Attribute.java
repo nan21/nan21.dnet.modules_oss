@@ -32,10 +32,7 @@ import org.hibernate.validator.constraints.NotBlank;
 /** Attribute definition. 
  An attribute is a reusable descriptor identified by a data-type and an optional list of possible values.
  Attributes are grouped in sets which further can be attached to business objects. */
-@NamedQueries({
-		@NamedQuery(name = Attribute.NQ_FIND_BY_ID, query = "SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Attribute.NQ_FIND_BY_IDS, query = "SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Attribute.NQ_FIND_BY_NAME, query = "SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = Attribute.NQ_FIND_BY_NAME, query = "SELECT e FROM Attribute e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = Attribute.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = Attribute.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -46,16 +43,6 @@ public class Attribute extends AbstractType {
 	public static final String SEQUENCE_NAME = "BD_ATTR_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "Attribute.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "Attribute.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

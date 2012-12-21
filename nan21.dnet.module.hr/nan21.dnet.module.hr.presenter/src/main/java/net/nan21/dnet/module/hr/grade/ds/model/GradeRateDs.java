@@ -7,15 +7,20 @@ package net.nan21.dnet.module.hr.grade.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
 import net.nan21.dnet.module.hr.grade.domain.entity.GradeRate;
 
-@Ds(entity = GradeRate.class, sort = {@SortField(field = GradeRateDs.fNAME)})
+@Ds(entity = GradeRate.class, sort = {@SortField(field = GradeRateDs.f_name)})
+@RefLookups({@RefLookup(refId = GradeRateDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = GradeRateDs.f_currencyCode)})})
 public class GradeRateDs extends AbstractTypeDs<GradeRate> {
 
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCYCODE = "currencyCode";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currencyCode = "currencyCode";
 
 	@DsField(join = "left", path = "currency.id")
 	private Long currencyId;

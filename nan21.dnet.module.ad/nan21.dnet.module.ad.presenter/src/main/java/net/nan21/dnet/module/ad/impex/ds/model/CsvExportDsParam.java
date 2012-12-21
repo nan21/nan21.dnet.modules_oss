@@ -9,7 +9,7 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class CsvExportDsParam extends EmptyParam {
 
-	public static final String fCLONENAME = "cloneName";
+	public static final String f_cloneName = "cloneName";
 
 	private String cloneName;
 

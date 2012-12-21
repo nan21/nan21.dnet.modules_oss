@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ==================== ReportServer ==================== -->
+	
+	<bean id="ReportServerDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportServer"/>
+	</bean>
+	
+	<!-- ==================== ReportServerLov ==================== -->
+	
+	<bean id="ReportServerLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportServerLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportServer"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== Report ==================== -->
+	
+	<bean id="ReportDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.Report"/>
+	</bean>
+	
+	<!-- ==================== ReportLov ==================== -->
+	
+	<bean id="ReportLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.Report"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ReportParam ==================== -->
+	
+	<bean id="ReportParamDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
+	</bean>
+	
+	<!-- ==================== ReportParamRt ==================== -->
+	
+	<bean id="ReportParamRtDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamRtDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== ReportParamLov ==================== -->
+	
+	<bean id="ReportParamLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.ReportParamLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.ReportParam"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DsReport ==================== -->
+	
+	<bean id="DsReportDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReport"/>
+	</bean>
+	
+	<!-- ==================== DsReportParam ==================== -->
+	
+	<bean id="DsReportParamDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportParam"/>
+	</bean>
+	
+	<!-- ==================== DsReportUsage ==================== -->
+	
+	<bean id="DsReportUsageDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage"/>
+	</bean>
+	
+	<!-- ==================== DsReportUsageRt ==================== -->
+	
+	<bean id="DsReportUsageRtDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportUsageRtDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== DsReportParamRt ==================== -->
+	
+	<bean id="DsReportParamRtDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.report.ds.model.DsReportParamRtDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.report.domain.entity.DsReportParam"/>
+		<property name="readOnly" value="true" />
+	</bean>
+</beans>

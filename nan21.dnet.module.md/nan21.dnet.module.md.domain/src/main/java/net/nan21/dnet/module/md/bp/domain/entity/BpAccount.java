@@ -34,8 +34,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = BpAccount.NQ_FIND_BY_ID, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = BpAccount.NQ_FIND_BY_IDS, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = BpAccount.NQ_FIND_BY_BP_ORG, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.bpartner = :pBpartner and e.org = :pOrg", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = BpAccount.NQ_FIND_BY_BP_ORG_PRIMITIVE, query = "SELECT e FROM BpAccount e WHERE e.clientId = :pClientId and e.bpartner.id = :pBpartnerId and e.org.id = :pOrgId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -48,16 +46,6 @@ public class BpAccount extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "MD_BP_ACNT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "BpAccount.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "BpAccount.findByIds";
 
 	/**
 	 * Named query find by unique key: Bp_org.

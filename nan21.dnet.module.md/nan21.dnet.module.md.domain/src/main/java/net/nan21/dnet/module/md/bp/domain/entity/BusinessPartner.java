@@ -36,10 +36,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
  Entity eligible to have business relationships with.
  Can be private individuals, companies or groups.	 
  */
-@NamedQueries({
-		@NamedQuery(name = BusinessPartner.NQ_FIND_BY_ID, query = "SELECT e FROM BusinessPartner e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = BusinessPartner.NQ_FIND_BY_IDS, query = "SELECT e FROM BusinessPartner e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = BusinessPartner.NQ_FIND_BY_CODE, query = "SELECT e FROM BusinessPartner e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = BusinessPartner.NQ_FIND_BY_CODE, query = "SELECT e FROM BusinessPartner e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = BusinessPartner.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = BusinessPartner.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "CODE"})})
@@ -50,16 +47,6 @@ public class BusinessPartner extends AbstractTypeWithCode {
 	public static final String SEQUENCE_NAME = "MD_BP_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "BusinessPartner.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "BusinessPartner.findByIds";
 
 	/**
 	 * Named query find by unique key: Code.

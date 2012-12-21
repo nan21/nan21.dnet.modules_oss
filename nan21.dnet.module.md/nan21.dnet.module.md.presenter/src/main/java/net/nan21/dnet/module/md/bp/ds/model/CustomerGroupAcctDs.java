@@ -7,22 +7,33 @@ package net.nan21.dnet.module.md.bp.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
+import net.nan21.dnet.module.md.bp.domain.entity.CustomerGroup;
 import net.nan21.dnet.module.md.bp.domain.entity.CustomerGroupAcct;
 
 @Ds(entity = CustomerGroupAcct.class)
+@RefLookups({
+		@RefLookup(refId = CustomerGroupAcctDs.f_custGroupId, namedQuery = CustomerGroup.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = CustomerGroupAcctDs.f_custGroup)}),
+		@RefLookup(refId = CustomerGroupAcctDs.f_salesAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = CustomerGroupAcctDs.f_salesAccount)}),
+		@RefLookup(refId = CustomerGroupAcctDs.f_prepayAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = CustomerGroupAcctDs.f_prepayAccount)}),
+		@RefLookup(refId = CustomerGroupAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = CustomerGroupAcctDs.f_accSchema)})})
 public class CustomerGroupAcctDs extends AbstractAuditableDs<CustomerGroupAcct> {
 
-	public static final String fCUSTGROUPID = "custGroupId";
-	public static final String fCUSTGROUP = "custGroup";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fSALESACCOUNTID = "salesAccountId";
-	public static final String fSALESACCOUNT = "salesAccount";
-	public static final String fSALESACCOUNTNAME = "salesAccountName";
-	public static final String fPREPAYACCOUNTID = "prepayAccountId";
-	public static final String fPREPAYACCOUNT = "prepayAccount";
-	public static final String fPREPAYACCOUNTNAME = "prepayAccountName";
+	public static final String f_custGroupId = "custGroupId";
+	public static final String f_custGroup = "custGroup";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_salesAccountId = "salesAccountId";
+	public static final String f_salesAccount = "salesAccount";
+	public static final String f_salesAccountName = "salesAccountName";
+	public static final String f_prepayAccountId = "prepayAccountId";
+	public static final String f_prepayAccount = "prepayAccount";
+	public static final String f_prepayAccountName = "prepayAccountName";
 
 	@DsField(join = "left", path = "custGroup.id")
 	private Long custGroupId;

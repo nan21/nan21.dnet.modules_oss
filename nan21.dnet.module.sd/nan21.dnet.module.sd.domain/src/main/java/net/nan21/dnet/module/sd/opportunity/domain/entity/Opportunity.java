@@ -15,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,13 +31,9 @@ import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunitySource;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStage;
 import net.nan21.dnet.module.sd.opportunity.domain.entity.OpportunityStatus;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = Opportunity.NQ_FIND_BY_ID, query = "SELECT e FROM Opportunity e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = Opportunity.NQ_FIND_BY_IDS, query = "SELECT e FROM Opportunity e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = Opportunity.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
@@ -49,16 +43,6 @@ public class Opportunity extends AbstractType {
 	public static final String SEQUENCE_NAME = "SD_OPORT_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "Opportunity.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "Opportunity.findByIds";
 
 	/**
 	 * System generated unique identifier.

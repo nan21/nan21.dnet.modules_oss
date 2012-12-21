@@ -13,17 +13,17 @@ import net.nan21.dnet.module.ad.data.domain.entity.Note;
 @Ds(entity = Note.class)
 public class NoteDs extends AbstractAuditableDs<Note> {
 
-	public static final String fNOTE = "note";
-	public static final String fTARGETUUID = "targetUuid";
-	public static final String fTARGETTYPE = "targetType";
+	public static final String f_note = "note";
+	public static final String f_targetUuid = "targetUuid";
+	public static final String f_targetType = "targetType";
 
-	@DsField()
+	@DsField
 	private String note;
 
-	@DsField()
+	@DsField
 	private String targetUuid;
 
-	@DsField()
+	@DsField
 	private String targetType;
 
 	public NoteDs() {

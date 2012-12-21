@@ -9,10 +9,10 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class IssueDsParam extends EmptyParam {
 
-	public static final String fAFFECTEDVERSIONID = "affectedVersionId";
-	public static final String fAFFECTEDVERSION = "affectedVersion";
-	public static final String fAFFECTEDCOMPONENTID = "affectedComponentId";
-	public static final String fAFFECTEDCOMPONENT = "affectedComponent";
+	public static final String f_affectedVersionId = "affectedVersionId";
+	public static final String f_affectedVersion = "affectedVersion";
+	public static final String f_affectedComponentId = "affectedComponentId";
+	public static final String f_affectedComponent = "affectedComponent";
 
 	private Long affectedVersionId;
 

@@ -13,13 +13,13 @@ import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 @Ds(entity = Issue.class)
 public class IssueLovDs extends AbstractAuditableLov<Issue> {
 
-	public static final String fCODE = "code";
-	public static final String fSUMMARY = "summary";
+	public static final String f_code = "code";
+	public static final String f_summary = "summary";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String summary;
 
 	public IssueLovDs() {

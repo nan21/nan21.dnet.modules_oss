@@ -11,16 +11,16 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.org.domain.entity.FinancialAccount;
 
-@Ds(entity = FinancialAccount.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = FinancialAccountLovDs.fNAME)})
+@Ds(entity = FinancialAccount.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = FinancialAccountLovDs.f_name)})
 public class FinancialAccountLovDs extends AbstractTypeLov<FinancialAccount> {
 
-	public static final String fTYPE = "type";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
+	public static final String f_type = "type";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
 
-	@DsField()
+	@DsField
 	private String type;
 
 	@DsField(join = "left", path = "org.id")

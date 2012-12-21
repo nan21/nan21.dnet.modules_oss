@@ -8,73 +8,101 @@ package net.nan21.dnet.module.sd.order.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.base.tx.domain.entity.DeliveryMethod;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentTerm;
+import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocType;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.mm.price.domain.entity.PriceList;
 import net.nan21.dnet.module.sd.order.domain.entity.SalesOrder;
 
-@Ds(entity = SalesOrder.class, sort = {@SortField(field = SalesOrderDs.fDOCDATE, desc = true)})
+@Ds(entity = SalesOrder.class, sort = {@SortField(field = SalesOrderDs.f_docDate, desc = true)})
+@RefLookups({
+		@RefLookup(refId = SalesOrderDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesOrderDs.f_currency)}),
+		@RefLookup(refId = SalesOrderDs.f_priceListId, namedQuery = PriceList.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesOrderDs.f_priceList)}),
+		@RefLookup(refId = SalesOrderDs.f_inventoryId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesOrderDs.f_inventory)}),
+		@RefLookup(refId = SalesOrderDs.f_docTypeId, namedQuery = TxDocType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesOrderDs.f_docType)}),
+		@RefLookup(refId = SalesOrderDs.f_deliveryMethodId, namedQuery = DeliveryMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesOrderDs.f_deliveryMethod)}),
+		@RefLookup(refId = SalesOrderDs.f_paymentMethodId, namedQuery = PaymentMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesOrderDs.f_paymentMethod)}),
+		@RefLookup(refId = SalesOrderDs.f_paymentTermId, namedQuery = PaymentTerm.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesOrderDs.f_paymentTerm)}),
+		@RefLookup(refId = SalesOrderDs.f_customerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesOrderDs.f_customerCode)}),
+		@RefLookup(refId = SalesOrderDs.f_supplierId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesOrderDs.f_supplier)}),
+		@RefLookup(refId = SalesOrderDs.f_billToId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesOrderDs.f_billToCode)}),
+		@RefLookup(refId = SalesOrderDs.f_shipToId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesOrderDs.f_shipToCode)}),
+		@RefLookup(refId = SalesOrderDs.f_carrierId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = SalesOrderDs.f_carrier)}),
+		@RefLookup(refId = SalesOrderDs.f_billToLocationId),
+		@RefLookup(refId = SalesOrderDs.f_shipToLocationId),
+		@RefLookup(refId = SalesOrderDs.f_billToContactId),
+		@RefLookup(refId = SalesOrderDs.f_shipToContactId)})
 public class SalesOrderDs extends AbstractAuditableDs<SalesOrder> {
 
-	public static final String fCODE = "code";
-	public static final String fDOCNO = "docNo";
-	public static final String fDESCRIPTION = "description";
-	public static final String fDOCDATE = "docDate";
-	public static final String fSUPPLIERID = "supplierId";
-	public static final String fSUPPLIER = "supplier";
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
-	public static final String fCUSTOMERID = "customerId";
-	public static final String fCUSTOMERUUID = "customerUuid";
-	public static final String fCUSTOMERCODE = "customerCode";
-	public static final String fCUSTOMER = "customer";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fPRICELISTID = "priceListId";
-	public static final String fPRICELIST = "priceList";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
-	public static final String fPAYMENTTERMID = "paymentTermId";
-	public static final String fPAYMENTTERM = "paymentTerm";
-	public static final String fDELIVERYMETHODID = "deliveryMethodId";
-	public static final String fDELIVERYMETHOD = "deliveryMethod";
-	public static final String fPLANNEDDELIVERYDATE = "plannedDeliveryDate";
-	public static final String fDELIVERYNOTES = "deliveryNotes";
-	public static final String fINVENTORYID = "inventoryId";
-	public static final String fINVENTORY = "inventory";
-	public static final String fBILLTOID = "billToId";
-	public static final String fBILLTOUUID = "billToUuid";
-	public static final String fBILLTOCODE = "billToCode";
-	public static final String fBILLTO = "billTo";
-	public static final String fBILLTOLOCATIONID = "billToLocationId";
-	public static final String fBILLTOLOCATION = "billToLocation";
-	public static final String fBILLTOCONTACTID = "billToContactId";
-	public static final String fBILLTOCONTACT = "billToContact";
-	public static final String fSHIPTOID = "shipToId";
-	public static final String fSHIPTOUUID = "shipToUuid";
-	public static final String fSHIPTOCODE = "shipToCode";
-	public static final String fSHIPTO = "shipTo";
-	public static final String fSHIPTOLOCATIONID = "shipToLocationId";
-	public static final String fSHIPTOLOCATION = "shipToLocation";
-	public static final String fSHIPTOCONTACTID = "shipToContactId";
-	public static final String fSHIPTOCONTACT = "shipToContact";
-	public static final String fCARRIERID = "carrierId";
-	public static final String fCARRIER = "carrier";
-	public static final String fTOTALAMOUNT = "totalAmount";
-	public static final String fTOTALNETAMOUNT = "totalNetAmount";
-	public static final String fTOTALTAXAMOUNT = "totalTaxAmount";
-	public static final String fCONFIRMED = "confirmed";
-	public static final String fINVOICED = "invoiced";
-	public static final String fDELIVERED = "delivered";
-	public static final String fCLASSNAME = "className";
-	public static final String fBUSINESSOBJECT = "businessObject";
+	public static final String f_code = "code";
+	public static final String f_docNo = "docNo";
+	public static final String f_description = "description";
+	public static final String f_docDate = "docDate";
+	public static final String f_supplierId = "supplierId";
+	public static final String f_supplier = "supplier";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
+	public static final String f_customerId = "customerId";
+	public static final String f_customerUuid = "customerUuid";
+	public static final String f_customerCode = "customerCode";
+	public static final String f_customer = "customer";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_priceListId = "priceListId";
+	public static final String f_priceList = "priceList";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
+	public static final String f_paymentTermId = "paymentTermId";
+	public static final String f_paymentTerm = "paymentTerm";
+	public static final String f_deliveryMethodId = "deliveryMethodId";
+	public static final String f_deliveryMethod = "deliveryMethod";
+	public static final String f_plannedDeliveryDate = "plannedDeliveryDate";
+	public static final String f_deliveryNotes = "deliveryNotes";
+	public static final String f_inventoryId = "inventoryId";
+	public static final String f_inventory = "inventory";
+	public static final String f_billToId = "billToId";
+	public static final String f_billToUuid = "billToUuid";
+	public static final String f_billToCode = "billToCode";
+	public static final String f_billTo = "billTo";
+	public static final String f_billToLocationId = "billToLocationId";
+	public static final String f_billToLocation = "billToLocation";
+	public static final String f_billToContactId = "billToContactId";
+	public static final String f_billToContact = "billToContact";
+	public static final String f_shipToId = "shipToId";
+	public static final String f_shipToUuid = "shipToUuid";
+	public static final String f_shipToCode = "shipToCode";
+	public static final String f_shipTo = "shipTo";
+	public static final String f_shipToLocationId = "shipToLocationId";
+	public static final String f_shipToLocation = "shipToLocation";
+	public static final String f_shipToContactId = "shipToContactId";
+	public static final String f_shipToContact = "shipToContact";
+	public static final String f_carrierId = "carrierId";
+	public static final String f_carrier = "carrier";
+	public static final String f_totalAmount = "totalAmount";
+	public static final String f_totalNetAmount = "totalNetAmount";
+	public static final String f_totalTaxAmount = "totalTaxAmount";
+	public static final String f_confirmed = "confirmed";
+	public static final String f_invoiced = "invoiced";
+	public static final String f_delivered = "delivered";
+	public static final String f_className = "className";
+	public static final String f_businessObject = "businessObject";
 
-	@DsField()
+	@DsField
 	private String code;
 
-	@DsField()
+	@DsField
 	private String docNo;
 
-	@DsField()
+	@DsField
 	private String description;
 
 	@DsField(noUpdate = true)
@@ -134,10 +162,10 @@ public class SalesOrderDs extends AbstractAuditableDs<SalesOrder> {
 	@DsField(join = "left", path = "deliveryMethod.name")
 	private String deliveryMethod;
 
-	@DsField()
+	@DsField
 	private Date plannedDeliveryDate;
 
-	@DsField()
+	@DsField
 	private String deliveryNotes;
 
 	@DsField(join = "left", path = "inventory.id")

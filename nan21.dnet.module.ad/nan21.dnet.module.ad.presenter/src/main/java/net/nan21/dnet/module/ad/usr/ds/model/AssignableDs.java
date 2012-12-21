@@ -7,16 +7,21 @@ package net.nan21.dnet.module.ad.usr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.ad.usr.domain.entity.Assignable;
+import net.nan21.dnet.module.ad.usr.domain.entity.AssignableType;
 
-@Ds(entity = Assignable.class, sort = {@SortField(field = AssignableDs.fNAME)})
+@Ds(entity = Assignable.class, sort = {@SortField(field = AssignableDs.f_name)})
+@RefLookups({@RefLookup(refId = AssignableDs.f_typeId, namedQuery = AssignableType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AssignableDs.f_type)})})
 public class AssignableDs extends AbstractTypeDs<Assignable> {
 
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fUSERCODE = "userCode";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_userCode = "userCode";
 
 	@DsField(join = "left", path = "assignableType.id")
 	private Long typeId;
@@ -24,7 +29,7 @@ public class AssignableDs extends AbstractTypeDs<Assignable> {
 	@DsField(join = "left", path = "assignableType.name")
 	private String type;
 
-	@DsField()
+	@DsField
 	private String userCode;
 
 	public AssignableDs() {

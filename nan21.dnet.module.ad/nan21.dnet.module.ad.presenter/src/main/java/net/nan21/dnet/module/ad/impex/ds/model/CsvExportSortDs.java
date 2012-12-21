@@ -7,19 +7,24 @@ package net.nan21.dnet.module.ad.impex.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.impex.domain.entity.CsvExport;
 import net.nan21.dnet.module.ad.impex.domain.entity.CsvExportSort;
 
-@Ds(entity = CsvExportSort.class, sort = {@SortField(field = CsvExportSortDs.fSEQUENCENO)})
+@Ds(entity = CsvExportSort.class, sort = {@SortField(field = CsvExportSortDs.f_sequenceNo)})
+@RefLookups({@RefLookup(refId = CsvExportSortDs.f_csvExportId, namedQuery = CsvExport.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = CsvExportSortDs.f_csvExport)})})
 public class CsvExportSortDs extends AbstractAuditableDs<CsvExportSort> {
 
-	public static final String fCSVEXPORTID = "csvExportId";
-	public static final String fCSVEXPORT = "csvExport";
-	public static final String fDATASOURCE = "dataSource";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fDSFIELD = "dsField";
-	public static final String fDESCEND = "descend";
+	public static final String f_csvExportId = "csvExportId";
+	public static final String f_csvExport = "csvExport";
+	public static final String f_dataSource = "dataSource";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_dsField = "dsField";
+	public static final String f_descend = "descend";
 
 	@DsField(join = "left", path = "csvExport.id")
 	private Long csvExportId;
@@ -30,13 +35,13 @@ public class CsvExportSortDs extends AbstractAuditableDs<CsvExportSort> {
 	@DsField(join = "left", path = "csvExport.dataSource")
 	private String dataSource;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String dsField;
 
-	@DsField()
+	@DsField
 	private Boolean descend;
 
 	public CsvExportSortDs() {

@@ -8,33 +8,36 @@ package net.nan21.dnet.module.hr.payroll.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.payroll.domain.entity.PayrollElementValue;
 
-@Ds(entity = PayrollElementValue.class, jpqlWhere = " e.element.calculation = 'manual' ", sort = {@SortField(field = PayrollManualValueDs.fSEQUENCENO)})
+@Ds(entity = PayrollElementValue.class, jpqlWhere = " e.element.calculation = 'manual' ", sort = {@SortField(field = PayrollManualValueDs.f_sequenceNo)})
+@RefLookups({@RefLookup(refId = PayrollManualValueDs.f_elementId)})
 public class PayrollManualValueDs
 		extends
 			AbstractAuditableDs<PayrollElementValue> {
 
-	public static final String fELEMENTID = "elementId";
-	public static final String fELEMENT = "element";
-	public static final String fELEMENTNAME = "elementName";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fDATATYPE = "dataType";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fEMPLOYEEID = "employeeId";
-	public static final String fEMPLOYEENAME = "employeeName";
-	public static final String fJOBCODE = "jobCode";
-	public static final String fPOSITIONCODE = "positionCode";
-	public static final String fEMPLOYERID = "employerId";
-	public static final String fEMPLOYER = "employer";
-	public static final String fPERIODID = "periodId";
-	public static final String fPERIOD = "period";
-	public static final String fPERIODSTART = "periodStart";
-	public static final String fPERIODEND = "periodEnd";
-	public static final String fVALUE = "value";
+	public static final String f_elementId = "elementId";
+	public static final String f_element = "element";
+	public static final String f_elementName = "elementName";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_dataType = "dataType";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_employeeId = "employeeId";
+	public static final String f_employeeName = "employeeName";
+	public static final String f_jobCode = "jobCode";
+	public static final String f_positionCode = "positionCode";
+	public static final String f_employerId = "employerId";
+	public static final String f_employer = "employer";
+	public static final String f_periodId = "periodId";
+	public static final String f_period = "period";
+	public static final String f_periodStart = "periodStart";
+	public static final String f_periodEnd = "periodEnd";
+	public static final String f_value = "value";
 
 	@DsField(noInsert = true, noUpdate = true, join = "left", path = "element.id")
 	private Long elementId;
@@ -87,7 +90,7 @@ public class PayrollManualValueDs
 	@DsField(noInsert = true, noUpdate = true, join = "left", path = "period.endDate")
 	private Date periodEnd;
 
-	@DsField()
+	@DsField
 	private String value;
 
 	public PayrollManualValueDs() {

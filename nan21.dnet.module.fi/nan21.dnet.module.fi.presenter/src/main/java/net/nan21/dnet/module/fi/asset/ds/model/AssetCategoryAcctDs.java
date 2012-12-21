@@ -7,20 +7,31 @@ package net.nan21.dnet.module.fi.asset.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory;
 import net.nan21.dnet.module.fi.asset.domain.entity.AssetCategoryAcct;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
 
 @Ds(entity = AssetCategoryAcct.class)
+@RefLookups({
+		@RefLookup(refId = AssetCategoryAcctDs.f_assetCategoryId, namedQuery = AssetCategory.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetCategoryAcctDs.f_assetCategory)}),
+		@RefLookup(refId = AssetCategoryAcctDs.f_deprecAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetCategoryAcctDs.f_deprecAccount)}),
+		@RefLookup(refId = AssetCategoryAcctDs.f_acmlDeprecAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetCategoryAcctDs.f_acmlDeprecAccount)}),
+		@RefLookup(refId = AssetCategoryAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetCategoryAcctDs.f_accSchema)})})
 public class AssetCategoryAcctDs extends AbstractAuditableDs<AssetCategoryAcct> {
 
-	public static final String fASSETCATEGORYID = "assetCategoryId";
-	public static final String fASSETCATEGORY = "assetCategory";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fDEPRECACCOUNTID = "deprecAccountId";
-	public static final String fDEPRECACCOUNT = "deprecAccount";
-	public static final String fACMLDEPRECACCOUNTID = "acmlDeprecAccountId";
-	public static final String fACMLDEPRECACCOUNT = "acmlDeprecAccount";
+	public static final String f_assetCategoryId = "assetCategoryId";
+	public static final String f_assetCategory = "assetCategory";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_deprecAccountId = "deprecAccountId";
+	public static final String f_deprecAccount = "deprecAccount";
+	public static final String f_acmlDeprecAccountId = "acmlDeprecAccountId";
+	public static final String f_acmlDeprecAccount = "acmlDeprecAccount";
 
 	@DsField(join = "left", path = "assetCategory.id")
 	private Long assetCategoryId;

@@ -14,19 +14,19 @@ import net.nan21.dnet.module.md.mm.price.domain.entity.ProductPrice;
 @Ds(entity = ProductPrice.class)
 public class ProductPriceReportDs extends AbstractAuditableDs<ProductPrice> {
 
-	public static final String fPRICELISTID = "priceListId";
-	public static final String fPRICELIST = "priceList";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fPRICELISTVERSIONID = "priceListVersionId";
-	public static final String fPRICELISTVERSION = "priceListVersion";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCT = "product";
-	public static final String fPRODUCTNAME = "productName";
-	public static final String fUOMID = "uomId";
-	public static final String fUOM = "uom";
-	public static final String fPRICE = "price";
+	public static final String f_priceListId = "priceListId";
+	public static final String f_priceList = "priceList";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_priceListVersionId = "priceListVersionId";
+	public static final String f_priceListVersion = "priceListVersion";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_productId = "productId";
+	public static final String f_product = "product";
+	public static final String f_productName = "productName";
+	public static final String f_uomId = "uomId";
+	public static final String f_uom = "uom";
+	public static final String f_price = "price";
 
 	@DsField(join = "left", path = "priceListVersion.priceList.id")
 	private Long priceListId;
@@ -64,7 +64,7 @@ public class ProductPriceReportDs extends AbstractAuditableDs<ProductPrice> {
 	@DsField(join = "left", path = "uom.code")
 	private String uom;
 
-	@DsField()
+	@DsField
 	private Float price;
 
 	public ProductPriceReportDs() {

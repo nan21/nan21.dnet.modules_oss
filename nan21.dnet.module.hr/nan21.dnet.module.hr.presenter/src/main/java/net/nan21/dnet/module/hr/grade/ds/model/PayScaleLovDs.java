@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.hr.grade.domain.entity.PayScale;
 
-@Ds(entity = PayScale.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PayScaleLovDs.fCODE)})
+@Ds(entity = PayScale.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = PayScaleLovDs.f_code)})
 public class PayScaleLovDs extends AbstractTypeWithCodeLov<PayScale> {
 
 	public PayScaleLovDs() {

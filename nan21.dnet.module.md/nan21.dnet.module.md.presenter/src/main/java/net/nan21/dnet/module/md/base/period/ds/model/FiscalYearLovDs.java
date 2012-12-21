@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.md.base.period.domain.entity.FiscalYear;
 
-@Ds(entity = FiscalYear.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = FiscalYearLovDs.fCODE)})
+@Ds(entity = FiscalYear.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = FiscalYearLovDs.f_code)})
 public class FiscalYearLovDs extends AbstractTypeWithCodeLov<FiscalYear> {
 
 	public FiscalYearLovDs() {

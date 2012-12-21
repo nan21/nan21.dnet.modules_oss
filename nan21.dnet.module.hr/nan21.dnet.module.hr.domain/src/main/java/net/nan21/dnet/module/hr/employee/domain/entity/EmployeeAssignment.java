@@ -15,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,13 +29,9 @@ import net.nan21.dnet.module.hr.job.domain.entity.Job;
 import net.nan21.dnet.module.hr.job.domain.entity.Position;
 import net.nan21.dnet.module.hr.payroll.domain.entity.Payroll;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = EmployeeAssignment.NQ_FIND_BY_ID, query = "SELECT e FROM EmployeeAssignment e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = EmployeeAssignment.NQ_FIND_BY_IDS, query = "SELECT e FROM EmployeeAssignment e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = EmployeeAssignment.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
@@ -47,16 +41,6 @@ public class EmployeeAssignment extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "HR_EMPL_ASGN_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "EmployeeAssignment.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "EmployeeAssignment.findByIds";
 
 	/**
 	 * System generated unique identifier.

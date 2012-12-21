@@ -13,15 +13,15 @@ import net.nan21.dnet.module.md.bp.domain.entity.BpAccount;
 @Ds(entity = BpAccount.class, jpqlWhere = " e.customer = true ")
 public class CustomerLovDs extends AbstractAuditableLov<BpAccount> {
 
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fCODE = "code";
-	public static final String fNAME = "name";
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
-	public static final String fPAYMENTTERMID = "paymentTermId";
-	public static final String fPAYMENTTERM = "paymentTerm";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_code = "code";
+	public static final String f_name = "name";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
+	public static final String f_paymentTermId = "paymentTermId";
+	public static final String f_paymentTerm = "paymentTerm";
 
 	@DsField(join = "left", path = "bpartner.id")
 	private Long bpartnerId;

@@ -7,26 +7,31 @@ package net.nan21.dnet.module.ad.usr.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.ad.usr.domain.entity.AccessControl;
 import net.nan21.dnet.module.ad.usr.domain.entity.DsMethodAccessControl;
 
 @Ds(entity = DsMethodAccessControl.class, sort = {
-		@SortField(field = DsMethodAccessControlDs.fDSNAME),
-		@SortField(field = DsMethodAccessControlDs.fSERVICEMETHOD)})
+		@SortField(field = DsMethodAccessControlDs.f_dsName),
+		@SortField(field = DsMethodAccessControlDs.f_serviceMethod)})
+@RefLookups({@RefLookup(refId = DsMethodAccessControlDs.f_accessControlId, namedQuery = AccessControl.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = DsMethodAccessControlDs.f_accessControl)})})
 public class DsMethodAccessControlDs
 		extends
 			AbstractAuditableDs<DsMethodAccessControl> {
 
-	public static final String fDSNAME = "dsName";
-	public static final String fSERVICEMETHOD = "serviceMethod";
-	public static final String fACCESSCONTROLID = "accessControlId";
-	public static final String fACCESSCONTROL = "accessControl";
+	public static final String f_dsName = "dsName";
+	public static final String f_serviceMethod = "serviceMethod";
+	public static final String f_accessControlId = "accessControlId";
+	public static final String f_accessControl = "accessControl";
 
-	@DsField()
+	@DsField
 	private String dsName;
 
-	@DsField()
+	@DsField
 	private String serviceMethod;
 
 	@DsField(join = "left", path = "accessControl.id")

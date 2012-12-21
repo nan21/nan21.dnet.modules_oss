@@ -16,18 +16,18 @@ public class SalesTxAmountPaymentDs
 		extends
 			AbstractAuditableDs<PaymentInAmount> {
 
-	public static final String fPAYMENTID = "paymentId";
-	public static final String fPAYMENTDOCDATE = "paymentDocDate";
-	public static final String fPAYMENTDOCNO = "paymentDocNo";
-	public static final String fPAYMENTCODE = "paymentCode";
-	public static final String fTXAMOUNTID = "txAmountId";
-	public static final String fINVOICECODE = "invoiceCode";
-	public static final String fINVOICEDOCNO = "invoiceDocNo";
-	public static final String fINVOICEDOCDATE = "invoiceDocDate";
-	public static final String fDUEAMOUNT = "dueAmount";
-	public static final String fPAYEDAMOUNT = "payedAmount";
-	public static final String fOUTSTANDINGAMOUNT = "outstandingAmount";
-	public static final String fAMOUNT = "amount";
+	public static final String f_paymentId = "paymentId";
+	public static final String f_paymentDocDate = "paymentDocDate";
+	public static final String f_paymentDocNo = "paymentDocNo";
+	public static final String f_paymentCode = "paymentCode";
+	public static final String f_txAmountId = "txAmountId";
+	public static final String f_invoiceCode = "invoiceCode";
+	public static final String f_invoiceDocNo = "invoiceDocNo";
+	public static final String f_invoiceDocDate = "invoiceDocDate";
+	public static final String f_dueAmount = "dueAmount";
+	public static final String f_payedAmount = "payedAmount";
+	public static final String f_outstandingAmount = "outstandingAmount";
+	public static final String f_amount = "amount";
 
 	@DsField(join = "left", path = "payment.id")
 	private Long paymentId;
@@ -62,7 +62,7 @@ public class SalesTxAmountPaymentDs
 	@DsField(join = "left", path = "txAmount.amount")
 	private Float outstandingAmount;
 
-	@DsField()
+	@DsField
 	private Float amount;
 
 	public SalesTxAmountPaymentDs() {

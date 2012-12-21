@@ -8,33 +8,36 @@ package net.nan21.dnet.module.hr.employee.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.hr.employee.domain.entity.EmployeeWorkExperience;
 
 @Ds(entity = EmployeeWorkExperience.class)
+@RefLookups({@RefLookup(refId = EmployeeWorkExperienceDs.f_employeeId)})
 public class EmployeeWorkExperienceDs
 		extends
 			AbstractAuditableDs<EmployeeWorkExperience> {
 
-	public static final String fEMPLOYEEID = "employeeId";
-	public static final String fFROMDATE = "fromDate";
-	public static final String fTODATE = "toDate";
-	public static final String fINSTITUTE = "institute";
-	public static final String fNOTES = "notes";
+	public static final String f_employeeId = "employeeId";
+	public static final String f_fromDate = "fromDate";
+	public static final String f_toDate = "toDate";
+	public static final String f_institute = "institute";
+	public static final String f_notes = "notes";
 
 	@DsField(join = "left", path = "employee.id")
 	private Long employeeId;
 
-	@DsField()
+	@DsField
 	private Date fromDate;
 
-	@DsField()
+	@DsField
 	private Date toDate;
 
-	@DsField()
+	@DsField
 	private String institute;
 
-	@DsField()
+	@DsField
 	private String notes;
 
 	public EmployeeWorkExperienceDs() {

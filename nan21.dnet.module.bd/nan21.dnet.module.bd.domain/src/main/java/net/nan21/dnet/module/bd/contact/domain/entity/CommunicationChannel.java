@@ -15,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,16 +23,12 @@ import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 /** 
  Communication channels value. Set phone number , messenger account, etc according to the selected type.  
  */
-@NamedQueries({
-		@NamedQuery(name = CommunicationChannel.NQ_FIND_BY_ID, query = "SELECT e FROM CommunicationChannel e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = CommunicationChannel.NQ_FIND_BY_IDS, query = "SELECT e FROM CommunicationChannel e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = CommunicationChannel.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
@@ -44,16 +38,6 @@ public class CommunicationChannel extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "BD_CMNC_MTD_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "CommunicationChannel.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "CommunicationChannel.findByIds";
 
 	/**
 	 * System generated unique identifier.

@@ -7,23 +7,33 @@ package net.nan21.dnet.module.md.bp.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
+import net.nan21.dnet.module.md.bp.domain.entity.Bank;
 import net.nan21.dnet.module.md.bp.domain.entity.BpBankAccount;
+import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 
 @Ds(entity = BpBankAccount.class)
+@RefLookups({
+		@RefLookup(refId = BpBankAccountDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpBankAccountDs.f_currencyCode)}),
+		@RefLookup(refId = BpBankAccountDs.f_bankId, namedQuery = Bank.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpBankAccountDs.f_bankCode)}),
+		@RefLookup(refId = BpBankAccountDs.f_bpartnerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpBankAccountDs.f_bpartnerCode)})})
 public class BpBankAccountDs extends AbstractAuditableDs<BpBankAccount> {
 
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fBPARTNERCODE = "bpartnerCode";
-	public static final String fBANKID = "bankId";
-	public static final String fBANKCODE = "bankCode";
-	public static final String fBANKBRANCH = "bankBranch";
-	public static final String fACCOUNTNO = "accountNo";
-	public static final String fIBANACCOUNT = "ibanAccount";
-	public static final String fACTIVE = "active";
-	public static final String fNOTES = "notes";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCYCODE = "currencyCode";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_bpartnerCode = "bpartnerCode";
+	public static final String f_bankId = "bankId";
+	public static final String f_bankCode = "bankCode";
+	public static final String f_bankBranch = "bankBranch";
+	public static final String f_accountNo = "accountNo";
+	public static final String f_ibanAccount = "ibanAccount";
+	public static final String f_active = "active";
+	public static final String f_notes = "notes";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currencyCode = "currencyCode";
 
 	@DsField(join = "left", path = "bpartner.id")
 	private Long bpartnerId;
@@ -37,19 +47,19 @@ public class BpBankAccountDs extends AbstractAuditableDs<BpBankAccount> {
 	@DsField(join = "left", path = "bank.code")
 	private String bankCode;
 
-	@DsField()
+	@DsField
 	private String bankBranch;
 
-	@DsField()
+	@DsField
 	private String accountNo;
 
-	@DsField()
+	@DsField
 	private Boolean ibanAccount;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
-	@DsField()
+	@DsField
 	private String notes;
 
 	@DsField(join = "left", path = "currency.id")

@@ -37,7 +37,7 @@
 
 	<!-- Presenter services -->  
 
-	<import resource="beans/pj.base.ds.xml"/>
-	<import resource="beans/pj.md.ds.xml"/>
-	<import resource="beans/pj.md.asgn.xml"/>
+	<import resource="beans/base.xml"/>
+	<import resource="beans/md.xml"/>
+	<import resource="beans/md.asgn.xml"/>
 </beans>

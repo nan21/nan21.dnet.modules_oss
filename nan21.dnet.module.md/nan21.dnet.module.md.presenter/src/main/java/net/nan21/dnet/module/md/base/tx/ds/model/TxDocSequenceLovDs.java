@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
 import net.nan21.dnet.module.md.base.tx.domain.entity.TxDocSequence;
 
-@Ds(entity = TxDocSequence.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = TxDocSequenceLovDs.fNAME)})
+@Ds(entity = TxDocSequence.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = TxDocSequenceLovDs.f_name)})
 public class TxDocSequenceLovDs extends AbstractTypeLov<TxDocSequence> {
 
 	public TxDocSequenceLovDs() {

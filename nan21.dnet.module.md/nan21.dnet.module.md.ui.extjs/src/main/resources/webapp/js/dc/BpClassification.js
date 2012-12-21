@@ -69,8 +69,10 @@ Ext.define("net.nan21.dnet.module.md.bp.dc.BpClassification$CtxEditList", {
 							{lovField:"classSystemId",dsField: "classificationSystemId"} 
 						]}})
 			.addTextColumn({name:"classificationName", dataIndex:"classificationName", width:300})
-			.addNumberColumn({name:"classSystemId", dataIndex:"classificationSystemId", hidden:true, align:"right", width:70, format:"0"})
-			.addNumberColumn({name:"classCodeId", dataIndex:"classificationId", hidden:true, align:"right", width:70, format:"0"})
+			.addNumberColumn({name:"classSystemId", dataIndex:"classificationSystemId", align:"right", width:70, format:"0",
+					editor:{xtype:"numberfield" , decimalPrecision:2}})
+			.addNumberColumn({name:"classCodeId", dataIndex:"classificationId", align:"right", width:70, format:"0",
+					editor:{xtype:"numberfield" , decimalPrecision:2}})
 			.addDefaults();
 	}
 });

@@ -24,10 +24,7 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = SysJobCtx.NQ_FIND_BY_ID, query = "SELECT e FROM SysJobCtx e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysJobCtx.NQ_FIND_BY_IDS, query = "SELECT e FROM SysJobCtx e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysJobCtx.NQ_FIND_BY_NAME, query = "SELECT e FROM SysJobCtx e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({@NamedQuery(name = SysJobCtx.NQ_FIND_BY_NAME, query = "SELECT e FROM SysJobCtx e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = SysJobCtx.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SysJobCtx.TABLE_NAME
 		+ "_UK1", columnNames = {"CLIENTID", "NAME"})})
@@ -38,16 +35,6 @@ public class SysJobCtx extends AbstractType {
 	public static final String SEQUENCE_NAME = "AD_SYS_JOBCTX_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "SysJobCtx.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "SysJobCtx.findByIds";
 
 	/**
 	 * Named query find by unique key: Name.

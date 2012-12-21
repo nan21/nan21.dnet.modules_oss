@@ -7,41 +7,51 @@ package net.nan21.dnet.module.bd.geo.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.bd.geo.domain.entity.Location;
+import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 
 @Ds(entity = Location.class)
+@RefLookups({
+		@RefLookup(refId = LocationDs.f_countryId, namedQuery = Country.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = LocationDs.f_countryCode)}),
+		@RefLookup(refId = LocationDs.f_regionId, namedQuery = Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE, params = {
+				@Param(name = "pCountryId", field = LocationDs.f_countryId),
+				@Param(name = "pCode", field = LocationDs.f_regionCode)})})
 public class LocationDs extends AbstractAuditableDs<Location> {
 
-	public static final String fREGIONNAME = "regionName";
-	public static final String fCITYNAME = "cityName";
-	public static final String fADRESS = "adress";
-	public static final String fNOTES = "notes";
-	public static final String fACTIVE = "active";
-	public static final String fCOUNTRYID = "countryId";
-	public static final String fCOUNTRYCODE = "countryCode";
-	public static final String fREGIONID = "regionId";
-	public static final String fREGIONCODE = "regionCode";
-	public static final String fCITYID = "cityId";
-	public static final String fSHIPPING = "shipping";
-	public static final String fBILLING = "billing";
-	public static final String fMAILING = "mailing";
-	public static final String fTARGETUUID = "targetUuid";
-	public static final String fTARGETTYPE = "targetType";
+	public static final String f_regionName = "regionName";
+	public static final String f_cityName = "cityName";
+	public static final String f_adress = "adress";
+	public static final String f_notes = "notes";
+	public static final String f_active = "active";
+	public static final String f_countryId = "countryId";
+	public static final String f_countryCode = "countryCode";
+	public static final String f_regionId = "regionId";
+	public static final String f_regionCode = "regionCode";
+	public static final String f_cityId = "cityId";
+	public static final String f_shipping = "shipping";
+	public static final String f_billing = "billing";
+	public static final String f_mailing = "mailing";
+	public static final String f_targetUuid = "targetUuid";
+	public static final String f_targetType = "targetType";
 
-	@DsField()
+	@DsField
 	private String regionName;
 
-	@DsField()
+	@DsField
 	private String cityName;
 
-	@DsField()
+	@DsField
 	private String adress;
 
-	@DsField()
+	@DsField
 	private String notes;
 
-	@DsField()
+	@DsField
 	private Boolean active;
 
 	@DsField(join = "left", path = "country.id")
@@ -68,10 +78,10 @@ public class LocationDs extends AbstractAuditableDs<Location> {
 	@DsField(path = "forMailing")
 	private Boolean mailing;
 
-	@DsField()
+	@DsField
 	private String targetUuid;
 
-	@DsField()
+	@DsField
 	private String targetType;
 
 	public LocationDs() {

@@ -13,8 +13,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.module.bd.geo.domain.entity.Location;
@@ -24,13 +22,9 @@ import net.nan21.dnet.module.md.tx.inventory.domain.entity.InvTransaction;
 import net.nan21.dnet.module.sd.order.domain.entity.SalesOrder;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
-@NamedQueries({
-		@NamedQuery(name = SalesInventoryTransaction.NQ_FIND_BY_ID, query = "SELECT e FROM SalesInventoryTransaction e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SalesInventoryTransaction.NQ_FIND_BY_IDS, query = "SELECT e FROM SalesInventoryTransaction e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @CascadeOnDelete
 @DiscriminatorValue("SO")
@@ -42,16 +36,6 @@ public class SalesInventoryTransaction extends InvTransaction {
 	public static final String SEQUENCE_NAME = "SD_INVT_TX_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "SalesInventoryTransaction.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "SalesInventoryTransaction.findByIds";
 
 	@Column(name = "DELIVERYNOTES", length = 4000)
 	private String deliveryNotes;

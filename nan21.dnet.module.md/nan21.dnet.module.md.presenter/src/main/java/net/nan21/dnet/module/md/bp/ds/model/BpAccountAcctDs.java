@@ -7,23 +7,35 @@ package net.nan21.dnet.module.md.bp.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.acc.domain.entity.AccSchema;
+import net.nan21.dnet.module.md.acc.domain.entity.Account;
 import net.nan21.dnet.module.md.bp.domain.entity.BpAccountAcct;
 
 @Ds(entity = BpAccountAcct.class)
+@RefLookups({
+		@RefLookup(refId = BpAccountAcctDs.f_bpAccountId),
+		@RefLookup(refId = BpAccountAcctDs.f_accSchemaId, namedQuery = AccSchema.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountAcctDs.f_accSchema)}),
+		@RefLookup(refId = BpAccountAcctDs.f_custSalesAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountAcctDs.f_custSalesAccount)}),
+		@RefLookup(refId = BpAccountAcctDs.f_custPrepayAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountAcctDs.f_custPrepayAccount)}),
+		@RefLookup(refId = BpAccountAcctDs.f_vendorPurchaseAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountAcctDs.f_vendorPurchaseAccount)}),
+		@RefLookup(refId = BpAccountAcctDs.f_vendorPrepayAccountId, namedQuery = Account.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BpAccountAcctDs.f_vendorPrepayAccount)})})
 public class BpAccountAcctDs extends AbstractAuditableDs<BpAccountAcct> {
 
-	public static final String fBPACCOUNTID = "bpAccountId";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fCUSTSALESACCOUNTID = "custSalesAccountId";
-	public static final String fCUSTSALESACCOUNT = "custSalesAccount";
-	public static final String fCUSTPREPAYACCOUNTID = "custPrepayAccountId";
-	public static final String fCUSTPREPAYACCOUNT = "custPrepayAccount";
-	public static final String fVENDORPURCHASEACCOUNTID = "vendorPurchaseAccountId";
-	public static final String fVENDORPURCHASEACCOUNT = "vendorPurchaseAccount";
-	public static final String fVENDORPREPAYACCOUNTID = "vendorPrepayAccountId";
-	public static final String fVENDORPREPAYACCOUNT = "vendorPrepayAccount";
+	public static final String f_bpAccountId = "bpAccountId";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_custSalesAccountId = "custSalesAccountId";
+	public static final String f_custSalesAccount = "custSalesAccount";
+	public static final String f_custPrepayAccountId = "custPrepayAccountId";
+	public static final String f_custPrepayAccount = "custPrepayAccount";
+	public static final String f_vendorPurchaseAccountId = "vendorPurchaseAccountId";
+	public static final String f_vendorPurchaseAccount = "vendorPurchaseAccount";
+	public static final String f_vendorPrepayAccountId = "vendorPrepayAccountId";
+	public static final String f_vendorPrepayAccount = "vendorPrepayAccount";
 
 	@DsField(join = "left", path = "bpAccount.id")
 	private Long bpAccountId;

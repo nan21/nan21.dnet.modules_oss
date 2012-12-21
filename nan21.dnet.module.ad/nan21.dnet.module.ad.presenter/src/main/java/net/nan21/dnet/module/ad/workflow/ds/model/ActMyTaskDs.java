@@ -12,24 +12,24 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractBaseDs;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActTask;
 
-@Ds(entity = ActTask.class, sort = {@SortField(field = ActMyTaskDs.fSTARTTIME)})
+@Ds(entity = ActTask.class, sort = {@SortField(field = ActMyTaskDs.f_startTime)})
 public class ActMyTaskDs extends AbstractBaseDs<ActTask> {
 
-	public static final String fID = "id";
-	public static final String fPROCESSID = "processId";
-	public static final String fPROCESS = "process";
-	public static final String fCLIENTID = "clientId";
-	public static final String fTASKKEY = "taskKey";
-	public static final String fPROCESSINSTANCEID = "processInstanceId";
-	public static final String fEXECUTIONID = "executionId";
-	public static final String fNAME = "name";
-	public static final String fDESCRIPTION = "description";
-	public static final String fOWNER = "owner";
-	public static final String fSTARTTIME = "startTime";
-	public static final String fPRIORITY = "priority";
-	public static final String fDUEDATE = "dueDate";
+	public static final String f_id = "id";
+	public static final String f_processId = "processId";
+	public static final String f_process = "process";
+	public static final String f_clientId = "clientId";
+	public static final String f_taskKey = "taskKey";
+	public static final String f_processInstanceId = "processInstanceId";
+	public static final String f_executionId = "executionId";
+	public static final String f_name = "name";
+	public static final String f_description = "description";
+	public static final String f_owner = "owner";
+	public static final String f_startTime = "startTime";
+	public static final String f_priority = "priority";
+	public static final String f_dueDate = "dueDate";
 
-	@DsField()
+	@DsField
 	private String id;
 
 	@DsField(join = "left", path = "processDefinition.id")
@@ -44,16 +44,16 @@ public class ActMyTaskDs extends AbstractBaseDs<ActTask> {
 	@DsField(path = "taskDefinitionKey")
 	private String taskKey;
 
-	@DsField()
+	@DsField
 	private String processInstanceId;
 
-	@DsField()
+	@DsField
 	private String executionId;
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String description;
 
 	@DsField(path = "assignee")
@@ -62,10 +62,10 @@ public class ActMyTaskDs extends AbstractBaseDs<ActTask> {
 	@DsField(path = "createdAt")
 	private Date startTime;
 
-	@DsField()
+	@DsField
 	private Integer priority;
 
-	@DsField()
+	@DsField
 	private Date dueDate;
 
 	public ActMyTaskDs() {

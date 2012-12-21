@@ -7,18 +7,21 @@ package net.nan21.dnet.module.ad.report.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.ad.report.domain.entity.DsReportUsage;
 
 @Ds(entity = DsReportUsage.class)
+@RefLookups({@RefLookup(refId = DsReportUsageDs.f_dsReportId)})
 public class DsReportUsageDs extends AbstractAuditableDs<DsReportUsage> {
 
-	public static final String fDSREPORTID = "dsReportId";
-	public static final String fREPORTID = "reportId";
-	public static final String fREPORTCODE = "reportCode";
-	public static final String fFRAMENAME = "frameName";
-	public static final String fTOOLBARKEY = "toolbarKey";
-	public static final String fDCKEY = "dcKey";
+	public static final String f_dsReportId = "dsReportId";
+	public static final String f_reportId = "reportId";
+	public static final String f_reportCode = "reportCode";
+	public static final String f_frameName = "frameName";
+	public static final String f_toolbarKey = "toolbarKey";
+	public static final String f_dcKey = "dcKey";
 
 	@DsField(join = "left", path = "dsReport.id")
 	private Long dsReportId;
@@ -29,13 +32,13 @@ public class DsReportUsageDs extends AbstractAuditableDs<DsReportUsage> {
 	@DsField(join = "left", path = "dsReport.report.code")
 	private String reportCode;
 
-	@DsField()
+	@DsField
 	private String frameName;
 
-	@DsField()
+	@DsField
 	private String toolbarKey;
 
-	@DsField()
+	@DsField
 	private String dcKey;
 
 	public DsReportUsageDs() {

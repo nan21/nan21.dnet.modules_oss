@@ -7,24 +7,31 @@ package net.nan21.dnet.module.md.base.tax.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.md.base.tax.domain.entity.Tax;
+import net.nan21.dnet.module.md.base.tax.domain.entity.TaxCategory;
 
-@Ds(entity = Tax.class, sort = {@SortField(field = TaxDs.fNAME)})
+@Ds(entity = Tax.class, sort = {@SortField(field = TaxDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = TaxDs.f_categoryId, namedQuery = TaxCategory.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = TaxDs.f_category)}),
+		@RefLookup(refId = TaxDs.f_parentTaxId, namedQuery = Tax.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = TaxDs.f_parentTax)})})
 public class TaxDs extends AbstractTypeDs<Tax> {
 
-	public static final String fRATE = "rate";
-	public static final String fSUMMARY = "summary";
-	public static final String fCATEGORYID = "categoryId";
-	public static final String fCATEGORY = "category";
-	public static final String fPARENTTAXID = "parentTaxId";
-	public static final String fPARENTTAX = "parentTax";
+	public static final String f_rate = "rate";
+	public static final String f_summary = "summary";
+	public static final String f_categoryId = "categoryId";
+	public static final String f_category = "category";
+	public static final String f_parentTaxId = "parentTaxId";
+	public static final String f_parentTax = "parentTax";
 
-	@DsField()
+	@DsField
 	private Float rate;
 
-	@DsField()
+	@DsField
 	private Boolean summary;
 
 	@DsField(join = "left", path = "category.id")

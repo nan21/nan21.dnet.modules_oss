@@ -7,27 +7,32 @@ package net.nan21.dnet.module.ad.data.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.ad.data.domain.entity.Attachment;
+import net.nan21.dnet.module.ad.data.domain.entity.AttachmentType;
 
 @Ds(entity = Attachment.class)
+@RefLookups({@RefLookup(refId = AttachmentDs.f_typeId, namedQuery = AttachmentType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AttachmentDs.f_type)})})
 public class AttachmentDs extends AbstractAuditableDs<Attachment> {
 
-	public static final String fTARGETUUID = "targetUuid";
-	public static final String fTARGETTYPE = "targetType";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fCATEGORY = "category";
-	public static final String fBASEURL = "baseUrl";
-	public static final String fNAME = "name";
-	public static final String fLOCATION = "location";
-	public static final String fNOTES = "notes";
-	public static final String fURL = "url";
+	public static final String f_targetUuid = "targetUuid";
+	public static final String f_targetType = "targetType";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_category = "category";
+	public static final String f_baseUrl = "baseUrl";
+	public static final String f_name = "name";
+	public static final String f_location = "location";
+	public static final String f_notes = "notes";
+	public static final String f_url = "url";
 
-	@DsField()
+	@DsField
 	private String targetUuid;
 
-	@DsField()
+	@DsField
 	private String targetType;
 
 	@DsField(join = "left", path = "type.id")
@@ -42,13 +47,13 @@ public class AttachmentDs extends AbstractAuditableDs<Attachment> {
 	@DsField(join = "left", path = "type.baseUrl")
 	private String baseUrl;
 
-	@DsField()
+	@DsField
 	private String name;
 
-	@DsField()
+	@DsField
 	private String location;
 
-	@DsField()
+	@DsField
 	private String notes;
 
 	@DsField(fetch = false)

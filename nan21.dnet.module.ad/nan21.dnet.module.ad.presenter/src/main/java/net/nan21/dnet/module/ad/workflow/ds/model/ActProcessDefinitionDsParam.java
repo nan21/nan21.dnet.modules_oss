@@ -9,7 +9,7 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class ActProcessDefinitionDsParam extends EmptyParam {
 
-	public static final String fDEPLOYMENT = "deployment";
+	public static final String f_deployment = "deployment";
 
 	private String deployment;
 

@@ -8,23 +8,33 @@ package net.nan21.dnet.module.hr.time.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 import net.nan21.dnet.module.hr.time.domain.entity.Absence;
+import net.nan21.dnet.module.hr.time.domain.entity.AbsenceReason;
+import net.nan21.dnet.module.hr.time.domain.entity.AbsenceType;
 
 @Ds(entity = Absence.class)
+@RefLookups({
+		@RefLookup(refId = AbsenceDs.f_employeeId, namedQuery = Employee.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AbsenceDs.f_employeeCode)}),
+		@RefLookup(refId = AbsenceDs.f_reasonId, namedQuery = AbsenceReason.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AbsenceDs.f_reason)}),
+		@RefLookup(refId = AbsenceDs.f_typeId, namedQuery = AbsenceType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = AbsenceDs.f_type)})})
 public class AbsenceDs extends AbstractAuditableDs<Absence> {
 
-	public static final String fEMPLOYEEID = "employeeId";
-	public static final String fEMPLOYEECODE = "employeeCode";
-	public static final String fEMPLOYEE = "employee";
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fREASONID = "reasonId";
-	public static final String fREASON = "reason";
-	public static final String fEVENTDATE = "eventDate";
-	public static final String fHOURS = "hours";
-	public static final String fNOTES = "notes";
-	public static final String fPOSTED = "posted";
+	public static final String f_employeeId = "employeeId";
+	public static final String f_employeeCode = "employeeCode";
+	public static final String f_employee = "employee";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_reasonId = "reasonId";
+	public static final String f_reason = "reason";
+	public static final String f_eventDate = "eventDate";
+	public static final String f_hours = "hours";
+	public static final String f_notes = "notes";
+	public static final String f_posted = "posted";
 
 	@DsField(join = "left", path = "employee.id")
 	private Long employeeId;
@@ -47,16 +57,16 @@ public class AbsenceDs extends AbstractAuditableDs<Absence> {
 	@DsField(join = "left", path = "reason.name")
 	private String reason;
 
-	@DsField()
+	@DsField
 	private Date eventDate;
 
-	@DsField()
+	@DsField
 	private Integer hours;
 
-	@DsField()
+	@DsField
 	private String notes;
 
-	@DsField()
+	@DsField
 	private Boolean posted;
 
 	public AbsenceDs() {

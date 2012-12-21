@@ -7,19 +7,29 @@ package net.nan21.dnet.module.md.mm.prod.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccount;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductAccountGroup;
 
 @Ds(entity = ProductAccount.class)
+@RefLookups({
+		@RefLookup(refId = ProductAccountDs.f_orgId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountDs.f_org)}),
+		@RefLookup(refId = ProductAccountDs.f_groupId, namedQuery = ProductAccountGroup.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountDs.f_groupCode)}),
+		@RefLookup(refId = ProductAccountDs.f_productId, namedQuery = Product.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = ProductAccountDs.f_productCode)})})
 public class ProductAccountDs extends AbstractAuditableDs<ProductAccount> {
 
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fGROUPID = "groupId";
-	public static final String fGROUPCODE = "groupCode";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCTCODE = "productCode";
-	public static final String fANALITICSEGMENT = "analiticSegment";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_groupId = "groupId";
+	public static final String f_groupCode = "groupCode";
+	public static final String f_productId = "productId";
+	public static final String f_productCode = "productCode";
+	public static final String f_analiticSegment = "analiticSegment";
 
 	@DsField(join = "left", path = "org.id")
 	private Long orgId;
@@ -39,7 +49,7 @@ public class ProductAccountDs extends AbstractAuditableDs<ProductAccount> {
 	@DsField(join = "left", path = "product.code")
 	private String productCode;
 
-	@DsField()
+	@DsField
 	private String analiticSegment;
 
 	public ProductAccountDs() {

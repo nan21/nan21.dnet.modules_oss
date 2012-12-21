@@ -7,18 +7,25 @@ package net.nan21.dnet.module.pj.md.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.pj.base.domain.entity.ProjectType;
 import net.nan21.dnet.module.pj.md.domain.entity.Project;
 
-@Ds(entity = Project.class, sort = {@SortField(field = ProjectDs.fNAME)})
+@Ds(entity = Project.class, sort = {@SortField(field = ProjectDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = ProjectDs.f_typeId, namedQuery = ProjectType.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ProjectDs.f_type)}),
+		@RefLookup(refId = ProjectDs.f_projectLeadId)})
 public class ProjectDs extends AbstractTypeWithCodeDs<Project> {
 
-	public static final String fTYPEID = "typeId";
-	public static final String fTYPE = "type";
-	public static final String fISPUBLIC = "isPublic";
-	public static final String fPROJECTLEADID = "projectLeadId";
-	public static final String fPROJECTLEAD = "projectLead";
+	public static final String f_typeId = "typeId";
+	public static final String f_type = "type";
+	public static final String f_isPublic = "isPublic";
+	public static final String f_projectLeadId = "projectLeadId";
+	public static final String f_projectLead = "projectLead";
 
 	@DsField(join = "left", path = "type.id")
 	private Long typeId;
@@ -26,7 +33,7 @@ public class ProjectDs extends AbstractTypeWithCodeDs<Project> {
 	@DsField(join = "left", path = "type.name")
 	private String type;
 
-	@DsField()
+	@DsField
 	private Boolean isPublic;
 
 	@DsField(join = "left", path = "projectLead.id")

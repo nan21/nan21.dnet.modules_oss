@@ -10,7 +10,7 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeLov;
 import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 
-@Ds(entity = Organization.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = OrganizationLovDs.fCODE)})
+@Ds(entity = Organization.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = OrganizationLovDs.f_code)})
 public class OrganizationLovDs extends AbstractTypeWithCodeLov<Organization> {
 
 	public OrganizationLovDs() {

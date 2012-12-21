@@ -11,12 +11,12 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.uom.domain.entity.UomType;
 
-@Ds(entity = UomType.class, sort = {@SortField(field = UomTypeDs.fNAME)})
+@Ds(entity = UomType.class, sort = {@SortField(field = UomTypeDs.f_name)})
 public class UomTypeDs extends AbstractTypeDs<UomType> {
 
-	public static final String fCATEGORY = "category";
+	public static final String f_category = "category";
 
-	@DsField()
+	@DsField
 	private String category;
 
 	public UomTypeDs() {

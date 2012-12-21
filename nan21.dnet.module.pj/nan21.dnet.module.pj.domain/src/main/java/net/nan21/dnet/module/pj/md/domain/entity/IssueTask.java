@@ -14,8 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
@@ -25,14 +23,10 @@ import net.nan21.dnet.module.pj.base.domain.entity.IssueTaskType;
 import net.nan21.dnet.module.pj.md.domain.entity.Issue;
 import net.nan21.dnet.module.pj.md.domain.entity.ProjectMember;
 import org.eclipse.persistence.annotations.Customizer;
-import org.eclipse.persistence.config.HintValues;
-import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
-@NamedQueries({
-		@NamedQuery(name = IssueTask.NQ_FIND_BY_ID, query = "SELECT e FROM IssueTask e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = IssueTask.NQ_FIND_BY_IDS, query = "SELECT e FROM IssueTask e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+@NamedQueries({})
 @Entity
 @Table(name = IssueTask.TABLE_NAME)
 @Customizer(DefaultEventHandler.class)
@@ -42,16 +36,6 @@ public class IssueTask extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "PJ_TASK_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "IssueTask.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "IssueTask.findByIds";
 
 	/**
 	 * System generated unique identifier.

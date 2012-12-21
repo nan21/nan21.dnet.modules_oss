@@ -8,27 +8,35 @@ package net.nan21.dnet.module.sd.invoice.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.module.md.base.tx.domain.entity.PaymentMethod;
 import net.nan21.dnet.module.sd.invoice.domain.entity.SalesTxAmount;
 
 @Ds(entity = SalesTxAmount.class)
+@RefLookups({
+		@RefLookup(refId = SalesTxAmountDs.f_orderId),
+		@RefLookup(refId = SalesTxAmountDs.f_invoiceId),
+		@RefLookup(refId = SalesTxAmountDs.f_paymentMethodId, namedQuery = PaymentMethod.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SalesTxAmountDs.f_paymentMethod)})})
 public class SalesTxAmountDs extends AbstractAuditableDs<SalesTxAmount> {
 
-	public static final String fORGID = "orgId";
-	public static final String fBPARTNERID = "bpartnerId";
-	public static final String fINVOICEID = "invoiceId";
-	public static final String fINVOICECODE = "invoiceCode";
-	public static final String fINVOICEDOCNO = "invoiceDocNo";
-	public static final String fINVOICEDOCDATE = "invoiceDocDate";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fORDERID = "orderId";
-	public static final String fDUEDATE = "dueDate";
-	public static final String fDUEAMOUNT = "dueAmount";
-	public static final String fPAYEDAMOUNT = "payedAmount";
-	public static final String fOUTSTANDINGAMOUNT = "outstandingAmount";
-	public static final String fPAYMENTMETHODID = "paymentMethodId";
-	public static final String fPAYMENTMETHOD = "paymentMethod";
+	public static final String f_orgId = "orgId";
+	public static final String f_bpartnerId = "bpartnerId";
+	public static final String f_invoiceId = "invoiceId";
+	public static final String f_invoiceCode = "invoiceCode";
+	public static final String f_invoiceDocNo = "invoiceDocNo";
+	public static final String f_invoiceDocDate = "invoiceDocDate";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_orderId = "orderId";
+	public static final String f_dueDate = "dueDate";
+	public static final String f_dueAmount = "dueAmount";
+	public static final String f_payedAmount = "payedAmount";
+	public static final String f_outstandingAmount = "outstandingAmount";
+	public static final String f_paymentMethodId = "paymentMethodId";
+	public static final String f_paymentMethod = "paymentMethod";
 
 	@DsField(join = "left", path = "org.id")
 	private Long orgId;
@@ -57,13 +65,13 @@ public class SalesTxAmountDs extends AbstractAuditableDs<SalesTxAmount> {
 	@DsField(noUpdate = true, join = "left", path = "order.id")
 	private Long orderId;
 
-	@DsField()
+	@DsField
 	private Date dueDate;
 
-	@DsField()
+	@DsField
 	private Float dueAmount;
 
-	@DsField()
+	@DsField
 	private Float payedAmount;
 
 	@DsField(path = "amount")

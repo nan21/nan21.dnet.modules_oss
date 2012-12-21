@@ -8,23 +8,28 @@ package net.nan21.dnet.module.bd.currency.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateAverage;
+import net.nan21.dnet.module.bd.currency.domain.entity.CurrencyXRateProvider;
 
 @Ds(entity = CurrencyXRateAverage.class)
+@RefLookups({@RefLookup(refId = CurrencyXRateAverageDs.f_providerId, namedQuery = CurrencyXRateProvider.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = CurrencyXRateAverageDs.f_providerCode)})})
 public class CurrencyXRateAverageDs
 		extends
 			AbstractAuditableDs<CurrencyXRateAverage> {
 
-	public static final String fSOURCEID = "sourceId";
-	public static final String fSOURCECODE = "sourceCode";
-	public static final String fTARGETID = "targetId";
-	public static final String fTARGETCODE = "targetCode";
-	public static final String fVALIDFROM = "validFrom";
-	public static final String fVALIDTO = "validTo";
-	public static final String fVALUE = "value";
-	public static final String fPROVIDERID = "providerId";
-	public static final String fPROVIDERCODE = "providerCode";
+	public static final String f_sourceId = "sourceId";
+	public static final String f_sourceCode = "sourceCode";
+	public static final String f_targetId = "targetId";
+	public static final String f_targetCode = "targetCode";
+	public static final String f_validFrom = "validFrom";
+	public static final String f_validTo = "validTo";
+	public static final String f_value = "value";
+	public static final String f_providerId = "providerId";
+	public static final String f_providerCode = "providerCode";
 
 	@DsField(join = "left", path = "source.id")
 	private Long sourceId;
@@ -38,13 +43,13 @@ public class CurrencyXRateAverageDs
 	@DsField(join = "left", path = "target.code")
 	private String targetCode;
 
-	@DsField()
+	@DsField
 	private Date validFrom;
 
-	@DsField()
+	@DsField
 	private Date validTo;
 
-	@DsField()
+	@DsField
 	private Float value;
 
 	@DsField(join = "left", path = "provider.id")

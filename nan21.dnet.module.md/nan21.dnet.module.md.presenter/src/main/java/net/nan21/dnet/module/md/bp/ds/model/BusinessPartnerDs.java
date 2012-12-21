@@ -8,33 +8,43 @@ package net.nan21.dnet.module.md.bp.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.bd.geo.domain.entity.Country;
 import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
+import net.nan21.dnet.module.md.bp.domain.entity.CompanyLegalForm;
 
-@Ds(entity = BusinessPartner.class, sort = {@SortField(field = BusinessPartnerDs.fNAME)})
+@Ds(entity = BusinessPartner.class, sort = {@SortField(field = BusinessPartnerDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = BusinessPartnerDs.f_countryId, namedQuery = Country.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BusinessPartnerDs.f_countryCode)}),
+		@RefLookup(refId = BusinessPartnerDs.f_legalFormId, namedQuery = CompanyLegalForm.NQ_FIND_BY_NAME_PRIMITIVE, params = {
+				@Param(name = "pName", field = BusinessPartnerDs.f_legalForm),
+				@Param(name = "pCountryId", field = BusinessPartnerDs.f_countryId)})})
 public class BusinessPartnerDs extends AbstractTypeWithCodeDs<BusinessPartner> {
 
-	public static final String fTYPE = "type";
-	public static final String fBUSINESSOBJECT = "businessObject";
-	public static final String fCOUNTRYID = "countryId";
-	public static final String fCOUNTRYCODE = "countryCode";
-	public static final String fTAXPAYERNO = "taxPayerNo";
-	public static final String fFIRSTNAME = "firstName";
-	public static final String fLASTNAME = "lastName";
-	public static final String fMIDDLENAME = "middleName";
-	public static final String fGENDER = "gender";
-	public static final String fIDENTITYCARDNO = "identityCardNo";
-	public static final String fPASSPORTNO = "passportNo";
-	public static final String fBIRTHDATE = "birthDate";
-	public static final String fCOMPANYNAME = "companyName";
-	public static final String fLEGALFORMID = "legalFormId";
-	public static final String fLEGALFORM = "legalForm";
-	public static final String fREGISTRATIONNO = "registrationNo";
-	public static final String fREGISTRATIONDATE = "registrationDate";
-	public static final String fCLASSNAME = "className";
+	public static final String f_type = "type";
+	public static final String f_businessObject = "businessObject";
+	public static final String f_countryId = "countryId";
+	public static final String f_countryCode = "countryCode";
+	public static final String f_taxPayerNo = "taxPayerNo";
+	public static final String f_firstName = "firstName";
+	public static final String f_lastName = "lastName";
+	public static final String f_middleName = "middleName";
+	public static final String f_gender = "gender";
+	public static final String f_identityCardNo = "identityCardNo";
+	public static final String f_passportNo = "passportNo";
+	public static final String f_birthDate = "birthDate";
+	public static final String f_companyName = "companyName";
+	public static final String f_legalFormId = "legalFormId";
+	public static final String f_legalForm = "legalForm";
+	public static final String f_registrationNo = "registrationNo";
+	public static final String f_registrationDate = "registrationDate";
+	public static final String f_className = "className";
 
-	@DsField()
+	@DsField
 	private String type;
 
 	@DsField(fetch = false)
@@ -46,31 +56,31 @@ public class BusinessPartnerDs extends AbstractTypeWithCodeDs<BusinessPartner> {
 	@DsField(join = "left", path = "country.code")
 	private String countryCode;
 
-	@DsField()
+	@DsField
 	private String taxPayerNo;
 
-	@DsField()
+	@DsField
 	private String firstName;
 
-	@DsField()
+	@DsField
 	private String lastName;
 
-	@DsField()
+	@DsField
 	private String middleName;
 
-	@DsField()
+	@DsField
 	private String gender;
 
-	@DsField()
+	@DsField
 	private String identityCardNo;
 
-	@DsField()
+	@DsField
 	private String passportNo;
 
-	@DsField()
+	@DsField
 	private Date birthDate;
 
-	@DsField()
+	@DsField
 	private String companyName;
 
 	@DsField(join = "left", path = "legalForm.id")
@@ -79,10 +89,10 @@ public class BusinessPartnerDs extends AbstractTypeWithCodeDs<BusinessPartner> {
 	@DsField(join = "left", path = "legalForm.name")
 	private String legalForm;
 
-	@DsField()
+	@DsField
 	private String registrationNo;
 
-	@DsField()
+	@DsField
 	private Date registrationDate;
 
 	@DsField(fetch = false)

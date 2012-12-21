@@ -10,8 +10,8 @@ import net.nan21.dnet.core.presenter.model.EmptyParam;
 
 public class AbsenceDsParam extends EmptyParam {
 
-	public static final String fFROM = "from";
-	public static final String fTO = "to";
+	public static final String f_from = "from";
+	public static final String f_to = "to";
 
 	private Date from;
 

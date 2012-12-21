@@ -8,35 +8,47 @@ package net.nan21.dnet.module.fi.asset.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.Param;
+import net.nan21.dnet.core.api.annotation.RefLookup;
+import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.module.bd.currency.domain.entity.Currency;
+import net.nan21.dnet.module.bd.org.domain.entity.Organization;
 import net.nan21.dnet.module.fi.asset.domain.entity.Asset;
+import net.nan21.dnet.module.fi.asset.domain.entity.AssetCategory;
+import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 
-@Ds(entity = Asset.class, sort = {@SortField(field = AssetDs.fNAME)})
+@Ds(entity = Asset.class, sort = {@SortField(field = AssetDs.f_name)})
+@RefLookups({
+		@RefLookup(refId = AssetDs.f_orgId, namedQuery = Organization.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetDs.f_org)}),
+		@RefLookup(refId = AssetDs.f_categoryId, namedQuery = AssetCategory.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetDs.f_category)}),
+		@RefLookup(refId = AssetDs.f_currencyId, namedQuery = Currency.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetDs.f_currency)}),
+		@RefLookup(refId = AssetDs.f_productId, namedQuery = Product.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = AssetDs.f_productCode)})})
 public class AssetDs extends AbstractTypeWithCodeDs<Asset> {
 
-	public static final String fORGID = "orgId";
-	public static final String fORG = "org";
-	public static final String fCATEGORYID = "categoryId";
-	public static final String fCATEGORY = "category";
-	public static final String fCURRENCYID = "currencyId";
-	public static final String fCURRENCY = "currency";
-	public static final String fPRODUCTID = "productId";
-	public static final String fPRODUCTCODE = "productCode";
-	public static final String fPRODUCTNAME = "productName";
-	public static final String fWITHDEPRECIATION = "withDepreciation";
-	public static final String fMETHOD = "method";
-	public static final String fCALCULATION = "calculation";
-	public static final String fPERIODTYPE = "periodType";
-	public static final String fPERIODVALUE = "periodValue";
-	public static final String fPERIODPERCENATGE = "periodPercenatge";
-	public static final String fDEPRECSTARTDATE = "deprecStartDate";
-	public static final String fDEPRECENDDATE = "deprecEndDate";
-	public static final String fPURCHASEDATE = "purchaseDate";
-	public static final String fINITIALVALUE = "initialValue";
-	public static final String fRESIDUALVALUE = "residualValue";
-	public static final String fDEPRECIATIONAMOUNT = "depreciationAmount";
-	public static final String fINITIALDEPRECAMOUNT = "initialDeprecAmount";
+	public static final String f_orgId = "orgId";
+	public static final String f_org = "org";
+	public static final String f_categoryId = "categoryId";
+	public static final String f_category = "category";
+	public static final String f_currencyId = "currencyId";
+	public static final String f_currency = "currency";
+	public static final String f_productId = "productId";
+	public static final String f_productCode = "productCode";
+	public static final String f_productName = "productName";
+	public static final String f_withDepreciation = "withDepreciation";
+	public static final String f_method = "method";
+	public static final String f_calculation = "calculation";
+	public static final String f_periodType = "periodType";
+	public static final String f_periodValue = "periodValue";
+	public static final String f_periodPercenatge = "periodPercenatge";
+	public static final String f_deprecStartDate = "deprecStartDate";
+	public static final String f_deprecEndDate = "deprecEndDate";
+	public static final String f_purchaseDate = "purchaseDate";
+	public static final String f_initialValue = "initialValue";
+	public static final String f_residualValue = "residualValue";
+	public static final String f_depreciationAmount = "depreciationAmount";
+	public static final String f_initialDeprecAmount = "initialDeprecAmount";
 
 	@DsField(join = "left", path = "org.id")
 	private Long orgId;
@@ -65,43 +77,43 @@ public class AssetDs extends AbstractTypeWithCodeDs<Asset> {
 	@DsField(join = "left", path = "product.name")
 	private String productName;
 
-	@DsField()
+	@DsField
 	private Boolean withDepreciation;
 
-	@DsField()
+	@DsField
 	private String method;
 
-	@DsField()
+	@DsField
 	private String calculation;
 
-	@DsField()
+	@DsField
 	private String periodType;
 
-	@DsField()
+	@DsField
 	private Integer periodValue;
 
-	@DsField()
+	@DsField
 	private Integer periodPercenatge;
 
-	@DsField()
+	@DsField
 	private Date deprecStartDate;
 
-	@DsField()
+	@DsField
 	private Date deprecEndDate;
 
-	@DsField()
+	@DsField
 	private Date purchaseDate;
 
-	@DsField()
+	@DsField
 	private Float initialValue;
 
-	@DsField()
+	@DsField
 	private Float residualValue;
 
 	@DsField(path = "deprecAmount")
 	private Float depreciationAmount;
 
-	@DsField()
+	@DsField
 	private Float initialDeprecAmount;
 
 	public AssetDs() {

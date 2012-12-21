@@ -29,8 +29,6 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = ExportJobItem.NQ_FIND_BY_ID, query = "SELECT e FROM ExportJobItem e WHERE e.clientId = :pClientId and e.id = :pId ", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = ExportJobItem.NQ_FIND_BY_IDS, query = "SELECT e FROM ExportJobItem e WHERE e.clientId = :pClientId and e.id in :pIds", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ExportJobItem.NQ_FIND_BY_JOB_MAP, query = "SELECT e FROM ExportJobItem e WHERE e.clientId = :pClientId and e.job = :pJob and e.map = :pMap", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
 		@NamedQuery(name = ExportJobItem.NQ_FIND_BY_JOB_MAP_PRIMITIVE, query = "SELECT e FROM ExportJobItem e WHERE e.clientId = :pClientId and e.job.id = :pJobId and e.map.id = :pMapId", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
@@ -43,16 +41,6 @@ public class ExportJobItem extends AbstractAuditable {
 	public static final String SEQUENCE_NAME = "AD_EXP_JOB_ITEM_SEQ";
 
 	private static final long serialVersionUID = -8865917134914502125L;
-
-	/**
-	 * Named query find by ID.
-	 */
-	public static final String NQ_FIND_BY_ID = "ExportJobItem.findById";
-
-	/**
-	 * Named query find by IDs.
-	 */
-	public static final String NQ_FIND_BY_IDS = "ExportJobItem.findByIds";
 
 	/**
 	 * Named query find by unique key: Job_map.

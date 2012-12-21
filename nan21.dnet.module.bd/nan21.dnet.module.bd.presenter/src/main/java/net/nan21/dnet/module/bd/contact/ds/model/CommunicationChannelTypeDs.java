@@ -11,14 +11,14 @@ import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
 import net.nan21.dnet.module.bd.contact.domain.entity.CommunicationChannelType;
 
-@Ds(entity = CommunicationChannelType.class, sort = {@SortField(field = CommunicationChannelTypeDs.fNAME)})
+@Ds(entity = CommunicationChannelType.class, sort = {@SortField(field = CommunicationChannelTypeDs.f_name)})
 public class CommunicationChannelTypeDs
 		extends
 			AbstractTypeDs<CommunicationChannelType> {
 
-	public static final String fTYPE = "type";
+	public static final String f_type = "type";
 
-	@DsField()
+	@DsField
 	private String type;
 
 	public CommunicationChannelTypeDs() {

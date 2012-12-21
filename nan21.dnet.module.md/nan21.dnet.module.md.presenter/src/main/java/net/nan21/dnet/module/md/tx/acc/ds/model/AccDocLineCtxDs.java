@@ -12,22 +12,22 @@ import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
 import net.nan21.dnet.module.md.tx.acc.domain.entity.AccDocLine;
 
 @Ds(entity = AccDocLine.class, sort = {
-		@SortField(field = AccDocLineCtxDs.fACCSCHEMAID),
-		@SortField(field = AccDocLineCtxDs.fACCDOCID),
-		@SortField(field = AccDocLineCtxDs.fSEQUENCENO)})
+		@SortField(field = AccDocLineCtxDs.f_accSchemaId),
+		@SortField(field = AccDocLineCtxDs.f_accDocId),
+		@SortField(field = AccDocLineCtxDs.f_sequenceNo)})
 public class AccDocLineCtxDs extends AbstractAuditableDs<AccDocLine> {
 
-	public static final String fACCDOCID = "accDocId";
-	public static final String fACCSCHEMAID = "accSchemaId";
-	public static final String fACCSCHEMA = "accSchema";
-	public static final String fDOCTYPEID = "docTypeId";
-	public static final String fDOCTYPE = "docType";
-	public static final String fDOCUUID = "docUuid";
-	public static final String fSEQUENCENO = "sequenceNo";
-	public static final String fDBACCOUNT = "dbAccount";
-	public static final String fCRACCOUNT = "crAccount";
-	public static final String fDBAMOUNT = "dbAmount";
-	public static final String fCRAMOUNT = "crAmount";
+	public static final String f_accDocId = "accDocId";
+	public static final String f_accSchemaId = "accSchemaId";
+	public static final String f_accSchema = "accSchema";
+	public static final String f_docTypeId = "docTypeId";
+	public static final String f_docType = "docType";
+	public static final String f_docUuid = "docUuid";
+	public static final String f_sequenceNo = "sequenceNo";
+	public static final String f_dbAccount = "dbAccount";
+	public static final String f_crAccount = "crAccount";
+	public static final String f_dbAmount = "dbAmount";
+	public static final String f_crAmount = "crAmount";
 
 	@DsField(join = "left", path = "accDoc.id")
 	private Long accDocId;
@@ -47,19 +47,19 @@ public class AccDocLineCtxDs extends AbstractAuditableDs<AccDocLine> {
 	@DsField(join = "left", path = "accDoc.docUuid")
 	private String docUuid;
 
-	@DsField()
+	@DsField
 	private Integer sequenceNo;
 
-	@DsField()
+	@DsField
 	private String dbAccount;
 
-	@DsField()
+	@DsField
 	private String crAccount;
 
-	@DsField()
+	@DsField
 	private Float dbAmount;
 
-	@DsField()
+	@DsField
 	private Float crAmount;
 
 	public AccDocLineCtxDs() {
