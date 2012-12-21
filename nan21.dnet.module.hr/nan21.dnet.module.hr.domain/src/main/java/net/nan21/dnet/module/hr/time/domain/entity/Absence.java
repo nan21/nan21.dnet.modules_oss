@@ -19,11 +19,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
 import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceReason;
 import net.nan21.dnet.module.hr.time.domain.entity.AbsenceType;
-import net.nan21.dnet.module.hr.time.domain.eventhandler.AbsenceEventHandler;
 import org.eclipse.persistence.annotations.Customizer;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
@@ -33,7 +33,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 @NamedQueries({})
 @Entity
 @Table(name = Absence.TABLE_NAME)
-@Customizer(AbsenceEventHandler.class)
+@Customizer(DefaultEventHandler.class)
 public class Absence extends AbstractAuditable {
 
 	public static final String TABLE_NAME = "HR_ABSN";

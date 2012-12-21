@@ -25,6 +25,6 @@ public class BusinessPartnerEventHandler extends DefaultEventHandler {
 
 	    @Override
 	    public void preUpdate(DescriptorEvent event) {
-	        BusinessPartner e = (BusinessPartner) event.getSource();
+	        //BusinessPartner e = (BusinessPartner) event.getSource();
 	    }
 }

@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.system.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @ReadOnly
 @Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class DbChangeLog {
+public class DbChangeLog implements Serializable {
 
 	public static final String TABLE_NAME = "DATABASECHANGELOG";
 	public static final String SEQUENCE_NAME = "DATABASECHANGELOG_SEQ";

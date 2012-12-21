@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.quartz.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +31,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @ReadOnly
 @Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class QuartzTrigger {
+public class QuartzTrigger implements Serializable {
 
 	public static final String TABLE_NAME = "XT_QRTZ_TRIGGERS";
 	public static final String SEQUENCE_NAME = "XT_QRTZ_TRIGGERS_SEQ";

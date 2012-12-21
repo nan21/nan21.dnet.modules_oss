@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.quartz.domain.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @ReadOnly
 @Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class QuartzCalendar {
+public class QuartzCalendar implements Serializable {
 
 	public static final String TABLE_NAME = "XT_QRTZ_CALENDARS";
 	public static final String SEQUENCE_NAME = "XT_QRTZ_CALENDARS_SEQ";
