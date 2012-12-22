@@ -8,13 +8,11 @@ Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Export-Package: 
  net.nan21.dnet.module.hr.benefit.domain.entity;version="1.0.6",
  net.nan21.dnet.module.hr.employee.domain.entity;version="1.0.6",
- net.nan21.dnet.module.hr.employee.domain.eventhandler;version="1.0.6",
  net.nan21.dnet.module.hr.grade.domain.entity;version="1.0.6",
  net.nan21.dnet.module.hr.job.domain.entity;version="1.0.6",
  net.nan21.dnet.module.hr.payroll.domain.entity;version="1.0.6",
  net.nan21.dnet.module.hr.skill.domain.entity;version="1.0.6",
  net.nan21.dnet.module.hr.time.domain.entity;version="1.0.6",
- net.nan21.dnet.module.hr.time.domain.eventhandler;version="1.0.6",
  net.nan21.dnet.module.hr.training.domain.entity;version="1.0.6"
 Import-Package: 
  javax.persistence;version="[2.0,2.1)",
