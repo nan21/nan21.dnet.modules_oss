@@ -21,8 +21,8 @@ import net.nan21.dnet.module.bd.elem.domain.entity.ElementInput;
 		@SortField(field = ElementInputDs.f_reference)})
 @RefLookups({
 		@RefLookup(refId = ElementInputDs.f_elementId, namedQuery = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
-				@Param(name = "pCode", field = ElementInputDs.f_element),
-				@Param(name = "pEngineId", field = ElementInputDs.f_engineId)}),
+				@Param(name = "pEngineId", field = ElementInputDs.f_engineId),
+				@Param(name = "pCode", field = ElementInputDs.f_element)}),
 		@RefLookup(refId = ElementInputDs.f_referenceId, namedQuery = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
 				@Param(name = "pEngineId", field = ElementInputDs.f_engineId),
 				@Param(name = "pCode", field = ElementInputDs.f_reference)})})

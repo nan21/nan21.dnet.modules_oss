@@ -37,11 +37,11 @@ import net.nan21.dnet.module.pj.md.domain.entity.ProjectVersion;
 				@Param(name = "pProjectId", field = IssueDs.f_projectId),
 				@Param(name = "pName", field = IssueDs.f_reportedVersion)}),
 		@RefLookup(refId = IssueDs.f_targetVersionId, namedQuery = ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE, params = {
-				@Param(name = "pName", field = IssueDs.f_targetVersion),
-				@Param(name = "pProjectId", field = IssueDs.f_projectId)}),
+				@Param(name = "pProjectId", field = IssueDs.f_projectId),
+				@Param(name = "pName", field = IssueDs.f_targetVersion)}),
 		@RefLookup(refId = IssueDs.f_fixedInVersionId, namedQuery = ProjectVersion.NQ_FIND_BY_NAME_PRIMITIVE, params = {
-				@Param(name = "pName", field = IssueDs.f_fixedInVersion),
-				@Param(name = "pProjectId", field = IssueDs.f_projectId)})})
+				@Param(name = "pProjectId", field = IssueDs.f_projectId),
+				@Param(name = "pName", field = IssueDs.f_fixedInVersion)})})
 public class IssueDs extends AbstractAuditableDs<Issue> {
 
 	public static final String f_projectId = "projectId";

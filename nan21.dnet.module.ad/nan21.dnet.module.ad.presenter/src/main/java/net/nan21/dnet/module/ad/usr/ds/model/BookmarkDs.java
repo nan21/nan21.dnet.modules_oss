@@ -16,8 +16,8 @@ import net.nan21.dnet.module.ad.usr.domain.entity.Bookmark;
 
 @Ds(entity = Bookmark.class, sort = {@SortField(field = BookmarkDs.f_name)})
 @RefLookups({@RefLookup(refId = BookmarkDs.f_parentId, namedQuery = Bookmark.NQ_FIND_BY_NAME, params = {
-		@Param(name = "pName", field = BookmarkDs.f_parent),
-		@Param(name = "pOwner", field = BookmarkDs.f_owner)})})
+		@Param(name = "pOwner", field = BookmarkDs.f_owner),
+		@Param(name = "pName", field = BookmarkDs.f_parent)})})
 public class BookmarkDs extends AbstractTypeDs<Bookmark> {
 
 	public static final String f_sequenceNo = "sequenceNo";

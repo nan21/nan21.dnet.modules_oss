@@ -21,8 +21,8 @@ import net.nan21.dnet.module.hr.skill.domain.entity.Skill;
 		@RefLookup(refId = QualificationSkillDs.f_qualificationId),
 		@RefLookup(refId = QualificationSkillDs.f_skillId, namedQuery = Skill.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = QualificationSkillDs.f_skill)}),
 		@RefLookup(refId = QualificationSkillDs.f_requiredLevelId, namedQuery = RatingLevel.NQ_FIND_BY_NAME_PRIMITIVE, params = {
-				@Param(name = "pName", field = QualificationSkillDs.f_requiredLevel),
-				@Param(name = "pRatingScaleId", field = QualificationSkillDs.f_ratingScaleId)})})
+				@Param(name = "pRatingScaleId", field = QualificationSkillDs.f_ratingScaleId),
+				@Param(name = "pName", field = QualificationSkillDs.f_requiredLevel)})})
 public class QualificationSkillDs
 		extends
 			AbstractAuditableDs<QualificationSkill> {

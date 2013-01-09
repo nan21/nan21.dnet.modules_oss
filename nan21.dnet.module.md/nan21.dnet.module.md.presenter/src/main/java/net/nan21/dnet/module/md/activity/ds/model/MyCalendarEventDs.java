@@ -24,8 +24,8 @@ import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 				@Param(name = "pEventType", field = MyCalendarEventDs.f_eventType),
 				@Param(name = "pName", field = MyCalendarEventDs.f_priorityName)}),
 		@RefLookup(refId = MyCalendarEventDs.f_statusId, namedQuery = CalendarEventStatus.NQ_FIND_BY_TYPE_AND_NAME, params = {
-				@Param(name = "pName", field = MyCalendarEventDs.f_statusName),
-				@Param(name = "pEventType", field = MyCalendarEventDs.f_eventType)})})
+				@Param(name = "pEventType", field = MyCalendarEventDs.f_eventType),
+				@Param(name = "pName", field = MyCalendarEventDs.f_statusName)})})
 public class MyCalendarEventDs extends AbstractAuditableDs<CalendarEvent> {
 
 	public static final String f_subject = "subject";

@@ -18,8 +18,8 @@ import net.nan21.dnet.module.bd.elem.domain.entity.ElementSetElement;
 @Ds(entity = ElementSetElement.class)
 @RefLookups({
 		@RefLookup(refId = ElementSetElementDs.f_elementSetId, namedQuery = ElementSet.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE, params = {
-				@Param(name = "pName", field = ElementSetElementDs.f_elementSet),
-				@Param(name = "pEngineId", field = ElementSetElementDs.f_engineId)}),
+				@Param(name = "pEngineId", field = ElementSetElementDs.f_engineId),
+				@Param(name = "pName", field = ElementSetElementDs.f_elementSet)}),
 		@RefLookup(refId = ElementSetElementDs.f_elementId, namedQuery = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
 				@Param(name = "pEngineId", field = ElementSetElementDs.f_engineId),
 				@Param(name = "pCode", field = ElementSetElementDs.f_element)})})

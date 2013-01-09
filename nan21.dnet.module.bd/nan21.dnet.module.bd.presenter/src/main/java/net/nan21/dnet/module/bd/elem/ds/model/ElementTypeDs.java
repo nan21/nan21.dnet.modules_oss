@@ -20,8 +20,8 @@ import net.nan21.dnet.module.bd.elem.domain.entity.Engine;
 @RefLookups({
 		@RefLookup(refId = ElementTypeDs.f_engineId, namedQuery = Engine.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = ElementTypeDs.f_engine)}),
 		@RefLookup(refId = ElementTypeDs.f_categoryId, namedQuery = ElementCategory.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE, params = {
-				@Param(name = "pName", field = ElementTypeDs.f_category),
-				@Param(name = "pEngineId", field = ElementTypeDs.f_engineId)})})
+				@Param(name = "pEngineId", field = ElementTypeDs.f_engineId),
+				@Param(name = "pName", field = ElementTypeDs.f_category)})})
 public class ElementTypeDs extends AbstractTypeDs<ElementType> {
 
 	public static final String f_engineId = "engineId";

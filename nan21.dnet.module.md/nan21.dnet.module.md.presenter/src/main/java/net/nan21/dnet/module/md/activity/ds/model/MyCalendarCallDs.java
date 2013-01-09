@@ -23,8 +23,8 @@ import net.nan21.dnet.module.md.bp.domain.entity.BusinessPartner;
 		@RefLookup(refId = MyCalendarCallDs.f_bpartnerId, namedQuery = BusinessPartner.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = MyCalendarCallDs.f_bpartnerCode)}),
 		@RefLookup(refId = MyCalendarCallDs.f_contactId),
 		@RefLookup(refId = MyCalendarCallDs.f_priorityId, namedQuery = CalendarEventPriority.NQ_FIND_BY_TYPE_AND_NAME, params = {
-				@Param(name = "pName", field = MyCalendarCallDs.f_priorityName),
-				@Param(name = "pEventType", field = MyCalendarCallDs.f_eventType)}),
+				@Param(name = "pEventType", field = MyCalendarCallDs.f_eventType),
+				@Param(name = "pName", field = MyCalendarCallDs.f_priorityName)}),
 		@RefLookup(refId = MyCalendarCallDs.f_statusId, namedQuery = CalendarEventStatus.NQ_FIND_BY_TYPE_AND_NAME, params = {
 				@Param(name = "pEventType", field = MyCalendarCallDs.f_eventType),
 				@Param(name = "pName", field = MyCalendarCallDs.f_statusName)})})

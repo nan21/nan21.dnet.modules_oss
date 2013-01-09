@@ -21,8 +21,8 @@ import net.nan21.dnet.module.md.bp.domain.entity.CompanyLegalForm;
 @RefLookups({
 		@RefLookup(refId = BusinessPartnerDs.f_countryId, namedQuery = Country.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = BusinessPartnerDs.f_countryCode)}),
 		@RefLookup(refId = BusinessPartnerDs.f_legalFormId, namedQuery = CompanyLegalForm.NQ_FIND_BY_NAME_PRIMITIVE, params = {
-				@Param(name = "pName", field = BusinessPartnerDs.f_legalForm),
-				@Param(name = "pCountryId", field = BusinessPartnerDs.f_countryId)})})
+				@Param(name = "pCountryId", field = BusinessPartnerDs.f_countryId),
+				@Param(name = "pName", field = BusinessPartnerDs.f_legalForm)})})
 public class BusinessPartnerDs extends AbstractTypeWithCodeDs<BusinessPartner> {
 
 	public static final String f_type = "type";

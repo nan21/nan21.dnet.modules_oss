@@ -20,8 +20,8 @@ import net.nan21.dnet.module.bd.geo.domain.entity.Region;
 @RefLookups({
 		@RefLookup(refId = CityDs.f_countryId, namedQuery = Country.NQ_FIND_BY_CODE, params = {@Param(name = "pCode", field = CityDs.f_countryCode)}),
 		@RefLookup(refId = CityDs.f_regionId, namedQuery = Region.NQ_FIND_BY_CODEANDCOUNTRY_PRIMITIVE, params = {
-				@Param(name = "pCode", field = CityDs.f_regionCode),
-				@Param(name = "pCountryId", field = CityDs.f_countryId)})})
+				@Param(name = "pCountryId", field = CityDs.f_countryId),
+				@Param(name = "pCode", field = CityDs.f_regionCode)})})
 public class CityDs extends AbstractTypeDs<City> {
 
 	public static final String f_countryId = "countryId";

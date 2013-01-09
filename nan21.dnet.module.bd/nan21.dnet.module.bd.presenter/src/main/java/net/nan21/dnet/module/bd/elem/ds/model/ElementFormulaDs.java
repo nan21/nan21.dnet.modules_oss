@@ -21,8 +21,8 @@ import net.nan21.dnet.module.bd.elem.domain.entity.ElementFormula;
 		@SortField(field = ElementFormulaDs.f_sequenceNo),
 		@SortField(field = ElementFormulaDs.f_validFrom, desc = true)})
 @RefLookups({@RefLookup(refId = ElementFormulaDs.f_elementId, namedQuery = Element.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
-		@Param(name = "pCode", field = ElementFormulaDs.f_element),
-		@Param(name = "pEngineId", field = ElementFormulaDs.f_engineId)})})
+		@Param(name = "pEngineId", field = ElementFormulaDs.f_engineId),
+		@Param(name = "pCode", field = ElementFormulaDs.f_element)})})
 public class ElementFormulaDs extends AbstractAuditableDs<ElementFormula> {
 
 	public static final String f_elementId = "elementId";

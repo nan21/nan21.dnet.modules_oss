@@ -21,8 +21,8 @@ import net.nan21.dnet.module.md.acc.domain.entity.AccItem;
 @RefLookups({
 		@RefLookup(refId = PayrollElementDs.f_engineId, namedQuery = Engine.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = PayrollElementDs.f_engine)}),
 		@RefLookup(refId = PayrollElementDs.f_typeId, namedQuery = ElementType.NQ_FIND_BY_ENGINE_NAME_PRIMITIVE, params = {
-				@Param(name = "pName", field = PayrollElementDs.f_type),
-				@Param(name = "pEngineId", field = PayrollElementDs.f_engineId)}),
+				@Param(name = "pEngineId", field = PayrollElementDs.f_engineId),
+				@Param(name = "pName", field = PayrollElementDs.f_type)}),
 		@RefLookup(refId = PayrollElementDs.f_sourceElementId, namedQuery = PayrollElement.NQ_FIND_BY_ENGINE_CODE_PRIMITIVE, params = {
 				@Param(name = "pEngineId", field = PayrollElementDs.f_engineId),
 				@Param(name = "pCode", field = PayrollElementDs.f_sourceElement)}),
