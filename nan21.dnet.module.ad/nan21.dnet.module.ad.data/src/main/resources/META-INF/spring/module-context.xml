@@ -73,7 +73,7 @@
 
 				<bean class="net.nan21.dnet.core.api.setup.InitData">
 					<property name="sequence" value="20" />
-					<property name="mandatory" value="true" />
+					<property name="mandatory" value="false" />
 					<property name="name" value="demo_ad" />
 					<property name="items">
 						<list>

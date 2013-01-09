@@ -28,7 +28,7 @@
 
 				<bean class="net.nan21.dnet.core.api.setup.InitData">
 					<property name="sequence" value="510" />
-					<property name="mandatory" value="true" />
+					<property name="mandatory" value="false" />
 					<property name="name" value="demo_pj" />
 					<property name="items">
 						<list>
