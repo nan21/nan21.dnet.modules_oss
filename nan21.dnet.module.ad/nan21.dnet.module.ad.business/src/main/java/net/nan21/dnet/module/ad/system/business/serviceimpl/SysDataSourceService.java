@@ -8,7 +8,6 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDataSourceService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
@@ -44,7 +43,6 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 	public SysDataSource findByName(String name) {
 		return (SysDataSource) this.getEntityManager()
 				.createNamedQuery(SysDataSource.NQ_FIND_BY_NAME)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pName", name).getSingleResult();
 	}
 
@@ -54,7 +52,6 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 	public SysDataSource findByModel(String model) {
 		return (SysDataSource) this.getEntityManager()
 				.createNamedQuery(SysDataSource.NQ_FIND_BY_MODEL)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pModel", model).getSingleResult();
 	}
 
@@ -72,9 +69,8 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 		return (List<SysDataSource>) this
 				.getEntityManager()
 				.createQuery(
-						"select distinct e from SysDataSource e, IN (e.fields) c where e.clientId = :pClientId and c.id = :pFieldsId",
+						"select distinct e from SysDataSource e, IN (e.fields) c where  c.id = :pFieldsId",
 						SysDataSource.class)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pFieldsId", fieldsId).getResultList();
 	}
 
@@ -92,9 +88,8 @@ public class SysDataSourceService extends AbstractEntityService<SysDataSource>
 		return (List<SysDataSource>) this
 				.getEntityManager()
 				.createQuery(
-						"select distinct e from SysDataSource e, IN (e.serviceMethods) c where e.clientId = :pClientId and c.id = :pServiceMethodsId",
+						"select distinct e from SysDataSource e, IN (e.serviceMethods) c where  c.id = :pServiceMethodsId",
 						SysDataSource.class)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pServiceMethodsId", serviceMethodsId)
 				.getResultList();
 	}

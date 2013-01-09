@@ -11,13 +11,13 @@ import net.nan21.dnet.core.api.annotation.Param;
 import net.nan21.dnet.core.api.annotation.RefLookup;
 import net.nan21.dnet.core.api.annotation.RefLookups;
 import net.nan21.dnet.core.api.annotation.SortField;
-import net.nan21.dnet.core.presenter.model.base.AbstractTypeDs;
+import net.nan21.dnet.core.presenter.model.base.AbstractTypeNoTenantDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsService;
 
 @Ds(entity = SysDsService.class, sort = {@SortField(field = SysDsServiceDs.f_name)})
 @RefLookups({@RefLookup(refId = SysDsServiceDs.f_dataSourceId, namedQuery = SysDataSource.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SysDsServiceDs.f_dataSource)})})
-public class SysDsServiceDs extends AbstractTypeDs<SysDsService> {
+public class SysDsServiceDs extends AbstractTypeNoTenantDs<SysDsService> {
 
 	public static final String f_dataSourceId = "dataSourceId";
 	public static final String f_dataSource = "dataSource";

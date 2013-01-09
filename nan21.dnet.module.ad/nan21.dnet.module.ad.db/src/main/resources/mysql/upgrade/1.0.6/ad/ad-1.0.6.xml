@@ -60,4 +60,60 @@
 	<changeSet author="nan21" id="11">
 		<dropColumn tableName="AD_SYS_PARAM" columnName="CLIENTID"/>
 	</changeSet>
+
+	<changeSet author="nan21" id="12">
+		<dropUniqueConstraint constraintName="UK_AD_SYS_DS1" tableName="AD_SYS_DS"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="13">
+		<dropUniqueConstraint constraintName="UK_AD_SYS_DS2" tableName="AD_SYS_DS"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="14">
+		<dropColumn tableName="AD_SYS_DS" columnName="CLIENTID"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="15">
+		<addUniqueConstraint constraintName="UK_AD_SYS_DS1" tableName="AD_SYS_DS" columnNames="NAME"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="16">
+		<addUniqueConstraint constraintName="UK_AD_SYS_DS2" tableName="AD_SYS_DS" columnNames="MODEL"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="17">
+		<dropUniqueConstraint constraintName="UK_AD_SYS_DS_FLD1" tableName="AD_SYS_DS_FLD"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="18">
+		<dropColumn tableName="AD_SYS_DS_FLD" columnName="CLIENTID"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="19">
+		<addUniqueConstraint constraintName="UK_AD_SYS_DS_FLD1" tableName="AD_SYS_DS_FLD" columnNames="DATASOURCE_ID, NAME"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="20">
+		<dropUniqueConstraint constraintName="UK_AD_SYS_DS_EVNT1" tableName="AD_SYS_DS_EVNT"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="21">
+		<dropColumn tableName="AD_SYS_DS_EVNT" columnName="CLIENTID"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="22">
+		<addUniqueConstraint constraintName="UK_AD_SYS_DS_EVNT1" tableName="AD_SYS_DS_EVNT" columnNames="DATASOURCE_ID, EVENTTYPE"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="23">
+		<dropUniqueConstraint constraintName="UK_AD_SYS_DS_SRV1" tableName="AD_SYS_DS_SRV"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="24">
+		<dropColumn tableName="AD_SYS_DS_SRV" columnName="CLIENTID"/>
+	</changeSet>
+
+	<changeSet author="nan21" id="25">
+		<addUniqueConstraint constraintName="UK_AD_SYS_DS_SRV1" tableName="AD_SYS_DS_SRV" columnNames="DATASOURCE_ID, NAME"/>
+	</changeSet>
 </databaseChangeLog>

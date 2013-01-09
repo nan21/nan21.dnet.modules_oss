@@ -8,11 +8,12 @@ package net.nan21.dnet.module.ad.system.ds.model;
 import java.util.Date;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
+import net.nan21.dnet.core.api.annotation.SortField;
 import net.nan21.dnet.core.api.model.IModelWithId;
 import net.nan21.dnet.core.presenter.model.AbstractDsModel;
 import net.nan21.dnet.module.ad.system.domain.entity.DbChangeLog;
 
-@Ds(entity = DbChangeLog.class)
+@Ds(entity = DbChangeLog.class, sort = {@SortField(field = DbChangeLogDs.f_orderExecuted, desc = true)})
 public class DbChangeLogDs extends AbstractDsModel<DbChangeLog>
 		implements
 			IModelWithId {

@@ -8,7 +8,6 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDataSourceAsgnLovDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
-		{name:"clientId", type:"int", useNull:true},
 		{name:"description", type:"string"},
 		{name:"id", type:"int", useNull:true},
 		{name:"name", type:"string"}

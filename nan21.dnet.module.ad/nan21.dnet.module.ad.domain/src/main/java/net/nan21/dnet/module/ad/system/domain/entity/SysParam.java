@@ -31,10 +31,8 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 		@NamedQuery(name = SysParam.NQ_FIND_BY_NAME, query = "SELECT e FROM SysParam e WHERE e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = SysParam.TABLE_NAME, uniqueConstraints = {
-		@UniqueConstraint(name = SysParam.TABLE_NAME + "_UK1", columnNames = {
-				"CLIENTID", "CODE"}),
-		@UniqueConstraint(name = SysParam.TABLE_NAME + "_UK2", columnNames = {
-				"CLIENTID", "NAME"})})
+		@UniqueConstraint(name = SysParam.TABLE_NAME + "_UK1", columnNames = {"CODE"}),
+		@UniqueConstraint(name = SysParam.TABLE_NAME + "_UK2", columnNames = {"NAME"})})
 @Customizer(DefaultEventHandler.class)
 public class SysParam extends AbstractTypeWithCodeNoTenant {
 

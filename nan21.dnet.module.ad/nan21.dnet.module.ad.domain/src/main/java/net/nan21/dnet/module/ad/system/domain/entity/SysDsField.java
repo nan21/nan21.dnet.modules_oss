@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
-import net.nan21.dnet.core.domain.model.AbstractType;
+import net.nan21.dnet.core.domain.model.AbstractTypeNoTenant;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import org.eclipse.persistence.annotations.Customizer;
 import org.eclipse.persistence.config.HintValues;
@@ -29,13 +29,13 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-		@NamedQuery(name = SysDsField.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDsField e WHERE e.clientId = :pClientId and e.dataSource = :pDataSource and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysDsField.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysDsField e WHERE e.clientId = :pClientId and e.dataSource.id = :pDataSourceId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+		@NamedQuery(name = SysDsField.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDsField e WHERE e.dataSource = :pDataSource and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDsField.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysDsField e WHERE e.dataSource.id = :pDataSourceId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = SysDsField.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SysDsField.TABLE_NAME
-		+ "_UK1", columnNames = {"CLIENTID", "DATASOURCE_ID", "NAME"})})
+		+ "_UK1", columnNames = {"DATASOURCE_ID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class SysDsField extends AbstractType {
+public class SysDsField extends AbstractTypeNoTenant {
 
 	public static final String TABLE_NAME = "AD_SYS_DS_FLD";
 	public static final String SEQUENCE_NAME = "AD_SYS_DS_FLD_SEQ";
@@ -90,9 +90,6 @@ public class SysDsField extends AbstractType {
 	}
 
 	public void setDataSource(SysDataSource dataSource) {
-		if (dataSource != null) {
-			this.__validate_client_context__(dataSource.getClientId());
-		}
 		this.dataSource = dataSource;
 	}
 

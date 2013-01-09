@@ -8,11 +8,11 @@ package net.nan21.dnet.module.ad.system.ds.model;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
 import net.nan21.dnet.core.api.annotation.SortField;
-import net.nan21.dnet.core.presenter.model.base.AbstractTypeLov;
+import net.nan21.dnet.core.presenter.model.base.AbstractTypeNoTenantLov;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsField;
 
 @Ds(entity = SysDsField.class, jpqlWhere = " e.active = true ", sort = {@SortField(field = SysDsFieldLovDs.f_name)})
-public class SysDsFieldLovDs extends AbstractTypeLov<SysDsField> {
+public class SysDsFieldLovDs extends AbstractTypeNoTenantLov<SysDsField> {
 
 	public static final String f_dataSourceId = "dataSourceId";
 	public static final String f_dataSourceName = "dataSourceName";

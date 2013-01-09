@@ -7,11 +7,11 @@ package net.nan21.dnet.module.ad.system.ds.model;
 
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
-import net.nan21.dnet.core.presenter.model.base.AbstractAuditableLov;
+import net.nan21.dnet.core.presenter.model.base.AbstractAuditableNoTenantLov;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent;
 
 @Ds(entity = SysDsEvent.class)
-public class SysDsEventLovDs extends AbstractAuditableLov<SysDsEvent> {
+public class SysDsEventLovDs extends AbstractAuditableNoTenantLov<SysDsEvent> {
 
 	public static final String f_dataSourceId = "dataSourceId";
 	public static final String f_dataSourceName = "dataSourceName";

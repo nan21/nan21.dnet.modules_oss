@@ -8,7 +8,6 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDsEventService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
@@ -43,7 +42,6 @@ public class SysDsEventService extends AbstractEntityService<SysDsEvent>
 	public SysDsEvent findByName(SysDataSource dataSource, String eventType) {
 		return (SysDsEvent) this.getEntityManager()
 				.createNamedQuery(SysDsEvent.NQ_FIND_BY_NAME)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSource", dataSource)
 				.setParameter("pEventType", eventType).getSingleResult();
 	}
@@ -54,7 +52,6 @@ public class SysDsEventService extends AbstractEntityService<SysDsEvent>
 	public SysDsEvent findByName(Long dataSourceId, String eventType) {
 		return (SysDsEvent) this.getEntityManager()
 				.createNamedQuery(SysDsEvent.NQ_FIND_BY_NAME_PRIMITIVE)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSourceId", dataSourceId)
 				.setParameter("pEventType", eventType).getSingleResult();
 	}
@@ -73,9 +70,8 @@ public class SysDsEventService extends AbstractEntityService<SysDsEvent>
 		return (List<SysDsEvent>) this
 				.getEntityManager()
 				.createQuery(
-						"select e from SysDsEvent e where e.clientId = :pClientId and e.dataSource.id = :pDataSourceId",
+						"select e from SysDsEvent e where  e.dataSource.id = :pDataSourceId",
 						SysDsEvent.class)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSourceId", dataSourceId).getResultList();
 	}
 }

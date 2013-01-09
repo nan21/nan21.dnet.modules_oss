@@ -1,9 +1,7 @@
 package net.nan21.dnet.module.ad._presenterdelegates.system;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import net.nan21.dnet.core.api.descriptor.IDsDefinition;
 import net.nan21.dnet.core.api.descriptor.IDsDefinitions;
@@ -21,6 +19,11 @@ public class SysDataSourcePD extends AbstractPresenterBaseService {
 
 	@SuppressWarnings("unchecked")
 	public void synchronizeCatalog(SysDataSourceDs filter) throws Exception {
+		
+		if(!Session.params.get().isSystemClient()) {
+			throw new Exception("This operation is allowed only when logged in from a system client");
+		}
+		
 		List<IDsDefinitions> list = (List<IDsDefinitions>) this
 				.getApplicationContext().getBean("osgiDsDefinitions");
 		ISysDataSourceService srv = (ISysDataSourceService) this
@@ -58,15 +61,10 @@ public class SysDataSourcePD extends AbstractPresenterBaseService {
 				result.add(e);
 			}
 		}
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("clientId", Session.user.get().getClientId());
 
-		srv.update("delete from " + SysDsField.class.getSimpleName()
-				+ "  where clientId = :clientId", params);
-		srv.update("delete from " + SysDsService.class.getSimpleName()
-				+ "  where clientId = :clientId", params);
-		srv.update("delete from " + SysDataSource.class.getSimpleName()
-				+ "  where clientId = :clientId", params);
+		srv.update("delete from " + SysDsField.class.getSimpleName(), null);
+		srv.update("delete from " + SysDsService.class.getSimpleName(), null);
+		srv.update("delete from " + SysDataSource.class.getSimpleName(), null);
 		srv.insert(result);
 	}
 }

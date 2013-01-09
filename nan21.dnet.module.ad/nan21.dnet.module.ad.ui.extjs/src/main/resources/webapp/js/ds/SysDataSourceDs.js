@@ -8,7 +8,6 @@ Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysDataSourceDs", {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name:"active", type:"boolean"},
-		{name:"clientId", type:"int", useNull:true},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdBy", type:"string"},
 		{name:"description", type:"string"},

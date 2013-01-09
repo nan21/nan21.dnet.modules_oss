@@ -7,8 +7,6 @@
         <createTable tableName="AD_SYS_DS_FLD">
 		<column name="ACTIVE" type="number(1)">
 			<constraints nullable="false" /></column>
-		<column name="CLIENTID" type="number(3)">
-			<constraints nullable="false" /></column>
 		<column name="CREATEDAT" type="date">
 			<constraints nullable="false" /></column>
 		<column name="CREATEDBY" type="varchar2(32)">
@@ -37,7 +35,7 @@
     </changeSet>
 
 	<changeSet author="amathe" id="UK-1">
-		<addUniqueConstraint tableName="AD_SYS_DS_FLD" constraintName="UK_AD_SYS_DS_FLD1" columnNames="CLIENTID, DATASOURCE_ID,NAME" />
+		<addUniqueConstraint tableName="AD_SYS_DS_FLD" constraintName="UK_AD_SYS_DS_FLD1" columnNames="DATASOURCE_ID,NAME" />
 	</changeSet>
 
 	<changeSet author="amathe" id="SEQ">

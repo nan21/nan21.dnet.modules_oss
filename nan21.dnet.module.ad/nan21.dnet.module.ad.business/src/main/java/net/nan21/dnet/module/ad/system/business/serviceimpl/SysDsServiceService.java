@@ -8,7 +8,6 @@ package net.nan21.dnet.module.ad.system.business.serviceimpl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysDsServiceService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
@@ -43,7 +42,6 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 	public SysDsService findByName(SysDataSource dataSource, String name) {
 		return (SysDsService) this.getEntityManager()
 				.createNamedQuery(SysDsService.NQ_FIND_BY_NAME)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSource", dataSource)
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -54,7 +52,6 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 	public SysDsService findByName(Long dataSourceId, String name) {
 		return (SysDsService) this.getEntityManager()
 				.createNamedQuery(SysDsService.NQ_FIND_BY_NAME_PRIMITIVE)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSourceId", dataSourceId)
 				.setParameter("pName", name).getSingleResult();
 	}
@@ -73,9 +70,8 @@ public class SysDsServiceService extends AbstractEntityService<SysDsService>
 		return (List<SysDsService>) this
 				.getEntityManager()
 				.createQuery(
-						"select e from SysDsService e where e.clientId = :pClientId and e.dataSource.id = :pDataSourceId",
+						"select e from SysDsService e where  e.dataSource.id = :pDataSourceId",
 						SysDsService.class)
-				.setParameter("pClientId", Session.user.get().getClientId())
 				.setParameter("pDataSourceId", dataSourceId).getResultList();
 	}
 }

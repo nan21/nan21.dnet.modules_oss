@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
-import net.nan21.dnet.core.domain.model.AbstractType;
+import net.nan21.dnet.core.domain.model.AbstractTypeNoTenant;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import org.eclipse.persistence.annotations.Customizer;
 import org.eclipse.persistence.config.HintValues;
@@ -28,13 +28,13 @@ import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
 
 @NamedQueries({
-		@NamedQuery(name = SysDsService.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.dataSource = :pDataSource and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysDsService.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysDsService e WHERE e.clientId = :pClientId and e.dataSource.id = :pDataSourceId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+		@NamedQuery(name = SysDsService.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDsService e WHERE e.dataSource = :pDataSource and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDsService.NQ_FIND_BY_NAME_PRIMITIVE, query = "SELECT e FROM SysDsService e WHERE e.dataSource.id = :pDataSourceId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = SysDsService.TABLE_NAME, uniqueConstraints = {@UniqueConstraint(name = SysDsService.TABLE_NAME
-		+ "_UK1", columnNames = {"CLIENTID", "DATASOURCE_ID", "NAME"})})
+		+ "_UK1", columnNames = {"DATASOURCE_ID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class SysDsService extends AbstractType {
+public class SysDsService extends AbstractTypeNoTenant {
 
 	public static final String TABLE_NAME = "AD_SYS_DS_SRV";
 	public static final String SEQUENCE_NAME = "AD_SYS_DS_SRV_SEQ";
@@ -77,9 +77,6 @@ public class SysDsService extends AbstractType {
 	}
 
 	public void setDataSource(SysDataSource dataSource) {
-		if (dataSource != null) {
-			this.__validate_client_context__(dataSource.getClientId());
-		}
 		this.dataSource = dataSource;
 	}
 

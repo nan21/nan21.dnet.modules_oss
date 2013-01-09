@@ -5,8 +5,6 @@
 
 	<changeSet author="amathe" id="TBL">
         <createTable tableName="AD_SYS_DS_EVNT">
-		<column name="CLIENTID" type="number(3)">
-			<constraints nullable="false" /></column>
 		<column name="CREATEDAT" type="date">
 			<constraints nullable="false" /></column>
 		<column name="CREATEDBY" type="varchar2(32)">
@@ -32,7 +30,7 @@
     </changeSet>
 
 	<changeSet author="amathe" id="UK-1">
-		<addUniqueConstraint tableName="AD_SYS_DS_EVNT" constraintName="UK_AD_SYS_DS_EVNT1" columnNames="CLIENTID, DATASOURCE_ID,EVENTTYPE" />
+		<addUniqueConstraint tableName="AD_SYS_DS_EVNT" constraintName="UK_AD_SYS_DS_EVNT1" columnNames="DATASOURCE_ID,EVENTTYPE" />
 	</changeSet>
 
 	<changeSet author="amathe" id="SEQ">

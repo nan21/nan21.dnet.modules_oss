@@ -22,7 +22,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
-import net.nan21.dnet.core.domain.model.AbstractType;
+import net.nan21.dnet.core.domain.model.AbstractTypeNoTenant;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 import org.eclipse.persistence.annotations.Customizer;
 import org.eclipse.persistence.config.HintValues;
@@ -31,16 +31,14 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({
-		@NamedQuery(name = SysDataSource.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysDataSource.NQ_FIND_BY_MODEL, query = "SELECT e FROM SysDataSource e WHERE e.clientId = :pClientId and e.model = :pModel", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+		@NamedQuery(name = SysDataSource.NQ_FIND_BY_NAME, query = "SELECT e FROM SysDataSource e WHERE e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysDataSource.NQ_FIND_BY_MODEL, query = "SELECT e FROM SysDataSource e WHERE e.model = :pModel", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = SysDataSource.TABLE_NAME, uniqueConstraints = {
-		@UniqueConstraint(name = SysDataSource.TABLE_NAME + "_UK1", columnNames = {
-				"CLIENTID", "NAME"}),
-		@UniqueConstraint(name = SysDataSource.TABLE_NAME + "_UK2", columnNames = {
-				"CLIENTID", "MODEL"})})
+		@UniqueConstraint(name = SysDataSource.TABLE_NAME + "_UK1", columnNames = {"NAME"}),
+		@UniqueConstraint(name = SysDataSource.TABLE_NAME + "_UK2", columnNames = {"MODEL"})})
 @Customizer(DefaultEventHandler.class)
-public class SysDataSource extends AbstractType {
+public class SysDataSource extends AbstractTypeNoTenant {
 
 	public static final String TABLE_NAME = "AD_SYS_DS";
 	public static final String SEQUENCE_NAME = "AD_SYS_DS_SEQ";

@@ -43,9 +43,9 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 			.addButton({name:"btnCopyRulesExec", text:"OK", tooltip:"Copy rules from selected privilege", disabled:false,
 					handler: this.onBtnCopyRulesExec, scope:this})
 			
-			.addDcFilterFormView("ctrl", {name:"privilegeFilter", height:80, xtype:"ad_usr_dc_AccessControl$Filter"})
-			.addDcEditGridView("ctrl", {name:"privilegeEditList", xtype:"ad_usr_dc_AccessControl$EditList", frame:true, 
-					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'right', weight:-1,
+			.addDcFilterFormView("ctrl", {name:"privilegeFilter", xtype:"ad_usr_dc_AccessControl$Filter"})
+			.addDcEditGridView("ctrl", {name:"privilegeEditList", width:600, xtype:"ad_usr_dc_AccessControl$EditList", frame:true, 
+					dockedItems:[{xtype:"toolbar", ui:"footer", dock:'bottom', weight:-1,
 						items:[ this._elems_.get("btnAsgnRoleToAccessCtrl"), this._elems_.get("btnCopyRules"), this._elems_.get("btnShowUiDsRules"), this._elems_.get("btnShowUiAsgnRules")]}]})
 			.addDcFormView("ctrl", {name:"privilegeCopyRules", xtype:"ad_usr_dc_AccessControl$CopyRulesFromSource"})
 			.addDcEditGridView("dsAccess", {name:"dsAccessCtxEditList", title:"Data-source", xtype:"ad_usr_dc_DsAccessControl$CtxEditList", frame:true})
@@ -57,14 +57,14 @@ Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 							items:[ this._elems_.get("btnCopyRulesExec")]}]})
 			.addPanel({name:"main", layout:"card", activeItem:0})
 			.addPanel({name:"canvas1", preventHeader:true, isCanvas:true, layout:"border", defaults:{split:true}})
-			.addPanel({name:"detailTabs", height:250, xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
+			.addPanel({name:"detailTabs", xtype:"tabpanel", activeTab:0, plain:false, deferredRender:false})
 			;
 	}
 	
 	,_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["canvas1"])
-			.addChildrenTo("canvas1", ["privilegeFilter", "privilegeEditList", "detailTabs"], ["north", "center", "south"])
+			.addChildrenTo("canvas1", ["privilegeFilter", "privilegeEditList", "detailTabs"], ["north", "west", "center"])
 			.addChildrenTo("detailTabs", ["dsAccessCtxEditList", "asgnAccessCtxEditList", "dsMtdAccessCtxEditList"])
 			.addToolbarTo("canvas1", "tlbCtrlEditList")
 			.addToolbarTo("dsAccessCtxEditList", "tlbDsAccessCtxEditList")

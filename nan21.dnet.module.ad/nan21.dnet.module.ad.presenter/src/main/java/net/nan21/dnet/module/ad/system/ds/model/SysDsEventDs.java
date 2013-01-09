@@ -10,13 +10,13 @@ import net.nan21.dnet.core.api.annotation.DsField;
 import net.nan21.dnet.core.api.annotation.Param;
 import net.nan21.dnet.core.api.annotation.RefLookup;
 import net.nan21.dnet.core.api.annotation.RefLookups;
-import net.nan21.dnet.core.presenter.model.base.AbstractAuditableDs;
+import net.nan21.dnet.core.presenter.model.base.AbstractAuditableNoTenantDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDataSource;
 import net.nan21.dnet.module.ad.system.domain.entity.SysDsEvent;
 
 @Ds(entity = SysDsEvent.class)
 @RefLookups({@RefLookup(refId = SysDsEventDs.f_dataSourceId, namedQuery = SysDataSource.NQ_FIND_BY_NAME, params = {@Param(name = "pName", field = SysDsEventDs.f_dataSource)})})
-public class SysDsEventDs extends AbstractAuditableDs<SysDsEvent> {
+public class SysDsEventDs extends AbstractAuditableNoTenantDs<SysDsEvent> {
 
 	public static final String f_dataSourceId = "dataSourceId";
 	public static final String f_dataSource = "dataSource";
