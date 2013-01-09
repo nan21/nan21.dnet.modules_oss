@@ -8,20 +8,20 @@ package net.nan21.dnet.module.ad.system.ds.model;
 import net.nan21.dnet.core.api.annotation.Ds;
 import net.nan21.dnet.core.api.annotation.DsField;
 import net.nan21.dnet.core.api.annotation.SortField;
-import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeDs;
+import net.nan21.dnet.core.presenter.model.base.AbstractTypeWithCodeNoTenantDs;
 import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 
 @Ds(entity = SysParam.class, sort = {@SortField(field = SysParamDs.f_name)})
-public class SysParamDs extends AbstractTypeWithCodeDs<SysParam> {
+public class SysParamDs extends AbstractTypeWithCodeNoTenantDs<SysParam> {
 
 	public static final String f_defaultValue = "defaultValue";
-	public static final String f_value = "value";
+	public static final String f_listOfValues = "listOfValues";
 
 	@DsField
 	private String defaultValue;
 
 	@DsField
-	private String value;
+	private String listOfValues;
 
 	public SysParamDs() {
 		super();
@@ -39,11 +39,11 @@ public class SysParamDs extends AbstractTypeWithCodeDs<SysParam> {
 		this.defaultValue = defaultValue;
 	}
 
-	public String getValue() {
-		return this.value;
+	public String getListOfValues() {
+		return this.listOfValues;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setListOfValues(String listOfValues) {
+		this.listOfValues = listOfValues;
 	}
 }

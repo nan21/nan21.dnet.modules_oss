@@ -6,12 +6,9 @@
 
 package net.nan21.dnet.module.ad.system.business.serviceimpl;
 
-import java.util.List;
 import javax.persistence.EntityManager;
-import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.business.service.entity.AbstractEntityService;
 import net.nan21.dnet.module.ad.system.business.service.ISysParamValueService;
-import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 import net.nan21.dnet.module.ad.system.domain.entity.SysParamValue;
 
 /**
@@ -35,25 +32,5 @@ public class SysParamValueService extends AbstractEntityService<SysParamValue>
 	@Override
 	public Class<SysParamValue> getEntityClass() {
 		return SysParamValue.class;
-	}
-
-	/**
-	 * Find by reference: sysParam
-	 */
-	public List<SysParamValue> findBySysParam(SysParam sysParam) {
-		return this.findBySysParamId(sysParam.getId());
-	}
-
-	/**
-	 * Find by ID of reference: sysParam.id
-	 */
-	public List<SysParamValue> findBySysParamId(Long sysParamId) {
-		return (List<SysParamValue>) this
-				.getEntityManager()
-				.createQuery(
-						"select e from SysParamValue e where e.clientId = :pClientId and e.sysParam.id = :pSysParamId",
-						SysParamValue.class)
-				.setParameter("pClientId", Session.user.get().getClientId())
-				.setParameter("pSysParamId", sysParamId).getResultList();
 	}
 }

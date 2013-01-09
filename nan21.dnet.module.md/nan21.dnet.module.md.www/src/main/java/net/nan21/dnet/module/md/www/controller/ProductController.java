@@ -10,6 +10,7 @@ import net.nan21.dnet.core.api.session.Session;
 
 import net.nan21.dnet.module.ad.data.ds.model.AttachmentDs;
 
+import net.nan21.dnet.module.md._businessapi.SysParamsMD;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductAttributeValueDs;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductCategoryDs;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs;
@@ -63,20 +64,26 @@ public class ProductController extends AbstractWebController {
 			return new ModelAndView("home")
 					.addObject(
 							"categ_icon_baseurl",
-							this.getSystemConfig().getSysParamValue(
-									"MM_PRODCATEG_ICON_BASEURL"))
+							this.getSystemConfig()
+									.getSysParamValue(
+											SysParamsMD.MM_PRODCATEG_ICON_BASEURL,
+											SysParamsMD.MM_PRODCATEG_ICON_BASEURL_DEFVAL))
 					.addObject(
 							"categ_icon_ext",
 							this.getSystemConfig().getSysParamValue(
-									"MM_PRODCATEG_ICON_EXT"))
+									SysParamsMD.MM_PRODCATEG_ICON_EXT,
+									SysParamsMD.MM_PRODCATEG_ICON_EXT_DEFVAL))
 					.addObject(
 							"manufact_icon_baseurl",
-							this.getSystemConfig().getSysParamValue(
-									"MM_MANUFACT_ICON_BASEURL"))
+							this.getSystemConfig()
+									.getSysParamValue(
+											SysParamsMD.MM_MANUFACT_ICON_BASEURL,
+											SysParamsMD.MM_MANUFACT_ICON_BASEURL_DEFVAL))
 					.addObject(
 							"manufact_icon_ext",
 							this.getSystemConfig().getSysParamValue(
-									"MM_MANUFACT_ICON_EXT"))
+									SysParamsMD.MM_MANUFACT_ICON_EXT,
+									SysParamsMD.MM_MANUFACT_ICON_EXT_DEFVAL))
 					.addObject("categories", categories)
 					.addObject("manufacturers", manufacturers);
 
@@ -119,15 +126,18 @@ public class ProductController extends AbstractWebController {
 					.addObject(
 							"product_icon_baseurl",
 							this.getSystemConfig().getSysParamValue(
-									"MM_PRODUCT_ICON_BASEURL"))
+									SysParamsMD.MM_PRODUCT_ICON_BASEURL,
+									SysParamsMD.MM_PRODUCT_ICON_BASEURL_DEFVAL))
 					.addObject(
 							"product_icon_ext",
 							this.getSystemConfig().getSysParamValue(
-									"MM_PRODUCT_ICON_EXT"))
+									SysParamsMD.MM_PRODUCT_ICON_EXT,
+									SysParamsMD.MM_PRODUCT_ICON_EXT_DEFVAL))
 					.addObject(
 							"product_icon_suffix",
 							this.getSystemConfig().getSysParamValue(
-									"MM_PRODUCT_ICON_SUFFIX"))
+									SysParamsMD.MM_PRODUCT_ICON_SUFFIX,
+									SysParamsMD.MM_PRODUCT_ICON_SUFFIX_DEFVAL))
 					.addObject("categories", categories)
 					.addObject("manufacturers", manufacturers)
 					.addObject("products", products);
@@ -188,16 +198,20 @@ public class ProductController extends AbstractWebController {
 			return new ModelAndView("productView")
 					.addObject(
 							"product_image_baseurl",
-							this.getSystemConfig().getSysParamValue(
-									"MM_PRODUCT_IMAGE_BASEURL"))
+							this.getSystemConfig()
+									.getSysParamValue(
+											SysParamsMD.MM_PRODUCT_IMAGE_BASEURL,
+											SysParamsMD.MM_PRODUCT_IMAGE_BASEURL_DEFVAL))
 					.addObject(
 							"product_image_ext",
 							this.getSystemConfig().getSysParamValue(
-									"MM_PRODUCT_IMAGE_EXT"))
+									SysParamsMD.MM_PRODUCT_IMAGE_EXT,
+									SysParamsMD.MM_PRODUCT_IMAGE_EXT_DEFVAL))
 					.addObject(
 							"product_image_suffix",
 							this.getSystemConfig().getSysParamValue(
-									"MM_PRODUCT_IMAGE_SUFFIX"))
+									SysParamsMD.MM_PRODUCT_IMAGE_SUFFIX,
+									SysParamsMD.MM_PRODUCT_IMAGE_SUFFIX_DEFVAL))
 					.addObject("categories", categories)
 					.addObject("product", product)
 					.addObject("attributes", attributes)

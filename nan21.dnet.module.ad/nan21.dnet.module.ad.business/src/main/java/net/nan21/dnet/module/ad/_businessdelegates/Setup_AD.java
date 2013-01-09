@@ -24,6 +24,8 @@ import net.nan21.dnet.module.ad.impex.domain.entity.ImportJob;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportJobItem;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMap;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
+import net.nan21.dnet.module.ad.system.business.service.ISysParamService;
+import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 import net.nan21.dnet.module.ad.workflow.domain.entity.ActProperty;
 
 public class Setup_AD extends AbstractBusinessSetupParticipant implements
@@ -102,6 +104,9 @@ public class Setup_AD extends AbstractBusinessSetupParticipant implements
 		p.setRevision(1);
 		this.getEntityManager().persist(p);
 
+		((ISysParamService) this.findEntityService(SysParam.class))
+		.doSynchronizeCatalog();
+		
 		reqisterInitialDataImports(defaultImportPath);
 
 		this.tasks.clear();

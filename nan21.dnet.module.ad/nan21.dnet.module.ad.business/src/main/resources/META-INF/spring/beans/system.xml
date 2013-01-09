@@ -14,7 +14,7 @@
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.DbChangeLogService"/>				
 
 	<bean id="SysParamService" scope="singleton" lazy-init="true"
-		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysParamService"/>				
+		class="net.nan21.dnet.module.ad.system.business.serviceext.SysParamService"/>				
 
 	<bean id="SysParamValueService" scope="singleton" lazy-init="true"
 		class="net.nan21.dnet.module.ad.system.business.serviceimpl.SysParamValueService"/>				

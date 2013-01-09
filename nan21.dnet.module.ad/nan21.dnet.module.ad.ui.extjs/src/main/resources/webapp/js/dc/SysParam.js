@@ -24,7 +24,7 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$Filter", {
 			.addTextField({ name:"code", _sharedLabel_:true, dataIndex:"code", anchor:"-20", maxLength:32})
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addTextField({ name:"defaultValue", dataIndex:"defaultValue", anchor:"-20"})
-			.addTextField({ name:"value", dataIndex:"value", anchor:"-20"})
+			.addTextField({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
@@ -37,7 +37,7 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$Filter", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2"])
 			.addChildrenTo("col1", ["name", "code"])
-			.addChildrenTo("col2", ["value"])
+			.addChildrenTo("col2", ["description", "defaultValue"])
 		;
 	}
 });
@@ -54,9 +54,30 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$List", {
 		this._getBuilder_()
 			.addTextColumn({ name:"code", dataIndex:"code", width:200})
 			.addTextColumn({ name:"name", dataIndex:"name", width:200})
-			.addTextColumn({ name:"value", dataIndex:"value", width:250})
-			.addTextColumn({ name:"description", dataIndex:"description", hidden:true, width:200})
+			.addTextColumn({ name:"description", dataIndex:"description", width:300})
+			.addTextColumn({ name:"defaultValue", dataIndex:"defaultValue", width:200})
+			.addTextColumn({ name:"listOfValues", dataIndex:"listOfValues", width:200})
 			.addBooleanColumn({ name:"active", dataIndex:"active"})
+			.addDefaults();
+	}
+});
+
+
+/* ================= GRID: CtxList ================= */
+
+
+Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$CtxList", {
+	extend: "dnet.core.dc.AbstractDcvGrid",
+	alias: "widget.ad_system_dc_SysParam$CtxList",
+
+	_defineColumns_: function() {
+		this._getBuilder_()
+			.addTextColumn({ name:"code", dataIndex:"code", width:200})
+			.addTextColumn({ name:"name", dataIndex:"name", width:200})
+			.addTextColumn({ name:"description", dataIndex:"description", width:300})
+			.addTextColumn({ name:"defaultValue", dataIndex:"defaultValue", hidden:true, width:200})
+			.addTextColumn({ name:"listOfValues", dataIndex:"listOfValues", hidden:true, width:200})
+			.addBooleanColumn({ name:"active", dataIndex:"active", hidden:true})
 			.addDefaults();
 	}
 });
@@ -77,7 +98,6 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$Edit", {
 			.addBooleanField({ name:"active", _sharedLabel_:true, dataIndex:"active", anchor:"-20"})
 			.addTextArea({ name:"description", _sharedLabel_:true, dataIndex:"description", anchor:"-20", height:100})
 			.addTextField({ name:"defaultValue", dataIndex:"defaultValue", anchor:"-20"})
-			.addTextField({ name:"value", dataIndex:"value", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
 					autoScroll:true, padding:"0 30 5 0"})
@@ -88,7 +108,7 @@ Ext.define("net.nan21.dnet.module.ad.system.dc.SysParam$Edit", {
 	_linkElements_: function() {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1"])
-			.addChildrenTo("col1", ["code", "name", "description", "active", "value"])
+			.addChildrenTo("col1", ["code", "name", "description", "active", "defaultValue"])
 		;
 	}
 });

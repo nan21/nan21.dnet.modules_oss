@@ -14,9 +14,9 @@ import net.nan21.dnet.core.api.action.IQueryBuilder;
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.presenter.model.EmptyParam;
 import net.nan21.dnet.core.presenter.service.ds.AbstractEntityDsService;
+import net.nan21.dnet.module.hr._businessapi.SysParamsHR;
 import net.nan21.dnet.module.hr.employee.domain.entity.Employee;
 import net.nan21.dnet.module.hr.employee.ds.model.EmployeeDs;
-import net.nan21.dnet.module.md._businessapi.SysParamMD;
 
 public class EmployeeDsService extends
 		AbstractEntityDsService<EmployeeDs, EmployeeDs, EmptyParam, Employee>
@@ -28,13 +28,16 @@ public class EmployeeDsService extends
 			List<EmployeeDs> result) throws Exception {
 
 		String HR_EMPL_PHOTO_BASEURL = this.getSystemConfig().getSysParamValue(
-				SysParamMD.HR_EMPL_PHOTO_BASEURL);
+				SysParamsHR.HR_EMPL_PHOTO_BASEURL,
+				SysParamsHR.HR_EMPL_PHOTO_BASEURL_DEFVAL);
 
 		String HR_EMPL_PHOTO_EXT = this.getSystemConfig().getSysParamValue(
-				SysParamMD.HR_EMPL_PHOTO_EXT);
+				SysParamsHR.HR_EMPL_PHOTO_EXT,
+				SysParamsHR.HR_EMPL_PHOTO_EXT_DEFVAL);
 
 		String HR_EMPL_PHOTO_SUFFIX = this.getSystemConfig().getSysParamValue(
-				SysParamMD.HR_EMPL_PHOTO_SUFFIX);
+				SysParamsHR.HR_EMPL_PHOTO_SUFFIX,
+				SysParamsHR.HR_EMPL_PHOTO_SUFFIX_DEFVAL);
 
 		for (EmployeeDs ds : result) {
 

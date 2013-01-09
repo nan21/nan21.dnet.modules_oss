@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.system.business.service;
 
+import net.nan21.dnet.core.api.exceptions.BusinessException;
 import net.nan21.dnet.core.api.service.IEntityService;
 import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 
@@ -14,6 +15,8 @@ import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
  * entity.
  */
 public interface ISysParamService extends IEntityService<SysParam> {
+
+	public void doSynchronizeCatalog() throws BusinessException;
 
 	/**
 	 * Find by unique key

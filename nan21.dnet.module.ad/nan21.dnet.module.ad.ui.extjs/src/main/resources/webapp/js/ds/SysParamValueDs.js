@@ -4,28 +4,26 @@
  * Use is subject to license terms.
  */
 
-Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysParamDs", {
+Ext.define("net.nan21.dnet.module.ad.system.ds.model.SysParamValueDs", {
 	extend: 'Ext.data.Model',
 	fields: [
-		{name:"active", type:"boolean"},
-		{name:"code", type:"string"},
+		{name:"clientId", type:"int", useNull:true},
 		{name:"createdAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"createdBy", type:"string"},
-		{name:"defaultValue", type:"string"},
-		{name:"description", type:"string"},
 		{name:"entityFQN", type:"string"},
 		{name:"id", type:"int", useNull:true},
-		{name:"listOfValues", type:"string"},
 		{name:"modifiedAt", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
 		{name:"modifiedBy", type:"string"},
-		{name:"name", type:"string"},
-		{name:"notes", type:"string"},
+		{name:"sysParam", type:"string"},
 		{name:"uuid", type:"string"},
+		{name:"validFrom", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"validTo", type:"date", dateFormat:Dnet.MODEL_DATE_FORMAT},
+		{name:"value", type:"string"},
 		{name:"version", type:"int", useNull:true}
 	],
-	
+
 	validations: [
-		{field: "code", type: 'presence'},
-		{field: "name", type: 'presence'}
+		{field: "validFrom", type: 'presence'},
+		{field: "validTo", type: 'presence'}
 	]
 });

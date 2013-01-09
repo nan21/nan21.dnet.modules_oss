@@ -38,27 +38,20 @@
 							</bean>
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
 								<property name="sequence" value="20" />
-								<property name="dsName" value="SysParam" />
-								<property name="destPath" value="setup-data/ad" />
-								<property name="file"
-									value="classpath:net/nan21/dnet/module/ad/data/setup/SysParam.csv" />
-							</bean>
-							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
-								<property name="sequence" value="30" />
 								<property name="dsName" value="Menu" />
 								<property name="destPath" value="setup-data/ad" />
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/ad/data/setup/Menu.csv" />
 							</bean>
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
-								<property name="sequence" value="40" />
+								<property name="sequence" value="30" />
 								<property name="dsName" value="MenuItem" />
 								<property name="destPath" value="setup-data/ad" />
 								<property name="file"
 									value="classpath:net/nan21/dnet/module/ad/data/setup/MenuItem.csv" />
 							</bean>
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
-								<property name="sequence" value="50" />
+								<property name="sequence" value="40" />
 								<property name="dsName" value="MenuItem" />
 								<property name="ukFieldName" value="name" />
 								<property name="destPath" value="setup-data/ad" />
@@ -66,7 +59,7 @@
 									value="classpath:net/nan21/dnet/module/ad/data/setup/MenuItemParent.csv" />
 							</bean>
 							<bean class="net.nan21.dnet.core.api.setup.InitDataItem">
-								<property name="sequence" value="60" />
+								<property name="sequence" value="50" />
 								<property name="dsName" value="AttachmentType" />
 								<property name="destPath" value="setup-data/ad" />
 								<property name="file"

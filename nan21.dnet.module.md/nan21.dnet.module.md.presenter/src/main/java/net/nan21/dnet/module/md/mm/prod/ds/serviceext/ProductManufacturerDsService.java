@@ -14,7 +14,7 @@ import net.nan21.dnet.core.api.action.IQueryBuilder;
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.presenter.model.EmptyParam;
 import net.nan21.dnet.core.presenter.service.ds.AbstractEntityDsService;
-import net.nan21.dnet.module.md._businessapi.SysParamMD;
+import net.nan21.dnet.module.md._businessapi.SysParamsMD;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.ProductManufacturer;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductManufacturerDs;
 
@@ -30,10 +30,12 @@ public class ProductManufacturerDsService
 			List<ProductManufacturerDs> result) throws Exception {
 
 		String MM_MANUFACT_ICON_BASEURL = this.getSystemConfig()
-				.getSysParamValue(SysParamMD.MM_MANUFACT_ICON_BASEURL);
+				.getSysParamValue(SysParamsMD.MM_MANUFACT_ICON_BASEURL,
+						SysParamsMD.MM_MANUFACT_ICON_BASEURL_DEFVAL);
 
 		String MM_MANUFACT_ICON_EXT = this.getSystemConfig().getSysParamValue(
-				SysParamMD.MM_MANUFACT_ICON_EXT);
+				SysParamsMD.MM_MANUFACT_ICON_EXT,
+				SysParamsMD.MM_MANUFACT_ICON_EXT_DEFVAL);
 
 		for (ProductManufacturerDs ds : result) {
 

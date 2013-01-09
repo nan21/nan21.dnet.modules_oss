@@ -6,21 +6,21 @@
 
 package net.nan21.dnet.module.ad.system.domain.entity;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
 import net.nan21.dnet.core.domain.model.AbstractAuditable;
-import net.nan21.dnet.module.ad.system.domain.entity.SysParam;
 import org.eclipse.persistence.annotations.Customizer;
 import org.eclipse.persistence.descriptors.DescriptorEvent;
+import org.hibernate.validator.constraints.NotBlank;
 
 @NamedQueries({})
 @Entity
@@ -42,12 +42,22 @@ public class SysParamValue extends AbstractAuditable {
 	@GeneratedValue(generator = SEQUENCE_NAME)
 	private Long id;
 
+	@Column(name = "SYSPARAM", nullable = false, length = 32)
+	@NotBlank
+	private String sysParam;
+
 	@Column(name = "VALUE", length = 400)
 	private String value;
 
-	@ManyToOne(fetch = FetchType.LAZY, targetEntity = SysParam.class)
-	@JoinColumn(name = "SYSPARAM_ID", referencedColumnName = "ID")
-	private SysParam sysParam;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "VALIDFROM", nullable = false)
+	@NotNull
+	private Date validFrom;
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "VALIDTO", nullable = false)
+	@NotNull
+	private Date validTo;
 
 	public Long getId() {
 		return this.id;
@@ -55,6 +65,14 @@ public class SysParamValue extends AbstractAuditable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getSysParam() {
+		return this.sysParam;
+	}
+
+	public void setSysParam(String sysParam) {
+		this.sysParam = sysParam;
 	}
 
 	public String getValue() {
@@ -65,15 +83,20 @@ public class SysParamValue extends AbstractAuditable {
 		this.value = value;
 	}
 
-	public SysParam getSysParam() {
-		return this.sysParam;
+	public Date getValidFrom() {
+		return this.validFrom;
 	}
 
-	public void setSysParam(SysParam sysParam) {
-		if (sysParam != null) {
-			this.__validate_client_context__(sysParam.getClientId());
-		}
-		this.sysParam = sysParam;
+	public void setValidFrom(Date validFrom) {
+		this.validFrom = validFrom;
+	}
+
+	public Date getValidTo() {
+		return this.validTo;
+	}
+
+	public void setValidTo(Date validTo) {
+		this.validTo = validTo;
 	}
 
 	public void aboutToInsert(DescriptorEvent event) {

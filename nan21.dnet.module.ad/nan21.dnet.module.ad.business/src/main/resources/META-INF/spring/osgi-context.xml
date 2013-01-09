@@ -42,6 +42,9 @@
 
 	<osgi:service ref="startupParticipant"
 		interface="net.nan21.dnet.core.api.setup.IStartupParticipant"/>
+		
+	<osgi:list id="osgiSysParams" cardinality="0..N"
+		interface="net.nan21.dnet.core.api.descriptor.ISysParamDefinitions" />
 	
 	<import resource="messaging/data.osgi.xml"/>
 </beans>

@@ -17,11 +17,15 @@
 			<constraints nullable="false" /></column>
 		<column name="MODIFIEDBY" type="varchar(32)">
 			<constraints nullable="false" /></column>
+		<column name="SYSPARAM" type="varchar(32)">
+			<constraints nullable="false" /></column>
 		<column name="UUID" type="varchar(36)" />
+		<column name="VALIDFROM" type="date">
+			<constraints nullable="false" /></column>
+		<column name="VALIDTO" type="date">
+			<constraints nullable="false" /></column>
 		<column name="VALUE" type="text" />
 		<column name="VERSION" type="bigint(19)">
-			<constraints nullable="false" /></column>
-		<column name="SYSPARAM_ID" type="bigint(19)">
 			<constraints nullable="false" /></column>
         </createTable>
     </changeSet>

@@ -6,6 +6,7 @@
 
 package net.nan21.dnet.module.ad.workflow.domain.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @Table(name = ActProperty.TABLE_NAME)
 @Cache(type = CacheType.NONE)
 @Customizer(DefaultEventHandler.class)
-public class ActProperty {
+public class ActProperty implements Serializable {
 
 	public static final String TABLE_NAME = "ACT_GE_PROPERTY";
 	public static final String SEQUENCE_NAME = "ACT_GE_PROPERTY_SEQ";

@@ -13,7 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import net.nan21.dnet.core.api.action.IQueryBuilder;
 import net.nan21.dnet.core.api.service.IDsService;
 import net.nan21.dnet.core.presenter.service.ds.AbstractEntityDsService;
-import net.nan21.dnet.module.md._businessapi.SysParamMD;
+import net.nan21.dnet.module.md._businessapi.SysParamsMD;
 import net.nan21.dnet.module.md.mm.prod.domain.entity.Product;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductDs;
 import net.nan21.dnet.module.md.mm.prod.ds.model.ProductDsParam;
@@ -28,13 +28,16 @@ public class ProductDsService extends
 			List<ProductDs> result) throws Exception {
 
 		String MM_PRODUCT_ICON_BASEURL = this.getSystemConfig()
-				.getSysParamValue(SysParamMD.MM_PRODUCT_ICON_BASEURL);
+				.getSysParamValue(SysParamsMD.MM_PRODUCT_ICON_BASEURL,
+						SysParamsMD.MM_PRODUCT_ICON_BASEURL_DEFVAL);
 
 		String MM_PRODUCT_ICON_EXT = this.getSystemConfig().getSysParamValue(
-				SysParamMD.MM_PRODUCT_ICON_EXT);
+				SysParamsMD.MM_PRODUCT_ICON_EXT,
+				SysParamsMD.MM_PRODUCT_ICON_EXT_DEFVAL);
 
 		String MM_PRODUCT_ICON_SUFFIX = this.getSystemConfig()
-				.getSysParamValue(SysParamMD.MM_PRODUCT_ICON_SUFFIX);
+				.getSysParamValue(SysParamsMD.MM_PRODUCT_ICON_SUFFIX,
+						SysParamsMD.MM_PRODUCT_ICON_SUFFIX_DEFVAL);
 
 		for (ProductDs ds : result) {
 

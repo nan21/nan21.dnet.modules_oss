@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import net.nan21.dnet.core.domain.eventhandler.DefaultEventHandler;
-import net.nan21.dnet.core.domain.model.AbstractTypeWithCode;
+import net.nan21.dnet.core.domain.model.AbstractTypeWithCodeNoTenant;
 import org.eclipse.persistence.annotations.Customizer;
 import org.eclipse.persistence.config.HintValues;
 import org.eclipse.persistence.config.QueryHints;
@@ -27,8 +27,8 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
  * System parameters.
  */
 @NamedQueries({
-		@NamedQuery(name = SysParam.NQ_FIND_BY_CODE, query = "SELECT e FROM SysParam e WHERE e.clientId = :pClientId and e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
-		@NamedQuery(name = SysParam.NQ_FIND_BY_NAME, query = "SELECT e FROM SysParam e WHERE e.clientId = :pClientId and e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
+		@NamedQuery(name = SysParam.NQ_FIND_BY_CODE, query = "SELECT e FROM SysParam e WHERE e.code = :pCode", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE)),
+		@NamedQuery(name = SysParam.NQ_FIND_BY_NAME, query = "SELECT e FROM SysParam e WHERE e.name = :pName", hints = @QueryHint(name = QueryHints.BIND_PARAMETERS, value = HintValues.TRUE))})
 @Entity
 @Table(name = SysParam.TABLE_NAME, uniqueConstraints = {
 		@UniqueConstraint(name = SysParam.TABLE_NAME + "_UK1", columnNames = {
@@ -36,7 +36,7 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 		@UniqueConstraint(name = SysParam.TABLE_NAME + "_UK2", columnNames = {
 				"CLIENTID", "NAME"})})
 @Customizer(DefaultEventHandler.class)
-public class SysParam extends AbstractTypeWithCode {
+public class SysParam extends AbstractTypeWithCodeNoTenant {
 
 	public static final String TABLE_NAME = "AD_SYS_PARAM";
 	public static final String SEQUENCE_NAME = "AD_SYS_PARAM_SEQ";
@@ -65,8 +65,8 @@ public class SysParam extends AbstractTypeWithCode {
 	@Column(name = "DEFAULTVALUE", length = 400)
 	private String defaultValue;
 
-	@Column(name = "VALUE", length = 400)
-	private String value;
+	@Column(name = "LISTOFVALUES", length = 400)
+	private String listOfValues;
 
 	public Long getId() {
 		return this.id;
@@ -84,12 +84,12 @@ public class SysParam extends AbstractTypeWithCode {
 		this.defaultValue = defaultValue;
 	}
 
-	public String getValue() {
-		return this.value;
+	public String getListOfValues() {
+		return this.listOfValues;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setListOfValues(String listOfValues) {
+		this.listOfValues = listOfValues;
 	}
 
 	public void aboutToInsert(DescriptorEvent event) {

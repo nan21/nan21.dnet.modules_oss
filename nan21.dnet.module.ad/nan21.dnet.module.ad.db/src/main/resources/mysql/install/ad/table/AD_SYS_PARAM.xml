@@ -7,8 +7,6 @@
         <createTable tableName="AD_SYS_PARAM">
 		<column name="ACTIVE" type="int(1)">
 			<constraints nullable="false" /></column>
-		<column name="CLIENTID" type="bigint(3)">
-			<constraints nullable="false" /></column>
 		<column name="CODE" type="varchar(32)">
 			<constraints nullable="false" /></column>
 		<column name="CREATEDAT" type="datetime">
@@ -19,6 +17,7 @@
 		<column name="DESCRIPTION" type="text" />
 		<column name="ID" type="bigint(19)">
 			<constraints nullable="false" /></column>
+		<column name="LISTOFVALUES" type="text" />
 		<column name="MODIFIEDAT" type="datetime">
 			<constraints nullable="false" /></column>
 		<column name="MODIFIEDBY" type="varchar(32)">
@@ -27,7 +26,6 @@
 			<constraints nullable="false" /></column>
 		<column name="NOTES" type="text" />
 		<column name="UUID" type="varchar(36)" />
-		<column name="VALUE" type="text" />
 		<column name="VERSION" type="bigint(19)">
 			<constraints nullable="false" /></column>
         </createTable>
@@ -38,11 +36,11 @@
     </changeSet>
 
 	<changeSet author="amathe" id="UK-1">
-		<addUniqueConstraint tableName="AD_SYS_PARAM" constraintName="UK_AD_SYS_PARAM1" columnNames="CLIENTID, CODE" />
+		<addUniqueConstraint tableName="AD_SYS_PARAM" constraintName="UK_AD_SYS_PARAM1" columnNames="CODE" />
 	</changeSet>
 
 	<changeSet author="amathe" id="UK-2">
-		<addUniqueConstraint tableName="AD_SYS_PARAM" constraintName="UK_AD_SYS_PARAM2" columnNames="CLIENTID, NAME" />
+		<addUniqueConstraint tableName="AD_SYS_PARAM" constraintName="UK_AD_SYS_PARAM2" columnNames="NAME" />
 	</changeSet>
 
 	<changeSet author="amathe" id="SEQ">

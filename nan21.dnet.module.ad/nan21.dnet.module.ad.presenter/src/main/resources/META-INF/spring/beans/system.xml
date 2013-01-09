@@ -23,6 +23,7 @@
 			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
 		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysParamDs"/>
 		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysParam"/>
+		<property name="readOnly" value="true" />
 		<property name="rpcFilter" >
 			<map>
 				<entry key="refreshSysConfig">
@@ -31,8 +32,31 @@
 						<constructor-arg name="methodName" value="reloadSysConfig" />
 					</bean>
 				</entry>
+				<entry key="synchronizeCatalog">
+					<bean class="net.nan21.dnet.core.presenter.model.RpcDefinition">
+						<constructor-arg name="delegateClass" value="net.nan21.dnet.module.ad._presenterdelegates.system.SysParamPD"/>
+						<constructor-arg name="methodName" value="synchronizeCatalog" />
+					</bean>
+				</entry>
 			</map>
 		</property>
+	</bean>
+	
+	<!-- ==================== SysParamLov ==================== -->
+	
+	<bean id="SysParamLovDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysParamLovDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysParam"/>
+		<property name="readOnly" value="true" />
+	</bean>
+	
+	<!-- ==================== SysParamValue ==================== -->
+	
+	<bean id="SysParamValueDsService" scope="singleton" lazy-init="true"
+			class="net.nan21.dnet.core.presenter.service.ds.DefaultEntityDsService">
+		<property name="modelClass" value="net.nan21.dnet.module.ad.system.ds.model.SysParamValueDs"/>
+		<property name="entityClass" value="net.nan21.dnet.module.ad.system.domain.entity.SysParamValue"/>
 	</bean>
 	
 	<!-- ==================== SysJob ==================== -->
