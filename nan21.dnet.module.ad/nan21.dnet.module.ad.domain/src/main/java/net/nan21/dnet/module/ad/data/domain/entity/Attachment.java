@@ -25,9 +25,6 @@ import org.eclipse.persistence.descriptors.DescriptorEvent;
 import org.hibernate.validator.constraints.NotBlank;
 
 /** Product attachments.
- * Read only reference fields are a temporary hack due to the fact that the 
- * SINGLE_TABLE inheritance DDL generation cannot update the root table 
- * 
  */
 @NamedQueries({})
 @Entity

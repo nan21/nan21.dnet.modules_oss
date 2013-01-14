@@ -1,9 +1,7 @@
 package net.nan21.dnet.module.ad._presenterdelegates.impex;
 
-import java.io.File;
 import java.util.List;
 
-import net.nan21.dnet.core.api.session.Session;
 import net.nan21.dnet.core.presenter.service.AbstractPresenterBaseService;
 import net.nan21.dnet.module.ad.impex.business.service.IImportMapItemService;
 import net.nan21.dnet.module.ad.impex.domain.entity.ImportMapItem;
@@ -25,27 +23,9 @@ public class ImportFromMapPD extends AbstractPresenterBaseService {
 				.setParameter("pImportMapId", ds.getId()).getResultList();
 
 		for (ImportMapItem item : items) {
-			String fileName = item.getFileName();
+
+			String fileName = ImportFromMapItemPD.resolveFileName(item);
 			String dsName = item.getDataSourceName() + "Ds";
-			if (fileName == null || fileName.equals("")) {
-				fileName = item.getDataSourceName() + ".csv";
-			}
-			if (!(new File(fileName)).isAbsolute()) {
-				String _path = item.getPath();
-				if (_path != null && !_path.equals("")) {
-					fileName = _path + File.separator + fileName;
-				}
-				if (!(new File(fileName)).isAbsolute()) {
-					_path = item.getImportMap().getPath();
-					if (_path != null && !_path.equals("")) {
-						fileName = _path + File.separator + fileName;
-					}
-					if (!(new File(fileName)).isAbsolute()) {
-						fileName = Session.params.get().getDefaultImportPath()
-								+ File.separator + fileName;
-					}
-				}
-			}
 
 			if (item.getUkFieldName() != null
 					&& !item.getUkFieldName().equals("")) {

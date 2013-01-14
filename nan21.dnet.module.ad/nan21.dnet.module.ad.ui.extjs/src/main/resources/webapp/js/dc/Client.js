@@ -119,6 +119,10 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Create", {
 			.addTextField({ name:"adminUserName", paramIndex:"adminUserName", allowBlank:false, anchor:"-20"})
 			.addTextField({ name:"adminUserCode", paramIndex:"adminUserCode", allowBlank:false, anchor:"-20", maxLength:32})
 			.addTextField({ name:"adminPassword", paramIndex:"adminPassword", allowBlank:false, anchor:"-20"})
+			.addLov({xtype:"ad_impex_lovs_ImportJob", name:"importJob", paramIndex:"importJob", allowBlank:false, anchor:"-20",
+				retFieldMapping: [
+					{lovField:"id", dsParam: "importJobId"} 
+				]})
 			.addBooleanField({ name:"systemClient", dataIndex:"systemClient", anchor:"-20"})
 			/* containers */
 			.addPanel({ name:"main", autoScroll:true, layout: {type:"hbox", align:'top', pack:'start', defaultMargins: {right:5, left:5}},
@@ -133,7 +137,7 @@ Ext.define("net.nan21.dnet.module.ad.client.dc.Client$Create", {
 		this._getBuilder_()
 			.addChildrenTo("main", ["col1", "col2", "col3"])
 			.addChildrenTo("col1", ["name", "code", "notes", "systemClient"])
-			.addChildrenTo("col2", ["adminUserName", "adminUserCode", "adminPassword"])
+			.addChildrenTo("col2", ["adminUserName", "adminUserCode", "adminPassword", "importJob"])
 			.addChildrenTo("col3", ["defaultImportPath", "defaultExportPath", "tempPath"])
 		;
 	},

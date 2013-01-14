@@ -4,7 +4,7 @@
  * Use is subject to license terms. 
  */
 
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/ds/ClientDs", "nan21.dnet.module.ad.ui.extjs/dc/Client"]);
+Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/ds/ImportJobLovDs", "nan21.dnet.module.ad.ui.extjs/ds/ClientDs", "nan21.dnet.module.ad.ui.extjs/dc/Client", "nan21.dnet.module.ad.ui.extjs/lov/ImportJob"]);
 
 Ext.define("net.nan21.dnet.module.ad.client.frame.Client_UI", {
 	extend: "dnet.core.ui.AbstractUi",

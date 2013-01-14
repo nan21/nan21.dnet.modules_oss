@@ -34,10 +34,13 @@ public class ClientDsService extends
 	@Override
 	protected void onInsert(List<ClientDs> list, List<Client> entities,
 			ClientDsParam params) throws Exception {
+
 		IClientService srv = (IClientService) this.getEntityService();
+
 		for (Client e : entities) {
-			srv.doInsertWithUserAccounts(e, params.getAdminUserCode(),
-					params.getAdminUserName(), params.getAdminPassword());
+			srv.doInsertWithUserAccountsAndSetup(e, params.getAdminUserCode(),
+					params.getAdminUserName(), params.getAdminPassword(),
+					params.getImportJobId());
 		}
 	}
 

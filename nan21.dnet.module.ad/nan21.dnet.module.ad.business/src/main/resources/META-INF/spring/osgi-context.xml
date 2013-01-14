@@ -18,7 +18,7 @@
 		interface="javax.sql.DataSource"/>
 		
 	<osgi:list id="osgiEntityServiceFactories" cardinality="0..N"
-		interface="net.nan21.dnet.core.api.service.IEntityServiceFactory"/>	
+		interface="net.nan21.dnet.core.api.service.IEntityServiceFactory"/>
 	
 	<osgi:service ref="entityServiceFactory" ranking="100"
 		interface="net.nan21.dnet.core.api.service.IEntityServiceFactory"/>
@@ -45,6 +45,9 @@
 		
 	<osgi:list id="osgiSysParams" cardinality="0..N"
 		interface="net.nan21.dnet.core.api.descriptor.ISysParamDefinitions" />
+		
+	<osgi:reference id="ImportFromJobPD-importByJobId" cardinality="0..1"
+		interface="org.springframework.integration.MessageChannel"/>
 	
 	<import resource="messaging/data.osgi.xml"/>
 </beans>

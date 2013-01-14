@@ -32,6 +32,8 @@ Ext.define("net.nan21.dnet.module.ad.client.ds.model.ClientDsParam", {
 	fields: [ 
 		{name:"adminPassword", type:"string"},
 		{name:"adminUserCode", type:"string"},
-		{name:"adminUserName", type:"string"}
+		{name:"adminUserName", type:"string"},
+		{name:"importJob", type:"string"},
+		{name:"importJobId", type:"int", useNull:true}
 	]
 });

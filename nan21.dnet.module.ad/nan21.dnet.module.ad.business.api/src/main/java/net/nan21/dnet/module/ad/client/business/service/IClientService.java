@@ -18,4 +18,8 @@ public interface IClientService extends IEntityService<Client> {
 
 	public void doInsertWithUserAccounts(Client client, String userCode,
 			String userName, String password) throws BusinessException;
+
+	public void doInsertWithUserAccountsAndSetup(Client client,
+			String userCode, String userName, String password, Long importJobId)
+			throws BusinessException;
 }

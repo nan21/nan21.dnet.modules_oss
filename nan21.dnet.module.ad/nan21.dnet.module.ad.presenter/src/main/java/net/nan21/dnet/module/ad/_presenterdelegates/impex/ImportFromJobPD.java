@@ -11,6 +11,14 @@ import net.nan21.dnet.module.ad.impex.ds.model.ImportMapDs;
 public class ImportFromJobPD extends AbstractPresenterBaseService {
 
 	public void execute(ImportJobDs ds) throws Exception {
+		this.execute(ds.getId());
+	}
+
+	public void importByJobId(Long jobId) throws Exception {
+		this.execute(jobId);
+	}
+
+	public void execute(Long jobId) throws Exception {
 		IImportJobItemService srv = (IImportJobItemService) this
 				.findEntityService(ImportJobItem.class);
 
@@ -18,7 +26,7 @@ public class ImportFromJobPD extends AbstractPresenterBaseService {
 				.getEntityManager()
 				.createQuery(
 						"select e from ImportJobItem e where e.job.id = :pJobId and e.active = true order by e.sequenceNo",
-						ImportJobItem.class).setParameter("pJobId", ds.getId())
+						ImportJobItem.class).setParameter("pJobId", jobId)
 				.getResultList();
 
 		ImportFromMapPD d = new ImportFromMapPD();

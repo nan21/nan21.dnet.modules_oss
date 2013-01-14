@@ -18,7 +18,7 @@
 		interface="javax.sql.DataSource"/>
 		
 	<osgi:list id="osgiEntityServiceFactories" cardinality="0..N"
-		interface="net.nan21.dnet.core.api.service.IEntityServiceFactory"/>	
+		interface="net.nan21.dnet.core.api.service.IEntityServiceFactory"/>
 	
 	<osgi:service ref="entityServiceFactory" ranking="90"
 		interface="net.nan21.dnet.core.api.service.IEntityServiceFactory"/>

@@ -11,18 +11,12 @@ import net.nan21.dnet.module.ad.impex.ds.model.ImportMapItemDsParam;
 
 public class ImportFromMapItemPD extends AbstractPresenterBaseService {
 
-	public void execute(ImportMapItemDs ds) throws Exception {
-		IImportMapItemService srv = (IImportMapItemService) this
-				.findEntityService(ImportMapItem.class);
-
-		ImportMapItem item = srv.getEntityManager().find(ImportMapItem.class,
-				ds.getId());
-
-		String fileName = ds.getFileName();
-		String dsName = ds.getDataSource() + "Ds";
+	public static String resolveFileName(ImportMapItem item) {
+		
+		String fileName = item.getFileName();
 
 		if (fileName == null || fileName.equals("")) {
-			fileName = ds.getDataSource() + ".csv";
+			fileName = item.getDataSourceName() + ".csv";
 		}
 		if (!(new File(fileName)).isAbsolute()) {
 			String _path = item.getPath();
@@ -40,6 +34,18 @@ public class ImportFromMapItemPD extends AbstractPresenterBaseService {
 				}
 			}
 		}
+		return fileName;
+	}
+
+	public void execute(ImportMapItemDs ds) throws Exception {
+		IImportMapItemService srv = (IImportMapItemService) this
+				.findEntityService(ImportMapItem.class);
+
+		ImportMapItem item = srv.getEntityManager().find(ImportMapItem.class,
+				ds.getId());
+
+		String fileName = resolveFileName(item);
+		String dsName = item.getDataSourceName() + "Ds";
 
 		if (ds.getUkFieldName() != null && !ds.getUkFieldName().equals("")) {
 			this.findDsService(dsName).doImport(fileName, ds.getUkFieldName(),
