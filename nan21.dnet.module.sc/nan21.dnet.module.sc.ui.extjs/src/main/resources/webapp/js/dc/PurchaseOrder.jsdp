@@ -1,0 +1,15 @@
+[
+	"nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderDs", 
+	"nan21.dnet.module.sc.ui.extjs/lov/PurchaseOrder", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPO", 
+	"nan21.dnet.module.md.ui.extjs/lov/PriceListPurchase", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/VendorsName", 
+	"nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethodOut", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", 
+	"nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethod"
+]

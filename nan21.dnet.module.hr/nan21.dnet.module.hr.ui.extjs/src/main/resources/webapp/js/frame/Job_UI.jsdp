@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeAssignment", 
+	"nan21.dnet.module.hr.ui.extjs/dc/JobCourse", 
+	"nan21.dnet.module.hr.ui.extjs/dc/JobRequirement", 
+	"nan21.dnet.module.hr.ui.extjs/dc/JobSkill", 
+	"nan21.dnet.module.hr.ui.extjs/dc/Job"
+]

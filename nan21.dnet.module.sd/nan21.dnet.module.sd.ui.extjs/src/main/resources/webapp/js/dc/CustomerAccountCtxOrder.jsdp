@@ -1,0 +1,10 @@
+[
+	"nan21.dnet.module.sd.ui.extjs/ds/SalesOrderDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies", 
+	"nan21.dnet.module.md.ui.extjs/lov/PriceListSales", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSO", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", 
+	"nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations"
+]

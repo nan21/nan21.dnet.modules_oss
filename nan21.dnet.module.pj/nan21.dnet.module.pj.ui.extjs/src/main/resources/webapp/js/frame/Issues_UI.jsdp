@@ -1,0 +1,9 @@
+[
+	"nan21.dnet.module.pj.ui.extjs/asgn/IssueAffectedComponents", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Note", 
+	"nan21.dnet.module.pj.ui.extjs/dc/IssueTaskCtx", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Attachment", 
+	"nan21.dnet.module.pj.ui.extjs/dc/Issue", 
+	"nan21.dnet.module.pj.ui.extjs/asgn/IssueAffectedVersions", 
+	"nan21.dnet.module.pj.ui.extjs/dc/IssueLink"
+]

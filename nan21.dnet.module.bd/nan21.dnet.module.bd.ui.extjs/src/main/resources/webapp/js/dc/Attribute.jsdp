@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.bd.ui.extjs/ds/AttributeDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/AttributeCategory", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode"
+]

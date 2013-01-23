@@ -1,0 +1,9 @@
+[
+	"nan21.dnet.module.sc.ui.extjs/ds/VendorAccountDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/VendorGroup", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode"
+]

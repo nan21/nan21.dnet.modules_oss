@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/ProductAttributeValueDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/Products", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Attribute", 
+	"nan21.dnet.module.bd.ui.extjs/lov/AttributeCategory"
+]

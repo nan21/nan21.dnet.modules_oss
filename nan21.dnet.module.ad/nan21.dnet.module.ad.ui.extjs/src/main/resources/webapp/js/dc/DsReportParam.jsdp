@@ -1,0 +1,5 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/ds/DsReportParamDs", 
+	"nan21.dnet.module.ad.ui.extjs/lov/ReportParams", 
+	"nan21.dnet.module.ad.ui.extjs/lov/SysDsFields"
+]

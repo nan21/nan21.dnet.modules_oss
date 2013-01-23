@@ -1,0 +1,8 @@
+[
+	"nan21.dnet.module.sd.ui.extjs/ds/SalesInvoiceDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies", 
+	"nan21.dnet.module.md.ui.extjs/lov/PriceListSales", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSI", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentTerm"
+]

@@ -1,0 +1,11 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/Note", 
+	"nan21.dnet.module.md.ui.extjs/dc/AccDocLineCtx", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseInvoice", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseInvoiceItem", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Attachment", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseTxAmount", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseInvoiceItemTax", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseInvoiceTax", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseTxAmountPayment"
+]

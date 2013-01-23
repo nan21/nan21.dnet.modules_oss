@@ -5,7 +5,7 @@
 
 	<changeSet author="nan21" id="1">
 		<addColumn tableName="AD_SYS_PARAM">
-			<column name="LISTOFVALUES" type="varchar2(0)"/>
+			<column name="LISTOFVALUES" type="varchar2(4000)"/>
 		</addColumn>
 	</changeSet>
 

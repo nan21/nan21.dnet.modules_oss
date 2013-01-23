@@ -1,0 +1,9 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/ActTaskInstanceHistory", 
+	"nan21.dnet.module.ad.ui.extjs/dc/ActProcessDefinition", 
+	"nan21.dnet.module.ad.ui.extjs/dc/ActTaskInstance", 
+	"nan21.dnet.module.ad.ui.extjs/dc/ActVariable", 
+	"nan21.dnet.module.ad.ui.extjs/dc/ActDeployment", 
+	"nan21.dnet.module.ad.ui.extjs/dc/ActProcessInstance", 
+	"nan21.dnet.module.ad.ui.extjs/dc/ActProcessInstanceHistory"
+]

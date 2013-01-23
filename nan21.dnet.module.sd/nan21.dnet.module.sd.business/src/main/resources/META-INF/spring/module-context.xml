@@ -36,7 +36,7 @@
 		<prop key="eclipselink.cache.size.default">1000</prop>
 		<prop key="eclipselink.cache.shared.default">false</prop>
 		<prop key="eclipselink.flush-clear.cache">DropInvalidate</prop>
-	</osgi-compendium:cm-properties> 
+	</osgi-compendium:cm-properties>
 
 	<context:annotation-config />
 
@@ -45,7 +45,7 @@
 		is recommended to use the 'shared' value to have one global application level 
 		entity manager factory. See the nan21.dnet.modules_oss.jpa_all bundle for 
 		more details. -->
-	
+
     <import resource="emf/mc-emf-${dnet.emf.type}.xml"/>
 
   	<bean id="serviceLocator" 
@@ -98,7 +98,7 @@
 		<aop:pointcut id="entityServiceMethods" expression="bean(*Service)"/>
 		<aop:pointcut id="asgnTxServiceMethods" expression="bean(baseAsgnTxService)"/>
 		<aop:pointcut id="setupParticipantRun" expression="bean(setupParticipant)"/>
-		 
+
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="entityServiceMethods"/>
 		<aop:advisor advice-ref="txAdviceAsgn" pointcut-ref="asgnTxServiceMethods"/>
 		<aop:advisor advice-ref="txAdviceSetupParticipant" pointcut-ref="setupParticipantRun"/>
@@ -116,7 +116,7 @@
 	<import resource="beans/opportunity.xml"/>
 	<import resource="beans/order.xml"/>
 	<import resource="beans/invoice.xml"/>
-	
+
 	<import resource="messaging/order.xml"/>
 	<import resource="messaging/invoice.xml"/>
 </beans>

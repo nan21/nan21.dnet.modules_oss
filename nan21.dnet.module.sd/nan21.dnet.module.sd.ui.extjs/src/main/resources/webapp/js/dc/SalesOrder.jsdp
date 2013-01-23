@@ -1,0 +1,22 @@
+[
+	"nan21.dnet.module.sd.ui.extjs/ds/SalesOrderDs", 
+	"nan21.dnet.module.sd.ui.extjs/lov/SalesOrder", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSOInvOut", 
+	"nan21.dnet.module.md.ui.extjs/lov/InvTransactionTypes", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSI", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypesSO", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/CustomersName", 
+	"nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/PriceListSales", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethodIn", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", 
+	"nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LocationsToBill", 
+	"nan21.dnet.module.md.ui.extjs/lov/BpContacts", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LocationsToShip", 
+	"nan21.dnet.module.bd.ui.extjs/lov/CarrierOrganizations", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethod"
+]

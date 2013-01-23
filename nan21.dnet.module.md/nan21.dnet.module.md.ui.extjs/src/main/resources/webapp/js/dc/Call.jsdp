@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/MyCalendarCallDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusCall", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesCall", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode", 
+	"nan21.dnet.module.md.ui.extjs/lov/BpContacts"
+]

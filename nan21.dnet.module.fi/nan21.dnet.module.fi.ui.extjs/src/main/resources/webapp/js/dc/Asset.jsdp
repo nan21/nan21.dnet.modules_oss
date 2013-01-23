@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.fi.ui.extjs/ds/AssetDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.fi.ui.extjs/lov/AssetCategories", 
+	"nan21.dnet.module.md.ui.extjs/lov/Products", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies"
+]

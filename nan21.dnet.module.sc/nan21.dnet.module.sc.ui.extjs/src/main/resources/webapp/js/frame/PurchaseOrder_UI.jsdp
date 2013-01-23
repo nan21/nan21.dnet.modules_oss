@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/Note", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrderItemTax", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrderItem", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Attachment", 
+	"nan21.dnet.module.sc.ui.extjs/dc/PurchaseOrder"
+]

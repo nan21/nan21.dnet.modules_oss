@@ -1,0 +1,10 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/ProductDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductManufacturers", 
+	"nan21.dnet.module.bd.ui.extjs/lov/AttributeSet", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UomVolume", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UomMass", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UomLength", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductCategories"
+]

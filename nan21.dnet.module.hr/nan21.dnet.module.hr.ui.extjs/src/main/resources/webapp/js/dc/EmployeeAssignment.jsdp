@@ -1,0 +1,11 @@
+[
+	"nan21.dnet.module.hr.ui.extjs/ds/EmployeeAssignmentDs", 
+	"nan21.dnet.module.hr.ui.extjs/lov/Employees", 
+	"nan21.dnet.module.hr.ui.extjs/lov/EmploymentTypes", 
+	"nan21.dnet.module.hr.ui.extjs/lov/Positions", 
+	"nan21.dnet.module.hr.ui.extjs/lov/Jobs", 
+	"nan21.dnet.module.hr.ui.extjs/lov/Grades", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Organizations", 
+	"nan21.dnet.module.hr.ui.extjs/lov/Payrolls", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations"
+]

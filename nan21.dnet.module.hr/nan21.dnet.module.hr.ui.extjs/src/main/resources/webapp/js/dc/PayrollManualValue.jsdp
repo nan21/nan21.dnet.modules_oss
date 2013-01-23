@@ -1,0 +1,8 @@
+[
+	"nan21.dnet.module.hr.ui.extjs/ds/PayrollManualValueDs", 
+	"nan21.dnet.module.hr.ui.extjs/lov/PayrollElementsCode", 
+	"nan21.dnet.module.hr.ui.extjs/lov/Employees", 
+	"nan21.dnet.module.hr.ui.extjs/lov/PayrollPeriods", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.bd.ui.extjs/lov/ElementTypes"
+]

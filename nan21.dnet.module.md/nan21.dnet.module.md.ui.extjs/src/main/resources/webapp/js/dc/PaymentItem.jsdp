@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/PaymentItemDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/AccItems", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode"
+]

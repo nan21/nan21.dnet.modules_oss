@@ -1,0 +1,8 @@
+[
+	"nan21.dnet.module.sc.ui.extjs/ds/PurchaseReceptionDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/VendorsName", 
+	"nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", 
+	"nan21.dnet.module.bd.ui.extjs/lov/CarrierOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/InvTransactionTypes", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName"
+]

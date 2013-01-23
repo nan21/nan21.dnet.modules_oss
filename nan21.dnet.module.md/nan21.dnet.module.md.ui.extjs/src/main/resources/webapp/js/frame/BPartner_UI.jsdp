@@ -1,0 +1,13 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/Note", 
+	"nan21.dnet.module.md.ui.extjs/dc/BpBankAccount", 
+	"nan21.dnet.module.md.ui.extjs/dc/Contact", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Attachment", 
+	"nan21.dnet.module.bd.ui.extjs/dc/CommunicationChannel", 
+	"nan21.dnet.module.md.ui.extjs/dc/BpClassification", 
+	"nan21.dnet.module.md.ui.extjs/dc/BusinessPartner", 
+	"nan21.dnet.module.md.ui.extjs/dc/TxBalance", 
+	"nan21.dnet.module.bd.ui.extjs/dc/Location", 
+	"nan21.dnet.module.md.ui.extjs/dc/BpAccountAcct", 
+	"nan21.dnet.module.md.ui.extjs/dc/BpAccount"
+]

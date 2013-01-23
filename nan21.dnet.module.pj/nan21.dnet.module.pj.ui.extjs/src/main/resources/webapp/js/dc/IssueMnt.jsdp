@@ -1,0 +1,12 @@
+[
+	"nan21.dnet.module.pj.ui.extjs/ds/IssueDs", 
+	"nan21.dnet.module.pj.ui.extjs/lov/Projects", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueTypes", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueStatus", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssuePriorities", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueResolutions", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueSeverities", 
+	"nan21.dnet.module.ad.ui.extjs/lov/Assignables", 
+	"nan21.dnet.module.pj.ui.extjs/lov/ProjectVersions", 
+	"nan21.dnet.module.pj.ui.extjs/lov/ProjectComponents"
+]

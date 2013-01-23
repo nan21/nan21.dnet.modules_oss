@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/AccBalanceDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/AccSchemas", 
+	"nan21.dnet.module.md.ui.extjs/lov/FiscalPeriods"
+]

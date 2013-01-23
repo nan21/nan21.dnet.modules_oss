@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.sd.ui.extjs/dc/OpportunityResultReason", 
+	"nan21.dnet.module.sd.ui.extjs/dc/OpportunityStatus", 
+	"nan21.dnet.module.sd.ui.extjs/dc/OpportunityStage", 
+	"nan21.dnet.module.sd.ui.extjs/dc/OpportunitySource", 
+	"nan21.dnet.module.sd.ui.extjs/dc/OpportunityPriority"
+]

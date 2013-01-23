@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmountPaymentProposal", 
+	"nan21.dnet.module.md.ui.extjs/dc/AccDocLineCtx", 
+	"nan21.dnet.module.sd.ui.extjs/dc/PaymentIn", 
+	"nan21.dnet.module.sd.ui.extjs/dc/PaymentInAmount"
+]

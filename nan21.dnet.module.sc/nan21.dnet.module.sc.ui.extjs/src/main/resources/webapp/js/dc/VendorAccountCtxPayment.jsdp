@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.sc.ui.extjs/ds/PaymentOutDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies", 
+	"nan21.dnet.module.md.ui.extjs/lov/PaymentMethodOut", 
+	"nan21.dnet.module.md.ui.extjs/lov/FinancialAccounts"
+]

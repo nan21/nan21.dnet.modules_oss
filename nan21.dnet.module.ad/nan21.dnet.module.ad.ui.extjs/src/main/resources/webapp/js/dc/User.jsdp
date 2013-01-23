@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/ds/UserDs", 
+	"nan21.dnet.module.ad.ui.extjs/lov/UserTypes", 
+	"nan21.dnet.module.ad.ui.extjs/lov/SysDateFormats", 
+	"nan21.dnet.module.ad.ui.extjs/lov/Roles", 
+	"nan21.dnet.module.ad.ui.extjs/lov/UserGroups"
+]

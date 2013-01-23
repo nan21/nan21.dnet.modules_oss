@@ -1,0 +1,8 @@
+[
+	"nan21.dnet.module.sc.ui.extjs/ds/PurchaseInvoiceItemOverviewDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPI", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", 
+	"nan21.dnet.module.md.ui.extjs/lov/Products"
+]

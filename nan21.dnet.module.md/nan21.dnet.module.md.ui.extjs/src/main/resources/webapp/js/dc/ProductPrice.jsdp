@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/ProductPriceDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/Products", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductCategories", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom"
+]

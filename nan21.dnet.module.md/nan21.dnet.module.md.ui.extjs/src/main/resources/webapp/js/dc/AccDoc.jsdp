@@ -1,0 +1,9 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/AccDocDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/AccSchemas", 
+	"nan21.dnet.module.md.ui.extjs/lov/TxDocTypes", 
+	"nan21.dnet.module.md.ui.extjs/lov/FiscalPeriods", 
+	"nan21.dnet.module.md.ui.extjs/lov/AccJournals", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName"
+]

@@ -1,0 +1,11 @@
+[
+	"nan21.dnet.module.sd.ui.extjs/ds/OpportunityDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", 
+	"nan21.dnet.module.sd.ui.extjs/lov/OpportunityStatuses", 
+	"nan21.dnet.module.sd.ui.extjs/lov/OpportunityPriorities", 
+	"nan21.dnet.module.sd.ui.extjs/lov/OpportunityStages", 
+	"nan21.dnet.module.sd.ui.extjs/lov/OpportunitySources", 
+	"nan21.dnet.module.sd.ui.extjs/lov/OpportunityResultReasons", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Currencies", 
+	"nan21.dnet.module.ad.ui.extjs/lov/Assignables"
+]

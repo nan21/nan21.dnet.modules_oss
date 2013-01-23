@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.hr.ui.extjs/ds/PayrollElementDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Engines", 
+	"nan21.dnet.module.bd.ui.extjs/lov/ElementTypes", 
+	"nan21.dnet.module.md.ui.extjs/lov/AccItems", 
+	"nan21.dnet.module.hr.ui.extjs/lov/PayrollElementsSource"
+]

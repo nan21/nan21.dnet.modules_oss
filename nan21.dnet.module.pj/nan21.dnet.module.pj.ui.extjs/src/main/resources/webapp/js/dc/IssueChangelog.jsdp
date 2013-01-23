@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.pj.ui.extjs/ds/IssueChangelogDs", 
+	"nan21.dnet.module.pj.ui.extjs/lov/Projects", 
+	"nan21.dnet.module.pj.ui.extjs/lov/ProjectVersions", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueTypes", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueStatus"
+]

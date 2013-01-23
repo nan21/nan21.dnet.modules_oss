@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.pj.ui.extjs/ds/IssueTaskDs", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueTaskTypes", 
+	"nan21.dnet.module.pj.ui.extjs/lov/IssueTaskStatuses", 
+	"nan21.dnet.module.pj.ui.extjs/lov/ProjectMembers"
+]

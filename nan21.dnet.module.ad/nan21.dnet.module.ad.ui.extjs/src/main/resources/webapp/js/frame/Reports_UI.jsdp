@@ -1,0 +1,8 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/ReportParam", 
+	"nan21.dnet.module.ad.ui.extjs/dc/ReportParamRt", 
+	"nan21.dnet.module.ad.ui.extjs/dc/DsReport", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Report", 
+	"nan21.dnet.module.ad.ui.extjs/dc/DsReportUsage", 
+	"nan21.dnet.module.ad.ui.extjs/dc/DsReportParam"
+]

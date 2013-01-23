@@ -1,0 +1,8 @@
+[
+	"nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxOrder", 
+	"nan21.dnet.module.sd.ui.extjs/dc/CustomerAccount", 
+	"nan21.dnet.module.sd.ui.extjs/dc/PaymentInAmount", 
+	"nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxInvoice", 
+	"nan21.dnet.module.sd.ui.extjs/dc/CustomerAccountCtxPayment", 
+	"nan21.dnet.module.sd.ui.extjs/dc/SalesTxAmount"
+]

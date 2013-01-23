@@ -1,0 +1,10 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/MyCalendarEventDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusCall", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesCall", 
+	"nan21.dnet.module.md.ui.extjs/lov/BpContacts", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusMeeting", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesMeeting", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusTask", 
+	"nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesTask"
+]

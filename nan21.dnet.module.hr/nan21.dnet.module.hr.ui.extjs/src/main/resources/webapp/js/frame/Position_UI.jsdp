@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.hr.ui.extjs/dc/PositionCourse", 
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeAssignment", 
+	"nan21.dnet.module.hr.ui.extjs/dc/PositionRequirement", 
+	"nan21.dnet.module.hr.ui.extjs/dc/Position", 
+	"nan21.dnet.module.hr.ui.extjs/dc/PositionSkill"
+]

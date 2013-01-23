@@ -1,0 +1,11 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/Note", 
+	"nan21.dnet.module.md.ui.extjs/asgn/CategoriesOfProduct", 
+	"nan21.dnet.module.md.ui.extjs/dc/ProductAccountAcct", 
+	"nan21.dnet.module.md.ui.extjs/dc/Product", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Attachment", 
+	"nan21.dnet.module.md.ui.extjs/dc/InvBalance", 
+	"nan21.dnet.module.md.ui.extjs/dc/ProductAccount", 
+	"nan21.dnet.module.md.ui.extjs/dc/ProductAttributeValue", 
+	"nan21.dnet.module.md.ui.extjs/dc/ProdClassification"
+]

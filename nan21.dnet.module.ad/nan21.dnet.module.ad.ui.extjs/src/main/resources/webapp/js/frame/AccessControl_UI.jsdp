@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/asgn/AccessControlRoles", 
+	"nan21.dnet.module.ad.ui.extjs/dc/DsAccessControl", 
+	"nan21.dnet.module.ad.ui.extjs/dc/AsgnAccessControl", 
+	"nan21.dnet.module.ad.ui.extjs/dc/AccessControl", 
+	"nan21.dnet.module.ad.ui.extjs/dc/DsMethodAccessControl"
+]

@@ -1,0 +1,7 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/InvTransactionLineDs", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", 
+	"nan21.dnet.module.md.ui.extjs/lov/SubInventorys", 
+	"nan21.dnet.module.md.ui.extjs/lov/StockLocators", 
+	"nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode"
+]

@@ -1,0 +1,13 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/Note", 
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeLicense", 
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeContact", 
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeAssignment", 
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeWorkExperience", 
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeSkill", 
+	"nan21.dnet.module.ad.ui.extjs/dc/Attachment", 
+	"nan21.dnet.module.hr.ui.extjs/dc/EmployeeEducation", 
+	"nan21.dnet.module.bd.ui.extjs/dc/CommunicationChannel", 
+	"nan21.dnet.module.hr.ui.extjs/dc/Employee", 
+	"nan21.dnet.module.bd.ui.extjs/dc/Location"
+]

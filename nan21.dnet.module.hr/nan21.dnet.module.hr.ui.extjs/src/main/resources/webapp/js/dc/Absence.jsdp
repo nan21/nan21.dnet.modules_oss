@@ -1,0 +1,6 @@
+[
+	"nan21.dnet.module.hr.ui.extjs/ds/AbsenceDs", 
+	"nan21.dnet.module.hr.ui.extjs/lov/Employees", 
+	"nan21.dnet.module.hr.ui.extjs/lov/AbsenceTypes", 
+	"nan21.dnet.module.hr.ui.extjs/lov/AbsenceReasons"
+]

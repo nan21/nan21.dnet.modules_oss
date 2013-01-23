@@ -1,0 +1,5 @@
+[
+	"nan21.dnet.module.ad.ui.extjs/dc/SysDataSource", 
+	"nan21.dnet.module.ad.ui.extjs/dc/SysDsField", 
+	"nan21.dnet.module.ad.ui.extjs/dc/SysDsService"
+]

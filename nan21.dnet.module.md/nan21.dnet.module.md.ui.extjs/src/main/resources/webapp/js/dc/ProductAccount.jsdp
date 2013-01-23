@@ -1,0 +1,5 @@
+[
+	"nan21.dnet.module.md.ui.extjs/ds/ProductAccountDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", 
+	"nan21.dnet.module.md.ui.extjs/lov/ProductAccountGroups"
+]

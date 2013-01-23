@@ -1,0 +1,5 @@
+[
+	"nan21.dnet.module.bd.ui.extjs/ds/OrganizationHierarchyItemDs", 
+	"nan21.dnet.module.bd.ui.extjs/lov/Organizations", 
+	"nan21.dnet.module.bd.ui.extjs/lov/OrganizationHierarchyItems"
+]
