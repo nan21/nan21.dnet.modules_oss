@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/ExportMapItem", "nan21.dnet.module.ad.ui.extjs/lov/SysDsFields", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportFieldDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDsFieldLovDs", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapLovDs", "nan21.dnet.module.ad.ui.extjs/dc/CsvExport", "nan21.dnet.module.ad.ui.extjs/dc/CsvExportField", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportDs", "nan21.dnet.module.ad.ui.extjs/lov/ExportMaps", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportSortDs", "nan21.dnet.module.ad.ui.extjs/lov/SysDataSource", "nan21.dnet.module.ad.ui.extjs/dc/CsvExportSort", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapItemDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDataSourceLovDs"]);
 
 Ext.define("net.nan21.dnet.module.ad.impex.frame.CsvExport_UI", {
 	extend: "dnet.core.ui.AbstractUi",

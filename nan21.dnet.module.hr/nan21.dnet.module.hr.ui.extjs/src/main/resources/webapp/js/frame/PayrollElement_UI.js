@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/dc/ElementInput", "nan21.dnet.module.bd.ui.extjs/ds/EngineLovDs", "nan21.dnet.module.bd.ui.extjs/ds/ElementTypeLovDs", "nan21.dnet.module.bd.ui.extjs/lov/ElementTypes", "nan21.dnet.module.bd.ui.extjs/ds/ElementLovDs", "nan21.dnet.module.md.ui.extjs/lov/AccItems", "nan21.dnet.module.bd.ui.extjs/ds/ElementInputDs", "nan21.dnet.module.md.ui.extjs/ds/AccItemLovDs", "nan21.dnet.module.bd.ui.extjs/dc/ElementFormula", "nan21.dnet.module.hr.ui.extjs/ds/PayrollElementSourceLovDs", "nan21.dnet.module.hr.ui.extjs/ds/PayrollElementDs", "nan21.dnet.module.bd.ui.extjs/lov/Engines", "nan21.dnet.module.hr.ui.extjs/lov/PayrollElementsSource", "nan21.dnet.module.bd.ui.extjs/ds/ElementFormulaDs", "nan21.dnet.module.bd.ui.extjs/lov/ElementsCode", "nan21.dnet.module.hr.ui.extjs/dc/PayrollElement"]);
 
 Ext.define("net.nan21.dnet.module.hr.payroll.frame.PayrollElement_UI", {
 	extend: "dnet.core.ui.AbstractUi",

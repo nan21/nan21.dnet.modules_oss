@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/dc/PositionCourse", "nan21.dnet.module.hr.ui.extjs/ds/EmploymentTypeLovDs", "nan21.dnet.module.hr.ui.extjs/lov/WorkRequirements", "nan21.dnet.module.hr.ui.extjs/ds/PositionDs", "nan21.dnet.module.hr.ui.extjs/lov/Courses", "nan21.dnet.module.hr.ui.extjs/lov/Skills", "nan21.dnet.module.hr.ui.extjs/lov/Jobs", "nan21.dnet.module.hr.ui.extjs/ds/CourseLovDs", "nan21.dnet.module.hr.ui.extjs/ds/WorkRequirementLovDs", "nan21.dnet.module.hr.ui.extjs/lov/EmploymentTypes", "nan21.dnet.module.hr.ui.extjs/ds/SkillLovDs", "nan21.dnet.module.hr.ui.extjs/ds/RatingLevelLovDs", "nan21.dnet.module.hr.ui.extjs/ds/PositionCourseDs", "nan21.dnet.module.bd.ui.extjs/ds/OrganizationLovDs", "nan21.dnet.module.hr.ui.extjs/dc/EmployeeAssignment", "nan21.dnet.module.hr.ui.extjs/dc/PositionRequirement", "nan21.dnet.module.hr.ui.extjs/dc/Position", "nan21.dnet.module.hr.ui.extjs/ds/PositionSkillDs", "nan21.dnet.module.hr.ui.extjs/ds/PositionRequirementDs", "nan21.dnet.module.hr.ui.extjs/ds/EmployeeAssignmentDs", "nan21.dnet.module.bd.ui.extjs/lov/Organizations", "nan21.dnet.module.hr.ui.extjs/ds/JobLovDs", "nan21.dnet.module.hr.ui.extjs/lov/RatingLevels", "nan21.dnet.module.hr.ui.extjs/dc/PositionSkill"]);
 
 Ext.define("net.nan21.dnet.module.hr.job.frame.Position_UI", {
 	extend: "dnet.core.ui.AbstractUi",

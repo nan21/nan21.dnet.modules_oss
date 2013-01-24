@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.pj.ui.extjs/lov/ProjectRoles", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.pj.ui.extjs/dc/ProjectVersion", "nan21.dnet.module.pj.ui.extjs/ds/ProjectLovDs", "nan21.dnet.module.pj.ui.extjs/lov/Projects", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.pj.ui.extjs/ds/ProjectDs", "nan21.dnet.module.pj.ui.extjs/lov/ProjectMembers", "nan21.dnet.module.pj.ui.extjs/lov/ProjectTypes", "nan21.dnet.module.pj.ui.extjs/ds/ProjectRoleLovDs", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.pj.ui.extjs/ds/ProjectComponentDs", "nan21.dnet.module.pj.ui.extjs/dc/ProjectMember", "nan21.dnet.module.ad.ui.extjs/ds/AssignableLovDs", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.ad.ui.extjs/lov/Assignables", "nan21.dnet.module.pj.ui.extjs/ds/ProjectMemberLovDs", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionDs", "nan21.dnet.module.pj.ui.extjs/dc/ProjectComponent", "nan21.dnet.module.pj.ui.extjs/dc/Project", "nan21.dnet.module.pj.ui.extjs/ds/ProjectMemberDs", "nan21.dnet.module.pj.ui.extjs/ds/ProjectTypeLovDs"]);
 
 Ext.define("net.nan21.dnet.module.pj.md.frame.Projects_UI", {
 	extend: "dnet.core.ui.AbstractUi",

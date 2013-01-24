@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/lov/WarehouseOrganizations", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypePOLovDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPI", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseInvoiceDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodLovDs", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodOutLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseTxAmount", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPO", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxPayment", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseTxAmountPaymentDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseTxAmountDs", "nan21.dnet.module.bd.ui.extjs/ds/WarehouseOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodLovDs", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxInvoice", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccountCtxOrder", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/FinancialAccountLovDs", "nan21.dnet.module.sc.ui.extjs/dc/PurchaseTxAmountPayment", "nan21.dnet.module.md.ui.extjs/lov/FinancialAccounts", "nan21.dnet.module.md.ui.extjs/lov/PriceListPurchase", "nan21.dnet.module.sc.ui.extjs/dc/VendorAccount", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypePILovDs", "nan21.dnet.module.md.ui.extjs/lov/DeliveryMethods", "nan21.dnet.module.sc.ui.extjs/ds/VendorAccountDs", "nan21.dnet.module.md.ui.extjs/ds/VendorGroupLovDs", "nan21.dnet.module.md.ui.extjs/lov/VendorGroup", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PaymentOutDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.md.ui.extjs/ds/PriceListPurchaseLovDs", "nan21.dnet.module.sc.ui.extjs/ds/PurchaseOrderDs", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethod", "nan21.dnet.module.md.ui.extjs/lov/PaymentMethodOut"]);
 
 Ext.define("net.nan21.dnet.module.sc.account.frame.VendorAccount_UI", {
 	extend: "dnet.core.ui.AbstractUi",

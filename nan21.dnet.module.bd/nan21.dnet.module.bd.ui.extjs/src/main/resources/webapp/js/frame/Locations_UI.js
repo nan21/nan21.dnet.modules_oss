@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/ds/CountryLovDs", "nan21.dnet.module.bd.ui.extjs/lov/Regions", "nan21.dnet.module.bd.ui.extjs/ds/LocationDs", "nan21.dnet.module.bd.ui.extjs/ds/RegionLovDs", "nan21.dnet.module.bd.ui.extjs/dc/Location", "nan21.dnet.module.bd.ui.extjs/lov/Countries"]);
 
 Ext.define("net.nan21.dnet.module.bd.geo.frame.Locations_UI", {
 	extend: "dnet.core.ui.AbstractUi",

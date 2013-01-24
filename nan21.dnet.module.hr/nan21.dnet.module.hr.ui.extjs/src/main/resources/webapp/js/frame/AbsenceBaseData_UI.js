@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/lov/AbsenceTypes", "nan21.dnet.module.hr.ui.extjs/dc/AbsenceReason", "nan21.dnet.module.hr.ui.extjs/dc/AbsenceType", "nan21.dnet.module.hr.ui.extjs/ds/AbsenceTypeLovDs", "nan21.dnet.module.hr.ui.extjs/dc/AbsenceCategory", "nan21.dnet.module.hr.ui.extjs/ds/AbsenceTypeDs", "nan21.dnet.module.hr.ui.extjs/lov/AbsenceCategories", "nan21.dnet.module.hr.ui.extjs/ds/AbsenceCategoryLovDs", "nan21.dnet.module.hr.ui.extjs/ds/AbsenceReasonDs", "nan21.dnet.module.hr.ui.extjs/ds/AbsenceCategoryDs"]);
 
 Ext.define("net.nan21.dnet.module.hr.time.frame.AbsenceBaseData_UI", {
 	extend: "dnet.core.ui.AbstractUi",

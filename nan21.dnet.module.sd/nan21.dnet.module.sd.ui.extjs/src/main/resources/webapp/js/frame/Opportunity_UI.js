@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.sd.ui.extjs/ds/OpportunityStatusLovDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.sd.ui.extjs/lov/OpportunityResultReasons", "nan21.dnet.module.ad.ui.extjs/dc/Attachment", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersName", "nan21.dnet.module.md.ui.extjs/ds/MyCalendarEventDs", "nan21.dnet.module.sd.ui.extjs/ds/OpportunityPriorityLovDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventStatusCallLovDs", "nan21.dnet.module.md.ui.extjs/dc/MyCalendarEvent", "nan21.dnet.module.ad.ui.extjs/ds/AssignableLovDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventPriorityMeetingLovDs", "nan21.dnet.module.sd.ui.extjs/lov/OpportunityStatuses", "nan21.dnet.module.sd.ui.extjs/lov/OpportunityStages", "nan21.dnet.module.sd.ui.extjs/lov/OpportunitySources", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.sd.ui.extjs/ds/OpportunityDs", "nan21.dnet.module.ad.ui.extjs/lov/AttachmentTypes", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesTask", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusCall", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventStatusMeetingLovDs", "nan21.dnet.module.ad.ui.extjs/ds/NoteDs", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesCall", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusMeeting", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventPriorityCallLovDs", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesMeeting", "nan21.dnet.module.sd.ui.extjs/ds/OpportunityStageLovDs", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentTypeLovDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventStatusTaskLovDs", "nan21.dnet.module.md.ui.extjs/ds/BpContactLovDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventPriorityTaskLovDs", "nan21.dnet.module.sd.ui.extjs/ds/OpportunityResultReasonLovDs", "nan21.dnet.module.sd.ui.extjs/lov/OpportunityPriorities", "nan21.dnet.module.sd.ui.extjs/ds/OpportunitySourceLovDs", "nan21.dnet.module.ad.ui.extjs/dc/Note", "nan21.dnet.module.ad.ui.extjs/ds/AttachmentDs", "nan21.dnet.module.ad.ui.extjs/lov/Assignables", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.sd.ui.extjs/dc/Opportunity", "nan21.dnet.module.md.ui.extjs/lov/BpContacts", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusTask"]);
 
 Ext.define("net.nan21.dnet.module.sd.opportunity.frame.Opportunity_UI", {
 	extend: "dnet.core.ui.AbstractUi",

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/ds/SysJobParamDs", "nan21.dnet.module.ad.ui.extjs/dc/SysJob", "nan21.dnet.module.ad.ui.extjs/ds/SysJobDs", "nan21.dnet.module.ad.ui.extjs/dc/SysJobParam"]);
 
 Ext.define("net.nan21.dnet.module.ad.system.frame.SysJob_UI", {
 	extend: "dnet.core.ui.AbstractUi",

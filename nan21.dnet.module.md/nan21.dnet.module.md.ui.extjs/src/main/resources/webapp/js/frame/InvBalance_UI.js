@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/lov/SubInventorys", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.md.ui.extjs/ds/SubInventoryLovDs", "nan21.dnet.module.md.ui.extjs/ds/InvBalanceDs", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/dc/InvBalance", "nan21.dnet.module.md.ui.extjs/ds/StockLocatorLovDs", "nan21.dnet.module.md.ui.extjs/lov/StockLocators", "nan21.dnet.module.md.ui.extjs/lov/Products"]);
 
 Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvBalance_UI", {
 	extend: "dnet.core.ui.AbstractUi",

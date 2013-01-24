@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.md.ui.extjs/dc/PriceList", "nan21.dnet.module.md.ui.extjs/ds/ProductLovDs", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.md.ui.extjs/lov/ProductCategories", "nan21.dnet.module.md.ui.extjs/lov/Products", "nan21.dnet.module.md.ui.extjs/dc/PriceListVersion", "nan21.dnet.module.md.ui.extjs/ds/ProductPriceDs", "nan21.dnet.module.md.ui.extjs/ds/PriceListVersionDs", "nan21.dnet.module.md.ui.extjs/ds/ProductCategoryLovDs", "nan21.dnet.module.md.ui.extjs/ds/PriceListDs", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.md.ui.extjs/dc/ProductPrice", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs"]);
 
 Ext.define("net.nan21.dnet.module.md.mm.price.frame.PriceList_UI", {
 	extend: "dnet.core.ui.AbstractUi",

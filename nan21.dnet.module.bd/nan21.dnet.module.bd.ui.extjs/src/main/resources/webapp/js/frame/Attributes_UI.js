@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/dc/Attribute", "nan21.dnet.module.bd.ui.extjs/lov/AttributeCategory", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasure", "nan21.dnet.module.bd.ui.extjs/ds/AttributeDs", "nan21.dnet.module.bd.ui.extjs/ds/AttributeCategoryLovDs", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs"]);
 
 Ext.define("net.nan21.dnet.module.bd.attr.frame.Attributes_UI", {
 	extend: "dnet.core.ui.AbstractUi",

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/dc/RatingScale", "nan21.dnet.module.hr.ui.extjs/ds/RatingLevelDs", "nan21.dnet.module.hr.ui.extjs/ds/RatingScaleDs", "nan21.dnet.module.hr.ui.extjs/dc/RatingLevel"]);
 
 Ext.define("net.nan21.dnet.module.hr.skill.frame.RatingScale_UI", {
 	extend: "dnet.core.ui.AbstractUi",

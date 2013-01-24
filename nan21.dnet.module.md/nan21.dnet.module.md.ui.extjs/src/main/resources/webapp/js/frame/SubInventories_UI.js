@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/lov/StockLocatorTypes", "nan21.dnet.module.md.ui.extjs/dc/SubInventory", "nan21.dnet.module.md.ui.extjs/ds/SubInventoryDs", "nan21.dnet.module.md.ui.extjs/dc/StockLocator", "nan21.dnet.module.bd.ui.extjs/lov/InventoryOrganizations", "nan21.dnet.module.md.ui.extjs/ds/StockLocatorDs", "nan21.dnet.module.md.ui.extjs/ds/StockLocatorTypeLovDs", "nan21.dnet.module.bd.ui.extjs/ds/InventoryOrganizationLovDs"]);
 
 Ext.define("net.nan21.dnet.module.md.org.frame.SubInventories_UI", {
 	extend: "dnet.core.ui.AbstractUi",

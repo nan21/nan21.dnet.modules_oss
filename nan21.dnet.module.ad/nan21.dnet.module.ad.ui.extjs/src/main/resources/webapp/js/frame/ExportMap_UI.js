@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/ExportMapItem", "nan21.dnet.module.ad.ui.extjs/ds/ExportJobItemDs", "nan21.dnet.module.ad.ui.extjs/lov/CsvExports", "nan21.dnet.module.ad.ui.extjs/ds/CsvExportLovDs", "nan21.dnet.module.ad.ui.extjs/dc/ExportJobItem", "nan21.dnet.module.ad.ui.extjs/dc/ExportMap", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapDs", "nan21.dnet.module.ad.ui.extjs/ds/ExportMapItemDs"]);
 
 Ext.define("net.nan21.dnet.module.ad.impex.frame.ExportMap_UI", {
 	extend: "dnet.core.ui.AbstractUi",

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/lov/ClassificationSystems", "nan21.dnet.module.bd.ui.extjs/dc/ClassificationCode", "nan21.dnet.module.bd.ui.extjs/ds/ClassificationItemDs", "nan21.dnet.module.bd.ui.extjs/ds/ClassificationSystemDs", "nan21.dnet.module.bd.ui.extjs/dc/ClassificationSystem", "nan21.dnet.module.bd.ui.extjs/ds/ClassificationSystemLovDs"]);
 
 Ext.define("net.nan21.dnet.module.bd.standards.frame.Classifications_UI", {
 	extend: "dnet.core.ui.AbstractUi",

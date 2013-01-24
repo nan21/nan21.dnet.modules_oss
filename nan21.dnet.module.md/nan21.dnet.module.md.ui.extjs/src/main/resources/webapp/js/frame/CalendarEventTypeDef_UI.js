@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/ds/CalendarEventPriorityDs", "nan21.dnet.module.md.ui.extjs/dc/CalendarEventStatus", "nan21.dnet.module.md.ui.extjs/dc/CalendarEventPriority", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventStatusDs"]);
 
 Ext.define("net.nan21.dnet.module.md.activity.frame.CalendarEventTypeDef_UI", {
 	extend: "dnet.core.ui.AbstractUi",

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/AsgnAccessControl", "nan21.dnet.module.ad.ui.extjs/ds/AccessControlLovDs", "nan21.dnet.module.ad.ui.extjs/lov/SysDataSourceAsgn", "nan21.dnet.module.ad.ui.extjs/ds/SysDataSourceAsgnLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AccessControls", "nan21.dnet.module.ad.ui.extjs/ds/AsgnAccessControlDs"]);
 
 Ext.define("net.nan21.dnet.module.ad.usr.frame.AsgnAccessControl_UI", {
 	extend: "dnet.core.ui.AbstractUi",

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/dc/AssignableType", "nan21.dnet.module.ad.ui.extjs/ds/AssignableTypeDs", "nan21.dnet.module.ad.ui.extjs/ds/AssignableTypeLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AssignableTypes", "nan21.dnet.module.ad.ui.extjs/ds/AssignableDs", "nan21.dnet.module.ad.ui.extjs/dc/Assignable"]);
 
 Ext.define("net.nan21.dnet.module.ad.usr.frame.Assignables_UI", {
 	extend: "dnet.core.ui.AbstractUi",

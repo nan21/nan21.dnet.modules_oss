@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/dc/PositionCourse", "nan21.dnet.module.hr.ui.extjs/ds/CourseDs", "nan21.dnet.module.hr.ui.extjs/lov/Positions", "nan21.dnet.module.hr.ui.extjs/lov/CourseTypes", "nan21.dnet.module.hr.ui.extjs/ds/CourseTypeLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Jobs", "nan21.dnet.module.hr.ui.extjs/dc/JobCourse", "nan21.dnet.module.hr.ui.extjs/dc/Course", "nan21.dnet.module.hr.ui.extjs/ds/JobCourseDs", "nan21.dnet.module.hr.ui.extjs/ds/JobLovDs", "nan21.dnet.module.hr.ui.extjs/ds/PositionLovDs", "nan21.dnet.module.hr.ui.extjs/ds/PositionCourseDs"]);
 
 Ext.define("net.nan21.dnet.module.hr.training.frame.Course_UI", {
 	extend: "dnet.core.ui.AbstractUi",

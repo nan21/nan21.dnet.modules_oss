@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.sd.ui.extjs/ds/OpportunityStatusDs", "nan21.dnet.module.sd.ui.extjs/dc/OpportunityResultReason", "nan21.dnet.module.sd.ui.extjs/dc/OpportunityStatus", "nan21.dnet.module.sd.ui.extjs/ds/OpportunityResultReasonDs", "nan21.dnet.module.sd.ui.extjs/dc/OpportunityStage", "nan21.dnet.module.sd.ui.extjs/dc/OpportunitySource", "nan21.dnet.module.sd.ui.extjs/ds/OpportunityPriorityDs", "nan21.dnet.module.sd.ui.extjs/ds/OpportunityStageDs", "nan21.dnet.module.sd.ui.extjs/ds/OpportunitySourceDs", "nan21.dnet.module.sd.ui.extjs/dc/OpportunityPriority"]);
 
 Ext.define("net.nan21.dnet.module.sd.opportunity.frame.OpportunityBaseData_UI", {
 	extend: "dnet.core.ui.AbstractUi",

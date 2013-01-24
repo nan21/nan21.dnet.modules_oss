@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/ds/UserTypeLovDs", "nan21.dnet.module.ad.ui.extjs/ds/UserDs", "nan21.dnet.module.ad.ui.extjs/asgn/UserUserGroups", "nan21.dnet.module.ad.ui.extjs/lov/Roles", "nan21.dnet.module.ad.ui.extjs/asgn/UserRoles", "nan21.dnet.module.ad.ui.extjs/lov/UserTypes", "nan21.dnet.module.ad.ui.extjs/ds/SysDateFormatLovDs", "nan21.dnet.module.ad.ui.extjs/ds/UserGroupLovDs", "nan21.dnet.module.ad.ui.extjs/ds/RoleLovDs", "nan21.dnet.module.ad.ui.extjs/lov/SysDateFormats", "nan21.dnet.module.ad.ui.extjs/dc/User", "nan21.dnet.module.ad.ui.extjs/lov/UserGroups"]);
 
 Ext.define("net.nan21.dnet.module.ad.usr.frame.Users_UI", {
 	extend: "dnet.core.ui.AbstractUi",

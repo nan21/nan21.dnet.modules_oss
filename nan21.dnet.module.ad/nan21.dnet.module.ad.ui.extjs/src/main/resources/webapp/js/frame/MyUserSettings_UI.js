@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/ds/SysDateFormatLovDs", "nan21.dnet.module.ad.ui.extjs/dc/MyUserSettings", "nan21.dnet.module.ad.ui.extjs/lov/SysDateFormats", "nan21.dnet.module.ad.ui.extjs/ds/MyUserSettingsDs"]);
 
 Ext.define("net.nan21.dnet.module.ad.usr.frame.MyUserSettings_UI", {
 	extend: "dnet.core.ui.AbstractUi",

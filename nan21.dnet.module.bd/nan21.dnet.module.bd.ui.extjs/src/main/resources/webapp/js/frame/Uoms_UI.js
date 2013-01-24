@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.bd.ui.extjs/lov/UomType", "nan21.dnet.module.bd.ui.extjs/ds/UomDs", "nan21.dnet.module.bd.ui.extjs/ds/UomTypeLovDs", "nan21.dnet.module.bd.ui.extjs/dc/Uom"]);
 
 Ext.define("net.nan21.dnet.module.bd.uom.frame.Uoms_UI", {
 	extend: "dnet.core.ui.AbstractUi",

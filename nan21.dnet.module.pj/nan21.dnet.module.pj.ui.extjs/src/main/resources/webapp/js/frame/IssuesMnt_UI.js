@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.pj.ui.extjs/ds/ProjectComponentLovDs", "nan21.dnet.module.pj.ui.extjs/lov/ProjectVersions", "nan21.dnet.module.pj.ui.extjs/ds/IssueSeverityLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssuePriorityLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueSeverities", "nan21.dnet.module.pj.ui.extjs/ds/ProjectLovDs", "nan21.dnet.module.pj.ui.extjs/lov/ProjectComponents", "nan21.dnet.module.pj.ui.extjs/dc/IssueMnt", "nan21.dnet.module.pj.ui.extjs/ds/IssueTypeLovDs", "nan21.dnet.module.pj.ui.extjs/lov/Projects", "nan21.dnet.module.pj.ui.extjs/ds/IssueResolutionLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueResolutions", "nan21.dnet.module.ad.ui.extjs/ds/AssignableLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueTypes", "nan21.dnet.module.ad.ui.extjs/lov/Assignables", "nan21.dnet.module.pj.ui.extjs/ds/IssueStatusLovDs", "nan21.dnet.module.pj.ui.extjs/lov/IssueStatus", "nan21.dnet.module.pj.ui.extjs/ds/ProjectVersionLovDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueDs", "nan21.dnet.module.pj.ui.extjs/lov/IssuePriorities"]);
 
 Ext.define("net.nan21.dnet.module.pj.md.frame.IssuesMnt_UI", {
 	extend: "dnet.core.ui.AbstractUi",

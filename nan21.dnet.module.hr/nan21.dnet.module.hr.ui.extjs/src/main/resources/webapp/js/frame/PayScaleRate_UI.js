@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/lov/PayScales", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.hr.ui.extjs/ds/PayScalePointLovDs", "nan21.dnet.module.hr.ui.extjs/dc/PayScaleRate", "nan21.dnet.module.hr.ui.extjs/lov/PayScalePoints", "nan21.dnet.module.bd.ui.extjs/lov/Currencies", "nan21.dnet.module.hr.ui.extjs/ds/PayScaleLovDs", "nan21.dnet.module.hr.ui.extjs/ds/PayScaleRateDs", "nan21.dnet.module.hr.ui.extjs/ds/PayScaleRateValueDs", "nan21.dnet.module.hr.ui.extjs/dc/PayScaleRateValue"]);
 
 Ext.define("net.nan21.dnet.module.hr.grade.frame.PayScaleRate_UI", {
 	extend: "dnet.core.ui.AbstractUi",

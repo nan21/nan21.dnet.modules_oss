@@ -1,6 +1,6 @@
 /* 
  * DNet eBusiness Suite
- * Copyright: Nan21 Electronics SRL. All rights reserved.
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
  * Use is subject to license terms.
  */
 package net.nan21.dnet.module.md.mm.prod.ds.qb;

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/dc/DeliveryMethod", "nan21.dnet.module.md.ui.extjs/ds/PaymentTermDs", "nan21.dnet.module.md.ui.extjs/lov/TxDocTypesPay", "nan21.dnet.module.md.ui.extjs/ds/TxDocTypePayLovDs", "nan21.dnet.module.md.ui.extjs/dc/PaymentMethod", "nan21.dnet.module.md.ui.extjs/ds/DeliveryMethodDs", "nan21.dnet.module.md.ui.extjs/dc/PaymentTerm", "nan21.dnet.module.md.ui.extjs/ds/PaymentMethodDs"]);
 
 Ext.define("net.nan21.dnet.module.md.base.tx.frame.TxBaseData_UI", {
 	extend: "dnet.core.ui.AbstractUi",

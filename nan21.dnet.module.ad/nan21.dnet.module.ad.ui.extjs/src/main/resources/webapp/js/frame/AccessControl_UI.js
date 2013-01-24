@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/ds/DsMethodAccessControlDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDsServiceLovDs", "nan21.dnet.module.ad.ui.extjs/dc/DsAccessControl", "nan21.dnet.module.ad.ui.extjs/ds/DsAccessControlDs", "nan21.dnet.module.ad.ui.extjs/lov/Roles", "nan21.dnet.module.ad.ui.extjs/ds/AccessControlLovDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDataSourceDsLovDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDataSourceAsgnLovDs", "nan21.dnet.module.ad.ui.extjs/lov/AccessControls", "nan21.dnet.module.ad.ui.extjs/ds/AsgnAccessControlDs", "nan21.dnet.module.ad.ui.extjs/asgn/AccessControlRoles", "nan21.dnet.module.ad.ui.extjs/lov/SysDsServices", "nan21.dnet.module.ad.ui.extjs/dc/AsgnAccessControl", "nan21.dnet.module.ad.ui.extjs/lov/SysDataSourceDs", "nan21.dnet.module.ad.ui.extjs/dc/AccessControl", "nan21.dnet.module.ad.ui.extjs/lov/SysDataSourceAsgn", "nan21.dnet.module.ad.ui.extjs/dc/DsMethodAccessControl", "nan21.dnet.module.ad.ui.extjs/ds/RoleLovDs", "nan21.dnet.module.ad.ui.extjs/ds/AccessControlDs"]);
 
 Ext.define("net.nan21.dnet.module.ad.usr.frame.AccessControl_UI", {
 	extend: "dnet.core.ui.AbstractUi",

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesTask", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusCall", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventStatusMeetingLovDs", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesCall", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusMeeting", "nan21.dnet.module.md.ui.extjs/ds/MyCalendarCallDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventPriorityCallLovDs", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventPrioritiesMeeting", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventStatusTaskLovDs", "nan21.dnet.module.md.ui.extjs/ds/BpContactLovDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventPriorityTaskLovDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventStatusCallLovDs", "nan21.dnet.module.md.ui.extjs/dc/Task", "nan21.dnet.module.md.ui.extjs/ds/MyCalendarTaskDs", "nan21.dnet.module.md.ui.extjs/ds/MyCalendarMeetingDs", "nan21.dnet.module.md.ui.extjs/ds/CalendarEventPriorityMeetingLovDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.md.ui.extjs/dc/Meeting", "nan21.dnet.module.md.ui.extjs/dc/Call", "nan21.dnet.module.md.ui.extjs/lov/BpContacts", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode", "nan21.dnet.module.md.ui.extjs/lov/CalendarEventStatusTask"]);
 
 Ext.define("net.nan21.dnet.module.md.activity.frame.MyCalendarEvent_UI", {
 	extend: "dnet.core.ui.AbstractUi",

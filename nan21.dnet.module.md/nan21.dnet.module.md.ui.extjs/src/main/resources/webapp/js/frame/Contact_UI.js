@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/dc/Contact", "nan21.dnet.module.bd.ui.extjs/ds/CommunicationChannelDs", "nan21.dnet.module.md.ui.extjs/ds/BusinessPartnerLovDs", "nan21.dnet.module.md.ui.extjs/ds/ContactDs", "nan21.dnet.module.bd.ui.extjs/lov/CommunicationChannelTypes", "nan21.dnet.module.bd.ui.extjs/dc/CommunicationChannel", "nan21.dnet.module.bd.ui.extjs/ds/CommunicationChannelTypeLovDs", "nan21.dnet.module.md.ui.extjs/lov/BusinessPartnersCode"]);
 
 Ext.define("net.nan21.dnet.module.md.bp.frame.Contact_UI", {
 	extend: "dnet.core.ui.AbstractUi",

@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/ds/WorkRequirementTypeLovDs", "nan21.dnet.module.hr.ui.extjs/lov/WorkRequirementTypes", "nan21.dnet.module.hr.ui.extjs/dc/JobType", "nan21.dnet.module.hr.ui.extjs/dc/WorkRequirement", "nan21.dnet.module.hr.ui.extjs/dc/WorkRequirementType", "nan21.dnet.module.hr.ui.extjs/ds/JobTypeDs", "nan21.dnet.module.hr.ui.extjs/ds/WorkRequirementTypeDs", "nan21.dnet.module.hr.ui.extjs/ds/WorkRequirementDs"]);
 
 Ext.define("net.nan21.dnet.module.hr.job.frame.JobBaseDataDef_UI", {
 	extend: "dnet.core.ui.AbstractUi",

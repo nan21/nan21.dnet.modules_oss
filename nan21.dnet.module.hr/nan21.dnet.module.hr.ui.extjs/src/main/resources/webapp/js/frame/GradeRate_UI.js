@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/ds/GradeRateDs", "nan21.dnet.module.bd.ui.extjs/ds/CurrencyLovDs", "nan21.dnet.module.hr.ui.extjs/ds/GradeLovDs", "nan21.dnet.module.hr.ui.extjs/dc/GradeRateValue", "nan21.dnet.module.hr.ui.extjs/ds/GradeRateValueDs", "nan21.dnet.module.hr.ui.extjs/lov/Grades", "nan21.dnet.module.hr.ui.extjs/dc/GradeRate", "nan21.dnet.module.bd.ui.extjs/lov/Currencies"]);
 
 Ext.define("net.nan21.dnet.module.hr.grade.frame.GradeRate_UI", {
 	extend: "dnet.core.ui.AbstractUi",

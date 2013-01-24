@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.pj.ui.extjs/ds/IssueTaskTypeDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskStatus", "nan21.dnet.module.pj.ui.extjs/lov/IssueCategories", "nan21.dnet.module.pj.ui.extjs/ds/IssueCategoryLovDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueTaskType", "nan21.dnet.module.pj.ui.extjs/ds/IssueCategoryDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueSeverityDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTypeDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueResolutionDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueSeverity", "nan21.dnet.module.pj.ui.extjs/ds/IssueLinkTypeDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueTaskStatusDs", "nan21.dnet.module.pj.ui.extjs/ds/IssueStatusDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueLinkType", "nan21.dnet.module.pj.ui.extjs/ds/IssuePriorityDs", "nan21.dnet.module.pj.ui.extjs/dc/IssueCategory", "nan21.dnet.module.pj.ui.extjs/dc/IssueStatus", "nan21.dnet.module.pj.ui.extjs/dc/IssueResolution", "nan21.dnet.module.pj.ui.extjs/dc/IssueType", "nan21.dnet.module.pj.ui.extjs/dc/IssuePriority"]);
 
 Ext.define("net.nan21.dnet.module.pj.base.frame.IssueBaseData_UI", {
 	extend: "dnet.core.ui.AbstractUi",

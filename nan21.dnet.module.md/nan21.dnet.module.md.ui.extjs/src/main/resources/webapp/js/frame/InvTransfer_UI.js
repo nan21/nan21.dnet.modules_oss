@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.md.ui.extjs/lov/SubInventorys", "nan21.dnet.module.md.ui.extjs/ds/InvTransferDs", "nan21.dnet.module.bd.ui.extjs/ds/UomLovDs", "nan21.dnet.module.md.ui.extjs/lov/ProductsWithUom", "nan21.dnet.module.md.ui.extjs/ds/StockLocatorLovDs", "nan21.dnet.module.md.ui.extjs/dc/InvTransactionLine", "nan21.dnet.module.bd.ui.extjs/lov/InventoryOrganizations", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionTypeLovDs", "nan21.dnet.module.md.ui.extjs/lov/InvTransactionTypes", "nan21.dnet.module.md.ui.extjs/ds/InvTransactionLineDs", "nan21.dnet.module.md.ui.extjs/dc/InvTransfer", "nan21.dnet.module.md.ui.extjs/ds/SubInventoryLovDs", "nan21.dnet.module.bd.ui.extjs/lov/UnitsOfMeasureCode", "nan21.dnet.module.md.ui.extjs/lov/StockLocators", "nan21.dnet.module.bd.ui.extjs/ds/InventoryOrganizationLovDs", "nan21.dnet.module.md.ui.extjs/ds/ProductWithUomLovDs"]);
 
 Ext.define("net.nan21.dnet.module.md.tx.inventory.frame.InvTransfer_UI", {
 	extend: "dnet.core.ui.AbstractUi",

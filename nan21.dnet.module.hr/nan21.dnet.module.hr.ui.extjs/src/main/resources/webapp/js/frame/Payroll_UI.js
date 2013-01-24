@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/dc/PayrollPeriod", "nan21.dnet.module.bd.ui.extjs/ds/EngineLovDs", "nan21.dnet.module.hr.ui.extjs/dc/Payroll", "nan21.dnet.module.bd.ui.extjs/lov/Engines", "nan21.dnet.module.hr.ui.extjs/ds/PayrollDs", "nan21.dnet.module.hr.ui.extjs/ds/PayrollPeriodDs"]);
 
 Ext.define("net.nan21.dnet.module.hr.payroll.frame.Payroll_UI", {
 	extend: "dnet.core.ui.AbstractUi",

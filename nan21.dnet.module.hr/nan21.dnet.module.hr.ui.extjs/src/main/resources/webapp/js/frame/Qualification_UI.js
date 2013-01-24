@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/lov/Skills", "nan21.dnet.module.hr.ui.extjs/dc/Qualification", "nan21.dnet.module.hr.ui.extjs/ds/SkillLovDs", "nan21.dnet.module.hr.ui.extjs/lov/RatingLevels", "nan21.dnet.module.hr.ui.extjs/ds/QualificationSkillDs", "nan21.dnet.module.hr.ui.extjs/ds/QualificationDs", "nan21.dnet.module.hr.ui.extjs/ds/RatingLevelLovDs", "nan21.dnet.module.hr.ui.extjs/dc/QualificationSkill"]);
 
 Ext.define("net.nan21.dnet.module.hr.skill.frame.Qualification_UI", {
 	extend: "dnet.core.ui.AbstractUi",

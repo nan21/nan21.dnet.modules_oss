@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.hr.ui.extjs/ds/EmploymentTypeLovDs", "nan21.dnet.module.hr.ui.extjs/ds/GradeLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Jobs", "nan21.dnet.module.hr.ui.extjs/lov/Grades", "nan21.dnet.module.hr.ui.extjs/ds/PayrollLovDs", "nan21.dnet.module.hr.ui.extjs/lov/EmploymentTypes", "nan21.dnet.module.hr.ui.extjs/ds/EmployeeLovDs", "nan21.dnet.module.bd.ui.extjs/ds/OrganizationLovDs", "nan21.dnet.module.hr.ui.extjs/dc/EmployeeAssignment", "nan21.dnet.module.hr.ui.extjs/lov/Positions", "nan21.dnet.module.hr.ui.extjs/lov/Employees", "nan21.dnet.module.hr.ui.extjs/ds/EmployeeAssignmentDs", "nan21.dnet.module.bd.ui.extjs/lov/Organizations", "nan21.dnet.module.bd.ui.extjs/lov/LegalEntityOrganizations", "nan21.dnet.module.hr.ui.extjs/ds/JobLovDs", "nan21.dnet.module.hr.ui.extjs/lov/Payrolls", "nan21.dnet.module.hr.ui.extjs/ds/PositionLovDs", "nan21.dnet.module.bd.ui.extjs/ds/LegalEntityOrganizationLovDs"]);
 
 Ext.define("net.nan21.dnet.module.hr.employee.frame.EmployeeAssignment_UI", {
 	extend: "dnet.core.ui.AbstractUi",

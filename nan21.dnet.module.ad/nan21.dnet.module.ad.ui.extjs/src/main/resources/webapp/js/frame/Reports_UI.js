@@ -1,10 +1,8 @@
-/*
+/* 
  * DNet eBusiness Suite
- * Copyright: 2008-2012 Nan21 Electronics SRL. All rights reserved.
- * Use is subject to license terms. 
+ * Copyright: 2010-2013 Nan21 Electronics SRL. All rights reserved.
+ * Use is subject to license terms.
  */
-
-Dnet.doImport(["nan21.dnet.module.ad.ui.extjs/ds/ReportParamRtDs", "nan21.dnet.module.ad.ui.extjs/dc/DsReport", "nan21.dnet.module.ad.ui.extjs/lov/SysDsFields", "nan21.dnet.module.ad.ui.extjs/ds/ReportParamLovDs", "nan21.dnet.module.ad.ui.extjs/ds/DsReportParamDs", "nan21.dnet.module.ad.ui.extjs/ds/DsReportDs", "nan21.dnet.module.ad.ui.extjs/ds/SysDsFieldLovDs", "nan21.dnet.module.ad.ui.extjs/ds/ReportParamDs", "nan21.dnet.module.ad.ui.extjs/ds/DsReportUsageDs", "nan21.dnet.module.ad.ui.extjs/ds/ReportServerLovDs", "nan21.dnet.module.ad.ui.extjs/dc/ReportParam", "nan21.dnet.module.ad.ui.extjs/dc/ReportParamRt", "nan21.dnet.module.ad.ui.extjs/dc/Report", "nan21.dnet.module.ad.ui.extjs/lov/SysDataSource", "nan21.dnet.module.ad.ui.extjs/ds/ReportDs", "nan21.dnet.module.ad.ui.extjs/dc/DsReportParam", "nan21.dnet.module.ad.ui.extjs/dc/DsReportUsage", "nan21.dnet.module.ad.ui.extjs/lov/ReportParams", "nan21.dnet.module.ad.ui.extjs/ds/SysDataSourceLovDs", "nan21.dnet.module.ad.ui.extjs/lov/ReportServers"]);
 
 Ext.define("net.nan21.dnet.module.ad.report.frame.Reports_UI", {
 	extend: "dnet.core.ui.AbstractUi",
