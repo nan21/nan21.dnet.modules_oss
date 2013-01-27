@@ -197,6 +197,7 @@ sequenceNo;name;title;menu;frame;bundle;active;uuid
 20;SysJobCtx_UI;Job context;;net.nan21.dnet.module.ad.system.frame.SysJobCtx_UI;nan21.dnet.module.ad.ui.extjs;true;1D6D29C7-8A3E-47B7-A7BD-6BC0B4419F6A
 15;SysJob_UI;System components: Jobs;;net.nan21.dnet.module.ad.system.frame.SysJob_UI;nan21.dnet.module.ad.ui.extjs;true;EB0E4BFA-470F-4FA5-BFB4-B35B13A94919
 20;SysParam_UI;System parameters;;net.nan21.dnet.module.ad.system.frame.SysParam_UI;nan21.dnet.module.ad.ui.extjs;true;08323553-2FAF-4FE2-9DE9-FFC5B699E6F8
+30;SysParamValue_UI;System parameter values;;net.nan21.dnet.module.ad.system.frame.SysParamValue_UI;nan21.dnet.module.ad.ui.extjs;true;08321553-2FAF-4FE2-9DE9-FFC5B699E6F8
 10;SysTimer_UI;Timers;;net.nan21.dnet.module.ad.system.frame.SysTimer_UI;nan21.dnet.module.ad.ui.extjs;true;AEA87418-F94F-48CE-96D5-9F73F0E331E4
 10;TaxCategories_UI;Taxe categories;;net.nan21.dnet.module.md.base.tax.frame.TaxCategories_UI;nan21.dnet.module.md.ui.extjs;true;A9353D57-7FED-4C54-91C9-11F20CA637FC
 20;Tax_UI;Taxes;;net.nan21.dnet.module.md.base.tax.frame.Tax_UI;nan21.dnet.module.md.ui.extjs;true;0CF9E27E-C0EF-4C50-89CD-212BBF0ACE7C

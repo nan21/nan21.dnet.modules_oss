@@ -52,21 +52,23 @@
 	
 	<osgi:list id="osgiDsDefinitions" cardinality="0..N"
 		interface="net.nan21.dnet.core.api.descriptor.IDsDefinitions"/>
-		
+
 	<!-- export -->
-		
+
 	<osgi:service ref="menuProvider" ranking="0"
 		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionContentProvider"/>
-			
+
 	<osgi:service ref="reportProvider" ranking="0"
 		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionContentProvider"/>
-	
+
 	<osgi:service ref="scriptFromDbProvider" ranking="0"
 		interface="net.nan21.dnet.core.api.ui.extjs.IExtensionProvider"/>
-		
+
 	<osgi:service ref="fileUploadServiceFactory" ranking="0"
 		interface="net.nan21.dnet.core.api.service.IFileUploadServiceFactory"/>
-		
+
 	<osgi:service ref="setupParticipant" 
 		interface="net.nan21.dnet.core.api.setup.ISetupParticipant"/>
+
+	<import resource="messaging/impex.osgi.xml"/>
 </beans> 

@@ -195,6 +195,7 @@ SysFrameExtension_UI;ad-menu-system
 SysJobCtx_UI;ad-menu-job
 SysJob_UI;ad-menu-system
 SysParam_UI;ad-menu-system
+SysParamValue_UI;ad-menu-system
 SysTimer_UI;ad-menu-job
 TaxCategories_UI;fi-menu-base-tax
 Tax_UI;fi-menu-base-tax
